@@ -305,14 +305,29 @@ shinyUI(bootstrapPage(
 		),
 	
 		tabPanel(
-		"About this site",
-			tags$div(
-				tags$h4("Last update"), 
-				#h6(paste0(update)),
-				"This site is updated as soon as data are generated and analyzed.", 
-#				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
-				"Some info about our team and project here!"
+			"About this site",
+			div(
+				class="info",
+				tags$i(paste0("This is WaTCH dashboard version ", WATCH_VERSION, ", released on ", format(ymd(WATCH_RELEASE_DATE), format="%d %b %Y"), ".",  sep=""))
+			),
+			div(
+				class="info",
+				"Wastewater monitoring is a valuable and cost-effective method for detecting certain infections in the community, including COVID-19, influenza, and RSV. ",
+				"A robust wastewater testing program represents an early-warning system, particularly in communities with little or no individual testing, and can inform effective public health interventions. "
+			),
+			div(
+				class="info",
+				"In contrast to individual testing, wastewater surveillance does not require individuals to seek care and can passively track the change in community infection levels over time. ",
+				"It is useful in detecting the beginning of outbreaks, may also be valuable in estimating disease burden in a community, and can be adapted readily to monitor future epidemics of novel diseases. ",
+				"This is a key approach to directing appropriate medical care – particularly for populations that are vulnerable or hesitant about seeking care."
+			),
+			div(
+				class="info",
+				"West Virginia is one of the most vulnerable states to infections such as COVID-19 based on socioeconomic and health status, household composition/disability, and epidemiological factors. ",
+				"Almost all the state is rural, 20% of WV population is 65 and older, and WV ranks at or near the bottom in most US chronic disease categories. This is especially concerning due to the high ",
+				"percentage of grandparents living with school age children across WV (up to over 70% in many counties). Moreover, almost the entire state is defined as medically underserved by the Health Resources and Services Administration."
 			)
+	#		tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
 		)
 	)
 ))

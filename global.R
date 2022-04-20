@@ -1,3 +1,4 @@
+source("version.R")
 
 # libraries
 library(tidyverse)
