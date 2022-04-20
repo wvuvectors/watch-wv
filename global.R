@@ -92,18 +92,21 @@ format_dates <- function(x) {
 		false = if_else(is.na(lag(month)) | lag(month) != month, true = paste(day, month, sep = "\n"), false = day)
 	)
 }
-  
+
+
+
+# Load the data files
+
 #county_sf <- read_sf("data/WV_Counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
-
 
 watch_file = "data/watch_dashboard.LATEST.txt"
 df_watch <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
 df_watch <- df_watch %>% filter(status == "active" | status == "new")
 
-#locations <- unique(watch_df$location_common_name)
 
-# Handle dates
+# Convert date strings into Date objects
+
 df_watch$"Sample Composite Start" <- mdy_hm(df_watch$"Sample Composite Start")
 #df_watch$"Sample Composite End" <- mdy_hm(df_watch$"Sample Composite End")
 
@@ -114,14 +117,18 @@ df_watch$week_ending <- ceiling_date(df_watch$day, "week", week_start = 0)
 df_watch$week_num <- week(df_watch$week_ending)
 df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
 
+
+# Set date constraints
+# May want to change this in the future?
 df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
 
 
-# Handle numeric data
+# Make some simpler aliases for common numeric columns
 df_watch$n1 = df_watch$"Assay Target 1 Result (CN/L)"
 df_watch$n2 = df_watch$"Assay Target 2 Result (CN/L)"
 df_watch$daily_flow = df_watch$"Sample Flow (MGD)"
 
+# Clean up some N/A entries
 df_watch <- df_watch %>% mutate(n1 = replace_na(n1, 0))
 df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
 df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
@@ -130,9 +137,10 @@ df_watch$n1n2 = rowMeans(df_watch[,c("n1", "n2")], na.rm=TRUE)
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
 
 #df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
-
 df_wwtp <- df_watch %>% filter(category == "wwtp" & daily_flow > 0) %>%
-					 mutate(rnamass = (daily_flow*n1n2*L_per_gal)) %>% 
+					 mutate(rnamass = (daily_flow*n1n2*L_per_gal),
+					 				rnamass.n1 = (daily_flow*n1*L_per_gal), 
+					 				rnamass.n2 = (daily_flow*n2*L_per_gal)) %>% 
 					 arrange(day)
 df_wwtp[df_wwtp == -Inf] <- NA
 
