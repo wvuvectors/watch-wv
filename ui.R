@@ -122,9 +122,9 @@ shinyUI(bootstrapPage(
 
 						fluidRow(
 							column(
-								width = 7,
+								width = 5,
 								div(
-									style="padding-left: 5px; float: left;",
+									style="padding: 3px;border: 1px solid #dddddd;",
 									sliderTextInput(
 										inputId = "plot_dates_wwtp",
 										force_edges = TRUE,
@@ -138,13 +138,30 @@ shinyUI(bootstrapPage(
 								)
 							),
 							column(
-								width = 5,
+								width = 4,
 								div(
-									style="padding-right: 5px; float: right;",
+									style="padding: 3px;border: 1px solid #dddddd;",
+									prettyCheckboxGroup(
+										inputId = "plot_targets_wwtp",
+										label = "Choose a target to show:", 
+										choiceNames = c("N1", "N2", "N1N2"),
+										choiceValues = c("n1", "n2", "n1n2"),
+										icon = icon("check-square"), 
+										status = "success",
+										selected = "n1n2",
+										outline = TRUE
+#										animation = "pulse"
+									)
+								)
+							),
+							column(
+								width = 3,
+								div(
+									style="padding: 3px;border: 1px solid #dddddd;",
 									sliderInput(
 										inputId = "plot_roll_wwtp",
 										label = h6("Choose a rolling mean window (days):"),
-										min=2, max=14, value=3
+										min=2, max=10, value=3
 									)
 								)
 							)
@@ -260,9 +277,9 @@ shinyUI(bootstrapPage(
 
 						fluidRow(
 							column(
-								width = 7,
+								width = 6,
 								div(
-									style="padding-left: 5px; float: left;",
+									style="padding-left: 5px;",
 									sliderTextInput(
 										inputId = "plot_dates_upstream",
 										force_edges = TRUE,
@@ -276,13 +293,30 @@ shinyUI(bootstrapPage(
 								)
 							),
 							column(
-								width = 5,
+								width = 3,
 								div(
-									style="padding-right: 5px; float: right;",
+									prettyCheckboxGroup(
+										inputId = "plot_targets_upstream",
+										label = "", 
+										choiceNames = c("N2", "N2", "Mean N1N2"),
+										choiceValues = c("n1", "n2", "n1n2"),
+										icon = icon("check-square"), 
+#										icon = icon("virus-covid", lib="font-awesome"), 
+										status = "success",
+										selected = "n1n2",
+										outline = TRUE,
+										animation = "pulse"
+									)
+								)
+							),
+							column(
+								width = 3,
+								div(
+									style="padding-right: 5px;",
 									sliderInput(
 										inputId = "plot_roll_upstream",
 										label = h6("Choose a rolling mean window (days):"),
-										min=2, max=14, value=3
+										min=2, max=10, value=3
 									)
 								)
 							)

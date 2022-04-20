@@ -20,6 +20,7 @@ library(shinyjs)
 library(shinythemes)
 library(shinyWidgets)
 library(leaflet)
+library(fontawesome)
 #library(leaflet.extras)
 library(rsconnect)
 
@@ -56,10 +57,13 @@ my_theme <- function () {
 										 panel.grid.minor.y = element_blank(),
 										 panel.grid.minor.x = element_line(color="#eeeeee", size=1),
 										 panel.background = element_blank(), 
-										 legend.position = "bottom",
 										 panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
 #										 panel.border = element_blank(), 
-										 strip.background = element_rect(fill = 'white', color = 'white')
+										 strip.background = element_rect(fill = 'white', color = 'white'),
+										 legend.position = c(.95, .95),
+										 legend.justification = c("right", "top"),
+										 legend.box.just = "right",
+										 legend.margin = margin(6, 6, 6, 6)
 )}
 
 ci90 <- function(x) {

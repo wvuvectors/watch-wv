@@ -15,8 +15,21 @@ shinyServer(function(input, output, session) {
 	myUpstreamLeafletProxy <- leafletProxy(mapId="map_upstream", session)
 	
 	# Init reactive values with soem defaults
-	wwtpRV <- reactiveValues(mapClick="All Facilities", clickLat=0, clickLng=0, Dates=c(FIRST_DATE_WWTP, LAST_DATE_WWTP), rollWin=3, ci="off")
-	upstreamRV <- reactiveValues(mapClick="All Locations", clickLat=0, clickLng=0, Dates=c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), rollWin=3, ci="off")
+	wwtpRV <- reactiveValues(mapClick="All Facilities", 
+								clickLat=0, clickLng=0, 
+								Dates=c(FIRST_DATE_WWTP, LAST_DATE_WWTP), 
+								rollWin=3, 
+								ci="off", 
+								targets=c("n1n2")
+	)
+	
+	upstreamRV <- reactiveValues(mapClick="All Locations", 
+								clickLat=0, clickLng=0, 
+								Dates=c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), 
+								rollWin=3, 
+								ci="off", 
+								targets=c("n1n2")
+	)
 
 
 
@@ -26,54 +39,73 @@ shinyServer(function(input, output, session) {
 	#
 	###########################
 	
-	plotWWTP = function(dates, facility, rollwin, ci) {
+	plotWWTP = function(dates, facility, rollwin, ci, targets) {
 		#print(ci)
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
 		if (facility == "All Facilities") {
-#			plot_df <- df_wwtp_s %>% filter(week_ending >= fromDate & week_ending <= toDate)
+
 			loc_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
 								group_by(day) %>% 
 								summarize(mean.rnamass = mean(rnamass, na.rm = TRUE))
 			loc_zoo <- zoo(loc_df$mean.rnamass, loc_df$day)
+
+			loc1_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
+								group_by(day) %>% 
+								summarize(mean.rnamass.n1 = mean(rnamass.n1, na.rm = TRUE))
+			loc1_zoo <- zoo(loc1_df$mean.rnamass.n1, loc1_df$day)
+			
+			loc2_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
+								group_by(day) %>% 
+								summarize(mean.rnamass.n2 = mean(rnamass.n2, na.rm = TRUE))
+			loc2_zoo <- zoo(loc2_df$mean.rnamass.n2, loc2_df$day)
+
 		} else {
-#			plot_df <- df_wwtp_wk %>% filter(week_ending >= fromDate & week_ending <= toDate & location_common_name == facility)
 			loc_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate & location_common_name == facility)
 			loc_zoo <- zoo(loc_df$rnamass, loc_df$day)
+			loc1_zoo <- zoo(loc_df$rnamass.n1, loc_df$day)
+			loc2_zoo <- zoo(loc_df$rnamass.n2, loc_df$day)
 		}
 		
+		# calculate the rolling means
 		loc_mean_zoo <- rollmean(loc_zoo, rollwin, fill=NA, align="right")
 		loc_mean_df <- fortify(loc_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.rnamass"))
 
-#		loc_se_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = se)
-#		loc_se_df <- fortify(loc_se_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.se"))
+		loc1_mean_zoo <- rollmean(loc1_zoo, rollwin, fill=NA, align="right")
+		loc1_mean_df <- fortify(loc1_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.rnamass.n1"))
+
+		loc2_mean_zoo <- rollmean(loc2_zoo, rollwin, fill=NA, align="right")
+		loc2_mean_df <- fortify(loc2_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.rnamass.n2"))
 		
-		loc_ci90_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
-		loc_ci90_df <- fortify(loc_ci90_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci90"))
+		# join the mean dataframes
+		loc_mean_j1_df <- left_join(loc_mean_df, loc1_mean_df, by = c("day" = "day"))
+		loc_mean_jfinal_df <- left_join(loc_mean_j1_df, loc2_mean_df, by = c("day" = "day"))
 
-		loc_ci95_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci95)
-		loc_ci95_df <- fortify(loc_ci95_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci95"))
+		# calculate the CIs
+		loc_ci_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc_ci_df <- fortify(loc_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci"))
 
-		loc_ci99_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci99)
-		loc_ci99_df <- fortify(loc_ci99_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci99"))
+		loc1_ci_zoo <- rollapply(loc1_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc1_ci_df <- fortify(loc1_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci.n1"))
 
-		loc_join1_df <- left_join(loc_mean_df, loc_ci90_df, by = c("day" = "day"))
-		loc_join2_df <- left_join(loc_join1_df, loc_ci95_df, by = c("day" = "day"))
-		loc_join3_df <- left_join(loc_join2_df, loc_ci99_df, by = c("day" = "day"))
-		loc_rolled_df <- left_join(loc_df, loc_join3_df, by = c("day" = "day"))
-		loc_rolled_df <- select(loc_rolled_df, -c(Series.x, Series.y, Series.x.x, Series.y.y))
+		loc2_ci_zoo <- rollapply(loc2_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc2_ci_df <- fortify(loc2_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci.n2"))
+		
+		# join the CI dataframes
+		loc_ci_j1_df <- left_join(loc_ci_df, loc1_ci_df, by = c("day" = "day"))
+		loc_ci_jfinal_df <- left_join(loc_ci_j1_df, loc2_ci_df, by = c("day" = "day"))
+
+		# join all the dataframes to the original (loc_df)
+		loc_join1_df <- left_join(loc_mean_jfinal_df, loc_ci_jfinal_df, by = c("day" = "day"))
+		loc_rolled_df <- left_join(loc_df, loc_join1_df, by = c("day" = "day"))
+#		loc_rolled_df <- select(loc_rolled_df, -c(Series.x, Series.y, Series.x.x, Series.y.y))
 		
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
 
-		gplot <- ggplot(loc_rolled_df, aes(x = day, y = rollmean.rnamass)) + 
-											#labs(y = "Mean Weekly Mass Load", x = "") + 
-											labs(y = "Rolling Mean of RNA Mass Load", x = "") + 
-											geom_point(color="red", shape = 16, size = 1, alpha=0.5) + 
-											geom_line(show.legend = FALSE, color = "#000000") + 
+		gplot <- ggplot(loc_rolled_df) + labs(y = "Rolling Mean of RNA Mass Load", x = "") + 
 		#									geom_errorbar(aes(ymin=rollmean.rnamass-rollmean.se, ymax=rollmean.rnamass+rollmean.se), width=.2, position=position_dodge(0.05)) + 
 		#									scale_y_continuous(limits=c(0,NA)) + 
 											scale_y_continuous(labels = comma) + 
-											#geom_ribbon(aes(ymin=rollmean.rnamass-rollmean.ci, ymax=rollmean.rnamass+rollmean.ci), alpha=0.2) + 
 #											scale_x_date(breaks = "1 month", date_labels = '%d-%b-%Y', limits = lims_x_date) + 
 											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
 											my_theme() 
@@ -81,11 +113,26 @@ shinyServer(function(input, output, session) {
 											#ggtitle("Weekly Mean COVID, All WV Treatment Facilities") + 
 											#theme(axis.text.x = element_text(angle = 60, hjust=0.9))
 
-		if (ci) {
-			gplot <- gplot + 
-							 #geom_ribbon(aes(ymin=rollmean.rnamass-rollmean.ci99, ymax=rollmean.rnamass+rollmean.ci99), fill="red", alpha=0.2) + 
-							 #geom_ribbon(aes(ymin=rollmean.rnamass-rollmean.ci95, ymax=rollmean.rnamass+rollmean.ci95), fill="orange", alpha=0.2) + 
-							 geom_ribbon(aes(ymin=rollmean.rnamass-rollmean.ci90, ymax=rollmean.rnamass+rollmean.ci90), alpha=0.2)
+		if ("n1n2" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass), color="#000000", shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = rollmean.rnamass), color = "#000000")
+			if (ci) {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass, ymin=rollmean.rnamass-rollmean.ci, ymax=rollmean.rnamass+rollmean.ci), alpha=0.2)
+			}
+		}
+		if ("n1" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass.n1), color="#03A049", shape = 0, size = 1, alpha=0.5) + 
+											 geom_line(aes(x = day, y = rollmean.rnamass.n1), color = "#03A049")
+			if (ci) {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass.n1, ymin=rollmean.rnamass.n1-rollmean.ci.n1, ymax=rollmean.rnamass.n1+rollmean.ci.n1), color="#03A049", alpha=0.2)
+			}
+		}
+		if ("n2" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass.n2), color="#9437FF", shape = 2, size = 1, alpha=0.5) + 
+											 geom_line(aes(x = day, y = rollmean.rnamass.n2), color = "#9437FF")
+			if (ci) {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass.n2, ymin=rollmean.rnamass.n2-rollmean.ci.n2, ymax=rollmean.rnamass.n2+rollmean.ci.n2), color="#9437FF", alpha=0.2) 
+			}
 		}
 		
 		ggplotly(gplot)
@@ -219,7 +266,7 @@ shinyServer(function(input, output, session) {
 		
 			# Update control panel graph
 			output$plot_wwtp <- renderPlotly({
-				plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+				plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 			})
 		
 			# Update reactive text elements
@@ -259,7 +306,7 @@ shinyServer(function(input, output, session) {
 		
 		# Update control panel graph
 		output$plot_wwtp <- renderPlotly({
-			plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+			plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
 		
 		# Update reactive text elements
@@ -385,7 +432,7 @@ shinyServer(function(input, output, session) {
 	# Render default control elements
 	#
 	output$plot_wwtp <- renderPlotly({
-		plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 	})
 
 	output$last_update <- renderText(paste0("Wastewater Nowcast for West Virginia (", format(LAST_DATE_WWTP, format = "%d %b %Y"), ")", sep = " "))
@@ -403,7 +450,7 @@ shinyServer(function(input, output, session) {
     shinyjs::show(id = "conditionalPanelWWTP")
 
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci) %>% config(displayModeBar = FALSE) 
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
 		})
 	
 		output$facility_name_big <- renderText(paste0(wwtpRV$mapClick, sep = " "))
@@ -423,7 +470,7 @@ shinyServer(function(input, output, session) {
 		#print(dates)
 		
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci) %>% config(displayModeBar = FALSE) 
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
 		})
   })
 
@@ -432,7 +479,7 @@ shinyServer(function(input, output, session) {
 		wwtpRV$rollWin <- input$plot_roll_wwtp
 		
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci) %>% config(displayModeBar = FALSE) 
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
 		})
   })
 
@@ -443,15 +490,26 @@ shinyServer(function(input, output, session) {
 		wwtpRV$ci <- input$plot_ci_wwtp
 		
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci) %>% config(displayModeBar = FALSE) 
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+  })
+
+	# Respond to change in target to plot
+  observeEvent(input$plot_targets_wwtp, {
+		#print(input$plot_targets_wwtp)
+		wwtpRV$targets <- input$plot_targets_wwtp
+		
+		output$plot_wwtp_big <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
 		})
   })
 
 
 	observeEvent(input$embiggen_close_wwtp,{
 #		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
-    wwtpRV$Dates <- c(FIRST_DATE_WWTP, LAST_DATE_WWTP)
-    wwtpRV$rollWin <- 3
+    #wwtpRV$Dates <- c(FIRST_DATE_WWTP, LAST_DATE_WWTP)
+    #wwtpRV$rollWin <- 3
+    #wwtpRV$target <- c("n1n2")
     #wwtpRV$ci <- FALSE
     shinyjs::hide(id = "conditionalPanelWWTP")
 	})
