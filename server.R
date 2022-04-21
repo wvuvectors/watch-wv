@@ -176,7 +176,7 @@ shinyServer(function(input, output, session) {
 	}
 	
 	output$map_wwtp <- renderLeaflet({
-		generateMap(data_in = df_wwtp, center_lat = 40.0632001, center_lng = -82.2772167, zoom_level = 7) %>% 
+		generateMap(data_in = df_wwtp, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 8) %>% 
 #		addProviderTiles(providers$Thunderforest.TransportDark)
 #							Jawg.Streets
 #							Esri.NatGeoWorldMap
