@@ -59,72 +59,60 @@ shinyUI(bootstrapPage(
 				), # absolutePanel
 				
 				absolutePanel(
-					id = "targets_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					bottom = 0, left = 5, width = 80, height = 25,
+					id = "control_panels_wwtp_min",
+					style = "padding-top: 12px; text-align:center; background-color: #ffffff; opacity: 0.55;",
+					bottom = 10, left = 0, width = 20, height = 110,
 					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Targets"))
+					span(tags$i("Control Panel"), style="writing-mode: vertical-lr;")
 				),					
 				absolutePanel(
-					id = "targets_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 25, width = 300, height = 90,
-					fixed=TRUE, draggable=FALSE, 
-					prettyCheckboxGroup(
-						inputId = "targets_wwtp",
-						label="",
-						#label = "Choose a target to show:", 
-						choiceNames = TARGETS,
-						choiceValues = TARGET_VALUES,
-						icon = icon("check-square"), 
-						status = "success",
-						selected = TARGETS_DEFAULT,
-						outline = TRUE
-	#							animation = "pulse"
-					)
-				),
-				absolutePanel(
-					id = "dates_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					bottom = 0, left = 90, width = 100, height = 25,
-					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Date Range"))
-				),					
-				absolutePanel(
-					id = "dates_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 110, width = 300, height = 90,
-					fixed=TRUE, draggable=FALSE, 
-					sliderTextInput(
-						inputId = "dates_wwtp",
-						force_edges = TRUE,
-						#width = "90%",
-						label="",
-						#label = h6("Choose a date range (by week):"),
-						choices = unique(as.Date(ymd(df_wwtp$week_starting))),
-						selected = c(as.Date(min(ymd(df_wwtp$week_starting))), as.Date(max(ymd(df_wwtp$week_starting)))),
-	#							animate=animationOptions(interval = 3000, loop = FALSE),
-						grid = FALSE
-					)
-				),
-				absolutePanel(
-					id = "roll_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					bottom = 0, left = 195, width = 110, height = 25,
-					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Rolling Mean"))
-				),					
-				absolutePanel(
-					id = "roll_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 215, width = 300, height = 90,
-					fixed=TRUE, draggable=FALSE, 
-					sliderInput(
-						inputId = "roll_wwtp",
-						label="",
-						#label = h6("Choose a rolling mean window (days):"),
-						min=2, max=10, value=3
-					)
+					id = "control_panels_wwtp", 
+					style="background-color: #ffffff;opacity: 0.8;", 
+					bottom = 10, left = 20, width = "auto", height = 110,
+					fixed=TRUE, draggable = FALSE, 
+					fluidRow(
+						column(
+							style="padding: 3px; border: 1px solid #dddddd; border-radius: 5px; background-color: #ffffff; font-size: 10px;",
+							width=3,
+							prettyCheckboxGroup(
+								inputId = "targets_wwtp",
+								label="",
+								#label = "Choose a target to show:", 
+								choiceNames = TARGETS,
+								choiceValues = TARGET_VALUES,
+								icon = icon("check-square"), 
+								status = "success",
+								selected = TARGETS_DEFAULT,
+								outline = TRUE
+			#							animation = "pulse"
+							),
+						),
+						column(
+							style="padding: 3px; border: 1px solid #dddddd; border-radius: 5px; background-color: #ffffff; font-size: 10px;",
+							width=5,
+							sliderTextInput(
+								inputId = "dates_wwtp",
+								force_edges = TRUE,
+								#width = "90%",
+								label="",
+								#label = h6("Choose a date range (by week):"),
+								choices = unique(as.Date(ymd(df_wwtp$week_starting))),
+								selected = c(as.Date(min(ymd(df_wwtp$week_starting))), as.Date(max(ymd(df_wwtp$week_starting)))),
+			#							animate=animationOptions(interval = 3000, loop = FALSE),
+								grid = FALSE
+							),
+						),
+						column(
+							style="padding: 3px; border: 1px solid #dddddd; border-radius: 5px; background-color: #ffffff; font-size: 10px;",
+							width=4,
+							sliderInput(
+								inputId = "roll_wwtp",
+								label="",
+								#label = h6("Choose a rolling mean window (days):"),
+								min=2, max=10, value=3
+							)
+						)
+					) # fluidRow
 				), # absolutePanel
 
 				absolutePanel(

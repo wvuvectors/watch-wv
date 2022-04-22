@@ -116,21 +116,21 @@ shinyServer(function(input, output, session) {
 		if ("n1n2" %in% targets) {
 			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass), color="#000000", shape = 1, size = 1, alpha=0.5) + 
 							 				 geom_line(aes(x = day, y = rollmean.rnamass), color = "#000000")
-			if (ci) {
+			if (ci != "off") {
 				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass, ymin=rollmean.rnamass-rollmean.ci, ymax=rollmean.rnamass+rollmean.ci), alpha=0.2)
 			}
 		}
 		if ("n1" %in% targets) {
 			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass.n1), color="#03A049", shape = 0, size = 1, alpha=0.5) + 
 											 geom_line(aes(x = day, y = rollmean.rnamass.n1), color = "#03A049")
-			if (ci) {
+			if (ci != "off") {
 				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass.n1, ymin=rollmean.rnamass.n1-rollmean.ci.n1, ymax=rollmean.rnamass.n1+rollmean.ci.n1), color="#03A049", alpha=0.2)
 			}
 		}
 		if ("n2" %in% targets) {
 			gplot <- gplot + geom_point(aes(x = day, y = rollmean.rnamass.n2), color="#9437FF", shape = 2, size = 1, alpha=0.5) + 
 											 geom_line(aes(x = day, y = rollmean.rnamass.n2), color = "#9437FF")
-			if (ci) {
+			if (ci != "off") {
 				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass.n2, ymin=rollmean.rnamass.n2-rollmean.ci.n2, ymax=rollmean.rnamass.n2+rollmean.ci.n2), color="#9437FF", alpha=0.2) 
 			}
 		}
@@ -221,9 +221,9 @@ shinyServer(function(input, output, session) {
 		
 		return(mymap)
 	}
-	
+
 	output$map_wwtp <- renderLeaflet({
-		generateMap(data_in = df_wwtp, center_lat = 40.0632001, center_lng = -82.2772167, zoom_level = 7) %>% 
+		generateMap(data_in = df_wwtp, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 8) %>% 
 #		addProviderTiles(providers$Thunderforest.TransportDark)
 #							Jawg.Streets
 #							Esri.NatGeoWorldMap
@@ -232,10 +232,11 @@ shinyServer(function(input, output, session) {
 		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
 #		addLayersControl(
 #			position = "bottomright",
-#			overlayGroups = c("COVID-19", "Influenza", "RSV"),
+#			overlayGroups = TARGETS,
 #											options = layersControlOptions(collapsed = FALSE)
 #		) %>%
-#		hideGroup(c("Influenza", "RSV"))
+#		hideGroup(TARGETS) %>% 
+#		showGroup(TARGETS_DEFAULT)
 #		fitBounds(~-100,-60,~60,70) %>%
 #		addLegend("bottomright", pal = cv_pal, values = ~cv_large_countries$deaths_per_million,
 #			title = "<small>Deaths per million</small>")
@@ -331,13 +332,13 @@ shinyServer(function(input, output, session) {
 	output$map_upstream <- renderLeaflet({
 		generateMap(data_in = df_upstream, center_lat = 39.6352701, center_lng = -80.0125177, zoom_level = 13) %>% 
 		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
-
 #		addLayersControl(
 #			position = "bottomright",
-#			overlayGroups = c("COVID-19", "Influenza", "RSV"),
+#			overlayGroups = TARGETS,
 #											options = layersControlOptions(collapsed = FALSE)
 #		) %>%
-#		hideGroup(c("Influenza", "RSV"))
+#		hideGroup(TARGETS) %>% 
+#		showGroup(TARGETS_DEFAULT)
 		
 	})
 
@@ -424,12 +425,94 @@ shinyServer(function(input, output, session) {
 
 	###########################
 	#
-	#			WWTP CONTROL PANELS
+	#	 GLOBAL CONTROLS
 	#
 	###########################
+	controller <- function(targets, counter_targets) {
+		if (!missing(targets)) {
+			for (targ in targets) {
+				shinyjs::show(targ)
+			}
+		}
+		if (!missing(counter_targets)) {
+			for (targ in counter_targets) {
+				shinyjs::hide(targ)
+			}
+		}
+	}
 	
+	controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp"))
+
+	onevent("mouseenter", "targets_popup_wwtp_min", controller(targets=c("targets_popup_wwtp"), counter_targets=c("dates_popup_wwtp", "roll_popup_wwtp")))
+	onevent("mouseleave", "targets_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
+
+	onevent("mouseenter", "dates_popup_wwtp_min", controller(targets=c("dates_popup_wwtp"), counter_targets=c("targets_popup_wwtp", "roll_popup_wwtp")))
+	onevent("mouseleave", "dates_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
+
+	onevent("mouseenter", "roll_popup_wwtp_min", controller(targets=c("roll_popup_wwtp"), counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp")))
+	onevent("mouseleave", "roll_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
+
+
+	# Respond to change in wwtp plot dates
+	observeEvent(input$dates_wwtp, {
+		#print(input$plot_dates)
+		wwtpRV$Dates <- input$dates_wwtp
+		#print(dates)
+		
+		output$plot_wwtp_big <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+  })
+
+
+	# Respond to change in rolling window size on big plot
+  observeEvent(input$roll_wwtp, {
+		wwtpRV$rollWin <- input$roll_wwtp
+		
+		output$plot_wwtp_big <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+  })
+#
+#
+#	# Respond to change in CI on big plot
+#  observeEvent(input$plot_ci_wwtp, {
+#	  #print(input$plot_ci_wwtp)
+#		wwtpRV$ci <- input$plot_ci_wwtp
+#		
+#		output$plot_wwtp_big <- renderPlotly({
+#			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+#		})
+#  })
+#
+
+	# Respond to change in target to plot
+  observeEvent(input$targets_wwtp, {
+		print(input$targets_wwtp)
+		print(wwtpRV)
+		wwtpRV$targets <- input$targets_wwtp
+		
+		output$plot_wwtp_big <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+		})
+  })
+
+
+
 	#
-	# Render default control elements
+	# Render default info elements
 	#
 	output$plot_wwtp <- renderPlotly({
 		plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
@@ -457,53 +540,6 @@ shinyServer(function(input, output, session) {
 
 	})
 	
-
-	#
-	# Render large plot control elements
-	#
-	
-	# Respond to change in plot dates on big plot
-  observeEvent(input$plot_dates_wwtp, {
-		#print(input$plot_dates)
-		dates <- input$plot_dates_wwtp
-		wwtpRV$Dates <- dates
-		#print(dates)
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
-	# Respond to change in rolling window size on big plot
-  observeEvent(input$plot_roll_wwtp, {
-		wwtpRV$rollWin <- input$plot_roll_wwtp
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
-
-	# Respond to change in CI on big plot
-  observeEvent(input$plot_ci_wwtp, {
-	  #print(input$plot_ci_wwtp)
-		wwtpRV$ci <- input$plot_ci_wwtp
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
-	# Respond to change in target to plot
-  observeEvent(input$plot_targets_wwtp, {
-		#print(input$plot_targets_wwtp)
-		wwtpRV$targets <- input$plot_targets_wwtp
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
 
 	observeEvent(input$embiggen_close_wwtp,{
 #		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
@@ -547,44 +583,6 @@ shinyServer(function(input, output, session) {
 
 	})
 	
-
-	#
-	# Render large upstream plot control elements
-	#
-	
-	# Respond to change in plot dates on big plot
-  observeEvent(input$plot_dates_upstream, {
-		#print(input$plot_dates)
-		dates <- input$plot_dates_upstream
-		upstreamRV$Dates <- dates
-		#print(dates)
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(upstreamRV$Dates, upstreamRV$mapClick, upstreamRV$rollWin, upstreamRV$ci)  %>% config(displayModeBar = FALSE)
-		})
-  })
-
-	# Respond to change in rolling window size on big plot
-  observeEvent(input$plot_roll_upstream, {
-		upstreamRV$rollWin <- input$plot_roll_upstream
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(upstreamRV$Dates, upstreamRV$mapClick, upstreamRV$rollWin, upstreamRV$ci) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
-
-	# Respond to change in CI on big plot
-  observeEvent(input$plot_ci_upstream, {
-	  #print(input$plot_ci_wwtp)
-		upstreamRV$ci <- input$plot_ci_upstream
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(upstreamRV$Dates, upstreamRV$mapClick, upstreamRV$rollWin, upstreamRV$ci) %>% config(displayModeBar = FALSE) 
-		})
-  })
-
-
 	observeEvent(input$embiggen_close_upstream,{
 #		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
     upstreamRV$Dates <- c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM)

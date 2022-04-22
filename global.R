@@ -30,6 +30,10 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
+TARGETS=c("SARS-CoV-2 N1&N2", "SARS-CoV-2 N1", "SARS-CoV-2 N2")
+TARGET_VALUES=c("n1n2", "n1", "n2")
+TARGETS_DEFAULT=c("n1n2")
+
 L_per_gal=3.78541
 
 Sys.setenv(TZ="America/New_York")
@@ -122,7 +126,7 @@ df_watch$week_num <- week(df_watch$week_ending)
 df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
 
 
-# Set date constraints
+# Set date constraints on input data
 # May want to change this in the future?
 df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
 
