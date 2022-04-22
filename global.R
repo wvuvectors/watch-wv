@@ -30,11 +30,12 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
-TARGETS=c("SARS-CoV-2 N1&N2", "SARS-CoV-2 N1", "SARS-CoV-2 N2")
-TARGET_VALUES=c("n1n2", "n1", "n2")
-TARGETS_DEFAULT=c("n1n2")
+TARGETS <- c("SARS-CoV-2 N1&N2", "SARS-CoV-2 N1", "SARS-CoV-2 N2")
+TARGET_VALUES <- c("n1n2", "n1", "n2")
+TARGETS_DEFAULT <- c("n1n2")
+SMOOTHER_DEFAULT <- 3
 
-L_per_gal=3.78541
+L_per_gal <- 3.78541
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()

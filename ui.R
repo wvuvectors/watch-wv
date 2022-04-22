@@ -60,20 +60,20 @@ shinyUI(bootstrapPage(
 				
 				absolutePanel(
 					id = "targets_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
 					bottom = 0, left = 5, width = 80, height = 25,
 					fixed=TRUE, draggable = FALSE,
 					span(tags$i("Targets"))
 				),					
 				absolutePanel(
 					id = "targets_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 25, width = 300, height = 90,
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 25, width = 300, height = 130,
 					fixed=TRUE, draggable=FALSE, 
+					h5("Choose the targets to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
 					prettyCheckboxGroup(
 						inputId = "targets_wwtp",
-						label="",
-						#label = "Choose a target to show:", 
+						label=NULL,
 						choiceNames = TARGETS,
 						choiceValues = TARGET_VALUES,
 						icon = icon("check-square"), 
@@ -85,45 +85,45 @@ shinyUI(bootstrapPage(
 				),
 				absolutePanel(
 					id = "dates_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
 					bottom = 0, left = 90, width = 100, height = 25,
 					fixed=TRUE, draggable = FALSE,
 					span(tags$i("Date Range"))
 				),					
 				absolutePanel(
 					id = "dates_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 110, width = 300, height = 90,
+					style="background-color: #000000;opacity: 0.8;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 110, width = 300, height = 130,
 					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a range of dates to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
 					sliderTextInput(
 						inputId = "dates_wwtp",
 						force_edges = TRUE,
 						#width = "90%",
-						label="",
-						#label = h6("Choose a date range (by week):"),
-						choices = unique(as.Date(ymd(df_wwtp$week_starting))),
-						selected = c(as.Date(min(ymd(df_wwtp$week_starting))), as.Date(max(ymd(df_wwtp$week_starting)))),
+						label=NULL,
+						choices = sort(unique(as.Date(ymd(df_watch$week_starting)))),
+						selected = c(min(as.Date(ymd(df_watch$week_starting))), max(as.Date(ymd(df_watch$week_starting)))),
 	#							animate=animationOptions(interval = 3000, loop = FALSE),
 						grid = FALSE
 					)
 				),
 				absolutePanel(
 					id = "roll_popup_wwtp_min",
-					style = "text-align:center; background-color: #fafafa; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					bottom = 0, left = 195, width = 110, height = 25,
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 195, width = 115, height = 25,
 					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Rolling Mean"))
+					span(tags$i("Data Smoothing"))
 				),					
 				absolutePanel(
 					id = "roll_popup_wwtp", 
-					style="background-color: #fafafa;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
-					bottom = 25, left = 215, width = 300, height = 90,
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 215, width = 300, height = 130,
 					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a rolling mean window (days):", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
 					sliderInput(
 						inputId = "roll_wwtp",
-						label="",
-						#label = h6("Choose a rolling mean window (days):"),
-						min=2, max=10, value=3
+						label=NULL,
+						min=2, max=10, value=SMOOTHER_DEFAULT
 					)
 				), # absolutePanel
 
@@ -181,7 +181,7 @@ shinyUI(bootstrapPage(
 								)
 							)
 						),
-						span(tags$i(h6("All reported values are adjusted for average daily flow rate. Use the sliders below to change the rolling mean calculation and date window.")), style="color:#045a8d; text-align: left"),
+						span(tags$i(h6("All reported values are adjusted for average daily flow rate.")), style="color:#045a8d; text-align: left"),
 						plotlyOutput("plot_wwtp_big", height="auto", width="auto")
 					) # absolutePanel
 				) # hidden panel div
@@ -225,6 +225,75 @@ shinyUI(bootstrapPage(
 					)					
 				), # absolutePanel
 	
+				absolutePanel(
+					id = "targets_popup_upstream_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 5, width = 80, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Targets"))
+				),					
+				absolutePanel(
+					id = "targets_popup_upstream", 
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 25, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose the targets to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					prettyCheckboxGroup(
+						inputId = "targets_upstream",
+						label=NULL,
+						choiceNames = TARGETS,
+						choiceValues = TARGET_VALUES,
+						icon = icon("check-square"), 
+						status = "success",
+						selected = TARGETS_DEFAULT,
+						outline = TRUE
+	#							animation = "pulse"
+					)
+				),
+				absolutePanel(
+					id = "dates_popup_upstream_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 90, width = 100, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Date Range"))
+				),					
+				absolutePanel(
+					id = "dates_popup_upstream", 
+					style="background-color: #000000;opacity: 0.8;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 110, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a range of dates to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					sliderTextInput(
+						inputId = "dates_upstream",
+						force_edges = TRUE,
+						#width = "90%",
+						label=NULL,
+						choices = sort(unique(as.Date(ymd(df_watch$week_starting)))),
+						selected = c(min(as.Date(ymd(df_watch$week_starting))), max(as.Date(ymd(df_watch$week_starting)))),
+	#							animate=animationOptions(interval = 3000, loop = FALSE),
+						grid = FALSE
+					)
+				),
+				absolutePanel(
+					id = "roll_popup_upstream_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 195, width = 115, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Data Smoothing"))
+				),					
+				absolutePanel(
+					id = "roll_popup_upstream", 
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 215, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a rolling mean window (days):", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					sliderInput(
+						inputId = "roll_upstream",
+						label=NULL,
+						min=2, max=10, value=SMOOTHER_DEFAULT
+					)
+				), # absolutePanel
+
 				absolutePanel(
 					id = "logo", 
 					class = "card", 
@@ -280,7 +349,7 @@ shinyUI(bootstrapPage(
 								)
 							)
 						),
-						span(tags$i(h6("All values are plotted as rolling means of RNA copies/L wastewater. Use the sliders below to change the rolling mean calculation and date window.")), style="color:#045a8d; text-align: left"),
+						span(tags$i(h6("All values are plotted as rolling means of RNA copies/L wastewater.")), style="color:#045a8d; text-align: left"),
 
 						plotlyOutput("plot_upstream_big", height="auto", width="auto")
 					) # hidden absolutePanel

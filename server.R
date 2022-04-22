@@ -14,23 +14,25 @@ shinyServer(function(input, output, session) {
 	myWWTPLeafletProxy <- leafletProxy(mapId="map_wwtp", session)
 	myUpstreamLeafletProxy <- leafletProxy(mapId="map_upstream", session)
 	
-	# Init reactive values with soem defaults
-	wwtpRV <- reactiveValues(mapClick="All Facilities", 
-								clickLat=0, clickLng=0, 
-								Dates=c(FIRST_DATE_WWTP, LAST_DATE_WWTP), 
-								rollWin=3, 
-								ci="off", 
-								targets=c("n1n2")
+	# Init reactive values with some defaults
+	controlRV <- reactiveValues(
+								Dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
+								rollWin = SMOOTHER_DEFAULT,
+								ci = "off",
+								visibleTargets = TARGETS_DEFAULT
 	)
 	
-	upstreamRV <- reactiveValues(mapClick="All Locations", 
-								clickLat=0, clickLng=0, 
-								Dates=c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), 
-								rollWin=3, 
-								ci="off", 
-								targets=c("n1n2")
+	wwtpRV <- reactiveValues(
+								mapClick="All Facilities", 
+								clickLat=0, clickLng=0
+	)
+	
+	upstreamRV <- reactiveValues(
+								mapClick="All Locations", 
+								clickLat=0, clickLng=0
 	)
 
+#	print(paste0("On server init: ", controlRV$Dates, sep=""))
 
 
 	###########################
@@ -40,7 +42,12 @@ shinyServer(function(input, output, session) {
 	###########################
 	
 	plotWWTP = function(dates, facility, rollwin, ci, targets) {
-		#print(ci)
+		print(dates)
+		print(facility)
+		print(rollwin)
+		print(ci)
+		print(targets)
+		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
 		if (facility == "All Facilities") {
@@ -187,7 +194,7 @@ shinyServer(function(input, output, session) {
 											#scale_x_date(breaks = "2 weeks", date_labels = '%d-%b-%Y', limits = lims_x_date) + 
 											my_theme()
 											#theme(axis.text.x = element_text(angle = 60, hjust=0.9))
-		if (ci) {
+		if (ci != "off") {
 			gplot <- gplot + 
 							 geom_ribbon(aes(ymin=rollmean.n1n2-rollmean.ci90, ymax=rollmean.n1n2+rollmean.ci90), alpha=0.2)
 		}
@@ -222,6 +229,7 @@ shinyServer(function(input, output, session) {
 		return(mymap)
 	}
 
+	# WWTP map
 	output$map_wwtp <- renderLeaflet({
 		generateMap(data_in = df_wwtp, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 8) %>% 
 #		addProviderTiles(providers$Thunderforest.TransportDark)
@@ -243,7 +251,33 @@ shinyServer(function(input, output, session) {
 	})
 
 
-	# Respond to off-marker map click
+	# Sewer network map
+	output$map_upstream <- renderLeaflet({
+		generateMap(data_in = df_upstream, center_lat = 39.6352701, center_lng = -80.0125177, zoom_level = 13) %>% 
+		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
+#		addLayersControl(
+#			position = "bottomright",
+#			overlayGroups = TARGETS,
+#											options = layersControlOptions(collapsed = FALSE)
+#		) %>%
+#		hideGroup(TARGETS) %>% 
+#		showGroup(TARGETS_DEFAULT)
+		
+	})
+
+
+
+	###########################
+	#
+	#			MAPS INTERACTIVITY
+	#
+	###########################
+	
+	#
+	# WWTP tab
+	#
+	
+	# Respond to off-marker click
   observeEvent(input$map_wwtp_click, { 
 		#print("Map click event top")
 		if (input$map_wwtp_click$lat != wwtpRV$clickLat | input$map_wwtp_click$lng != wwtpRV$clickLng) {
@@ -265,11 +299,15 @@ shinyServer(function(input, output, session) {
 											 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
 											 fillOpacity = 0.6)
 		
-			# Update control panel graph
+			# Reset WWTP plots
 			output$plot_wwtp <- renderPlotly({
-				plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 			})
 		
+			output$plot_wwtp_big <- renderPlotly({
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
+			})
+
 			# Update reactive text elements
 			output$facility_name <- renderText(paste0("All Facilities", sep = " "))
 			output$facility_samples <- renderText("")
@@ -277,15 +315,11 @@ shinyServer(function(input, output, session) {
 			output$facility_popserved <- renderText(paste0("Total estimated population included: ", formatC(POP_TOTAL_WWTP, big.mark=","), ".", sep = " "))
 			output$facility_counties <- renderText(paste0("Serving ", CTY_TOTAL_WWTP, " total WV counties.", sep = " "))
 		}
-		#print("Map click event bottom")
-		
-	})
+	}, ignoreInit = TRUE)
 	
 
 	# Respond to click on WWTP map marker
   observeEvent(input$map_wwtp_marker_click, { 
-		#print("Marker click event top")
-		#print(input$map_wwtp_marker_click$id)
     clickedLocation <- input$map_wwtp_marker_click$id
 		wwtpRV$mapClick <- clickedLocation
 		
@@ -305,11 +339,15 @@ shinyServer(function(input, output, session) {
 										 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
 										 fillOpacity = 0.6)
 		
-		# Update control panel graph
+		# Update plots
 		output$plot_wwtp <- renderPlotly({
-			plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
 		
+		output$plot_wwtp_big <- renderPlotly({
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
+		})
+
 		# Update reactive text elements
 		watch_fac <- df_wwtp %>% filter(location_common_name == clickedLocation)
 		SAMPLE_TOTAL_FAC = formatC(n_distinct(watch_fac$"Sample ID"), big.mark=",")
@@ -324,27 +362,16 @@ shinyServer(function(input, output, session) {
 		output$facility_counties <- renderText(paste0("This facility is located in ", watch_fac$counties_served[1], " county WV.", sep = " "))
 		#print("Marker click event bottom")
 		
-  })
+  }, ignoreInit = TRUE)
 
 
 
-	# Render the upstream map
-	output$map_upstream <- renderLeaflet({
-		generateMap(data_in = df_upstream, center_lat = 39.6352701, center_lng = -80.0125177, zoom_level = 13) %>% 
-		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
-#		addLayersControl(
-#			position = "bottomright",
-#			overlayGroups = TARGETS,
-#											options = layersControlOptions(collapsed = FALSE)
-#		) %>%
-#		hideGroup(TARGETS) %>% 
-#		showGroup(TARGETS_DEFAULT)
-		
-	})
+	#
+	# Sewer network tab
+	#
 
-	# Respond to off-marker map click
+	# Respond to off-marker click
   observeEvent(input$map_upstream_click, { 
-		#print("Map click event top")
 		if (input$map_upstream_click$lat != upstreamRV$clickLat | input$map_upstream_click$lng != upstreamRV$clickLng) {
 			upstreamRV$clickLat <- 0
 			upstreamRV$clickLng <- 0
@@ -364,18 +391,20 @@ shinyServer(function(input, output, session) {
 											 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
 											 fillOpacity = 0.6)
 		
-			# Update control panel graph
+			# Update plots
 			output$plot_upstream <- renderPlotly({
-				plotUpstream(c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), upstreamRV$mapClick, 3, FALSE) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+				plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+			})
+			output$plot_upstream_big <- renderPlotly({
+				plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
 			})
 		
 			# Update reactive text elements
 			output$facility_name_upstream <- renderText(paste0("All Locations", sep = " "))
 			output$facility_samples_upstream <- renderText("")
 		}
-		#print("Map click event bottom")
-		
-	})
+	}, ignoreInit = TRUE)
+
 
 	# Respond to click on upstream map marker
   observeEvent(input$map_upstream_marker_click, { 
@@ -398,9 +427,12 @@ shinyServer(function(input, output, session) {
 										 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
 										 fillOpacity = 0.6)
 		
-		# Update control panel graph
+		# Update plots
 		output$plot_upstream <- renderPlotly({
-			plotUpstream(c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), upstreamRV$mapClick, 3, FALSE) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+		output$plot_upstream_big <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
 		})
 		
 		# Update reactive text elements
@@ -410,14 +442,12 @@ shinyServer(function(input, output, session) {
 		LAST_DATE_EDULOC = format(max(watch_upstream$day), format = "%d %b %Y")
 		COLL_TYPE_UP = unique(watch_upstream$collection_scheme)
 
-#
 		output$facility_name_upstream <- renderText(paste0(clickedLocation, sep = " "))
 		output$facility_samples_upstream <- renderText(paste0(SAMPLE_TOTAL_EDULOC, " samples collected as ", COLL_TYPE_UP, "s from ", clickedLocation, " processed between ", FIRST_DATE_EDULOC," and ", LAST_DATE_EDULOC, ".", sep = " "))
 #		output$facility_capacity <- renderText(paste0("Max capacity of this facility: ", formatC(watch_fac$capacity_mgd[1], big.mark=","), " million gallons per day (MGD).", sep = " "))
 #		output$facility_popserved <- renderText(paste0("Estimated population included: ", formatC(watch_fac$population_served[1], big.mark=","), ".", sep = " "))
 #		output$facility_counties <- renderText(paste0("This facility is located in ", watch_fac$counties_served[1], " county WV.", sep = " "))
-		
-  })
+  }, ignoreInit = TRUE)
 
 
 
@@ -425,9 +455,10 @@ shinyServer(function(input, output, session) {
 
 	###########################
 	#
-	#	 GLOBAL CONTROLS
+	# CONTROL PANEL EVENTS
 	#
 	###########################
+
 	controller <- function(targets, counter_targets) {
 		if (!missing(targets)) {
 			for (targ in targets) {
@@ -453,34 +484,87 @@ shinyServer(function(input, output, session) {
 	onevent("mouseleave", "roll_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
 
 
-	# Respond to change in wwtp plot dates
+
+	# Respond to change in targets to plot
+  observeEvent(input$targets_wwtp, {
+		controlRV$visibleTargets <- input$targets_wwtp
+		updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
+		
+		output$plot_wwtp_big <- renderPlotly({
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
+		})
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+  observeEvent(input$targets_upstream, {
+		controlRV$visibleTargets <- input$targets_upstream
+		updatePrettyCheckboxGroup(session = session, inputId = "targets_wwtp", selected = controlRV$visibleTargets)
+		
+		output$plot_upstream_big <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
+		})
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+
+	# Respond to change in dates to view
 	observeEvent(input$dates_wwtp, {
-		#print(input$plot_dates)
-		wwtpRV$Dates <- input$dates_wwtp
-		#print(dates)
+		#print(paste0("Observed: ", input$dates_wwtp, sep = ""))
+		#print(paste0("Min: ", min(df_watch$week_starting), ". Max: ", max(df_watch$week_starting), sep=""))
+		
+		controlRV$Dates <- input$dates_wwtp
+		updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
 		
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
 		})
-
 		output$plot_wwtp <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
-  })
+  }, ignoreInit = TRUE)
+
+	observeEvent(input$dates_upstream, {
+		controlRV$Dates <- input$dates_upstream
+		updateSliderTextInput(session = session, inputId = "dates_wwtp", selected = controlRV$Dates)
+		
+		output$plot_upstream_big <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
+		})
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
 
 
-	# Respond to change in rolling window size on big plot
+	# Respond to change in rolling window size
   observeEvent(input$roll_wwtp, {
-		wwtpRV$rollWin <- input$roll_wwtp
+		controlRV$rollWin <- input$roll_wwtp
+		updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
 		
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
 		})
-
 		output$plot_wwtp <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
-  })
+  }, ignoreInit = TRUE)
+
+  observeEvent(input$roll_upstream, {
+		controlRV$rollWin <- input$roll_upstream
+		updateSliderInput(session = session, inputId = "roll_wwtp", value = controlRV$rollWin)
+		
+		output$plot_upstream_big <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
+		})
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
 #
 #
 #	# Respond to change in CI on big plot
@@ -494,81 +578,58 @@ shinyServer(function(input, output, session) {
 #  })
 #
 
-	# Respond to change in target to plot
-  observeEvent(input$targets_wwtp, {
-		print(input$targets_wwtp)
-		print(wwtpRV)
-		wwtpRV$targets <- input$targets_wwtp
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-
-		output$plot_wwtp <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-		})
-  })
 
 
-
+	###########################
 	#
-	# Render default info elements
+	#	INFO PANELS
+	#
+	###########################
+	
+	#
+	# WWTP default info panel elements
 	#
 	output$plot_wwtp <- renderPlotly({
-		plotWWTP(c(FIRST_DATE_WWTP, LAST_DATE_WWTP), wwtpRV$mapClick, 3, FALSE, c("n1n2")) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 	})
 
 	output$last_update <- renderText(paste0("Wastewater Nowcast for West Virginia (", format(LAST_DATE_WWTP, format = "%d %b %Y"), ")", sep = " "))
 	output$all_facilities <- renderText(paste0(FACILITY_TOTAL_WWTP, " active treatment facilities.", sep = " "))
 	output$all_samples <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " total samples processed since ", format(FIRST_DATE_WWTP, format = "%d %b %Y"), ".", sep = " "))
 	output$facility_name <- renderText(paste0("All Facilities", sep = " "))
-
+	
 	output$facility_capacity <- renderText(paste0("Total statewide capacity involved: ", formatC(CAP_TOTAL_WWTP, big.mark=","), " million gallons per day (MGD).", sep = " "))
 	output$facility_popserved <- renderText(paste0("Total estimated population included: ", formatC(POP_TOTAL_WWTP, big.mark=","), ".", sep = " "))
 	output$facility_counties <- renderText(paste0("Serving ", CTY_TOTAL_WWTP, " total WV counties.", sep = " "))
 	
 	# Open the big plot
 	observeEvent(input$embiggen_open_wwtp,{
-#		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
     shinyjs::show(id = "conditionalPanelWWTP")
 
 		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
 		})
-	
 		output$facility_name_big <- renderText(paste0(wwtpRV$mapClick, sep = " "))
-
-	})
+	}, ignoreInit = TRUE)
 	
-
+	# Close the big plot
 	observeEvent(input$embiggen_close_wwtp,{
-#		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
-    #wwtpRV$Dates <- c(FIRST_DATE_WWTP, LAST_DATE_WWTP)
-    #wwtpRV$rollWin <- 3
-    #wwtpRV$target <- c("n1n2")
-    #wwtpRV$ci <- FALSE
     shinyjs::hide(id = "conditionalPanelWWTP")
-	})
+	}, ignoreInit = TRUE)
 
 
-
-	###########################
 	#
-	#			UPSTREAM CONTROL PANELS
-	#
-	###########################
-	
-	#
-	# Render default control panel elements
+	# Sewer network default info panel elements
 	#
 	output$plot_upstream <- renderPlotly({
-		plotUpstream(c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM), upstreamRV$mapClick, 3, FALSE)  %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 	})
-	
+
 	output$last_update_upstream <- renderText(paste0("Sewer Network Wastewater Nowcast (", format(LAST_DATE_UPSTREAM, format = "%d %b %Y"), ")", sep = " "))
 	output$all_facilities_upstream <- renderText(paste0(FACILITY_TOTAL_UPSTREAM, " active sewer network sites.", sep = " "))
 	output$all_samples_upstream <- renderText(paste0(formatC(SAMPLE_TOTAL_UPSTREAM, big.mark=","), " total samples processed since ", format(FIRST_DATE_UPSTREAM, format = "%d %b %Y"), ".", sep = " "))
 	output$facility_name_upstream <- renderText(paste0("All Locations", sep = " "))
+
 
 	# Open the big plot
 	observeEvent(input$embiggen_open_upstream,{
@@ -576,20 +637,16 @@ shinyServer(function(input, output, session) {
     shinyjs::show(id = "conditionalPanelUpstream")
 
 		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(upstreamRV$Dates, upstreamRV$mapClick, upstreamRV$rollWin, upstreamRV$ci) %>% config(displayModeBar = FALSE)
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
 		})
-	
 		output$facility_name_big_upstream <- renderText(paste0(upstreamRV$mapClick, sep = " "))
 
-	})
+	}, ignoreInit = TRUE)
 	
+	# Close the big plot
 	observeEvent(input$embiggen_close_upstream,{
-#		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
-    upstreamRV$Dates <- c(FIRST_DATE_UPSTREAM, LAST_DATE_UPSTREAM)
-    upstreamRV$rollWin <- 3
-    #upstreamRV$ci <- FALSE
     shinyjs::hide(id = "conditionalPanelUpstream")
-	})
+	}, ignoreInit = TRUE)
 
 
 
