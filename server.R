@@ -42,11 +42,11 @@ shinyServer(function(input, output, session) {
 	###########################
 	
 	plotWWTP = function(dates, facility, rollwin, ci, targets) {
-		print(dates)
-		print(facility)
-		print(rollwin)
-		print(ci)
-		print(targets)
+#		print(dates)
+#		print(facility)
+#		print(rollwin)
+#		print(ci)
+#		print(targets)
 		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
@@ -145,60 +145,99 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)
 	}
 
-	plotUpstream = function(dates, facility, rollwin, ci) {
+	plotUpstream = function(dates, facility, rollwin, ci, targets) {
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
 		if (facility == "All Locations") {
-#			plot_df <- df_wwtp_s %>% filter(week_ending >= fromDate & week_ending <= toDate)
+
 			loc_df <- df_upstream %>% filter(week_starting >= fromDate & week_starting <= toDate) %>% 
 								group_by(day) %>% 
 								summarize(mean.n1n2 = mean(n1n2, na.rm = TRUE))
 			loc_zoo <- zoo(loc_df$mean.n1n2, loc_df$day)
+			loc1_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
+								group_by(day) %>% 
+								summarize(mean.n1 = mean(n1, na.rm = TRUE))
+			loc1_zoo <- zoo(loc1_df$mean.n1, loc1_df$day)
+			
+			loc2_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
+								group_by(day) %>% 
+								summarize(mean.n2 = mean(n2, na.rm = TRUE))
+			loc2_zoo <- zoo(loc2_df$mean.n2, loc2_df$day)
 		} else {
-#			plot_df <- df_wwtp_wk %>% filter(week_ending >= fromDate & week_ending <= toDate & location_common_name == facility)
 			loc_df <- df_upstream %>% filter(week_starting >= fromDate & week_starting <= toDate & location_common_name == facility)
 			loc_zoo <- zoo(loc_df$n1n2, loc_df$day)
+			loc1_zoo <- zoo(loc_df$n1, loc_df$day)
+			loc2_zoo <- zoo(loc_df$n2, loc_df$day)
 		}
 		
+		# calculate the rolling means
 		loc_mean_zoo <- rollmean(loc_zoo, rollwin, fill=NA, align="right")
 		loc_mean_df <- fortify(loc_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.n1n2"))
 
-#		loc_se_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = se)
-#		loc_se_df <- fortify(loc_se_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.se"))
+		loc1_mean_zoo <- rollmean(loc1_zoo, rollwin, fill=NA, align="right")
+		loc1_mean_df <- fortify(loc1_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.n1"))
 
-		loc_ci90_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
-		loc_ci90_df <- fortify(loc_ci90_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci90"))
+		loc2_mean_zoo <- rollmean(loc2_zoo, rollwin, fill=NA, align="right")
+		loc2_mean_df <- fortify(loc2_mean_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.n2"))
+		
+		# join the mean dataframes
+		loc_mean_j1_df <- left_join(loc_mean_df, loc1_mean_df, by = c("day" = "day"))
+		loc_mean_jfinal_df <- left_join(loc_mean_j1_df, loc2_mean_df, by = c("day" = "day"))
 
-		loc_ci95_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci95)
-		loc_ci95_df <- fortify(loc_ci95_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci95"))
+		# calculate the CIs
+		loc_ci_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc_ci_df <- fortify(loc_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci.n1n2"))
 
-		loc_ci99_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci99)
-		loc_ci99_df <- fortify(loc_ci99_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci99"))
+		loc1_ci_zoo <- rollapply(loc1_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc1_ci_df <- fortify(loc1_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci.n1"))
 
-		loc_join1_df <- left_join(loc_mean_df, loc_ci90_df, by = c("day" = "day"))
-		loc_join2_df <- left_join(loc_join1_df, loc_ci95_df, by = c("day" = "day"))
-		loc_join3_df <- left_join(loc_join2_df, loc_ci99_df, by = c("day" = "day"))
-		loc_rolled_df <- left_join(loc_df, loc_join3_df, by = c("day" = "day"))
-		loc_rolled_df <- select(loc_rolled_df, -c(Series.x, Series.y, Series.x.x, Series.y.y))
+		loc2_ci_zoo <- rollapply(loc2_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
+		loc2_ci_df <- fortify(loc2_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci.n2"))
+		
+		# join the CI dataframes
+		loc_ci_j1_df <- left_join(loc_ci_df, loc1_ci_df, by = c("day" = "day"))
+		loc_ci_jfinal_df <- left_join(loc_ci_j1_df, loc2_ci_df, by = c("day" = "day"))
 
+		# join all the dataframes to the original (loc_df)
+		loc_join1_df <- left_join(loc_mean_jfinal_df, loc_ci_jfinal_df, by = c("day" = "day"))
+		loc_rolled_df <- left_join(loc_df, loc_join1_df, by = c("day" = "day"))
+#		loc_rolled_df <- select(loc_rolled_df, -c(Series.x, Series.y, Series.x.x, Series.y.y))
+		
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
 
-		gplot <- ggplot(loc_rolled_df, aes(x = day, y = rollmean.n1n2)) + 
-											labs(y = "Rolling Mean in Copies/L", x = "") + 
-											geom_point(color="red", shape = 16, size = 1, alpha=0.5) + 
-											geom_line(show.legend = FALSE, color = "#000000") + 
+		gplot <- ggplot(loc_rolled_df) + labs(y = "Rolling Mean of Copies/L", x = "") + 
 		#									geom_errorbar(aes(ymin=rollmean.rnamass-rollmean.se, ymax=rollmean.rnamass+rollmean.se), width=.2, position=position_dodge(0.05)) + 
 		#									scale_y_continuous(limits=c(0,NA)) + 
 											scale_y_continuous(labels = comma) + 
+#											scale_x_date(breaks = "1 month", date_labels = '%d-%b-%Y', limits = lims_x_date) + 
 											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
-											#scale_x_date(breaks = "2 weeks", date_labels = '%d-%b-%Y', limits = lims_x_date) + 
-											my_theme()
+											my_theme() 
+											#scale_fill_manual(values = reds7) +
+											#ggtitle("Weekly Mean COVID, All WV Treatment Facilities") + 
 											#theme(axis.text.x = element_text(angle = 60, hjust=0.9))
-		if (ci != "off") {
-			gplot <- gplot + 
-							 geom_ribbon(aes(ymin=rollmean.n1n2-rollmean.ci90, ymax=rollmean.n1n2+rollmean.ci90), alpha=0.2)
+
+		if ("n1n2" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.n1n2), color="#000000", shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = rollmean.n1n2), color = "#000000")
+			if (ci != "off") {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.n1n2, ymin=rollmean.n1n2-rollmean.ci.n1n2, ymax=rollmean.n1n2+rollmean.ci.n1n2), alpha=0.2)
+			}
 		}
-		
+		if ("n1" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.n1), color="#03A049", shape = 0, size = 1, alpha=0.5) + 
+											 geom_line(aes(x = day, y = rollmean.n1), color = "#03A049")
+			if (ci != "off") {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.n1, ymin=rollmean.n1-rollmean.ci.n1, ymax=rollmean.n1+rollmean.ci.n1), color="#03A049", alpha=0.2)
+			}
+		}
+		if ("n2" %in% targets) {
+			gplot <- gplot + geom_point(aes(x = day, y = rollmean.n2), color="#9437FF", shape = 2, size = 1, alpha=0.5) + 
+											 geom_line(aes(x = day, y = rollmean.n2), color = "#9437FF")
+			if (ci != "off") {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.n2, ymin=rollmean.n2-rollmean.ci.n2, ymax=rollmean.n2+rollmean.ci.n2), color="#9437FF", alpha=0.2) 
+			}
+		}
+
 		ggplotly(gplot)
 
 	}
@@ -482,6 +521,18 @@ shinyServer(function(input, output, session) {
 
 	onevent("mouseenter", "roll_popup_wwtp_min", controller(targets=c("roll_popup_wwtp"), counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp")))
 	onevent("mouseleave", "roll_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
+
+
+	controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream"))
+
+	onevent("mouseenter", "targets_popup_upstream_min", controller(targets=c("targets_popup_upstream"), counter_targets=c("dates_popup_upstream", "roll_popup_upstream")))
+	onevent("mouseleave", "targets_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
+
+	onevent("mouseenter", "dates_popup_upstream_min", controller(targets=c("dates_popup_upstream"), counter_targets=c("targets_popup_upstream", "roll_popup_upstream")))
+	onevent("mouseleave", "dates_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
+
+	onevent("mouseenter", "roll_popup_upstream_min", controller(targets=c("roll_popup_upstream"), counter_targets=c("targets_popup_upstream", "dates_popup_upstream")))
+	onevent("mouseleave", "roll_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
 
 
 
