@@ -31,23 +31,15 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					id = "metadata", 
 					class = "panel panel-default",
-					top = 64, left = 48, height=70, width = "94%",
+					bottom = 0, left = 0, height=100, width = "100%",
 					fixed=TRUE, draggable = FALSE,
 					div(h4("METADATA HERE"))
 				),
 				
 				absolutePanel(
-					id = "targets_popup_wwtp_min",
-					style = "writing-mode: vertical-rl; text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					top = 150, right = 0, width = 25, height = "80%",
-					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Control Panel"))
-				),					
-
-				absolutePanel(
 					id = "details", 
 					class = "panel panel-default",
-					top = 152, left = 52, width = 600, fixed=TRUE,
+					top = 75, right = 10, width = 600, fixed=TRUE,
 					draggable = TRUE, height = "auto",
 
 					span(tags$i(h4(textOutput("last_update"))), style="color:#000000"),
@@ -57,7 +49,7 @@ shinyUI(bootstrapPage(
 
 					span(tags$i(h6("All reported values are 3-day rolling means, and adjusted for average daily flow rate.")), style="color:#045a8d; text-align: center"),
 
-					plotlyOutput("plot_wwtp", height="400px", width="100%"),
+					plotlyOutput("plot_wwtp", height="250px", width="100%"),
 
 					div(
 						style="background-color:#f0f0e3; margins: 1px 0px 10px 0px; padding: 8px;",
@@ -73,18 +65,86 @@ shinyUI(bootstrapPage(
 						actionBttn(inputId="embiggen_open_wwtp", label="Enlarge This Plot", style="pill", size="xs", color="success")
 					)
 				), # absolutePanel
+				
+				absolutePanel(
+					id = "targets_popup_wwtp_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 5, width = 80, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Targets"))
+				),					
+				absolutePanel(
+					id = "targets_popup_wwtp", 
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 25, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose the targets to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					prettyCheckboxGroup(
+						inputId = "targets_wwtp",
+						label=NULL,
+						choiceNames = TARGETS,
+						choiceValues = TARGET_VALUES,
+						icon = icon("check-square"), 
+						status = "success",
+						selected = TARGETS_DEFAULT,
+						outline = TRUE
+	#							animation = "pulse"
+					)
+				),
+				absolutePanel(
+					id = "dates_popup_wwtp_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 90, width = 100, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Date Range"))
+				),					
+				absolutePanel(
+					id = "dates_popup_wwtp", 
+					style="background-color: #000000;opacity: 0.8;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 110, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a range of dates to display:", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					sliderTextInput(
+						inputId = "dates_wwtp",
+						force_edges = TRUE,
+						#width = "90%",
+						label=NULL,
+						choices = sort(unique(as.Date(ymd(df_watch$week_starting)))),
+						selected = c(min(as.Date(ymd(df_watch$week_starting))), max(as.Date(ymd(df_watch$week_starting)))),
+	#							animate=animationOptions(interval = 3000, loop = FALSE),
+						grid = FALSE
+					)
+				),
+				absolutePanel(
+					id = "roll_popup_wwtp_min",
+					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+					bottom = 0, left = 195, width = 115, height = 25,
+					fixed=TRUE, draggable = FALSE,
+					span(tags$i("Data Smoothing"))
+				),					
+				absolutePanel(
+					id = "roll_popup_wwtp", 
+					style="background-color: #000000;color: #ffffff;opacity: 1.0;padding: 3px; border: 1px solid #dddddd; border-radius: 5px; font-size: 11px;", 
+					bottom = 25, left = 215, width = 300, height = 130,
+					fixed=TRUE, draggable=FALSE, 
+					h5("Choose a rolling mean window (days):", align = "center", style="background-color: #000000;color: #ffffff;padding: 2px;margin-top: 5px"),
+					sliderInput(
+						inputId = "roll_wwtp",
+						label=NULL,
+						min=2, max=10, value=SMOOTHER_DEFAULT
+					)
+				), # absolutePanel
 
 				absolutePanel(
 					id = "logo", 
 					class = "card", 
-					bottom = 0, left = 0, width = 80, 
-					fixed = TRUE, draggable = FALSE, 
+					bottom = 10, right = 10, width = 80, 
+					fixed=TRUE, draggable = FALSE, 
 					height = "auto",
 					tags$a(href='https://www.wvuvectors.com/', 
 					tags$img(src='WaTCH-WV_logo.png',height='80',width='80'))
-				), # absolutePanel
-				
-				
+				) # absolutePanel
+
 #				absolutePanel(
 #					id = "logo", 
 #					class = "card", 
