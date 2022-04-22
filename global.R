@@ -20,6 +20,7 @@ library(shinyjs)
 library(shinythemes)
 library(shinyWidgets)
 library(leaflet)
+library(fontawesome)
 #library(leaflet.extras)
 library(rsconnect)
 
@@ -29,7 +30,12 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
-L_per_gal=3.78541
+TARGETS <- c("SARS-CoV-2 N1&N2", "SARS-CoV-2 N1", "SARS-CoV-2 N2")
+TARGET_VALUES <- c("n1n2", "n1", "n2")
+TARGETS_DEFAULT <- c("n1n2")
+SMOOTHER_DEFAULT <- 3
+
+L_per_gal <- 3.78541
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
@@ -56,10 +62,13 @@ my_theme <- function () {
 										 panel.grid.minor.y = element_blank(),
 										 panel.grid.minor.x = element_line(color="#eeeeee", size=1),
 										 panel.background = element_blank(), 
-										 legend.position = "bottom",
 										 panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
 #										 panel.border = element_blank(), 
-										 strip.background = element_rect(fill = 'white', color = 'white')
+										 strip.background = element_rect(fill = 'white', color = 'white'),
+										 legend.position = c(.95, .95),
+										 legend.justification = c("right", "top"),
+										 legend.box.just = "right",
+										 legend.margin = margin(6, 6, 6, 6)
 )}
 
 ci90 <- function(x) {
@@ -118,7 +127,7 @@ df_watch$week_num <- week(df_watch$week_ending)
 df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
 
 
-# Set date constraints
+# Set date constraints on input data
 # May want to change this in the future?
 df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
 
