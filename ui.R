@@ -29,44 +29,28 @@ shinyUI(bootstrapPage(
 				leafletOutput("map_wwtp", width="100%", height="100%"),
 
 				absolutePanel(
-					id = "metadata", 
-					class = "panel panel-default",
-					top = 64, left = 48, height=70, width = "94%",
-					fixed=TRUE, draggable = FALSE,
-					div(h4("METADATA HERE"))
-				),
-				
-				absolutePanel(
-					id = "targets_popup_wwtp_min",
-					style = "writing-mode: vertical-rl; text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
-					top = 150, right = 0, width = 25, height = "80%",
-					fixed=TRUE, draggable = FALSE,
-					span(tags$i("Control Panel"))
-				),					
-
-				absolutePanel(
 					id = "details", 
 					class = "panel panel-default",
-					top = 152, left = 52, width = 600, fixed=TRUE,
+					top = 162, left = 53, width = 600, fixed=TRUE,
 					draggable = TRUE, height = "auto",
 
-					span(tags$i(h4(textOutput("last_update"))), style="color:#000000"),
-					h4(textOutput("all_facilities"), align = "left"),
-					h5(textOutput("all_samples"), align = "left"),
-					h4(textOutput("facility_name"), align = "center", style="background-color: #FFEFCE;color: #000000;padding: 5px;margin-top: 20px"),
+#					span(tags$i(h4(textOutput("last_update"))), style="color:#000000"),
+#					h4(textOutput("all_facilities"), align = "left"),
+#					h5(textOutput("all_samples"), align = "left"),
+#					h4(textOutput("facility_name"), align = "center", style="background-color: #FFEFCE;color: #000000;padding: 5px;margin-top: 20px"),
 
 					span(tags$i(h6("All reported values are 3-day rolling means, and adjusted for average daily flow rate.")), style="color:#045a8d; text-align: center"),
 
-					plotlyOutput("plot_wwtp", height="400px", width="100%"),
+					plotlyOutput("plot_wwtp", height="380px", width="100%"),
 
-					div(
-						style="background-color:#f0f0e3; margins: 1px 0px 10px 0px; padding: 8px;",
-						span(tags$i(h5("Facility Information")), style="color:#000000; text-align: center;"),
-						h6(textOutput("facility_samples"), align = "left"),
-						h6(textOutput("facility_capacity"), align = "left"),
-						h6(textOutput("facility_popserved"), align = "left"),
-						h6(textOutput("facility_counties"), align = "left")
-					),
+#					div(
+#						style="background-color:#f0f0e3; margins: 1px 0px 10px 0px; padding: 8px;",
+#						span(tags$i(h5("Facility Information")), style="color:#000000; text-align: center;"),
+#						h6(textOutput("facility_samples"), align = "left"),
+#						h6(textOutput("facility_capacity"), align = "left"),
+#						h6(textOutput("facility_popserved"), align = "left"),
+#						h6(textOutput("facility_counties"), align = "left")
+#					),
 		
 					div(
 						style="background-color:#ffffff; margins: 1px 0px 5px 0px; padding: 3px; float: right;",
@@ -75,14 +59,128 @@ shinyUI(bootstrapPage(
 				), # absolutePanel
 
 				absolutePanel(
-					id = "logo", 
-					class = "card", 
-					bottom = 0, left = 0, width = 80, 
-					fixed = TRUE, draggable = FALSE, 
-					height = "auto",
-					tags$a(href='https://www.wvuvectors.com/', 
-					tags$img(src='WaTCH-WV_logo.png',height='80',width='80'))
-				), # absolutePanel
+					id = "alert_panel", 
+					top = 65, left = 45, height=75, width = 125,
+#					bottom = 5, left = 245, height=75, width = 125,
+					fixed=TRUE, draggable=FALSE,
+					style="background-color: #f0fff0;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span("Current alert level is", style="font-size: 13px;"),
+					span((textOutput("alert_level")), style="font-size: 24px; font-weight: 800; color: #009900;line-height: 28px;")
+				),
+				
+				hidden(
+					absolutePanel(
+						id = "alert_level_info",
+						style="background-color:#ffffff; padding: 4px; margins: 0;border: 2px solid #909090; border-radius: 5px;",
+						top = 200, left = 450, height="auto", width = 300,
+						fixed=TRUE, draggable=TRUE,
+						div("Hi there!"),
+						div(
+							style="padding-top: 15px; padding-right: 5px; float: right;",
+							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="warning")
+						)
+					)
+				),
+					
+				absolutePanel(
+					id = "scope_panel", 
+					top = 65, left = 170, height=75, width = 240,
+#					bottom = 5, left = 5, height=75, width = 240,
+					fixed=TRUE, draggable=FALSE,
+					style="padding-top: 5px;background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span((textOutput("scope")), style="font-size: 19px; font-weight: 800; line-height: 26px;"),
+					span((textOutput("scope_count")), style="font-size: 15px; font-weight: 200;"),
+					span((textOutput("sample_count")), style="font-size: 11px; font-weight: 200;")
+				),
+				
+				absolutePanel(
+					id = "population_panel", 
+					top = 65, left = 410, height=75, width = 130,
+#					bottom = 5, left = 370, height=75, width = 130,
+					fixed=TRUE, draggable=FALSE,
+					style="padding-top: 8px; background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span((textOutput("counties_served")), style="font-size: 16px;line-height: 18px;"),
+					span("total population", style="font-size: 10px; line-height: 14px;"),
+					span((textOutput("county_population")), style="font-size: 15px;line-height: 11px;")
+				),
+				
+				absolutePanel(
+					id = "networkpop_panel", 
+					top = 65, left = 540, height=75, width = 130,
+#					bottom = 5, left = 370, height=75, width = 130,
+					fixed=TRUE, draggable=FALSE,
+					style="background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span("Population on network", style="font-size: 10px; line-height: 12px;"),
+					span((textOutput("population_served")), style="font-size: 18px;line-height: 22px;"),
+					#span("or", style="font-size: 10px; line-height: 14px;"),
+					span((textOutput("population_served_pct")), style="font-size: 13px;line-height: 18px;")
+				),
+				
+#				absolutePanel(
+#					id = "last_date_panel", 
+#					top = 65, left = 540, height=75, width = 130,
+##					bottom = 5, left = 370, height=75, width = 130,
+#					fixed=TRUE, draggable=FALSE,
+#					style="background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+#					span("Samples collected from", style="font-size: 11px; line-height: 12px;"),
+#					span((textOutput("first_data")), style="font-size: 16px; line-height: 12px;"),
+#					span("until", style="font-size: 11px;; line-height: 11px;"),
+#					span((textOutput("last_data")), style="font-size: 16px;; line-height: 15px;")
+#				),
+				
+				absolutePanel(
+					id = "daily_flow_panel", 
+					top = 65, left = 670, height=75, width = 130,
+#					bottom = 5, left = 370, height=75, width = 130,
+					fixed=TRUE, draggable=FALSE,
+					style="padding-top: 3px; background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span("Mean daily flow", style="font-size: 13px;"),
+					span((textOutput("mean_flow")), style="font-size: 16px;"),
+					span("(million gallons per day)", style="font-size: 11px;")
+				),
+				
+				absolutePanel(
+					id = "collection_panel", 
+					top = 65, left = 800, height=75, width = 130,
+#					bottom = 5, left = 370, height=75, width = 130,
+					fixed=TRUE, draggable=FALSE,
+					style="padding-top: 3px; background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span("This facility provides", style="font-size: 10px;"),
+					span((textOutput("collection_frequency")), style="font-size: 13px;line-height: 12px;"),
+					span("as", style="font-size: 10px; line-height: 11px;"),
+					span((textOutput("collection_scheme")), style="font-size: 11px;line-height: 11px;")
+				),
+				
+				absolutePanel(
+					id = "last_date_panel", 
+					top = 65, left = 930, height=75, width = 140,
+#					bottom = 5, left = 370, height=75, width = 130,
+					fixed=TRUE, draggable=FALSE,
+					style="padding-top: 1px; background-color: #ffffff;border: 1px solid #666666; border-radius: 5px;text-align: center;",
+					span("Last update from this site", style="font-size: 11px;"),
+					span((textOutput("last_update")), style="font-size: 20px;"),
+				),
+				
+
+#				absolutePanel(
+#					id = "targets_popup_wwtp_min",
+#					style = "text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+#					#style = "writing-mode: vertical-rl; text-align:center; background-color: #000000; color: #ffffff; border: 1px solid #dddddd; border-radius: 5px; opacity: 0.9;",
+#					#top = 150, right = 0, width = 25, height = "80%",
+#					top = 64, left = 600, height = 25, width = "auto",
+#					fixed=TRUE, draggable = FALSE,
+#					span(tags$i("Control Panel"))
+#				),					
+
+#				absolutePanel(
+#					id = "logo", 
+#					class = "card", 
+#					bottom = 0, left = 0, width = 80, 
+#					fixed = TRUE, draggable = FALSE, 
+#					height = "auto",
+#					tags$a(href='https://www.wvuvectors.com/', 
+#					tags$img(src='WaTCH-WV_logo.png',height='80',width='80'))
+#				), # absolutePanel
 				
 				
 #				absolutePanel(

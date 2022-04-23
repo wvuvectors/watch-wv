@@ -276,12 +276,12 @@ shinyServer(function(input, output, session) {
 #							Esri.NatGeoWorldMap
 #							Esri.WorldTopoMap
 #		addPolylines(data=county_sf, fill=FALSE, weight=3, color="#999999", layerId="countiesLayer") %>%
-		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
-#		addLayersControl(
-#			position = "bottomright",
-#			overlayGroups = TARGETS,
-#											options = layersControlOptions(collapsed = FALSE)
-#		) %>%
+		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer") %>%
+		addLayersControl(
+			position = "bottomright",
+			overlayGroups = sort(unique(df_watch$group), decreasing=TRUE),
+											options = layersControlOptions(collapsed = FALSE)
+		)
 #		hideGroup(TARGETS) %>% 
 #		showGroup(TARGETS_DEFAULT)
 #		fitBounds(~-100,-60,~60,70) %>%
@@ -512,6 +512,8 @@ shinyServer(function(input, output, session) {
 	}
 	
 	controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp"))
+	
+	onevent("click", "alert_panel", controller(targets=c("alert_level_info")))
 
 	onevent("mouseenter", "targets_popup_wwtp_min", controller(targets=c("targets_popup_wwtp"), counter_targets=c("dates_popup_wwtp", "roll_popup_wwtp")))
 	onevent("mouseleave", "targets_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
@@ -533,6 +535,10 @@ shinyServer(function(input, output, session) {
 
 	onevent("mouseenter", "roll_popup_upstream_min", controller(targets=c("roll_popup_upstream"), counter_targets=c("targets_popup_upstream", "dates_popup_upstream")))
 	onevent("mouseleave", "roll_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
+
+	observeEvent(input$alert_level_info_close,{
+    controller(counter_targets=c("alert_level_info"))
+	}, ignoreInit = TRUE)
 
 
 
@@ -644,7 +650,29 @@ shinyServer(function(input, output, session) {
 		plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 	})
 
-	output$last_update <- renderText(paste0("Wastewater Nowcast for West Virginia (", format(LAST_DATE_WWTP, format = "%d %b %Y"), ")", sep = " "))
+	output$alert_level <- renderText("Green")
+
+	output$scope <- renderText("State of West Virginia")
+	output$scope_count <- renderText(paste0(FACILITY_TOTAL_WWTP, " WWTP, ", FACILITY_TOTAL_UPSTREAM, " sewers"))
+	output$sample_count <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " samples"))
+
+	output$counties_served <- renderText(paste0(CTY_TOTAL_WWTP, " counties"))
+	output$county_population <- renderText(formatC(POP_TOTAL_CTY, big.mark=","))
+
+	output$population_served <- renderText(formatC(POP_TOTAL_WWTP, big.mark=","))
+	output$population_served_pct <- renderText(paste0(formatC(100*POP_TOTAL_WWTP/POP_TOTAL_CTY, big.mark=","), "% by county"))
+
+#	output$first_data <- renderText(format(FIRST_DATE_WWTP, format = "%b %d, %Y"))
+#	output$last_data <- renderText(format(LAST_DATE_WWTP, format = "%b %d, %Y"))
+
+	output$mean_flow <- renderText(paste0(formatC(mean(df_watch$daily_flow, big.mark=",")), " MGD"))
+
+	output$collection_frequency <- renderText("3-6 samples/week")
+	output$collection_scheme <- renderText("composite samples")
+
+	output$last_update <- renderText(paste0(ymd(today)-ymd(LAST_DATE_WWTP)-1, " days ago"))
+
+	#output$last_update <- renderText(paste0("Wastewater Nowcast for West Virginia (", format(LAST_DATE_WWTP, format = "%d %b %Y"), ")", sep = " "))
 	output$all_facilities <- renderText(paste0(FACILITY_TOTAL_WWTP, " active treatment facilities.", sep = " "))
 	output$all_samples <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " total samples processed since ", format(FIRST_DATE_WWTP, format = "%d %b %Y"), ".", sep = " "))
 	output$facility_name <- renderText(paste0("All Facilities", sep = " "))

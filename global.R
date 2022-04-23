@@ -40,7 +40,8 @@ L_per_gal <- 3.78541
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
 
-first_day <- as_date("2021-10-03")
+#first_day <- as_date("2021-10-03")
+first_day <- as_date("2021-07-01")
 last_day <- today
 
 blues7 <- c("1" = "#DEEBF7", "2" = "#C6DBEF", "3" = "#9ECAE1", "4" = "#6BAED6", "5" = "#4292C6", "6" = "#2171B5", "7" = "#084594") 
@@ -167,6 +168,7 @@ FACILITY_TOTAL_WWTP = n_distinct(df_wwtp$location_common_name)
 CAP_TOTAL_WWTP = sum(distinct(df_wwtp, location_common_name, capacity_mgd)$capacity_mgd)+1
 POP_TOTAL_WWTP = sum(distinct(df_wwtp, location_common_name, population_served)$population_served)
 CTY_TOTAL_WWTP = n_distinct(df_wwtp$counties_served)
+POP_TOTAL_CTY = sum(distinct(df_watch, counties_served, county_population)$county_population)
 
 SAMPLE_TOTAL_WWTP = n_distinct(df_wwtp$"Sample ID")
 FIRST_DATE_WWTP = min(df_wwtp$day)
