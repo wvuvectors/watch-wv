@@ -30,9 +30,18 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
-TARGETS <- c("SARS-CoV-2 N1&N2", "SARS-CoV-2 N1", "SARS-CoV-2 N2")
+INFECTIONS <- c("SARS-CoV-2")
+INFECTIONS_DEFAULT <- "SARS-CoV-2"
+
+TARGETS <- c("Mean N1 & N2", "N1", "N2")
 TARGET_VALUES <- c("n1n2", "n1", "n2")
-TARGETS_DEFAULT <- c("n1n2")
+TARGETS_DEFAULT <- "n1n2"
+
+#TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
+#												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
+#												 "target_value" = c("n1n2", "n1", "n2")
+#												)
+												
 SMOOTHER_DEFAULT <- 3
 
 L_per_gal <- 3.78541
@@ -162,6 +171,12 @@ df_wwtp[df_wwtp == -Inf] <- NA
 #	df_ci90 <- fortify(zoo_ci90, melt=TRUE, names=c(Index="day", Value="rollmean.ci90"))
 #}
 
+#
+# Determine alert level
+#
+
+ALERT_TXT="Green"
+TREND_TXT="low but increasing rapidly"
 
 # set  up some global numbers
 FACILITY_TOTAL_WWTP = n_distinct(df_wwtp$location_common_name)

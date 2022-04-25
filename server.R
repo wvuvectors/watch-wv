@@ -10,6 +10,12 @@
 
 shinyServer(function(input, output, session) {
 	
+	###########################
+	#
+	#			GENERAL USE
+	#
+	###########################
+
 	# Leaflet proxies
 	myWWTPLeafletProxy <- leafletProxy(mapId="map_wwtp", session)
 	myUpstreamLeafletProxy <- leafletProxy(mapId="map_upstream", session)
@@ -23,7 +29,7 @@ shinyServer(function(input, output, session) {
 	)
 	
 	wwtpRV <- reactiveValues(
-								mapClick="All Facilities", 
+								mapClick="State of West Virginia", 
 								clickLat=0, clickLng=0
 	)
 	
@@ -32,15 +38,74 @@ shinyServer(function(input, output, session) {
 								clickLat=0, clickLng=0
 	)
 
-#	print(paste0("On server init: ", controlRV$Dates, sep=""))
+	# Render a base map
+	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
+		mymap = leaflet(data_in) %>% 
+		addTiles() %>% 
+		setView(lng = center_lng, lat = center_lat, zoom = zoom_level) %>% 
+		addCircleMarkers(layerId = ~location_common_name, 
+										 lat = ~latitude, 
+										 lng = ~longitude, 
+										 radius = 10, 
+										 stroke = TRUE,
+										 weight = 2, 
+										 color = "black", 
+										 fill = TRUE,
+										 fillColor = "black",
+										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
+										 fillOpacity = 0.6)
+		
+		return(mymap)
+	}
+
+	controller <- function(targets, counter_targets) {
+		if (!missing(targets)) {
+			for (targ in targets) {
+				shinyjs::show(targ)
+			}
+		}
+		if (!missing(counter_targets)) {
+			for (targ in counter_targets) {
+				shinyjs::hide(targ)
+			}
+		}
+	}
+	
+
 
 
 	###########################
 	#
-	#			PLOT RENDERING
+	#			WWTP PANEL
 	#
 	###########################
 	
+	#
+	# WWTP map
+	#
+	output$map_wwtp <- renderLeaflet({
+		generateMap(data_in = df_wwtp, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 8) %>% 
+#		addProviderTiles(providers$Thunderforest.TransportDark)
+#							Jawg.Streets
+#							Esri.NatGeoWorldMap
+#							Esri.WorldTopoMap
+#		addPolylines(data=county_sf, fill=FALSE, weight=3, color="#999999", layerId="countiesLayer") %>%
+		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
+#		addLayersControl(
+#			position = "bottomright",
+#			overlayGroups = sort(unique(df_watch$group), decreasing=TRUE),
+#											options = layersControlOptions(collapsed = FALSE)
+#		)
+#		hideGroup(TARGETS) %>% 
+#		showGroup(TARGETS_DEFAULT)
+#		fitBounds(~-100,-60,~60,70) %>%
+#		addLegend("bottomright", pal = cv_pal, values = ~cv_large_countries$deaths_per_million,
+#			title = "<small>Deaths per million</small>")
+	})
+
+	#
+	# WWTP plot
+	#
 	plotWWTP = function(dates, facility, rollwin, ci, targets) {
 #		print(dates)
 #		print(facility)
@@ -50,7 +115,7 @@ shinyServer(function(input, output, session) {
 		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
-		if (facility == "All Facilities") {
+		if (facility == "State of West Virginia") {
 
 			loc_df <- df_wwtp %>% filter(week_starting >= fromDate & week_starting <= toDate) %>%
 								group_by(day) %>% 
@@ -144,6 +209,312 @@ shinyServer(function(input, output, session) {
 		
 		ggplotly(gplot)
 	}
+	
+	md_blockset <- function(facility) {
+	
+		if (missing(facility)) {
+			facility = "State of West Virginia"
+		}
+	
+	
+		# Generalizable
+		#
+		output$alert_level <- renderText(ALERT_TXT)
+		output$site_signal <- renderText(TREND_TXT)
+		output$scope <- renderText(facility)
+	
+		if (facility == "State of West Virginia") {
+			output$scope_count <- renderText(paste0(FACILITY_TOTAL_WWTP, " facilities"))
+			output$sample_count <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " samples since ", FIRST_DATE_WWTP))
+
+			output$counties_served <- renderText(paste0(CTY_TOTAL_WWTP, " counties"))
+			output$county_population <- renderText(formatC(POP_TOTAL_CTY, big.mark=","))
+
+			output$population_served <- renderText(formatC(POP_TOTAL_WWTP, big.mark=","))
+			output$population_served_pct <- renderText(paste0(formatC(100*POP_TOTAL_WWTP/POP_TOTAL_CTY, big.mark=","), "% of counties"))
+
+			output$mean_flow <- renderText(paste0(formatC(mean(df_watch$daily_flow, big.mark=",")), " MGD"))
+
+			df_lastmon <- df_wwtp %>% filter(ymd(day) >= ymd(today) - 28)
+
+			output$collection_frequency <- renderText(paste0((n_distinct(df_lastmon$"Sample ID")/4), " samples/week"))
+			#output$collection_scheme <- renderText("composite samples")
+
+			output$last_update <- renderText(paste0(ymd(today)-ymd(LAST_DATE_WWTP)-1, " days ago"))
+
+		} else {
+			df_facility <- df_wwtp %>% filter(location_common_name == facility)
+			SAMPLE_TOTAL = formatC(n_distinct(df_facility$"Sample ID"), big.mark=",")
+			FIRST_DATE = format(min(df_facility$day), format = "%b %d, %Y")
+			LAST_DATE = max(df_facility$day)
+			COUNTY = unique(df_facility$counties_served)
+			COUNTY_POP = unique(df_facility$county_population)
+			POP_SERVED = unique(df_facility$population_served)
+		
+			#COLL_TYPE = unique(watch_fac$collection_scheme)
+
+			output$scope_count <- renderText("1 facility")
+			output$sample_count <- renderText(paste0(formatC(SAMPLE_TOTAL, big.mark=","), " samples since ", FIRST_DATE))
+
+			output$counties_served <- renderText(paste0(COUNTY, " county"))
+			output$county_population <- renderText(formatC(COUNTY_POP, big.mark=","))
+
+			output$population_served <- renderText(formatC(POP_SERVED, big.mark=","))
+			output$population_served_pct <- renderText(paste0(formatC(100*POP_SERVED/COUNTY_POP, big.mark=","), "% of county"))
+	
+			output$mean_flow <- renderText(paste0(formatC(mean(df_facility$daily_flow, big.mark=",")), " MGD"))
+
+			df_lastmon <- df_facility %>% filter(ymd(day) >= ymd(today) - 28)
+			output$collection_frequency <- renderText(paste0((n_distinct(df_lastmon$"Sample ID")/4), " samples/week"))
+			#output$collection_scheme <- renderText("composite samples")
+
+			output$last_update <- renderText(paste0(ymd(today)-ymd(LAST_DATE)-1, " days ago"))
+		}
+	}
+		
+	
+	#
+	# Init basic elements
+	#
+
+	output$plot_wwtp <- renderPlotly({
+		plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+	})
+	
+	md_blockset()
+	
+
+	
+	#
+	# map interactivity
+	#
+	
+	# Respond to off-marker click
+  observeEvent(input$map_wwtp_click, { 
+		#print("Map click event top")
+		
+		# only respond if this click is in a new position on the map
+		if (input$map_wwtp_click$lat != wwtpRV$clickLat | input$map_wwtp_click$lng != wwtpRV$clickLng) {
+			wwtpRV$clickLat <- 0
+			wwtpRV$clickLng <- 0
+
+			wwtpRV$mapClick <- "State of West Virginia"
+		
+			# Update map marker colors
+			myWWTPLeafletProxy %>% 
+				clearMarkers() %>% 
+				addCircleMarkers(data = df_wwtp,
+											 layerId = ~location_common_name, 
+											 lat = ~latitude, 
+											 lng = ~longitude, 
+											 radius = 10, 
+											 stroke = TRUE,
+											 weight = 5, 
+											 color = "black", 
+											 fill = TRUE,
+											 fillColor = "black",
+											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
+											 fillOpacity = 0.6)
+		
+			# Reset WWTP plots
+			output$plot_wwtp <- renderPlotly({
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			})
+		
+#			output$plot_wwtp_big <- renderPlotly({
+#				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
+#			})
+
+			# Update reactive text elements
+			md_blockset()
+			
+		}
+	}, ignoreInit = TRUE)
+	
+
+	# Respond to click on WWTP map marker
+  observeEvent(input$map_wwtp_marker_click, { 
+    clickedLocation <- input$map_wwtp_marker_click$id
+		wwtpRV$mapClick <- clickedLocation
+		
+		wwtpRV$clickLat <- input$map_wwtp_marker_click$lat
+		wwtpRV$clickLng <- input$map_wwtp_marker_click$lng
+		
+    # Update map marker colors
+    myWWTPLeafletProxy %>% 
+    	clearMarkers() %>% 
+			addCircleMarkers(data = df_wwtp,
+										 layerId = ~location_common_name, 
+										 lat = ~latitude, 
+										 lng = ~longitude, 
+										 radius = 10, 
+										 stroke = TRUE,
+										 weight = 5, 
+										 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = "black"), 
+										 fill = TRUE,
+										 fillColor = "black",
+										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
+										 fillOpacity = 0.6)
+		
+		# Update plots
+		output$plot_wwtp <- renderPlotly({
+				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+		
+		# Update reactive text elements
+		md_blockset(clickedLocation)
+		
+  }, ignoreInit = TRUE)
+
+
+
+
+
+
+
+	###########################
+	#
+	# CONTROL PANEL EVENTS
+	#
+	###########################
+
+
+	onevent("click", "alert_panel", controller(targets=c("alert_level_info")))
+	onevent("click", "site_status_panel", controller(targets=c("site_status_info")))
+	onevent("click", "scope_panel", controller(targets=c("scope_info")))
+	onevent("click", "population_panel", controller(targets=c("population_info")))
+	onevent("click", "networkpop_panel", controller(targets=c("networkpop_info")))
+	onevent("click", "daily_flow_panel", controller(targets=c("daily_flow_info")))
+	onevent("click", "collection_panel", controller(targets=c("collection_info")))
+	onevent("click", "last_date_panel", controller(targets=c("last_date_info")))
+
+	observeEvent(input$alert_level_info_close,{
+    controller(counter_targets=c("alert_level_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$site_status_info_close,{
+    controller(counter_targets=c("site_status_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$scope_info_close,{
+    controller(counter_targets=c("scope_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$population_info_close,{
+    controller(counter_targets=c("population_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$networkpop_info_close,{
+    controller(counter_targets=c("networkpop_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$daily_flow_info_close,{
+    controller(counter_targets=c("daily_flow_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$collection_info_close,{
+    controller(counter_targets=c("collection_info"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$last_date_info_close,{
+    controller(counter_targets=c("last_date_info"))
+	}, ignoreInit = TRUE)
+	
+
+	#onevent("mouseenter", "site_status_panel", shinyjs::inlineCSS(list(.site_status_panel = "background-color: #FFFB00")))
+	#onevent("mouseleave", "site_status_panel", shinyjs::inlineCSS(list(.site_status_panel = "background-color: #f0fff0")))
+
+	#
+	# Respond to change in targets to plot
+	#
+  observeEvent(input$targets_wwtp, {
+		controlRV$visibleTargets <- input$targets_wwtp
+		updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
+		
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+  observeEvent(input$targets_upstream, {
+		controlRV$visibleTargets <- input$targets_upstream
+		updatePrettyCheckboxGroup(session = session, inputId = "targets_wwtp", selected = controlRV$visibleTargets)
+		
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+	
+	#
+	# Respond to change in dates to view
+	#
+	observeEvent(input$dates_wwtp, {
+		#print(paste0("Observed: ", input$dates_wwtp, sep = ""))
+		#print(paste0("Min: ", min(df_watch$week_starting), ". Max: ", max(df_watch$week_starting), sep=""))
+		
+		controlRV$Dates <- input$dates_wwtp
+		updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
+		
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+	observeEvent(input$dates_upstream, {
+		controlRV$Dates <- input$dates_upstream
+		updateSliderTextInput(session = session, inputId = "dates_wwtp", selected = controlRV$Dates)
+		
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+
+	#
+	# Respond to change in rolling window size
+	#
+  observeEvent(input$roll_wwtp, {
+		controlRV$rollWin <- input$roll_wwtp
+		updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
+		
+		output$plot_wwtp <- renderPlotly({
+			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+  observeEvent(input$roll_upstream, {
+		controlRV$rollWin <- input$roll_upstream
+		updateSliderInput(session = session, inputId = "roll_wwtp", value = controlRV$rollWin)
+		
+		output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
+
+
+
+
+
+
+
+
+
+
+
+
+	#
+	# Sewer network default info panel elements
+	#
+	output$plot_upstream <- renderPlotly({
+			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+	})
+
+	output$last_update_upstream <- renderText(paste0("Sewer Network Wastewater Nowcast (", format(LAST_DATE_UPSTREAM, format = "%d %b %Y"), ")", sep = " "))
+	output$all_facilities_upstream <- renderText(paste0(FACILITY_TOTAL_UPSTREAM, " active sewer network sites.", sep = " "))
+	output$all_samples_upstream <- renderText(paste0(formatC(SAMPLE_TOTAL_UPSTREAM, big.mark=","), " total samples processed since ", format(FIRST_DATE_UPSTREAM, format = "%d %b %Y"), ".", sep = " "))
+	output$facility_name_upstream <- renderText(paste0("All Locations", sep = " "))
+
 
 	plotUpstream = function(dates, facility, rollwin, ci, targets) {
 		fromDate <- as.Date(ymd(dates[1]))
@@ -241,56 +612,10 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)
 
 	}
-	
 
-
-
-	###########################
 	#
-	#			MAPS
-	#
-	###########################
-	
-	# Render a base map
-	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
-		mymap = leaflet(data_in) %>% 
-		addTiles() %>% 
-		setView(lng = center_lng, lat = center_lat, zoom = zoom_level) %>% 
-		addCircleMarkers(layerId = ~location_common_name, 
-										 lat = ~latitude, 
-										 lng = ~longitude, 
-										 weight = 0.2, 
-										 radius = 10, 
-										 color = "#945200", 
-										 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
-										 fillOpacity = 0.6)
-		
-		return(mymap)
-	}
-
-	# WWTP map
-	output$map_wwtp <- renderLeaflet({
-		generateMap(data_in = df_wwtp, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 8) %>% 
-#		addProviderTiles(providers$Thunderforest.TransportDark)
-#							Jawg.Streets
-#							Esri.NatGeoWorldMap
-#							Esri.WorldTopoMap
-#		addPolylines(data=county_sf, fill=FALSE, weight=3, color="#999999", layerId="countiesLayer") %>%
-		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer") %>%
-		addLayersControl(
-			position = "bottomright",
-			overlayGroups = sort(unique(df_watch$group), decreasing=TRUE),
-											options = layersControlOptions(collapsed = FALSE)
-		)
-#		hideGroup(TARGETS) %>% 
-#		showGroup(TARGETS_DEFAULT)
-#		fitBounds(~-100,-60,~60,70) %>%
-#		addLegend("bottomright", pal = cv_pal, values = ~cv_large_countries$deaths_per_million,
-#			title = "<small>Deaths per million</small>")
-	})
-
-
 	# Sewer network map
+	#
 	output$map_upstream <- renderLeaflet({
 		generateMap(data_in = df_upstream, center_lat = 39.6352701, center_lng = -80.0125177, zoom_level = 13) %>% 
 		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer")
@@ -304,111 +629,10 @@ shinyServer(function(input, output, session) {
 		
 	})
 
-
-
-	###########################
 	#
-	#			MAPS INTERACTIVITY
-	#
-	###########################
-	
-	#
-	# WWTP tab
+	# map interactivity
 	#
 	
-	# Respond to off-marker click
-  observeEvent(input$map_wwtp_click, { 
-		#print("Map click event top")
-		if (input$map_wwtp_click$lat != wwtpRV$clickLat | input$map_wwtp_click$lng != wwtpRV$clickLng) {
-			wwtpRV$clickLat <- 0
-			wwtpRV$clickLng <- 0
-
-			wwtpRV$mapClick <- "All Facilities"
-		
-			# Update map marker colors
-			myWWTPLeafletProxy %>% 
-				clearMarkers() %>% 
-				addCircleMarkers(data = df_wwtp,
-											 layerId = ~location_common_name, 
-											 lat = ~latitude, 
-											 lng = ~longitude, 
-											 weight = 0.2, 
-											 radius = 10, 
-											 color = "#945200", 
-											 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
-											 fillOpacity = 0.6)
-		
-			# Reset WWTP plots
-			output$plot_wwtp <- renderPlotly({
-				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-			})
-		
-			output$plot_wwtp_big <- renderPlotly({
-				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
-			})
-
-			# Update reactive text elements
-			output$facility_name <- renderText(paste0("All Facilities", sep = " "))
-			output$facility_samples <- renderText("")
-			output$facility_capacity <- renderText(paste0("Total statewide capacity involved: ", formatC(CAP_TOTAL_WWTP, big.mark=","), " million gallons per day (MGD).", sep = " "))
-			output$facility_popserved <- renderText(paste0("Total estimated population included: ", formatC(POP_TOTAL_WWTP, big.mark=","), ".", sep = " "))
-			output$facility_counties <- renderText(paste0("Serving ", CTY_TOTAL_WWTP, " total WV counties.", sep = " "))
-		}
-	}, ignoreInit = TRUE)
-	
-
-	# Respond to click on WWTP map marker
-  observeEvent(input$map_wwtp_marker_click, { 
-    clickedLocation <- input$map_wwtp_marker_click$id
-		wwtpRV$mapClick <- clickedLocation
-		
-		wwtpRV$clickLat <- input$map_wwtp_marker_click$lat
-		wwtpRV$clickLng <- input$map_wwtp_marker_click$lng
-		
-    # Update map marker colors
-    myWWTPLeafletProxy %>% 
-    	clearMarkers() %>% 
-			addCircleMarkers(data = df_wwtp,
-										 layerId = ~location_common_name, 
-										 lat = ~latitude, 
-										 lng = ~longitude, 
-										 weight = 0.2, 
-										 radius = 10, 
-										 color=~ifelse(location_common_name==clickedLocation, yes = "red", no = "#945200"), 
-										 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
-										 fillOpacity = 0.6)
-		
-		# Update plots
-		output$plot_wwtp <- renderPlotly({
-				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-		
-		output$plot_wwtp_big <- renderPlotly({
-				plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE)
-		})
-
-		# Update reactive text elements
-		watch_fac <- df_wwtp %>% filter(location_common_name == clickedLocation)
-		SAMPLE_TOTAL_FAC = formatC(n_distinct(watch_fac$"Sample ID"), big.mark=",")
-		FIRST_DATE_FAC = format(min(watch_fac$day), format = "%d %b %Y")
-		LAST_DATE_FAC = format(max(watch_fac$day), format = "%d %b %Y")
-		COLL_TYPE = unique(watch_fac$collection_scheme)
-
-		output$facility_name <- renderText(paste0(clickedLocation, sep = " "))
-		output$facility_samples <- renderText(paste0(SAMPLE_TOTAL_FAC, " samples collected as ", COLL_TYPE, "s from ", clickedLocation, " processed between ", FIRST_DATE_FAC," and ", LAST_DATE_FAC, ".", sep = " "))
-		output$facility_capacity <- renderText(paste0("Max capacity of this facility: ", formatC(watch_fac$capacity_mgd[1], big.mark=","), " million gallons per day (MGD).", sep = " "))
-		output$facility_popserved <- renderText(paste0("Estimated population included: ", formatC(watch_fac$population_served[1], big.mark=","), ".", sep = " "))
-		output$facility_counties <- renderText(paste0("This facility is located in ", watch_fac$counties_served[1], " county WV.", sep = " "))
-		#print("Marker click event bottom")
-		
-  }, ignoreInit = TRUE)
-
-
-
-	#
-	# Sewer network tab
-	#
-
 	# Respond to off-marker click
   observeEvent(input$map_upstream_click, { 
 		if (input$map_upstream_click$lat != upstreamRV$clickLat | input$map_upstream_click$lng != upstreamRV$clickLng) {
@@ -427,7 +651,7 @@ shinyServer(function(input, output, session) {
 											 weight = 0.2, 
 											 radius = 10, 
 											 color = "#945200", 
-											 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
+											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6)
 		
 			# Update plots
@@ -463,7 +687,7 @@ shinyServer(function(input, output, session) {
 										 weight = 0.2, 
 										 radius = 10, 
 										 color=~ifelse(location_common_name==clickedLocation, yes = "red", no = "#945200"), 
-										 label = ~as.character(paste0(location_common_name, " (" , type, ")")), 
+										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6)
 		
 		# Update plots
@@ -487,246 +711,6 @@ shinyServer(function(input, output, session) {
 #		output$facility_popserved <- renderText(paste0("Estimated population included: ", formatC(watch_fac$population_served[1], big.mark=","), ".", sep = " "))
 #		output$facility_counties <- renderText(paste0("This facility is located in ", watch_fac$counties_served[1], " county WV.", sep = " "))
   }, ignoreInit = TRUE)
-
-
-
-
-
-	###########################
-	#
-	# CONTROL PANEL EVENTS
-	#
-	###########################
-
-	controller <- function(targets, counter_targets) {
-		if (!missing(targets)) {
-			for (targ in targets) {
-				shinyjs::show(targ)
-			}
-		}
-		if (!missing(counter_targets)) {
-			for (targ in counter_targets) {
-				shinyjs::hide(targ)
-			}
-		}
-	}
-	
-	controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp"))
-	
-	onevent("click", "alert_panel", controller(targets=c("alert_level_info")))
-
-	onevent("mouseenter", "targets_popup_wwtp_min", controller(targets=c("targets_popup_wwtp"), counter_targets=c("dates_popup_wwtp", "roll_popup_wwtp")))
-	onevent("mouseleave", "targets_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
-
-	onevent("mouseenter", "dates_popup_wwtp_min", controller(targets=c("dates_popup_wwtp"), counter_targets=c("targets_popup_wwtp", "roll_popup_wwtp")))
-	onevent("mouseleave", "dates_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
-
-	onevent("mouseenter", "roll_popup_wwtp_min", controller(targets=c("roll_popup_wwtp"), counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp")))
-	onevent("mouseleave", "roll_popup_wwtp", controller(counter_targets=c("targets_popup_wwtp", "dates_popup_wwtp", "roll_popup_wwtp")))
-
-
-	controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream"))
-
-	onevent("mouseenter", "targets_popup_upstream_min", controller(targets=c("targets_popup_upstream"), counter_targets=c("dates_popup_upstream", "roll_popup_upstream")))
-	onevent("mouseleave", "targets_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
-
-	onevent("mouseenter", "dates_popup_upstream_min", controller(targets=c("dates_popup_upstream"), counter_targets=c("targets_popup_upstream", "roll_popup_upstream")))
-	onevent("mouseleave", "dates_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
-
-	onevent("mouseenter", "roll_popup_upstream_min", controller(targets=c("roll_popup_upstream"), counter_targets=c("targets_popup_upstream", "dates_popup_upstream")))
-	onevent("mouseleave", "roll_popup_upstream", controller(counter_targets=c("targets_popup_upstream", "dates_popup_upstream", "roll_popup_upstream")))
-
-	observeEvent(input$alert_level_info_close,{
-    controller(counter_targets=c("alert_level_info"))
-	}, ignoreInit = TRUE)
-
-
-
-	# Respond to change in targets to plot
-  observeEvent(input$targets_wwtp, {
-		controlRV$visibleTargets <- input$targets_wwtp
-		updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_wwtp <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-  observeEvent(input$targets_upstream, {
-		controlRV$visibleTargets <- input$targets_upstream
-		updatePrettyCheckboxGroup(session = session, inputId = "targets_wwtp", selected = controlRV$visibleTargets)
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_upstream <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-
-	# Respond to change in dates to view
-	observeEvent(input$dates_wwtp, {
-		#print(paste0("Observed: ", input$dates_wwtp, sep = ""))
-		#print(paste0("Min: ", min(df_watch$week_starting), ". Max: ", max(df_watch$week_starting), sep=""))
-		
-		controlRV$Dates <- input$dates_wwtp
-		updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_wwtp <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-	observeEvent(input$dates_upstream, {
-		controlRV$Dates <- input$dates_upstream
-		updateSliderTextInput(session = session, inputId = "dates_wwtp", selected = controlRV$Dates)
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_upstream <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-
-	# Respond to change in rolling window size
-  observeEvent(input$roll_wwtp, {
-		controlRV$rollWin <- input$roll_wwtp
-		updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
-		
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_wwtp <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-  observeEvent(input$roll_upstream, {
-		controlRV$rollWin <- input$roll_upstream
-		updateSliderInput(session = session, inputId = "roll_wwtp", value = controlRV$rollWin)
-		
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$plot_upstream <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-		})
-  }, ignoreInit = TRUE)
-
-#
-#
-#	# Respond to change in CI on big plot
-#  observeEvent(input$plot_ci_wwtp, {
-#	  #print(input$plot_ci_wwtp)
-#		wwtpRV$ci <- input$plot_ci_wwtp
-#		
-#		output$plot_wwtp_big <- renderPlotly({
-#			plotWWTP(wwtpRV$Dates, wwtpRV$mapClick, wwtpRV$rollWin, wwtpRV$ci, wwtpRV$targets) %>% config(displayModeBar = FALSE) 
-#		})
-#  })
-#
-
-
-
-	###########################
-	#
-	#	INFO PANELS
-	#
-	###########################
-	
-	#
-	# WWTP default info panel elements
-	#
-	output$plot_wwtp <- renderPlotly({
-		plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-	})
-
-	output$alert_level <- renderText("Green")
-
-	output$scope <- renderText("State of West Virginia")
-	output$scope_count <- renderText(paste0(FACILITY_TOTAL_WWTP, " WWTP, ", FACILITY_TOTAL_UPSTREAM, " sewers"))
-	output$sample_count <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " samples"))
-
-	output$counties_served <- renderText(paste0(CTY_TOTAL_WWTP, " counties"))
-	output$county_population <- renderText(formatC(POP_TOTAL_CTY, big.mark=","))
-
-	output$population_served <- renderText(formatC(POP_TOTAL_WWTP, big.mark=","))
-	output$population_served_pct <- renderText(paste0(formatC(100*POP_TOTAL_WWTP/POP_TOTAL_CTY, big.mark=","), "% by county"))
-
-#	output$first_data <- renderText(format(FIRST_DATE_WWTP, format = "%b %d, %Y"))
-#	output$last_data <- renderText(format(LAST_DATE_WWTP, format = "%b %d, %Y"))
-
-	output$mean_flow <- renderText(paste0(formatC(mean(df_watch$daily_flow, big.mark=",")), " MGD"))
-
-	output$collection_frequency <- renderText("3-6 samples/week")
-	output$collection_scheme <- renderText("composite samples")
-
-	output$last_update <- renderText(paste0(ymd(today)-ymd(LAST_DATE_WWTP)-1, " days ago"))
-
-	#output$last_update <- renderText(paste0("Wastewater Nowcast for West Virginia (", format(LAST_DATE_WWTP, format = "%d %b %Y"), ")", sep = " "))
-	output$all_facilities <- renderText(paste0(FACILITY_TOTAL_WWTP, " active treatment facilities.", sep = " "))
-	output$all_samples <- renderText(paste0(formatC(SAMPLE_TOTAL_WWTP, big.mark=","), " total samples processed since ", format(FIRST_DATE_WWTP, format = "%d %b %Y"), ".", sep = " "))
-	output$facility_name <- renderText(paste0("All Facilities", sep = " "))
-	
-	output$facility_capacity <- renderText(paste0("Total statewide capacity involved: ", formatC(CAP_TOTAL_WWTP, big.mark=","), " million gallons per day (MGD).", sep = " "))
-	output$facility_popserved <- renderText(paste0("Total estimated population included: ", formatC(POP_TOTAL_WWTP, big.mark=","), ".", sep = " "))
-	output$facility_counties <- renderText(paste0("Serving ", CTY_TOTAL_WWTP, " total WV counties.", sep = " "))
-	
-	# Open the big plot
-	observeEvent(input$embiggen_open_wwtp,{
-    shinyjs::show(id = "conditionalPanelWWTP")
-
-		output$plot_wwtp_big <- renderPlotly({
-			plotWWTP(controlRV$Dates, wwtpRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$facility_name_big <- renderText(paste0(wwtpRV$mapClick, sep = " "))
-	}, ignoreInit = TRUE)
-	
-	# Close the big plot
-	observeEvent(input$embiggen_close_wwtp,{
-    shinyjs::hide(id = "conditionalPanelWWTP")
-	}, ignoreInit = TRUE)
-
-
-	#
-	# Sewer network default info panel elements
-	#
-	output$plot_upstream <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
-	})
-
-	output$last_update_upstream <- renderText(paste0("Sewer Network Wastewater Nowcast (", format(LAST_DATE_UPSTREAM, format = "%d %b %Y"), ")", sep = " "))
-	output$all_facilities_upstream <- renderText(paste0(FACILITY_TOTAL_UPSTREAM, " active sewer network sites.", sep = " "))
-	output$all_samples_upstream <- renderText(paste0(formatC(SAMPLE_TOTAL_UPSTREAM, big.mark=","), " total samples processed since ", format(FIRST_DATE_UPSTREAM, format = "%d %b %Y"), ".", sep = " "))
-	output$facility_name_upstream <- renderText(paste0("All Locations", sep = " "))
-
-
-	# Open the big plot
-	observeEvent(input$embiggen_open_upstream,{
-#		print(paste0("Embiggen! ", input$embiggen_open_wwtp, sep=""))
-    shinyjs::show(id = "conditionalPanelUpstream")
-
-		output$plot_upstream_big <- renderPlotly({
-			plotUpstream(controlRV$Dates, upstreamRV$mapClick, controlRV$rollWin, controlRV$ci, controlRV$visibleTargets) %>% config(displayModeBar = FALSE) 
-		})
-		output$facility_name_big_upstream <- renderText(paste0(upstreamRV$mapClick, sep = " "))
-
-	}, ignoreInit = TRUE)
-	
-	# Close the big plot
-	observeEvent(input$embiggen_close_upstream,{
-    shinyjs::hide(id = "conditionalPanelUpstream")
-	}, ignoreInit = TRUE)
-
 
 
 })

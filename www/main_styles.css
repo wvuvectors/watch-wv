@@ -22,7 +22,8 @@ h4 { font-weight: 800; }
 
 #details {
   /* Appearance */
-  /*background-color: white;*/
+  border: 1px solid #666666;
+  border-radius: 5px;
   padding: 0 5px 5px 5px;
   cursor: move;
   /* Fade out while not hovering */
@@ -35,6 +36,64 @@ h4 { font-weight: 800; }
   /* Fade in while hovering */
   opacity: 1;
   transition-delay: 0;
+}
+
+.control_panel {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  /*padding: 0 5px 5px 5px;
+  cursor: move;*/
+  /* Fade out while not hovering */
+  opacity: 0.75;
+  zoom: 0.9;
+  transition: opacity 200ms 400ms;
+}
+
+.control_panel:hover {
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.control_group {
+  /* Appearance */
+  /*border: 1px solid #666666;
+  border-radius: 5px;*/
+	padding: 3px;
+  font-size: 11px;
+}
+
+
+
+.mdblock {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 0 0 0;
+  cursor: pointer;
+  /* Fade out while not hovering */
+  opacity: 0.75;
+  /*transition: opacity 200ms 400ms;*/
+}
+
+.mdblock:hover {
+  border: 2px solid #0096FF;
+  cursor: pointer;
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.mdinfo {
+	background-color:#ffffff;
+	padding: 4px;
+	margins: 0;
+	border: 2px solid #909090;
+	border-radius: 5px;
 }
 
 .btn {
