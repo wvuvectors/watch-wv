@@ -44,7 +44,7 @@ shinyUI(bootstrapPage(
 				), # absolutePanel
 
 				absolutePanel(
-					id = "controls_wwtp",
+					id = "controls",
 					class = "control_panel",
 					top = 583, left = 53, height = "auto", width = 600,
 					fixed=TRUE, draggable = FALSE,
@@ -55,7 +55,7 @@ shinyUI(bootstrapPage(
 							div(
 								class = "control_group",
 								selectInput(
-									"infections_wwtp",
+									"infections_control",
 									label = NULL,
 									choices = INFECTIONS, 
 									selected = INFECTIONS_DEFAULT
@@ -64,7 +64,7 @@ shinyUI(bootstrapPage(
 							div(
 								style = "margin-left: 20px;font-size: 12px;",
 								prettyCheckboxGroup(
-									inputId = "targets_wwtp",
+									inputId = "targets_control",
 									label = NULL,
 									choiceNames = TARGETS,
 									choiceValues = TARGET_VALUES,
@@ -84,7 +84,7 @@ shinyUI(bootstrapPage(
 									span("Choose a range of dates")
 								),
 								sliderTextInput(
-									inputId = "dates_wwtp",
+									inputId = "dates_control",
 									force_edges = TRUE,
 									#width = "90%",
 									label=NULL,
@@ -105,7 +105,7 @@ shinyUI(bootstrapPage(
 									span("Choose a rolling mean (days)")
 								),
 								sliderInput(
-									inputId = "roll_wwtp",
+									inputId = "roll_control",
 									label=NULL,
 									min=2, max=10, value=SMOOTHER_DEFAULT
 								)
