@@ -30,6 +30,8 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
+L_per_gal <- 3.78541
+
 INFECTIONS <- c("SARS-CoV-2")
 INFECTIONS_DEFAULT <- "SARS-CoV-2"
 
@@ -37,19 +39,15 @@ TARGETS <- c("Mean N1 & N2", "N1", "N2")
 TARGET_VALUES <- c("n1n2", "n1", "n2")
 TARGETS_DEFAULT <- "n1n2"
 
-#TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
-#												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
-#												 "target_value" = c("n1n2", "n1", "n2")
-#												)
+TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
+												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
+												 "target_value" = c("n1n2", "n1", "n2")
+												)
 												
 SMOOTHER_DEFAULT <- 3
 
-L_per_gal <- 3.78541
-
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
-
-#first_day <- as_date("2021-10-03")
 first_day <- as_date("2021-07-01")
 last_day <- today
 
@@ -155,55 +153,22 @@ df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
 df_watch$n1n2 = rowMeans(df_watch[,c("n1", "n2")], na.rm=TRUE)
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
 
-#df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
-df_wwtp <- df_watch %>% filter(category == "wwtp" & daily_flow > 0) %>%
-					 mutate(rnamass = (daily_flow*n1n2*L_per_gal),
-					 				rnamass.n1 = (daily_flow*n1*L_per_gal), 
-					 				rnamass.n2 = (daily_flow*n2*L_per_gal)) %>% 
+df_watch <- df_watch %>% mutate(
+						n1n2.load = (daily_flow*n1n2*L_per_gal),
+					 	n1.load = (daily_flow*n1*L_per_gal), 
+					 	n2.load = (daily_flow*n2*L_per_gal)) %>% 
 					 arrange(day)
-df_wwtp[df_wwtp == -Inf] <- NA
+df_watch[df_watch == -Inf] <- NA
 
-
-#for (loc in unique(df_wwtp$location_common_name)) {
-#	df_loc <- df_wwtp %>% filter(location_common_name)
-#	zoo_loc <- zoo(df_loc$rnamass, df_loc$day)
-#	zoo_ci90 <- rollapply(zoo_loc, width=rollwin, fill=NA, align="right", FUN = ci90)
-#	df_ci90 <- fortify(zoo_ci90, melt=TRUE, names=c(Index="day", Value="rollmean.ci90"))
-#}
 
 #
 # Determine alert level
 #
-
 ALERT_TXT="Green"
 TREND_TXT="low but increasing rapidly"
-
-# set  up some global numbers
-FACILITY_TOTAL_WWTP = n_distinct(df_wwtp$location_common_name)
-CAP_TOTAL_WWTP = sum(distinct(df_wwtp, location_common_name, capacity_mgd)$capacity_mgd)+1
-POP_TOTAL_WWTP = sum(distinct(df_wwtp, location_common_name, population_served)$population_served)
-CTY_TOTAL_WWTP = n_distinct(df_wwtp$counties_served)
-POP_TOTAL_CTY = sum(distinct(df_watch, counties_served, county_population)$county_population)
-
-SAMPLE_TOTAL_WWTP = n_distinct(df_wwtp$"Sample ID")
-FIRST_DATE_WWTP = min(df_wwtp$day)
-LAST_DATE_WWTP = max(df_wwtp$day)
-
-
-
-df_upstream <- df_watch %>% filter(category == "upstream") %>% arrange(day)
-
-  				
-# set  up some global numbers
-FACILITY_TOTAL_UPSTREAM = n_distinct(df_upstream$location_common_name)
-
-SAMPLE_TOTAL_UPSTREAM = n_distinct(df_upstream$"Sample ID")
-FIRST_DATE_UPSTREAM = min(df_upstream$day)
-LAST_DATE_UPSTREAM = max(df_upstream$day)
-
 
 
 #map_pal <- colorNumeric(
 #	palette = c('gold', 'orange', 'dark orange', 'orange red', 'red', 'dark red'),
-#	domain = df_wwtp_day$capacity_mgd)
+#	domain = df_watch$alert_level)
   
