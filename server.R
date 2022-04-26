@@ -25,18 +25,11 @@ shinyServer(function(input, output, session) {
 								rollWin = SMOOTHER_DEFAULT,
 								ci = "off",
 								visibleTargets = TARGETS_DEFAULT,
-								activeLayer = "WWTP"
-	)
-	
-	wwtpRV <- reactiveValues(
-								mapClick="State of West Virginia", 
+								activeLayer = "WWTP",
+								mapClick = "State of West Virginia",
 								clickLat=0, clickLng=0
 	)
 	
-	upstreamRV <- reactiveValues(
-								mapClick="State of West Virginia", 
-								clickLat=0, clickLng=0
-	)
 
 	# Render a base map
 	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
@@ -57,6 +50,7 @@ shinyServer(function(input, output, session) {
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>%
 		addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+										 layerId = ~location_common_name, 
 										 lat = ~latitude, 
 										 lng = ~longitude, 
 										 radius = 10, 
@@ -121,7 +115,8 @@ shinyServer(function(input, output, session) {
 	# WWTP plot
 	#
 	plotLoad = function(layer, facility, dates, targets, rollWin, ci) {
-
+		#print("plotLoad called!")
+		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = "State of West Virginia" }
 		if (missing(dates)) { dates = controlRV$Dates }
@@ -131,14 +126,24 @@ shinyServer(function(input, output, session) {
 		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
-				
-		df_plot <- df_watch %>%
-							 filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
-							 group_by(day)
+		
+		if (facility == "State of West Virginia") {
+			df_plot <- df_watch %>%
+								 filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+								 group_by(day)
+		} else {
+			df_plot <- df_watch %>%
+								 filter(location_common_name == facility & week_starting >= fromDate & week_starting <= toDate) %>%
+								 group_by(day)
+		}
 		
 		rollcols <- c()
 		for (target in targets) {
-			src_colname <- paste0(target, ".load", sep="")
+			if (layer == "Sewer Network") {
+				src_colname <- target
+			} else {
+				src_colname <- paste0(target, ".load", sep="")
+			}
 			dest_colname <- paste0(src_colname, ".mean", sep="")
 
 			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
@@ -146,11 +151,18 @@ shinyServer(function(input, output, session) {
 
 			ci_colname <- paste0(roll_colname, ".ci90", sep="")
 
-			df_loc <- df_watch %>% 
-								filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
-								group_by(day) %>%
-								summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
-
+			if (facility == "State of West Virginia") {
+				df_loc <- df_watch %>% 
+									filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+									group_by(day) %>%
+									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
+			} else {
+				df_loc <- df_watch %>% 
+									filter(location_common_name == facility & week_starting >= fromDate & week_starting <= toDate) %>%
+									group_by(day) %>%
+									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
+			}
+			
 			zoo_loc <- zoo(df_loc[[dest_colname]], df_loc$day)
 			zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
 			df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value=roll_colname))
@@ -174,7 +186,13 @@ shinyServer(function(input, output, session) {
 #			alpha = TRUE
 #		)
 		
-		gplot <- ggplot(df_plot) + labs(y = "Rolling Mean of RNA Mass Load", x = "") + 
+		if (layer == "Sewer Network") {
+			ylabel = "Rolling Mean of Target (Copies/L)"
+		} else {
+			ylabel = "Rolling Mean of Mass Load"
+		}
+		
+		gplot <- ggplot(df_plot) + labs(y = ylabel, x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
 											my_theme() 
@@ -183,8 +201,8 @@ shinyServer(function(input, output, session) {
 		for (rcol in rollcols) {
 			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = "blue", shape = 1, size = 1, alpha=0.5) + 
 							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = "blue")
-			cicol <- paste0(rcol, ".ci90", sep="")
 			if (ci != "off") {
+				cicol <- paste0(rcol, ".ci90", sep="")
 				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
 			}
 		}
@@ -255,7 +273,7 @@ shinyServer(function(input, output, session) {
 		)
 		#print("md_blockset() just ran!")
 
-		plotLoad() %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		plotLoad() %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 	})	
 
 	
@@ -266,11 +284,17 @@ shinyServer(function(input, output, session) {
 	# Respond to layer change
 	observe({
 		selected_group <- req(input$watch_map_groups)
-		controlRV.activeLayer <- selected_group
+		controlRV$activeLayer <- selected_group
+		controlRV$mapClick <- "State of West Virginia"
+		controlRV$clickLat <- 0
+		controlRV$clickLng <- 0
+		
+		md_blockset()
+		
 		if (selected_group == "WWTP") {
-			output$data_format <- renderText("Data for WWTPs are calculated as mean RNA mass loads (copies of target adjusted for average daily flow).")
+			output$data_format <- renderText("Data for WWTPs are calculated as mean target mass load (copies of target adjusted for average daily flow).")
 		} else {
-			output$data_format <- renderText("Data for Sewer Network sites are calculated as mean target copies/L (daily flow is not available for these sites).")
+			output$data_format <- renderText("Data for sewer networks are calculated as mean target copies/L (daily flow is not available for these sites).")
 		}
 	})
 
@@ -280,11 +304,11 @@ shinyServer(function(input, output, session) {
 		#print("Map click event top")
 		
 		# only respond if this click is in a new position on the map
-		if (input$watch_map_click$lat != wwtpRV$clickLat | input$watch_map_click$lng != wwtpRV$clickLng) {
-			wwtpRV$clickLat <- 0
-			wwtpRV$clickLng <- 0
+		if (input$watch_map_click$lat != controlRV$clickLat | input$watch_map_click$lng != controlRV$clickLng) {
+			controlRV$clickLat <- 0
+			controlRV$clickLng <- 0
 
-			wwtpRV$mapClick <- "State of West Virginia"
+			controlRV$mapClick <- "State of West Virginia"
 			
 			data_in <- df_watch
 			# Update map marker colors
@@ -304,6 +328,7 @@ shinyServer(function(input, output, session) {
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6) %>%
 				addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+												 layerId = ~location_common_name, 
 												 lat = ~latitude, 
 												 lng = ~longitude, 
 												 radius = 10, 
@@ -318,7 +343,7 @@ shinyServer(function(input, output, session) {
 		
 			# Reset the plot
 			output$watch_plot <- renderPlotly({
-				plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+				plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 			})
 		
 			# Update reactive text elements
@@ -331,10 +356,10 @@ shinyServer(function(input, output, session) {
 	# Respond to click on WWTP map marker
   observeEvent(input$watch_map_marker_click, { 
     clickedLocation <- input$watch_map_marker_click$id
-		wwtpRV$mapClick <- clickedLocation
+		controlRV$mapClick <- clickedLocation
 		
-		wwtpRV$clickLat <- input$watch_map_marker_click$lat
-		wwtpRV$clickLng <- input$watch_map_marker_click$lng
+		controlRV$clickLat <- input$watch_map_marker_click$lat
+		controlRV$clickLng <- input$watch_map_marker_click$lng
 		
 		data_in <- df_watch
 
@@ -355,6 +380,7 @@ shinyServer(function(input, output, session) {
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6) %>%
 			addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+											 layerId = ~location_common_name, 
 											 lat = ~latitude, 
 											 lng = ~longitude, 
 											 radius = 10, 
@@ -369,7 +395,7 @@ shinyServer(function(input, output, session) {
 
 		# Update plots
 		output$watch_plot <- renderPlotly({
-				plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+				plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
 		
 		# Update reactive text elements
@@ -432,9 +458,6 @@ shinyServer(function(input, output, session) {
 	}, ignoreInit = TRUE)
 	
 
-	#onevent("mouseenter", "site_status_panel", shinyjs::inlineCSS(list(.site_status_panel = "background-color: #FFFB00")))
-	#onevent("mouseleave", "site_status_panel", shinyjs::inlineCSS(list(.site_status_panel = "background-color: #f0fff0")))
-
 	#
 	# Respond to change in targets to plot
 	#
@@ -443,7 +466,7 @@ shinyServer(function(input, output, session) {
 		#updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -458,7 +481,7 @@ shinyServer(function(input, output, session) {
 		#updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -471,7 +494,7 @@ shinyServer(function(input, output, session) {
 		#updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
