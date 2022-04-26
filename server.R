@@ -132,49 +132,62 @@ shinyServer(function(input, output, session) {
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
 				
-		df_loc <- df_watch %>% 
-							filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>% 
-							group_by(day) %>%
-							summarize(n1n2.load.mean = mean(n1n2.load, na.rm = TRUE))
-				
-		result_cols <- c("n1n2.load.roll3")
-			
-		zoo_loc <- zoo(df_loc$n1n2.load.mean, df_loc$day)
-		zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
-		df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value="n1n2.load.roll3"))
-		df_loc <- left_join(df_loc, df_mean, by = c("day" = "day"))
+		df_plot <- df_watch %>%
+							 filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+							 group_by(day)
+		
+		rollcols <- c()
+		for (target in targets) {
+			src_colname <- paste0(target, ".load", sep="")
+			dest_colname <- paste0(src_colname, ".mean", sep="")
 
-		# calculate the CIs
-#		loc_ci_zoo <- rollapply(loc_zoo, width=rollwin, fill=NA, align="right", FUN = ci90)
-#		loc_ci_df <- fortify(loc_ci_zoo, melt=TRUE, names=c(Index="day", Value="rollmean.ci"))
+			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
+			rollcols <- append(rollcols, roll_colname)
 
-		# join all the dataframes to the original (loc_df)
-#		loc_join1_df <- left_join(loc_mean_jfinal_df, loc_ci_jfinal_df, by = c("day" = "day"))
-#		loc_rolled_df <- left_join(loc_df, loc_join1_df, by = c("day" = "day"))
-#		loc_rolled_df <- select(loc_rolled_df, -c(Series.x, Series.y, Series.x.x, Series.y.y))
+			ci_colname <- paste0(roll_colname, ".ci90", sep="")
+
+			df_loc <- df_watch %>% 
+								filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+								group_by(day) %>%
+								summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
+
+			zoo_loc <- zoo(df_loc[[dest_colname]], df_loc$day)
+			zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
+			df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value=roll_colname))
+			df_mean <- select(df_mean, -c("Series"))
+
+			df_plot <- left_join(df_plot, df_mean, by = c("day" = "day"), copy=TRUE)
+
+			zoo_ci <- rollapply(zoo_loc, width=rollWin, fill=NA, align="right", FUN = ci90)
+			df_ci <- fortify(zoo_ci, melt=TRUE, names=c(Index="day", Value=ci_colname))
+			df_ci <- select(df_ci, -c("Series"))
+
+			df_plot <- left_join(df_plot, df_ci, by = c("day" = "day"), copy=TRUE)
+		}
 		
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
 
-		target_pal <- colorFactor(
-			palette = c("blue", "green", "dark orange"),
-			domain = as.factor(result_cols),
-			na.color = "#aaaaaa",
-			alpha = TRUE
-		)
+#		target_pal <- colorFactor(
+#			palette = c("blue", "green", "dark orange"),
+#			domain = as.factor(result_cols),
+#			na.color = "#aaaaaa",
+#			alpha = TRUE
+#		)
 		
-		gplot <- ggplot(df_loc) + labs(y = "Rolling Mean of RNA Mass Load", x = "") + 
+		gplot <- ggplot(df_plot) + labs(y = "Rolling Mean of RNA Mass Load", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
 											my_theme() 
 											#ggtitle("Weekly Mean COVID, All WV Treatment Facilities") + 
 
-#		for (result_col in result_cols) {
-			gplot <- gplot + geom_point(aes(x = day, y = n1n2.load.roll3), color = "blue", shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = n1n2.load.roll3), color = "blue")
-#			if (ci != "off") {
-#				gplot <- gplot + geom_ribbon(aes(x=day, y=rollmean.rnamass, ymin=rollmean.rnamass-rollmean.ci, ymax=rollmean.rnamass+rollmean.ci), alpha=0.2)
-#			}
-#		}
+		for (rcol in rollcols) {
+			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = "blue", shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = "blue")
+			cicol <- paste0(rcol, ".ci90", sep="")
+			if (ci != "off") {
+				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
+			}
+		}
 		ggplotly(gplot)
 	}
 	
@@ -225,31 +238,24 @@ shinyServer(function(input, output, session) {
 			output$counties_served <- renderText(paste0(num_counties, " counties", sep=""))
 		} else {
 			output$scope_count <- renderText("1 facility")
-			output$counties_served <- renderText(paste0(COUNTY, " county", sep=""))
+			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
 		}
 	}
 		
 	
 	#
-	# Init basic elements
+	# Init the starting plot and metadata content
 	#
-
 	output$watch_plot <- renderPlotly({
-		print("Hi from output watch_plot!")
+		#print("Hi from output watch_plot!")
 
 		md_blockset(
 			layer = "WWTP", 
 			facility = "State of West Virginia"
 		)
-		print("md_blockset() just ran!")
+		#print("md_blockset() just ran!")
 
-		plotLoad(
-			layer = "WWTP", 
-			facility = "State of West Virginia",
-			dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
-			targets = TARGETS_DEFAULT,
-			rollWin = SMOOTHER_DEFAULT,
-			ci = "off") %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		plotLoad() %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 	})	
 
 	
@@ -312,7 +318,7 @@ shinyServer(function(input, output, session) {
 		
 			# Reset the plot
 			output$watch_plot <- renderPlotly({
-				plotLoad(wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+				plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 			})
 		
 			# Update reactive text elements
@@ -363,11 +369,11 @@ shinyServer(function(input, output, session) {
 
 		# Update plots
 		output$watch_plot <- renderPlotly({
-				plotLoad(wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+				plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
 		
 		# Update reactive text elements
-		md_blockset(clickedLocation)
+		md_blockset(facility = clickedLocation)
 		
   }, ignoreInit = TRUE)
 
@@ -437,7 +443,7 @@ shinyServer(function(input, output, session) {
 		#updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -452,7 +458,7 @@ shinyServer(function(input, output, session) {
 		#updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -465,7 +471,7 @@ shinyServer(function(input, output, session) {
 		#updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = wwtpRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
