@@ -30,7 +30,10 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
-L_per_gal <- 3.78541
+MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
+													"lat" = c(38.951883, 39.642414),
+													"lng" = c(-81.0534217, -79.9792327),
+													"zoom" = c(8, 13))
 
 INFECTIONS <- c("SARS-CoV-2")
 INFECTIONS_DEFAULT <- "SARS-CoV-2"
@@ -41,10 +44,14 @@ TARGETS_DEFAULT <- "n1n2"
 
 TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
 												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
-												 "target_value" = c("n1n2", "n1", "n2")
+												 "target_value" = c("n1n2", "n1", "n2"),
+												 "target_color" = c("blue", "dark orange", "dark green")
 												)
-												
+
+SMOOTHER_OPTIONS <- c(3, 5, 7, 10)
 SMOOTHER_DEFAULT <- 3
+
+L_per_gal <- 3.78541
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
@@ -73,10 +80,13 @@ my_theme <- function () {
 										 panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
 #										 panel.border = element_blank(), 
 										 strip.background = element_rect(fill = 'white', color = 'white'),
-										 legend.position = c(.95, .95),
+										 legend.position = "none",
+#										 legend.position = c(.95, .95),
 										 legend.justification = c("right", "top"),
 										 legend.box.just = "right",
-										 legend.margin = margin(6, 6, 6, 6)
+										 legend.margin = margin(6, 6, 6, 6),
+										 legend.title = element_text(size = 10, color = "#888888"),
+										 plot.title = element_text(size = 9, color="#045a8d")
 )}
 
 ci90 <- function(x) {

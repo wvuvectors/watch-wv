@@ -23,7 +23,7 @@ shinyServer(function(input, output, session) {
 	controlRV <- reactiveValues(
 								Dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
 								rollWin = SMOOTHER_DEFAULT,
-								ci = "off",
+								ci = FALSE,
 								visibleTargets = TARGETS_DEFAULT,
 								activeLayer = "WWTP",
 								mapClick = "State of West Virginia",
@@ -56,9 +56,9 @@ shinyServer(function(input, output, session) {
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = "blue", 
+										 color = "dark orange", 
 										 fill = TRUE,
-										 fillColor = "blue",
+										 fillColor = "dark orange",
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>% 
@@ -97,18 +97,12 @@ shinyServer(function(input, output, session) {
 	
 
 
-
-	###########################
-	#
-	#			WWTP PANEL
-	#
-	###########################
-	
 	#
 	# Base map, starting state
 	#
 	output$watch_map <- renderLeaflet({
-		generateMap(data_in = df_watch, center_lat = 38.938532, center_lng = -81.4222577, zoom_level = 7)
+		center <- MAP_CENTERS %>% filter(layer == "WWTP")
+		generateMap(data_in = df_watch, center_lat = center$lat, center_lng = center$lng, zoom_level = center$zoom)
 	})
 
 	#
@@ -118,11 +112,18 @@ shinyServer(function(input, output, session) {
 		#print("plotLoad called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
-		if (missing(facility)) { facility = "State of West Virginia" }
+		if (missing(facility)) { facility = controlRV$mapClick }
 		if (missing(dates)) { dates = controlRV$Dates }
 		if (missing(targets)) { targets = controlRV$visibleTargets }
 		if (missing(rollWin)) { rollWin = controlRV$rollWin }
 		if (missing(ci)) { ci = controlRV$ci }
+		
+#		print(layer)
+#		print(facility)
+#		print(dates)
+#		print(targets)
+#		print(rollWin)
+#		print(ci)
 		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
@@ -137,7 +138,6 @@ shinyServer(function(input, output, session) {
 								 group_by(day)
 		}
 		
-		rollcols <- c()
 		for (target in targets) {
 			if (layer == "Sewer Network") {
 				src_colname <- target
@@ -147,8 +147,6 @@ shinyServer(function(input, output, session) {
 			dest_colname <- paste0(src_colname, ".mean", sep="")
 
 			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
-			rollcols <- append(rollcols, roll_colname)
-
 			ci_colname <- paste0(roll_colname, ".ci90", sep="")
 
 			if (facility == "State of West Virginia") {
@@ -179,29 +177,28 @@ shinyServer(function(input, output, session) {
 		
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
 
-#		target_pal <- colorFactor(
-#			palette = c("blue", "green", "dark orange"),
-#			domain = as.factor(result_cols),
-#			na.color = "#aaaaaa",
-#			alpha = TRUE
-#		)
+		target_pal <- colorFactor(
+			palette = TARGETS_DF$target_color,
+			domain = TARGETS_DF$target_value,
+			ordered = TRUE,
+			na.color = "#aaaaaa",
+			alpha = TRUE
+		)
 		
-		if (layer == "Sewer Network") {
-			ylabel = "Rolling Mean of Target (Copies/L)"
-		} else {
-			ylabel = "Rolling Mean of Mass Load"
-		}
-		
-		gplot <- ggplot(df_plot) + labs(y = ylabel, x = "") + 
+		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
-											my_theme() 
-											#ggtitle("Weekly Mean COVID, All WV Treatment Facilities") + 
+											my_theme()
 
-		for (rcol in rollcols) {
-			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = "blue", shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = "blue")
-			if (ci != "off") {
+		for (target in targets) {
+			if (layer == "Sewer Network") {
+				rcol <- paste0(target, ".roll", rollWin, sep="")
+			} else {
+				rcol <- paste0(target, ".load.roll", rollWin, sep="")
+			}
+			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target))
+			if (ci) {
 				cicol <- paste0(rcol, ".ci90", sep="")
 				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
 			}
@@ -211,22 +208,45 @@ shinyServer(function(input, output, session) {
 	
 	
 	# Metadata block reactions to map click or site selection
-	md_blockset <- function(layer, facility) {
+	md_blockset <- function(layer, facility, rollWin) {
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
-		if (missing(facility)) { facility = "State of West Virginia" }
+		if (missing(facility)) { facility = controlRV$mapClick }
+		if (missing(rollWin)) { rollWin = controlRV$rollWin }
+		
+		#print(paste0("facility from md_blockset is ", facility, sep=""))
 		
 		if (facility == "State of West Virginia") {
 			df_facility <- df_watch %>% filter(group == layer)
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
 		}
-		
+				
 		num_facilities = n_distinct(df_facility$location_common_name)
+		if (num_facilities == 1) {
+			facility_text = "facility"
+		} else {
+			facility_text = "facilities"
+		}
+
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
+
 		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
+
 		num_counties = n_distinct(df_facility$counties_served)
+		if (num_counties == 1) {
+			county_text = "county"
+		} else {
+			county_text = "counties"
+		}
 		total_county_pop = sum(distinct(df_facility, counties_served, county_population)$county_population)
+
+		if (total_popserved == -1) {
+			total_popserved = "Unknown"
+			pct_served <- "(pct unknown)"
+		} else {
+			pct_served <- paste0(formatC(100*total_popserved/total_county_pop, big.mark=","), "% of ", county_text, sep="")
+		}
 
 		total_samples = n_distinct(df_facility$"Sample ID")
 		date_first_sampled = min(df_facility$day)
@@ -237,25 +257,35 @@ shinyServer(function(input, output, session) {
 		df_last28days <- df_facility %>% filter(ymd(day) >= ymd(today) - 28)
 		mean_collfreq = (n_distinct(df_last28days$"Sample ID"))/4
 		
+		if (layer == "Sewer Network") {
+			layer = "sewer network"
+		} else {
+			if (facility == "State of West Virginia") {
+				layer = "WWTPs"
+			}
+		}
+		
+		output$plot_title = renderText(paste0("Showing the ", rollWin, "-day rolling mean for ", facility, " ", layer, sep=""))
+
 		output$alert_level <- renderText(ALERT_TXT)
 		output$site_signal <- renderText(TREND_TXT)
 
 		output$scope <- renderText(facility)
-		output$sample_count <- renderText(paste0(formatC(total_samples, big.mark=","), " samples since ", date_first_sampled))
+		output$sample_count <- renderText(paste0(formatC(total_samples, big.mark=","), " samples since ", format(as.Date(date_first_sampled), format="%d %b %Y")))
 
 		output$county_population <- renderText(formatC(total_county_pop, big.mark=","))
 		output$population_served <- renderText(formatC(total_popserved, big.mark=","))
-		output$population_served_pct <- renderText(paste0(formatC(100*total_popserved/total_county_pop, big.mark=","), "% of counties", sep=""))
+		output$population_served_pct <- renderText(pct_served)
 
 		output$mean_flow <- renderText(paste0(formatC(mean_daily_flow, big.mark=","), " MGD", sep=""))
 		output$collection_frequency <- renderText(paste0(mean_collfreq, " samples/week", sep=""))
 		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled)-1, " days ago", sep=""))
 
 		if (facility == "State of West Virginia") {
-			output$scope_count <- renderText(paste0(num_facilities, " facilities", sep=""))
-			output$counties_served <- renderText(paste0(num_counties, " counties", sep=""))
+			output$scope_count <- renderText(paste0(num_facilities, " ", facility_text, sep=""))
+			output$counties_served <- renderText(paste0(num_counties, " ", county_text, sep=""))
 		} else {
-			output$scope_count <- renderText("1 facility")
+			output$scope_count <- renderText(paste0(num_facilities, " ", facility_text, sep=""))
 			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
 		}
 	}
@@ -265,15 +295,13 @@ shinyServer(function(input, output, session) {
 	# Init the starting plot and metadata content
 	#
 	output$watch_plot <- renderPlotly({
-		#print("Hi from output watch_plot!")
+		#print("watch_plot top")
 
-		md_blockset(
-			layer = "WWTP", 
-			facility = "State of West Virginia"
-		)
+		md_blockset()
 		#print("md_blockset() just ran!")
 
 		plotLoad() %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		#print("watch_plot bottom")
 	})	
 
 	
@@ -283,19 +311,24 @@ shinyServer(function(input, output, session) {
 	
 	# Respond to layer change
 	observe({
+		#print("layer change top")
 		selected_group <- req(input$watch_map_groups)
-		controlRV$activeLayer <- selected_group
-		controlRV$mapClick <- "State of West Virginia"
-		controlRV$clickLat <- 0
-		controlRV$clickLng <- 0
+		# only respond if the layer actually changed
+		if (selected_group != controlRV$activeLayer) {
+			controlRV$activeLayer <- selected_group
+			controlRV$mapClick <- "State of West Virginia"
+			controlRV$clickLat <- 0
+			controlRV$clickLng <- 0
 		
-		md_blockset()
+			md_blockset(layer = selected_group)
 		
-		if (selected_group == "WWTP") {
-			output$data_format <- renderText("Data for WWTPs are calculated as mean target mass load (copies of target adjusted for average daily flow).")
-		} else {
-			output$data_format <- renderText("Data for sewer networks are calculated as mean target copies/L (daily flow is not available for these sites).")
+			if (selected_group == "WWTP") {
+				output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
+			} else {
+				output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
+			}
 		}
+		#print("layer change bottom")
 	})
 
 
@@ -334,9 +367,9 @@ shinyServer(function(input, output, session) {
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = "blue", 
+												 color = "dark orange", 
 												 fill = TRUE,
-												 fillColor = "blue",
+												 fillColor = "dark orange",
 												 group = "Sewer Network", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6)
@@ -348,6 +381,7 @@ shinyServer(function(input, output, session) {
 		
 			# Update reactive text elements
 			md_blockset()
+		#print("Map click event bottom")
 			
 		}
 	}, ignoreInit = TRUE)
@@ -355,6 +389,7 @@ shinyServer(function(input, output, session) {
 
 	# Respond to click on WWTP map marker
   observeEvent(input$watch_map_marker_click, { 
+		#print("Map MARKER click top")
     clickedLocation <- input$watch_map_marker_click$id
 		controlRV$mapClick <- clickedLocation
 		
@@ -386,25 +421,32 @@ shinyServer(function(input, output, session) {
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = "blue"), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = "dark orange"), 
 											 fill = TRUE,
-											 fillColor = "blue",
+											 fillColor = "dark orange",
 											 group = "Sewer Network", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6)
 
 		# Update plots
 		output$watch_plot <- renderPlotly({
-				plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+				plotLoad(facility = clickedLocation) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
 		
 		# Update reactive text elements
 		md_blockset(facility = clickedLocation)
+		#print("Map MARKER click bottom")
 		
   }, ignoreInit = TRUE)
 
-
-
+	
+	# Re-center map
+	observeEvent(input$center_map, {
+		map_center <- MAP_CENTERS %>% filter(layer == controlRV$activeLayer)
+		
+		watchLeafletProxy %>% setView(map_center$lng, map_center$lat, zoom = map_center$zoom)
+#		watchLeafletProxy %>% flyTo(map_center$lng, map_center$lat, zoom = map_center$zoom, options = {animate = TRUE})
+	}, ignoreInit = TRUE)
 
 
 
@@ -463,10 +505,9 @@ shinyServer(function(input, output, session) {
 	#
   observeEvent(input$targets_control, {
 		controlRV$visibleTargets <- input$targets_control
-		#updatePrettyCheckboxGroup(session = session, inputId = "targets_upstream", selected = controlRV$visibleTargets)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -477,11 +518,12 @@ shinyServer(function(input, output, session) {
 		#print(paste0("Observed: ", input$dates_wwtp, sep = ""))
 		#print(paste0("Min: ", min(df_watch$week_starting), ". Max: ", max(df_watch$week_starting), sep=""))
 		
+#		controlRV$Dates <- format(mdy(input$dates_control), format="%Y-%m-%d")
 		controlRV$Dates <- input$dates_control
-		#updateSliderTextInput(session = session, inputId = "dates_upstream", selected = controlRV$Dates)
-		
+		#print(controlRV$Dates)
+				
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
 
@@ -490,14 +532,36 @@ shinyServer(function(input, output, session) {
 	# Respond to change in rolling window size
 	#
   observeEvent(input$roll_control, {
-		controlRV$rollWin <- input$roll_control
-		#updateSliderInput(session = session, inputId = "roll_upstream", value = controlRV$rollWin)
+		controlRV$rollWin <- as.numeric(input$roll_control)
 		
 		output$watch_plot <- renderPlotly({
-			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
+		
+		layer <- controlRV$activeLayer
+		if (layer == "Sewer Network") {
+			layer = "sewer network"
+		} else {
+			if (controlRV$mapClick == "State of West Virginia") {
+				layer = "WWTPs"
+			}
+		}
+		output$plot_title = renderText(paste0("Showing the ", controlRV$rollWin, "-day rolling mean for ", controlRV$mapClick, " ", layer, sep=""))
+
   }, ignoreInit = TRUE)
 
+
+	#
+	# Respond to change in CI visibility
+	#
+  observeEvent(input$ci_control, {
+  	#print(input$ci_control)
+		controlRV$ci <- input$ci_control
+		
+		output$watch_plot <- renderPlotly({
+			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		})
+  }, ignoreInit = TRUE)
 
 })
 

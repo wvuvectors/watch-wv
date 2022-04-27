@@ -32,15 +32,16 @@ shinyUI(bootstrapPage(
 					id = "details", 
 					class = "panel panel-default",
 					top = 162, left = 53, width = 600, fixed=TRUE,
-					draggable = FALSE, height = 420,
+					draggable = FALSE, height = 430,
 					plotlyOutput("watch_plot", height="380px", width="100%"),
-					span(textOutput("data_format"), style="font-size: 12px; font-weight: 800; color:#045a8d; text-align: center;")
+					span(textOutput("plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 				), # absolutePanel
 
 				absolutePanel(
 					id = "controls",
 					class = "control_panel",
-					top = 583, left = 53, height = "auto", width = 600,
+					top = 593, left = 53, height = "auto", width = 600,
 					fixed=TRUE, draggable = FALSE,
 					fluidRow(
 						column(
@@ -63,7 +64,7 @@ shinyUI(bootstrapPage(
 									choiceNames = TARGETS,
 									choiceValues = TARGET_VALUES,
 									icon = icon("check-square"), 
-									status = "success",
+									status = "primary",
 									selected = TARGETS_DEFAULT,
 									outline = TRUE
 								)
@@ -82,8 +83,8 @@ shinyUI(bootstrapPage(
 									force_edges = TRUE,
 									#width = "90%",
 									label=NULL,
-									choices = sort(unique(as.Date(ymd(df_watch$week_starting)))),
-									selected = c(min(as.Date(ymd(df_watch$week_starting))), max(as.Date(ymd(df_watch$week_starting)))),
+									choices = sort(unique(df_watch$week_starting)),
+									selected = c(min(df_watch$week_starting), max(df_watch$week_starting)),
 				#							animate=animationOptions(interval = 3000, loop = FALSE),
 									grid = FALSE
 								)
@@ -93,16 +94,17 @@ shinyUI(bootstrapPage(
 							width = 4,
 							div(
 								class = "control_group",
-								#style = "border-left: 1px solid #666666;",
 								div(
 									style="font-size: 13px;font-weight: 800;margin-bottom: 20px;text-align: center;",
 									span("Choose a rolling mean (days)")
 								),
-								sliderInput(
-									inputId = "roll_control",
-									label=NULL,
-									min=2, max=10, value=SMOOTHER_DEFAULT
-								)
+								selectInput(
+									"roll_control",
+									label = NULL,
+									choices = SMOOTHER_OPTIONS, 
+									selected = SMOOTHER_DEFAULT
+								),
+								materialSwitch(inputId = "ci_control", label = "Show 90% CI:", value = FALSE, status="primary")
 							)
 						)
 					) # fluidRow
@@ -111,11 +113,11 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "site_status_panel", 
-					top = 145, left = 590, height=120, width = 120,
+					top = 145, left = 590, height=120, width = 130,
 					fixed=TRUE, draggable=FALSE,
 					span("Signal at this site is", style="font-size: 10px; line-height: 12px;"),
-					span(textOutput("site_signal"), style="font-size: 16px;font-weight: 800; line-height: 22px;"),
-					span("over the past week", style="font-size: 12px; line-height: 18px;"),
+					span(textOutput("site_signal"), style="font-size: 18px;font-weight: 800; line-height: 22px;"),
+					span("over the past 2 weeks", style="font-size: 12px; line-height: 18px;"),
 				),
 				
 				hidden(
@@ -124,10 +126,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("What do the various levels of behavior mean, and how are they calculated? Maybe show a plot focus on last several weeks?"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -147,10 +149,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("What does the alert level mean?"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -171,10 +173,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("Plot showing receipt of samples?"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="scope_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="scope_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -196,10 +198,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("If more than one county, show some metadata about all (name, population, etc.)."),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="population_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="population_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -221,10 +223,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("Anything to show/tell here?"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="networkpop_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="networkpop_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -245,10 +247,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("Plot showing daily flow over time at this site, with capacity."),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="daily_flow_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="daily_flow_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -271,10 +273,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("Plot showing samples submitted (maybe number/week) over time for this site."),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="collection_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="collection_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -284,7 +286,7 @@ shinyUI(bootstrapPage(
 					id = "last_date_panel", 
 					top = 65, left = 930, height=75, width = 140,
 					fixed=TRUE, draggable=FALSE,
-					span("Last update from this site", style="font-size: 11px;"),
+					span("Last update was", style="font-size: 16px;"),
 					span(textOutput("last_update"), style="font-size: 20px;")
 				),
 				
@@ -294,14 +296,23 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Hi there!"),
+						div("Text describing how samples are received by this site (e.g., 'usually on a Wed' kind of thing)."),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="last_date_info_close", label="Close", style="pill", size="xs", color="warning")
+							actionBttn(inputId="last_date_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
 
+				absolutePanel(
+					id = "recenter_panel", 
+					class = "card", 
+					bottom = 28, right = 125, width = 80, 
+					fixed = TRUE, draggable = FALSE, 
+					height = "auto",
+					actionBttn(inputId="center_map", label="Recenter", style="pill", size="xs", color="success")
+				), # absolutePanel
+				
 				absolutePanel(
 					id = "logo", 
 					class = "card", 
@@ -327,7 +338,18 @@ shinyUI(bootstrapPage(
 		), # tabPanel
 
 		tabPanel(
-			"About",
+			"Ethics of testing",
+			tags$div(
+				tags$h4("Coming soon..."), 
+				#h6(paste0(update)),
+#				"This site is updated weekly or biweekly. ", 
+#				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
+				"This tab will present results of our RNA virus genome sequencing efforts."
+			)
+		), # tabPanel
+
+		tabPanel(
+			"About this site",
 			div(
 				class="info",
 				tags$i(paste0("This is WaTCH dashboard version ", WATCH_VERSION, ", released on ", format(ymd(WATCH_RELEASE_DATE), format="%d %b %Y"), ".",  sep=""))

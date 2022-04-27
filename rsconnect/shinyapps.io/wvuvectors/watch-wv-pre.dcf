@@ -1,0 +1,14 @@
+name: watch-wv-pre
+title: watch-wv-pre
+username:
+account: wvuvectors
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6177490
+bundleId: 5842190
+url: https://wvuvectors.shinyapps.io/watch-wv-pre/
+when: 1651057747.69633
+lastSyncTime: 1651057747.69634
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: notebook/release_notes.xlsx|notebook/task_list.txt|test.R|ui copy.R|www/.DS_Store
