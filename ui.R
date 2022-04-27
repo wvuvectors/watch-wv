@@ -271,9 +271,10 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "collection_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
+						top = 265, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						div("Plot showing samples submitted (maybe number/week) over time for this site."),
+						plotlyOutput("sample_plot", height="300px", width="100%"),
+#						div("Plot showing samples submitted (maybe number/week) over time for this site."),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="collection_info_close", label="Close", style="pill", size="xs", color="success")

@@ -106,7 +106,7 @@ shinyServer(function(input, output, session) {
 	})
 
 	#
-	# WWTP plot
+	# Main plot
 	#
 	plotLoad = function(layer, facility, dates, targets, rollWin, ci) {
 		#print("plotLoad called!")
@@ -206,6 +206,35 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)
 	}
 	
+
+	#
+	# Plot of samples submitted
+	#
+	plotSamples = function(layer, facility) {
+		#print("plotSamples called!")
+		
+		if (missing(layer)) { layer = controlRV$activeLayer }
+		if (missing(facility)) { facility = controlRV$mapClick }
+		
+#		print(layer)
+#		print(facility)
+
+		if (facility == "State of West Virginia") {
+			df_plot <- df_watch %>% filter(group == layer) %>% group_by(week_starting) %>% summarize(count = n())
+		} else {
+			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(week_starting) %>% summarize(count = n())
+		}
+
+		lims_x_date <- as.Date(strptime(c(first_day, last_day), format = "%Y-%m-%d"))
+
+		gplot <- ggplot(df_plot) + labs(y = "Samples per week", x = "") + 
+											scale_y_continuous(labels = comma) + 
+											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
+											geom_col(aes(x = week_starting, y = count), alpha=0.5) + 
+											my_theme()
+		ggplotly(gplot)
+	}
+		
 	
 	# Metadata block reactions to map click or site selection
 	md_blockset <- function(layer, facility, rollWin) {
@@ -304,6 +333,12 @@ shinyServer(function(input, output, session) {
 		#print("watch_plot bottom")
 	})	
 
+	output$sample_plot <- renderPlotly({
+		#print("sample_plot top")
+
+		plotSamples() %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("sample_plot bottom")
+	})	
 	
 	#
 	# map interactivity
