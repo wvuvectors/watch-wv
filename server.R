@@ -321,7 +321,7 @@ shinyServer(function(input, output, session) {
 		
 	
 	#
-	# Init the starting plot and metadata content
+	# Init the starting plots and metadata content
 	#
 	output$watch_plot <- renderPlotly({
 		#print("watch_plot top")
@@ -338,6 +338,23 @@ shinyServer(function(input, output, session) {
 
 		plotSamples() %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 		#print("sample_plot bottom")
+	})	
+	
+	output$focus_plot <- renderPlotly({
+		print("focus_plot top")
+
+		if (controlRV$mapClick == "State of West Virginia") {
+			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
+		} else {
+			df_facility <- df_watch %>% filter(location_common_name == controlRV$mapClick)
+		}
+				
+		dates <- c(max(df_facility$day) - 28, max(df_facility$day))
+    output$focus_plot <- renderPlotly({
+			plotLoad(dates = dates) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
+		})
+
+		print("focus_plot bottom")
 	})	
 	
 	#

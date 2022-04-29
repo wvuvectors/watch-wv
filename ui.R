@@ -124,9 +124,10 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "site_status_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
+						top = 265, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						div("What do the various levels of behavior mean, and how are they calculated? Maybe show a plot focus on last several weeks?"),
+						#div("What do the various levels of behavior mean, and how are they calculated? Maybe show a plot focus on last several weeks?"),
+						plotlyOutput("focus_plot", height="300px", width="100%"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
