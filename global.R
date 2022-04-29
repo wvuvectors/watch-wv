@@ -74,19 +74,20 @@ my_theme <- function () {
 										 axis.ticks.length.y = unit(-0.5, "cm"), 
 										 strip.text = element_text(size = 8),
 										 panel.grid.major = element_line(color="#eeeeee", size=1), 
-										 panel.grid.minor.y = element_blank(),
+										 #panel.grid.minor.y = element_blank(),
 										 panel.grid.minor.x = element_line(color="#eeeeee", size=1),
-										 panel.background = element_blank(), 
+										 panel.background = element_rect(fill="transparent"), 
 										 panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
 #										 panel.border = element_blank(), 
-										 strip.background = element_rect(fill = 'white', color = 'white'),
+										 #strip.background = element_rect(fill = 'white', color = 'white'),
 										 legend.position = "none",
 #										 legend.position = c(.95, .95),
 										 legend.justification = c("right", "top"),
 										 legend.box.just = "right",
 										 legend.margin = margin(6, 6, 6, 6),
 										 legend.title = element_text(size = 10, color = "#888888"),
-										 plot.title = element_text(size = 9, color="#045a8d")
+										 plot.background = element_rect(fill="transparent"), 
+										 plot.title = element_text(size = 10, color="#045a8d", hjust=0.5)
 )}
 
 ci90 <- function(x) {

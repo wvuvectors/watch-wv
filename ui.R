@@ -126,8 +126,10 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						#div("What do the various levels of behavior mean, and how are they calculated? Maybe show a plot focus on last several weeks?"),
+						#div("What do the various levels of behavior mean, and how are they calculated?"),
+						div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
 						plotlyOutput("focus_plot", height="300px", width="100%"),
+						div("This plot will respond to any changes in the main control panel except the date range. Roll over plot points for more information.", style="font-size: 11px; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
@@ -159,7 +161,7 @@ shinyUI(bootstrapPage(
 				),
 					
 				absolutePanel(
-					class="mdblock",
+					class="mdblock-nopop",
 					id = "scope_panel", 
 					top = 65, left = 170, height=75, width = 240,
 					fixed=TRUE, draggable=FALSE,
@@ -168,22 +170,22 @@ shinyUI(bootstrapPage(
 					span(textOutput("sample_count"), style="font-size: 11px; font-weight: 200;")
 				),
 				
-				hidden(
-					absolutePanel(
-						id = "scope_info",
-						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
-						fixed=TRUE, draggable=TRUE,
-						div("Plot showing receipt of samples?"),
-						div(
-							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="scope_info_close", label="Close", style="pill", size="xs", color="success")
-						)
-					)
-				),
+#				hidden(
+#					absolutePanel(
+#						id = "scope_info",
+#						class = "mdinfo",
+#						top = 265, left = 590, height="auto", width = 300,
+#						fixed=TRUE, draggable=TRUE,
+#						div("Plot showing receipt of samples?"),
+#						div(
+#							style="padding-top: 15px; padding-right: 5px; float: right;",
+#							actionBttn(inputId="scope_info_close", label="Close", style="pill", size="xs", color="success")
+#						)
+#					)
+#				),
 					
 				absolutePanel(
-					class="mdblock",
+					class="mdblock-nopop",
 					id = "population_panel", 
 					top = 65, left = 410, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
@@ -193,22 +195,22 @@ shinyUI(bootstrapPage(
 					span(textOutput("county_population"), style="font-size: 15px;")
 				),
 				
-				hidden(
-					absolutePanel(
-						id = "population_info",
-						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
-						fixed=TRUE, draggable=TRUE,
-						div("If more than one county, show some metadata about all (name, population, etc.)."),
-						div(
-							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="population_info_close", label="Close", style="pill", size="xs", color="success")
-						)
-					)
-				),
+#				hidden(
+#					absolutePanel(
+#						id = "population_info",
+#						class = "mdinfo",
+#						top = 265, left = 590, height="auto", width = 300,
+#						fixed=TRUE, draggable=TRUE,
+#						div("If more than one county, show some metadata about all (name, population, etc.)."),
+#						div(
+#							style="padding-top: 15px; padding-right: 5px; float: right;",
+#							actionBttn(inputId="population_info_close", label="Close", style="pill", size="xs", color="success")
+#						)
+#					)
+#				),
 					
 				absolutePanel(
-					class="mdblock",
+					class="mdblock-nopop",
 					id = "networkpop_panel", 
 					top = 65, left = 540, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
@@ -218,19 +220,19 @@ shinyUI(bootstrapPage(
 					span(textOutput("population_served_pct"), style="font-size: 12px;line-height: 18px;")
 				),
 				
-				hidden(
-					absolutePanel(
-						id = "networkpop_info",
-						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
-						fixed=TRUE, draggable=TRUE,
-						div("Anything to show/tell here?"),
-						div(
-							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="networkpop_info_close", label="Close", style="pill", size="xs", color="success")
-						)
-					)
-				),
+#				hidden(
+#					absolutePanel(
+#						id = "networkpop_info",
+#						class = "mdinfo",
+#						top = 265, left = 590, height="auto", width = 300,
+#						fixed=TRUE, draggable=TRUE,
+#						div("Anything to show/tell here?"),
+#						div(
+#							style="padding-top: 15px; padding-right: 5px; float: right;",
+#							actionBttn(inputId="networkpop_info_close", label="Close", style="pill", size="xs", color="success")
+#						)
+#					)
+#				),
 					
 				absolutePanel(
 					class="mdblock",
@@ -246,9 +248,11 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "daily_flow_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
+						top = 265, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						div("Plot showing daily flow over time at this site, with capacity."),
+						plotlyOutput("flow_plot", height="300px", width="100%"),
+						span(textOutput("flow_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+						div("Daily flow is provided by the facility with each sample, in million gallons per day.", style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="daily_flow_info_close", label="Close", style="pill", size="xs", color="success")
@@ -261,7 +265,7 @@ shinyUI(bootstrapPage(
 					id = "collection_panel", 
 					top = 65, left = 800, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
-					span("This facility is providing", style="font-size: 10px;"),
+					span("We have received", style="font-size: 10px;"),
 					span(textOutput("collection_frequency"), style="font-size: 13px;line-height: 12px;"),
 					span("over the last 4 weeks", style="font-size: 10px; line-height: 11px;")
 					#span("as", style="font-size: 10px; line-height: 11px;"),
@@ -274,8 +278,9 @@ shinyUI(bootstrapPage(
 						class = "mdinfo",
 						top = 265, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						plotlyOutput("sample_plot", height="300px", width="100%"),
-#						div("Plot showing samples submitted (maybe number/week) over time for this site."),
+						plotlyOutput("collection_plot", height="300px", width="100%"),
+						span(textOutput("collection_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+						#div("Daily flow is provided by the facility with each sample, in million gallons per day.", style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="collection_info_close", label="Close", style="pill", size="xs", color="success")
@@ -346,7 +351,7 @@ shinyUI(bootstrapPage(
 				#h6(paste0(update)),
 #				"This site is updated weekly or biweekly. ", 
 #				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
-				"This tab will present results of our RNA virus genome sequencing efforts."
+				"This tab will present information about the ethics of wastewater testing."
 			)
 		), # tabPanel
 

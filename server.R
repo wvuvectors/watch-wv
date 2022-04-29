@@ -176,7 +176,11 @@ shinyServer(function(input, output, session) {
 		}
 		
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
-
+		if (toDate - fromDate < 60) {
+			date_step <- "2 days"
+		} else {
+			date_step <- "2 weeks"
+		}
 		target_pal <- colorFactor(
 			palette = TARGETS_DF$target_color,
 			domain = TARGETS_DF$target_value,
@@ -187,7 +191,7 @@ shinyServer(function(input, output, session) {
 		
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
-											scale_x_date(breaks = "2 weeks", labels = format_dates, limits = lims_x_date) + 
+											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
 											my_theme()
 
 		for (target in targets) {
@@ -208,10 +212,50 @@ shinyServer(function(input, output, session) {
 	
 
 	#
-	# Plot of samples submitted
+	# Plot of daily flow
 	#
-	plotSamples = function(layer, facility) {
-		#print("plotSamples called!")
+	plotFlow = function(layer, facility) {
+		#print("plotFlow called!")
+		
+		if (missing(layer)) { layer = controlRV$activeLayer }
+		if (missing(facility)) { facility = controlRV$mapClick }
+		
+#		print(layer)
+#		print(facility)
+
+		if (facility == "State of West Virginia") {
+			#capacity <- sum(unique((df_watch %>% filter(group == layer))$capacity_mgd))
+			df_plot <- df_watch %>% filter(group == layer) %>% group_by(week_starting) %>% 
+				summarize(mean_flow = mean(daily_flow), 
+									se_flow = sd(daily_flow) / sqrt(n())
+				)
+		} else {
+			capacity <- unique((df_watch %>% filter(location_common_name == facility))$capacity_mgd)
+			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(week_starting) %>% 
+				summarize(mean_flow = mean(daily_flow), 
+									se_flow = sd(daily_flow) / sqrt(n())
+				)
+		}
+
+		lims_x_date <- as.Date(strptime(c(first_day, last_day), format = "%Y-%m-%d"))
+
+		gplot <- ggplot(df_plot, aes(x = week_starting, y = mean_flow)) + labs(y = "Weekly mean flow (MGD)", x = "") + 
+											scale_y_continuous(labels = comma) + 
+											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
+											geom_errorbar(aes(ymin=mean_flow-se_flow, ymax=mean_flow+se_flow), color="#cccccc", width=.1, alpha=0.5, position=position_dodge(0.05)) + 
+											geom_line(color="#aaaaaa", alpha=0.7) + 
+											geom_point(aes(color=mean_flow), size=2) + 
+											scale_color_gradient(low = "#E7C6B9", high = "#E71417") + 
+											ggtitle("Daily flow (MGD), averaged per week") + 
+											my_theme()
+		if (facility != "State of West Virginia") {
+			gplot <- gplot + geom_hline(yintercept=capacity, linetype="dashed", color="#dddddd", size=0.5)
+		}
+		ggplotly(gplot)
+	}
+
+	plotCollection = function(layer, facility) {
+		#print("plotCollection called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
@@ -227,10 +271,11 @@ shinyServer(function(input, output, session) {
 
 		lims_x_date <- as.Date(strptime(c(first_day, last_day), format = "%Y-%m-%d"))
 
-		gplot <- ggplot(df_plot) + labs(y = "Samples per week", x = "") + 
+		gplot <- ggplot(df_plot) + labs(y = "Sample count", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
 											geom_col(aes(x = week_starting, y = count), alpha=0.5) + 
+											ggtitle("Number of samples collected per week") + 
 											my_theme()
 		ggplotly(gplot)
 	}
@@ -296,6 +341,12 @@ shinyServer(function(input, output, session) {
 		
 		output$plot_title = renderText(paste0("Showing the ", rollWin, "-day rolling mean for ", facility, " ", layer, sep=""))
 
+		if (layer == "WWTPs") {
+			output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
+		} else {
+			output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
+		}
+
 		output$alert_level <- renderText(ALERT_TXT)
 		output$site_signal <- renderText(TREND_TXT)
 
@@ -333,15 +384,10 @@ shinyServer(function(input, output, session) {
 		#print("watch_plot bottom")
 	})	
 
-	output$sample_plot <- renderPlotly({
-		#print("sample_plot top")
-
-		plotSamples() %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-		#print("sample_plot bottom")
-	})	
-	
 	output$focus_plot <- renderPlotly({
-		print("focus_plot top")
+		#print("focus_plot top")
+
+		output$focus_plot_title = renderText(paste0("Last 4 weeks of signal from ", controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
 
 		if (controlRV$mapClick == "State of West Virginia") {
 			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
@@ -350,12 +396,27 @@ shinyServer(function(input, output, session) {
 		}
 				
 		dates <- c(max(df_facility$day) - 28, max(df_facility$day))
-    output$focus_plot <- renderPlotly({
-			plotLoad(dates = dates) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
-		})
+		plotLoad(dates = dates) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 
-		print("focus_plot bottom")
+		#print("focus_plot bottom")
 	})	
+
+	output$collection_plot <- renderPlotly({
+		#print("collection_plot top")
+
+		plotCollections() %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("collection_plot bottom")
+	})	
+
+	output$flow_plot <- renderPlotly({
+		#print("flow_plot top")
+
+		output$flow_plot_title = renderText(paste0(controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
+
+		plotFlow() %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("flow_plot bottom")
+	})	
+	
 	
 	#
 	# map interactivity
@@ -373,12 +434,6 @@ shinyServer(function(input, output, session) {
 			controlRV$clickLng <- 0
 		
 			md_blockset(layer = selected_group)
-		
-			if (selected_group == "WWTP") {
-				output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
-			} else {
-				output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
-			}
 		}
 		#print("layer change bottom")
 	})
@@ -527,17 +582,17 @@ shinyServer(function(input, output, session) {
     controller(counter_targets=c("site_status_info"))
 	}, ignoreInit = TRUE)
 	
-	observeEvent(input$scope_info_close,{
-    controller(counter_targets=c("scope_info"))
-	}, ignoreInit = TRUE)
+#	observeEvent(input$scope_info_close,{
+#    controller(counter_targets=c("scope_info"))
+#	}, ignoreInit = TRUE)
 	
-	observeEvent(input$population_info_close,{
-    controller(counter_targets=c("population_info"))
-	}, ignoreInit = TRUE)
+#	observeEvent(input$population_info_close,{
+#    controller(counter_targets=c("population_info"))
+#	}, ignoreInit = TRUE)
 	
-	observeEvent(input$networkpop_info_close,{
-    controller(counter_targets=c("networkpop_info"))
-	}, ignoreInit = TRUE)
+#	observeEvent(input$networkpop_info_close,{
+#    controller(counter_targets=c("networkpop_info"))
+#	}, ignoreInit = TRUE)
 	
 	observeEvent(input$daily_flow_info_close,{
     controller(counter_targets=c("daily_flow_info"))

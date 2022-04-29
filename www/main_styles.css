@@ -67,6 +67,27 @@ h4 { font-weight: 800; }
 
 
 
+.mdblock-nopop {
+  /* Appearance */
+  background-color: #f3f3f3;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 0 0 0;
+  cursor: pointer;
+  /* Fade out while not hovering */
+  opacity: 0.75;
+  /*transition: opacity 200ms 400ms;*/
+}
+
+.mdblock-nopop:hover {
+  /*border: 2px solid #666666;*/
+  cursor: pointer;
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
 .mdblock {
   /* Appearance */
   background-color: #ffffff;
@@ -89,7 +110,7 @@ h4 { font-weight: 800; }
 }
 
 .mdinfo {
-	background-color:#ffffff;
+	background-color:#f6f6e3;
 	padding: 4px;
 	margins: 0;
 	border: 2px solid #909090;
