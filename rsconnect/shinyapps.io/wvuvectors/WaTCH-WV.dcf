@@ -5,10 +5,10 @@ account: wvuvectors
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6042413
-bundleId: 5848378
+bundleId: 5851747
 url: https://wvuvectors.shinyapps.io/WaTCH-WV/
-when: 1651176910.57624
-lastSyncTime: 1651176910.57626
+when: 1651248182.47472
+lastSyncTime: 1651248182.47473
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: notebook/release_notes.xlsx|notebook/task_list.txt|test.R|www/.DS_Store|www/leaflet-providers.js|IGNORE
+ignoredFiles: notebook/release_notes.xlsx|notebook/task_list.txt|test.R|www/.DS_Store|www/leaflet-providers.js
