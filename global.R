@@ -58,14 +58,6 @@ today <- Sys.Date()
 first_day <- as_date("2021-07-01")
 last_day <- today
 
-blues7 <- c("1" = "#DEEBF7", "2" = "#C6DBEF", "3" = "#9ECAE1", "4" = "#6BAED6", "5" = "#4292C6", "6" = "#2171B5", "7" = "#084594") 
-reds7 <- c("1" = "#FCBBA1", "2" = "#FC9272", "3" = "#FB6A4A", "4" = "#EF3B2C", "5" = "#CB181D", "6" = "#A50F15", "7" = "#67000D") 
-greens7 <- c("1" = "#C7E9C0", "2" = "#A1D99B", "3" = "#74C476", "4" = "#41AB5D", "5" = "#238B45", "6" = "#006D2C", "7" = "#00441B") 
-grays7 <- c("1" = "#D9D9D9", "2" = "#BDBDBD", "3" = "#969696", "4" = "#737373", "5" = "#525252", "6" = "#252525", "7" = "#000000") 
-
-reds3 <- c("1" = "#FC9272", "2" = "#CB181D", "3" = "#67000D") 
-blues2 <- c("1" = "#9ECAE1", "2" = "#2171B5") 
-
 my_theme <- function () { 
 	theme_bw() + theme(axis.text = element_text(size = 8),
 										 axis.title = element_text(size = 9, color="#333333"),
@@ -91,7 +83,7 @@ my_theme <- function () {
 )}
 
 ci90 <- function(x) {
-	0.5 * qt(0.90, length(x) - 1) * (sd(x) / sqrt(length(x)))
+	0.5 * qt(0.80, length(x) - 1) * (sd(x) / sqrt(length(x)))
 #	m <- mean(x)
 #	se <- sd(x) / sqrt(x.length)
 #	ci = qt(1 - (0.05 / 2), x.length - 1) * se
@@ -136,9 +128,9 @@ df_watch <- df_watch %>% filter(status == "active" | status == "new")
 # Convert date strings into Date objects
 
 df_watch$"Sample Composite Start" <- mdy_hm(df_watch$"Sample Composite Start")
-#df_watch$"Sample Composite End" <- mdy_hm(df_watch$"Sample Composite End")
+df_watch$"Sample Composite End" <- mdy_hm(df_watch$"Sample Composite End")
 
-df_watch$day <- as_date(df_watch$"Sample Composite Start")
+df_watch$day <- as_date(df_watch$"Sample Composite End")
 df_watch$week_starting <- floor_date(df_watch$day, "week", week_start = 1)
 df_watch$week_ending <- ceiling_date(df_watch$day, "week", week_start = 0)
 
@@ -175,6 +167,7 @@ df_watch[df_watch == -Inf] <- NA
 #
 # Determine alert level
 #
+
 ALERT_TXT="Green"
 TREND_TXT="low but increasing rapidly"
 

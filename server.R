@@ -21,7 +21,8 @@ shinyServer(function(input, output, session) {
 	
 	# Init reactive values with some defaults
 	controlRV <- reactiveValues(
-								Dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
+#								Dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
+								Dates = c(first_day, last_day),
 								rollWin = SMOOTHER_DEFAULT,
 								ci = FALSE,
 								visibleTargets = TARGETS_DEFAULT,
@@ -130,13 +131,17 @@ shinyServer(function(input, output, session) {
 		
 		if (facility == "State of West Virginia") {
 			df_plot <- df_watch %>%
-								 filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+								 filter(group == layer & day >= fromDate & day <= toDate) %>%
 								 group_by(day)
 		} else {
+		
 			df_plot <- df_watch %>%
-								 filter(location_common_name == facility & week_starting >= fromDate & week_starting <= toDate) %>%
+								 filter(location_common_name == facility & day >= fromDate & day <= toDate) %>%
 								 group_by(day)
 		}
+		
+		df_facility <- df_plot
+		anchor_date <- ymd(max(df_plot$day) - 28)
 		
 		for (target in targets) {
 			if (layer == "Sewer Network") {
@@ -147,16 +152,16 @@ shinyServer(function(input, output, session) {
 			dest_colname <- paste0(src_colname, ".mean", sep="")
 
 			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
-			ci_colname <- paste0(roll_colname, ".ci90", sep="")
-
+			ci_colname <- paste0(roll_colname, ".ci", sep="")
+						
 			if (facility == "State of West Virginia") {
 				df_loc <- df_watch %>% 
-									filter(group == layer & week_starting >= fromDate & week_starting <= toDate) %>%
+									filter(group == layer & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
 									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
 			} else {
 				df_loc <- df_watch %>% 
-									filter(location_common_name == facility & week_starting >= fromDate & week_starting <= toDate) %>%
+									filter(location_common_name == facility & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
 									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
 			}
@@ -174,13 +179,17 @@ shinyServer(function(input, output, session) {
 
 			df_plot <- left_join(df_plot, df_ci, by = c("day" = "day"), copy=TRUE)
 		}
-		
+				
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
+		
+		date_step <- "2 weeks"
 		if (toDate - fromDate < 60) {
 			date_step <- "2 days"
-		} else {
-			date_step <- "2 weeks"
 		}
+		if (toDate - fromDate < 15) {
+			date_step <- "1 day"
+		}
+
 		target_pal <- colorFactor(
 			palette = TARGETS_DF$target_color,
 			domain = TARGETS_DF$target_value,
@@ -197,13 +206,23 @@ shinyServer(function(input, output, session) {
 		for (target in targets) {
 			if (layer == "Sewer Network") {
 				rcol <- paste0(target, ".roll", rollWin, sep="")
+				src_col <- target
 			} else {
 				rcol <- paste0(target, ".load.roll", rollWin, sep="")
+				src_col <- paste0(target, ".load", sep="")
 			}
+			df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, src_col))
+			#print(df_tmp)
+			mean4weeks <- mean(df_tmp[[src_col]])
+			ci4weeks <- ci99(df_tmp[[src_col]])
+			print(mean4weeks)
+
 			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target))
+							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target)) + 
+											 geom_hline(yintercept=mean4weeks, linetype="dashed", color="#dddddd", size=0.5) + 
+											 geom_ribbon(aes(x=day, y=mean4weeks, ymin=mean4weeks-ci4weeks, ymax=mean4weeks+ci4weeks), alpha=0.2)
 			if (ci) {
-				cicol <- paste0(rcol, ".ci90", sep="")
+				cicol <- paste0(rcol, ".ci", sep="")
 				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
 			}
 		}
@@ -359,7 +378,12 @@ shinyServer(function(input, output, session) {
 
 		output$mean_flow <- renderText(paste0(formatC(mean_daily_flow, big.mark=","), " MGD", sep=""))
 		output$collection_frequency <- renderText(paste0(mean_collfreq, " samples/week", sep=""))
-		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled)-1, " days ago", sep=""))
+		
+		update_mod <- "days"
+		if (ymd(today)-ymd(date_last_sampled) < 2) {
+			update_mod <- "day"
+		}
+		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled), " ", update_mod, " ago", sep=""))
 
 		if (facility == "State of West Virginia") {
 			output$scope_count <- renderText(paste0(num_facilities, " ", facility_text, sep=""))
@@ -395,7 +419,7 @@ shinyServer(function(input, output, session) {
 			df_facility <- df_watch %>% filter(location_common_name == controlRV$mapClick)
 		}
 				
-		dates <- c(max(df_facility$day) - 28, max(df_facility$day))
+		dates <- c(max(df_facility$day) - 30, max(df_facility$day))
 		plotLoad(dates = dates) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 
 		#print("focus_plot bottom")
