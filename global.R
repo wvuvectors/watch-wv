@@ -133,8 +133,8 @@ df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
 
 
 # Make some simpler aliases for common numeric columns
-df_watch$n1 = df_watch$"Assay Target 1 Result (CN/L)"
-df_watch$n2 = df_watch$"Assay Target 2 Result (CN/L)"
+#df_watch$n1 = df_watch$"Assay Target 1 Result (CN/L)"
+#df_watch$n2 = df_watch$"Assay Target 2 Result (CN/L)"
 df_watch$daily_flow = df_watch$"Sample Flow (MGD)"
 
 # Clean up some N/A entries
