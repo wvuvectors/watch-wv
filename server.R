@@ -31,6 +31,79 @@ shinyServer(function(input, output, session) {
 								clickLat=0, clickLng=0
 	)
 	
+	# Determine alert status
+	# Compare current value for selected site to mid mean and 98% ci
+	# n1n2.load.mid.mean
+	# n1n2.load.mid.ci
+	#
+	# Within the CI = black (steady)
+	# lower than CI - green (descending)
+	# higher than CI - red (ascending)
+	getAlertStatus <- function(facility, layer) {
+		
+		if (missing(facility)) {
+			facility <- controlRV$mapClick
+		}
+		if (missing(layer)) {
+			layer <- controlRV$activeLayer
+		}
+		
+		#print(facility)
+
+		if (facility == "State of West Virginia") {
+			facility <- "Morgantown Star City"
+			df_loc <- df_watch %>% filter(location_common_name == facility)
+			#df_loc <- df_watch %>% filter(group == layer) %>% group_by(day)
+		} else {
+			df_loc <- df_watch %>% filter(location_common_name == facility)
+		}
+		
+		alert_day <- max(df_loc$day)
+		df_loc <- df_loc %>% filter(ymd(day) == ymd(alert_day))
+		
+		if (is.na(df_loc$n1n2.load.mid.delta)) {
+			my_val <- df_loc$n1n2
+			my_mean <- df_loc$n1n2.mid.mean
+			my_delta <- df_loc$n1n2.mid.delta
+			my_basis <- "Not corrected"
+		} else {
+			my_val <- df_loc$n1n2.load
+			my_mean <- df_loc$n1n2.load.mid.mean
+			my_delta <- df_loc$n1n2.load.mid.delta
+			my_basis <- "Corrected"
+		}
+		
+#		print("AFTER TEST:")
+		print(my_val)
+		print(my_mean)
+		print(my_delta)
+		print(my_basis)
+
+		alert_color <- "Gray"
+
+		if (my_delta == 0) {
+			alert_color <- "Black"
+		} else if (my_delta > 0) {
+			if (my_delta <= 0.25) {
+				alert_color <- "Yellow"
+			} else {
+				if (my_delta <= 0.5) {
+					alert_color <- "Orange"
+				} else {
+					alert_color <- "Red"
+				}
+			}
+		} else {
+			if (my_delta >= -0.25) {
+				alert_color <- "Blue"
+			} else {
+				alert_color <- "Green"
+			}
+		}
+		
+		return(alert_color)
+	}
+	
 
 	# Render a base map
 	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
@@ -44,9 +117,10 @@ shinyServer(function(input, output, session) {
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = "black", 
+										 color = ~alertPal(alertLevel), 
 										 fill = TRUE,
-										 fillColor = "black",
+										 fillColor=~alertPal(alertLevel),
+#										 fillColor = "black",
 										 group = "WWTP", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>%
@@ -59,7 +133,7 @@ shinyServer(function(input, output, session) {
 										 weight = 2, 
 										 color = "dark orange", 
 										 fill = TRUE,
-										 fillColor = "dark orange",
+#										 fillColor=~getAlertColor(location = location_common_name, layer = "Sewer Network"),
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>% 
@@ -209,22 +283,24 @@ shinyServer(function(input, output, session) {
 				src_col <- target
 			} else {
 				rcol <- paste0(target, ".load.roll", rollWin, sep="")
-				src_col <- paste0(target, ".load", sep="")
+				#src_col <- paste0(target, ".load", sep="")
+				mean_col <- paste0(target, ".mid.mean", sep="")
+				ci_col <- paste0(target, ".mid.ci", sep="")
 			}
-			df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, src_col))
+			df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, mean_col, ci_col))
 			#print(df_tmp)
-			mean4weeks <- mean(df_tmp[[src_col]])
-			ci4weeks <- ci99(df_tmp[[src_col]])
-			print(mean4weeks)
+			mean_rib <- df_tmp[[mean_col]]
+			ci_rib <- df_tmp[[ci_col]]
+			#print(mean4weeks)
 
 			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target)) + 
-											 geom_hline(yintercept=mean4weeks, linetype="dashed", color="#dddddd", size=0.5) + 
-											 geom_ribbon(aes(x=day, y=mean4weeks, ymin=mean4weeks-ci4weeks, ymax=mean4weeks+ci4weeks), alpha=0.2)
-			if (ci) {
-				cicol <- paste0(rcol, ".ci", sep="")
-				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
-			}
+							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target))
+											 #geom_hline(yintercept=mean_rib, linetype="dashed", color="#dddddd", size=0.5) + 
+											 #geom_ribbon(aes(x=day, y=.data[[mean_col]], ymin=.data[[mean_col]]-.data[[ci_col]], ymax=.data[[mean_col]]+.data[[ci_col]]), alpha=0.2)
+#			if (ci) {
+#				cicol <- paste0(rcol, ".ci", sep="")
+#				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
+#			}
 		}
 		ggplotly(gplot)
 	}
@@ -365,8 +441,9 @@ shinyServer(function(input, output, session) {
 		} else {
 			output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
 		}
-
-		output$alert_level <- renderText(ALERT_TXT)
+		
+#		output$alert_level <- renderText("Working")
+		output$alert_level <- renderText(getAlertStatus())
 		output$site_signal <- renderText(TREND_TXT)
 
 		output$scope <- renderText(facility)
@@ -485,9 +562,9 @@ shinyServer(function(input, output, session) {
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = "black", 
+												 color = ~alertPal(alertLevel), 
 												 fill = TRUE,
-												 fillColor = "black",
+										 		 fillColor=~alertPal(alertLevel),
 												 group = "WWTP", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6) %>%
@@ -539,9 +616,9 @@ shinyServer(function(input, output, session) {
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = "black"), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(alertLevel)), 
 											 fill = TRUE,
-											 fillColor = "black",
+											 fillColor = ~alertPal(alertLevel),
 											 group = "WWTP", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6) %>%

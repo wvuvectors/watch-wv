@@ -95,6 +95,10 @@ ci95 <- function(x) {
 	0.5 * qt(0.95, length(x) - 1) * (sd(x) / sqrt(length(x)))
 }
 
+ci98 <- function(x) {
+	0.5 * qt(0.98, length(x) - 1) * (sd(x) / sqrt(length(x)))
+}
+
 ci99 <- function(x) {
 	0.5 * qt(0.99, length(x) - 1) * (sd(x) / sqrt(length(x)))
 }
@@ -134,8 +138,8 @@ df_watch$day <- as_date(df_watch$"Sample Composite End")
 df_watch$week_starting <- floor_date(df_watch$day, "week", week_start = 1)
 df_watch$week_ending <- ceiling_date(df_watch$day, "week", week_start = 0)
 
-df_watch$week_num <- week(df_watch$week_ending)
-df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
+#df_watch$week_num <- week(df_watch$week_ending)
+#df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
 
 
 # Set date constraints on input data
@@ -144,33 +148,67 @@ df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
 
 
 # Make some simpler aliases for common numeric columns
-df_watch$n1 = df_watch$"Assay Target 1 Result (CN/L)"
-df_watch$n2 = df_watch$"Assay Target 2 Result (CN/L)"
 df_watch$daily_flow = df_watch$"Sample Flow (MGD)"
 
-# Clean up some N/A entries
+# Clean up some NA entries
 df_watch <- df_watch %>% mutate(n1 = replace_na(n1, 0))
 df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
 df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
 
-df_watch$n1n2 = rowMeans(df_watch[,c("n1", "n2")], na.rm=TRUE)
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
-
-df_watch <- df_watch %>% mutate(
-						n1n2.load = (daily_flow*n1n2*L_per_gal),
-					 	n1.load = (daily_flow*n1*L_per_gal), 
-					 	n2.load = (daily_flow*n2*L_per_gal)) %>% 
-					 arrange(day)
+df_watch <- df_watch %>% arrange(day)
 df_watch[df_watch == -Inf] <- NA
 
+# n1n2.load as a percent of n1n2.load n1n2.load.mean + n1n2.load.ci
+#above mean: (value - mean+ci)/(mean+ci)
+#below mean: (value - mean-ci)/(mean-ci)
 
-#
-# Determine alert level
-#
+df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
 
-ALERT_TXT="Green"
-TREND_TXT="low but increasing rapidly"
+df_watch <- df_watch %>% mutate(n1n2.load.near.delta = ifelse(n1n2.load > n1n2.load.near.mean, 
+																			yes = (n1n2.load - (n1n2.load.near.mean + n1n2.load.near.ci)) / (n1n2.load.near.mean + n1n2.load.near.ci), 
+																			no = (n1n2.load - (n1n2.load.near.mean - n1n2.load.near.ci)) / (n1n2.load.near.mean - n1n2.load.near.ci)), 
+																n1n2.near.delta = ifelse(n1n2 > n1n2.near.mean, 
+																			yes = (n1n2 - (n1n2.near.mean + n1n2.near.ci)) / (n1n2.near.mean + n1n2.near.ci), 
+																			no = (n1n2 - (n1n2.near.mean - n1n2.near.ci)) / (n1n2.near.mean - n1n2.near.ci)))
 
+df_watch$n1n2.load.near.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.near.mean + df_watch$n1n2.load.near.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.near.mean - df_watch$n1n2.load.near.ci)] <- 0
+df_watch$n1n2.near.delta[df_watch$n1n2 <= (df_watch$n1n2.near.mean + df_watch$n1n2.near.ci) & df_watch$n1n2 >= (df_watch$n1n2.near.mean - df_watch$n1n2.near.ci)] <- 0
+
+df_watch <- df_watch %>% mutate(n1n2.load.mid.delta = ifelse(n1n2.load > n1n2.load.mid.mean, 
+																			yes = (n1n2.load - (n1n2.load.mid.mean + n1n2.load.mid.ci)) / (n1n2.load.mid.mean + n1n2.load.mid.ci), 
+																			no = (n1n2.load - (n1n2.load.mid.mean - n1n2.load.mid.ci)) / (n1n2.load.mid.mean - n1n2.load.mid.ci)), 
+																n1n2.mid.delta = ifelse(n1n2 > n1n2.mid.mean, 
+																			yes = (n1n2 - (n1n2.mid.mean + n1n2.mid.ci)) / (n1n2.mid.mean + n1n2.mid.ci), 
+																			no = (n1n2 - (n1n2.mid.mean - n1n2.mid.ci)) / (n1n2.mid.mean - n1n2.mid.ci)))
+df_watch$n1n2.load.mid.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.mid.mean + df_watch$n1n2.load.mid.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.mid.mean - df_watch$n1n2.load.mid.ci)] <- 0
+df_watch$n1n2.mid.delta[df_watch$n1n2 <= (df_watch$n1n2.mid.mean + df_watch$n1n2.mid.ci) & df_watch$n1n2 >= (df_watch$n1n2.mid.mean - df_watch$n1n2.mid.ci)] <- 0
+
+df_watch <- df_watch %>% mutate(n1n2.load.far.delta = ifelse(n1n2.load > n1n2.load.far.mean, 
+																			yes = (n1n2.load - (n1n2.load.far.mean + n1n2.load.far.ci)) / (n1n2.load.far.mean + n1n2.load.far.ci), 
+																			no = (n1n2.load - (n1n2.load.far.mean - n1n2.load.far.ci)) / (n1n2.load.far.mean - n1n2.load.far.ci)), 
+																n1n2.far.delta = ifelse(n1n2 > n1n2.far.mean, 
+																			yes = (n1n2 - (n1n2.far.mean + n1n2.far.ci)) / (n1n2.far.mean + n1n2.far.ci), 
+																			no = (n1n2 - (n1n2.far.mean - n1n2.far.ci)) / (n1n2.far.mean - n1n2.far.ci)))
+df_watch$n1n2.load.far.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.far.mean + df_watch$n1n2.load.far.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.far.mean - df_watch$n1n2.load.far.ci)] <- 0
+df_watch$n1n2.far.delta[df_watch$n1n2 <= (df_watch$n1n2.far.mean + df_watch$n1n2.far.ci) & df_watch$n1n2 >= (df_watch$n1n2.far.mean - df_watch$n1n2.far.ci)] <- 0
+
+
+df_watch <- df_watch %>% 
+  mutate(alertLevel = case_when(n1n2.load.mid.delta <= -0.25 ~ 1,
+                             		n1n2.load.mid.delta > -0.25 & n1n2.load.mid.delta < 0 ~ 2,
+                             		n1n2.load.mid.delta == 0 ~ 3,
+                             		n1n2.load.mid.delta > 0 & n1n2.load.mid.delta < 0.25 ~ 4,
+                             		n1n2.load.mid.delta >= 0.25 & n1n2.load.mid.delta < 0.5 ~ 5,
+                             		n1n2.load.mid.delta >= 0.5 ~ 6))
+
+
+alertPal <- colorFactor(c("green", "blue", "#000000", "yellow", "orange", "red"), as.factor(df_watch$alertLevel))
+
+#scale_colour_manual(values = alertPal)
+
+
+TREND_TXT <- "No trend yet"
 
 #map_pal <- colorNumeric(
 #	palette = c('gold', 'orange', 'dark orange', 'orange red', 'red', 'dark red'),
