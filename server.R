@@ -27,7 +27,7 @@ shinyServer(function(input, output, session) {
 								ci = FALSE,
 								visibleTargets = TARGETS_DEFAULT,
 								activeLayer = "WWTP",
-								mapClick = "State of West Virginia",
+								mapClick = "All facilities",
 								clickLat=0, clickLng=0
 	)
 	
@@ -48,59 +48,8 @@ shinyServer(function(input, output, session) {
 			layer <- controlRV$activeLayer
 		}
 		
-		#print(facility)
-
-		if (facility == "State of West Virginia") {
-			facility <- "Morgantown Star City"
-			df_loc <- df_watch %>% filter(location_common_name == facility)
-			#df_loc <- df_watch %>% filter(group == layer) %>% group_by(day)
-		} else {
-			df_loc <- df_watch %>% filter(location_common_name == facility)
-		}
-		
-		alert_day <- max(df_loc$day)
-		df_loc <- df_loc %>% filter(ymd(day) == ymd(alert_day))
-		
-		if (is.na(df_loc$n1n2.load.mid.delta)) {
-			my_val <- df_loc$n1n2
-			my_mean <- df_loc$n1n2.mid.mean
-			my_delta <- df_loc$n1n2.mid.delta
-			my_basis <- "Not corrected"
-		} else {
-			my_val <- df_loc$n1n2.load
-			my_mean <- df_loc$n1n2.load.mid.mean
-			my_delta <- df_loc$n1n2.load.mid.delta
-			my_basis <- "Corrected"
-		}
-		
-#		print("AFTER TEST:")
-		print(my_val)
-		print(my_mean)
-		print(my_delta)
-		print(my_basis)
-
 		alert_color <- "Gray"
 
-		if (my_delta == 0) {
-			alert_color <- "Black"
-		} else if (my_delta > 0) {
-			if (my_delta <= 0.25) {
-				alert_color <- "Yellow"
-			} else {
-				if (my_delta <= 0.5) {
-					alert_color <- "Orange"
-				} else {
-					alert_color <- "Red"
-				}
-			}
-		} else {
-			if (my_delta >= -0.25) {
-				alert_color <- "Blue"
-			} else {
-				alert_color <- "Green"
-			}
-		}
-		
 		return(alert_color)
 	}
 	
@@ -203,7 +152,7 @@ shinyServer(function(input, output, session) {
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
 		
-		if (facility == "State of West Virginia") {
+		if (facility == "All facilities") {
 			df_plot <- df_watch %>%
 								 filter(group == layer & day >= fromDate & day <= toDate) %>%
 								 group_by(day)
@@ -228,7 +177,7 @@ shinyServer(function(input, output, session) {
 			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
 			ci_colname <- paste0(roll_colname, ".ci", sep="")
 						
-			if (facility == "State of West Virginia") {
+			if (facility == "All facilities") {
 				df_loc <- df_watch %>% 
 									filter(group == layer & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
@@ -318,7 +267,7 @@ shinyServer(function(input, output, session) {
 #		print(layer)
 #		print(facility)
 
-		if (facility == "State of West Virginia") {
+		if (facility == "All facilities") {
 			#capacity <- sum(unique((df_watch %>% filter(group == layer))$capacity_mgd))
 			df_plot <- df_watch %>% filter(group == layer) %>% group_by(week_starting) %>% 
 				summarize(mean_flow = mean(daily_flow), 
@@ -343,7 +292,7 @@ shinyServer(function(input, output, session) {
 											scale_color_gradient(low = "#E7C6B9", high = "#E71417") + 
 											ggtitle("Daily flow (MGD), averaged per week") + 
 											my_theme()
-		if (facility != "State of West Virginia") {
+		if (facility != "All facilities") {
 			gplot <- gplot + geom_hline(yintercept=capacity, linetype="dashed", color="#dddddd", size=0.5)
 		}
 		ggplotly(gplot)
@@ -358,7 +307,7 @@ shinyServer(function(input, output, session) {
 #		print(layer)
 #		print(facility)
 
-		if (facility == "State of West Virginia") {
+		if (facility == "All facilities") {
 			df_plot <- df_watch %>% filter(group == layer) %>% group_by(week_starting) %>% summarize(count = n())
 		} else {
 			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(week_starting) %>% summarize(count = n())
@@ -385,21 +334,16 @@ shinyServer(function(input, output, session) {
 		
 		#print(paste0("facility from md_blockset is ", facility, sep=""))
 		
-		if (facility == "State of West Virginia") {
+		if (facility == "All facilities") {
 			df_facility <- df_watch %>% filter(group == layer)
+			num_facilities = n_distinct(df_facility$location_common_name)
+			facility_text <- paste0("All ", num_facilities, " ", layer, "s", sep="")
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
+			facility_text <- facility
 		}
-				
-		num_facilities = n_distinct(df_facility$location_common_name)
-		if (num_facilities == 1) {
-			facility_text = "facility"
-		} else {
-			facility_text = "facilities"
-		}
-
+		
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
-
 		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
 
 		num_counties = n_distinct(df_facility$counties_served)
@@ -412,9 +356,6 @@ shinyServer(function(input, output, session) {
 
 		if (total_popserved == -1) {
 			total_popserved = "Unknown"
-			pct_served <- "(pct unknown)"
-		} else {
-			pct_served <- paste0(formatC(100*total_popserved/total_county_pop, big.mark=","), "% of ", county_text, sep="")
 		}
 
 		total_samples = n_distinct(df_facility$"Sample ID")
@@ -429,12 +370,13 @@ shinyServer(function(input, output, session) {
 		if (layer == "Sewer Network") {
 			layer = "sewer network"
 		} else {
-			if (facility == "State of West Virginia") {
+			if (facility == "All facilities") {
 				layer = "WWTPs"
 			}
 		}
 		
-		output$plot_title = renderText(paste0("Showing the ", rollWin, "-day rolling mean for ", facility, " ", layer, sep=""))
+		# Plot title and legend
+		output$plot_title = renderText(paste0("Showing the ", rollWin, "-day rolling mean for ", facility_text, sep=""))
 
 		if (layer == "WWTPs") {
 			output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
@@ -442,33 +384,38 @@ shinyServer(function(input, output, session) {
 			output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
 		}
 		
-#		output$alert_level <- renderText("Working")
-		output$alert_level <- renderText(getAlertStatus())
-		output$site_signal <- renderText(TREND_TXT)
-
-		output$scope <- renderText(facility)
+		# Report alert status messages
+		output$alert_level <- renderText(getAlertStatus()) # Overall alert level (color code)
+		output$site_signal <- renderText(TREND_TXT) # will become signal strength
+		#output$site_signal <- renderText(TREND_TXT) # signal trajectory
+		#output$site_signal <- renderText(TREND_TXT) # signal variability
+		
+		# Report scope, population served, and total number of samples from this facility
+		output$scope <- renderText(facility_text)
+		output$population_served <- renderText(paste0("Serving ", formatC(total_popserved, big.mark=","), " residents", sep=""))
 		output$sample_count <- renderText(paste0(formatC(total_samples, big.mark=","), " samples since ", format(as.Date(date_first_sampled), format="%d %b %Y")))
 
+		# Report county of facility, or total counties served, and county population estimates
+		if (facility == "All facilities") {
+			output$counties_served <- renderText(paste0(num_counties, " ", county_text, sep=""))
+		} else {
+			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
+		}
 		output$county_population <- renderText(formatC(total_county_pop, big.mark=","))
-		output$population_served <- renderText(formatC(total_popserved, big.mark=","))
-		output$population_served_pct <- renderText(pct_served)
 
+		# Report mean daily flow
 		output$mean_flow <- renderText(paste0(formatC(mean_daily_flow, big.mark=","), " MGD", sep=""))
+
+		# Report weekly collection frequency
 		output$collection_frequency <- renderText(paste0(mean_collfreq, " samples/week", sep=""))
 		
+		# Report the most recent day that data is included for the current location(s)
 		update_mod <- "days"
 		if (ymd(today)-ymd(date_last_sampled) < 2) {
 			update_mod <- "day"
 		}
 		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled), " ", update_mod, " ago", sep=""))
-
-		if (facility == "State of West Virginia") {
-			output$scope_count <- renderText(paste0(num_facilities, " ", facility_text, sep=""))
-			output$counties_served <- renderText(paste0(num_counties, " ", county_text, sep=""))
-		} else {
-			output$scope_count <- renderText(paste0(num_facilities, " ", facility_text, sep=""))
-			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
-		}
+		
 	}
 		
 	
@@ -490,7 +437,7 @@ shinyServer(function(input, output, session) {
 
 		output$focus_plot_title = renderText(paste0("Last 4 weeks of signal from ", controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
 
-		if (controlRV$mapClick == "State of West Virginia") {
+		if (controlRV$mapClick == "All facilities") {
 			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == controlRV$mapClick)
@@ -530,7 +477,7 @@ shinyServer(function(input, output, session) {
 		# only respond if the layer actually changed
 		if (selected_group != controlRV$activeLayer) {
 			controlRV$activeLayer <- selected_group
-			controlRV$mapClick <- "State of West Virginia"
+			controlRV$mapClick <- "All facilities"
 			controlRV$clickLat <- 0
 			controlRV$clickLng <- 0
 		
@@ -549,7 +496,7 @@ shinyServer(function(input, output, session) {
 			controlRV$clickLat <- 0
 			controlRV$clickLng <- 0
 
-			controlRV$mapClick <- "State of West Virginia"
+			controlRV$mapClick <- "All facilities"
 			
 			data_in <- df_watch
 			# Update map marker colors
@@ -750,7 +697,7 @@ shinyServer(function(input, output, session) {
 		if (layer == "Sewer Network") {
 			layer = "sewer network"
 		} else {
-			if (controlRV$mapClick == "State of West Virginia") {
+			if (controlRV$mapClick == "All facilities") {
 				layer = "WWTPs"
 			}
 		}

@@ -166,7 +166,7 @@ shinyUI(bootstrapPage(
 					top = 65, left = 170, height=75, width = 240,
 					fixed=TRUE, draggable=FALSE,
 					span(textOutput("scope"), style="font-size: 19px; font-weight: 800; line-height: 26px;"),
-					span(textOutput("scope_count"), style="font-size: 15px; font-weight: 200;"),
+					span(textOutput("population_served"), style="font-size: 15px;font-weight: 200;"),
 					span(textOutput("sample_count"), style="font-size: 11px; font-weight: 200;")
 				),
 				
@@ -210,34 +210,9 @@ shinyUI(bootstrapPage(
 #				),
 					
 				absolutePanel(
-					class="mdblock-nopop",
-					id = "networkpop_panel", 
-					top = 65, left = 540, height=75, width = 130,
-					fixed=TRUE, draggable=FALSE,
-					span("Population on network", style="font-size: 12px; line-height: 12px;"),
-					span(textOutput("population_served"), style="font-size: 18px;line-height: 22px;"),
-					#span("or", style="font-size: 10px; line-height: 14px;"),
-					span(textOutput("population_served_pct"), style="font-size: 12px;line-height: 18px;")
-				),
-				
-#				hidden(
-#					absolutePanel(
-#						id = "networkpop_info",
-#						class = "mdinfo",
-#						top = 265, left = 590, height="auto", width = 300,
-#						fixed=TRUE, draggable=TRUE,
-#						div("Anything to show/tell here?"),
-#						div(
-#							style="padding-top: 15px; padding-right: 5px; float: right;",
-#							actionBttn(inputId="networkpop_info_close", label="Close", style="pill", size="xs", color="success")
-#						)
-#					)
-#				),
-					
-				absolutePanel(
 					class="mdblock",
 					id = "daily_flow_panel", 
-					top = 65, left = 670, height=75, width = 130,
+					top = 65, left = 540, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
 					span("Mean daily flow", style="font-size: 13px;"),
 					span(textOutput("mean_flow"), style="font-size: 16px;"),
@@ -263,9 +238,9 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "collection_panel", 
-					top = 65, left = 800, height=75, width = 130,
+					top = 65, left = 670, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
-					span("We have received", style="font-size: 10px;"),
+					span("We are receiving", style="font-size: 10px;"),
 					span(textOutput("collection_frequency"), style="font-size: 13px;line-height: 12px;"),
 					span("over the last 4 weeks", style="font-size: 10px; line-height: 11px;")
 					#span("as", style="font-size: 10px; line-height: 11px;"),
@@ -291,7 +266,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "last_date_panel", 
-					top = 65, left = 930, height=75, width = 140,
+					top = 65, left = 800, height=75, width = 140,
 					fixed=TRUE, draggable=FALSE,
 					span("Last update was", style="font-size: 16px;"),
 					span(textOutput("last_update"), style="font-size: 20px;")

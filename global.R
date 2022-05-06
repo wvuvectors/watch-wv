@@ -156,49 +156,19 @@ df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
 df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
 
-df_watch <- df_watch %>% arrange(day)
-
-#df_watch[df_watch == -Inf] <- NA
-
-df_watch <- df_watch %>% mutate(n1n2.load.near.delta = ifelse(n1n2.load > n1n2.load.near.mean, 
-																			yes = (n1n2.load - (n1n2.load.near.mean + n1n2.load.near.ci)) / (n1n2.load.near.mean + n1n2.load.near.ci), 
-																			no = (n1n2.load - (n1n2.load.near.mean - n1n2.load.near.ci)) / (n1n2.load.near.mean - n1n2.load.near.ci)), 
-																n1n2.near.delta = ifelse(n1n2 > n1n2.near.mean, 
-																			yes = (n1n2 - (n1n2.near.mean + n1n2.near.ci)) / (n1n2.near.mean + n1n2.near.ci), 
-																			no = (n1n2 - (n1n2.near.mean - n1n2.near.ci)) / (n1n2.near.mean - n1n2.near.ci)))
-
-df_watch$n1n2.load.near.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.near.mean + df_watch$n1n2.load.near.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.near.mean - df_watch$n1n2.load.near.ci)] <- 0
-df_watch$n1n2.near.delta[df_watch$n1n2 <= (df_watch$n1n2.near.mean + df_watch$n1n2.near.ci) & df_watch$n1n2 >= (df_watch$n1n2.near.mean - df_watch$n1n2.near.ci)] <- 0
-
-df_watch <- df_watch %>% mutate(n1n2.load.mid.delta = ifelse(n1n2.load > n1n2.load.mid.mean, 
-																			yes = (n1n2.load - (n1n2.load.mid.mean + n1n2.load.mid.ci)) / (n1n2.load.mid.mean + n1n2.load.mid.ci), 
-																			no = (n1n2.load - (n1n2.load.mid.mean - n1n2.load.mid.ci)) / (n1n2.load.mid.mean - n1n2.load.mid.ci)), 
-																n1n2.mid.delta = ifelse(n1n2 > n1n2.mid.mean, 
-																			yes = (n1n2 - (n1n2.mid.mean + n1n2.mid.ci)) / (n1n2.mid.mean + n1n2.mid.ci), 
-																			no = (n1n2 - (n1n2.mid.mean - n1n2.mid.ci)) / (n1n2.mid.mean - n1n2.mid.ci)))
-df_watch$n1n2.load.mid.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.mid.mean + df_watch$n1n2.load.mid.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.mid.mean - df_watch$n1n2.load.mid.ci)] <- 0
-df_watch$n1n2.mid.delta[df_watch$n1n2 <= (df_watch$n1n2.mid.mean + df_watch$n1n2.mid.ci) & df_watch$n1n2 >= (df_watch$n1n2.mid.mean - df_watch$n1n2.mid.ci)] <- 0
-
-df_watch <- df_watch %>% mutate(n1n2.load.far.delta = ifelse(n1n2.load > n1n2.load.far.mean, 
-																			yes = (n1n2.load - (n1n2.load.far.mean + n1n2.load.far.ci)) / (n1n2.load.far.mean + n1n2.load.far.ci), 
-																			no = (n1n2.load - (n1n2.load.far.mean - n1n2.load.far.ci)) / (n1n2.load.far.mean - n1n2.load.far.ci)), 
-																n1n2.far.delta = ifelse(n1n2 > n1n2.far.mean, 
-																			yes = (n1n2 - (n1n2.far.mean + n1n2.far.ci)) / (n1n2.far.mean + n1n2.far.ci), 
-																			no = (n1n2 - (n1n2.far.mean - n1n2.far.ci)) / (n1n2.far.mean - n1n2.far.ci)))
-df_watch$n1n2.load.far.delta[df_watch$n1n2.load <= (df_watch$n1n2.load.far.mean + df_watch$n1n2.load.far.ci) & df_watch$n1n2.load >= (df_watch$n1n2.load.far.mean - df_watch$n1n2.load.far.ci)] <- 0
-df_watch$n1n2.far.delta[df_watch$n1n2 <= (df_watch$n1n2.far.mean + df_watch$n1n2.far.ci) & df_watch$n1n2 >= (df_watch$n1n2.far.mean - df_watch$n1n2.far.ci)] <- 0
+df_baseline <- df_watch %>% group_by(location_common_name) %>% slice_min(n1n2.day03.mean, n=1, with_ties = FALSE) %>% select(location_common_name, n1n2.day03.baseline.day = day, n1n2.day03.baseline.mean = n1n2.day03.mean, n1n2.day03.baseline.ci = n1n2.day03.ci)
 
 
-df_watch <- df_watch %>% 
-  mutate(alertLevel = case_when(n1n2.load.mid.delta <= -0.25 ~ 1,
-                             		n1n2.load.mid.delta > -0.25 & n1n2.load.mid.delta < 0 ~ 2,
-                             		n1n2.load.mid.delta == 0 ~ 3,
-                             		n1n2.load.mid.delta > 0 & n1n2.load.mid.delta < 0.25 ~ 4,
-                             		n1n2.load.mid.delta >= 0.25 & n1n2.load.mid.delta < 0.5 ~ 5,
-                             		n1n2.load.mid.delta >= 0.5 ~ 6))
+#df_watch <- df_watch %>% 
+#  mutate(alertLevel = case_when(n1n2.load.mid.delta <= -0.25 ~ 1,
+#                             		n1n2.load.mid.delta > -0.25 & n1n2.load.mid.delta < 0 ~ 2,
+#                             		n1n2.load.mid.delta == 0 ~ 3,
+#                             		n1n2.load.mid.delta > 0 & n1n2.load.mid.delta < 0.25 ~ 4,
+#                             		n1n2.load.mid.delta >= 0.25 & n1n2.load.mid.delta < 0.5 ~ 5,
+#                             		n1n2.load.mid.delta >= 0.5 ~ 6))
+#
 
-
-alertPal <- colorFactor(c("green", "blue", "#000000", "yellow", "orange", "red"), as.factor(df_watch$alertLevel))
+#alertPal <- colorFactor(c("green", "blue", "#000000", "yellow", "orange", "red"), as.factor(df_watch$alertLevel))
 
 #scale_colour_manual(values = alertPal)
 
