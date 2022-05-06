@@ -154,16 +154,11 @@ df_watch$daily_flow = df_watch$"Sample Flow (MGD)"
 df_watch <- df_watch %>% mutate(n1 = replace_na(n1, 0))
 df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
 df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
-
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
+
 df_watch <- df_watch %>% arrange(day)
-df_watch[df_watch == -Inf] <- NA
 
-# n1n2.load as a percent of n1n2.load n1n2.load.mean + n1n2.load.ci
-#above mean: (value - mean+ci)/(mean+ci)
-#below mean: (value - mean-ci)/(mean-ci)
-
-df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
+#df_watch[df_watch == -Inf] <- NA
 
 df_watch <- df_watch %>% mutate(n1n2.load.near.delta = ifelse(n1n2.load > n1n2.load.near.mean, 
 																			yes = (n1n2.load - (n1n2.load.near.mean + n1n2.load.near.ci)) / (n1n2.load.near.mean + n1n2.load.near.ci), 
