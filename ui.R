@@ -113,11 +113,12 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "site_status_panel", 
-					top = 145, left = 590, height=120, width = 130,
+#					top = 145, left = 590, height=120, width = 130,
+					top = 145, left = 590, height=70, width = 200,
 					fixed=TRUE, draggable=FALSE,
-					span("Signal at this site is", style="font-size: 10px; line-height: 12px;"),
-					span(textOutput("site_signal"), style="font-size: 18px;font-weight: 800; line-height: 22px;"),
-					span("over the past 2 weeks", style="font-size: 12px; line-height: 18px;"),
+					span("Signal at this site is currently", style="font-size: 11px; line-height: 12px;"),
+					span(textOutput("site_signal"), style="font-size: 18px;font-weight: 800; line-height: 18px;"),
+					span("than the lowest recorded value", style="font-size: 11px; line-height: 12px;"),
 				),
 				
 				hidden(

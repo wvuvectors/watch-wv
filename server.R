@@ -56,33 +56,38 @@ shinyServer(function(input, output, session) {
 
 	# Render a base map
 	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
+
+		df_last <- data_in %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
+		df_join <- left_join(data_in, df_last, by="location_common_name")
+		df_map <- df_join %>% filter(day == lastDay)
+		
 		mymap = leaflet(data_in) %>% 
 		addTiles() %>% 
 		setView(lng = center_lng, lat = center_lat, zoom = zoom_level) %>% 
-		addCircleMarkers(data = data_in %>% filter(group == "WWTP"),
+		addCircleMarkers(data = df_map %>% filter(group == "WWTP"),
 										 layerId = ~location_common_name, 
 										 lat = ~latitude, 
 										 lng = ~longitude, 
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = ~alertPal(alertLevel), 
+										 color = ~alertPal(signal_level_5), 
 										 fill = TRUE,
-										 fillColor=~alertPal(alertLevel),
+										 fillColor = ~alertPal(signal_level_5),
 #										 fillColor = "black",
 										 group = "WWTP", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>%
-		addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+		addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 										 layerId = ~location_common_name, 
 										 lat = ~latitude, 
 										 lng = ~longitude, 
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = "dark orange", 
+										 color = ~alertPal(signal_level_5), 
 										 fill = TRUE,
-#										 fillColor=~getAlertColor(location = location_common_name, layer = "Sewer Network"),
+										 fillColor = ~alertPal(signal_level_5),
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>% 
@@ -94,10 +99,10 @@ shinyServer(function(input, output, session) {
 		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer") %>%
 		addLayersControl(
 			position = "bottomright",
-			baseGroups = sort(unique(data_in$group), decreasing=TRUE),
+			baseGroups = sort(unique(df_map$group), decreasing=TRUE),
 									 options = layersControlOptions(collapsed = FALSE)
 		) %>%
-		hideGroup(unique(data_in$group)) %>% 
+		hideGroup(unique(df_map$group)) %>% 
 		showGroup("WWTP")
 #		fitBounds(~-100,-60,~60,70) %>%
 #		addLegend("bottomright", pal = cv_pal, values = ~cv_large_countries$deaths_per_million,
@@ -153,54 +158,55 @@ shinyServer(function(input, output, session) {
 		toDate <- as.Date(ymd(dates[2]))
 		
 		if (facility == "All facilities") {
-			df_plot <- df_watch %>%
-								 filter(group == layer & day >= fromDate & day <= toDate) %>%
-								 group_by(day)
+			df_facility <- df_watch %>%
+								 		 filter(group == layer & day >= fromDate & day <= toDate) %>%
+								 		 group_by(day)
 		} else {
-		
-			df_plot <- df_watch %>%
-								 filter(location_common_name == facility & day >= fromDate & day <= toDate) %>%
-								 group_by(day)
+			df_facility <- df_watch %>%
+								 		 filter(location_common_name == facility & day >= fromDate & day <= toDate) %>%
+								 		 group_by(day)
 		}
 		
-		df_facility <- df_plot
-		anchor_date <- ymd(max(df_plot$day) - 28)
+		anchor_date <- ymd(max(df_facility$day) - 28)
 		
 		for (target in targets) {
 			if (layer == "Sewer Network") {
-				src_colname <- target
+				plot_src <- paste0(target, ".day", rollWin, ".mean", sep="")
+				ci_src <- paste0(target, ".day", rollWin, ".ci", sep="")
 			} else {
-				src_colname <- paste0(target, ".load", sep="")
+				plot_src <- paste0(target, ".load.day", rollWin, ".mean", sep="")
+				ci_src <- paste0(target, ".load.day", rollWin, ".ci", sep="")
 			}
-			dest_colname <- paste0(src_colname, ".mean", sep="")
 
-			roll_colname <- paste0(src_colname, ".roll", rollWin, sep="")
-			ci_colname <- paste0(roll_colname, ".ci", sep="")
-						
+			plot_val <- paste0(target, ".plot", sep="")
+			plot_val_ci <- paste0(target, ".plot_ci", sep="")
+			
 			if (facility == "All facilities") {
-				df_loc <- df_watch %>% 
+				df_plot <- df_watch %>% 
 									filter(group == layer & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
-									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
+									summarize(!!plot_val := mean(.data[[plot_src]], na.rm = TRUE),
+														!!plot_val_ci := mean(.data[[ci_src]], na.rm = TRUE),)
 			} else {
-				df_loc <- df_watch %>% 
-									filter(location_common_name == facility & day >= fromDate & day <= toDate) %>%
-									group_by(day) %>%
-									summarize("{dest_colname}" := mean(.data[[src_colname]], na.rm = TRUE))
+				df_plot <- df_watch %>% 
+									filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% 
+									group_by(day) %>% 
+									mutate(!!plot_val := .data[[plot_src]],
+												 !!plot_val_ci := .data[[ci_src]])
 			}
 			
-			zoo_loc <- zoo(df_loc[[dest_colname]], df_loc$day)
-			zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
-			df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value=roll_colname))
-			df_mean <- select(df_mean, -c("Series"))
-
-			df_plot <- left_join(df_plot, df_mean, by = c("day" = "day"), copy=TRUE)
-
-			zoo_ci <- rollapply(zoo_loc, width=rollWin, fill=NA, align="right", FUN = ci90)
-			df_ci <- fortify(zoo_ci, melt=TRUE, names=c(Index="day", Value=ci_colname))
-			df_ci <- select(df_ci, -c("Series"))
-
-			df_plot <- left_join(df_plot, df_ci, by = c("day" = "day"), copy=TRUE)
+#			zoo_loc <- zoo(df_loc[[dest_colname]], df_loc$day)
+#			zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
+#			df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value=roll_colname))
+#			df_mean <- select(df_mean, -c("Series"))
+#
+#			df_plot <- left_join(df_plot, df_mean, by = c("day" = "day"), copy=TRUE)
+#
+#			zoo_ci <- rollapply(zoo_loc, width=rollWin, fill=NA, align="right", FUN = ci90)
+#			df_ci <- fortify(zoo_ci, melt=TRUE, names=c(Index="day", Value=ci_colname))
+#			df_ci <- select(df_ci, -c("Series"))
+#
+#			df_plot <- left_join(df_plot, df_ci, by = c("day" = "day"), copy=TRUE)
 		}
 				
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
@@ -227,23 +233,17 @@ shinyServer(function(input, output, session) {
 											my_theme()
 
 		for (target in targets) {
-			if (layer == "Sewer Network") {
-				rcol <- paste0(target, ".roll", rollWin, sep="")
-				src_col <- target
-			} else {
-				rcol <- paste0(target, ".load.roll", rollWin, sep="")
-				#src_col <- paste0(target, ".load", sep="")
-				mean_col <- paste0(target, ".mid.mean", sep="")
-				ci_col <- paste0(target, ".mid.ci", sep="")
-			}
-			df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, mean_col, ci_col))
+			plot_val <- paste0(target, ".plot", sep="")
+			plot_val_ci <- paste0(target, ".plot_ci", sep="")
+			
+			#df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, plot_val, plot_val_ci))
 			#print(df_tmp)
-			mean_rib <- df_tmp[[mean_col]]
-			ci_rib <- df_tmp[[ci_col]]
+			#mean_rib <- df_tmp[[mean_col]]
+			#ci_rib <- df_tmp[[ci_col]]
 			#print(mean4weeks)
 
-			gplot <- gplot + geom_point(aes(x = day, y = .data[[rcol]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = .data[[rcol]]), color = target_pal(target))
+			gplot <- gplot + geom_point(aes(x = day, y = .data[[plot_val]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = .data[[plot_val]]), color = target_pal(target))
 											 #geom_hline(yintercept=mean_rib, linetype="dashed", color="#dddddd", size=0.5) + 
 											 #geom_ribbon(aes(x=day, y=.data[[mean_col]], ymin=.data[[mean_col]]-.data[[ci_col]], ymax=.data[[mean_col]]+.data[[ci_col]]), alpha=0.2)
 #			if (ci) {
@@ -326,11 +326,12 @@ shinyServer(function(input, output, session) {
 		
 	
 	# Metadata block reactions to map click or site selection
-	md_blockset <- function(layer, facility, rollWin) {
+	md_blockset <- function(layer, facility, rollWin, dates) {
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
 		if (missing(rollWin)) { rollWin = controlRV$rollWin }
+		if (missing(dates)) { dates = controlRV$Dates }
 		
 		#print(paste0("facility from md_blockset is ", facility, sep=""))
 		
@@ -338,10 +339,25 @@ shinyServer(function(input, output, session) {
 			df_facility <- df_watch %>% filter(group == layer)
 			num_facilities = n_distinct(df_facility$location_common_name)
 			facility_text <- paste0("All ", num_facilities, " ", layer, "s", sep="")
+			signal_level <- df_facility %>% filter(day == max(day)) %>% 
+											summarize(mean_load = mean(n1n2.load.day5.mean, na.rm = TRUE), 
+																mean_baseline = mean(n1n2.load.day5.mean.baseline, na.rm = TRUE),
+																signal_level = mean(signal_level_5, na.rm = TRUE)
+											)
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
 			facility_text <- facility
+			signal_level <- df_facility %>% filter(day == max(day)) %>% 
+											summarize(mean_load = n1n2.load.day5.mean,
+																mean_baseline = n1n2.load.day5.mean.baseline,
+																signal_level = signal_level_5)
 		}
+
+		print(facility)
+		print(signal_level$mean_load)
+		print(signal_level$mean_baseline)
+		print(signal_level$signal_level)
+
 		
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
 		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
@@ -386,7 +402,7 @@ shinyServer(function(input, output, session) {
 		
 		# Report alert status messages
 		output$alert_level <- renderText(getAlertStatus()) # Overall alert level (color code)
-		output$site_signal <- renderText(TREND_TXT) # will become signal strength
+		output$site_signal <- renderText(paste0(prettyNum(signal_level$signal_level, scientific=FALSE, big.mark=",", digits=2), "X higher", sep="")) # signal strength as % of min
 		#output$site_signal <- renderText(TREND_TXT) # signal trajectory
 		#output$site_signal <- renderText(TREND_TXT) # signal variability
 		
@@ -498,33 +514,36 @@ shinyServer(function(input, output, session) {
 
 			controlRV$mapClick <- "All facilities"
 			
-			data_in <- df_watch
+			df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
+			df_join <- left_join(df_watch, df_last, by="location_common_name")
+			df_map <- df_join %>% filter(day == lastDay)
+
 			# Update map marker colors
 			watchLeafletProxy %>% 
 				clearMarkers() %>% 
-				addCircleMarkers(data = data_in %>% filter(group == "WWTP"),
+				addCircleMarkers(data = df_map %>% filter(group == "WWTP"),
 												 layerId = ~location_common_name, 
 												 lat = ~latitude, 
 												 lng = ~longitude, 
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = ~alertPal(alertLevel), 
+												 color = ~alertPal(signal_level_5), 
 												 fill = TRUE,
-										 		 fillColor=~alertPal(alertLevel),
+										 		 fillColor=~alertPal(signal_level_5),
 												 group = "WWTP", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6) %>%
-				addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+				addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 												 layerId = ~location_common_name, 
 												 lat = ~latitude, 
 												 lng = ~longitude, 
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = "dark orange", 
+												 color = ~alertPal(signal_level_5), 
 												 fill = TRUE,
-												 fillColor = "dark orange",
+										 		 fillColor=~alertPal(signal_level_5),
 												 group = "Sewer Network", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6)
@@ -551,34 +570,36 @@ shinyServer(function(input, output, session) {
 		controlRV$clickLat <- input$watch_map_marker_click$lat
 		controlRV$clickLng <- input$watch_map_marker_click$lng
 		
-		data_in <- df_watch
+		df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
+		df_join <- left_join(df_watch, df_last, by="location_common_name")
+		df_map <- df_join %>% filter(day == lastDay)
 
     # Update map marker colors
     watchLeafletProxy %>% 
     	clearMarkers() %>% 
-			addCircleMarkers(data = data_in %>% filter(group == "WWTP"),
+			addCircleMarkers(data = df_map %>% filter(group == "WWTP"),
 											 layerId = ~location_common_name, 
 											 lat = ~latitude, 
 											 lng = ~longitude, 
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(alertLevel)), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level_5)), 
 											 fill = TRUE,
-											 fillColor = ~alertPal(alertLevel),
+											 fillColor = ~alertPal(signal_level_5),
 											 group = "WWTP", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6) %>%
-			addCircleMarkers(data = data_in %>% filter(group == "Sewer Network"),
+			addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 											 layerId = ~location_common_name, 
 											 lat = ~latitude, 
 											 lng = ~longitude, 
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = "dark orange"), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level_5)), 
 											 fill = TRUE,
-											 fillColor = "dark orange",
+											 fillColor = ~alertPal(signal_level_5),
 											 group = "Sewer Network", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6)

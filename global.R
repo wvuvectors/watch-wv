@@ -30,6 +30,7 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
+
 MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
 													"lat" = c(38.951883, 39.642414),
 													"lng" = c(-81.0534217, -79.9792327),
@@ -48,7 +49,7 @@ TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2
 												 "target_color" = c("blue", "dark orange", "dark green")
 												)
 
-SMOOTHER_OPTIONS <- c(3, 5, 7, 10)
+SMOOTHER_OPTIONS <- c(1, 3, 5, 7, 10, 14)
 SMOOTHER_DEFAULT <- 3
 
 L_per_gal <- 3.78541
@@ -156,17 +157,49 @@ df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
 df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
 df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
 
-df_baseline <- df_watch %>% group_by(location_common_name) %>% slice_min(n1n2.day03.mean, n=1, with_ties = FALSE) %>% select(location_common_name, n1n2.day03.baseline.day = day, n1n2.day03.baseline.mean = n1n2.day03.mean, n1n2.day03.baseline.ci = n1n2.day03.ci)
+df_watch$n1n2.day1.mean <- df_watch$n1n2
+df_watch$n1n2.day1.ci <- 0
+df_watch$n1n2.load.day1.mean <- df_watch$n1n2.load
+df_watch$n1n2.load.day1.ci <- 0
+
+baselines <- c("n1n2.day1.mean", "n1n2.day3.mean", "n1n2.day5.mean", "n1n2.day7.mean", "n1n2.day10.mean", "n1n2.day14.mean", "n1n2.load.day1.mean", "n1n2.load.day3.mean", "n1n2.load.day5.mean", "n1n2.load.day7.mean", "n1n2.load.day10.mean", "n1n2.load.day14.mean")
+
+df_baseline <- data.frame(location_common_name = unique(df_watch$location_common_name))
+for (baseline in baselines) {
+#	base_mean <- paste0(baseline, ".mean", sep="")
+#	base_ci <- paste0(baseline, ".ci", sep="")
+
+	base_day_new <- paste0(baseline, ".day.baseline", sep="")
+	base_new <- paste0(baseline, ".baseline", sep="")
+#	base_mean_new <- paste0(baseline, ".mean.baseline", sep="")
+#	base_ci_new <- paste0(baseline, ".ci.baseline", sep="")
+
+	df_this <- df_watch %>% group_by(location_common_name) %>% 
+						 slice_min(.data[[baseline]], n=1, with_ties = FALSE) %>% 
+						 select(location_common_name, !!base_day_new := day, !!base_new := baseline)
+	df_baseline <- left_join(df_baseline, df_this, by="location_common_name")
+}
+
+df_watch <- left_join(df_watch, df_baseline, by="location_common_name")
 
 
-#df_watch <- df_watch %>% 
-#  mutate(alertLevel = case_when(n1n2.load.mid.delta <= -0.25 ~ 1,
-#                             		n1n2.load.mid.delta > -0.25 & n1n2.load.mid.delta < 0 ~ 2,
-#                             		n1n2.load.mid.delta == 0 ~ 3,
-#                             		n1n2.load.mid.delta > 0 & n1n2.load.mid.delta < 0.25 ~ 4,
-#                             		n1n2.load.mid.delta >= 0.25 & n1n2.load.mid.delta < 0.5 ~ 5,
-#                             		n1n2.load.mid.delta >= 0.5 ~ 6))
-#
+#df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level_1 = 100 * (n1n2.load.day1.mean - n1n2.load.day1.mean.baseline)/n1n2.load.day1.mean.baseline,
+#																													signal_level_3 = 100 * (n1n2.load.day3.mean - n1n2.load.day3.mean.baseline)/n1n2.load.day3.mean.baseline,
+#																													signal_level_5 = 100 * (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline,
+#																													signal_level_7 = 100 * (n1n2.load.day7.mean - n1n2.load.day7.mean.baseline)/n1n2.load.day7.mean.baseline,
+#																													signal_level_10 = 100 * (n1n2.load.day10.mean - n1n2.load.day10.mean.baseline)/n1n2.load.day10.mean.baseline,
+#																													signal_level_14 = 100 * (n1n2.load.day14.mean - n1n2.load.day14.mean.baseline)/n1n2.load.day14.mean.baseline)
+#df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level_1 = 100 * (n1n2.day1.mean - n1n2.day1.mean.baseline)/n1n2.day1.mean.baseline,
+#																													signal_level_3 = 100 * (n1n2.day3.mean - n1n2.day3.mean.baseline)/n1n2.day3.mean.baseline,
+#																													signal_level_5 = 100 * (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
+#																													signal_level_7 = 100 * (n1n2.day7.mean - n1n2.day7.mean.baseline)/n1n2.day7.mean.baseline,
+#																													signal_level_10 = 100 * (n1n2.day10.mean - n1n2.day10.mean.baseline)/n1n2.day10.mean.baseline,
+#																													signal_level_14 = 100 * (n1n2.day14.mean - n1n2.day14.mean.baseline)/n1n2.day14.mean.baseline)
+
+df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level_5 = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
+df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level_5 = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
+
+df_watch <- rbind(df_wwtp, df_swr)
 
 #alertPal <- colorFactor(c("green", "blue", "#000000", "yellow", "orange", "red"), as.factor(df_watch$alertLevel))
 
@@ -175,7 +208,10 @@ df_baseline <- df_watch %>% group_by(location_common_name) %>% slice_min(n1n2.da
 
 TREND_TXT <- "No trend yet"
 
-#map_pal <- colorNumeric(
-#	palette = c('gold', 'orange', 'dark orange', 'orange red', 'red', 'dark red'),
-#	domain = df_watch$alert_level)
+alertPal <- colorBin(
+	palette = c("green", "black", "yellow", "orange", "red", "dark red"),
+	bins = c(-100, 0, 1, 11, 101, 1001, 100001),
+	na.color = "#808080",
+#	reverse=TRUE,
+	domain = df_watch$signal_level_5)
   
