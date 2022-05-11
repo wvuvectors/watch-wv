@@ -71,12 +71,12 @@ shinyUI(bootstrapPage(
 							)
 						),
 						column(
-							width = 4,
+							width = 8,
 							div(
 								class = "control_group",
 								div(
 									style="font-size: 13px;font-weight: 800;margin-bottom: 22px;text-align: center;",
-									span("Choose a range of dates")
+									span("Choose a range of dates to display")
 								),
 								sliderTextInput(
 									inputId = "dates_control",
@@ -89,23 +89,23 @@ shinyUI(bootstrapPage(
 									grid = FALSE
 								)
 							)
-						),
-						column(
-							width = 4,
-							div(
-								class = "control_group",
-								div(
-									style="font-size: 13px;font-weight: 800;margin-bottom: 20px;text-align: center;",
-									span("Choose a rolling mean (days)")
-								),
-								selectInput(
-									"roll_control",
-									label = NULL,
-									choices = SMOOTHER_OPTIONS, 
-									selected = SMOOTHER_DEFAULT
-								),
-								materialSwitch(inputId = "ci_control", label = "Show 90% CI:", value = FALSE, status="primary")
-							)
+#						),
+#						column(
+#							width = 4,
+#							div(
+#								class = "control_group",
+#								div(
+#									style="font-size: 13px;font-weight: 800;margin-bottom: 20px;text-align: center;",
+#									span("Choose a rolling mean (days)")
+#								),
+#								selectInput(
+#									"roll_control",
+#									label = NULL,
+#									choices = SMOOTHER_OPTIONS, 
+#									selected = SMOOTHER_DEFAULT
+#								),
+#								materialSwitch(inputId = "ci_control", label = "Show 90% CI:", value = FALSE, status="primary")
+#							)
 						)
 					) # fluidRow
 				),					

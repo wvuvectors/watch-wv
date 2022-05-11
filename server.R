@@ -10,16 +10,15 @@
 
 shinyServer(function(input, output, session) {
 	
-	###########################
 	#
-	#			GENERAL USE
+	# Assign Leaflet proxy
 	#
-	###########################
-
-	# Leaflet proxy
 	watchLeafletProxy <- leafletProxy(mapId="watch_map", session)
 	
-	# Init reactive values with some defaults
+	
+	#
+	# Initialize reactive values with some defaults
+	#
 	controlRV <- reactiveValues(
 #								Dates = c(min(df_watch$week_starting), max(df_watch$week_starting)),
 								Dates = c(first_day, last_day),
@@ -31,14 +30,10 @@ shinyServer(function(input, output, session) {
 								clickLat=0, clickLng=0
 	)
 	
-	# Determine alert status
-	# Compare current value for selected site to mid mean and 98% ci
-	# n1n2.load.mid.mean
-	# n1n2.load.mid.ci
+	
 	#
-	# Within the CI = black (steady)
-	# lower than CI - green (descending)
-	# higher than CI - red (ascending)
+	# Determine alert status
+	#
 	getAlertStatus <- function(facility, layer) {
 		
 		if (missing(facility)) {
@@ -53,8 +48,10 @@ shinyServer(function(input, output, session) {
 		return(alert_color)
 	}
 	
-
-	# Render a base map
+	
+	#
+	# Create the map
+	#
 	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
 
 		df_last <- data_in %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
@@ -111,48 +108,22 @@ shinyServer(function(input, output, session) {
 		return(mymap)
 	}
 
-	controller <- function(targets, counter_targets) {
-		if (!missing(targets)) {
-			for (targ in targets) {
-				shinyjs::show(targ)
-			}
-		}
-		if (!missing(counter_targets)) {
-			for (targ in counter_targets) {
-				shinyjs::hide(targ)
-			}
-		}
-	}
-	
-
 
 	#
-	# Base map, starting state
+	# Plot of pathogen load
 	#
-	output$watch_map <- renderLeaflet({
-		center <- MAP_CENTERS %>% filter(layer == "WWTP")
-		generateMap(data_in = df_watch, center_lat = center$lat, center_lng = center$lng, zoom_level = center$zoom)
-	})
-
-	#
-	# Main plot
-	#
-	plotLoad = function(layer, facility, dates, targets, rollWin, ci) {
+	plotLoad <- function(layer, facility, dates, targets) {
 		#print("plotLoad called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
 		if (missing(dates)) { dates = controlRV$Dates }
 		if (missing(targets)) { targets = controlRV$visibleTargets }
-		if (missing(rollWin)) { rollWin = controlRV$rollWin }
-		if (missing(ci)) { ci = controlRV$ci }
 		
 #		print(layer)
 #		print(facility)
 #		print(dates)
 #		print(targets)
-#		print(rollWin)
-#		print(ci)
 		
 		fromDate <- as.Date(ymd(dates[1]))
 		toDate <- as.Date(ymd(dates[2]))
@@ -171,42 +142,26 @@ shinyServer(function(input, output, session) {
 		
 		for (target in targets) {
 			if (layer == "Sewer Network") {
-				plot_src <- paste0(target, ".day", rollWin, ".mean", sep="")
-				ci_src <- paste0(target, ".day", rollWin, ".ci", sep="")
+				plot_roll <- paste0(target, ".day5.mean", sep="")
+				plot_val <- target
 			} else {
-				plot_src <- paste0(target, ".load.day", rollWin, ".mean", sep="")
-				ci_src <- paste0(target, ".load.day", rollWin, ".ci", sep="")
+				plot_roll <- paste0(target, ".load.day5.mean", sep="")
+				plot_val <- paste0(target, ".load", sep="")
 			}
 
-			plot_val <- paste0(target, ".plot", sep="")
-			plot_val_ci <- paste0(target, ".plot_ci", sep="")
-			
 			if (facility == "All facilities") {
 				df_plot <- df_watch %>% 
 									filter(group == layer & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
-									summarize(!!plot_val := mean(.data[[plot_src]], na.rm = TRUE),
-														!!plot_val_ci := mean(.data[[ci_src]], na.rm = TRUE),)
+									summarize(roll := mean(.data[[plot_roll]], na.rm = TRUE),
+														val := mean(.data[[plot_val]], na.rm = TRUE),)
 			} else {
 				df_plot <- df_watch %>% 
 									filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% 
 									group_by(day) %>% 
-									mutate(!!plot_val := .data[[plot_src]],
-												 !!plot_val_ci := .data[[ci_src]])
+									mutate(roll := .data[[plot_roll]],
+												 val := .data[[plot_val]])
 			}
-			
-#			zoo_loc <- zoo(df_loc[[dest_colname]], df_loc$day)
-#			zoo_mean <- rollmean(zoo_loc, rollWin, fill=NA, align="right")
-#			df_mean <- fortify(zoo_mean, melt=TRUE, names=c(Index="day", Value=roll_colname))
-#			df_mean <- select(df_mean, -c("Series"))
-#
-#			df_plot <- left_join(df_plot, df_mean, by = c("day" = "day"), copy=TRUE)
-#
-#			zoo_ci <- rollapply(zoo_loc, width=rollWin, fill=NA, align="right", FUN = ci90)
-#			df_ci <- fortify(zoo_ci, melt=TRUE, names=c(Index="day", Value=ci_colname))
-#			df_ci <- select(df_ci, -c("Series"))
-#
-#			df_plot <- left_join(df_plot, df_ci, by = c("day" = "day"), copy=TRUE)
 		}
 				
 		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
@@ -233,17 +188,12 @@ shinyServer(function(input, output, session) {
 											my_theme()
 
 		for (target in targets) {
-			plot_val <- paste0(target, ".plot", sep="")
-			plot_val_ci <- paste0(target, ".plot_ci", sep="")
-			
-			#df_tmp <- df_facility %>% group_by(day) %>% filter(day >= anchor_date) %>% select(c(day, plot_val, plot_val_ci))
-			#print(df_tmp)
-			#mean_rib <- df_tmp[[mean_col]]
-			#ci_rib <- df_tmp[[ci_col]]
-			#print(mean4weeks)
 
-			gplot <- gplot + geom_point(aes(x = day, y = .data[[plot_val]]), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = .data[[plot_val]]), color = target_pal(target))
+			gplot <- gplot + geom_point(aes(x = day, y = val), color = target_pal(target), shape = 1, size = 2, alpha=0.1) + 
+							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
+							 				 geom_col(aes(x = day, y = val), fill = target_pal(target), alpha=0.1, na.rm = TRUE) + 
+							 				 #geom_point(aes(x = day, y = roll), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
+							 				 geom_line(aes(x = day, y = roll), color = target_pal(target))
 											 #geom_hline(yintercept=mean_rib, linetype="dashed", color="#dddddd", size=0.5) + 
 											 #geom_ribbon(aes(x=day, y=.data[[mean_col]], ymin=.data[[mean_col]]-.data[[ci_col]], ymax=.data[[mean_col]]+.data[[ci_col]]), alpha=0.2)
 #			if (ci) {
@@ -258,7 +208,7 @@ shinyServer(function(input, output, session) {
 	#
 	# Plot of daily flow
 	#
-	plotFlow = function(layer, facility) {
+	plotFlow <- function(layer, facility) {
 		#print("plotFlow called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
@@ -298,8 +248,12 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)
 	}
 
-	plotCollection = function(layer, facility) {
-		#print("plotCollection called!")
+
+	#
+	# Plot of collection frequency
+	#
+	plotCollections <- function(layer, facility) {
+		#print("plotCollections called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
@@ -324,16 +278,18 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)
 	}
 		
-	
-	# Metadata block reactions to map click or site selection
-	md_blockset <- function(layer, facility, rollWin, dates) {
+
+	#
+	# Write the metadata block (reaction to map click or site selection)
+	#
+	writeMetadata <- function(layer, facility, rollWin, dates) {
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
 		if (missing(rollWin)) { rollWin = controlRV$rollWin }
 		if (missing(dates)) { dates = controlRV$Dates }
 		
-		#print(paste0("facility from md_blockset is ", facility, sep=""))
+		#print(paste0("facility from writeMetadata is ", facility, sep=""))
 		
 		if (facility == "All facilities") {
 			df_facility <- df_watch %>% filter(group == layer)
@@ -353,10 +309,10 @@ shinyServer(function(input, output, session) {
 																signal_level = signal_level_5)
 		}
 
-		print(facility)
-		print(signal_level$mean_load)
-		print(signal_level$mean_baseline)
-		print(signal_level$signal_level)
+		print(paste0("Facility     : ", facility, sep=""))
+		print(paste0("Current Load : ", signal_level$mean_load, sep=""))
+		print(paste0("Baseline Load: ", signal_level$mean_baseline, sep=""))
+		print(paste0("Signal Level : ", signal_level$signal_level, sep=""))
 
 		
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
@@ -433,21 +389,51 @@ shinyServer(function(input, output, session) {
 		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled), " ", update_mod, " ago", sep=""))
 		
 	}
+
 		
-	
 	#
-	# Init the starting plots and metadata content
+	# Toggle visibility of panels
+	#
+	togglePanels <- function(on, off) {
+		if (!missing(on)) {
+			for (targ in on) {
+				shinyjs::show(targ)
+			}
+		}
+		if (!missing(off)) {
+			for (targ in off) {
+				shinyjs::hide(targ)
+			}
+		}
+	}
+
+
+	#
+	# Render the map
+	#
+	output$watch_map <- renderLeaflet({
+		center <- MAP_CENTERS %>% filter(layer == "WWTP")
+		generateMap(data_in = df_watch, center_lat = center$lat, center_lng = center$lng, zoom_level = center$zoom)
+	})
+
+
+	#
+	# Render the main plot and update associated metadata
 	#
 	output$watch_plot <- renderPlotly({
 		#print("watch_plot top")
 
-		md_blockset()
-		#print("md_blockset() just ran!")
+		writeMetadata()
+		#print("writeMetadata() just ran!")
 
 		plotLoad() %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		#print("watch_plot bottom")
 	})	
 
+
+	#
+	# Render the focus plot and update associated metadata
+	#
 	output$focus_plot <- renderPlotly({
 		#print("focus_plot top")
 
@@ -465,6 +451,10 @@ shinyServer(function(input, output, session) {
 		#print("focus_plot bottom")
 	})	
 
+
+	#
+	# Render the collections plot
+	#
 	output$collection_plot <- renderPlotly({
 		#print("collection_plot top")
 
@@ -472,6 +462,10 @@ shinyServer(function(input, output, session) {
 		#print("collection_plot bottom")
 	})	
 
+
+	#
+	# Render the daily flow plot and associated metadata
+	#
 	output$flow_plot <- renderPlotly({
 		#print("flow_plot top")
 
@@ -482,11 +476,18 @@ shinyServer(function(input, output, session) {
 	})	
 	
 	
-	#
-	# map interactivity
-	#
 	
-	# Respond to layer change
+
+	###########################
+	#
+	# MAP EVENTS
+	#
+	###########################
+
+
+	#
+	# React to layer change on map
+	#
 	observe({
 		#print("layer change top")
 		selected_group <- req(input$watch_map_groups)
@@ -497,13 +498,15 @@ shinyServer(function(input, output, session) {
 			controlRV$clickLat <- 0
 			controlRV$clickLng <- 0
 		
-			md_blockset(layer = selected_group)
+			writeMetadata(layer = selected_group)
 		}
 		#print("layer change bottom")
 	})
 
 
-	# Respond to off-marker click
+	#
+	# React to off-marker click on map
+	#
   observeEvent(input$watch_map_click, { 
 		#print("Map click event top")
 		
@@ -554,14 +557,16 @@ shinyServer(function(input, output, session) {
 			})
 		
 			# Update reactive text elements
-			md_blockset()
+			writeMetadata()
 		#print("Map click event bottom")
 			
 		}
 	}, ignoreInit = TRUE)
 	
-
-	# Respond to click on WWTP map marker
+	
+	#
+	# React to on-marker click on map
+	#
   observeEvent(input$watch_map_marker_click, { 
 		#print("Map MARKER click top")
     clickedLocation <- input$watch_map_marker_click$id
@@ -610,13 +615,15 @@ shinyServer(function(input, output, session) {
 		})
 		
 		# Update reactive text elements
-		md_blockset(facility = clickedLocation)
+		writeMetadata(facility = clickedLocation)
 		#print("Map MARKER click bottom")
 		
   }, ignoreInit = TRUE)
 
 	
-	# Re-center map
+	#
+	# Re-center the map (layer dependent)
+	#
 	observeEvent(input$center_map, {
 		map_center <- MAP_CENTERS %>% filter(layer == controlRV$activeLayer)
 		
@@ -627,6 +634,64 @@ shinyServer(function(input, output, session) {
 
 
 
+
+	###########################
+	#
+	# METADATA PANEL EVENTS
+	#
+	###########################
+
+
+	#
+	# React to clicks on the metadata panels
+	#
+	onevent("click", "site_status_panel", togglePanels(on=c("site_status_info")))
+	onevent("click", "alert_panel", togglePanels(on=c("alert_level_info")))
+	#onevent("click", "scope_panel", togglePanels(on=c("scope_info")))
+	#onevent("click", "population_panel", togglePanels(on=c("population_info")))
+	onevent("click", "daily_flow_panel", togglePanels(on=c("daily_flow_info")))
+	onevent("click", "collection_panel", togglePanels(on=c("collection_info")))
+	onevent("click", "last_date_panel", togglePanels(on=c("last_date_info")))
+
+	
+	#
+	# React to click on the site status panel close button
+	#
+	observeEvent(input$site_status_info_close,{
+    togglePanels(off=c("site_status_info"))
+	}, ignoreInit = TRUE)
+	
+	#
+	# React to click on the alert level panel close button
+	#
+	observeEvent(input$alert_level_info_close,{
+    togglePanels(off=c("alert_level_info"))
+	}, ignoreInit = TRUE)
+	
+	#
+	# React to click on the daily flow panel close button
+	#
+	observeEvent(input$daily_flow_info_close,{
+    togglePanels(off=c("daily_flow_info"))
+	}, ignoreInit = TRUE)
+	
+	#
+	# React to click on the collection panel close button
+	#
+	observeEvent(input$collection_info_close,{
+    togglePanels(off=c("collection_info"))
+	}, ignoreInit = TRUE)
+	
+	#
+	# React to click on the last date panel close button
+	#
+	observeEvent(input$last_date_info_close,{
+    togglePanels(off=c("last_date_info"))
+	}, ignoreInit = TRUE)
+	
+
+
+
 	###########################
 	#
 	# CONTROL PANEL EVENTS
@@ -634,50 +699,8 @@ shinyServer(function(input, output, session) {
 	###########################
 
 
-	onevent("click", "alert_panel", controller(targets=c("alert_level_info")))
-	onevent("click", "site_status_panel", controller(targets=c("site_status_info")))
-	onevent("click", "scope_panel", controller(targets=c("scope_info")))
-	onevent("click", "population_panel", controller(targets=c("population_info")))
-	onevent("click", "networkpop_panel", controller(targets=c("networkpop_info")))
-	onevent("click", "daily_flow_panel", controller(targets=c("daily_flow_info")))
-	onevent("click", "collection_panel", controller(targets=c("collection_info")))
-	onevent("click", "last_date_panel", controller(targets=c("last_date_info")))
-
-	observeEvent(input$alert_level_info_close,{
-    controller(counter_targets=c("alert_level_info"))
-	}, ignoreInit = TRUE)
-	
-	observeEvent(input$site_status_info_close,{
-    controller(counter_targets=c("site_status_info"))
-	}, ignoreInit = TRUE)
-	
-#	observeEvent(input$scope_info_close,{
-#    controller(counter_targets=c("scope_info"))
-#	}, ignoreInit = TRUE)
-	
-#	observeEvent(input$population_info_close,{
-#    controller(counter_targets=c("population_info"))
-#	}, ignoreInit = TRUE)
-	
-#	observeEvent(input$networkpop_info_close,{
-#    controller(counter_targets=c("networkpop_info"))
-#	}, ignoreInit = TRUE)
-	
-	observeEvent(input$daily_flow_info_close,{
-    controller(counter_targets=c("daily_flow_info"))
-	}, ignoreInit = TRUE)
-	
-	observeEvent(input$collection_info_close,{
-    controller(counter_targets=c("collection_info"))
-	}, ignoreInit = TRUE)
-	
-	observeEvent(input$last_date_info_close,{
-    controller(counter_targets=c("last_date_info"))
-	}, ignoreInit = TRUE)
-	
-
 	#
-	# Respond to change in targets to plot
+	# React to change in targets to plot
 	#
   observeEvent(input$targets_control, {
 		controlRV$visibleTargets <- input$targets_control
@@ -687,8 +710,9 @@ shinyServer(function(input, output, session) {
 		})
   }, ignoreInit = TRUE)
 
+
 	#
-	# Respond to change in dates to view
+	# React to change in dates to view
 	#
 	observeEvent(input$dates_control, {
 		#print(paste0("Observed: ", input$dates_wwtp, sep = ""))
@@ -705,7 +729,7 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Respond to change in rolling window size
+	# React to change in rolling window size
 	#
   observeEvent(input$roll_control, {
 		controlRV$rollWin <- as.numeric(input$roll_control)
@@ -728,7 +752,7 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Respond to change in CI visibility
+	# React to change in CI visibility
 	#
   observeEvent(input$ci_control, {
   	#print(input$ci_control)
