@@ -75,13 +75,13 @@ shinyUI(bootstrapPage(
 							div(
 								class = "control_group",
 								div(
-									style="font-size: 13px;font-weight: 800;margin-bottom: 22px;text-align: center;",
+									style="font-size: 13px;font-weight: 800;margin-bottom: 22px;text-align: left;",
 									span("Choose a range of dates to display")
 								),
 								sliderTextInput(
 									inputId = "dates_control",
 									force_edges = TRUE,
-									#width = "90%",
+									width = "90%",
 									label=NULL,
 									choices = sort(unique(df_watch$week_starting)),
 									selected = c(min(df_watch$week_starting), max(df_watch$week_starting)),

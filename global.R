@@ -43,14 +43,16 @@ TARGETS <- c("Mean N1 & N2", "N1", "N2")
 TARGET_VALUES <- c("n1n2", "n1", "n2")
 TARGETS_DEFAULT <- "n1n2"
 
+TARGET_COLORS <- c("dark orange", "dark blue", "dark green")
+TARGET_FILLS <- c("orange", "blue", "green")
+
 TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
 												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
-												 "target_value" = c("n1n2", "n1", "n2"),
-												 "target_color" = c("blue", "dark orange", "dark green")
+												 "target_value" = c("n1n2", "n1", "n2")
 												)
 
 SMOOTHER_OPTIONS <- c(1, 3, 5, 7, 10, 14)
-SMOOTHER_DEFAULT <- 3
+SMOOTHER_DEFAULT <- 5
 
 L_per_gal <- 3.78541
 
@@ -59,28 +61,26 @@ today <- Sys.Date()
 first_day <- as_date("2021-07-01")
 last_day <- today
 
-my_theme <- function () { 
-	theme_bw() + theme(axis.text = element_text(size = 8),
-										 axis.title = element_text(size = 9, color="#333333"),
-										 axis.line.x = element_line(color="#bbbbbb", size=1),
-										 axis.line.y = element_line(color="#bbbbbb", size=1),
-										 axis.ticks.length.y = unit(-0.5, "cm"), 
-										 strip.text = element_text(size = 8),
-										 panel.grid.major = element_line(color="#eeeeee", size=1), 
-										 #panel.grid.minor.y = element_blank(),
-										 panel.grid.minor.x = element_line(color="#eeeeee", size=1),
-										 panel.background = element_rect(fill="transparent"), 
-										 panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
-#										 panel.border = element_blank(), 
-										 #strip.background = element_rect(fill = 'white', color = 'white'),
-										 legend.position = "none",
-#										 legend.position = c(.95, .95),
-										 legend.justification = c("right", "top"),
-										 legend.box.just = "right",
-										 legend.margin = margin(6, 6, 6, 6),
-										 legend.title = element_text(size = 10, color = "#888888"),
-										 plot.background = element_rect(fill="transparent"), 
-										 plot.title = element_text(size = 10, color="#045a8d", hjust=0.5)
+plot_theme <- function () { 
+	theme(axis.text = element_text(size = 8),
+				axis.title = element_text(size = 9, color="#333333"),
+				axis.line.x = element_line(color="#bbbbbb", size=1),
+				axis.line.y = element_line(color="#bbbbbb", size=1),
+				axis.ticks.length.y = unit(-0.5, "cm"), 
+				strip.text = element_text(size = 8),
+				panel.grid.major = element_line(color="#eeeeee", size=1), 
+				panel.grid.minor.x = element_line(color="#eeeeee", size=1),
+				panel.background = element_rect(fill="transparent"), 
+				panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
+				legend.position = "none",
+				#legend.justification = c("right", "top"),
+				#legend.box.just = "right",
+				#legend.margin = margin(6, 6, 6, 6),
+				legend.title = element_text(size = 10, color = "#888888"),
+				legend.background = element_rect(fill="transparent"), 
+				legend.text = element_text(size = 8, color = "#333333"),
+				plot.background = element_rect(fill="transparent"), 
+				plot.title = element_text(size = 10, color="#045a8d", hjust=0.5)
 )}
 
 ci90 <- function(x) {
@@ -162,7 +162,7 @@ df_watch$n1n2.day1.ci <- 0
 df_watch$n1n2.load.day1.mean <- df_watch$n1n2.load
 df_watch$n1n2.load.day1.ci <- 0
 
-baselines <- c("n1n2.day1.mean", "n1n2.day3.mean", "n1n2.day5.mean", "n1n2.day7.mean", "n1n2.day10.mean", "n1n2.day14.mean", "n1n2.load.day1.mean", "n1n2.load.day3.mean", "n1n2.load.day5.mean", "n1n2.load.day7.mean", "n1n2.load.day10.mean", "n1n2.load.day14.mean")
+baselines <- c("n1n2.day5.mean", "n1n2.load.day5.mean")
 
 df_baseline <- data.frame(location_common_name = unique(df_watch$location_common_name))
 for (baseline in baselines) {
@@ -183,21 +183,8 @@ for (baseline in baselines) {
 df_watch <- left_join(df_watch, df_baseline, by="location_common_name")
 
 
-#df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level_1 = 100 * (n1n2.load.day1.mean - n1n2.load.day1.mean.baseline)/n1n2.load.day1.mean.baseline,
-#																													signal_level_3 = 100 * (n1n2.load.day3.mean - n1n2.load.day3.mean.baseline)/n1n2.load.day3.mean.baseline,
-#																													signal_level_5 = 100 * (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline,
-#																													signal_level_7 = 100 * (n1n2.load.day7.mean - n1n2.load.day7.mean.baseline)/n1n2.load.day7.mean.baseline,
-#																													signal_level_10 = 100 * (n1n2.load.day10.mean - n1n2.load.day10.mean.baseline)/n1n2.load.day10.mean.baseline,
-#																													signal_level_14 = 100 * (n1n2.load.day14.mean - n1n2.load.day14.mean.baseline)/n1n2.load.day14.mean.baseline)
-#df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level_1 = 100 * (n1n2.day1.mean - n1n2.day1.mean.baseline)/n1n2.day1.mean.baseline,
-#																													signal_level_3 = 100 * (n1n2.day3.mean - n1n2.day3.mean.baseline)/n1n2.day3.mean.baseline,
-#																													signal_level_5 = 100 * (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
-#																													signal_level_7 = 100 * (n1n2.day7.mean - n1n2.day7.mean.baseline)/n1n2.day7.mean.baseline,
-#																													signal_level_10 = 100 * (n1n2.day10.mean - n1n2.day10.mean.baseline)/n1n2.day10.mean.baseline,
-#																													signal_level_14 = 100 * (n1n2.day14.mean - n1n2.day14.mean.baseline)/n1n2.day14.mean.baseline)
-
-df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level_5 = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
-df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level_5 = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
+df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
+df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
 
 df_watch <- rbind(df_wwtp, df_swr)
 
@@ -205,6 +192,8 @@ df_watch <- rbind(df_wwtp, df_swr)
 
 #scale_colour_manual(values = alertPal)
 
+names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
+names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
 TREND_TXT <- "No trend yet"
 
@@ -213,5 +202,5 @@ alertPal <- colorBin(
 	bins = c(-100, 0, 1, 11, 101, 1001, 100001),
 	na.color = "#808080",
 #	reverse=TRUE,
-	domain = df_watch$signal_level_5)
+	domain = df_watch$signal_level)
   

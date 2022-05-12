@@ -68,9 +68,9 @@ shinyServer(function(input, output, session) {
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = ~alertPal(signal_level_5), 
+										 color = ~alertPal(signal_level), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(signal_level_5),
+										 fillColor = ~alertPal(signal_level),
 #										 fillColor = "black",
 										 group = "WWTP", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
@@ -82,9 +82,9 @@ shinyServer(function(input, output, session) {
 										 radius = 10, 
 										 stroke = TRUE,
 										 weight = 2, 
-										 color = ~alertPal(signal_level_5), 
+										 color = ~alertPal(signal_level), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(signal_level_5),
+										 fillColor = ~alertPal(signal_level),
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.6) %>% 
@@ -185,15 +185,17 @@ shinyServer(function(input, output, session) {
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
-											my_theme()
+											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											plot_theme()
 
 		for (target in targets) {
 
-			gplot <- gplot + geom_point(aes(x = day, y = val), color = target_pal(target), shape = 1, size = 2, alpha=0.1) + 
+			gplot <- gplot + geom_point(aes(x = day, y = val, color = target), shape = 1, size = 2, alpha=0.1) + 
 							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
-							 				 geom_col(aes(x = day, y = val), fill = target_pal(target), alpha=0.1, na.rm = TRUE) + 
+							 				 geom_col(aes(x = day, y = val, fill = target), alpha=0.1, na.rm = TRUE) + 
 							 				 #geom_point(aes(x = day, y = roll), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
-							 				 geom_line(aes(x = day, y = roll), color = target_pal(target))
+							 				 geom_line(aes(x = day, y = roll, color = target))
 											 #geom_hline(yintercept=mean_rib, linetype="dashed", color="#dddddd", size=0.5) + 
 											 #geom_ribbon(aes(x=day, y=.data[[mean_col]], ymin=.data[[mean_col]]-.data[[ci_col]], ymax=.data[[mean_col]]+.data[[ci_col]]), alpha=0.2)
 #			if (ci) {
@@ -201,7 +203,7 @@ shinyServer(function(input, output, session) {
 #				gplot <- gplot + geom_ribbon(aes(x=day, y=.data[[rcol]], ymin=.data[[rcol]]-.data[[cicol]], ymax=.data[[rcol]]+.data[[cicol]]), alpha=0.2)
 #			}
 		}
-		ggplotly(gplot)
+		ggplotly(gplot)# %>% layout(legend = list(orientation = "h"))
 	}
 	
 
@@ -241,7 +243,7 @@ shinyServer(function(input, output, session) {
 											geom_point(aes(color=mean_flow), size=2) + 
 											scale_color_gradient(low = "#E7C6B9", high = "#E71417") + 
 											ggtitle("Daily flow (MGD), averaged per week") + 
-											my_theme()
+											plot_theme()
 		if (facility != "All facilities") {
 			gplot <- gplot + geom_hline(yintercept=capacity, linetype="dashed", color="#dddddd", size=0.5)
 		}
@@ -274,7 +276,7 @@ shinyServer(function(input, output, session) {
 											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
 											geom_col(aes(x = week_starting, y = count), alpha=0.5) + 
 											ggtitle("Number of samples collected per week") + 
-											my_theme()
+											plot_theme()
 		ggplotly(gplot)
 	}
 		
@@ -298,7 +300,7 @@ shinyServer(function(input, output, session) {
 			signal_level <- df_facility %>% filter(day == max(day)) %>% 
 											summarize(mean_load = mean(n1n2.load.day5.mean, na.rm = TRUE), 
 																mean_baseline = mean(n1n2.load.day5.mean.baseline, na.rm = TRUE),
-																signal_level = mean(signal_level_5, na.rm = TRUE)
+																signal_level = mean(signal_level, na.rm = TRUE)
 											)
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
@@ -306,7 +308,7 @@ shinyServer(function(input, output, session) {
 			signal_level <- df_facility %>% filter(day == max(day)) %>% 
 											summarize(mean_load = n1n2.load.day5.mean,
 																mean_baseline = n1n2.load.day5.mean.baseline,
-																signal_level = signal_level_5)
+																signal_level = signal_level)
 		}
 
 		print(paste0("Facility     : ", facility, sep=""))
@@ -348,7 +350,7 @@ shinyServer(function(input, output, session) {
 		}
 		
 		# Plot title and legend
-		output$plot_title = renderText(paste0("Showing the ", rollWin, "-day rolling mean for ", facility_text, sep=""))
+		output$plot_title = renderText(paste0("Showing the 5-day rolling mean for ", facility_text, sep=""))
 
 		if (layer == "WWTPs") {
 			output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
@@ -531,9 +533,9 @@ shinyServer(function(input, output, session) {
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = ~alertPal(signal_level_5), 
+												 color = ~alertPal(signal_level), 
 												 fill = TRUE,
-										 		 fillColor=~alertPal(signal_level_5),
+										 		 fillColor=~alertPal(signal_level),
 												 group = "WWTP", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6) %>%
@@ -544,9 +546,9 @@ shinyServer(function(input, output, session) {
 												 radius = 10, 
 												 stroke = TRUE,
 												 weight = 2, 
-												 color = ~alertPal(signal_level_5), 
+												 color = ~alertPal(signal_level), 
 												 fill = TRUE,
-										 		 fillColor=~alertPal(signal_level_5),
+										 		 fillColor=~alertPal(signal_level),
 												 group = "Sewer Network", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.6)
@@ -589,9 +591,9 @@ shinyServer(function(input, output, session) {
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level_5)), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level)), 
 											 fill = TRUE,
-											 fillColor = ~alertPal(signal_level_5),
+											 fillColor = ~alertPal(signal_level),
 											 group = "WWTP", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6) %>%
@@ -602,9 +604,9 @@ shinyServer(function(input, output, session) {
 											 radius = 10, 
 											 stroke = TRUE,
 											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level_5)), 
+											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level)), 
 											 fill = TRUE,
-											 fillColor = ~alertPal(signal_level_5),
+											 fillColor = ~alertPal(signal_level),
 											 group = "Sewer Network", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.6)
