@@ -185,17 +185,12 @@ df_watch <- left_join(df_watch, df_baseline, by="location_common_name")
 
 df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
 df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
-
 df_watch <- rbind(df_wwtp, df_swr)
 
-#alertPal <- colorFactor(c("green", "blue", "#000000", "yellow", "orange", "red"), as.factor(df_watch$alertLevel))
-
-#scale_colour_manual(values = alertPal)
 
 names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
-TREND_TXT <- "No trend yet"
 
 alertPal <- colorBin(
 	palette = c("green", "black", "yellow", "orange", "red", "dark red"),
@@ -204,3 +199,11 @@ alertPal <- colorBin(
 #	reverse=TRUE,
 	domain = df_watch$signal_level)
   
+
+targetPal <- colorFactor(
+	palette = TARGETS_DF$target_color,
+	domain = TARGETS_DF$target_value,
+	ordered = TRUE,
+	na.color = "#aaaaaa",
+	alpha = TRUE
+)

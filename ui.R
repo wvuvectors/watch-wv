@@ -49,26 +49,30 @@ shinyUI(bootstrapPage(
 							#style = "border-right: 1px solid #666666;",
 							div(
 								class = "control_group",
+								div(
+									style="font-size: 13px;font-weight: 800;margin-bottom: 22px;text-align: left;",
+									span("Choose an infection to track:")
+								),
 								selectInput(
 									"infections_control",
 									label = NULL,
 									choices = INFECTIONS, 
 									selected = INFECTIONS_DEFAULT
 								)
-							),
-							div(
-								style = "margin-left: 20px;font-size: 12px;",
-								prettyCheckboxGroup(
-									inputId = "targets_control",
-									label = NULL,
-									choiceNames = TARGETS,
-									choiceValues = TARGET_VALUES,
-									icon = icon("check-square"), 
-									status = "primary",
-									selected = TARGETS_DEFAULT,
-									outline = TRUE
-								)
 							)
+#							div(
+#								style = "margin-left: 20px;font-size: 12px;",
+#								prettyCheckboxGroup(
+#									inputId = "targets_control",
+#									label = NULL,
+#									choiceNames = TARGETS,
+#									choiceValues = TARGET_VALUES,
+#									icon = icon("check-square"), 
+#									status = "primary",
+#									selected = TARGETS_DEFAULT,
+#									outline = TRUE
+#								)
+#							)
 						),
 						column(
 							width = 8,
@@ -76,7 +80,7 @@ shinyUI(bootstrapPage(
 								class = "control_group",
 								div(
 									style="font-size: 13px;font-weight: 800;margin-bottom: 22px;text-align: left;",
-									span("Choose a range of dates to display")
+									span("Choose a range of dates to display:")
 								),
 								sliderTextInput(
 									inputId = "dates_control",
@@ -114,26 +118,52 @@ shinyUI(bootstrapPage(
 					class="mdblock",
 					id = "site_status_panel", 
 #					top = 145, left = 590, height=120, width = 130,
-					top = 145, left = 590, height=70, width = 200,
+					top = 145, left = 590, height=70, width = 180,
 					fixed=TRUE, draggable=FALSE,
 					span("Signal at this site is currently", style="font-size: 11px; line-height: 12px;"),
 					span(textOutput("site_signal"), style="font-size: 18px;font-weight: 800; line-height: 18px;"),
-					span("than the lowest recorded value", style="font-size: 11px; line-height: 12px;"),
+					span("than the lowest recorded value", style="font-size: 11px; line-height: 12px;")
 				),
 				
 				hidden(
 					absolutePanel(
 						id = "site_status_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 470,
+						top = 215, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						#div("What do the various levels of behavior mean, and how are they calculated?"),
 						div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
-						plotlyOutput("focus_plot", height="300px", width="100%"),
-						div("This plot will respond to any changes in the main control panel except the date range. Roll over plot points for more information.", style="font-size: 11px; color:#888888; text-align: center;"),
+						plotlyOutput("focus_plot", height="318px", width="100%"),
+						div("Line is the 5-day rolling mean. Columns show daily levels.", style="font-size: 11px; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
+						)
+					)
+				),
+					
+				absolutePanel(
+					class="mdblock",
+					id = "site_trend_panel", 
+					top = 145, left = 770, height=70, width = 200,
+					fixed=TRUE, draggable=FALSE,
+					span("Signal at this site has been", style="font-size: 11px; line-height: 12px;"),
+					span(textOutput("site_trend"), style="font-size: 16px;font-weight: 800; line-height: 18px;"),
+					span("over the last 5 sampling days", style="font-size: 11px; line-height: 12px;")
+				),
+				
+				hidden(
+					absolutePanel(
+						id = "site_trend_info",
+						class = "mdinfo",
+						top = 215, left = 590, height="auto", width = 470,
+						fixed=TRUE, draggable=TRUE,
+						div(textOutput("trend_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
+						plotlyOutput("trend_plot", height="318px", width="100%"),
+						div("Line and columns show the fold-change of the signal for that day, compared to lowest recorded value for this site.", style="font-size: 11px; color:#888888; text-align: center;"),
+						div(
+							style="padding-top: 15px; padding-right: 5px; float: right;",
+							actionBttn(inputId="site_trend_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -151,7 +181,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "alert_level_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
+						top = 215, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
 						div("What does the alert level mean?"),
 						div(
@@ -224,7 +254,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "daily_flow_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 470,
+						top = 215, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						plotlyOutput("flow_plot", height="300px", width="100%"),
 						span(textOutput("flow_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
@@ -252,7 +282,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "collection_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 470,
+						top = 215, left = 590, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						plotlyOutput("collection_plot", height="300px", width="100%"),
 						span(textOutput("collection_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
@@ -277,7 +307,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "last_date_info",
 						class = "mdinfo",
-						top = 265, left = 590, height="auto", width = 300,
+						top = 215, left = 590, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
 						div("Text describing how samples are received by this site (e.g., 'usually on a Wed' kind of thing)."),
 						div(

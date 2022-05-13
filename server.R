@@ -144,27 +144,34 @@ shinyServer(function(input, output, session) {
 			if (layer == "Sewer Network") {
 				plot_roll <- paste0(target, ".day5.mean", sep="")
 				plot_val <- target
+				plot_delta <- paste0("signal_level", sep="")
 			} else {
 				plot_roll <- paste0(target, ".load.day5.mean", sep="")
 				plot_val <- paste0(target, ".load", sep="")
+				plot_delta <- paste0("signal_level", sep="")
 			}
 
 			if (facility == "All facilities") {
 				df_plot <- df_watch %>% 
 									filter(group == layer & day >= fromDate & day <= toDate) %>%
 									group_by(day) %>%
+									arrange(day) %>%
 									summarize(roll := mean(.data[[plot_roll]], na.rm = TRUE),
-														val := mean(.data[[plot_val]], na.rm = TRUE),)
+														val := mean(.data[[plot_val]], na.rm = TRUE),
+														delta := mean(.data[[plot_delta]], na.rm = TRUE))
 			} else {
 				df_plot <- df_watch %>% 
 									filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% 
 									group_by(day) %>% 
-									mutate(roll := .data[[plot_roll]],
-												 val := .data[[plot_val]])
+									arrange(day) %>%
+									summarize(roll := mean(.data[[plot_roll]], na.rm = TRUE),
+												 		val := mean(.data[[plot_val]], na.rm = TRUE),
+												 		delta := mean(.data[[plot_delta]], na.rm = TRUE))
 			}
 		}
-				
-		lims_x_date <- as.Date(strptime(c(fromDate, toDate), format = "%Y-%m-%d"))
+		
+		
+		lims_x_date <- as.Date(strptime(c(fromDate-1, toDate+1), format = "%Y-%m-%d"))
 		
 		date_step <- "2 weeks"
 		if (toDate - fromDate < 60) {
@@ -174,14 +181,6 @@ shinyServer(function(input, output, session) {
 			date_step <- "1 day"
 		}
 
-		target_pal <- colorFactor(
-			palette = TARGETS_DF$target_color,
-			domain = TARGETS_DF$target_value,
-			ordered = TRUE,
-			na.color = "#aaaaaa",
-			alpha = TRUE
-		)
-		
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
@@ -192,6 +191,7 @@ shinyServer(function(input, output, session) {
 		for (target in targets) {
 
 			gplot <- gplot + geom_point(aes(x = day, y = val, color = target), shape = 1, size = 2, alpha=0.1) + 
+							 				 #geom_point(aes(x = day, y = delta), color = "#991111", shape = 2, size = 2, alpha=0.4) + 
 							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
 							 				 geom_col(aes(x = day, y = val, fill = target), alpha=0.1, na.rm = TRUE) + 
 							 				 #geom_point(aes(x = day, y = roll), color = target_pal(target), shape = 1, size = 1, alpha=0.5) + 
@@ -206,6 +206,62 @@ shinyServer(function(input, output, session) {
 		ggplotly(gplot)# %>% layout(legend = list(orientation = "h"))
 	}
 	
+
+	#
+	# Plot of signal trend
+	#
+	plotSignalTrend <- function(layer, facility, dates, targets) {
+		#print("plotSignalTrend called!")
+		
+		if (missing(layer)) { layer = controlRV$activeLayer }
+		if (missing(facility)) { facility = controlRV$mapClick }
+		if (missing(dates)) { dates = controlRV$Dates }
+		if (missing(targets)) { targets = controlRV$visibleTargets }
+		
+#		print(layer)
+#		print(facility)
+
+		fromDate <- as.Date(ymd(dates[1]))
+		toDate <- as.Date(ymd(dates[2]))
+
+		lims_x_date <- as.Date(strptime(c(fromDate-1, toDate+1), format = "%Y-%m-%d"))
+		
+		date_step <- "2 weeks"
+		if (toDate - fromDate < 60) {
+			date_step <- "2 days"
+		}
+		if (toDate - fromDate < 15) {
+			date_step <- "1 day"
+		}
+		
+		if (facility == "All facilities") {
+			#capacity <- sum(unique((df_watch %>% filter(group == layer))$capacity_mgd))
+			df_plot <- df_watch %>% filter(group == layer & day >= fromDate & day <= toDate) %>% group_by(day) %>% 
+				summarize(mean_signal_change = mean(signal_level))
+		} else {
+			df_plot <- df_watch %>% filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% group_by(day) %>% 
+				summarize(mean_signal_change = mean(signal_level))
+		}
+
+		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
+											scale_y_continuous(labels = comma) + 
+											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
+											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											plot_theme()
+
+		for (target in targets) {
+
+			gplot <- gplot + geom_point(aes(x = day, y = mean_signal_change, color = target), shape = 1, size = 2, alpha=0.1) + 
+							 				 geom_col(aes(x = day, y = mean_signal_change, fill = target), alpha=0.1, na.rm = TRUE) + 
+							 				 #geom_point(aes(x = day, y = delta), color = "#991111", shape = 2, size = 2, alpha=0.4) + 
+							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
+							 				 geom_line(aes(x = day, y = mean_signal_change, color = target, group = 1))
+		}
+
+		ggplotly(gplot)
+	}
+
 
 	#
 	# Plot of daily flow
@@ -300,8 +356,13 @@ shinyServer(function(input, output, session) {
 			signal_level <- df_facility %>% filter(day == max(day)) %>% 
 											summarize(mean_load = mean(n1n2.load.day5.mean, na.rm = TRUE), 
 																mean_baseline = mean(n1n2.load.day5.mean.baseline, na.rm = TRUE),
-																signal_level = mean(signal_level, na.rm = TRUE)
-											)
+																signal_level = mean(signal_level, na.rm = TRUE))
+			df_trend <- df_watch %>% 
+								filter(group == layer) %>%
+								group_by(day) %>%
+								arrange(day) %>%
+								summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
+								slice_tail(n=5)
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
 			facility_text <- facility
@@ -309,13 +370,50 @@ shinyServer(function(input, output, session) {
 											summarize(mean_load = n1n2.load.day5.mean,
 																mean_baseline = n1n2.load.day5.mean.baseline,
 																signal_level = signal_level)
+
+			df_trend <- df_watch %>% 
+								filter(location_common_name == facility) %>% 
+								group_by(day) %>% 
+								arrange(day) %>%
+								summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
+								slice_tail(n=5)
 		}
+		
+		#samples <- c(1,2,3,4,5)
+		trend_lm <- lm(formula = df_trend$delta ~ df_trend$day)
+		trend_coeff <- coef(trend_lm)
+		trend <- trend_coeff[2]
 
-		print(paste0("Facility     : ", facility, sep=""))
-		print(paste0("Current Load : ", signal_level$mean_load, sep=""))
-		print(paste0("Baseline Load: ", signal_level$mean_baseline, sep=""))
-		print(paste0("Signal Level : ", signal_level$signal_level, sep=""))
-
+		print(paste0("Facility Name     : ", facility, sep=""))
+		print(paste0("Current Load      : ", signal_level$mean_load, sep=""))
+		print(paste0("Baseline Load     : ", signal_level$mean_baseline, sep=""))
+		print(paste0("Signal Level      : ", signal_level$signal_level, sep=""))
+		print(paste0("Signal Trajectory : ", trend, sep=""))
+		#print(df_trend)
+		#print(trend_lm)
+		
+		
+		if (trend <= -2) {
+			trend_txt <- "decreasing rapidly"
+		}
+		if (trend > -2 & trend <= -0.5) {
+			trend_txt <- "decreasing"
+		}
+		if (trend > -0.5 & trend <= -0.1) {
+			trend_txt <- "decreasing slightly"
+		}
+		if (trend > -0.1 & trend < 0.1) {
+			trend_txt <- "stable"
+		}
+		if (trend > 0.1 & trend <= 0.5) {
+			trend_txt <- "increasing slightly"
+		}
+		if (trend > 0.5 & trend <= 2) {
+			trend_txt <- "increasing"
+		}
+		if (trend >= 2) {
+			trend_txt <- "increasing rapidly"
+		}
 		
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
 		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
@@ -361,7 +459,7 @@ shinyServer(function(input, output, session) {
 		# Report alert status messages
 		output$alert_level <- renderText(getAlertStatus()) # Overall alert level (color code)
 		output$site_signal <- renderText(paste0(prettyNum(signal_level$signal_level, scientific=FALSE, big.mark=",", digits=2), "X higher", sep="")) # signal strength as % of min
-		#output$site_signal <- renderText(TREND_TXT) # signal trajectory
+		output$site_trend <- renderText(paste0(trend_txt, sep="")) # signal trajectory
 		#output$site_signal <- renderText(TREND_TXT) # signal variability
 		
 		# Report scope, population served, and total number of samples from this facility
@@ -451,6 +549,26 @@ shinyServer(function(input, output, session) {
 		plotLoad(dates = dates) %>% config(displayModeBar = FALSE) #%>% style(hoverinfo = "skip")
 
 		#print("focus_plot bottom")
+	})	
+
+
+	#
+	# Render the collections plot
+	#
+	output$trend_plot <- renderPlotly({
+		#print("trend_plot top")
+
+		output$trend_plot_title = renderText(paste0("Last 4 weeks of signal change from baseline, ", controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
+
+		if (controlRV$mapClick == "All facilities") {
+			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
+		} else {
+			df_facility <- df_watch %>% filter(location_common_name == controlRV$mapClick)
+		}
+		dates <- c(max(df_facility$day) - 30, max(df_facility$day))
+
+		plotSignalTrend(dates = dates) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("trend_plot bottom")
 	})	
 
 
@@ -648,6 +766,7 @@ shinyServer(function(input, output, session) {
 	# React to clicks on the metadata panels
 	#
 	onevent("click", "site_status_panel", togglePanels(on=c("site_status_info")))
+	onevent("click", "site_trend_panel", togglePanels(on=c("site_trend_info")))
 	onevent("click", "alert_panel", togglePanels(on=c("alert_level_info")))
 	#onevent("click", "scope_panel", togglePanels(on=c("scope_info")))
 	#onevent("click", "population_panel", togglePanels(on=c("population_info")))
@@ -661,6 +780,13 @@ shinyServer(function(input, output, session) {
 	#
 	observeEvent(input$site_status_info_close,{
     togglePanels(off=c("site_status_info"))
+	}, ignoreInit = TRUE)
+	
+	#
+	# React to click on the site trend panel close button
+	#
+	observeEvent(input$site_trend_info_close,{
+    togglePanels(off=c("site_trend_info"))
 	}, ignoreInit = TRUE)
 	
 	#
