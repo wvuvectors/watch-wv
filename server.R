@@ -43,9 +43,24 @@ shinyServer(function(input, output, session) {
 			layer <- controlRV$activeLayer
 		}
 		
-		alert_color <- "Gray"
+		alert_color = c("#579d1c", "#aecf00", "#ffd320", "#ff950e", "#ff950e", "#ff420e", "#c5000b")
+		alert_txt = c("Fairly safe", "Fairly safe", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
+		if (facility == "All facilities") {
+			alert_val <- (df_signal %>% summarize(scaled_signal = mean(scaled_signal, na.rm = TRUE)))$scaled_signal[1]
+#			alert_val <- (df_signal %>% summarize(scaled_signal = mean(scaled_signal[group == layer], na.rm = TRUE)))$scaled_signal[1]
+		} else {
+			alert_val <- (df_signal %>% summarize(scaled_signal = scaled_signal[location_common_name == facility]))$scaled_signal[1]
+		}
+		
+		alert_index <- cut(alert_val, SIGNAL_BINS$scaled_indicator, include.lowest=TRUE, labels=FALSE)
+		
+		color <- alert_color[alert_index]
+		status <- alert_txt[alert_index]
+		alert <- c(color, status)
+		
+#		alert <- c("Green", "Fairly safe")
+		return(alert)
 
-		return(alert_color)
 	}
 	
 	
@@ -57,6 +72,7 @@ shinyServer(function(input, output, session) {
 		df_last <- data_in %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
 		df_join <- left_join(data_in, df_last, by="location_common_name")
 		df_map <- df_join %>% filter(day == lastDay)
+		df_map <- left_join(df_map, df_signal, by="location_common_name")
 		
 		mymap = leaflet(data_in) %>% 
 		addTiles() %>% 
@@ -67,27 +83,33 @@ shinyServer(function(input, output, session) {
 										 lng = ~longitude, 
 										 radius = 10, 
 										 stroke = TRUE,
-										 weight = 2, 
-										 color = ~alertPal(signal_level), 
+										 weight = 4, 
+										 opacity = 0.9,
+										 color = ~alertPal(scaled_signal), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(signal_level),
+										 fillColor = ~alertPal(scaled_signal), 
 #										 fillColor = "black",
 										 group = "WWTP", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-										 fillOpacity = 0.6) %>%
+										 fillOpacity = 0.9) %>%
 		addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 										 layerId = ~location_common_name, 
 										 lat = ~latitude, 
 										 lng = ~longitude, 
 										 radius = 10, 
 										 stroke = TRUE,
-										 weight = 2, 
-										 color = ~alertPal(signal_level), 
+										 weight = 4, 
+										 opacity = 0.9,
+										 color = ~alertPal(scaled_signal), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(signal_level),
+										 fillColor = ~alertPal(scaled_signal), 
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-										 fillOpacity = 0.6) %>% 
+										 fillOpacity = 0.9) %>% 
+#		addProviderTiles(providers$Stadia.AlidadeSmooth) %>%
+#		addMiniMap(
+#		tiles = providers$Esri.NatGeoWorldMap,
+#		toggleDisplay = TRUE)
 #		addProviderTiles(providers$Thunderforest.TransportDark)
 #							Jawg.Streets
 #							Esri.NatGeoWorldMap
@@ -320,19 +342,39 @@ shinyServer(function(input, output, session) {
 #		print(facility)
 
 		if (facility == "All facilities") {
-			df_plot <- df_watch %>% filter(group == layer) %>% group_by(week_starting) %>% summarize(count = n())
+			df_plot <- df_watch %>% drop_na(day_received) %>% filter(group == layer) %>% group_by(day_received) %>% summarize(total = n())
+#			df_plot <- df_watch %>% filter(group == layer) %>% group_by(day_received)
 		} else {
-			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(week_starting) %>% summarize(count = n())
+			df_plot <- df_watch %>% drop_na(day_received) %>% filter(location_common_name == facility) %>% group_by(day_received) %>% summarize(total = n())
+#			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(day_received)
 		}
 
-		lims_x_date <- as.Date(strptime(c(first_day, last_day), format = "%Y-%m-%d"))
+		df_plot <- df_plot %>% mutate(year = year(day_received),
+											 						month = month(day_received, label = TRUE),
+																	wkday = fct_relevel(wday(day_received, label=TRUE), c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")),
+																	rday = day(day_received),
+																	wk = format(day_received, "%W"),
+																	total = total) %>%
+													select(year, month, wkday, rday, wk, total)
+		df_plot <- aggregate(total ~ year + month + wkday, data=df_plot,sum)
 
-		gplot <- ggplot(df_plot) + labs(y = "Sample count", x = "") + 
-											scale_y_continuous(labels = comma) + 
-											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
-											geom_col(aes(x = week_starting, y = count), alpha=0.5) + 
-											ggtitle("Number of samples collected per week") + 
-											plot_theme()
+#  select(year, month, wkday, day, wk, 5, returns) %>% 
+    gplot <- ggplot(df_plot, aes(month, wkday, fill=total)) +
+      geom_tile(color="black") +
+      #geom_text(aes(label=rday), size=3) + 
+      #geom_bar() + 
+      labs(x='', y='') + #, title="Test") +
+      scale_fill_gradient(low = "#aecf00", high = "#314004", na.value = NA) +
+			facet_grid(year~month, scales="free", space="free", drop=FALSE) + 
+      plot_theme()
+#      facet_grid(year~month, scales="free", space="free")
+#		lims_x_date <- as.Date(strptime(c(first_day, last_day), format = "%Y-%m-%d"))
+#		gplot <- ggplot(df_plot) + labs(y = "Sample count", x = "") + 
+#											scale_y_continuous(labels = comma) + 
+#											scale_x_date(breaks = "1 month", labels = format_dates, limits = lims_x_date) + 
+#											geom_col(aes(x = day_received, y = count), alpha=0.5) + 
+#											ggtitle("Samples received from this facility") + 
+#											plot_theme()
 		ggplotly(gplot)
 	}
 		
@@ -356,64 +398,33 @@ shinyServer(function(input, output, session) {
 			signal_level <- df_facility %>% filter(day == max(day)) %>% 
 											summarize(mean_load = mean(n1n2.load.day5.mean, na.rm = TRUE), 
 																mean_baseline = mean(n1n2.load.day5.mean.baseline, na.rm = TRUE),
-																signal_level = mean(signal_level, na.rm = TRUE))
-			df_trend <- df_watch %>% 
-								filter(group == layer) %>%
-								group_by(day) %>%
-								arrange(day) %>%
-								summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
-								slice_tail(n=5)
+																signal_level = mean(df_signal$strength, na.rm = TRUE),
+																scaled_signal_level = mean(df_signal$scaled_strength, na.rm = TRUE),
+																scaled_signal_trend = mean(df_signal$scaled_trend))
 		} else {
 			df_facility <- df_watch %>% filter(location_common_name == facility)
 			facility_text <- facility
 			signal_level <- df_facility %>% filter(day == max(day)) %>% 
 											summarize(mean_load = n1n2.load.day5.mean,
 																mean_baseline = n1n2.load.day5.mean.baseline,
-																signal_level = signal_level)
-
-			df_trend <- df_watch %>% 
-								filter(location_common_name == facility) %>% 
-								group_by(day) %>% 
-								arrange(day) %>%
-								summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
-								slice_tail(n=5)
+																signal_level = df_signal$strength[df_signal$location_common_name == facility],
+																scaled_signal_level = df_signal$scaled_strength[df_signal$location_common_name == facility],
+																scaled_signal_trend = df_signal$scaled_trend[df_signal$location_common_name == facility])
 		}
 		
-		#samples <- c(1,2,3,4,5)
-		trend_lm <- lm(formula = df_trend$delta ~ df_trend$day)
-		trend_coeff <- coef(trend_lm)
-		trend <- trend_coeff[2]
-
 		print(paste0("Facility Name     : ", facility, sep=""))
 		print(paste0("Current Load      : ", signal_level$mean_load, sep=""))
 		print(paste0("Baseline Load     : ", signal_level$mean_baseline, sep=""))
 		print(paste0("Signal Level      : ", signal_level$signal_level, sep=""))
-		print(paste0("Signal Trajectory : ", trend, sep=""))
-		#print(df_trend)
-		#print(trend_lm)
+		print(paste0("Signal Trajectory : ", signal_level$scaled_signal_trend, sep=""))
 		
-		
-		if (trend <= -2) {
-			trend_txt <- "decreasing rapidly"
-		}
-		if (trend > -2 & trend <= -0.5) {
-			trend_txt <- "decreasing"
-		}
-		if (trend > -0.5 & trend <= -0.1) {
-			trend_txt <- "decreasing slightly"
-		}
-		if (trend > -0.1 & trend < 0.1) {
-			trend_txt <- "stable"
-		}
-		if (trend > 0.1 & trend <= 0.5) {
-			trend_txt <- "increasing slightly"
-		}
-		if (trend > 0.5 & trend <= 2) {
-			trend_txt <- "increasing"
-		}
-		if (trend >= 2) {
-			trend_txt <- "increasing rapidly"
-		}
+		# get the text code for the strength value
+		strength_bin <- cut(signal_level$scaled_signal_level, SIGNAL_BINS$scaled_strength, include.lowest=TRUE, labels=FALSE)
+		strength_txt <- SIGNAL_CODES$strength[strength_bin]
+
+		# get the text code for the trend value
+		trend_bin <- cut(signal_level$scaled_signal_trend, SIGNAL_BINS$scaled_trend, include.lowest=TRUE, labels=FALSE)
+		trend_txt <- SIGNAL_CODES$trend[trend_bin]
 		
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
 		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
@@ -436,9 +447,6 @@ shinyServer(function(input, output, session) {
 		
 		mean_daily_flow = mean(df_facility$daily_flow)
 		
-		df_last28days <- df_facility %>% filter(ymd(day) >= ymd(today) - 28)
-		mean_collfreq = (n_distinct(df_last28days$"Sample ID"))/4
-		
 		if (layer == "Sewer Network") {
 			layer = "sewer network"
 		} else {
@@ -450,18 +458,23 @@ shinyServer(function(input, output, session) {
 		# Plot title and legend
 		output$plot_title = renderText(paste0("Showing the 5-day rolling mean for ", facility_text, sep=""))
 
-		if (layer == "WWTPs") {
+		if (layer != "sewer network") {
 			output$data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
 		} else {
 			output$data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
 		}
 		
-		# Report alert status messages
-		output$alert_level <- renderText(getAlertStatus()) # Overall alert level (color code)
-		output$site_signal <- renderText(paste0(prettyNum(signal_level$signal_level, scientific=FALSE, big.mark=",", digits=2), "X higher", sep="")) # signal strength as % of min
+		output$site_signal_txt <- renderText(paste0(strength_txt, sep=""))
+		output$site_signal <- renderText(paste0("(", prettyNum(signal_level$signal_level, scientific=FALSE, big.mark=",", digits=2), "X above the lowest value)", sep=""))
 		output$site_trend <- renderText(paste0(trend_txt, sep="")) # signal trajectory
 		#output$site_signal <- renderText(TREND_TXT) # signal variability
-		
+
+		# Report alert status messages
+		alert_status <- getAlertStatus()
+		output$alert_txt <- renderText(alert_status[2]) # Overall alert level (message)
+		bgchange <- paste0("document.getElementById('alert_panel').style.backgroundColor = '", alert_status[1], "';", sep="")
+		runjs(bgchange)
+
 		# Report scope, population served, and total number of samples from this facility
 		output$scope <- renderText(facility_text)
 		output$population_served <- renderText(paste0("Serving ", formatC(total_popserved, big.mark=","), " residents", sep=""))
@@ -479,7 +492,9 @@ shinyServer(function(input, output, session) {
 		output$mean_flow <- renderText(paste0(formatC(mean_daily_flow, big.mark=","), " MGD", sep=""))
 
 		# Report weekly collection frequency
-		output$collection_frequency <- renderText(paste0(mean_collfreq, " samples/week", sep=""))
+		df_last28days <- df_facility %>% filter(ymd(day) >= ymd(today) - 28)
+		mean_collfreq = (n_distinct(df_last28days$"Sample ID"))/4
+		output$collection_frequency <- renderText(paste0("Receiving ", mean_collfreq, " samples/week over the last 4 weeks.", sep=""))
 		
 		# Report the most recent day that data is included for the current location(s)
 		update_mod <- "days"
@@ -487,6 +502,7 @@ shinyServer(function(input, output, session) {
 			update_mod <- "day"
 		}
 		output$last_update <- renderText(paste0(ymd(today)-ymd(date_last_sampled), " ", update_mod, " ago", sep=""))
+		output$last_update_stamp <- renderText(paste0("(Collected on ", format(as.Date(date_last_sampled), format="%d %b %Y"), ")", sep=""))
 		
 	}
 
@@ -537,7 +553,13 @@ shinyServer(function(input, output, session) {
 	output$focus_plot <- renderPlotly({
 		#print("focus_plot top")
 
-		output$focus_plot_title = renderText(paste0("Last 4 weeks of signal from ", controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
+		output$focus_plot_title = renderText(paste0("Showing the 5-day rolling mean for the last 4 weeks from ", controlRV$mapClick, sep=""))
+
+		if (controlRV$activeLayer != "Sewer Network") {
+			output$focus_data_format <- renderText("Calculated as mean target mass load (copies of target adjusted for average daily flow)")
+		} else {
+			output$focus_data_format <- renderText("Calculated as mean target copies/L (daily flow is not available at sewers)")
+		}
 
 		if (controlRV$mapClick == "All facilities") {
 			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
@@ -553,7 +575,7 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Render the collections plot
+	# Render the trend plot
 	#
 	output$trend_plot <- renderPlotly({
 		#print("trend_plot top")
@@ -640,6 +662,7 @@ shinyServer(function(input, output, session) {
 			df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
 			df_join <- left_join(df_watch, df_last, by="location_common_name")
 			df_map <- df_join %>% filter(day == lastDay)
+			df_map <- left_join(df_map, df_signal, by="location_common_name")
 
 			# Update map marker colors
 			watchLeafletProxy %>% 
@@ -650,26 +673,28 @@ shinyServer(function(input, output, session) {
 												 lng = ~longitude, 
 												 radius = 10, 
 												 stroke = TRUE,
-												 weight = 2, 
-												 color = ~alertPal(signal_level), 
+												 weight = 4, 
+												 opacity = 0.9,
+												 color = ~alertPal(scaled_signal), 
 												 fill = TRUE,
-										 		 fillColor=~alertPal(signal_level),
+												 fillColor = ~alertPal(scaled_signal), 
 												 group = "WWTP", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-												 fillOpacity = 0.6) %>%
+												 fillOpacity = 0.9) %>%
 				addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 												 layerId = ~location_common_name, 
 												 lat = ~latitude, 
 												 lng = ~longitude, 
 												 radius = 10, 
 												 stroke = TRUE,
-												 weight = 2, 
-												 color = ~alertPal(signal_level), 
+												 weight = 4, 
+												 opacity = 0.9,
+												 color = ~alertPal(scaled_signal), 
 												 fill = TRUE,
-										 		 fillColor=~alertPal(signal_level),
+												 fillColor = ~alertPal(scaled_signal), 
 												 group = "Sewer Network", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-												 fillOpacity = 0.6)
+												 fillOpacity = 0.9)
 		
 			# Reset the plot
 			output$watch_plot <- renderPlotly({
@@ -698,6 +723,7 @@ shinyServer(function(input, output, session) {
 		df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
 		df_join <- left_join(df_watch, df_last, by="location_common_name")
 		df_map <- df_join %>% filter(day == lastDay)
+		df_map <- left_join(df_map, df_signal, by="location_common_name")
 
     # Update map marker colors
     watchLeafletProxy %>% 
@@ -708,26 +734,28 @@ shinyServer(function(input, output, session) {
 											 lng = ~longitude, 
 											 radius = 10, 
 											 stroke = TRUE,
-											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level)), 
+											 weight = 4, 
+											 opacity = 0.9,
+											 color = ~alertPal(scaled_signal),
 											 fill = TRUE,
-											 fillColor = ~alertPal(signal_level),
+											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(scaled_signal)), 
 											 group = "WWTP", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-											 fillOpacity = 0.6) %>%
+											 fillOpacity = 0.9) %>%
 			addCircleMarkers(data = df_map %>% filter(group == "Sewer Network"),
 											 layerId = ~location_common_name, 
 											 lat = ~latitude, 
 											 lng = ~longitude, 
 											 radius = 10, 
 											 stroke = TRUE,
-											 weight = 2, 
-											 color=~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(signal_level)), 
+											 weight = 4, 
+											 opacity = 0.9,
+											 color = ~alertPal(scaled_signal),
 											 fill = TRUE,
-											 fillColor = ~alertPal(signal_level),
+											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(scaled_signal)), 
 											 group = "Sewer Network", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
-											 fillOpacity = 0.6)
+											 fillOpacity = 0.9)
 
 		# Update plots
 		output$watch_plot <- renderPlotly({

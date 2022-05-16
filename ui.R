@@ -31,7 +31,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					id = "details", 
 					class = "panel panel-default",
-					top = 162, left = 53, width = 600, fixed=TRUE,
+					top = 162, left = 6, width = 600, fixed=TRUE,
 					draggable = FALSE, height = 430,
 					plotlyOutput("watch_plot", height="380px", width="100%"),
 					span(textOutput("plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
@@ -41,7 +41,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					id = "controls",
 					class = "control_panel",
-					top = 593, left = 53, height = "auto", width = 600,
+					top = 593, left = 6, height = "auto", width = 600,
 					fixed=TRUE, draggable = FALSE,
 					fluidRow(
 						column(
@@ -118,23 +118,25 @@ shinyUI(bootstrapPage(
 					class="mdblock",
 					id = "site_status_panel", 
 #					top = 145, left = 590, height=120, width = 130,
-					top = 145, left = 590, height=70, width = 180,
+					top = 145, left = 545, height=70, width = 193,
 					fixed=TRUE, draggable=FALSE,
 					span("Signal at this site is currently", style="font-size: 11px; line-height: 12px;"),
-					span(textOutput("site_signal"), style="font-size: 18px;font-weight: 800; line-height: 18px;"),
-					span("than the lowest recorded value", style="font-size: 11px; line-height: 12px;")
+					span(textOutput("site_signal_txt"), style="font-size: 18px; font-weight: 800; line-height: 18px;"),
+					span(textOutput("site_signal"), style="font-size: 13px; line-height: 12px;"),
 				),
 				
 				hidden(
 					absolutePanel(
 						id = "site_status_info",
 						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 470,
+						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						#div("What do the various levels of behavior mean, and how are they calculated?"),
-						div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
+						#div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
 						plotlyOutput("focus_plot", height="318px", width="100%"),
-						div("Line is the 5-day rolling mean. Columns show daily levels.", style="font-size: 11px; color:#888888; text-align: center;"),
+						span(textOutput("focus_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+						span(textOutput("focus_data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+#						div("Line is the 5-day rolling mean. Columns show daily levels.", style="font-size: 11px; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
@@ -145,7 +147,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "site_trend_panel", 
-					top = 145, left = 770, height=70, width = 200,
+					top = 145, left = 739, height=70, width = 178,
 					fixed=TRUE, draggable=FALSE,
 					span("Signal at this site has been", style="font-size: 11px; line-height: 12px;"),
 					span(textOutput("site_trend"), style="font-size: 16px;font-weight: 800; line-height: 18px;"),
@@ -156,7 +158,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "site_trend_info",
 						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 470,
+						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						div(textOutput("trend_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
 						plotlyOutput("trend_plot", height="318px", width="100%"),
@@ -169,56 +171,19 @@ shinyUI(bootstrapPage(
 				),
 					
 				absolutePanel(
-					class="mdblock",
-					id = "alert_panel", 
-					top = 65, left = 45, height=75, width = 125,
-					fixed=TRUE, draggable=FALSE,
-					span("Current alert level is", style="font-size: 13px;"),
-					span(textOutput("alert_level"), style="font-size: 24px; font-weight: 800; color: #009900;line-height: 28px;")
-				),
-				
-				hidden(
-					absolutePanel(
-						id = "alert_level_info",
-						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 300,
-						fixed=TRUE, draggable=TRUE,
-						div("What does the alert level mean?"),
-						div(
-							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
-						)
-					)
-				),
-					
-				absolutePanel(
 					class="mdblock-nopop",
 					id = "scope_panel", 
-					top = 65, left = 170, height=75, width = 240,
+					top = 65, left = 45, height=75, width = 240,
 					fixed=TRUE, draggable=FALSE,
 					span(textOutput("scope"), style="font-size: 19px; font-weight: 800; line-height: 26px;"),
 					span(textOutput("population_served"), style="font-size: 15px;font-weight: 200;"),
 					span(textOutput("sample_count"), style="font-size: 11px; font-weight: 200;")
 				),
 				
-#				hidden(
-#					absolutePanel(
-#						id = "scope_info",
-#						class = "mdinfo",
-#						top = 265, left = 590, height="auto", width = 300,
-#						fixed=TRUE, draggable=TRUE,
-#						div("Plot showing receipt of samples?"),
-#						div(
-#							style="padding-top: 15px; padding-right: 5px; float: right;",
-#							actionBttn(inputId="scope_info_close", label="Close", style="pill", size="xs", color="success")
-#						)
-#					)
-#				),
-					
 				absolutePanel(
 					class="mdblock-nopop",
 					id = "population_panel", 
-					top = 65, left = 410, height=75, width = 130,
+					top = 65, left = 285, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
 					style = "padding-top: 8px;",
 					span(textOutput("counties_served"), style="font-size: 14px;"),
@@ -226,24 +191,10 @@ shinyUI(bootstrapPage(
 					span(textOutput("county_population"), style="font-size: 15px;")
 				),
 				
-#				hidden(
-#					absolutePanel(
-#						id = "population_info",
-#						class = "mdinfo",
-#						top = 265, left = 590, height="auto", width = 300,
-#						fixed=TRUE, draggable=TRUE,
-#						div("If more than one county, show some metadata about all (name, population, etc.)."),
-#						div(
-#							style="padding-top: 15px; padding-right: 5px; float: right;",
-#							actionBttn(inputId="population_info_close", label="Close", style="pill", size="xs", color="success")
-#						)
-#					)
-#				),
-					
 				absolutePanel(
 					class="mdblock",
 					id = "daily_flow_panel", 
-					top = 65, left = 540, height=75, width = 130,
+					top = 65, left = 415, height=75, width = 130,
 					fixed=TRUE, draggable=FALSE,
 					span("Mean daily flow", style="font-size: 13px;"),
 					span(textOutput("mean_flow"), style="font-size: 16px;"),
@@ -254,7 +205,7 @@ shinyUI(bootstrapPage(
 					absolutePanel(
 						id = "daily_flow_info",
 						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 470,
+						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						plotlyOutput("flow_plot", height="300px", width="100%"),
 						span(textOutput("flow_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
@@ -269,23 +220,21 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "collection_panel", 
-					top = 65, left = 670, height=75, width = 130,
+					top = 65, left = 545, height=75, width = 160,
 					fixed=TRUE, draggable=FALSE,
-					span("We are receiving", style="font-size: 10px;"),
-					span(textOutput("collection_frequency"), style="font-size: 13px;line-height: 12px;"),
-					span("over the last 4 weeks", style="font-size: 10px; line-height: 11px;")
-					#span("as", style="font-size: 10px; line-height: 11px;"),
-					#span((textOutput("collection_scheme")), style="font-size: 11px;line-height: 11px;")
+					span("Last data update was", style="font-size: 13px;"),
+					span(textOutput("last_update"), style="font-size: 19px;"),
+					span(textOutput("last_update_stamp"), style="font-size: 11px;")
 				),
 				
 				hidden(
 					absolutePanel(
 						id = "collection_info",
 						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 470,
+						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
 						plotlyOutput("collection_plot", height="300px", width="100%"),
-						span(textOutput("collection_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+						span(textOutput("collection_frequency"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
 						#div("Daily flow is provided by the facility with each sample, in million gallons per day.", style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
@@ -296,27 +245,29 @@ shinyUI(bootstrapPage(
 
 				absolutePanel(
 					class="mdblock",
-					id = "last_date_panel", 
-					top = 65, left = 800, height=75, width = 140,
+					id = "alert_panel", 
+					top = 65, left = 707, height=75, width = 210,
 					fixed=TRUE, draggable=FALSE,
-					span("Last update was", style="font-size: 16px;"),
-					span(textOutput("last_update"), style="font-size: 20px;")
+					span("General outlook is currently:", style="font-size: 13px; line-height: 13px; font-weight: 800; color: #000000;"),
+					#span(textOutput("alert_level"), style="font-size: 24px; font-weight: 800; color: #000000;line-height: 28px;"),
+					span(textOutput("alert_txt"), style="font-size: 22px; font-weight: 800; color: #000000;"),
+					#span(textOutput("alert_txt"), style="font-size: 11px; line-height: 12px;")
 				),
 				
 				hidden(
 					absolutePanel(
-						id = "last_date_info",
+						id = "alert_level_info",
 						class = "mdinfo",
-						top = 215, left = 590, height="auto", width = 300,
+						top = 215, left = 545, height="auto", width = 300,
 						fixed=TRUE, draggable=TRUE,
-						div("Text describing how samples are received by this site (e.g., 'usually on a Wed' kind of thing)."),
+						div("What does the alert level mean?"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="last_date_info_close", label="Close", style="pill", size="xs", color="success")
+							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
-
+					
 				absolutePanel(
 					id = "recenter_panel", 
 					class = "card", 

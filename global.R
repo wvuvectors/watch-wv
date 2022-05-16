@@ -30,6 +30,20 @@ options(tigris_use_cache = TRUE)
 
 #rsconnect::deployApp('path/to/your/app')
 
+# color palette is ggthemes$calc
+# 1 Chart 1  #004586	dark blue
+# 2 Chart 2  #ff420e	red orange
+# 3 Chart 3  #ffd320	yellow
+# 4 Chart 4  #579d1c	green
+# 5 Chart 5  #7e0021	brown
+# 6 Chart 6  #83caff	light blue
+# 7 Chart 7  #314004	dark green
+# 8 Chart 8  #aecf00	light green
+# 9 Chart 9  #4b1f6f	purple
+#10 Chart 10 #ff950e	orange
+#11 Chart 11 #c5000b	dark red
+#12 Chart 12 #0084d1	Carolina blue
+
 
 MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
 													"lat" = c(38.951883, 39.642414),
@@ -43,13 +57,17 @@ TARGETS <- c("Mean N1 & N2", "N1", "N2")
 TARGET_VALUES <- c("n1n2", "n1", "n2")
 TARGETS_DEFAULT <- "n1n2"
 
-TARGET_COLORS <- c("dark orange", "dark blue", "dark green")
-TARGET_FILLS <- c("orange", "blue", "green")
+TARGET_COLORS <- c("#4b1f6f", "#0084d1", "#aecf00")
+TARGET_FILLS <- c("#4b1f6f", "#0084d1", "#aecf00")
 
 TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
 												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
 												 "target_value" = c("n1n2", "n1", "n2")
 												)
+
+SIGNAL_TREND_WINDOW <- 5
+STRENGTH_WEIGHT <- 1
+TREND_WEIGHT <- 2
 
 SMOOTHER_OPTIONS <- c(1, 3, 5, 7, 10, 14)
 SMOOTHER_DEFAULT <- 5
@@ -134,10 +152,13 @@ df_watch <- df_watch %>% filter(status == "active" | status == "new")
 
 df_watch$"Sample Composite Start" <- mdy_hm(df_watch$"Sample Composite Start")
 df_watch$"Sample Composite End" <- mdy_hm(df_watch$"Sample Composite End")
+df_watch$"Sample Received Date" <- mdy(df_watch$"Sample Received Date")
 
 df_watch$day <- as_date(df_watch$"Sample Composite End")
 df_watch$week_starting <- floor_date(df_watch$day, "week", week_start = 1)
 df_watch$week_ending <- ceiling_date(df_watch$day, "week", week_start = 0)
+
+df_watch$day_received <- as_date(df_watch$"Sample Received Date")
 
 #df_watch$week_num <- week(df_watch$week_ending)
 #df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
@@ -182,22 +203,59 @@ for (baseline in baselines) {
 
 df_watch <- left_join(df_watch, df_baseline, by="location_common_name")
 
-
+# calculate signal level for each day
 df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
 df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
 df_watch <- rbind(df_wwtp, df_swr)
 
+
+# calculate signal trend (trajectory) for most recent day
+df_signal <- df_watch %>% 
+						 group_by(location_common_name, day) %>% 
+						 arrange(day) %>%
+						 summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
+						 slice_tail(n=SIGNAL_TREND_WINDOW) %>%
+						 summarize(trend = coef(lm(formula = delta ~ day))[2])
+
+# merge signal trend and strength
+tmp <- df_watch %>% group_by(location_common_name) %>% summarize(strength = signal_level[day == max(day)])
+#max_strength = max(signal_level, na.rm = TRUE),
+#max_strength = ifelse(max(signal_level, na.rm = TRUE) > 1000, yes = 1000, no = max(signal_level, na.rm = TRUE)),
+#min_strength = min(signal_level, na.rm = TRUE))
+df_signal <- left_join(df_signal, tmp, by=c("location_common_name" = "location_common_name"))
+
+
+# Scale strength so it falls between 0-1
+# Scale trend so it falls between -1 and 1
+# Weight accordingly
+# Take the sum of the weighted & scaled values
+# scaled signal goes from -1 (very low and decreasing rapidly) to 2 (very high and increasing rapidly)
+#
+df_signal <- df_signal %>% mutate(scaled_strength = ifelse(strength > 1000, yes = 1, no = strength/1000),
+																	min_trend = ifelse(trend < -30, yes = -30, no = min(trend, na.rm = TRUE)),
+																	max_trend = ifelse(trend > 30, yes = 30, no = max(trend, na.rm = TRUE)),
+																	scaled_trend = ifelse(trend < 0, yes = ((trend - min_trend)/(0 - min_trend))-1, no = trend/max_trend),
+																	scaled_signal = (STRENGTH_WEIGHT * scaled_strength) + (TREND_WEIGHT * scaled_trend))
+
+wt <- STRENGTH_WEIGHT * TREND_WEIGHT
+SIGNAL_BINS <- data.frame(scaled_strength = c(-1.1, 0, .006, .026, .051, .101, .501, 1.1), 
+													scaled_trend = c(-1.1, -0.75, -0.5, -0.25, 0.11, 0.34, 0.67, 1.01), 
+													scaled_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
+
+SIGNAL_CODES <- data.frame(strength = c("undetectable", "very low", "low", "moderate", "high", "very high", "extremely high"), 
+													 trend = c("decreasing rapidly", "decreasing moderately", "decreasing slightly", "relatively stable", "increasing slightly", "increasing moderately", "increasing rapidly"),
+													 color = c("#579d1c", "#579d1c", "#ffd320", "#ff950e", "#ff950e", "#c5000b", "#EE2221"))
 
 names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
 
 alertPal <- colorBin(
-	palette = c("green", "black", "yellow", "orange", "red", "dark red"),
-	bins = c(-100, 0, 1, 11, 101, 1001, 100001),
+	palette = SIGNAL_CODES$color,
+	bins = SIGNAL_BINS$scaled_indicator,
 	na.color = "#808080",
 #	reverse=TRUE,
-	domain = df_watch$signal_level)
+	domain = df_signal$scaled_signal)
   
 
 targetPal <- colorFactor(
