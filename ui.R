@@ -34,7 +34,7 @@ shinyUI(bootstrapPage(
 					top = 162, left = 6, width = 600, fixed=TRUE,
 					draggable = FALSE, height = 430,
 					plotlyOutput("watch_plot", height="380px", width="100%"),
-					span(textOutput("plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+					span(textOutput("plot_title"), style="font-size: 18px; font-style: bold; color:#045a8d; text-align: center;"),
 					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 				), # absolutePanel
 
@@ -299,6 +299,43 @@ shinyUI(bootstrapPage(
 #				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
 				"This tab will present results of our RNA virus genome sequencing efforts."
 			)
+		), # tabPanel
+
+		tabPanel(
+			"Insights",
+			div(
+				class="outer",
+				
+				absolutePanel(
+					id = "insights-2way", 
+					class = "panel panel-default",
+					top = 65, left = 6, width = 400, fixed=TRUE,
+					span(textOutput("plot_2way_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+					plotlyOutput("insights_plot_2way", height="380px", width="100%")
+				), # absolutePanel
+				
+#				absolutePanel(
+#					id = "insights-2way-qq1", 
+#					class = "panel panel-default",
+#					top = 65, left = 406, width = 200, fixed=TRUE,
+#					plotlyOutput("insights_plot_2wayQQ_1", height="200px", width="100%")
+#				), # absolutePanel
+#				
+#				absolutePanel(
+#					id = "insights-2way-qq2", 
+#					class = "panel panel-default",
+#					top = 265, left = 406, width = 200, fixed=TRUE,
+#					plotlyOutput("insights_plot_2wayQQ_2", height="200px", width="100%")
+#				), # absolutePanel
+				
+				absolutePanel(
+					id = "insights-2way-cor", 
+					class = "panel panel-default",
+					top = 465, left = 6, width = 400, fixed=TRUE,
+					span(textOutput("insights_2way_cor"), style="font-size: 12px; font-style: bold; color:#045a8d; text-align: center;")
+				) # absolutePanel
+				
+			) # div, outer
 		), # tabPanel
 
 		tabPanel(

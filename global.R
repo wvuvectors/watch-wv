@@ -67,7 +67,7 @@ TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2
 
 SIGNAL_TREND_WINDOW <- 5
 STRENGTH_WEIGHT <- 1
-TREND_WEIGHT <- 2
+TREND_WEIGHT <- 1.5
 
 SMOOTHER_OPTIONS <- c(1, 3, 5, 7, 10, 14)
 SMOOTHER_DEFAULT <- 5
@@ -144,48 +144,48 @@ format_dates <- function(x) {
 state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 
 watch_file = "data/watch_dashboard.LATEST.txt"
-df_watch <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
-df_watch <- df_watch %>% filter(status == "active" | status == "new")
+df_watch_pre <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
+df_watch_pre <- df_watch_pre %>% filter(status == "active" | status == "new")
 
 
 # Convert date strings into Date objects
 
-df_watch$"Sample Composite Start" <- mdy_hm(df_watch$"Sample Composite Start")
-df_watch$"Sample Composite End" <- mdy_hm(df_watch$"Sample Composite End")
-df_watch$"Sample Received Date" <- mdy(df_watch$"Sample Received Date")
+df_watch_pre$"Sample Composite Start" <- mdy_hm(df_watch_pre$"Sample Composite Start")
+df_watch_pre$"Sample Composite End" <- mdy_hm(df_watch_pre$"Sample Composite End")
+df_watch_pre$"Sample Received Date" <- mdy(df_watch_pre$"Sample Received Date")
 
-df_watch$day <- as_date(df_watch$"Sample Composite End")
-df_watch$week_starting <- floor_date(df_watch$day, "week", week_start = 1)
-df_watch$week_ending <- ceiling_date(df_watch$day, "week", week_start = 0)
+df_watch_pre$day <- as_date(df_watch_pre$"Sample Composite End")
+df_watch_pre$week_starting <- floor_date(df_watch_pre$day, "week", week_start = 1)
+df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 0)
 
-df_watch$day_received <- as_date(df_watch$"Sample Received Date")
+df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
 
-#df_watch$week_num <- week(df_watch$week_ending)
-#df_watch$week_alt <- 1 + (df_watch$week_num %% 2)
+#df_watch_pre$week_num <- week(df_watch_pre$week_ending)
+#df_watch_pre$week_alt <- 1 + (df_watch_pre$week_num %% 2)
 
 
 # Set date constraints on input data
 # May want to change this in the future?
-df_watch <- df_watch %>% filter(day >= first_day & day <= last_day)
+df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 
 
 # Make some simpler aliases for common numeric columns
-df_watch$daily_flow = df_watch$"Sample Flow (MGD)"
+df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
 
 # Clean up some NA entries
-df_watch <- df_watch %>% mutate(n1 = replace_na(n1, 0))
-df_watch <- df_watch %>% mutate(n2 = replace_na(n2, 0))
-df_watch <- df_watch %>% mutate(daily_flow = replace_na(daily_flow, 0))
-df_watch <- df_watch %>% mutate(n1n2 = replace_na(n1n2, 0))
+df_watch_pre <- df_watch_pre %>% mutate(n1 = replace_na(n1, 0))
+df_watch_pre <- df_watch_pre %>% mutate(n2 = replace_na(n2, 0))
+df_watch_pre <- df_watch_pre %>% mutate(daily_flow = replace_na(daily_flow, 0))
+df_watch_pre <- df_watch_pre %>% mutate(n1n2 = replace_na(n1n2, 0))
 
-df_watch$n1n2.day1.mean <- df_watch$n1n2
-df_watch$n1n2.day1.ci <- 0
-df_watch$n1n2.load.day1.mean <- df_watch$n1n2.load
-df_watch$n1n2.load.day1.ci <- 0
+df_watch_pre$n1n2.day1.mean <- df_watch_pre$n1n2
+df_watch_pre$n1n2.day1.ci <- 0
+df_watch_pre$n1n2.load.day1.mean <- df_watch_pre$n1n2.load
+df_watch_pre$n1n2.load.day1.ci <- 0
 
 baselines <- c("n1n2.day5.mean", "n1n2.load.day5.mean")
 
-df_baseline <- data.frame(location_common_name = unique(df_watch$location_common_name))
+df_baseline <- data.frame(location_common_name = unique(df_watch_pre$location_common_name))
 for (baseline in baselines) {
 #	base_mean <- paste0(baseline, ".mean", sep="")
 #	base_ci <- paste0(baseline, ".ci", sep="")
@@ -195,18 +195,21 @@ for (baseline in baselines) {
 #	base_mean_new <- paste0(baseline, ".mean.baseline", sep="")
 #	base_ci_new <- paste0(baseline, ".ci.baseline", sep="")
 
-	df_this <- df_watch %>% group_by(location_common_name) %>% 
+	df_this <- df_watch_pre %>% group_by(location_common_name) %>% 
 						 slice_min(.data[[baseline]], n=1, with_ties = FALSE) %>% 
 						 select(location_common_name, !!base_day_new := day, !!base_new := baseline)
 	df_baseline <- left_join(df_baseline, df_this, by="location_common_name")
 }
 
-df_watch <- left_join(df_watch, df_baseline, by="location_common_name")
+df_watch_pre <- left_join(df_watch_pre, df_baseline, by="location_common_name")
 
 # calculate signal level for each day
-df_wwtp <- df_watch %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
-df_swr <- df_watch %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
-df_watch <- rbind(df_wwtp, df_swr)
+df_wwtp <- df_watch_pre %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
+df_swr <- df_watch_pre %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
+df_watch_pre <- rbind(df_wwtp, df_swr)
+
+df_watch <- df_watch_pre
+df_watch <- df_watch[!is.na(df_watch$n1n2.load.day5.mean) | !is.na(df_watch$n1n2.day5.mean), ]												
 
 
 # calculate signal trend (trajectory) for most recent day
@@ -231,24 +234,28 @@ df_signal <- left_join(df_signal, tmp, by=c("location_common_name" = "location_c
 # Take the sum of the weighted & scaled values
 # scaled signal goes from -1 (very low and decreasing rapidly) to 2 (very high and increasing rapidly)
 #
-df_signal <- df_signal %>% mutate(scaled_strength = ifelse(strength > 1000, yes = 1, no = strength/1000),
+df_signal <- df_signal %>% mutate(max_strength = max(strength, na.rm = TRUE),
 																	min_trend = ifelse(trend < -30, yes = -30, no = min(trend, na.rm = TRUE)),
 																	max_trend = ifelse(trend > 30, yes = 30, no = max(trend, na.rm = TRUE)),
-																	scaled_trend = ifelse(trend < 0, yes = ((trend - min_trend)/(0 - min_trend))-1, no = trend/max_trend),
+																	scaled_trend = ifelse(trend < 0, yes = ((trend - min_trend)/(0 - min_trend))-1, no = trend/max_trend))
+
+df_signal <- df_signal %>% mutate(scaled_strength = ifelse(max_strength > 1000, yes = strength/1000, no = strength/max_strength),
 																	scaled_signal = (STRENGTH_WEIGHT * scaled_strength) + (TREND_WEIGHT * scaled_trend))
 
 wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(scaled_strength = c(-1.1, 0, .006, .026, .051, .101, .501, 1.1), 
-													scaled_trend = c(-1.1, -0.75, -0.5, -0.25, 0.11, 0.34, 0.67, 1.01), 
+SIGNAL_BINS <- data.frame(scaled_strength = c(-1.1, 0, .03, .1, .26, .51, .76, 1.1), 
+													scaled_trend = c(-1.1, -0.75, -0.5, -0.25, 0.11, 0.3, 0.67, 1.01), 
 													scaled_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
 SIGNAL_CODES <- data.frame(strength = c("undetectable", "very low", "low", "moderate", "high", "very high", "extremely high"), 
-													 trend = c("decreasing rapidly", "decreasing moderately", "decreasing slightly", "relatively stable", "increasing slightly", "increasing moderately", "increasing rapidly"),
+													 trend = c("decreasing rapidly", "decreasing moderately", "decreasing slightly", "relatively stable", "increasing", "increasing substantially", "increasing rapidly"),
 													 color = c("#579d1c", "#579d1c", "#ffd320", "#ff950e", "#ff950e", "#c5000b", "#EE2221"))
 
 names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
+ALERT_COLORS = c("#579d1c", "#aecf00", "#ffd320", "#ff950e", "#ff950e", "#ff420e", "#c5000b")
+ALERT_TXT = c("Fairly safe", "Fairly safe", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
 
 alertPal <- colorBin(
 	palette = SIGNAL_CODES$color,

@@ -24,6 +24,7 @@ shinyServer(function(input, output, session) {
 								Dates = c(first_day, last_day),
 								rollWin = SMOOTHER_DEFAULT,
 								ci = FALSE,
+								activeInfection = INFECTIONS_DEFAULT,
 								visibleTargets = TARGETS_DEFAULT,
 								activeLayer = "WWTP",
 								mapClick = "All facilities",
@@ -43,8 +44,6 @@ shinyServer(function(input, output, session) {
 			layer <- controlRV$activeLayer
 		}
 		
-		alert_color = c("#579d1c", "#aecf00", "#ffd320", "#ff950e", "#ff950e", "#ff420e", "#c5000b")
-		alert_txt = c("Fairly safe", "Fairly safe", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
 		if (facility == "All facilities") {
 			alert_val <- (df_signal %>% summarize(scaled_signal = mean(scaled_signal, na.rm = TRUE)))$scaled_signal[1]
 #			alert_val <- (df_signal %>% summarize(scaled_signal = mean(scaled_signal[group == layer], na.rm = TRUE)))$scaled_signal[1]
@@ -54,8 +53,8 @@ shinyServer(function(input, output, session) {
 		
 		alert_index <- cut(alert_val, SIGNAL_BINS$scaled_indicator, include.lowest=TRUE, labels=FALSE)
 		
-		color <- alert_color[alert_index]
-		status <- alert_txt[alert_index]
+		color <- ALERT_COLORS[alert_index]
+		status <- ALERT_TXT[alert_index]
 		alert <- c(color, status)
 		
 #		alert <- c("Green", "Fairly safe")
@@ -380,6 +379,70 @@ shinyServer(function(input, output, session) {
 		
 
 	#
+	# Plot of 2way insight
+	#
+	plotTwoway <- function(target1, target2) {
+		#print("plotTwoway called!")
+		
+		df_plot <- df_watch %>% arrange(day) %>% 
+														mutate(t1 := .data[[target1]],
+																	 t2 := .data[[target2]]) %>% 
+														select(t1, t2, group)
+		df_plot <- df_plot[!is.na(df_plot$t1), ]												
+		df_plot <- df_plot[!is.na(df_plot$t2), ]												
+
+    #cc <- cor.test(df_plot$t1, df_plot$t2, method = "pearson") #cc$p.value, cc$estimate
+    
+    gplot <- ggplot(df_plot, aes(x = t1, y = t2, color = group)) +
+      			 geom_point(shape = 1, size = 2, alpha = 0.6) + 
+      			 scale_x_log10(labels = comma) + 
+      			 scale_y_log10(labels = comma) + 
+      			 labs(x="", y="") + 
+      			 geom_smooth(formula = y ~ x, method = lm, na.rm = TRUE, se = FALSE, size = 0.25, linetype = 3, color = "#999999") + 
+      			 plot_theme()
+      			 
+		ggplotly(gplot)
+	}
+		
+
+	#
+	# Q-Q plot of 2way insight
+	#
+	plotTwowayQQ <- function(target) {
+		#print("plotTwowayQQ called!")
+		
+		df_plot <- df_watch %>% arrange(day) %>% 
+														mutate(targ := .data[[target]]) %>% 
+														select(targ, group)
+														    
+    gplot <- ggplot(df_plot, aes(sample = targ, color = factor(group))) +
+      			 geom_qq(na.rm = TRUE) + 
+      			 labs(x="", y="") + 
+      			 geom_qq_line(size = 0.25, linetype = 3, color = "#999999") + 
+      			 ggtitle(paste0("Q-Q plot of ", toupper(target), sep="")) + 
+      			 plot_theme()
+      			 
+		ggplotly(gplot)
+	}
+		
+
+	#
+	# Correlation coefficient of 2way insight
+	#
+	calcTwowayCorrelation <- function(target1, target2) {
+		df_corr <- df_watch %>% arrange(day) %>% 
+														mutate(t1 := .data[[target1]],
+																	 t2 := .data[[target2]]) %>% 
+														select(t1, t2, group)
+		df_corr <- df_corr[!is.na(df_corr$t1), ]												
+		df_corr <- df_corr[!is.na(df_corr$t2), ]												
+														
+    cc <- cor.test(df_corr$t1, df_corr$t2, method = "kendall") #cc$p.value, cc$estimate
+    return(cc)
+	}
+	
+	
+	#
 	# Write the metadata block (reaction to map click or site selection)
 	#
 	writeMetadata <- function(layer, facility, rollWin, dates) {
@@ -618,7 +681,52 @@ shinyServer(function(input, output, session) {
 	})	
 	
 	
+	#
+	# Render the insights-2way plot and associated metadata
+	#
+	output$insights_plot_2way <- renderPlotly({
+		#print("insights_plot_2way top")
+		
+		target1 <- "n1"
+		target2 <- "n2"
+
+		output$plot_2way_title = renderText(paste0(controlRV$activeInfection, " ", toupper(target1), " vs. ", toupper(target2), " (log-transformed)", sep=""))
+
+		cc <- calcTwowayCorrelation(target1, target2)		
+#		output$insights_2way_cor = renderText(paste0("The Kendall correlation coefficient between ", controlRV$activeInfection, " ", toupper(target1), " and ", toupper(target2), " is ", prettyNum(cc$estimate, digits = 4), ", with a p-value of ", prettyNum(cc$p.value, digits = 3, format = "e"), "). These data are not normally distributed.", sep=""))
+		output$insights_2way_cor = renderText(paste0("The Kendall correlation coefficient between ", controlRV$activeInfection, " ", toupper(target1), " and ", toupper(target2), " is ", prettyNum(cc$estimate, digits = 4), ". These data are not normally distributed.", sep=""))
+
+		plotTwoway(target1="n1", target2="n2") %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("insights_plot_2way bottom")
+	})	
 	
+	#
+	# Render the insights-2way plot for target 1
+	#
+	output$insights_plot_2wayQQ_1 <- renderPlotly({
+		#print("insights_plot_2way top")
+		target <- "n1"
+		
+		plotTwowayQQ(target=target) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("insights_plot_2way bottom")
+	})	
+	
+
+	#
+	# Render the insights-2way plot for target 2
+	#
+	output$insights_plot_2wayQQ_2 <- renderPlotly({
+		#print("insights_plot_2way top")
+		target <- "n2"
+		
+#		output$plot_2wayQQ_title = renderText(paste0("Quartile (Q-Q) plot of ", target1, " vs. ", target2, sep=""))
+
+		plotTwowayQQ(target=target) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		#print("insights_plot_2way bottom")
+		
+	})	
+
+
 
 	###########################
 	#
@@ -918,6 +1026,6 @@ shinyServer(function(input, output, session) {
 			plotLoad(facility = controlRV$mapClick) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
 		})
   }, ignoreInit = TRUE)
-
+	
 })
 
