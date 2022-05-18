@@ -255,7 +255,7 @@ names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
 ALERT_COLORS = c("#579d1c", "#aecf00", "#ffd320", "#ff950e", "#ff950e", "#ff420e", "#c5000b")
-ALERT_TXT = c("Fairly safe", "Fairly safe", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
+ALERT_TXT = c("Low concern", "Low concern", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
 
 alertPal <- colorBin(
 	palette = SIGNAL_CODES$color,

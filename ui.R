@@ -248,23 +248,47 @@ shinyUI(bootstrapPage(
 					id = "alert_panel", 
 					top = 65, left = 707, height=75, width = 210,
 					fixed=TRUE, draggable=FALSE,
-					span("General outlook is currently:", style="font-size: 13px; line-height: 13px; font-weight: 800; color: #000000;"),
+					span("General outlook is currently:", style="font-size: 13px; font-weight: 800; color: #000000; line-height: 25px;"),
 					#span(textOutput("alert_level"), style="font-size: 24px; font-weight: 800; color: #000000;line-height: 28px;"),
-					span(textOutput("alert_txt"), style="font-size: 22px; font-weight: 800; color: #000000;"),
-					#span(textOutput("alert_txt"), style="font-size: 11px; line-height: 12px;")
+					span(textOutput("alert_txt"), style="font-size: 20px; font-weight: 800; color: #000000; line-height: 18px;"),
+					span("for most people", style="color: #000000; font-weight: 800; font-size: 11px;")
 				),
 				
 				hidden(
 					absolutePanel(
 						id = "alert_level_info",
 						class = "mdinfo",
-						top = 215, left = 545, height="auto", width = 300,
+						top = 215, left = 545, height="auto", width = 450,
 						fixed=TRUE, draggable=TRUE,
-						div("What does the alert level mean?"),
+						div(
+							class = "alertinfo", 
+							style = "	border: 3px solid #579d1c;border-radius: 5px;padding: 5px;font-weight: 800;margins: 0px 10px;",
+							"At Alert Level Green, the total amount of infection in the community is relatively low and not increasing substantially."
+						), # div
+						div(
+							class = "alertinfo",
+							style = "	border: 3px solid #ffd320;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
+							"At Alert Level Yellow, the total amount of infection in the community is moderate and/or it is increasing. You should remain vigilant, particularly in crowded indoor areas."
+						),
+						div(
+							class = "alertinfo",
+							style = "	border: 3px solid #ff950e;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
+							"At Alert Level Orange, the total amount of infection in the community is moderate to high, and/or it is increasing substantially. As wastewater is a leading indicator for hospitalization, this level of infection is concerning."
+						),
+						div(
+							class = "alertinfo",
+							style = "	border: 3px solid #c5000b;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
+							"At Alert Level Red, the total amount of infection in the community is high and increasing subtantially or rapidly. This level of infection is alarming and suggests immediate action should be taken to interrupt spread of this infection."
+						),
+						div(
+							class = "alertinfo",
+							style = "	border: 3px solid #EE2221;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
+							"At Alert Level Very Red, the total amount of infection in the community is very high and increasing rapidly. This is a critical situation and indicates the potential for significant negative impact on community health."
+						),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
-						)
+						) # button div
 					)
 				),
 					
