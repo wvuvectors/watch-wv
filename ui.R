@@ -121,8 +121,8 @@ shinyUI(bootstrapPage(
 					top = 145, left = 545, height=70, width = 193,
 					fixed=TRUE, draggable=FALSE,
 					span("Signal at this site is currently", style="font-size: 11px; line-height: 12px;"),
-					span(textOutput("site_signal_txt"), style="font-size: 18px; font-weight: 800; line-height: 18px;"),
-					span(textOutput("site_signal"), style="font-size: 13px; line-height: 12px;"),
+					span(textOutput("site_fold_change_txt"), style="font-size: 18px; font-weight: 800; line-height: 18px;"),
+					span(textOutput("site_fold_change"), style="font-size: 13px; line-height: 12px;"),
 				),
 				
 				hidden(

@@ -65,7 +65,7 @@ TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2
 												 "target_value" = c("n1n2", "n1", "n2")
 												)
 
-SIGNAL_TREND_WINDOW <- 5
+SIGNAL_TREND_WINDOW <- 3
 STRENGTH_WEIGHT <- 1
 TREND_WEIGHT <- 1.5
 
@@ -76,8 +76,6 @@ L_per_gal <- 3.78541
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
-first_day <- as_date("2021-07-01")
-last_day <- today
 
 plot_theme <- function () { 
 	theme(axis.text = element_text(size = 8),
@@ -159,31 +157,33 @@ df_watch_pre$week_starting <- floor_date(df_watch_pre$day, "week", week_start = 
 df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 0)
 
 df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
-
 #df_watch_pre$week_num <- week(df_watch_pre$week_ending)
 #df_watch_pre$week_alt <- 1 + (df_watch_pre$week_num %% 2)
 
 
 # Set date constraints on input data
 # May want to change this in the future?
+first_day <- as_date("2021-07-01")
+last_day <- max(df_watch_pre$day)
 df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 
+# Set the primary plot column names for each group
+#df_watch_pre <- df_watch_pre %>% mutate(plot_view_col = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean", no = "n1n2.day5.mean"),
+#																				plot_view_colbase = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean.baseline", no = "n1n2.day5.mean.baseline"))
 
 # Make some simpler aliases for common numeric columns
 df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
 
-# Clean up some NA entries
-df_watch_pre <- df_watch_pre %>% mutate(n1 = replace_na(n1, 0))
-df_watch_pre <- df_watch_pre %>% mutate(n2 = replace_na(n2, 0))
-df_watch_pre <- df_watch_pre %>% mutate(daily_flow = replace_na(daily_flow, 0))
-df_watch_pre <- df_watch_pre %>% mutate(n1n2 = replace_na(n1n2, 0))
-
 df_watch_pre$n1n2.day1.mean <- df_watch_pre$n1n2
 df_watch_pre$n1n2.day1.ci <- 0
+
 df_watch_pre$n1n2.load.day1.mean <- df_watch_pre$n1n2.load
 df_watch_pre$n1n2.load.day1.ci <- 0
 
-baselines <- c("n1n2.day5.mean", "n1n2.load.day5.mean")
+df_watch_pre$n1n2.loadcap.day1.mean <- df_watch_pre$n1n2.loadcap
+df_watch_pre$n1n2.loadcap.day1.ci <- 0
+
+baselines <- c("n1n2.day5.mean", "n1n2.load.day5.mean", "n1n2.loadcap.day5.mean")
 
 df_baseline <- data.frame(location_common_name = unique(df_watch_pre$location_common_name))
 for (baseline in baselines) {
@@ -203,29 +203,61 @@ for (baseline in baselines) {
 
 df_watch_pre <- left_join(df_watch_pre, df_baseline, by="location_common_name")
 
-# calculate signal level for each day
-df_wwtp <- df_watch_pre %>% filter(daily_flow > 0) %>% mutate(signal_level = (n1n2.load.day5.mean - n1n2.load.day5.mean.baseline)/n1n2.load.day5.mean.baseline)
-df_swr <- df_watch_pre %>% filter(daily_flow == 0) %>% mutate(signal_level = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline)
+# calculate signal strength, fold change, and percent change from baseline for each day
+df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
+															percent_change_smoothed = 100*(n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
+															signal_strength_smoothed = n1n2.loadcap.day5.mean,
+															signal_strength = n1n2.loadcap)
+df_wwtp <- df_wwtp[!is.na(df_wwtp$n1n2.loadcap.day5.mean), ]												
+
+df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline, 
+														percent_change_smoothed = 100*(n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
+														signal_strength_smoothed = n1n2.day5.mean,
+														signal_strength = n1n2)
+df_swr <- df_swr[!is.na(df_swr$n1n2.day5.mean), ]												
+
 df_watch_pre <- rbind(df_wwtp, df_swr)
-
 df_watch <- df_watch_pre
-df_watch <- df_watch[!is.na(df_watch$n1n2.load.day5.mean) | !is.na(df_watch$n1n2.day5.mean), ]												
 
 
-# calculate signal trend (trajectory) for most recent day
-df_signal <- df_watch %>% 
+# Calculate signal trend (trajectory) for most recent window
+# Uses the raw signal strength for the n most recent samples (copies/L for sewers, or per capita load for treatment plants)
+df_trend <- df_watch %>% 
 						 group_by(location_common_name, day) %>% 
 						 arrange(day) %>%
-						 summarize(delta = mean(signal_level, na.rm = TRUE)) %>% 
+						 summarize(mean_signal_strength = mean(signal_strength, na.rm = TRUE)) %>% 
 						 slice_tail(n=SIGNAL_TREND_WINDOW) %>%
-						 summarize(trend = coef(lm(formula = delta ~ day))[2])
+						 summarize(scaled_signal_trend = coef(lm(formula = ((mean_signal_strength-min(mean_signal_strength, na.rm = TRUE))/(max(mean_signal_strength, na.rm = TRUE)-min(mean_signal_strength, na.rm = TRUE))) ~ day))[2],
+						 					 current_signal_trend = coef(lm(formula = mean_signal_strength ~ day))[2])
 
-# merge signal trend and strength
-tmp <- df_watch %>% group_by(location_common_name) %>% summarize(strength = signal_level[day == max(day)])
-#max_strength = max(signal_level, na.rm = TRUE),
-#max_strength = ifelse(max(signal_level, na.rm = TRUE) > 1000, yes = 1000, no = max(signal_level, na.rm = TRUE)),
-#min_strength = min(signal_level, na.rm = TRUE))
-df_signal <- left_join(df_signal, tmp, by=c("location_common_name" = "location_common_name"))
+
+# Calculate strength and fold change for most recent day
+# Uses the 5-day mean already pre-calculated
+df_level <- df_watch %>% group_by(location_common_name) %>% summarize(current_fold_change_smoothed = fold_change_smoothed[day == max(day)])
+df_strength <- df_watch %>% group_by(location_common_name) %>% summarize(current_signal_strength_smoothed = signal_strength_smoothed[day == max(day)])
+
+
+# Merge signal trend, strength, and fold change data frames
+df_currents <- left_join(df_level, df_strength, by=c("location_common_name" = "location_common_name"))
+df_signal <- left_join(df_trend, df_currents, by=c("location_common_name" = "location_common_name"))
+
+# Add group identifiers
+df_loc <- df_watch %>% select(location_common_name, group)
+df_signal <- left_join(df_signal, distinct(df_loc), by=c("location_common_name" = "location_common_name"))
+
+df_maxmins <- df_watch %>% 
+							group_by(location_common_name) %>% 
+							summarize(max_signal_strength = max(signal_strength, na.rm = TRUE),
+												min_signal_strength = min(signal_strength, na.rm = TRUE),
+												max_signal_strength_smoothed = max(signal_strength_smoothed, na.rm = TRUE),
+												min_signal_strength_smoothed = min(signal_strength_smoothed, na.rm = TRUE),
+												max_fold_change_smoothed = max(fold_change_smoothed, na.rm = TRUE),
+												min_fold_change_smoothed = min(fold_change_smoothed, na.rm = TRUE),
+												max_percent_change_smoothed = max(percent_change_smoothed, na.rm = TRUE),
+												min_percent_change_smoothed = min(percent_change_smoothed, na.rm = TRUE))
+df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "location_common_name"))
 
 
 # Scale strength so it falls between 0-1
@@ -233,36 +265,39 @@ df_signal <- left_join(df_signal, tmp, by=c("location_common_name" = "location_c
 # Weight accordingly
 # Take the sum of the weighted & scaled values
 # scaled signal goes from -1 (very low and decreasing rapidly) to 2 (very high and increasing rapidly)
+# weighted signal goes from total weight times scaled signal range
 #
-df_signal <- df_signal %>% mutate(max_strength = max(strength, na.rm = TRUE),
-																	min_trend = ifelse(trend < -30, yes = -30, no = min(trend, na.rm = TRUE)),
-																	max_trend = ifelse(trend > 30, yes = 30, no = max(trend, na.rm = TRUE)),
-																	scaled_trend = ifelse(trend < 0, yes = ((trend - min_trend)/(0 - min_trend))-1, no = trend/max_trend))
+#df_signal <- df_signal %>% mutate(scaled_signal_strength = (current_signal_strength - min_signal_strength)/(max_signal_strength - min_signal_strength),
+#																	scaled_fold_change = (current_fold_change - min_fold_change)/(max_fold_change - min_fold_change),
+#																	scaled_signal_trend = current_signal_trend)
+#																	#scaled_signal_trend = ifelse(current_signal_trend < 0, yes = ((current_signal_trend - min_signal_trend)/(0 - min_signal_trend))-1, no = current_signal_trend/max_signal_trend))
+#
+#df_signal <- df_signal %>% mutate(scaled_signal_strength = ifelse(scaled_signal_strength > 1, yes = 1, no = scaled_signal_strength),
+#																	scaled_fold_change = ifelse(scaled_fold_change > 1, yes = 1, no = scaled_fold_change))
+#																	#scaled_signal_trend = ifelse(scaled_signal_trend > 1, yes = 1, no = scaled_signal_trend))
+#
+#df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
+#
+#wt <- STRENGTH_WEIGHT * TREND_WEIGHT
+SIGNAL_BINS <- data.frame(fold_change_smoothed = c(-0.1, 11, 51, 101, 251, 5001), 
+													scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
-df_signal <- df_signal %>% mutate(scaled_strength = ifelse(max_strength > 1000, yes = strength/1000, no = strength/max_strength),
-																	scaled_signal = (STRENGTH_WEIGHT * scaled_strength) + (TREND_WEIGHT * scaled_trend))
-
-wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(scaled_strength = c(-1.1, 0, .03, .1, .26, .51, .76, 1.1), 
-													scaled_trend = c(-1.1, -0.75, -0.5, -0.25, 0.11, 0.3, 0.67, 1.01), 
-													scaled_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
-
-SIGNAL_CODES <- data.frame(strength = c("undetectable", "very low", "low", "moderate", "high", "very high", "extremely high"), 
-													 trend = c("decreasing rapidly", "decreasing moderately", "decreasing slightly", "relatively stable", "increasing", "increasing substantially", "increasing rapidly"),
-													 color = c("#579d1c", "#579d1c", "#ffd320", "#ff950e", "#ff950e", "#c5000b", "#EE2221"))
+SIGNAL_CODES <- data.frame(change = c("low", "moderate", "high", "very high", "extremely high"), 
+													 #trend = c("decreasing rapidly", "decreasing moderately", "decreasing", "relatively stable", "increasing", "increasing substantially", "increasing rapidly"),
+													 color = c("#579d1c", "#ffd320", "#GOLD", "#ff950e", "#c5000b"))
 
 names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
-ALERT_COLORS = c("#579d1c", "#aecf00", "#ffd320", "#ff950e", "#ff950e", "#ff420e", "#c5000b")
-ALERT_TXT = c("Low concern", "Low concern", "Watchful", "Concerning", "Concerning", "Alarming", "Critical")
+ALERT_COLORS = c("#579d1c", "#ffd320", "#GOLD", "#ff950e", "#c5000b")
+ALERT_TXT = c("low", "moderate", "high", "very high", "extremely high")
 
 alertPal <- colorBin(
 	palette = SIGNAL_CODES$color,
-	bins = SIGNAL_BINS$scaled_indicator,
+	bins = SIGNAL_BINS$change,
 	na.color = "#808080",
 #	reverse=TRUE,
-	domain = df_signal$scaled_signal)
+	domain = df_signal$fold_change_smoothed)
   
 
 targetPal <- colorFactor(
