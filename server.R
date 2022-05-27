@@ -45,18 +45,30 @@ shinyServer(function(input, output, session) {
 		}
 		
 		if (facility == "All facilities") {
-			alert_val <- (df_signal %>% summarize(fold_change_smoothed = mean(fold_change_smoothed, na.rm = TRUE)))$fold_change_smoothed[1]
+			df_alert <- df_signal %>% 
+									filter(group == layer) %>% 
+									summarize(change_val = mean(current_fold_change_smoothed, na.rm = TRUE),
+														trend_val = mean(current_signal_trend, na.rm = TRUE))
 		} else {
-			alert_val <- (df_signal %>% summarize(fold_change_smoothed = fold_change_smoothed[location_common_name == facility]))$fold_change_smoothed[1]
+			df_alert <- df_signal %>% 
+									filter(location_common_name == facility) %>% 
+									summarize(change_val = current_fold_change_smoothed,
+														trend_val = current_signal_trend)
 		}
 		
-		alert_index <- cut(alert_val, SIGNAL_BINS$fold_change_smoothed, include.lowest=TRUE, labels=FALSE)
+		change_bin <- cut(df_alert$change_val, SIGNAL_BINS$fold_change_smoothed, include.lowest=TRUE, labels=FALSE)
+		trend_bin <- cut(df_alert$trend_val, SIGNAL_BINS$signal_trend, include.lowest=TRUE, labels=FALSE)
 		
-		color <- ALERT_COLORS[alert_index]
-		status <- ALERT_TXT[alert_index]
-		alert <- c(color, status)
+#		print(paste0("Change Val     : ", df_alert$change_val, sep=""))
+#		print(paste0("Change Bin   : ", change_bin, sep=""))
+#		print(paste0("Trend Val     : ", df_alert$trend_val, sep=""))
+#		print(paste0("Trend Bin   : ", trend_bin, sep=""))
+
+		color <- SIGNAL_CODES$color[change_bin]
+		delta <- SIGNAL_CODES$change[change_bin]
+		trend <- SIGNAL_CODES$trend[trend_bin]
+		alert <- c(color, delta, trend)
 		
-#		alert <- c("Green", "Fairly safe")
 		return(alert)
 
 	}
@@ -65,14 +77,14 @@ shinyServer(function(input, output, session) {
 	#
 	# Create the map
 	#
-	generateMap <- function(data_in, center_lat, center_lng, zoom_level) {
+	generateMap <- function(center_lat, center_lng, zoom_level) {
 
-		df_last <- data_in %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
-		df_join <- left_join(data_in, df_last, by="location_common_name")
-		df_map <- df_join %>% filter(day == lastDay) %>% select(!group)
+		df_map <- df_watch %>% 
+							group_by(location_common_name) %>% 
+							summarize(longitude = longitude, latitude = latitude, level = level)
 		df_map <- left_join(df_map, df_signal, by="location_common_name")
-
-		mymap = leaflet(data_in) %>% 
+		
+		mymap = leaflet(df_map) %>% 
 		addTiles() %>% 
 		setView(lng = center_lng, lat = center_lat, zoom = zoom_level) %>% 
 		addCircleMarkers(data = df_map %>% filter(group == "WWTP"),
@@ -83,9 +95,9 @@ shinyServer(function(input, output, session) {
 										 stroke = TRUE,
 										 weight = 4, 
 										 opacity = 0.9,
-										 color = ~alertPal(fold_change_smoothed), 
+										 color = ~alertPal(current_fold_change_smoothed), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(fold_change_smoothed), 
+										 fillColor = ~alertPal(current_fold_change_smoothed), 
 #										 fillColor = "black",
 										 group = "WWTP", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
@@ -98,9 +110,9 @@ shinyServer(function(input, output, session) {
 										 stroke = TRUE,
 										 weight = 4, 
 										 opacity = 0.9,
-										 color = ~alertPal(fold_change_smoothed), 
+										 color = ~alertPal(current_fold_change_smoothed), 
 										 fill = TRUE,
-										 fillColor = ~alertPal(fold_change_smoothed), 
+										 fillColor = ~alertPal(current_fold_change_smoothed), 
 										 group = "Sewer Network", 
 										 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 										 fillOpacity = 0.9) %>% 
@@ -267,7 +279,7 @@ shinyServer(function(input, output, session) {
 		if (facility == "All facilities") {
 			#capacity <- sum(unique((df_watch %>% filter(group == layer))$capacity_mgd))
 			df_plot <- df_watch %>% filter(group == layer & day >= fromDate & day <= toDate) %>% group_by(day) %>%
-				summarize(fold_change_smoothed = mean(fold_change_smoothed))
+				summarize(fold_change_smoothed = mean(fold_change_smoothed, na.rm = TRUE))
 		} else {
 			df_plot <- df_watch %>% filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% group_by(day) %>%
 				summarize(fold_change_smoothed = fold_change_smoothed)
@@ -486,84 +498,66 @@ shinyServer(function(input, output, session) {
 		if (missing(facility)) { facility = controlRV$mapClick }
 		if (missing(rollWin)) { rollWin = controlRV$rollWin }
 		if (missing(dates)) { dates = controlRV$Dates }
-		
-		#print(paste0("facility from writeMetadata is ", facility, sep=""))
-		
-		if (layer == "WWTP") {
-			plot_view_col <- "n1n2.loadcap.day5.mean"
-		} else {
-			plot_view_col <- "n1n2.day5.mean"
-		}
-		plot_view_colbase <- paste0(plot_view_col, ".baseline", sep="")
-		
+				
 		if (facility == "All facilities") {
-			df_facility <- df_signal %>% filter(group == layer) 
+
+			df_facility <- df_watch %>% filter(group == layer)
 			
-			df_alerts <- df_facility %>% 
+			df_alerts <- df_signal %>% 
+									 filter(group == layer) %>% 
 									 summarize(signal = mean(current_signal_strength_smoothed, na.rm = TRUE),
-														 fold_change = mean(current_fold_change_smoothed, na.rm = TRUE),
+														 fold_above = mean(current_fold_change_smoothed, na.rm = TRUE),
+														 fold_below = mean(current_signal_strength_smoothed/max_signal_strength_smoothed, na.rm = TRUE),
 														 trend = mean(current_signal_trend, na.rm = TRUE),
 														 scaled_trend = mean(current_scaled_signal_trend, na.rm = TRUE))
 										 					 
+			num_facilities = n_distinct(df_facility$location_common_name)
+			facility_text <- paste0(num_facilities, " ", layer, "s", sep="")
 
-#			signal_level <- df_facility %>% filter(day == max(day)) %>% 
-#											summarize(mean_load := mean(.data[[plot_view_col]], na.rm = TRUE), 
-#																mean_baseline := mean(.data[[plot_view_colbase]], na.rm = TRUE),
-#																fold_change = mean(df_signal$current_fold_change, na.rm = TRUE),
-#																strength = mean(df_signal$current_signal_strength, na.rm = TRUE),
-#																trend = mean(df_signal$current_signal_trend, na.rm = TRUE),
-#																scaled_fold_change = mean(df_signal$scaled_fold_change, na.rm = TRUE),
-#																scaled_strength = mean(df_signal$scaled_signal_strength, na.rm = TRUE),
-#																scaled_trend = mean(df_signal$scaled_signal_trend, na.rm = TRUE))
 		} else {
-			df_facility <- df_signal %>% filter(location_common_name == facility)
 
-			df_alerts <- df_facility %>% 
+			df_facility <- df_watch %>% filter(location_common_name == facility)
+
+			df_alerts <- df_signal %>% 
+									 filter(location_common_name == facility) %>% 
 									 summarize(signal = current_signal_strength_smoothed,
-														 fold_change = current_fold_change_smoothed,
+														 fold_above = current_fold_change_smoothed,
+														 fold_below = current_signal_strength_smoothed/max_signal_strength_smoothed,
 														 trend = current_signal_trend,
 														 scaled_trend = current_scaled_signal_trend)
 
+			num_facilities = 1
+			facility_text <- facility
 
-#			signal_level <- df_facility %>% filter(day == max(day)) %>% 
-#											summarize(mean_load := .data[[plot_view_col]],
-#																mean_baseline := .data[[plot_view_colbase]],
-#																fold_change = df_signal$current_fold_change[df_signal$location_common_name == facility],
-#																strength = df_signal$current_signal_strength[df_signal$location_common_name == facility],
-#																trend = df_signal$current_signal_trend[df_signal$location_common_name == facility],
-#																scaled_fold_change = df_signal$scaled_fold_change[df_signal$location_common_name == facility],
-#																scaled_strength = df_signal$scaled_signal_strength[df_signal$location_common_name == facility],
-#																scaled_trend = df_signal$scaled_signal_trend[df_signal$location_common_name == facility])
 		}
 		
 		print(paste0("Facility Name   : ", facility, sep=""))
 		print(paste0("Signal Strength : ", df_alerts$signal, sep=""))
-		print(paste0("Fold Change     : ", df_alerts$fold_change, sep=""))
+		print(paste0("Fold Above     : ", df_alerts$fold_above, sep=""))
+		print(paste0("Fold Below     : ", df_alerts$fold_below, sep=""))
 		print(paste0("Trend           : ", df_alerts$trend, sep=""))
 		print(paste0("Scaled Trend    : ", df_alerts$scaled_trend, sep=""))
 		
 		# get the text code for the fold-change value
-		fold_change_bin <- cut(df_alerts$fold_change, SIGNAL_BINS$fold_change_smoothed, include.lowest=TRUE, labels=FALSE)
-		fold_change_txt <- SIGNAL_CODES$change[fold_change_bin]
+		#fold_change_bin <- cut(df_alerts$fold_change, SIGNAL_BINS$fold_change_smoothed, include.lowest=TRUE, labels=FALSE)
+		#fold_change_txt <- SIGNAL_CODES$change[fold_change_bin]
 
 		# get the text code for the trend value
-#		trend_bin <- cut(df_alerts$scaled_trend, SIGNAL_BINS$scaled_signal_trend, include.lowest=TRUE, labels=FALSE)
-#		trend_txt <- SIGNAL_CODES$trend[trend_bin]
+		#trend_bin <- cut(df_alerts$trend, SIGNAL_BINS$signal_trend, include.lowest=TRUE, labels=FALSE)
+		#trend_txt <- SIGNAL_CODES$trend[trend_bin]
 		
-		num_facilities = n_distinct(df_facility, location_common_name)
-		facility_text <- paste0("All ", num_facilities, " ", layer, "s", sep="")
-
 		total_cap = sum(distinct(df_facility, location_common_name, capacity_mgd)$capacity_mgd)+1
-		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
 
-
+		num_counties = n_distinct(df_facility$counties_served)
 		if (num_counties == 1) {
 			county_text = "county"
 		} else {
 			county_text = "counties"
 		}
-		total_county_pop = sum(distinct(df_watch, counties_served, county_population)$county_population)
 
+		total_county_pop = sum(distinct(df_facility, counties_served, county_population)$county_population)
+
+		total_popserved = sum(distinct(df_facility, location_common_name, population_served)$population_served)
 		if (total_popserved == -1) {
 			total_popserved = "Unknown"
 		}
@@ -575,31 +569,38 @@ shinyServer(function(input, output, session) {
 		mean_daily_flow = mean(df_facility$daily_flow)
 		
 		if (layer == "Sewer Network") {
-			layer = "sewer network"
+			layer_txt <- "sewer network"
 		} else {
 			if (facility == "All facilities") {
-				layer = "WWTPs"
+				layer_txt <- "WWTPs"
 			}
 		}
 		
 		# Plot title and legend
 		output$plot_title = renderText(paste0("Showing the 5-day rolling mean for ", facility_text, sep=""))
 
-		if (layer != "sewer network") {
+		if (layer == "WWTP") {
 			output$data_format <- renderText("Calculated as mean per capita mass load (copies of target adjusted for average daily flow)")
 		} else {
 			output$data_format <- renderText("Calculated as mean per capita copies/L (daily flow is not available at sewers)")
 		}
 		
-		#output$site_fold_change_txt <- renderText(paste0(fold_change_txt, sep=""))
-		output$site_fold_change <- renderText(paste0("(", prettyNum(df_alerts$fold_change, scientific=FALSE, big.mark=",", digits=2), "X above the lowest value)", sep=""))
-		#output$site_trend <- renderText(paste0(trend_txt, sep="")) # signal trajectory
-		#output$site_signal <- renderText(TREND_TXT) # signal variability
+		# Get alert status
+		alert_codes <- getAlertStatus()	# 1=color, 2=delta, 3=trend
 
-		# Report alert status messages
-		alert_status <- getAlertStatus()
-		output$alert_txt <- renderText(alert_status[2]) # Overall alert level (message)
-		bgchange <- paste0("document.getElementById('alert_panel').style.backgroundColor = '", alert_status[1], "';", sep="")
+		output$site_change_hdr <- renderText(paste0("The level of ", controlRV$activeInfection, " is", sep=""))
+		#output$site_change_txt <- renderText(paste0(alert_codes[2], sep=""))
+		output$site_change_above <- renderText(paste0(prettyNum(df_alerts$fold_above, scientific=FALSE, big.mark=",", digits=2), "X above the lowest value", sep=""))
+		output$site_change_below <- renderText(paste0("and ", prettyNum(df_alerts$fold_below*100, scientific=FALSE, big.mark=",", digits=2), "% of the highest value", sep=""))
+
+		output$site_trend_hdr <- renderText(paste0("Rate of ", controlRV$activeInfection, " change:", sep=""))
+		output$site_trend_txt <- renderText(paste0(prettyNum(df_alerts$trend, scientific=FALSE, big.mark=",", digits=3), sep=""))
+		output$site_trend_level <- renderText(paste0("over the last ", SIGNAL_TREND_WINDOW, " sampling days", sep=""))
+
+		output$alert_hdr <- renderText(paste0("Community spread of ", controlRV$activeInfection, " is", sep=""))
+		output$alert_change <- renderText(paste0(alert_codes[2], sep=""))
+		output$alert_trend <- renderText(paste0(" and trending ", alert_codes[3], sep=""))
+		bgchange <- paste0("document.getElementById('alert_panel').style.backgroundColor = '", alert_codes[1], "';", sep="")
 		runjs(bgchange)
 
 		# Report scope, population served, and total number of samples from this facility
@@ -608,7 +609,7 @@ shinyServer(function(input, output, session) {
 		output$sample_count <- renderText(paste0(formatC(total_samples, big.mark=","), " samples since ", format(as.Date(date_first_sampled), format="%d %b %Y")))
 
 		# Report county of facility, or total counties served, and county population estimates
-		if (facility == "All facilities") {
+		if (num_counties > 1) {
 			output$counties_served <- renderText(paste0(num_counties, " ", county_text, sep=""))
 		} else {
 			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
@@ -656,7 +657,7 @@ shinyServer(function(input, output, session) {
 	#
 	output$watch_map <- renderLeaflet({
 		center <- MAP_CENTERS %>% filter(layer == "WWTP")
-		generateMap(data_in = df_watch, center_lat = center$lat, center_lng = center$lng, zoom_level = center$zoom)
+		generateMap(center_lat = center$lat, center_lng = center$lng, zoom_level = center$zoom)
 	})
 
 
@@ -831,11 +832,11 @@ shinyServer(function(input, output, session) {
 
 			controlRV$mapClick <- "All facilities"
 			
-			df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
-			df_join <- left_join(df_watch, df_last, by="location_common_name")
-			df_map <- df_join %>% filter(day == lastDay) %>% select(!group)
+			df_map <- df_watch %>% 
+								group_by(location_common_name) %>% 
+								summarize(longitude = longitude, latitude = latitude, level = level)
 			df_map <- left_join(df_map, df_signal, by="location_common_name")
-
+			
 			# Update map marker colors
 			watchLeafletProxy %>% 
 				clearMarkers() %>% 
@@ -847,9 +848,9 @@ shinyServer(function(input, output, session) {
 												 stroke = TRUE,
 												 weight = 4, 
 												 opacity = 0.9,
-												 color = ~alertPal(scaled_signal), 
+												 color = ~alertPal(current_fold_change_smoothed), 
 												 fill = TRUE,
-												 fillColor = ~alertPal(scaled_signal), 
+												 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 group = "WWTP", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.9) %>%
@@ -861,9 +862,9 @@ shinyServer(function(input, output, session) {
 												 stroke = TRUE,
 												 weight = 4, 
 												 opacity = 0.9,
-												 color = ~alertPal(scaled_signal), 
+												 color = ~alertPal(current_fold_change_smoothed), 
 												 fill = TRUE,
-												 fillColor = ~alertPal(scaled_signal), 
+												 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 group = "Sewer Network", 
 												 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 												 fillOpacity = 0.9)
@@ -892,11 +893,11 @@ shinyServer(function(input, output, session) {
 		controlRV$clickLat <- input$watch_map_marker_click$lat
 		controlRV$clickLng <- input$watch_map_marker_click$lng
 		
-		df_last <- df_watch %>% group_by(location_common_name) %>% summarize(lastDay = max(day))
-		df_join <- left_join(df_watch, df_last, by="location_common_name")
-		df_map <- df_join %>% filter(day == lastDay) %>% select(!group)
+		df_map <- df_watch %>% 
+							group_by(location_common_name) %>% 
+							summarize(longitude = longitude, latitude = latitude, level = level)
 		df_map <- left_join(df_map, df_signal, by="location_common_name")
-
+		
     # Update map marker colors
     watchLeafletProxy %>% 
     	clearMarkers() %>% 
@@ -908,9 +909,9 @@ shinyServer(function(input, output, session) {
 											 stroke = TRUE,
 											 weight = 4, 
 											 opacity = 0.9,
-											 color = ~alertPal(scaled_signal),
+											 color = ~alertPal(current_fold_change_smoothed),
 											 fill = TRUE,
-											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(scaled_signal)), 
+											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(current_fold_change_smoothed)), 
 											 group = "WWTP", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.9) %>%
@@ -922,9 +923,9 @@ shinyServer(function(input, output, session) {
 											 stroke = TRUE,
 											 weight = 4, 
 											 opacity = 0.9,
-											 color = ~alertPal(scaled_signal),
+											 color = ~alertPal(current_fold_change_smoothed),
 											 fill = TRUE,
-											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(scaled_signal)), 
+											 fillColor = ~ifelse(location_common_name==clickedLocation, yes = "#73FDFF", no = alertPal(current_fold_change_smoothed)), 
 											 group = "Sewer Network", 
 											 label = ~as.character(paste0(location_common_name, " (" , level, ")")), 
 											 fillOpacity = 0.9)

@@ -65,7 +65,7 @@ TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2
 												 "target_value" = c("n1n2", "n1", "n2")
 												)
 
-SIGNAL_TREND_WINDOW <- 3
+SIGNAL_TREND_WINDOW <- 5
 STRENGTH_WEIGHT <- 1
 TREND_WEIGHT <- 1.5
 
@@ -229,7 +229,7 @@ df_trend <- df_watch %>%
 						 arrange(day) %>%
 						 summarize(mean_signal_strength = mean(signal_strength, na.rm = TRUE)) %>% 
 						 slice_tail(n=SIGNAL_TREND_WINDOW) %>%
-						 summarize(scaled_signal_trend = coef(lm(formula = ((mean_signal_strength-min(mean_signal_strength, na.rm = TRUE))/(max(mean_signal_strength, na.rm = TRUE)-min(mean_signal_strength, na.rm = TRUE))) ~ day))[2],
+						 summarize(current_scaled_signal_trend = coef(lm(formula = ((mean_signal_strength-min(mean_signal_strength, na.rm = TRUE))/(max(mean_signal_strength, na.rm = TRUE)-min(mean_signal_strength, na.rm = TRUE))) ~ day))[2],
 						 					 current_signal_trend = coef(lm(formula = mean_signal_strength ~ day))[2])
 
 
@@ -278,26 +278,27 @@ df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "loc
 #
 #df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
 #
-#wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(fold_change_smoothed = c(-0.1, 11, 51, 101, 251, 5001), 
-													scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
+wt <- STRENGTH_WEIGHT * TREND_WEIGHT
+SIGNAL_BINS <- data.frame(fold_change_smoothed = c(-0.1, 11, 51, 101, 251, 5001),
+													signal_trend = c(-500000001, -50, -2, 2, 50, 500000001)) 
+													#scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
 SIGNAL_CODES <- data.frame(change = c("low", "moderate", "high", "very high", "extremely high"), 
-													 #trend = c("decreasing rapidly", "decreasing moderately", "decreasing", "relatively stable", "increasing", "increasing substantially", "increasing rapidly"),
-													 color = c("#579d1c", "#ffd320", "#GOLD", "#ff950e", "#c5000b"))
+													 trend = c("downward", "downward", "stable", "upward", "upward"),
+													 color = c("#579d1c", "#ffd320", "#eedc82", "#ff950e", "#c5000b"))
 
 names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
 
-ALERT_COLORS = c("#579d1c", "#ffd320", "#GOLD", "#ff950e", "#c5000b")
+ALERT_COLORS = c("#579d1c", "#ffd320", "#eedc82", "#ff950e", "#c5000b")
 ALERT_TXT = c("low", "moderate", "high", "very high", "extremely high")
 
 alertPal <- colorBin(
 	palette = SIGNAL_CODES$color,
-	bins = SIGNAL_BINS$change,
+	bins = SIGNAL_BINS$fold_change_smoothed,
 	na.color = "#808080",
 #	reverse=TRUE,
-	domain = df_signal$fold_change_smoothed)
+	domain = df_watch$fold_change_smoothed)
   
 
 targetPal <- colorFactor(

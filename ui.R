@@ -118,11 +118,11 @@ shinyUI(bootstrapPage(
 					class="mdblock",
 					id = "site_status_panel", 
 #					top = 145, left = 590, height=120, width = 130,
-					top = 145, left = 545, height=70, width = 193,
+					top = 145, left = 545, height=70, width = 200,
 					fixed=TRUE, draggable=FALSE,
-					span("Signal at this site is currently", style="font-size: 11px; line-height: 12px;"),
-					span(textOutput("site_fold_change_txt"), style="font-size: 18px; font-weight: 800; line-height: 18px;"),
-					span(textOutput("site_fold_change"), style="font-size: 13px; line-height: 12px;"),
+					span(textOutput("site_change_hdr"), style="font-size: 13px; color: #000000; line-height: 22px;"),
+					span(textOutput("site_change_above"), style="font-size: 15px; font-weight: 800; color: #000000; line-height: 20px;"),
+					span(textOutput("site_change_below"), style="font-size: 12px; color: #000000; line-height: 22px;")
 				),
 				
 				hidden(
@@ -147,11 +147,11 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "site_trend_panel", 
-					top = 145, left = 739, height=70, width = 178,
+					top = 145, left = 745, height=70, width = 200,
 					fixed=TRUE, draggable=FALSE,
-					span("Signal at this site has been", style="font-size: 11px; line-height: 12px;"),
-					span(textOutput("site_trend"), style="font-size: 16px;font-weight: 800; line-height: 18px;"),
-					span("over the last 5 sampling days", style="font-size: 11px; line-height: 12px;")
+					span(textOutput("site_trend_hdr"), style="font-size: 13px; line-height: 18px;"),
+					span(textOutput("site_trend_txt"), style="font-size: 18px; font-weight: 800; line-height: 28px;"),
+					span(textOutput("site_trend_level"), style="font-size: 12px; line-height: 18px;"),
 				),
 				
 				hidden(
@@ -246,12 +246,11 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class="mdblock",
 					id = "alert_panel", 
-					top = 65, left = 707, height=75, width = 210,
+					top = 65, left = 707, height=75, width = 238,
 					fixed=TRUE, draggable=FALSE,
-					span("General outlook is currently:", style="font-size: 13px; font-weight: 800; color: #000000; line-height: 25px;"),
-					#span(textOutput("alert_level"), style="font-size: 24px; font-weight: 800; color: #000000;line-height: 28px;"),
-					span(textOutput("alert_txt"), style="font-size: 20px; font-weight: 800; color: #000000; line-height: 18px;"),
-					span("for most people", style="color: #000000; font-weight: 800; font-size: 11px;")
+					span(textOutput("alert_hdr"), style="font-size: 13px; color: #000000; line-height: 22px;"),
+					span(textOutput("alert_change"), style="font-size: 20px; font-weight: 800; color: #000000; line-height: 20px;"),
+					span(textOutput("alert_trend"), style="font-size: 16px; font-weight: 800; color: #000000; line-height: 22px;")
 				),
 				
 				hidden(
