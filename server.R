@@ -127,7 +127,7 @@ shinyServer(function(input, output, session) {
 #		addPolylines(data=county_sf, fill=FALSE, weight=3, color="#999999", layerId="countiesLayer") %>%
 		addPolygons(data=state_sf, fill=FALSE, weight=2, color="#000000", layerId="stateLayer") %>%
 		addLayersControl(
-			position = "bottomright",
+			position = "bottomleft",
 			baseGroups = sort(unique(df_map$group), decreasing=TRUE),
 									 options = layersControlOptions(collapsed = FALSE)
 		) %>%
@@ -250,10 +250,10 @@ shinyServer(function(input, output, session) {
 	
 
 	#
-	# Plot of signal trend
+	# Plot of fold change
 	#
 	plotFoldChange <- function(layer, facility, dates, targets) {
-		#print("plotSignalTrend called!")
+		#print("plotFoldChange called!")
 		
 		if (missing(layer)) { layer = controlRV$activeLayer }
 		if (missing(facility)) { facility = controlRV$mapClick }
@@ -278,11 +278,17 @@ shinyServer(function(input, output, session) {
 		
 		if (facility == "All facilities") {
 			#capacity <- sum(unique((df_watch %>% filter(group == layer))$capacity_mgd))
-			df_plot <- df_watch %>% filter(group == layer & day >= fromDate & day <= toDate) %>% group_by(day) %>%
-				summarize(fold_change_smoothed = mean(fold_change_smoothed, na.rm = TRUE))
+			df_plot <- df_watch %>% 
+								 filter(group == layer & day >= fromDate & day <= toDate) %>% 
+								 group_by(day) %>%
+								 summarize(fold_change_smoothed = mean(fold_change_smoothed, na.rm = TRUE),
+								 					 fold_change = mean(fold_change, na.rm = TRUE))
 		} else {
-			df_plot <- df_watch %>% filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% group_by(day) %>%
-				summarize(fold_change_smoothed = fold_change_smoothed)
+			df_plot <- df_watch %>% 
+								 filter(location_common_name == facility & day >= fromDate & day <= toDate) %>% 
+								 group_by(day) %>%
+								 summarize(fold_change_smoothed = fold_change_smoothed,
+								 					 fold_change = fold_change)
 		}
 
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
@@ -294,10 +300,15 @@ shinyServer(function(input, output, session) {
 
 		for (target in targets) {
 
-			gplot <- gplot + geom_point(aes(x = day, y = fold_change_smoothed, color = target), shape = 1, size = 2, alpha=0.1) + 
-							 				 #geom_col(aes(x = day, y = fold_change, fill = target), alpha=0.1, na.rm = TRUE) + 
+			gplot <- gplot + geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[1], ymax = SIGNAL_BINS$fold_change_smoothed[2]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[1], alpha = 0.4) + 
+							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[2], ymax = SIGNAL_BINS$fold_change_smoothed[3]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[2], alpha = 0.4) + 
+							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[3], ymax = SIGNAL_BINS$fold_change_smoothed[4]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[3], alpha = 0.4) + 
+							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[4], ymax = SIGNAL_BINS$fold_change_smoothed[5]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[4], alpha = 0.4) + 
+							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[5], ymax = max(fold_change, na.rm = TRUE)), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[5], alpha = 0.4) + 
+							 				 geom_col(aes(x = day, y = fold_change, fill = target), alpha=0.4, na.rm = TRUE) + 
 							 				 #geom_point(aes(x = day, y = delta), color = "#991111", shape = 2, size = 2, alpha=0.4) + 
 							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
+							 				 #geom_point(aes(x = day, y = fold_change_smoothed, color = target), shape = 1, size = 2, alpha=0.4) + 
 							 				 geom_line(aes(x = day, y = fold_change_smoothed, color = target, group = 1))
 		}
 
@@ -577,14 +588,14 @@ shinyServer(function(input, output, session) {
 		}
 		
 		# Plot title and legend
-		output$plot_title = renderText(paste0("Showing the 5-day rolling mean for ", facility_text, sep=""))
+		output$plot_title = renderText(paste0("Levels of wastewater ", controlRV$activeInfection, " since July 2021 (", controlRV$mapClick, ")", sep=""))
 
-		if (layer == "WWTP") {
-			output$data_format <- renderText("Calculated as mean per capita mass load (copies of target adjusted for average daily flow)")
+		if (controlRV$activeLayer != "Sewer Network") {
+			output$data_format <- renderText("Calculated as mean copies of target per person and adjusted for average daily flow. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
 		} else {
-			output$data_format <- renderText("Calculated as mean per capita copies/L (daily flow is not available at sewers)")
+			output$data_format <- renderText("Calculated as mean copies of target per liter of wastewater. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
 		}
-		
+
 		# Get alert status
 		alert_codes <- getAlertStatus()	# 1=color, 2=delta, 3=trend
 
@@ -681,12 +692,12 @@ shinyServer(function(input, output, session) {
 	output$focus_plot <- renderPlotly({
 		#print("focus_plot top")
 
-		output$focus_plot_title = renderText(paste0("Showing the 5-day rolling mean for the last 4 weeks from ", controlRV$mapClick, sep=""))
+		output$focus_plot_title = renderText(paste0("Levels of wastewater ", controlRV$activeInfection, " over the last month (", controlRV$mapClick, ")", sep=""))
 
 		if (controlRV$activeLayer != "Sewer Network") {
-			output$focus_data_format <- renderText("Calculated as mean per capita mass load (copies of target adjusted for average daily flow)")
+			output$focus_data_format <- renderText("Calculated as copies of target per person, and adjusted for average daily flow. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean. Rate of change is the slope of the best-fit line over the most recent 5 sampling days.")
 		} else {
-			output$focus_data_format <- renderText("Calculated as mean target copies/L (population and daily flow are not available at sewers)")
+			output$focus_data_format <- renderText("Calculated as copies of target per liter of wastewater. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean. Rate of change is the slope of the best-fit line over the most recent 5 sampling days.")
 		}
 
 		if (controlRV$mapClick == "All facilities") {
@@ -703,12 +714,12 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Render the trend plot
+	# Render the fold change plot
 	#
-	output$trend_plot <- renderPlotly({
+	output$change_plot <- renderPlotly({
 		#print("trend_plot top")
 
-		output$trend_plot_title = renderText(paste0("Last 4 weeks of signal change from baseline, ", controlRV$mapClick, " (", controlRV$activeLayer, ")", sep=""))
+		output$change_plot_title = renderText(paste0("Fold change in ", controlRV$activeInfection, " over the last month (", controlRV$mapClick, ")", sep=""))
 
 		if (controlRV$mapClick == "All facilities") {
 			df_facility <- df_watch %>% filter(group == controlRV$activeLayer)
@@ -966,8 +977,8 @@ shinyServer(function(input, output, session) {
 	#
 	# React to clicks on the metadata panels
 	#
-	onevent("click", "site_status_panel", togglePanels(on=c("site_status_info")))
-	onevent("click", "site_trend_panel", togglePanels(on=c("site_trend_info")))
+	onevent("click", "site_status_panel", togglePanels(on=c("site_change_info")))
+	onevent("click", "site_trend_panel", togglePanels(on=c("site_focus_info")))
 	onevent("click", "alert_panel", togglePanels(on=c("alert_level_info")))
 	#onevent("click", "scope_panel", togglePanels(on=c("scope_info")))
 	#onevent("click", "population_panel", togglePanels(on=c("population_info")))
@@ -977,17 +988,17 @@ shinyServer(function(input, output, session) {
 
 	
 	#
-	# React to click on the site status panel close button
+	# React to click on the site focus panel close button
 	#
-	observeEvent(input$site_status_info_close,{
-    togglePanels(off=c("site_status_info"))
+	observeEvent(input$site_focus_info_close,{
+    togglePanels(off=c("site_focus_info"))
 	}, ignoreInit = TRUE)
 	
 	#
-	# React to click on the site trend panel close button
+	# React to click on the site change panel close button
 	#
-	observeEvent(input$site_trend_info_close,{
-    togglePanels(off=c("site_trend_info"))
+	observeEvent(input$site_change_info_close,{
+    togglePanels(off=c("site_change_info"))
 	}, ignoreInit = TRUE)
 	
 	#
@@ -1075,7 +1086,7 @@ shinyServer(function(input, output, session) {
 				layer = "WWTPs"
 			}
 		}
-		output$plot_title = renderText(paste0("Showing the ", controlRV$rollWin, "-day rolling mean for ", controlRV$mapClick, " ", layer, sep=""))
+		output$plot_title = renderText(paste0("Levels of wastewater ", controlRV$activeInfection, " since July 2021 (", controlRV$mapClick, ")", sep=""))
 
   }, ignoreInit = TRUE)
 

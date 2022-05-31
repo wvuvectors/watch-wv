@@ -32,16 +32,16 @@ shinyUI(bootstrapPage(
 					id = "details", 
 					class = "panel panel-default",
 					top = 162, left = 6, width = 600, fixed=TRUE,
-					draggable = FALSE, height = 430,
+					draggable = FALSE, height = 470,
+					div(textOutput("plot_title"), style="padding-top: 10px; font-size: 17px; font-style: bold; color:#045a8d; text-align: center;"),
 					plotlyOutput("watch_plot", height="380px", width="100%"),
-					span(textOutput("plot_title"), style="font-size: 18px; font-style: bold; color:#045a8d; text-align: center;"),
 					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 				), # absolutePanel
 
 				absolutePanel(
 					id = "controls",
 					class = "control_panel",
-					top = 593, left = 6, height = "auto", width = 600,
+					top = 633, left = 6, height = "auto", width = 600,
 					fixed=TRUE, draggable = FALSE,
 					fluidRow(
 						column(
@@ -127,19 +127,16 @@ shinyUI(bootstrapPage(
 				
 				hidden(
 					absolutePanel(
-						id = "site_status_info",
+						id = "site_change_info",
 						class = "mdinfo",
 						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						#div("What do the various levels of behavior mean, and how are they calculated?"),
-						#div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
-						plotlyOutput("focus_plot", height="318px", width="100%"),
-						span(textOutput("focus_plot_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
-						span(textOutput("focus_data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-#						div("Line is the 5-day rolling mean. Columns show daily levels.", style="font-size: 11px; color:#888888; text-align: center;"),
+						div(textOutput("change_plot_title"), style="padding-top: 10px; font-size: 13px; font-style: normal; color:#045a8d; text-align: center;"),
+						plotlyOutput("change_plot", height="318px", width="100%"),
+						div("Columns show the fold-change of the signal for that day, compared to lowest recorded value for this site. The line shows the 5-day rolling mean of fold change. The colored boxes indicate the approximate community transmission, which is calculated from the 5-day rolling mean.", style="font-size: 11px; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="site_status_info_close", label="Close", style="pill", size="xs", color="success")
+							actionBttn(inputId="site_change_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -156,16 +153,16 @@ shinyUI(bootstrapPage(
 				
 				hidden(
 					absolutePanel(
-						id = "site_trend_info",
+						id = "site_focus_info",
 						class = "mdinfo",
 						top = 215, left = 545, height="auto", width = 470,
 						fixed=TRUE, draggable=TRUE,
-						div(textOutput("trend_plot_title"), style="padding-top: 10px; font-size: 14px; font-style: normal; color:#045a8d; text-align: center;"),
-						plotlyOutput("trend_plot", height="318px", width="100%"),
-						div("Line and columns show the fold-change of the signal for that day, compared to lowest recorded value for this site.", style="font-size: 11px; color:#888888; text-align: center;"),
+						div(textOutput("focus_plot_title"), style="padding-top: 10px; font-size: 13px; font-style: normal; color:#045a8d; text-align: center;"),
+						plotlyOutput("focus_plot", height="318px", width="100%"),
+						span(textOutput("focus_data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
-							actionBttn(inputId="site_trend_info_close", label="Close", style="pill", size="xs", color="success")
+							actionBttn(inputId="site_focus_info_close", label="Close", style="pill", size="xs", color="success")
 						)
 					)
 				),
@@ -260,30 +257,30 @@ shinyUI(bootstrapPage(
 						top = 215, left = 545, height="auto", width = 450,
 						fixed=TRUE, draggable=TRUE,
 						div(
+							class = "alertinfo",
+							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #c5000b; background-color: #c5000b; border: 1 px solid black; border-radius: 3px;"),
+							span("Red. The total amount of infection in the wastewater is more than 500X above the lowest reported value. Community transmission is extremely high.", style="font-size: 14px;")
+						),
+						div(
+							class = "alertinfo",
+							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #ff950e; background-color: #ff950e; border: 1 px solid black; border-radius: 3px;"),
+							span("Orange. Wastewater levels are 250-500X above the lowest value for this infection. Community transmission is very high.", style="font-size: 14px;")
+						),
+						div(
+							class = "alertinfo",
+							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #eedc82; background-color: #eedc82; border: 1 px solid black; border-radius: 3px;"),
+							span("Gold. Wastewater levels are 100-250X above the lowest value for this infection. Community transmission is high.", style="font-size: 14px;")
+						),
+						div(
+							class = "alertinfo",
+							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #ffd320; background-color: #ffd320; border: 1 px solid black; border-radius: 3px;"),
+							span("Yellow. Wastewater levels are 25-100X above the lowest value for this infection. Community transmission is moderate.", style="font-size: 14px;")
+						),
+						div(
 							class = "alertinfo", 
-							style = "	border: 3px solid #579d1c;border-radius: 5px;padding: 5px;font-weight: 800;margins: 0px 10px;",
-							"At Alert Level Green, the total amount of infection in the community is relatively low and not increasing substantially."
+							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #579d1c; background-color: #579d1c; border: 1 px solid black; border-radius: 3px;"),
+							span("Green. Wastewater levels are 0-25X above the lowest reported value for this infection. Community transmission is limited.", style="font-size: 14px;")
 						), # div
-						div(
-							class = "alertinfo",
-							style = "	border: 3px solid #ffd320;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
-							"At Alert Level Yellow, the total amount of infection in the community is moderate and/or it is increasing. You should remain vigilant, particularly in crowded indoor areas."
-						),
-						div(
-							class = "alertinfo",
-							style = "	border: 3px solid #ff950e;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
-							"At Alert Level Orange, the total amount of infection in the community is moderate to high, and/or it is increasing substantially. As wastewater is a leading indicator for hospitalization, this level of infection is concerning."
-						),
-						div(
-							class = "alertinfo",
-							style = "	border: 3px solid #c5000b;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
-							"At Alert Level Red, the total amount of infection in the community is high and increasing subtantially or rapidly. This level of infection is alarming and suggests immediate action should be taken to interrupt spread of this infection."
-						),
-						div(
-							class = "alertinfo",
-							style = "	border: 3px solid #EE2221;border-radius: 5px;padding: 5px;font-weight: 800;margins: 10px 0px;",
-							"At Alert Level Very Red, the total amount of infection in the community is very high and increasing rapidly. This is a critical situation and indicates the potential for significant negative impact on community health."
-						),
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
@@ -292,18 +289,48 @@ shinyUI(bootstrapPage(
 				),
 					
 				absolutePanel(
-					id = "recenter_panel", 
+					id = "legend_panel", 
 					class = "card", 
-					bottom = 28, right = 125, width = 80, 
+					bottom = 70, right = 5, width = 125, 
 					fixed = TRUE, draggable = FALSE, 
 					height = "auto",
-					actionBttn(inputId="center_map", label="Recenter", style="pill", size="xs", color="success")
+					style = "background-color: #ffffff;border: 1px solid #000000;border-radius: 3px;",
+					div("Community Spread", style="text-align: center; font-weight: 800; font-size: 13px; margin-bottom: 5px;"),
+					div(
+						span("XX", style="height: 20px; width: 20px; margin: 5px; color: #c5000b; background-color: #c5000b; border: 1 px solid black; border-radius: 3px;"),
+						span("Extremely high", style="font-size: 11px;")
+					),
+					div(
+						span("XX", style="height: 20px; width: 20px; margin: 5px; color: #ff950e; background-color: #ff950e; border: 1 px solid black; border-radius: 3px;"),
+						span("Very high", style="font-size: 11px;")
+					),
+					div(
+						span("XX", style="height: 20px; width: 20px; margin: 5px; color: #eedc82; background-color: #eedc82; border: 1 px solid black; border-radius: 3px;"),
+						span("High", style="font-size: 11px;")
+					),
+					div(
+						span("XX", style="height: 20px; width: 20px; margin: 5px; color: #ffd320; background-color: #ffd320; border: 1 px solid black; border-radius: 3px;"),
+						span("Moderate", style="font-size: 11px;")
+					),
+					div(
+						span("XX", style="height: 20px; width: 20px; margin: 5px; color: #579d1c; background-color: #579d1c; border: 1 px solid black; border-radius: 3px;"),
+						span("Low", style="font-size: 11px;")
+					)
+				), # absolutePanel
+				
+				absolutePanel(
+					id = "recenter_panel", 
+					class = "card", 
+					bottom = 28, right = 0, width = 125, 
+					fixed = TRUE, draggable = FALSE, 
+					height = "auto",
+					actionBttn(inputId="center_map", label="Recenter Map", style="pill", size="xs", color="success")
 				), # absolutePanel
 				
 				absolutePanel(
 					id = "logo", 
 					class = "card", 
-					bottom = 5, left = 5, width = 80, 
+					bottom = 5, left = 160, width = 80, 
 					fixed = TRUE, draggable = FALSE, 
 					height = "auto",
 					tags$a(href='https://www.wvuvectors.com/', 

@@ -124,9 +124,7 @@ h4 { font-weight: 800; }
 
 .alertinfo {
 	padding: 5px;
-	margins: 10px 0px;
-	border-radius: 5px;
-	font-weight: 800;
+	margins: 20px 0px;
   opacity: 0.75;
   cursor: pointer;
 }
@@ -135,6 +133,13 @@ h4 { font-weight: 800; }
   /* Fade in while hovering */
   opacity: 1;
   transition-delay: 0;
+}
+
+#legend_panel {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
 }
 
 #logo {

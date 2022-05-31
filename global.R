@@ -183,7 +183,7 @@ df_watch_pre$n1n2.load.day1.ci <- 0
 df_watch_pre$n1n2.loadcap.day1.mean <- df_watch_pre$n1n2.loadcap
 df_watch_pre$n1n2.loadcap.day1.ci <- 0
 
-baselines <- c("n1n2.day5.mean", "n1n2.load.day5.mean", "n1n2.loadcap.day5.mean")
+baselines <- c("n1n2", "n1n2.load", "n1n2.loadcap", "n1n2.day5.mean", "n1n2.load.day5.mean", "n1n2.loadcap.day5.mean")
 
 df_baseline <- data.frame(location_common_name = unique(df_watch_pre$location_common_name))
 for (baseline in baselines) {
@@ -208,6 +208,7 @@ df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na
 df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
 															percent_change_smoothed = 100*(n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
 															signal_strength_smoothed = n1n2.loadcap.day5.mean,
+															fold_change = (n1n2.loadcap - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
 															signal_strength = n1n2.loadcap)
 df_wwtp <- df_wwtp[!is.na(df_wwtp$n1n2.loadcap.day5.mean), ]												
 
@@ -215,6 +216,7 @@ df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na
 df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline, 
 														percent_change_smoothed = 100*(n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
 														signal_strength_smoothed = n1n2.day5.mean,
+														fold_change = (n1n2 - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
 														signal_strength = n1n2)
 df_swr <- df_swr[!is.na(df_swr$n1n2.day5.mean), ]												
 
@@ -279,7 +281,7 @@ df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "loc
 #df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
 #
 wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(fold_change_smoothed = c(-0.1, 11, 51, 101, 251, 5001),
+SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 26, 101, 251, 501, 5001),
 													signal_trend = c(-500000001, -50, -2, 2, 50, 500000001)) 
 													#scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
