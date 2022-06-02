@@ -22,13 +22,14 @@ h4 { font-weight: 800; }
 
 #details {
   /* Appearance */
-  /*background-color: white;*/
+  border: 1px solid #666666;
+  border-radius: 5px;
   padding: 0 5px 5px 5px;
-  cursor: move;
+  /*cursor: move;*/
   /* Fade out while not hovering */
-  opacity: 0.75;
+  opacity: 0.95;
   zoom: 0.9;
-  transition: opacity 200ms 400ms;
+  transition: opacity 100ms 200ms;
 }
 
 #details:hover {
@@ -37,9 +38,108 @@ h4 { font-weight: 800; }
   transition-delay: 0;
 }
 
+.control_panel {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  /*padding: 0 5px 5px 5px;
+  cursor: move;*/
+  /* Fade out while not hovering */
+  opacity: 0.8;
+  zoom: 0.9;
+  transition: opacity 100ms 200ms;
+}
+
+.control_panel:hover {
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.control_group {
+  /* Appearance */
+  /*border: 1px solid #666666;
+  border-radius: 5px;*/
+	padding: 3px;
+  font-size: 11px;
+}
+
+
+
+.mdblock-nopop {
+  /* Appearance */
+  background-color: #f3f3f3;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 0 0 0;
+  cursor: pointer;
+  /* Fade out while not hovering */
+  opacity: 0.75;
+  /*transition: opacity 200ms 400ms;*/
+}
+
+.mdblock-nopop:hover {
+  /*border: 2px solid #666666;*/
+  cursor: pointer;
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.mdblock {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #666666;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px 0 0 0;
+  cursor: pointer;
+  /* Fade out while not hovering */
+  opacity: 0.75;
+  /*transition: opacity 200ms 400ms;*/
+}
+
+.mdblock:hover {
+  border: 2px solid #0096FF;
+  cursor: pointer;
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+.mdinfo {
+	background-color:#f6f6e3;
+	padding: 4px;
+	margins: 0;
+	border: 2px solid #909090;
+	border-radius: 5px;
+}
+
 .btn {
 	background-image: url("button.jpg");
 	height: 25px;
+}
+
+.alertinfo {
+	padding: 5px;
+	margins: 20px 0px;
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+.alertinfo:hover {
+  /* Fade in while hovering */
+  opacity: 1;
+  transition-delay: 0;
+}
+
+#legend_panel {
+  /* Appearance */
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
 }
 
 #logo {
