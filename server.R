@@ -591,9 +591,9 @@ shinyServer(function(input, output, session) {
 		output$plot_title = renderText(paste0("Levels of wastewater ", controlRV$activeInfection, " since July 2021 (", controlRV$mapClick, ")", sep=""))
 
 		if (controlRV$activeLayer != "Sewer Network") {
-			output$data_format <- renderText("Calculated as mean copies of target per person and adjusted for average daily flow. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
+			output$data_format <- renderText("Calculated as copies of target per person and adjusted for average daily flow. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
 		} else {
-			output$data_format <- renderText("Calculated as mean copies of target per liter of wastewater. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
+			output$data_format <- renderText("Calculated as copies of target per liter of wastewater. Columns and circles show the daily signal; the solid line shows the 5-day rolling mean.")
 		}
 
 		# Get alert status

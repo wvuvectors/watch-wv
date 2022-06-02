@@ -121,7 +121,7 @@ shinyUI(bootstrapPage(
 					top = 145, left = 545, height=70, width = 200,
 					fixed=TRUE, draggable=FALSE,
 					span(textOutput("site_change_hdr"), style="font-size: 13px; color: #000000; line-height: 22px;"),
-					span(textOutput("site_change_above"), style="font-size: 15px; font-weight: 800; color: #000000; line-height: 20px;"),
+					span(textOutput("site_change_above"), style="font-size: 14px; font-weight: 800; color: #000000; line-height: 20px;"),
 					span(textOutput("site_change_below"), style="font-size: 12px; color: #000000; line-height: 22px;")
 				),
 				
@@ -279,7 +279,7 @@ shinyUI(bootstrapPage(
 						div(
 							class = "alertinfo", 
 							span("XXX", style="height: 50px; width: 50px; margin: 5px; color: #579d1c; background-color: #579d1c; border: 1 px solid black; border-radius: 3px;"),
-							span("Green. Wastewater levels are 0-25X above the lowest reported value for this infection. Community transmission is limited.", style="font-size: 14px;")
+							span("Blue. Wastewater levels are 0-25X above the lowest reported value for this infection. Community transmission is limited.", style="font-size: 14px;")
 						), # div
 						div(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
@@ -351,53 +351,53 @@ shinyUI(bootstrapPage(
 			)
 		), # tabPanel
 
-		tabPanel(
-			"Insights",
-			div(
-				class="outer",
-				
-				absolutePanel(
-					id = "insights-2way", 
-					class = "panel panel-default",
-					top = 65, left = 6, width = 400, fixed=TRUE,
-					span(textOutput("plot_2way_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
-					plotlyOutput("insights_plot_2way", height="380px", width="100%")
-				), # absolutePanel
-				
-#				absolutePanel(
-#					id = "insights-2way-qq1", 
-#					class = "panel panel-default",
-#					top = 65, left = 406, width = 200, fixed=TRUE,
-#					plotlyOutput("insights_plot_2wayQQ_1", height="200px", width="100%")
-#				), # absolutePanel
+#		tabPanel(
+#			"Insights",
+#			div(
+#				class="outer",
 #				
 #				absolutePanel(
-#					id = "insights-2way-qq2", 
+#					id = "insights-2way", 
 #					class = "panel panel-default",
-#					top = 265, left = 406, width = 200, fixed=TRUE,
-#					plotlyOutput("insights_plot_2wayQQ_2", height="200px", width="100%")
+#					top = 65, left = 6, width = 400, fixed=TRUE,
+#					span(textOutput("plot_2way_title"), style="font-size: 14px; font-style: bold; color:#045a8d; text-align: center;"),
+#					plotlyOutput("insights_plot_2way", height="380px", width="100%")
 #				), # absolutePanel
-				
-				absolutePanel(
-					id = "insights-2way-cor", 
-					class = "panel panel-default",
-					top = 465, left = 6, width = 400, fixed=TRUE,
-					span(textOutput("insights_2way_cor"), style="font-size: 12px; font-style: bold; color:#045a8d; text-align: center;")
-				) # absolutePanel
-				
-			) # div, outer
-		), # tabPanel
-
-		tabPanel(
-			"Ethics of testing",
-			tags$div(
-				tags$h4("Coming soon..."), 
-				#h6(paste0(update)),
-#				"This site is updated weekly or biweekly. ", 
-#				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
-				"This tab will present information about the ethics of wastewater testing."
-			)
-		), # tabPanel
+#				
+##				absolutePanel(
+##					id = "insights-2way-qq1", 
+##					class = "panel panel-default",
+##					top = 65, left = 406, width = 200, fixed=TRUE,
+##					plotlyOutput("insights_plot_2wayQQ_1", height="200px", width="100%")
+##				), # absolutePanel
+##				
+##				absolutePanel(
+##					id = "insights-2way-qq2", 
+##					class = "panel panel-default",
+##					top = 265, left = 406, width = 200, fixed=TRUE,
+##					plotlyOutput("insights_plot_2wayQQ_2", height="200px", width="100%")
+##				), # absolutePanel
+#				
+#				absolutePanel(
+#					id = "insights-2way-cor", 
+#					class = "panel panel-default",
+#					top = 465, left = 6, width = 400, fixed=TRUE,
+#					span(textOutput("insights_2way_cor"), style="font-size: 12px; font-style: bold; color:#045a8d; text-align: center;")
+#				) # absolutePanel
+#				
+#			) # div, outer
+#		), # tabPanel
+#
+#		tabPanel(
+#			"Ethics of testing",
+#			tags$div(
+#				tags$h4("Coming soon..."), 
+#				#h6(paste0(update)),
+##				"This site is updated weekly or biweekly. ", 
+##				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
+#				"This tab will present information about the ethics of wastewater testing."
+#			)
+#		), # tabPanel
 
 		tabPanel(
 			"About this site",
