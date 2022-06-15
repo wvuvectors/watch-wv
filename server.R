@@ -623,7 +623,7 @@ shinyServer(function(input, output, session) {
 		if (num_counties > 1) {
 			output$counties_served <- renderText(paste0(num_counties, " ", county_text, sep=""))
 		} else {
-			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), " county", sep=""))
+			output$counties_served <- renderText(paste0(unique(df_facility$counties_served), sep=""))
 		}
 		output$county_population <- renderText(formatC(total_county_pop, big.mark=","))
 

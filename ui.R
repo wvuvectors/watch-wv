@@ -184,7 +184,7 @@ shinyUI(bootstrapPage(
 					fixed=TRUE, draggable=FALSE,
 					style = "padding-top: 8px;",
 					span(textOutput("counties_served"), style="font-size: 14px;"),
-					span("total population", style="font-size: 10px;"),
+					span("county population", style="font-size: 10px;"),
 					span(textOutput("county_population"), style="font-size: 15px;")
 				),
 				

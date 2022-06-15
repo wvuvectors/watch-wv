@@ -148,8 +148,8 @@ df_watch_pre <- df_watch_pre %>% filter(status == "active" | status == "new")
 
 # Convert date strings into Date objects
 
-df_watch_pre$"Sample Composite Start" <- mdy_hm(df_watch_pre$"Sample Composite Start")
-df_watch_pre$"Sample Composite End" <- mdy_hm(df_watch_pre$"Sample Composite End")
+df_watch_pre$"Sample Composite Start" <- mdy(df_watch_pre$"Sample Composite Start")
+df_watch_pre$"Sample Composite End" <- mdy(df_watch_pre$"Sample Composite End")
 df_watch_pre$"Sample Received Date" <- mdy(df_watch_pre$"Sample Received Date")
 
 df_watch_pre$day <- as_date(df_watch_pre$"Sample Composite End")
@@ -172,7 +172,7 @@ df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 #																				plot_view_colbase = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean.baseline", no = "n1n2.day5.mean.baseline"))
 
 # Make some simpler aliases for common numeric columns
-df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
+#df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
 
 df_watch_pre$n1n2.day1.mean <- df_watch_pre$n1n2
 df_watch_pre$n1n2.day1.ci <- 0
