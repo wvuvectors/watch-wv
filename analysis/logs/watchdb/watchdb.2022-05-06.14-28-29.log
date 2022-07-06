@@ -1,0 +1,245 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to DB/INCREMENTAL/watchdb.2022-05-06.14-28-29.txt and DB/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-05-06.14-28-29.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 2831 total assets present.
+INFO: Finished AssetTiger import. 22 new assets added. 2853 total assets present.
+INFO: Sample N02-0068 1.1 has a new calculated value of 0.
+INFO: Sample N02-0068 1.1 has a new calculated value of 5945.35309821367.
+INFO: Sample N02-0068 1.1 has a new calculated value of 5945.35309821367.
+INFO: Sample M03-0072 1.1 has a new calculated value of 0.
+INFO: Sample M03-0072 1.1 has a new calculated value of 8557.2050884366.
+INFO: Sample M03-0072 1.1 has a new calculated value of 2852.20749210566.
+INFO: Sample J01-0038 1.1 has a new calculated value of 0.
+INFO: Sample J01-0038 1.1 has a new calculated value of 0.
+INFO: Sample J01-0038 1.1 has a new calculated value of 0.
+INFO: Sample D01-0049 1.1 has a new calculated value of 0.
+INFO: Sample D01-0049 1.1 has a new calculated value of 311894.806623459.
+INFO: Sample D01-0049 1.1 has a new calculated value of 224213.257133961.
+INFO: Sample O01-0075 1.1 has a new calculated value of 0.
+INFO: Sample O01-0075 1.1 has a new calculated value of 5117.43181385101.
+INFO: Sample O01-0075 1.1 has a new calculated value of 0.
+INFO: Sample M04-0026 1.1 has a new calculated value of 0.
+INFO: Sample M04-0026 1.1 has a new calculated value of 34760.4705020785.
+INFO: Sample M04-0026 1.1 has a new calculated value of 16039.7103242576.
+INFO: Sample N02-0053 1.1 has a new calculated value of 0.
+INFO: Sample N02-0053 1.1 has a new calculated value of 38551.3722896577.
+INFO: Sample N02-0053 1.1 has a new calculated value of 28267.5395160913.
+INFO: Sample L01-0080 1.1 has a new calculated value of 0.
+INFO: Sample L01-0080 1.1 has a new calculated value of 2623.01000766456.
+INFO: Sample L01-0080 1.1 has a new calculated value of 0.
+INFO: Sample M03-0067 1.1 has a new calculated value of 0.
+INFO: Sample M03-0067 1.1 has a new calculated value of 94638.1218731405.
+INFO: Sample M03-0067 1.1 has a new calculated value of 83155.4469466208.
+INFO: Sample J01-0037 1.1 has a new calculated value of 0.
+INFO: Sample J01-0037 1.1 has a new calculated value of 0.
+INFO: Sample J01-0037 1.1 has a new calculated value of 0.
+INFO: Sample D01-0048 1.1 has a new calculated value of 0.
+INFO: Sample D01-0048 1.1 has a new calculated value of 213378.759026527.
+INFO: Sample D01-0048 1.1 has a new calculated value of 204822.719693184.
+INFO: Sample C01-0165 1.2 has a new calculated value of 0.
+INFO: Sample C01-0165 1.2 has a new calculated value of 101611.163467169.
+INFO: Sample C01-0165 1.2 has a new calculated value of 141193.250119686.
+INFO: Sample N03-0057 1.1 has a new calculated value of 0.
+INFO: Sample N03-0057 1.1 has a new calculated value of 5377.43979133667.
+INFO: Sample N03-0057 1.1 has a new calculated value of 2688.63363191485.
+INFO: Sample O01-0070 1.1 has a new calculated value of 0.
+INFO: Sample O01-0070 1.1 has a new calculated value of 56580.1846235989.
+INFO: Sample O01-0070 1.1 has a new calculated value of 53749.357536435.
+INFO: Sample A01-0241 1.1 has a new calculated value of 0.
+INFO: Sample A01-0241 1.1 has a new calculated value of 101686.502248049.
+INFO: Sample A01-0241 1.1 has a new calculated value of 107342.983782291.
+INFO: Sample M04-0031 1.1 has a new calculated value of 0.
+INFO: Sample M04-0031 1.1 has a new calculated value of 39543.1347191334.
+INFO: Sample M04-0031 1.1 has a new calculated value of 36905.7635217904.
+INFO: Sample N03-0075 1.1 has a new calculated value of 0.
+INFO: Sample N03-0075 1.1 has a new calculated value of 0.
+INFO: Sample N03-0075 1.1 has a new calculated value of 0.
+INFO: Sample A01-0243 1.1 has a new calculated value of 0.
+INFO: Sample A01-0243 1.1 has a new calculated value of 190781.337618828.
+INFO: Sample A01-0243 1.1 has a new calculated value of 193142.116963863.
+INFO: Sample O01-0056 1.1 has a new calculated value of 0.
+INFO: Sample O01-0056 1.1 has a new calculated value of 15833.6848765612.
+INFO: Sample O01-0056 1.1 has a new calculated value of 7916.0949960351.
+INFO: Sample M03-0069 1.1 has a new calculated value of 0.
+INFO: Sample M03-0069 1.1 has a new calculated value of 24326.6439065337.
+INFO: Sample M03-0069 1.1 has a new calculated value of 15202.4975046515.
+INFO: Sample O01-0063 1.1 has a new calculated value of 0.
+INFO: Sample O01-0063 1.1 has a new calculated value of 5070.68747654556.
+INFO: Sample O01-0063 1.1 has a new calculated value of 2535.26702988893.
+INFO: Sample K01-0080 1.1 has a new calculated value of 0.
+INFO: Sample K01-0080 1.1 has a new calculated value of 37132.306471467.
+INFO: Sample K01-0080 1.1 has a new calculated value of 26519.7201445699.
+INFO: Sample M04-0066 1.1 has a new calculated value of 0.
+INFO: Sample M04-0066 1.1 has a new calculated value of 7767.91138574481.
+INFO: Sample M04-0066 1.1 has a new calculated value of 5178.44762653112.
+INFO: Sample R01-0029 1.1 has a new calculated value of 0.
+INFO: Sample R01-0029 1.1 has a new calculated value of 0.
+INFO: Sample R01-0029 1.1 has a new calculated value of 0.
+INFO: Sample R01-0014 1.1 has a new calculated value of 0.
+INFO: Sample R01-0014 1.1 has a new calculated value of 0.
+INFO: Sample R01-0014 1.1 has a new calculated value of 0.
+INFO: Sample N02-0070 1.1 has a new calculated value of 0.
+INFO: Sample N02-0070 1.1 has a new calculated value of 0.
+INFO: Sample N02-0070 1.1 has a new calculated value of 2785.11260636151.
+INFO: Sample N02-0069 1.1 has a new calculated value of 0.
+INFO: Sample N02-0069 1.1 has a new calculated value of 22092.2523736954.
+INFO: Sample N02-0069 1.1 has a new calculated value of 19330.0838023424.
+INFO: Sample O01-0052 1.1 has a new calculated value of 0.
+INFO: Sample O01-0052 1.1 has a new calculated value of 3064.28520474583.
+INFO: Sample O01-0052 1.1 has a new calculated value of 0.
+INFO: Sample R01-0026 1.1 has a new calculated value of 0.
+INFO: Sample R01-0026 1.1 has a new calculated value of 0.
+INFO: Sample R01-0026 1.1 has a new calculated value of 0.
+INFO: Sample L01-0112 1.1 has a new calculated value of 0.
+INFO: Sample L01-0112 1.1 has a new calculated value of 0.
+INFO: Sample L01-0112 1.1 has a new calculated value of 2648.87108467519.
+INFO: Sample L01-0095 1.1 has a new calculated value of 0.
+INFO: Sample L01-0095 1.1 has a new calculated value of 5450.87333768607.
+INFO: Sample L01-0095 1.1 has a new calculated value of 2725.34775082022.
+INFO: Sample A01-0242 1.1 has a new calculated value of 0.
+INFO: Sample A01-0242 1.1 has a new calculated value of 89069.2779421805.
+INFO: Sample A01-0242 1.1 has a new calculated value of 72647.5471258163.
+INFO: Sample M03-0074 1.1 has a new calculated value of 0.
+INFO: Sample M03-0074 1.1 has a new calculated value of 5470.43848782777.
+INFO: Sample M03-0074 1.1 has a new calculated value of 10941.5915049612.
+INFO: Sample N03-0074 1.1 has a new calculated value of 0.
+INFO: Sample N03-0074 1.1 has a new calculated value of 6003.26076149942.
+INFO: Sample N03-0074 1.1 has a new calculated value of 6003.26076149942.
+INFO: Sample K01-0078 1.1 has a new calculated value of 0.
+INFO: Sample K01-0078 1.1 has a new calculated value of 36972.816735506.
+INFO: Sample K01-0078 1.1 has a new calculated value of 33890.5008137226.
+INFO: Sample N02-0059 1.1 has a new calculated value of 0.
+INFO: Sample N02-0059 1.1 has a new calculated value of 26012.7631947398.
+INFO: Sample N02-0059 1.1 has a new calculated value of 15605.7213619351.
+INFO: Sample J01-0036 1.1 has a new calculated value of 0.
+INFO: Sample J01-0036 1.1 has a new calculated value of 0.
+INFO: Sample J01-0036 1.1 has a new calculated value of 0.
+INFO: Sample D01-0044 1.1 has a new calculated value of 0.
+INFO: Sample D01-0044 1.1 has a new calculated value of 494101.690649985.
+INFO: Sample D01-0044 1.1 has a new calculated value of 582622.940540314.
+INFO: Sample N03-0069 1.1 has a new calculated value of 0.
+INFO: Sample N03-0069 1.1 has a new calculated value of 12460.7604369521.
+INFO: Sample N03-0069 1.1 has a new calculated value of 28041.9202521443.
+INFO: Sample C01-0164 1.2 has a new calculated value of 0.
+INFO: Sample C01-0164 1.2 has a new calculated value of 78951.135277748.
+INFO: Sample C01-0164 1.2 has a new calculated value of 70484.9716275929.
+INFO: Sample D01-0066 1.1 has a new calculated value of 0.
+INFO: Sample D01-0066 1.1 has a new calculated value of 153932.706713676.
+INFO: Sample D01-0066 1.1 has a new calculated value of 177217.027544975.
+INFO: Sample N02-0065 1.1 has a new calculated value of 0.
+INFO: Sample N02-0065 1.1 has a new calculated value of 12899.500541389.
+INFO: Sample N02-0065 1.1 has a new calculated value of 23221.9582423568.
+INFO: Sample N03-0051 1.1 has a new calculated value of 0.
+INFO: Sample N03-0051 1.1 has a new calculated value of 0.
+INFO: Sample N03-0051 1.1 has a new calculated value of 8690.27847424148.
+INFO: Sample A01-0240 1.1 has a new calculated value of 0.
+INFO: Sample A01-0240 1.1 has a new calculated value of 122705.104798078.
+INFO: Sample A01-0240 1.1 has a new calculated value of 95999.5029866695.
+INFO: Sample L01-0122 1.1 has a new calculated value of 0.
+INFO: Sample L01-0122 1.1 has a new calculated value of 0.
+INFO: Sample L01-0122 1.1 has a new calculated value of 2792.34920628369.
+INFO: Sample N03-0063 1.1 has a new calculated value of 0.
+INFO: Sample N03-0063 1.1 has a new calculated value of 5992.10327491163.
+INFO: Sample N03-0063 1.1 has a new calculated value of 5992.10327491163.
+INFO: Sample M04-0036 1.1 has a new calculated value of 0.
+INFO: Sample M04-0036 1.1 has a new calculated value of 0.
+INFO: Sample M04-0036 1.1 has a new calculated value of 0.
+INFO: Sample J01-0040 1.1 has a new calculated value of 0.
+INFO: Sample J01-0040 1.1 has a new calculated value of 0.
+INFO: Sample J01-0040 1.1 has a new calculated value of 0.
+INFO: Sample M04-0070 1.1 has a new calculated value of 0.
+INFO: Sample M04-0070 1.1 has a new calculated value of 10023.1410562992.
+INFO: Sample M04-0070 1.1 has a new calculated value of 5011.27059571447.
+INFO: Sample R01-0020 1.1 has a new calculated value of 0.
+INFO: Sample R01-0020 1.1 has a new calculated value of 0.
+INFO: Sample R01-0020 1.1 has a new calculated value of 0.
+INFO: Sample J01-0039 1.1 has a new calculated value of 0.
+INFO: Sample J01-0039 1.1 has a new calculated value of 0.
+INFO: Sample J01-0039 1.1 has a new calculated value of 0.
+INFO: Sample K01-0075 1.1 has a new calculated value of 0.
+INFO: Sample K01-0075 1.1 has a new calculated value of 16066.3560032845.
+INFO: Sample K01-0075 1.1 has a new calculated value of 18744.6793913841.
+INFO: Sample K01-0079 1.1 has a new calculated value of 0.
+INFO: Sample K01-0079 1.1 has a new calculated value of 19450.5494087934.
+INFO: Sample K01-0079 1.1 has a new calculated value of 25009.5067173242.
+INFO: Sample R01-0015 1.1 has a new calculated value of 0.
+INFO: Sample R01-0015 1.1 has a new calculated value of 0.
+INFO: Sample R01-0015 1.1 has a new calculated value of 0.
+INFO: Sample L01-0085 1.1 has a new calculated value of 0.
+INFO: Sample L01-0085 1.1 has a new calculated value of 0.
+INFO: Sample L01-0085 1.1 has a new calculated value of 0.
+INFO: Sample M03-0066 1.1 has a new calculated value of 0.
+INFO: Sample M03-0066 1.1 has a new calculated value of 21069.1292211413.
+INFO: Sample M03-0066 1.1 has a new calculated value of 23703.5148963332.
+INFO: Sample L01-0115 1.1 has a new calculated value of 0.
+INFO: Sample L01-0115 1.1 has a new calculated value of 347724.401950836.
+INFO: Sample L01-0115 1.1 has a new calculated value of 353356.549143791.
+INFO: Sample L01-0116 1.1 has a new calculated value of 0.
+INFO: Sample L01-0116 1.1 has a new calculated value of 28590.0863260031.
+INFO: Sample L01-0116 1.1 has a new calculated value of 33790.3775274754.
+LOW : WaTCH status of O01-0056 1.1 has been changed to Complete.
+LOW : WaTCH status of M04-0031 1.1 has been changed to Complete.
+LOW : WaTCH status of A01-0241 1.1 has been changed to Complete.
+LOW : WaTCH status of J01-0040 1.1 has been changed to Complete.
+LOW : WaTCH status of R01-0029 1.1 has been changed to Complete.
+LOW : WaTCH status of R01-0015 1.1 has been changed to Complete.
+LOW : WaTCH status of D01-0044 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0075 1.1 has been changed to Complete.
+LOW : WaTCH status of R01-0020 1.1 has been changed to Complete.
+LOW : WaTCH status of O01-0075 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0069 1.1 has been changed to Complete.
+LOW : WaTCH status of M04-0070 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0057 1.1 has been changed to Complete.
+LOW : WaTCH status of M03-0072 1.1 has been changed to Complete.
+LOW : WaTCH status of O01-0070 1.1 has been changed to Complete.
+LOW : WaTCH status of M03-0067 1.1 has been changed to Complete.
+LOW : WaTCH status of D01-0066 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0080 1.1 has been changed to Complete.
+LOW : WaTCH status of A01-0240 1.1 has been changed to Complete.
+LOW : WaTCH status of K01-0075 1.1 has been changed to Complete.
+LOW : WaTCH status of M03-0069 1.1 has been changed to Complete.
+LOW : WaTCH status of C01-0164 1.2 has been changed to Complete.
+LOW : WaTCH status of M04-0036 1.1 has been changed to Complete.
+LOW : WaTCH status of J01-0038 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0065 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0074 1.1 has been changed to Complete.
+LOW : WaTCH status of M03-0074 1.1 has been changed to Complete.
+LOW : WaTCH status of A01-0243 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0122 1.1 has been changed to Complete.
+LOW : WaTCH status of J01-0037 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0053 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0070 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0095 1.1 has been changed to Complete.
+LOW : WaTCH status of R01-0026 1.1 has been changed to Complete.
+LOW : WaTCH status of D01-0049 1.1 has been changed to Complete.
+LOW : WaTCH status of A01-0242 1.1 has been changed to Complete.
+LOW : WaTCH status of K01-0078 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0112 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0051 1.1 has been changed to Complete.
+LOW : WaTCH status of K01-0079 1.1 has been changed to Complete.
+LOW : WaTCH status of M04-0066 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0068 1.1 has been changed to Complete.
+LOW : WaTCH status of C01-0165 1.2 has been changed to Complete.
+LOW : WaTCH status of L01-0116 1.1 has been changed to Complete.
+LOW : WaTCH status of O01-0063 1.1 has been changed to Complete.
+LOW : WaTCH status of K01-0080 1.1 has been changed to Complete.
+LOW : WaTCH status of M04-0026 1.1 has been changed to Complete.
+LOW : WaTCH status of R01-0014 1.1 has been changed to Complete.
+LOW : WaTCH status of J01-0039 1.1 has been changed to Complete.
+LOW : WaTCH status of J01-0036 1.1 has been changed to Complete.
+LOW : WaTCH status of D01-0048 1.1 has been changed to Complete.
+LOW : WaTCH status of O01-0052 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0069 1.1 has been changed to Complete.
+LOW : WaTCH status of N02-0059 1.1 has been changed to Complete.
+LOW : WaTCH status of M03-0066 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0115 1.1 has been changed to Complete.
+LOW : WaTCH status of L01-0085 1.1 has been changed to Complete.
+LOW : WaTCH status of N03-0063 1.1 has been changed to Complete.
+#
+# WaTCHdb update complete.
+# 2022-05-06.14-28-30.
