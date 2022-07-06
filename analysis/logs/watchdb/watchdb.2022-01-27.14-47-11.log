@@ -1,0 +1,189 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to DB/INCREMENTAL/watchdb.2022-01-27.14-47-11.txt and DB/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-01-27.14-47-11.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import.
+1300 samples added.
+HIGH: During AT import of A02-0299, AT value for A02-0299:Description (SAMPLE) is replacing the existing WaTCHdb value (SAMPLE ).
+HIGH: During AT import of A02-0299, AT value for A02-0299:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0303, AT value for A02-0303:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0303, AT value for A02-0303:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+INFO: Asset ID A02-0310, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0307, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of A02-0306, AT value for A02-0306:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0306, AT value for A02-0306:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0297, AT value for A02-0297:Description (sample) is replacing the existing WaTCHdb value (sample ).
+HIGH: During AT import of A02-0297, AT value for A02-0297:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0298, AT value for A02-0298:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0298, AT value for A02-0298:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0304, AT value for A02-0304:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0304, AT value for A02-0304:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+INFO: Asset ID A02-0278, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0309, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of A02-0305, AT value for A02-0305:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0305, AT value for A02-0305:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0301, AT value for A02-0301:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0301, AT value for A02-0301:Sample Collection By (Gz) is replacing the existing WaTCHdb value (Gz ).
+HIGH: During AT import of A02-0300, AT value for A02-0300:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0300, AT value for A02-0300:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A02-0302, AT value for A02-0302:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A02-0302, AT value for A02-0302:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+INFO: Asset ID A02-0308, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of A03-0187, AT value for A03-0187:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0191, AT value for A03-0191:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0193, AT value for A03-0193:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0189, AT value for A03-0189:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0192, AT value for A03-0192:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0127, AT value for A03-0127:Description (Sample) is replacing the existing WaTCHdb value (Sample ).
+HIGH: During AT import of A03-0127, AT value for A03-0127:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+INFO: Asset ID A03-0122, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID D01-0001, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID D01-0023, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of A03-0134, AT value for A03-0134:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+HIGH: During AT import of A03-0146, AT value for A03-0146:Sample Collection By (GZ) is replacing the existing WaTCHdb value (GZ ).
+INFO: Asset ID G01-0041, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID G01-0046, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID G01-0081, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID G01-0096, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0025, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0024, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0023, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0022, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0021, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0018, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID L01-0016, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID K01-0007, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID K01-0017, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID K01-0019, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID K01-0018, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Sample A03-0183 has a new calculated value of 2369.16789785028.
+INFO: Sample A03-0183 has a new calculated value of 2369.16789785028.
+INFO: Sample A03-0183 has a new calculated value of 2369.16789785028.
+INFO: Sample A03-0134 has a new calculated value of 45244.1782504321.
+INFO: Sample A03-0134 has a new calculated value of 10436.6295039654.
+INFO: Sample A03-0134 has a new calculated value of 0.
+INFO: Sample A03-0150 has a new calculated value of 0.
+INFO: Sample A03-0150 has a new calculated value of 0.
+INFO: Sample A03-0150 has a new calculated value of 0.
+INFO: Sample A02-0305 has a new calculated value of 0.
+INFO: Sample A02-0305 has a new calculated value of 0.
+INFO: Sample A02-0305 has a new calculated value of 0.
+INFO: Sample A01-0156 has a new calculated value of 5169.18634995817.
+INFO: Sample A01-0156 has a new calculated value of 441672.829985618.
+INFO: Sample A01-0156 has a new calculated value of 488711.850643158.
+INFO: Sample A02-0299 has a new calculated value of 103831.007480621.
+INFO: Sample A02-0299 has a new calculated value of 2929236.2165451.
+INFO: Sample A02-0299 has a new calculated value of 3353401.80873871.
+INFO: Sample A03-0189 has a new calculated value of 171394.741237164.
+INFO: Sample A03-0189 has a new calculated value of 0.
+INFO: Sample A03-0189 has a new calculated value of 0.
+INFO: Sample A03-0192 has a new calculated value of 181044.628322124.
+INFO: Sample A03-0192 has a new calculated value of 138375.469297171.
+INFO: Sample A03-0192 has a new calculated value of 133044.889569283.
+INFO: Sample E02-0099 has a new calculated value of 29748.3924776316.
+INFO: Sample E02-0099 has a new calculated value of 362131.249308585.
+INFO: Sample E02-0099 has a new calculated value of 365880.929231642.
+INFO: Sample A02-0301 has a new calculated value of 42876.4893114568.
+INFO: Sample A02-0301 has a new calculated value of 3014956.1548233.
+INFO: Sample A02-0301 has a new calculated value of 3153337.34035492.
+INFO: Sample A03-0146 has a new calculated value of 214208.572804928.
+INFO: Sample A03-0146 has a new calculated value of 4856.23843967916.
+INFO: Sample A03-0146 has a new calculated value of 4856.23843967916.
+INFO: Sample A03-0185 has a new calculated value of 66411.6237312555.
+INFO: Sample A03-0185 has a new calculated value of 0.
+INFO: Sample A03-0185 has a new calculated value of 0.
+INFO: Sample A01-0158 has a new calculated value of 26129.5298114419.
+INFO: Sample A01-0158 has a new calculated value of 565406.491756439.
+INFO: Sample A01-0158 has a new calculated value of 459635.396003724.
+INFO: Sample A01-0155 has a new calculated value of 4950.89074596762.
+INFO: Sample A01-0155 has a new calculated value of 701395.318508149.
+INFO: Sample A01-0155 has a new calculated value of 751767.082214357.
+INFO: Sample A03-0191 has a new calculated value of 33590.3921350837.
+INFO: Sample A03-0191 has a new calculated value of 18083.7896838784.
+INFO: Sample A03-0191 has a new calculated value of 12916.1969572306.
+INFO: Sample C01-0108 has a new calculated value of 5300.25523155928.
+INFO: Sample C01-0108 has a new calculated value of 319207.679629326.
+INFO: Sample C01-0108 has a new calculated value of 204545.214772224.
+INFO: Sample A02-0304 has a new calculated value of 32421.3245138526.
+INFO: Sample A02-0304 has a new calculated value of 744778.497219086.
+INFO: Sample A02-0304 has a new calculated value of 430721.849799155.
+INFO: Sample A02-0302 has a new calculated value of 122148.149907589.
+INFO: Sample A02-0302 has a new calculated value of 1611603.16944122.
+INFO: Sample A02-0302 has a new calculated value of 1764941.89739227.
+INFO: Sample A03-0127 has a new calculated value of 65698.1561332941.
+INFO: Sample A03-0127 has a new calculated value of 0.
+INFO: Sample A03-0127 has a new calculated value of 0.
+INFO: Sample A01-0157 has a new calculated value of 17445.0631253421.
+INFO: Sample A01-0157 has a new calculated value of 612411.096096039.
+INFO: Sample A01-0157 has a new calculated value of 539154.17969227.
+INFO: Sample A01-0154 has a new calculated value of 5588.23549188673.
+INFO: Sample A01-0154 has a new calculated value of 1112654.34980393.
+INFO: Sample A01-0154 has a new calculated value of 1264993.00003052.
+INFO: Sample E01-0052 has a new calculated value of 13828.4629583359.
+INFO: Sample E01-0052 has a new calculated value of 1678481.17589951.
+INFO: Sample E01-0052 has a new calculated value of 1286958.15324783.
+INFO: Sample A02-0303 has a new calculated value of 158363.85011673.
+INFO: Sample A02-0303 has a new calculated value of 998340.328931808.
+INFO: Sample A02-0303 has a new calculated value of 1140921.25654221.
+INFO: Sample C01-0110 has a new calculated value of 5447.33094982802.
+INFO: Sample C01-0110 has a new calculated value of 210235.016942024.
+INFO: Sample C01-0110 has a new calculated value of 215709.742605686.
+INFO: Sample A03-0180 has a new calculated value of 30472.9740321636.
+INFO: Sample A03-0180 has a new calculated value of 0.
+INFO: Sample A03-0180 has a new calculated value of 0.
+INFO: Sample C01-0111 has a new calculated value of 0.
+INFO: Sample C01-0111 has a new calculated value of 205472.620725632.
+INFO: Sample C01-0111 has a new calculated value of 260435.871183872.
+INFO: Sample A03-0187 has a new calculated value of 25766.3089782.
+INFO: Sample A03-0187 has a new calculated value of 0.
+INFO: Sample A03-0187 has a new calculated value of 0.
+INFO: Sample C01-0109 has a new calculated value of 0.
+INFO: Sample C01-0109 has a new calculated value of 410452.880859375.
+INFO: Sample C01-0109 has a new calculated value of 413166.571855544.
+INFO: Sample A03-0193 has a new calculated value of 112868.374139071.
+INFO: Sample A03-0193 has a new calculated value of 21475.3173664212.
+INFO: Sample A03-0193 has a new calculated value of 16105.4565757513.
+INFO: Sample C01-0112 has a new calculated value of 12395.8964645862.
+INFO: Sample C01-0112 has a new calculated value of 418523.218631743.
+INFO: Sample C01-0112 has a new calculated value of 433548.064827919.
+INFO: Sample A01-0159 has a new calculated value of 52488.1251901387.
+INFO: Sample A01-0159 has a new calculated value of 684987.941980361.
+INFO: Sample A01-0159 has a new calculated value of 636774.11198616.
+INFO: Sample A02-0306 has a new calculated value of 18134.7898766398.
+INFO: Sample A02-0306 has a new calculated value of 307080.599069595.
+INFO: Sample A02-0306 has a new calculated value of 357337.256669997.
+LOW : WaTCH status of A03-0180 has been changed to Complete.
+LOW : WaTCH status of A01-0154 has been changed to Complete.
+LOW : WaTCH status of A02-0304 has been changed to Complete.
+LOW : WaTCH status of A01-0158 has been changed to Complete.
+LOW : WaTCH status of A03-0189 has been changed to Complete.
+LOW : WaTCH status of A02-0303 has been changed to Complete.
+LOW : WaTCH status of A03-0191 has been changed to Complete.
+LOW : WaTCH status of A01-0159 has been changed to Complete.
+LOW : WaTCH status of C01-0110 has been changed to Complete.
+LOW : WaTCH status of A01-0155 has been changed to Complete.
+LOW : WaTCH status of A02-0301 has been changed to Complete.
+LOW : WaTCH status of A02-0306 has been changed to Complete.
+LOW : WaTCH status of A01-0157 has been changed to Complete.
+LOW : WaTCH status of A03-0192 has been changed to Complete.
+LOW : WaTCH status of A03-0183 has been changed to Complete.
+LOW : WaTCH status of E02-0099 has been changed to Complete.
+LOW : WaTCH status of A03-0134 has been changed to Complete.
+LOW : WaTCH status of A02-0302 has been changed to Complete.
+LOW : WaTCH status of C01-0111 has been changed to Complete.
+LOW : WaTCH status of A03-0127 has been changed to Complete.
+LOW : WaTCH status of A03-0146 has been changed to Complete.
+LOW : WaTCH status of C01-0108 has been changed to Complete.
+LOW : WaTCH status of A01-0156 has been changed to Complete.
+LOW : WaTCH status of A03-0187 has been changed to Complete.
+LOW : WaTCH status of C01-0109 has been changed to Complete.
+LOW : WaTCH status of C01-0112 has been changed to Complete.
+LOW : WaTCH status of A03-0193 has been changed to Complete.
+LOW : WaTCH status of A03-0185 has been changed to Complete.
+#
+# WaTCHdb update complete.
+# 2022-01-27.14-47-12.

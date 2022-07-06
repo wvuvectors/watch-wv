@@ -1,0 +1,80 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to DB/INCREMENTAL/watchdb.2022-02-03.15-11-52.txt and DB/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-02-03.15-11-52.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import.
+1323 samples added.
+HIGH: During AT import of A01-0141, AT value for A01-0141:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0145, AT value for A01-0145:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0146, AT value for A01-0146:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0147, AT value for A01-0147:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0150, AT value for A01-0150:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0154, AT value for A01-0154:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of A01-0158, AT value for A01-0158:Description (G) is replacing the existing WaTCHdb value (Sample).
+INFO: Asset ID A01-0160, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A01-0161, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A01-0162, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A01-0163, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A01-0164, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A01-0165, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0288, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0312, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0313, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0314, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0315, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0317, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0318, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0319, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A02-0320, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A03-0226, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A03-0228, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A04-0001, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A04-0002, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A04-0003, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A04-0004, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID A04-0005, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of B01-0036, AT value for B01-0036:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of B01-0038, AT value for B01-0038:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of C01-0065, AT value for C01-0065:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of C01-0102, AT value for C01-0102:Description (G) is replacing the existing WaTCHdb value (Sample).
+INFO: Asset ID C01-0113, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID C01-0114, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID C01-0115, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID C01-0116, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID C01-0117, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID D01-0004, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID D01-0018, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of D01-0023, AT value for D01-0023:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of E01-0025, AT value for E01-0025:Description (G) is replacing the existing WaTCHdb value (Sample).
+INFO: Asset ID E02-0092, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID E02-0093, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID E02-0094, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID E02-0095, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID E02-0096, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of G01-0049, AT value for G01-0049:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of G01-0078, AT value for G01-0078:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of G01-0081, AT value for G01-0081:Sample Flow (MGD) (1.030) is replacing the existing WaTCHdb value (1.03).
+HIGH: During AT import of H01-0054, AT value for H01-0054:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of H01-0055, AT value for H01-0055:Description (G) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of H01-0058, AT value for H01-0058:Description (SAMPLE) is replacing the existing WaTCHdb value (Sample).
+INFO: Asset ID H01-0104, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0105, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0106, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0107, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0108, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0109, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID H01-0110, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: During AT import of K01-0021, AT value for K01-0021:Description (SAMPLE) is replacing the existing WaTCHdb value (Sample).
+HIGH: During AT import of L01-0021, AT value for L01-0021:Sample Flow (MGD) (0.310) is replacing the existing WaTCHdb value (0.31).
+INFO: Asset ID P01-0023, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID P01-0024, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID P01-0025, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID P01-0030, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+INFO: Asset ID D001-0018, found during AssetTiger import, does not exist in the latest WaTCHdb. It will be added.
+HIGH: Mysterious sample ID A03-0307, found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: Mysterious sample ID A03-0305, found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+INFO: Sample E02-0096 has a new calculated value of 16764.7070065141.

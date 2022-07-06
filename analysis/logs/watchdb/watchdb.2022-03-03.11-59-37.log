@@ -1,0 +1,10 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to DB/INCREMENTAL/watchdb.2022-03-03.11-59-37.txt and DB/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-03-03.11-59-37.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 1693 samples added.
+INFO: Finished AssetTiger import. 42 new samples added. 1735 total samples present.
