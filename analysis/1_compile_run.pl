@@ -43,7 +43,7 @@ my %outhead = ();
 foreach (@plate_files) {
 	my $plate_wkbk = ReadData("$rundir/$_", dtfmt => "mm/dd/yy");
 	
-	# parse data based on plate type
+	# parse data based on plate type, which is recorded in cell B1 (page 1, row 1, column 2)
 	my @row = Spreadsheet::Read::row($plate_wkbk->[1], 1);
 	parse_plate("$row[1]", $plate_wkbk, \%sample2metadata, \%outhead);
 }

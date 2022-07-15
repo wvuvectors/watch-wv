@@ -104,8 +104,8 @@ while (my $line = <$tFH>) {
 }
 close $tFH;
 
-print $logFH scalar(keys %TARGETS) . " molecular targets added.\n";
-print scalar(keys %TARGETS) . " molecular targets added.\n";
+print $logFH scalar(keys %TARGETS) . " molecular targets assayed in current run.\n";
+print scalar(keys %TARGETS) . " molecular targets assayed in current run.\n";
 
 
 #
