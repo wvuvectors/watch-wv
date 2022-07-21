@@ -12,8 +12,6 @@ use DateTime::Format::Excel;
 use Data::Dumper;
 
 
-# read in plate files from directory and convert to single table
-
 my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 

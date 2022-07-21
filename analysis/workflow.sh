@@ -16,16 +16,16 @@ do
 	is_asset=$(grep -c "Asset Tag ID," "$f")
 	if [[ "$is_ddpcr" == "1" ]]
 	then
-		echo "Processing data file $f"
+		echo "Fixing known bugs in ddPCR data file $f"
 		perl -pi -e 's/,Taget,/,Target,/i' "$f"
-		perl -pi -e 's/,N1,/,SARS-CoV-2 N1,/i' "$f"
-		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$f"
+#		perl -pi -e 's/,N1,/,SARS-CoV-2 N1,/i' "$f"
+#		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$f"
 		perl -pi -e 's/,RP,/,Human RNase P,/i' "$f"
 		perl -pi -e 's/µ/u/i' "$f"
 		mv "$f" "assay_plate.csv"
 	elif [[ "$is_asset" == "1" ]]
 	then
-		echo "Processing asset file $f"
+		echo "Renaming asset file $f"
 		grep "," "$f" > "assets_all.csv"
 	fi
 done
