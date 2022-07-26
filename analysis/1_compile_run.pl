@@ -43,7 +43,7 @@ my %platecols    = ("assay" => {}, "concentration" => {}, "extraction" => {});
 my %sample2id = ();
 
 my %updatecols   = (
-	"assay" => ["assay_id", "extraction_id", "assay_plate_id", "assay_plate_cell", "assay_input_ml", "assay_type", "assay_comments"], 
+	"assay" => ["assay_id", "extraction_id", "assay_plate_id", "assay_plate_cell", "assay_input_ml", "assay_type", "assay_comments", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_fluorophore"], 
 	"concentration" => ["concentration_id", "concentration_plate_id", "concentration_plate_cell", "concentration_storage_location", "concentration_comments"], 
 	"extraction" => ["extraction_id", "concentration_id", "extraction_plate_id", "extraction_plate_cell", "extraction_storage_location", "extraction_comments"]
 );
@@ -88,9 +88,10 @@ foreach my $ptype (keys %plates) {
 }
 =cut
 
-# write sample update files (conc, extract, assay)
+# write one-to-one update files (conc, extract)
 
 foreach my $ptype (keys %plates) {
+	next if "$ptype" eq "assay";
 	my $lead = substr $ptype, 0, 1;
 	open (my $ufh, ">", "$rundir/update.$ptype.txt") or die "Unable to open $rundir/update.$ptype.txt for writing: $!";
 	print $ufh join("\t", @{$updatecols{"$ptype"}}) . "\n";
@@ -107,6 +108,8 @@ foreach my $ptype (keys %plates) {
 					print $ufh "\t" . $plates{"$ptype"}->{"$pid"}->{"$key"};
 				} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
 					print $ufh "\t" . $sample2id{"$sample_id"}->{"$key"};
+				} else {
+					print $ufh "\t";
 				}
 			}
 			print $ufh "\n";
@@ -114,6 +117,16 @@ foreach my $ptype (keys %plates) {
 	}
 	close $ufh;
 }
+
+
+# write assay update file, a many-to-one set
+my $lead = "a";
+open (my $ufh, ">", "$rundir/update.$ptype.txt") or die "Unable to open $rundir/update.$ptype.txt for writing: $!";
+print $ufh join("\t", @{$updatecols{"$ptype"}}) . "\n";
+foreach my $pid (keys %{$plates{"$ptype"}}) {
+	foreach my $cell (keys %{$plates{"$ptype"}->{"$pid"}->{"cells"}}) {
+		my $sample_id = $plates{"$ptype"}->{"$pid"}->{"cells"}->{"$cell"}->{"sample_id"};
+		my $uid = $sample2id{"$sample_id"}->{"${ptype}_id"};
 
 
 =cut

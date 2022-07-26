@@ -4,12 +4,12 @@ assay_plate_id
 assay_plate_cell
 assay_input_ml
 assay_type
-assay_accepted_droplets
 assay_target
 assay_target_category
 assay_target_genetic_locus
 assay_target_macromolecule
 assay_fluorophore
+assay_accepted_droplets
 assay_calculated_copies_per_reaction
 assay_copies_per_reaction
 assay_result
