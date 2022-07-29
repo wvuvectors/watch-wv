@@ -36,7 +36,6 @@ opendir(my $dirH, $rundir) or die "Unable to open directory $rundir: $!";
 my @plate_files = grep { (/\.xlsx$/) && (!/^~/) && -f "$rundir/$_" } readdir($dirH);
 closedir $dirH;
 
-
 my %plates       = ("assay" => {}, "concentration" => {}, "extraction" => {});
 my %platecols    = ("assay" => {}, "concentration" => {}, "extraction" => {});
 
@@ -49,6 +48,20 @@ my %updatecols   = (
 );
 
 my %fluorcols = ();
+
+
+# read in assay data file assay_plate.csv
+# Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
+my %well2data = ();
+open (my $afh, "<", "$rundir/assay_plate.csv") or die "Unable to open $rundir/assay_plate.csv for reading: $!";
+while (my $line = <$afh>) {
+	chomp $line;
+	next if $line =~ /^\s*$/;
+	
+}
+close $afh;
+
+
 
 foreach (@plate_files) {
 	my $plate_wkbk = ReadData("$rundir/$_", dtfmt => "mm/dd/yy");
@@ -64,11 +77,11 @@ foreach (@plate_files) {
 	read_plate_data("$ptype", $plate_id, $plate_wkbk, $plates{"$ptype"}->{"$plate_id"}, \%sample2id);
 }
 
+#print Dumper($plates{"assay"});
 #print Dumper(\%sample2id);
 #die;
 
 
-=cut
 # Write plate metadata to update files
 my %platef = ("assay" => "aplate", "concentration" => "cplate", "extraction" => "eplate");
 foreach my $ptype (keys %plates) {
@@ -86,7 +99,6 @@ foreach my $ptype (keys %plates) {
 	}
 	close $pfh;
 }
-=cut
 
 # write one-to-one update files (conc, extract)
 
@@ -119,14 +131,17 @@ foreach my $ptype (keys %plates) {
 }
 
 
+=cut
 # write assay update file, a many-to-one set
-my $lead = "a";
+my $ptype = "assay";
+my $lead = substr $ptype, 0, 1;
 open (my $ufh, ">", "$rundir/update.$ptype.txt") or die "Unable to open $rundir/update.$ptype.txt for writing: $!";
 print $ufh join("\t", @{$updatecols{"$ptype"}}) . "\n";
 foreach my $pid (keys %{$plates{"$ptype"}}) {
 	foreach my $cell (keys %{$plates{"$ptype"}->{"$pid"}->{"cells"}}) {
 		my $sample_id = $plates{"$ptype"}->{"$pid"}->{"cells"}->{"$cell"}->{"sample_id"};
 		my $uid = $sample2id{"$sample_id"}->{"${ptype}_id"};
+=cut
 
 
 =cut
