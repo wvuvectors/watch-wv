@@ -2,6 +2,8 @@
 
 use strict;
 use warnings;
+use Text::CSV;
+#use DateTime qw( );
 use Spreadsheet::Read qw(ReadData);
 use Spreadsheet::ParseXLSX;
 use DateTime::Format::Excel;
@@ -38,29 +40,35 @@ closedir $dirH;
 
 my %plates       = ("assay" => {}, "concentration" => {}, "extraction" => {});
 my %platecols    = ("assay" => {}, "concentration" => {}, "extraction" => {});
-
-my %sample2id = ();
+my %sample2id    = ();
 
 my %updatecols   = (
-	"assay" => ["assay_id", "extraction_id", "assay_plate_id", "assay_plate_cell", "assay_input_ml", "assay_type", "assay_comments", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_fluorophore"], 
-	"concentration" => ["concentration_id", "concentration_plate_id", "concentration_plate_cell", "concentration_storage_location", "concentration_comments"], 
+	"assay" => ["assay_id", "extraction_id", "assay_plate_id", "assay_plate_cell", "assay_input_ul", "assay_type", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_fluorophore", "assay_accepted_droplets", "assay_calculated_copies_per_ul_reaction", "assay_copies_per_ul_reaction", "assay_comments"], 
+	"concentration" => ["concentration_id", "sample_id", "concentration_plate_id", "concentration_plate_cell", "concentration_storage_location", "concentration_comments"], 
 	"extraction" => ["extraction_id", "concentration_id", "extraction_plate_id", "extraction_plate_cell", "extraction_storage_location", "extraction_comments"]
 );
 
 my %fluorcols = ();
 
 
-# read in assay data file assay_plate.csv
+# read in assay data file, assay_plate.csv
 # Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
-my %well2data = ();
-open (my $afh, "<", "$rundir/assay_plate.csv") or die "Unable to open $rundir/assay_plate.csv for reading: $!";
-while (my $line = <$afh>) {
-	chomp $line;
-	next if $line =~ /^\s*$/;
-	
+my %cell2data = ();
+my $csvA = Text::CSV->new({auto_diag => 4, binary => 1});
+open (my $afh, "<", "$rundir/assay_plate.csv") or die "Unable to open $rundir/assay_plate.csv for reading: $!\n";
+my $count = 0;
+while (my $line = $csvA->getline($afh)) {
+	my @cols = @$line;
+	$count++;
+	if (scalar @cols < 15) {
+		warn "WARN  : Line $count in assay_plate.csv has " . scalar(@cols) . " but requires exactly 15. Skipping.\n";
+		next;
+	}
+	my ($cell, $result, $dye, $accepted_droplets) = ($cols[0], $cols[6], $cols[12], $cols[13]);
+	$cell2data{"$cell"} = {} unless defined $cell2data{"$cell"};
+	$cell2data{"$cell"}->{"$dye"} = {"assay_copies_per_ul_reaction" => $result, "assay_accepted_droplets" => $accepted_droplets};
 }
 close $afh;
-
 
 
 foreach (@plate_files) {
@@ -77,7 +85,8 @@ foreach (@plate_files) {
 	read_plate_data("$ptype", $plate_id, $plate_wkbk, $plates{"$ptype"}->{"$plate_id"}, \%sample2id);
 }
 
-#print Dumper($plates{"assay"});
+#print Dumper(\%cell2data);
+#print Dumper(\%plates);
 #print Dumper(\%sample2id);
 #die;
 
@@ -101,10 +110,9 @@ foreach my $ptype (keys %plates) {
 }
 
 # write one-to-one update files (conc, extract)
-
 foreach my $ptype (keys %plates) {
 	next if "$ptype" eq "assay";
-	my $lead = substr $ptype, 0, 1;
+	#my $lead = substr $ptype, 0, 1;
 	open (my $ufh, ">", "$rundir/update.$ptype.txt") or die "Unable to open $rundir/update.$ptype.txt for writing: $!";
 	print $ufh join("\t", @{$updatecols{"$ptype"}}) . "\n";
 	foreach my $pid (keys %{$plates{"$ptype"}}) {
@@ -130,18 +138,60 @@ foreach my $ptype (keys %plates) {
 	close $ufh;
 }
 
-
-=cut
 # write assay update file, a many-to-one set
+# assay_id
+# extraction_id
+# assay_plate_id
+# assay_plate_cell
+# assay_input_ml
+# assay_type
+# assay_target
+# assay_target_category
+# assay_target_genetic_locus
+# assay_target_macromolecule
+# assay_fluorophore
+# assay_accepted_droplets
+# assay_calculated_copies_per_reaction
+# assay_copies_per_reaction
+# assay_result
+# assay_comments
 my $ptype = "assay";
-my $lead = substr $ptype, 0, 1;
 open (my $ufh, ">", "$rundir/update.$ptype.txt") or die "Unable to open $rundir/update.$ptype.txt for writing: $!";
 print $ufh join("\t", @{$updatecols{"$ptype"}}) . "\n";
+my $lead = substr $ptype, 0, 1;
 foreach my $pid (keys %{$plates{"$ptype"}}) {
 	foreach my $cell (keys %{$plates{"$ptype"}->{"$pid"}->{"cells"}}) {
 		my $sample_id = $plates{"$ptype"}->{"$pid"}->{"cells"}->{"$cell"}->{"sample_id"};
-		my $uid = $sample2id{"$sample_id"}->{"${ptype}_id"};
-=cut
+		
+		# REMOVE CONTROLS
+		next if "$sample_id" eq "PCR NC" or "$sample_id" eq "PCR PC";
+		
+		my $count = 1;
+		foreach my $fluor (keys %{$plates{"$ptype"}->{"$pid"}->{"fluorophores"}}) {
+			my $uid = "$sample_id.${lead}$count";
+			$count++;
+			print $ufh "$uid";
+			for (my $i=1; $i<scalar(@{$updatecols{"$ptype"}}); $i++) {
+				my $key = $updatecols{"$ptype"}->[$i];
+				if (defined $plates{"$ptype"}->{"$pid"}->{"cells"}->{"$cell"}->{"$key"}) {
+					print $ufh "\t" . $plates{"$ptype"}->{"$pid"}->{"cells"}->{"$cell"}->{"$key"};
+				} elsif (defined $plates{"$ptype"}->{"$pid"}->{"$key"}) {
+					print $ufh "\t" . $plates{"$ptype"}->{"$pid"}->{"$key"};
+				} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
+					print $ufh "\t" . $sample2id{"$sample_id"}->{"$key"};
+				} elsif (defined $plates{"$ptype"}->{"$pid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
+					print $ufh "\t" . $plates{"$ptype"}->{"$pid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
+				} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
+					print $ufh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
+				} else {
+					print $ufh "\t";
+				}
+			}
+			print $ufh "\n";
+		}
+	}
+}
+close $ufh;
 
 
 =cut
@@ -260,17 +310,16 @@ sub read_plate_data {
 				my $plate_cell = "$row2name[$i]" . sprintf("%02d", $j);
 				
 				unless ("" eq "$sample_id" or "buffer" eq lc($sample_id)) {
-					$plate->{"cells"}->{"$plate_cell"} = {"${ptype}_plate_cell" => "$plate_cell"};
+					$plate->{"cells"}->{"$plate_cell"} = {"${ptype}_plate_cell" => "$plate_cell", "${ptype}_plate_id" => "$pid"};
 					# record the sample id
 					$plate->{"cells"}->{"$plate_cell"}->{"sample_id"} = "$sample_id";
 
-					# record the id
+					# record the sample to id mapping
 					my $lead = substr $ptype, 0, 1;
 					$s2id->{"$sample_id"} = {} unless defined $s2id->{"$sample_id"};
 					my $num = 1;
 					my $uid = "$sample_id.${lead}${num}";
 					$s2id->{"$sample_id"}->{"${ptype}_id"} = "$uid";
-					$plate->{"cells"}->{"$plate_cell"}->{"${ptype}_id"} = "$uid";
 
 					# record any comment on the sample in this plate
 					$plate->{"cells"}->{"$plate_cell"}->{"${ptype}_comments"} = "$comment_rows[$i][$j]" if defined $comment_rows[$i][$j];
@@ -279,7 +328,7 @@ sub read_plate_data {
 						if (defined $volstor_rows[$i][$j] and "$volstor_rows[$i][$j]" ne "") {
 							$plate->{"cells"}->{"$plate_cell"}->{"${ptype}_input_ml"} = "$volstor_rows[$i][$j]";
 						} else {
-							$plate->{"cells"}->{"$plate_cell"}->{"${ptype}_input_ml"} = $plate->{"assay_input_ml"};
+							$plate->{"cells"}->{"$plate_cell"}->{"${ptype}_input_ul"} = $plate->{"assay_input_ul"};
 						}
 					} else {
 						# for all other plates, store the storage location
