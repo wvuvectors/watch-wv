@@ -167,6 +167,9 @@ first_day <- as_date("2021-07-01")
 last_day <- max(df_watch_pre$day)
 df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 
+# TEMP KLUDGE!!!
+#df_watch_pre <- df_watch_pre %>% filter(type != "higher ed dorm")
+
 # Set the primary plot column names for each group
 #df_watch_pre <- df_watch_pre %>% mutate(plot_view_col = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean", no = "n1n2.day5.mean"),
 #																				plot_view_colbase = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean.baseline", no = "n1n2.day5.mean.baseline"))
