@@ -1,0 +1,109 @@
+assay_id	extraction_id	assay_batch_id	assay_location_in_batch	assay_input_ul	assay_target	assay_target_category	assay_target_genetic_locus	assay_target_macromolecule	assay_target_fluorophore	assay_accepted_droplets	assay_target_calculated_copies_per_ul_reaction	assay_target_copies_per_ul_reaction	assay_comment
+E4.a1	E4.e1	AP42	E04	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17635			
+E4.a2	E4.e1	AP42	E04	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17635			
+E4.a3	E4.e1	AP42	E04	5	Human	Internal Control	RNase P	RNA	HEX	17635	0		
+A1.a1	A1.e1	AP42	A01	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18549			
+A1.a2	A1.e1	AP42	A01	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18549			
+A1.a3	A1.e1	AP42	A01	5	Human	Internal Control	RNase P	RNA	HEX	18549	0		
+D6.a1	D6.e1	AP42	D06	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18754			
+D6.a2	D6.e1	AP42	D06	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18754			
+D6.a3	D6.e1	AP42	D06	5	Human	Internal Control	RNase P	RNA	HEX	18754	0		
+E5.a1	E5.e1	AP42	E05	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19226			
+E5.a2	E5.e1	AP42	E05	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19226			
+E5.a3	E5.e1	AP42	E05	5	Human	Internal Control	RNase P	RNA	HEX	19226	0		
+B2.a1	B2.e1	AP42	B02	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16878			
+B2.a2	B2.e1	AP42	B02	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16878			
+B2.a3	B2.e1	AP42	B02	5	Human	Internal Control	RNase P	RNA	HEX	16878	0		
+A3.a1	A3.e1	AP42	A03	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18988			
+A3.a2	A3.e1	AP42	A03	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18988			
+A3.a3	A3.e1	AP42	A03	5	Human	Internal Control	RNase P	RNA	HEX	18988	0		
+E1.a1	E1.e1	AP42	E01	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX				
+E1.a2	E1.e1	AP42	E01	5	SARS-CoV-2	Pathogen	N1	RNA	FAM				
+E1.a3	E1.e1	AP42	E01	5	Human	Internal Control	RNase P	RNA	HEX		0		
+A4.a1	A4.e1	AP42	A04	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16961			
+A4.a2	A4.e1	AP42	A04	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16961			
+A4.a3	A4.e1	AP42	A04	5	Human	Internal Control	RNase P	RNA	HEX	16961	0		
+F6.a1	F6.e1	AP42	F06	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17276			
+F6.a2	F6.e1	AP42	F06	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17276			
+F6.a3	F6.e1	AP42	F06	5	Human	Internal Control	RNase P	RNA	HEX	17276	0		
+E3.a1	E3.e1	AP42	E03	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19604			
+E3.a2	E3.e1	AP42	E03	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19604			
+E3.a3	E3.e1	AP42	E03	5	Human	Internal Control	RNase P	RNA	HEX	19604	0		
+A5.a1	A5.e1	AP42	A05	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16858			
+A5.a2	A5.e1	AP42	A05	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16858			
+A5.a3	A5.e1	AP42	A05	5	Human	Internal Control	RNase P	RNA	HEX	16858	0		
+B1.a1	B1.e1	AP42	B01	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19704			
+B1.a2	B1.e1	AP42	B01	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19704			
+B1.a3	B1.e1	AP42	B01	5	Human	Internal Control	RNase P	RNA	HEX	19704	0		
+A2.a1	A2.e1	AP42	A02	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18177			
+A2.a2	A2.e1	AP42	A02	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18177			
+A2.a3	A2.e1	AP42	A02	5	Human	Internal Control	RNase P	RNA	HEX	18177	0		
+B3.a1	B3.e1	AP42	B03	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17797			
+B3.a2	B3.e1	AP42	B03	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17797			
+B3.a3	B3.e1	AP42	B03	5	Human	Internal Control	RNase P	RNA	HEX	17797	0		
+C6.a1	C6.e1	AP42	C06	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	15895			
+C6.a2	C6.e1	AP42	C06	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	15895			
+C6.a3	C6.e1	AP42	C06	9	Human	Internal Control	RNase P	RNA	HEX	15895	0		
+B4.a1	B4.e1	AP42	B04	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19754			
+B4.a2	B4.e1	AP42	B04	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19754			
+B4.a3	B4.e1	AP42	B04	5	Human	Internal Control	RNase P	RNA	HEX	19754	0		
+B42.a1	B42.e1	AP42	B05	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16516			
+B42.a2	B42.e1	AP42	B05	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16516			
+B42.a3	B42.e1	AP42	B05	5	Human	Internal Control	RNase P	RNA	HEX	16516	0		
+E42.a1	E42.e1	AP42	E02	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	14697			I AM A COMMENT
+E42.a2	E42.e1	AP42	E02	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	14697			I AM A COMMENT
+E42.a3	E42.e1	AP42	E02	5	Human	Internal Control	RNase P	RNA	HEX	14697	0		I AM A COMMENT
+C5.a1	C5.e1	AP42	C05	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18343			
+C5.a2	C5.e1	AP42	C05	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	18343			
+C5.a3	C5.e1	AP42	C05	9	Human	Internal Control	RNase P	RNA	HEX	18343	0		
+C42.a1	C42.e1	AP42	C04	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17681			
+C42.a2	C42.e1	AP42	C04	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	17681			
+C42.a3	C42.e1	AP42	C04	9	Human	Internal Control	RNase P	RNA	HEX	17681	0		
+F2.a1	F2.e1	AP42	F02	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19621			
+F2.a2	F2.e1	AP42	F02	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19621			
+F2.a3	F2.e1	AP42	F02	5	Human	Internal Control	RNase P	RNA	HEX	19621	0		
+D2.a1	D2.e1	AP42	D02	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19335			
+D2.a2	D2.e1	AP42	D02	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19335			
+D2.a3	D2.e1	AP42	D02	5	Human	Internal Control	RNase P	RNA	HEX	19335	0		
+C3.a1	C3.e1	AP42	C03	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	20194			
+C3.a2	C3.e1	AP42	C03	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	20194			
+C3.a3	C3.e1	AP42	C03	9	Human	Internal Control	RNase P	RNA	HEX	20194	0		
+B6.a1	B6.e1	AP42	B06	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17764			
+B6.a2	B6.e1	AP42	B06	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17764			
+B6.a3	B6.e1	AP42	B06	5	Human	Internal Control	RNase P	RNA	HEX	17764	0		
+C1.a1	C1.e1	AP42	C01	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17767			
+C1.a2	C1.e1	AP42	C01	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	17767			
+C1.a3	C1.e1	AP42	C01	9	Human	Internal Control	RNase P	RNA	HEX	17767	0		
+F42.a1	F42.e1	AP42	F01	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX				
+F42.a2	F42.e1	AP42	F01	5	SARS-CoV-2	Pathogen	N1	RNA	FAM				
+F42.a3	F42.e1	AP42	F01	5	Human	Internal Control	RNase P	RNA	HEX		0		
+D5.a1	D5.e1	AP42	D05	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16816			
+D5.a2	D5.e1	AP42	D05	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16816			
+D5.a3	D5.e1	AP42	D05	5	Human	Internal Control	RNase P	RNA	HEX	16816	0		
+E6.a1	E6.e1	AP42	E06	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17425			
+E6.a2	E6.e1	AP42	E06	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17425			
+E6.a3	E6.e1	AP42	E06	5	Human	Internal Control	RNase P	RNA	HEX	17425	0		
+F3.a1	F3.e1	AP42	F03	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19478			
+F3.a2	F3.e1	AP42	F03	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	19478			
+F3.a3	F3.e1	AP42	F03	5	Human	Internal Control	RNase P	RNA	HEX	19478	0		
+D4.a1	D4.e1	AP42	D04	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18038			
+D4.a2	D4.e1	AP42	D04	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18038			
+D4.a3	D4.e1	AP42	D04	5	Human	Internal Control	RNase P	RNA	HEX	18038	0		
+A42.a1	A42.e1	AP42	A06	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	16382			
+A42.a2	A42.e1	AP42	A06	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	16382			
+A42.a3	A42.e1	AP42	A06	5	Human	Internal Control	RNase P	RNA	HEX	16382	0		
+F4.a1	F4.e1	AP42	F04	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18174			
+F4.a2	F4.e1	AP42	F04	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18174			
+F4.a3	F4.e1	AP42	F04	5	Human	Internal Control	RNase P	RNA	HEX	18174	0		
+C2.a1	C2.e1	AP42	C02	9	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	19137			
+C2.a2	C2.e1	AP42	C02	9	SARS-CoV-2	Pathogen	N1	RNA	FAM	19137			
+C2.a3	C2.e1	AP42	C02	9	Human	Internal Control	RNase P	RNA	HEX	19137	0		
+D42.a1	D42.e1	AP42	D03	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	17488			
+D42.a2	D42.e1	AP42	D03	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	17488			
+D42.a3	D42.e1	AP42	D03	5	Human	Internal Control	RNase P	RNA	HEX	17488	0		
+F5.a1	F5.e1	AP42	F05	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18480			
+F5.a2	F5.e1	AP42	F05	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18480			
+F5.a3	F5.e1	AP42	F05	5	Human	Internal Control	RNase P	RNA	HEX	18480	0		
+D1.a1	D1.e1	AP42	D01	5	SARS-CoV-2	Pathogen	N2	RNA	FAM/HEX	18559			
+D1.a2	D1.e1	AP42	D01	5	SARS-CoV-2	Pathogen	N1	RNA	FAM	18559			
+D1.a3	D1.e1	AP42	D01	5	Human	Internal Control	RNase P	RNA	HEX	18559	0		
