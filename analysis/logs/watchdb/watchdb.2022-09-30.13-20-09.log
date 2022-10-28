@@ -1,0 +1,11 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to updates/watchdb/watchdb.2022-09-30.13-20-09.txt and updates/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-09-30.13-20-09.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 5073 total assets present.
+INFO: Finished AssetTiger import. 8 new assets added. 5081 total assets present.
+INFO: Sample R01-0127 1.1 has a new calculated value of 6597.16148860754.
