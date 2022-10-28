@@ -1,0 +1,246 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to updates/watchdb/watchdb.2022-10-20.18-17-14.txt and updates/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-10-20.18-17-14.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 4790 total assets present.
+INFO: Finished AssetTiger import. 598 new assets added. 5388 total assets present.
+HIGH: Mysterious sample ID E01-1085 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E01-1085 will be ignored!
+INFO: Sample N02-0175 1.1 has a new calculated value of 27340.3883725405.
+INFO: Sample N02-0175 1.1 has a new calculated value of 0.
+INFO: Sample N02-0175 1.1 has a new calculated value of 0.
+INFO: Sample A01-0374 1.1 has a new calculated value of 27911.8355736137.
+INFO: Sample A01-0374 1.1 has a new calculated value of 0.
+INFO: Sample A01-0374 1.1 has a new calculated value of 0.
+INFO: Sample E01-0183 1.1 has a new calculated value of 183592.998683453.
+INFO: Sample E01-0183 1.1 has a new calculated value of 0.
+INFO: Sample E01-0183 1.1 has a new calculated value of 0.
+INFO: Sample A04-0199 1.1 has a new calculated value of 7021.37583866717.
+INFO: Sample A04-0199 1.1 has a new calculated value of 0.
+INFO: Sample A04-0199 1.1 has a new calculated value of 0.
+INFO: Sample B01-0260 1.1 has a new calculated value of 128510.607630014.
+INFO: Sample B01-0260 1.1 has a new calculated value of 2036.77627025172.
+INFO: Sample B01-0260 1.1 has a new calculated value of 2036.77627025172.
+INFO: Sample N02-0159 1.1 has a new calculated value of 15441.5824078023.
+INFO: Sample N02-0159 1.1 has a new calculated value of 0.
+INFO: Sample N02-0159 1.1 has a new calculated value of 0.
+INFO: Sample A02-0682 1.1 has a new calculated value of 0.
+INFO: Sample A02-0682 1.1 has a new calculated value of 0.
+INFO: Sample A02-0682 1.1 has a new calculated value of 0.
+INFO: Sample A01-0376 1.1 has a new calculated value of 224365.072846413.
+INFO: Sample A01-0376 1.1 has a new calculated value of 0.
+INFO: Sample A01-0376 1.1 has a new calculated value of 0.
+INFO: Sample A02-0680 1.1 has a new calculated value of 0.
+INFO: Sample A02-0680 1.1 has a new calculated value of 0.
+INFO: Sample A02-0680 1.1 has a new calculated value of 0.
+INFO: Sample A02-0681 1.1 has a new calculated value of 1982.53428563476.
+INFO: Sample A02-0681 1.1 has a new calculated value of 0.
+INFO: Sample A02-0681 1.1 has a new calculated value of 0.
+INFO: Sample D01-0178 1.1 has a new calculated value of 180286.619961262.
+INFO: Sample D01-0178 1.1 has a new calculated value of 0.
+INFO: Sample D01-0178 1.1 has a new calculated value of 2398.72743375599.
+INFO: Sample A01-0377 1.1 has a new calculated value of 241384.995281696.
+INFO: Sample A01-0377 1.1 has a new calculated value of 0.
+INFO: Sample A01-0377 1.1 has a new calculated value of 4499.14259836078.
+INFO: Sample A02-0679 1.1 has a new calculated value of 28086.9642645121.
+INFO: Sample A02-0679 1.1 has a new calculated value of 0.
+INFO: Sample A02-0679 1.1 has a new calculated value of 0.
+INFO: Sample H01-0364 1.1 has a new calculated value of 82891.0392522812.
+INFO: Sample H01-0364 1.1 has a new calculated value of 0.
+INFO: Sample H01-0364 1.1 has a new calculated value of 0.
+INFO: Sample A02-0675 1.1 has a new calculated value of 0.
+INFO: Sample A02-0675 1.1 has a new calculated value of 0.
+INFO: Sample A02-0675 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0145 1.1 has a new calculated value of 29646.2137252092.
+INFO: Sample Q01-0145 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0145 1.1 has a new calculated value of 0.
+INFO: Sample A04-0200 1.1 has a new calculated value of 152180.973887443.
+INFO: Sample A04-0200 1.1 has a new calculated value of 0.
+INFO: Sample A04-0200 1.1 has a new calculated value of 0.
+INFO: Sample A02-0687 1.1 has a new calculated value of 4106.98306281121.
+INFO: Sample A02-0687 1.1 has a new calculated value of 0.
+INFO: Sample A02-0687 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0143 1.1 has a new calculated value of 60904.6561270951.
+INFO: Sample Q01-0143 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0143 1.1 has a new calculated value of 2340.85082542151.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0209 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0209 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0209 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0209 1.1. This should be confirmed.
+INFO: Sample A02-0686 1.1 has a new calculated value of 8341.47987887262.
+INFO: Sample A02-0686 1.1 has a new calculated value of 0.
+INFO: Sample A02-0686 1.1 has a new calculated value of 2085.21429682151.
+INFO: Sample A04-0174 1.1 has a new calculated value of 0.
+INFO: Sample A04-0174 1.1 has a new calculated value of 0.
+INFO: Sample A04-0174 1.1 has a new calculated value of 0.
+INFO: Sample A02-0673 1.1 has a new calculated value of 1946.4420620352.
+INFO: Sample A02-0673 1.1 has a new calculated value of 0.
+INFO: Sample A02-0673 1.1 has a new calculated value of 0.
+INFO: Sample N02-0169 1.1 has a new calculated value of 19175.4439473152.
+INFO: Sample N02-0169 1.1 has a new calculated value of 0.
+INFO: Sample N02-0169 1.1 has a new calculated value of 0.
+INFO: Sample A02-0684 1.1 has a new calculated value of 82013.2617652416.
+INFO: Sample A02-0684 1.1 has a new calculated value of 0.
+INFO: Sample A02-0684 1.1 has a new calculated value of 0.
+INFO: Sample H01-0358 1.1 has a new calculated value of 27005.6722685695.
+INFO: Sample H01-0358 1.1 has a new calculated value of 0.
+INFO: Sample H01-0358 1.1 has a new calculated value of 0.
+INFO: Sample H01-0362 1.1 has a new calculated value of 39172.7643460036.
+INFO: Sample H01-0362 1.1 has a new calculated value of 0.
+INFO: Sample H01-0362 1.1 has a new calculated value of 2060.81200623885.
+INFO: Sample H01-0360 1.1 has a new calculated value of 180807.349383831.
+INFO: Sample H01-0360 1.1 has a new calculated value of 0.
+INFO: Sample H01-0360 1.1 has a new calculated value of 0.
+INFO: Sample H01-0361 1.1 has a new calculated value of 2244.33124065399.
+INFO: Sample H01-0361 1.1 has a new calculated value of 0.
+INFO: Sample H01-0361 1.1 has a new calculated value of 0.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+    I am unable to calculate a result for E01-0185 1.1. This should be confirmed.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+    I am unable to calculate a result for E01-0185 1.1. This should be confirmed.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for E01-0185 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for E01-0185 1.1. This should be confirmed.
+INFO: Sample B01-0270 1.1 has a new calculated value of 88816.7953491211.
+INFO: Sample B01-0270 1.1 has a new calculated value of 0.
+INFO: Sample B01-0270 1.1 has a new calculated value of 0.
+INFO: Sample B01-0259 1.1 has a new calculated value of 112126.291394234.
+INFO: Sample B01-0259 1.1 has a new calculated value of 0.
+INFO: Sample B01-0259 1.1 has a new calculated value of 0.
+INFO: Sample N02-0161 1.1 has a new calculated value of 93260.195106268.
+INFO: Sample N02-0161 1.1 has a new calculated value of 0.
+INFO: Sample N02-0161 1.1 has a new calculated value of 2166.48643137887.
+INFO: Sample E01-0182 1.1 has a new calculated value of 183632.052540779.
+INFO: Sample E01-0182 1.1 has a new calculated value of 0.
+INFO: Sample E01-0182 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0144 1.1 has a new calculated value of 101071.043014526.
+INFO: Sample Q01-0144 1.1 has a new calculated value of 3958.98206625133.
+INFO: Sample Q01-0144 1.1 has a new calculated value of 0.
+INFO: Sample A04-0197 1.1 has a new calculated value of 18612.2844368219.
+INFO: Sample A04-0197 1.1 has a new calculated value of 0.
+INFO: Sample A04-0197 1.1 has a new calculated value of 0.
+INFO: Sample B01-0275 1.1 has a new calculated value of 36258.6229294539.
+INFO: Sample B01-0275 1.1 has a new calculated value of 0.
+INFO: Sample B01-0275 1.1 has a new calculated value of 0.
+INFO: Sample A02-0674 1.1 has a new calculated value of 0.
+INFO: Sample A02-0674 1.1 has a new calculated value of 0.
+INFO: Sample A02-0674 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0146 1.1 has a new calculated value of 125652.719736099.
+INFO: Sample Q01-0146 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0146 1.1 has a new calculated value of 0.
+INFO: Sample A02-0683 1.1 has a new calculated value of 18025.2726003527.
+INFO: Sample A02-0683 1.1 has a new calculated value of 0.
+INFO: Sample A02-0683 1.1 has a new calculated value of 2002.42538005113.
+INFO: Sample D01-0190 1.1 has a new calculated value of 174015.834331513.
+INFO: Sample D01-0190 1.1 has a new calculated value of 2255.32150827348.
+INFO: Sample D01-0190 1.1 has a new calculated value of 0.
+INFO: Sample A02-0676 1.1 has a new calculated value of 0.
+INFO: Sample A02-0676 1.1 has a new calculated value of 0.
+INFO: Sample A02-0676 1.1 has a new calculated value of 0.
+INFO: Sample A04-0194 1.1 has a new calculated value of 190198.128819466.
+INFO: Sample A04-0194 1.1 has a new calculated value of 0.
+INFO: Sample A04-0194 1.1 has a new calculated value of 0.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0201 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0201 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0201 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0201 1.1. This should be confirmed.
+INFO: Sample A02-0677 1.1 has a new calculated value of 0.
+INFO: Sample A02-0677 1.1 has a new calculated value of 0.
+INFO: Sample A02-0677 1.1 has a new calculated value of 0.
+INFO: Sample A01-0375 1.1 has a new calculated value of 68449.1173177958.
+INFO: Sample A01-0375 1.1 has a new calculated value of 0.
+INFO: Sample A01-0375 1.1 has a new calculated value of 0.
+INFO: Sample A02-0678 1.1 has a new calculated value of 0.
+INFO: Sample A02-0678 1.1 has a new calculated value of 0.
+INFO: Sample A02-0678 1.1 has a new calculated value of 0.
+INFO: Sample D01-0198 1.1 has a new calculated value of 171908.013224602.
+INFO: Sample D01-0198 1.1 has a new calculated value of 0.
+INFO: Sample D01-0198 1.1 has a new calculated value of 0.
+INFO: Sample A02-0685 1.1 has a new calculated value of 0.
+INFO: Sample A02-0685 1.1 has a new calculated value of 0.
+INFO: Sample A02-0685 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0142 1.1 has a new calculated value of 96066.1442577838.
+INFO: Sample Q01-0142 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0142 1.1 has a new calculated value of 0.
+INFO: Sample E01-0184 1.1 has a new calculated value of 35650.6253778935.
+INFO: Sample E01-0184 1.1 has a new calculated value of 0.
+INFO: Sample E01-0184 1.1 has a new calculated value of 0.
+INFO: Sample D01-0196 1.1 has a new calculated value of 148066.54214859.
+INFO: Sample D01-0196 1.1 has a new calculated value of 0.
+INFO: Sample D01-0196 1.1 has a new calculated value of 0.
+INFO: Sample A02-0672 1.1 has a new calculated value of 2871.94755859673.
+INFO: Sample A02-0672 1.1 has a new calculated value of 0.
+INFO: Sample A02-0672 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0141 1.1 has a new calculated value of 133881.396353245.
+INFO: Sample Q01-0141 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0141 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0140 1.1 has a new calculated value of 167196.222245693.
+INFO: Sample Q01-0140 1.1 has a new calculated value of 0.
+INFO: Sample Q01-0140 1.1 has a new calculated value of 1940.3144158423.
+INFO: Sample N02-0170 1.1 has a new calculated value of 60369.8527067898.
+INFO: Sample N02-0170 1.1 has a new calculated value of 0.
+INFO: Sample N02-0170 1.1 has a new calculated value of 0.
+INFO: Sample H01-0359 1.1 has a new calculated value of 18640.7997831702.
+INFO: Sample H01-0359 1.1 has a new calculated value of 0.
+INFO: Sample H01-0359 1.1 has a new calculated value of 0.
+INFO: Sample N02-0168 1.1 has a new calculated value of 51383.8727027179.
+INFO: Sample N02-0168 1.1 has a new calculated value of 0.
+INFO: Sample N02-0168 1.1 has a new calculated value of 0.
+INFO: Sample D01-0184 1.1 has a new calculated value of 259021.387696266.
+INFO: Sample D01-0184 1.1 has a new calculated value of 0.
+INFO: Sample D01-0184 1.1 has a new calculated value of 0.
+INFO: Sample H01-0363 1.1 has a new calculated value of 43525.6556421519.
+INFO: Sample H01-0363 1.1 has a new calculated value of 0.
+INFO: Sample H01-0363 1.1 has a new calculated value of 2289.69721589237.
+INFO: Sample A04-0175 1.1 has a new calculated value of 64865.5182123183.
+INFO: Sample A04-0175 1.1 has a new calculated value of 0.
+INFO: Sample A04-0175 1.1 has a new calculated value of 0.
+INFO: Sample B01-0269 1.1 has a new calculated value of 153715.744614601.
+INFO: Sample B01-0269 1.1 has a new calculated value of 0.
+INFO: Sample B01-0269 1.1 has a new calculated value of 0.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0265 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0265 1.1. This should be confirmed.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Extraction Output Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Input Volume (mL). This is concerning.
+HIGH: I have assay data for B01-0265 1.1 in this run, but no value for Concentration Output Volume (mL). This is concerning.
+    I am unable to calculate a result for B01-0265 1.1. This should be confirmed.
+#
+# WaTCHdb update complete.
+# 2022-10-20.18-17-14.
