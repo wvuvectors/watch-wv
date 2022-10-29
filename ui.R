@@ -125,7 +125,7 @@ shinyUI(bootstrapPage(
 					span(textOutput("site_change_below"), style="font-size: 12px; color: #000000; line-height: 22px;")
 				),
 				
-				hidden(
+#				hidden(
 					absolutePanel(
 						id = "site_change_info",
 						class = "mdinfo",
@@ -138,7 +138,7 @@ shinyUI(bootstrapPage(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_change_info_close", label="Close", style="pill", size="xs", color="success")
 						)
-					)
+#					)
 				),
 					
 				absolutePanel(
@@ -151,7 +151,7 @@ shinyUI(bootstrapPage(
 					span(textOutput("site_trend_level"), style="font-size: 12px; line-height: 18px;"),
 				),
 				
-				hidden(
+#				hidden(
 					absolutePanel(
 						id = "site_focus_info",
 						class = "mdinfo",
@@ -164,7 +164,7 @@ shinyUI(bootstrapPage(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="site_focus_info_close", label="Close", style="pill", size="xs", color="success")
 						)
-					)
+#					)
 				),
 					
 				absolutePanel(
@@ -198,7 +198,7 @@ shinyUI(bootstrapPage(
 					span("(million gallons per day)", style="font-size: 11px;")
 				),
 				
-				hidden(
+#				hidden(
 					absolutePanel(
 						id = "daily_flow_info",
 						class = "mdinfo",
@@ -211,7 +211,7 @@ shinyUI(bootstrapPage(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="daily_flow_info_close", label="Close", style="pill", size="xs", color="success")
 						)
-					)
+#					)
 				),
 					
 				absolutePanel(
@@ -224,7 +224,7 @@ shinyUI(bootstrapPage(
 					span(textOutput("last_update_stamp"), style="font-size: 11px;")
 				),
 				
-				hidden(
+#				hidden(
 					absolutePanel(
 						id = "collection_info",
 						class = "mdinfo",
@@ -237,7 +237,7 @@ shinyUI(bootstrapPage(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="collection_info_close", label="Close", style="pill", size="xs", color="success")
 						)
-					)
+#					)
 				),
 
 				absolutePanel(
@@ -250,7 +250,7 @@ shinyUI(bootstrapPage(
 					span(textOutput("alert_trend"), style="font-size: 16px; font-weight: 800; color: #000000; line-height: 22px;")
 				),
 				
-				hidden(
+#				hidden(
 					absolutePanel(
 						id = "alert_level_info",
 						class = "mdinfo",
@@ -285,7 +285,7 @@ shinyUI(bootstrapPage(
 							style="padding-top: 15px; padding-right: 5px; float: right;",
 							actionBttn(inputId="alert_level_info_close", label="Close", style="pill", size="xs", color="success")
 						) # button div
-					)
+#					)
 				),
 					
 				absolutePanel(

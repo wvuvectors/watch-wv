@@ -652,12 +652,16 @@ shinyServer(function(input, output, session) {
 	togglePanels <- function(on, off) {
 		if (!missing(on)) {
 			for (targ in on) {
-				shinyjs::show(targ)
+				print("On!")
+				print (targ)
+				shinyjs::show(id = targ)
 			}
 		}
 		if (!missing(off)) {
 			for (targ in off) {
-				shinyjs::hide(targ)
+				print("Off!")
+				print (targ)
+				shinyjs::hide(id = targ)
 			}
 		}
 	}
@@ -677,6 +681,8 @@ shinyServer(function(input, output, session) {
 	#
 	output$watch_plot <- renderPlotly({
 		#print("watch_plot top")
+
+    togglePanels(off=c("site_focus_info", "site_change_info", "alert_level_info", "daily_flow_info", "collection_info", "last_date_info"))
 
 		writeMetadata()
 		#print("writeMetadata() just ran!")
