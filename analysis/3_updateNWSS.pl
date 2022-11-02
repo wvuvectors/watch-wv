@@ -158,7 +158,7 @@ my %nwss = ();
 
 foreach my $asset (keys %samples) {
 	# Skip unless WaTCH Status is "Complete" - indicates full data processing pipeline has been run successfully
-	next unless $samples{$asset}->{"Status: WaTCH"} eq "Complete";
+	next unless $samples{$asset}->{"Status: WaTCH"} eq "Complete" or $samples{$asset}->{"Status: WaTCH"} eq "Processing";
 
 	# Skip if this sample has been rejected
 	next if $samples{$asset}->{"Status: NWSS"} =~ /Rejected/;

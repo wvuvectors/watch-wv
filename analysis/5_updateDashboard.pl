@@ -207,7 +207,7 @@ foreach my $asset_id (keys %asset2data) {
 #	delete $asset2data{"$asset_id"} if $asset2data{"$asset_id"}->{"Sample QC Check"} =~ /Fail/i or $asset2data{"$asset_id"}->{"Sample QC Check"} eq "NA";
 #	delete $asset2data{"$asset_id"} if $asset2data{"$asset_id"}->{"Status: WaTCH"} =~ /Rejected/i or $asset2data{"$asset_id"}->{"Status: WaTCH"} eq "NA";
 	delete $asset2data{"$asset_id"} unless defined $asset2data{"$asset_id"}->{"Sample QC Check"} and $asset2data{"$asset_id"}->{"Sample QC Check"} eq "Pass";
-	delete $asset2data{"$asset_id"} unless defined $asset2data{"$asset_id"}->{"Status: WaTCH"} and $asset2data{"$asset_id"}->{"Status: WaTCH"} eq "Complete";
+#	delete $asset2data{"$asset_id"} unless defined $asset2data{"$asset_id"}->{"Status: WaTCH"} and $asset2data{"$asset_id"}->{"Status: WaTCH"} eq "Complete";
 	delete $asset2data{"$asset_id"} if !defined $asset2data{"$asset_id"}->{"Sample Collection Method"} or $asset2data{"$asset_id"}->{"Sample Collection Method"} =~ /Grab/i;
 	delete $asset2data{"$asset_id"} if defined $asset2data{"$asset_id"}->{"Description"} and $asset2data{"$asset_id"}->{"Description"} =~ /Ignore/i;
 }
