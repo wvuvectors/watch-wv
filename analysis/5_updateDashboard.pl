@@ -58,7 +58,8 @@ my $NOW =
       ->strftime('%Y-%m-%d.%H-%M-%S');
 
 my $WATCHFILE    = "updates/watchdb.LATEST.txt";
-my $WATCHFILE_MU = "/Volumes/GoogleDrive/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/watch_dashboard.MU.LATEST.txt";
+my $WATCHFILE_MU = "~/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/zpm_dashboard.LATEST.txt";
+
 my $TABLEFILE    = "resources/WaTCH_Tables.xlsx";
 my $FIELDSFILE   = "resources/fields_dashboard.txt";
 

@@ -41,7 +41,8 @@ my $TABLEFILE   = "resources/WaTCH_Tables.xlsx";
 my $SAMPLESFILE = "updates/watchdb.LATEST.txt";
 my $FIPSFILE    = "resources/fips_codes.wv.txt";
 
-my $NWSSFILE_UPDATE   = "updates/nwss/wvu_zpm.nwss_update.$NOW.csv";
+my $NWSSFILE_UPDATE       = "updates/nwss/wvu_zpm.nwss_update.$NOW.csv";
+my $NWSSFILE_UPDATE_EXT   = "~/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/zpm_nwss.LATEST.txt";
 
 # Eventually (soon!) this script will update the main WaTCHdb file directly.
 #my $SAMPLEFILE_NWSSUP = "DB/watchdb.NWSS_UP.$NOW.txt";
@@ -263,6 +264,8 @@ foreach my $sample_id (keys %nwss) {
 	
 }
 close $nwssoutFH;
+
+`cp "$NWSSFILE_UPDATE" "$NWSSFILE_UPDATE_EXT"`
 
 
 # Write entire WaTCHdb file with updated Status: NWSS values. Change "Validated" to "Submitted"
