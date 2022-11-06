@@ -65,7 +65,7 @@ while (my $line = $csvA->getline($afh)) {
 	}
 	my ($cell, $result, $dye, $accepted_droplets) = ($cols[0], $cols[6], $cols[12], $cols[13]);
 	$cell2data{"$cell"} = {} unless defined $cell2data{"$cell"};
-	$cell2data{"$cell"}->{"$dye"} = {"assay_copies_per_ul_reaction" => $result, "assay_accepted_droplets" => $accepted_droplets};
+	$cell2data{"$cell"}->{"$dye"} = {"assay_target_copies_per_ul_reaction" => $result, "assay_accepted_droplets" => $accepted_droplets};
 }
 close $afh;
 
