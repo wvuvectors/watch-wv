@@ -36,8 +36,8 @@ opendir(my $dirH, $rundir) or die "Unable to open directory $rundir: $!";
 my @batch_files = grep { (/\.xlsx$/) && (!/^~/) && -f "$rundir/$_" } readdir($dirH);
 closedir $dirH;
 
-my %batches       = ("assay" => {}, "concentration" => {}, "extraction" => {});
-my %batchcols    = ("assay" => {}, "concentration" => {}, "extraction" => {});
+my %batches       = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
+my %batchcols    = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
 my %sample2id    = ();
 
 my %updatecols   = (
@@ -50,7 +50,7 @@ my %updatecols   = (
 my %fluorcols = ();
 
 
-# read in assay data file, assay_batch.csv
+# read in assay data file, run_data.csv
 # Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
 my %cell2data = ();
 my $csvA = Text::CSV->new({auto_diag => 4, binary => 1});
@@ -78,6 +78,8 @@ foreach (@batch_files) {
 	my @typerow = Spreadsheet::Read::row($batch_wkbk->[1], 1);
 	my $btype = lc $typerow[1];
 	
+	next unless defined $batches{"$btype"};
+	
 	# Read the batch metadata (on sheet 1 of the Excel file)
 	my $batch_id = read_batch_metadata("$btype", \@mdrows, $batches{"$btype"}, $batchcols{"$btype"});
 	
@@ -93,10 +95,13 @@ foreach (@batch_files) {
 
 
 # Write batch metadata to update files
+`rm -r "$rundir/updates/"` if -d "$rundir/updates/";
+`mkdir "$rundir/updates/"`;
+
 my %batchf = ("assay" => "abatch", "concentration" => "cbatch", "extraction" => "ebatch", "archive" => "rbatch");
 foreach my $btype (keys %batches) {
 	my $bname = $batchf{"$btype"};
-	open (my $pfh, ">", "$rundir/update.$bname.txt") or die "Unable to open $rundir/update.$bname.txt for writing: $!";
+	open (my $pfh, ">", "$rundir/updates/update.$bname.txt") or die "Unable to open $rundir/updates/update.$bname.txt for writing: $!";
 	my @cols = sort keys %{$batchcols{"$btype"}};
 
 	# print the column headers
@@ -122,11 +127,11 @@ foreach my $btype (keys %batches) {
 }
 
 
-# write one-to-one update files (conc, extract)
+# write one-to-one update files (conc, extract, archive)
 foreach my $btype (keys %batches) {
 	next if "$btype" eq "assay";
 	#my $lead = substr $btype, 0, 1;
-	open (my $ufh, ">", "$rundir/update.$btype.txt") or die "Unable to open $rundir/update.$btype.txt for writing: $!";
+	open (my $ufh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
 	print $ufh join("\t", @{$updatecols{"$btype"}}) . "\n";
 	foreach my $bid (keys %{$batches{"$btype"}}) {
 		foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
@@ -169,7 +174,7 @@ foreach my $btype (keys %batches) {
 # assay_result
 # assay_comments
 my $btype = "assay";
-open (my $ufh, ">", "$rundir/update.$btype.txt") or die "Unable to open $rundir/update.$btype.txt for writing: $!";
+open (my $ufh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
 print $ufh join("\t", @{$updatecols{"$btype"}}) . "\n";
 my $lead = substr $btype, 0, 1;
 foreach my $bid (keys %{$batches{"$btype"}}) {
