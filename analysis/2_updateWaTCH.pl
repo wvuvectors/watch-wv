@@ -384,7 +384,8 @@ open (my $assayDataFH, "<", "$rundir/$assayDataF") or die "Unable to open $rundi
 $count = 0;
 while (my $line = $csvP->getline($assayDataFH)) {
 	my @values = @$line;
-
+	next if scalar @values < 1;
+	
 	if ($count == 0) {
 		# populate the p_field_pos hash with values on the first line (as keys) and their column positions (as values)
 		for (my $i=0; $i < scalar(@values); $i++) {
