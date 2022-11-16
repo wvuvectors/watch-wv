@@ -17,12 +17,10 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=  "Build update table for WaTCH-WV database.\n";
+$usage   .=  "Update the WaTCH-WV database with a compiled run fileset.\n";
 $usage   .=   "\n";
 
 my $rundir;
-
-my ($assetsF, $runMetaF, $assayDataF) = ("assets_all.csv", "run_metadata.csv", "assay_plate.csv");
 
 while (@ARGV) {
   my $arg = shift;
@@ -35,10 +33,6 @@ while (@ARGV) {
 
 die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined $rundir and -d "$rundir";
 
-die "FATAL: $progname requires a valid $assetsF file. This is produced by the workflow.sh script.\n$usage\n" unless -f "$rundir/$assetsF";
-die "FATAL: $progname requires a valid $runMetaF file. This is produced by the workflow.sh script.\n$usage\n" unless -f "$rundir/$runMetaF";
-die "FATAL: $progname requires a valid $assayDataF file. This is produced by the workflow.sh script.\n$usage\n" unless -f "$rundir/$assayDataF";
-
 
 # keyed master hash for all compiled input data
 my %asset2data = ();
@@ -47,10 +41,6 @@ my %ctl2data   = ();
 # keyed hash for controls in the current run
 my %current_ctl = ();
 
-# list of targets and their database field keys
-my %TARGETS = ();
-my $REACTION_VOL_UL = 20;
-
 #
 # Get time stamp for now
 #
@@ -58,120 +48,60 @@ my $NOW =
    DateTime
       ->now( time_zone => 'local' )
       ->set_time_zone('floating')
-      ->strftime('%Y-%m-%d.%H-%M-%S');
+      ->strftime('%Y-%m-%d.%H_%M™');
 
 
 
-# Resource and DB filepaths
-my $TARGETSFILE    = "resources/molecular_targets.txt";
-my $FIELDSFILE     = "resources/fields_watchdb.txt";
-my $ATDOMFILE      = "resources/fields_watchdb_sample.txt";
-my $BIOREPFILE     = "resources/fields_watchdb_biol.txt";
-my $TECHREPFILE    = "resources/fields_watchdb_tech.txt";
-my $WATCHFILE_MAIN = "updates/watchdb.LATEST.txt";
-my $WATCHFILE_INCR = "updates/watchdb/watchdb.$NOW.txt";
-my $LOGFILE        = "logs/watchdb/watchdb.$NOW.log";
-
-
-`cp $WATCHFILE_MAIN $WATCHFILE_MAIN.OLD`;
-
-
-# Open the log file for writing.
+# Open a log file for writing.
+my $LOGFILE = "logs/watchdb/watchdb.$NOW.log";
 open (my $logFH, ">", "$LOGFILE") or die "Unable to open $LOGFILE for reading: $!\n";
 print $logFH "# WaTCHdb update log.\n";
-print $logFH "# Command: $progname.\n";
-print $logFH "# Data output written to $WATCHFILE_INCR and $WATCHFILE_MAIN.\n";
+print $logFH "# Database update started $NOW.\n";
 print $logFH "# Fatal errors and system warnings are NOT logged here; see STDERR for those.\n";
+print $logFH "# Command: $progname.\n";
 print $logFH "#\n";
-print $logFH "# Run started $NOW.\n";
+print $logFH "# Data input read from $rundir.\n";
+print $logFH "# Full database tables written to folders LATEST/ and $NOW/.\n";
 print $logFH "#\n";
 
-print "# Run started $NOW.\n";
-
-
-# Get the master list of targets
-# target id corresponds to the column name in the assay data file
-# target name corresponds to the value for that field
-#
-open (my $tFH, "<", "$TARGETSFILE") or die "Unable to open $TARGETSFILE for reading: $!\n";
-while (my $line = <$tFH>) {
-	chomp $line;
-	next if $line =~ /^\s*$/;
-	my ($target_id, $target_name) = split /\t/, "$line", -1;
-	$TARGETS{$target_id} = $target_name;
-}
-close $tFH;
-
-print $logFH scalar(keys %TARGETS) . " molecular targets assayed in current run.\n";
-print scalar(keys %TARGETS) . " molecular targets assayed in current run.\n";
-
+print "# Database update started $NOW.\n";
+print "# Data input read from $rundir.\n";
+print "# Full database tables written to folders LATEST/ and $NOW/.\n\n";
+print "# See log file for more details (logs/watchdb/watchdb.$NOW.log).\n";
 
 #
-# Get the master list of WaTCHdb field names. These are ALREADY SORTED.
+# Fetch the current WaTCH database tables.
+# These data are stored in a hash for later updating with the data in $rundir.
+# Keyed by id.
 #
-my @watchdb_fields = ();
-open (my $watchFieldsFH, "<", "$FIELDSFILE") or die "Unable to open $FIELDSFILE for reading: $!";
-while (<$watchFieldsFH>) {
-	chomp;
-	push @watchdb_fields, "$_";
-}
-close $watchFieldsFH;
+my @dbfbases = ("abatch", "assay", "cbatch", "concentration", "control", "ebatch", "extraction", "sample");
+my %dbdata   = ("abatch" => {}, "assay" => {}, "cbatch" => {}, "concentration" => {}, 
+								"control" => {}, "ebatch" => {}, "extraction" => {}, "sample" => {}
+								);
+my $idcol = 0;
 
+foreach my $dbf (@dbfbases) {
 
-#
-# Get the list of WaTCHdb field names that AT is allowed to overwrite (sample metadata).
-#
-my %atdom_fields = ();
-open (my $atdomFH, "<", "$ATDOMFILE") or die "Unable to open $ATDOMFILE for reading: $!";
-while (<$atdomFH>) {
-	chomp;
-	$atdom_fields{"$_"} = 1;
-}
-close $atdomFH;
-
-
-
-#
-# Get the list of WaTCHdb field names associated with biological reps.
-#
-my %biorep_fields = ();
-open (my $biorepFH, "<", "$BIOREPFILE") or die "Unable to open $BIOREPFILE for reading: $!";
-while (<$biorepFH>) {
-	chomp;
-	$biorep_fields{"$_"} = 1;
-}
-close $biorepFH;
-
-
-
-#
-# Get the list of WaTCHdb field names associated with technical reps (assay).
-#
-my %techrep_fields = ();
-open (my $techrepFH, "<", "$TECHREPFILE") or die "Unable to open $TECHREPFILE for reading: $!";
-while (<$techrepFH>) {
-	chomp;
-	$techrep_fields{"$_"} = 1;
-}
-close $techrepFH;
-
-
-
-#
-# Fetch input from latest WaTCH database.
-# Use this to populate the keys of the master hash %asset2data
-# Skip if there is no database file
-#
-my @w_field_names = ();
-my $count = 0;
-
-if (-f "$WATCHFILE_MAIN") {
-	open (my $watchInFH, "<", "$WATCHFILE_MAIN") or die "Unable to open $WATCHFILE_MAIN for reading: $!\n";
-	while (my $line = <$watchInFH>) {
+	my $rowcount   = 0;
+	my %field2indx = ();
+	my @fields     = ();
+	
+	open (my $dbFH, "<", "LATEST/watchdb.${dbf}.txt") or die "Unable to open LATEST/watchdb.${dbf}.txt for reading: $!\n";
+	while (my $line = <$dbFH>) {
 		chomp $line;
 		next if $line =~ /^\s*$/;
-
 		my @values = split "\t", "$line", -1;
+		if ($rowcount == 0) {
+			# first line of the file contains the fields. Use these to key the appropriate hash ref in dbdata
+			for (my $i=0; $i<scalar(@values); $i++) {
+				$dbdata{"$dbf"}->{"$values[$i]"} = -1;
+				$field2indx{"$values[$i]"} = $i;
+				push @fields, "$values[$i]";
+			}
+		}
+		$rowcount++;
+	}
+}
 
 	if ($count == 0) {
 		# populate the keys array with values on the first line
