@@ -41,8 +41,8 @@ my $TABLEFILE   = "resources/WaTCH_Tables.xlsx";
 my $SAMPLESFILE = "updates/watchdb.LATEST.txt";
 my $FIPSFILE    = "resources/fips_codes.wv.txt";
 
-my $NWSSFILE_UPDATE       = "updates/nwss/wvu_zpm.nwss_update.$NOW.csv";
-my $NWSSFILE_UPDATE_EXT   = "~/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/zpm_nwss.LATEST.txt";
+my $NWSSFILE_UPDATE       = "updates/nwss/wvu_nwss.$NOW.csv";
+my $NWSSFILE_UPDATE_EXT   = "/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/wvu_nwss.LATEST.txt";
 
 # Eventually (soon!) this script will update the main WaTCHdb file directly.
 #my $SAMPLEFILE_NWSSUP = "DB/watchdb.NWSS_UP.$NOW.txt";
@@ -190,6 +190,7 @@ foreach my $asset (keys %samples) {
 			$nwss{$asset}->{"$nwss_field"} = "";
 		} elsif ($map{$nwss_field}->{"WaTCH_field"} eq "[calculated]") {
 			# Calculated value. These get complicated!
+			#print "$asset_loc\t$locations{$asset_loc}\n";
 			$nwss{$asset}->{"$nwss_field"} = fill_calculated("$nwss_field", $samples{$asset}, $locations{$asset_loc});
 		}
 	}
@@ -265,7 +266,7 @@ foreach my $sample_id (keys %nwss) {
 }
 close $nwssoutFH;
 
-`cp "$NWSSFILE_UPDATE" "$NWSSFILE_UPDATE_EXT"`
+`cp "$NWSSFILE_UPDATE" "$NWSSFILE_UPDATE_EXT"`;
 
 
 # Write entire WaTCHdb file with updated Status: NWSS values. Change "Validated" to "Submitted"
@@ -322,18 +323,19 @@ sub fill_calculated {
 		#$return_val = $sample_ref->{"Assay Control, Process"} if defined $sample_ref->{"Assay Control, Process"} and $sample_ref->{"Assay Control, Process"} !~ /^\s*$/;
 		$return_val = "";
 	} elsif ("$field" eq "county_names") {
-		# locations.counties_served converted to FIPS code
-		#unless (defined $location_ref->{"counties_served"}) {
-		# print Dumper($location_ref);
-		# die;
-		#}
-		my @county_list = split /\s*,\s*/, $location_ref->{"counties_served"}, -1;
-		my @fips_list = ();
-		foreach my $county (@county_list) {
-			push @fips_list, $county2fips{"$county"};
+		if (defined $location_ref->{"counties_served"}) {
+			# locations.counties_served converted to FIPS code
+			my @county_list = split /\s*,\s*/, $location_ref->{"counties_served"}, -1;
+			my @fips_list = ();
+			foreach my $county (@county_list) {
+				push @fips_list, $county2fips{"$county"};
+			}
+			#print Dumper(\@fips_list);
+			$return_val = join(",", @fips_list);
+		} else {
+			print "Sample ID with no Location: $sample_ref->{'Sample ID'}\n";
+			$return_val = "";
 		}
-		#print Dumper(\@fips_list);
-		$return_val = join(",", @fips_list);
 	} elsif ("$field" eq "sample_location_specify") {
 		# locations.name if locations.category eq upstream; otherwise empty
 		$return_val = $location_ref->{"name"} if defined $location_ref->{"category"} and $location_ref->{"category"} eq "upstream";
