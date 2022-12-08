@@ -1,0 +1,17 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to updates/watchdb/watchdb.2022-12-08.15-23-42.txt and updates/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-12-08.15-23-42.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 6108 total assets present.
+INFO: Finished AssetTiger import. 51 new assets added. 6159 total assets present.
+HIGH: Mysterious sample ID EX PC found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: EX PC will be ignored!
+HIGH: Mysterious sample ID NTC found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: NTC will be ignored!
+HIGH: Mysterious sample ID PC found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: PC will be ignored!
+INFO: Sample A04-0222 1.1 has a new calculated value of 431665.291786194.
