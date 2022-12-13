@@ -1,4 +1,4 @@
-extract_id	concentrate_id	plate_id	plate_cell	storage_box	storage_cell
+extraction_id	concentration_id	extraction_batch_id	extraction_location_in_batch	extraction_location_in_storage	extraction_comment
 A0100.e1	A0100.c1	ME1			
 A0101.e1	A0101.c1	ME2			
 A0104.e1	A0104.c1	ME3			

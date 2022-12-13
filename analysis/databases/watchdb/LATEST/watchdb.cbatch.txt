@@ -1,328 +1,329 @@
-concentration_plate_id	concentration_date	concentration_input_ml	concentration_output_ml	concentration_method	concentration_method_lot_id	concentration_machine	concentration_run_by	concentration_plate_comments
-CP0	6/4/21	10	0.95	Ceres Nanotrap	NT04155	Kookaburra		
-CP0.1	7/7/21	10	0.95	Ceres Nanotrap	NT04155	Kookaburra		
-CP0.2	7/9/21	10	0.95	Ceres Nanotrap	NT04155	Kookaburra		
-CP0.3	7/30/21	10	0.95	Ceres Nanotrap	NT04155	Kookaburra		
-CP0.4	8/13/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP1	8/16/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP1.1	8/18/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP1.2	8/20/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP1.3	8/27/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP10	9/8/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP100	3/21/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP101	3/23/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP102	3/23/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP103	3/25/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP104	3/25/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP105	3/29/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP106	3/29/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP107	3/30/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP108	3/30/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP109	4/1/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP11	9/13/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP110	3/31/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP111	4/4/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP112	4/5/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	JL	
-CP113	4/6/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP114	4/6/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP115	4/8/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP116	4/8/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP117	4/12/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP118	4/14/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP119	4/13/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	JL	
-CP12	9/15/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP120	4/18/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP121	4/18/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP122	4/19/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP123	4/20/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP124	4/20/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP125	4/21/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP126	4/22/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP127	4/25/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP128	4/26/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP129	4/27/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP13	9/17/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP130	4/27/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP131	4/28/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP132	4/29/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP133	5/3/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP134	5/4/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP135	5/4/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP136	5/4/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP137	5/5/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP138	5/6/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP139	5/11/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP140	5/11/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP141	5/11/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP142	5/13/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP143	5/13/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP144	5/17/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP145	5/18/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP146	5/18/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP147	5/19/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP148	5/19/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP149	5/20/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP150	5/23/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP151	5/25/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP152	5/25/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP153	5/25/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP154	5/27/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP155	5/27/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP156	5/31/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP157	6/1/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP158	6/1/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP159	6/2/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP16	9/24/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP160	6/2/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP161	6/3/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP162	6/8/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP163	6/8/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP164	6/8/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP165	6/10/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP166	6/10/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP167	6/15/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP168	6/14/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP169	6/17/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP17	9/27/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP170	6/17/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP172	6/22/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP173	6/22/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP174	6/24/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP175	6/24/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP176	6/29/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP177	6/29/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP178	6/29/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP179	6/30/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP18	9/29/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP180	7/6/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP181	7/6/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP182	7/7/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP183	7/8/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP184	7/8/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP185	7/13/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP186	7/13/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP187	7/13/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP19	10/1/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP2	8/23/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP20	10/5/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP21	10/7/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP22	10/8/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP23	10/11/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP24	10/13/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP25	10/15/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP26	10/18/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP27	10/20/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP28	10/25/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP29	10/27/21	10	0.425	Ceres Nanotrap	NT04474	Kookaburra	JL	
-CP3	8/24/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP30	10/28/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP31	11/2/21	10	0.425	Ceres Nanotrap	NT04474	Kookaburra	JL	
-CP32	11/3/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP33	11/5/21	10	0.425	Ceres Nanotrap	NT04474	Kookaburra	JL	
-CP34	11/11/21	10	0.425	Ceres Nanotrap	NT04474	Kookaburra	JL	
-CP35	11/15/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	LW	
-CP36	11/16/21	10	0.425	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP37	11/17/21	10	0.425	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP38	11/19/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP39	11/22/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP4	8/25/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP40	11/29/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP41	11/30/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP42	12/2/21	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	LW	
-CP43	12/3/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP44	12/6/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP45	12/8/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP46	12/9/21	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	LW	
-CP47	12/10/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP48	12/13/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP49	12/15/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP5	8/27/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP50	12/16/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP51	12/17/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP52	12/21/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP53	12/22/21	10	0.475	Ceres Nanotrap	NT04774	Halcyon	AJ	
-CP54	1/3/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	JL	
-CP55	1/4/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP56	1/6/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP57	1/10/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP58	1/11/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	aj	
-CP59	1/13/21	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP60	1/19/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP61	1/19/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP62	1/20/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP63	1/21/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP64	1/24/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP65	1/25/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP66	1/26/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP67	1/28/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP68	1/31/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP69	2/1/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP7	9/2/21	10	0.425	Ceres Nanotrap	NT04155	Kookaburra	JL	
-CP70	2/2/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP71	2/4/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	LW	
-CP72	2/7/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP73	2/9/22	10	0.475	Ceres Nanotrap	NT04474	Kookaburra	AJ	
-CP74	2/10/22	10	0.475	Ceres Nanotrap	NT04474	Halcyon	AJ	
-CP76	2/14/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP77	2/14/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP78	2/15/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP79	2/16/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP8	9/3/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP80	2/18/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP81	2/18/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP82	2/21/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP83	2/23/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP84	2/23/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP85	2/25/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	JL	
-CP86	2/28/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP87	3/2/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	aj	
-CP88	3/2/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP89	3/4/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP9	9/8/21	10	0.425	Ceres Nanotrap	NT04155	Halcyon	JL	
-CP90	3/4/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP91	3/9/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP92	3/9/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP93	3/10/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP94	3/11/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP95	3/11/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP96	3/15/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP97	3/16/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-CP98	3/16/22	10	0.475	Ceres Nanotrap	NT04473	Kookaburra	AJ	
-CP99	3/21/22	10	0.475	Ceres Nanotrap	NT04473	Halcyon	AJ	
-PE1	11/9/20	100	4	PEG Precipitation		Sorvall	MS	
-PE10	11/13/20	100	4	PEG Precipitation		Sorvall	MS	
-PE100	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE101	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE102	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE103	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE104	4/16/21	100	5	PEG Precipitation		Sorvall	JL	
-PE105	4/16/21	100	6	PEG Precipitation		Sorvall	JL	
-PE106	4/16/21	100	4	PEG Precipitation		Sorvall	JL	
-PE107	4/16/21	100	4	PEG Precipitation		Sorvall	JL	
-PE108	4/16/21	100	8	PEG Precipitation		Sorvall	JL	
-PE109	4/23/21	100	7	PEG Precipitation		Sorvall	MVS	
-PE11	11/16/20	100	4.2	PEG Precipitation		Sorvall	MS	
-PE110	4/23/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE111	4/23/21	100	4	PEG Precipitation		Sorvall	MVS	
-PE112	4/23/21	100	7	PEG Precipitation		Sorvall	MVS	
-PE113	4/23/21	100	7	PEG Precipitation		Sorvall	MVS	
-PE114	4/30/21	100	2	PEG Precipitation		Sorvall	KED	
-PE115	4/30/21	100	3	PEG Precipitation		Sorvall	KED	
-PE116	4/30/21	100	3	PEG Precipitation		Sorvall	KED	
-PE117	4/30/21	100	5	PEG Precipitation		Sorvall	KED	
-PE118	4/30/21	100	7.5	PEG Precipitation		Sorvall	KED	
-PE119	5/7/21	100	5	PEG Precipitation		Sorvall		
-PE12	11/16/20	100	4	PEG Precipitation		Sorvall	MS	
-PE120	5/7/21	100	5	PEG Precipitation		Sorvall		
-PE121	5/7/21	100	5	PEG Precipitation		Sorvall		
-PE122	5/7/21	100	5	PEG Precipitation		Sorvall		
-PE123	5/7/21	100	5	PEG Precipitation		Sorvall		
-PE124	5/14/21	100	7	PEG Precipitation		Sorvall	MVS	
-PE125	5/14/21	100	4	PEG Precipitation		Sorvall	MVS	
-PE126	5/18/21	100	4.5	PEG Precipitation		Sorvall	KD	
-PE127	2/13/21	100	6	PEG Precipitation		Sorvall	TD	
-PE128	2/13/21	100	4	PEG Precipitation		Sorvall	TD	
-PE129	2/13/21	100	8	PEG Precipitation		Sorvall	TD	
-PE13	11/19/20	100	4	PEG Precipitation		Sorvall	MS	
-PE130	2/13/21	100	6	PEG Precipitation		Sorvall	TD	
-PE131	2/13/21	100	5	PEG Precipitation		Sorvall	TD	
-PE132	2/13/21	100	6	PEG Precipitation		Sorvall	TD	
-PE133	2/13/21	100	4	PEG Precipitation		Sorvall	TD	
-PE134	2/13/21	100	3	PEG Precipitation		Sorvall	TD	
-PE135	2/13/21	100	4	PEG Precipitation		Sorvall	TD	
-PE136	2/13/21	100	3	PEG Precipitation		Sorvall	TD	
-PE137	2/13/21	100	5	PEG Precipitation		Sorvall	TD	
-PE14	11/19/20	100	3.6	PEG Precipitation		Sorvall	MS	
-PE15	12/4/20	100	3.6	PEG Precipitation		Sorvall	MS	
-PE16	12/4/20	100	3.8	PEG Precipitation		Sorvall	MS	
-PE17	12/4/20	100	3	PEG Precipitation		Sorvall	MS	
-PE18	12/4/20	100	4.8	PEG Precipitation		Sorvall	MS	
-PE19	12/4/20	100	4.2	PEG Precipitation		Sorvall	MS	
-PE2	11/9/20	100	4.2	PEG Precipitation		Sorvall	MS	
-PE20	12/4/20	100	3.8	PEG Precipitation		Sorvall	MS	
-PE21	12/4/20	100	4.4	PEG Precipitation		Sorvall	MS	
-PE22	12/4/20	100	4.8	PEG Precipitation		Sorvall	MS	
-PE23	12/4/20	100	3.4	PEG Precipitation		Sorvall	MS	
-PE24	12/4/20	100	3.8	PEG Precipitation		Sorvall	MS	
-PE25	12/7/20	100	4	PEG Precipitation		Sorvall	MS	
-PE26	12/7/20	100	3.2	PEG Precipitation		Sorvall	MS	
-PE27	12/13/20	100	5	PEG Precipitation		Sorvall	MS	
-PE28	12/13/20	100	3.8	PEG Precipitation		Sorvall	MS	
-PE29	12/13/20	100	4	PEG Precipitation		Sorvall	MS	
-PE3	11/9/20	100	3.4	PEG Precipitation		Sorvall	MS	
-PE30	12/13/20	100	3.6	PEG Precipitation		Sorvall	AT	
-PE31	12/14/20	100	3.8	PEG Precipitation		Sorvall	AT	
-PE32	12/14/20	100	4.2	PEG Precipitation		Sorvall	AT	
-PE33	12/14/20	100	4	PEG Precipitation		Sorvall	AT	
-PE34	12/14/20	100	4	PEG Precipitation		Sorvall	AT	
-PE35	12/14/20	100	4.2	PEG Precipitation		Sorvall	AT	
-PE36	12/21/20	100	3.4	PEG Precipitation		Sorvall	AT	
-PE37	1/3/21	100	7	PEG Precipitation		Sorvall	MS	
-PE38	1/3/21	100	15	PEG Precipitation		Sorvall	MS	
-PE39	1/3/21	100	6	PEG Precipitation		Sorvall	MS	
-PE4	11/9/20	100	3.4	PEG Precipitation		Sorvall	MS	
-PE40	1/3/21	100	5.5	PEG Precipitation		Sorvall	MS	
-PE41	1/3/21	100	8	PEG Precipitation		Sorvall	MS	
-PE42	1/3/21	100	7	PEG Precipitation		Sorvall	MS	
-PE43	1/4/21	100	6	PEG Precipitation		Sorvall	MS	
-PE44	1/4/21	100	4	PEG Precipitation		Sorvall	MS	
-PE45	1/4/21	100	4	PEG Precipitation		Sorvall	MS	
-PE46	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE47	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE48	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE49	2/5/21	100	3	PEG Precipitation		Sorvall	MS	
-PE5	11/9/20	100	5	PEG Precipitation		Sorvall	MS	
-PE50	2/5/21	100	5	PEG Precipitation		Sorvall	MS	
-PE51	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE52	2/5/21	100	3	PEG Precipitation		Sorvall	MS	
-PE53	2/5/21	100	5	PEG Precipitation		Sorvall	MS	
-PE54	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE55	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE56	2/5/21	100	4.5	PEG Precipitation		Sorvall	MS	
-PE57	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE58	2/5/21	100	5	PEG Precipitation		Sorvall	MS	
-PE59	2/5/21	100	5.5	PEG Precipitation		Sorvall	MS	
-PE6	11/13/20	100	4	PEG Precipitation		Sorvall	MS	
-PE60	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE61	2/5/21	100	3	PEG Precipitation		Sorvall	MS	
-PE62	2/5/21	100	5	PEG Precipitation		Sorvall	MS	
-PE63	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE64	2/5/21	100	5.5	PEG Precipitation		Sorvall	MS	
-PE65	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE66	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE67	2/5/21	100	4	PEG Precipitation		Sorvall	MS	
-PE68	2/5/21	100	5	PEG Precipitation		Sorvall	MS	
-PE69	2/19/21	100	4	PEG Precipitation		Sorvall	AT	
-PE7	11/13/20	100	3.8	PEG Precipitation		Sorvall	MS	
-PE70	2/22/21	100	4	PEG Precipitation		Sorvall	AT	
-PE71	2/22/21	100	5	PEG Precipitation		Sorvall	AT	
-PE72	2/22/21	100	5	PEG Precipitation		Sorvall	AT	
-PE73	2/22/21	100	4	PEG Precipitation		Sorvall	AT	
-PE74	2/22/21	100	6	PEG Precipitation		Sorvall	AT	
-PE75	2/22/21	100	5	PEG Precipitation		Sorvall	AT	
-PE76	2/22/21	100	5	PEG Precipitation		Sorvall	AT	
-PE77	2/22/21	100	4	PEG Precipitation		Sorvall	AT	
-PE78	2/22/21	100	4	PEG Precipitation		Sorvall	AT	
-PE79	3/12/21	100	5	PEG Precipitation		Sorvall	AHT	
-PE8	11/13/20	100	3.4	PEG Precipitation		Sorvall	MS	
-PE80	3/12/21	100	5	PEG Precipitation		Sorvall	AHT	
-PE81	3/12/21	100	5	PEG Precipitation		Sorvall	AHT	
-PE82	3/12/21	100	5	PEG Precipitation		Sorvall	AHT	
-PE83	3/12/21	100	5	PEG Precipitation		Sorvall	AHT	
-PE84	3/19/21	100	4.2	PEG Precipitation		Sorvall	TD	
-PE85	3/19/21	100	3.4	PEG Precipitation		Sorvall	TD	
-PE86	3/19/21	100	3.6	PEG Precipitation		Sorvall	TD	
-PE87	3/19/21	100	3.6	PEG Precipitation		Sorvall	TD	
-PE88	3/19/21	100	3.5	PEG Precipitation		Sorvall	TD	
-PE89	3/26/21	100	4	PEG Precipitation		Sorvall	MVS	
-PE9	11/13/20	100	4	PEG Precipitation		Sorvall	MS	
-PE90	3/26/21	100	9	PEG Precipitation		Sorvall	MVS	
-PE91	3/26/21	100	8	PEG Precipitation		Sorvall	MVS	
-PE92	3/26/21	100	4	PEG Precipitation		Sorvall	MVS	
-PE93	3/26/21	100	7	PEG Precipitation		Sorvall	MVS	
-PE94	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE95	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE96	4/9/21	100	6	PEG Precipitation		Sorvall	MVS	
-PE97	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE98	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
-PE99	4/9/21	100	5	PEG Precipitation		Sorvall	MVS	
+concentration_batch_comment	concentration_batch_id	concentration_batch_record_version	concentration_date	concentration_input_ml	concentration_machine	concentration_method	concentration_method_lot_id	concentration_output_ml	concentration_run_by
+	CP0	1.0.0	6/4/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
+	CP0.1	1.0.0	7/7/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
+	CP0.2	1.0.0	7/9/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
+	CP0.3	1.0.0	7/30/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
+	CP0.4	1.0.0	8/13/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP1	1.0.0	8/16/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP1.1	1.0.0	8/18/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP1.2	1.0.0	8/20/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP1.3	1.0.0	8/27/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP10	1.0.0	9/8/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP100	1.0.0	3/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP101	1.0.0	3/23/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP102	1.0.0	3/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP103	1.0.0	3/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP104	1.0.0	3/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP105	1.0.0	3/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP106	1.0.0	3/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP107	1.0.0	3/30/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP108	1.0.0	3/30/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP109	1.0.0	4/1/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP11	1.0.0	9/13/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP110	1.0.0	3/31/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP111	1.0.0	4/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP112	1.0.0	4/5/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
+	CP113	1.0.0	4/6/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP114	1.0.0	4/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP115	1.0.0	4/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP116	1.0.0	4/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP117	1.0.0	4/12/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP118	1.0.0	4/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP119	1.0.0	4/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
+	CP12	1.0.0	9/15/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP120	1.0.0	4/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP121	1.0.0	4/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP122	1.0.0	4/19/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP123	1.0.0	4/20/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP124	1.0.0	4/20/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP125	1.0.0	4/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP126	1.0.0	4/22/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP127	1.0.0	4/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP128	1.0.0	4/26/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP129	1.0.0	4/27/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP13	1.0.0	9/17/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP130	1.0.0	4/27/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP131	1.0.0	4/28/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP132	1.0.0	4/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP133	1.0.0	5/3/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP134	1.0.0	5/4/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP135	1.0.0	5/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP136	1.0.0	5/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP137	1.0.0	5/5/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP138	1.0.0	5/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP139	1.0.0	5/11/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP140	1.0.0	5/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP141	1.0.0	5/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP142	1.0.0	5/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP143	1.0.0	5/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP144	1.0.0	5/17/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP145	1.0.0	5/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP146	1.0.0	5/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP147	1.0.0	5/19/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP148	1.0.0	5/19/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP149	1.0.0	5/20/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP150	1.0.0	5/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP151	1.0.0	5/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP152	1.0.0	5/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP153	1.0.0	5/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP154	1.0.0	5/27/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP155	1.0.0	5/27/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP156	1.0.0	5/31/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP157	1.0.0	6/1/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP158	1.0.0	6/1/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP159	1.0.0	6/2/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP16	1.0.0	9/24/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP160	1.0.0	6/2/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP161	1.0.0	6/3/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP162	1.0.0	6/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP163	1.0.0	6/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP164	1.0.0	6/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP165	1.0.0	6/10/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP166	1.0.0	6/10/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP167	1.0.0	6/15/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP168	1.0.0	6/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP169	1.0.0	6/17/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP17	1.0.0	9/27/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP170	1.0.0	6/17/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP172	1.0.0	6/22/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP173	1.0.0	6/22/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP174	1.0.0	6/24/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP175	1.0.0	6/24/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP176	1.0.0	6/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP177	1.0.0	6/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP178	1.0.0	6/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP179	1.0.0	6/30/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP18	1.0.0	9/29/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP180	1.0.0	7/6/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP181	1.0.0	7/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP182	1.0.0	7/7/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP183	1.0.0	7/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP184	1.0.0	7/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP185	1.0.0	7/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP186	1.0.0	7/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP187	1.0.0	7/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP19	1.0.0	10/1/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP2	1.0.0	8/23/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP20	1.0.0	10/5/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP21	1.0.0	10/7/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP22	1.0.0	10/8/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP23	1.0.0	10/11/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP24	1.0.0	10/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP25	1.0.0	10/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP26	1.0.0	10/18/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP27	1.0.0	10/20/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP28	1.0.0	10/25/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP29	1.0.0	10/27/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
+	CP3	1.0.0	8/24/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP30	1.0.0	10/28/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP31	1.0.0	11/2/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
+	CP32	1.0.0	11/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP33	1.0.0	11/5/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
+	CP34	1.0.0	11/11/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
+	CP35	1.0.0	11/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	LW
+	CP36	1.0.0	11/16/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	AJ
+	CP37	1.0.0	11/17/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
+	CP38	1.0.0	11/19/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP39	1.0.0	11/22/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP4	1.0.0	8/25/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP40	1.0.0	11/29/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP41	1.0.0	11/30/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP42	1.0.0	12/2/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
+	CP43	1.0.0	12/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP44	1.0.0	12/6/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP45	1.0.0	12/8/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP46	1.0.0	12/9/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
+	CP47	1.0.0	12/10/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP48	1.0.0	12/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP49	1.0.0	12/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP5	1.0.0	8/27/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP50	1.0.0	12/16/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP51	1.0.0	12/17/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP52	1.0.0	12/21/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP53	1.0.0	12/22/21	10	Halcyon	Ceres Nanotrap	NT04774	0.475	AJ
+	CP54	1.0.0	1/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	JL
+	CP55	1.0.0	1/4/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP56	1.0.0	1/6/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP57	1.0.0	1/10/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP58	1.0.0	1/11/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	aj
+	CP59	1.0.0	1/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP60	1.0.0	1/19/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP61	1.0.0	1/19/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP62	1.0.0	1/20/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP63	1.0.0	1/21/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP64	1.0.0	1/24/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP65	1.0.0	1/25/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP66	1.0.0	1/26/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP67	1.0.0	1/28/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP68	1.0.0	1/31/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP69	1.0.0	2/1/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP7	1.0.0	9/2/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
+	CP70	1.0.0	2/2/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP71	1.0.0	2/4/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
+	CP72	1.0.0	2/7/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP73	1.0.0	2/9/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
+	CP74	1.0.0	2/10/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
+	CP76	1.0.0	2/14/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP77	1.0.0	2/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP78	1.0.0	2/15/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP79	1.0.0	2/16/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP8	1.0.0	9/3/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP80	1.0.0	2/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP81	1.0.0	2/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP82	1.0.0	2/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP83	1.0.0	2/23/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP84	1.0.0	2/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP85	1.0.0	2/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
+	CP86	1.0.0	2/28/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP87	1.0.0	3/2/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	aj
+	CP88	1.0.0	3/2/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP89	1.0.0	3/4/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP9	1.0.0	9/8/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
+	CP90	1.0.0	3/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP91	1.0.0	3/9/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP92	1.0.0	3/9/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP93	1.0.0	3/10/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP94	1.0.0	3/11/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP95	1.0.0	3/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP96	1.0.0	3/15/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP97	1.0.0	3/16/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	CP98	1.0.0	3/16/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
+	CP99	1.0.0	3/21/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
+	PE1	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		4	MS
+	PE10	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
+	PE100	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE101	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE102	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE103	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE104	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		5	JL
+	PE105	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		6	JL
+	PE106	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		4	JL
+	PE107	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		4	JL
+	PE108	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		8	JL
+	PE109	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
+	PE11	1.0.0	11/16/20	100	Sorvall	PEG Precipitation		4.2	MS
+	PE110	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE111	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		4	MVS
+	PE112	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
+	PE113	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
+	PE114	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		2	KED
+	PE115	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		3	KED
+	PE116	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		3	KED
+	PE117	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		5	KED
+	PE118	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		7.5	KED
+	PE119	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
+	PE12	1.0.0	11/16/20	100	Sorvall	PEG Precipitation		4	MS
+	PE120	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
+	PE121	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
+	PE122	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
+	PE123	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
+	PE124	1.0.0	5/14/21	100	Sorvall	PEG Precipitation		7	MVS
+	PE125	1.0.0	5/14/21	100	Sorvall	PEG Precipitation		4	MVS
+	PE126	1.0.0	5/18/21	100	Sorvall	PEG Precipitation		4.5	KD
+	PE127	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
+	PE128	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
+	PE129	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		8	TD
+	PE13	1.0.0	11/19/20	100	Sorvall	PEG Precipitation		4	MS
+	PE130	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
+	PE131	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		5	TD
+	PE132	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
+	PE133	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
+	PE134	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		3	TD
+	PE135	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
+	PE136	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		3	TD
+	PE137	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		5	TD
+	PE14	1.0.0	11/19/20	100	Sorvall	PEG Precipitation		3.6	MS
+	PE15	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.6	MS
+	PE16	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
+	PE17	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3	MS
+	PE18	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.8	MS
+	PE19	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.2	MS
+	PE2	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		4.2	MS
+	PE20	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
+	PE21	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.4	MS
+	PE22	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.8	MS
+	PE23	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.4	MS
+	PE24	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
+	PE25	1.0.0	12/7/20	100	Sorvall	PEG Precipitation		4	MS
+	PE26	1.0.0	12/7/20	100	Sorvall	PEG Precipitation		3.2	MS
+	PE27	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		5	MS
+	PE28	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		3.8	MS
+	PE29	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		4	MS
+	PE3	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		3.4	MS
+	PE30	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		3.6	AT
+	PE31	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		3.8	AT
+	PE32	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4.2	AT
+	PE33	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4	AT
+	PE34	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4	AT
+	PE35	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4.2	AT
+	PE36	1.0.0	12/21/20	100	Sorvall	PEG Precipitation		3.4	AT
+	PE37	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		7	MS
+	PE38	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		15	MS
+	PE39	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		6	MS
+	PE4	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		3.4	MS
+	PE40	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		5.5	MS
+	PE41	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		8	MS
+	PE42	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		7	MS
+	PE43	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		6	MS
+	PE44	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		4	MS
+	PE45	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		4	MS
+	PE46	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE47	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE48	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE49	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
+	PE5	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		5	MS
+	PE50	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
+	PE51	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE52	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
+	PE53	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
+	PE54	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE55	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE56	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4.5	MS
+	PE57	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE58	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
+	PE59	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5.5	MS
+	PE6	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
+	PE60	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE61	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
+	PE62	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
+	PE63	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE64	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5.5	MS
+	PE65	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE66	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE67	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
+	PE68	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
+	PE69	1.0.0	2/19/21	100	Sorvall	PEG Precipitation		4	AT
+	PE7	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		3.8	MS
+	PE70	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
+	PE71	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
+	PE72	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
+	PE73	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
+	PE74	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		6	AT
+	PE75	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
+	PE76	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
+	PE77	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
+	PE78	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
+	PE79	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
+	PE8	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		3.4	MS
+	PE80	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
+	PE81	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
+	PE82	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
+	PE83	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
+	PE84	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		4.2	TD
+	PE85	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.4	TD
+	PE86	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.6	TD
+	PE87	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.6	TD
+	PE88	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.5	TD
+	PE89	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		4	MVS
+	PE9	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
+	PE90	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		9	MVS
+	PE91	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		8	MVS
+	PE92	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		4	MVS
+	PE93	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		7	MVS
+	PE94	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE95	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE96	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		6	MVS
+	PE97	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE98	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	PE99	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+	
