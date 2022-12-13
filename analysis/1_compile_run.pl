@@ -53,7 +53,7 @@ my %updatecols   = (
 	"assay"         => ["assay_id", "extraction_id", "assay_batch_id", "assay_location_in_batch", "assay_input_ul", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "assay_target_calculated_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_comment"], 
 #	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_input_ml", "concentration_output_ml", "concentration_comment"], 
-	"control"         => ["control_id", "assay_batch_id", "control_type", "control_location_in_batch", "control_template", "control_target_macromolecule", "control_target_fluorophore", "control_accepted_droplets", "control_target_calculated_copies_per_ul_reaction", "control_target_copies_per_ul_reaction", "control_comment"], 
+	"control"       => ["control_id", "control_batch_id", "control_type", "control_location_in_batch", "control_template", "control_target_macromolecule", "control_target_fluorophore", "control_accepted_droplets", "control_target_calculated_copies_per_ul_reaction", "control_target_copies_per_ul_reaction", "control_comment"], 
 #	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_input_ul", "extraction_output_ul", "extraction_comment"],
 	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_comment"],
 	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"]
@@ -100,10 +100,10 @@ foreach (@batch_files) {
 }
 
 #print Dumper(\%cell2data);
-#print Dumper(\%batches);
+print Dumper(\%batches);
 #print Dumper(\%sample2id);
 #print Dumper(\%batchcols);
-#die;
+die;
 
 
 # Write batch metadata to update files
@@ -193,7 +193,7 @@ foreach my $bid (keys %{$batches{"$btype"}}) {
 	foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
 		my $sample_id = $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
 		
-		# REMOVE CONTROLS
+		# IGNORE CONTROLS
 		next if "$sample_id" eq "PCR NC" or "$sample_id" eq "PCR PC";
 		
 		my $count = 1;
@@ -224,24 +224,19 @@ foreach my $bid (keys %{$batches{"$btype"}}) {
 close $ufh;
 
 
-=cut
-# write batch assay controls to update file
-open (my $cfh, ">", "$rundir/update.controls.txt") or die "Unable to open $rundir/update.controls.txt for writing: $!";
-my @cols = sort keys %fluorcols;
-print $cfh join("\t", @cols) . "\n";
-foreach my $bid (keys %{$batches{"assay"}}) {
-	foreach my $fid (keys %{$batches{"assay"}->{"$bid"}->{"fluorophores"}}) {
-		next unless 
-		for (my $i=0; $i<scalar(@cols); $i++) {
-			my $col = $cols[$i];
-			print $cfh "\t" unless $i == 0;
-			print $cfh "$batches{'assay'}->{$bid}->{'fluorophores'}->{$bid}->{$col}";
-		}
+# write controls to update file
+$btype = "control";
+open (my $cfh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
+print $cfh join("\t", @{$updatecols{"$btype"}}) . "\n";
+my $lead = substr $btype, 0, 1;
+foreach my $bid (keys %{$batches{"$btype"}}) {
+	foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
+		my $sample_id = $batches{"assay"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
+
 		print $cfh "\n";
 	}
 }
 close $cfh;
-=cut
 
 
 sub read_batch_metadata {
