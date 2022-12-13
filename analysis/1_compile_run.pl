@@ -1,5 +1,14 @@
 #! /usr/bin/env perl
 
+=cut
+
+[2022-12-12] Still need to:
+	1. Handle control data in the aplate.
+	2. Do we need to update sample table here, or elsewhere? Probably elsewhere?
+	3. Depending on answer to 2, maybe don't need the assets file from AT.
+	
+=cut
+
 use strict;
 use warnings;
 use Text::CSV;
