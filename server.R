@@ -354,7 +354,7 @@ shinyServer(function(input, output, session) {
 											ggtitle("Daily flow (MGD), averaged per week") + 
 											plot_theme()
 		if (facility != "All facilities") {
-			gplot <- gplot + geom_hline(yintercept=capacity, linetype="dashed", color="#dddddd", size=0.5)
+			gplot <- gplot + geom_hline(yintercept=capacity, linetype="dashed", color="#dddddd", linewidth=0.5)
 		}
 		ggplotly(gplot)
 	}
@@ -476,7 +476,7 @@ shinyServer(function(input, output, session) {
     gplot <- ggplot(df_plot, aes(sample = targ, color = factor(group))) +
       			 geom_qq(na.rm = TRUE) + 
       			 labs(x="", y="") + 
-      			 geom_qq_line(size = 0.25, linetype = 3, color = "#999999") + 
+      			 geom_qq_line(linewidth = 0.25, linetype = 3, color = "#999999") + 
       			 ggtitle(paste0("Q-Q plot of ", toupper(target), sep="")) + 
       			 plot_theme()
       			 

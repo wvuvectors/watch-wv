@@ -80,14 +80,14 @@ today <- Sys.Date()
 plot_theme <- function () { 
 	theme(axis.text = element_text(size = 8),
 				axis.title = element_text(size = 9, color="#333333"),
-				axis.line.x = element_line(color="#bbbbbb", size=1),
-				axis.line.y = element_line(color="#bbbbbb", size=1),
+				axis.line.x = element_line(color="#bbbbbb", linewidth=1),
+				axis.line.y = element_line(color="#bbbbbb", linewidth=1),
 				axis.ticks.length.y = unit(-0.5, "cm"), 
 				strip.text = element_text(size = 8),
-				panel.grid.major = element_line(color="#eeeeee", size=1), 
-				panel.grid.minor.x = element_line(color="#eeeeee", size=1),
+				panel.grid.major = element_line(color="#eeeeee", linewidth=1), 
+				panel.grid.minor.x = element_line(color="#eeeeee", linewidth=1),
 				panel.background = element_rect(fill="transparent"), 
-				panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
+				panel.border = element_rect(fill=NA, color="#bbbbbb", linewidth=1), 
 				legend.position = "none",
 				#legend.justification = c("right", "top"),
 				#legend.box.just = "right",
@@ -154,7 +154,7 @@ df_watch_pre$"Sample Received Date" <- mdy(df_watch_pre$"Sample Received Date")
 
 df_watch_pre$day <- as_date(df_watch_pre$"Sample Composite End")
 df_watch_pre$week_starting <- floor_date(df_watch_pre$day, "week", week_start = 1)
-df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 0)
+df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 7)
 
 df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
 #df_watch_pre$week_num <- week(df_watch_pre$week_ending)
