@@ -46,14 +46,16 @@ my @batch_files = grep { (/\.xlsx$/) && (!/^~/) && -f "$rundir/$_" } readdir($di
 closedir $dirH;
 
 my %batches       = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
-my %batchcols    = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
-my %sample2id    = ();
+my %batchcols     = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
+my %control_cells = ();
+my %sample2id     = ();
 
-my %updatecols   = (
+my %updatecols    = (
 	"assay"         => ["assay_id", "extraction_id", "assay_batch_id", "assay_location_in_batch", "assay_input_ul", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "assay_target_calculated_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_comment"], 
 #	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_input_ml", "concentration_output_ml", "concentration_comment"], 
-	"control"       => ["control_id", "control_batch_id", "control_type", "control_location_in_batch", "control_template", "control_target_macromolecule", "control_target_fluorophore", "control_accepted_droplets", "control_target_calculated_copies_per_ul_reaction", "control_target_copies_per_ul_reaction", "control_comment"], 
+	"control"       => ["control_id", "control_batch_id", "control_type", "control_location_in_batch", "control_input_ul", "control_template", "control_macromolecule", "control_fluorophore", "control_accepted_droplets", "control_calculated_copies_per_ul_reaction", "control_copies_per_ul_reaction", "control_comment"], 
+	"control_k"     => ["control_id", "assay_batch_id", "control_type", "assay_location_in_batch", "assay_input_ul", "control_template", "control_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "control_calculated_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 #	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_input_ul", "extraction_output_ul", "extraction_comment"],
 	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_comment"],
 	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"]
@@ -100,10 +102,11 @@ foreach (@batch_files) {
 }
 
 #print Dumper(\%cell2data);
-print Dumper(\%batches);
+#print Dumper(\%batches);
+#print Dumper(\%control_cells);
 #print Dumper(\%sample2id);
 #print Dumper(\%batchcols);
-die;
+#die;
 
 
 # Write batch metadata to update files
@@ -168,75 +171,79 @@ foreach my $btype (keys %batches) {
 	close $ufh;
 }
 
-# write assay update file, a many-to-one set
-# assay_id
-# extraction_id
-# assay_plate_id
-# assay_plate_cell
-# assay_input_ml
-# assay_type
-# assay_target
-# assay_target_category
-# assay_target_genetic_locus
-# assay_target_macromolecule
-# assay_target_fluorophore
-# assay_accepted_droplets
-# assay_calculated_copies_per_reaction
-# assay_copies_per_reaction
-# assay_result
-# assay_comments
+# write assay and control update files, a many-to-one set
 my $btype = "assay";
 open (my $ufh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
 print $ufh join("\t", @{$updatecols{"$btype"}}) . "\n";
 my $lead = substr $btype, 0, 1;
+open (my $xfh, ">", "$rundir/updates/update.control.txt") or die "Unable to open $rundir/updates/update.control.txt for writing: $!";
+print $xfh join("\t", @{$updatecols{"control"}}) . "\n";
+
 foreach my $bid (keys %{$batches{"$btype"}}) {
 	foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
-		my $sample_id = $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
-		
-		# IGNORE CONTROLS
-		next if "$sample_id" eq "PCR NC" or "$sample_id" eq "PCR PC";
-		
-		my $count = 1;
-		foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
-			my $uid = "$sample_id.${lead}$count";
-			$count++;
-			print $ufh "$uid";
-			for (my $i=1; $i<scalar(@{$updatecols{"$btype"}}); $i++) {
-				my $key = $updatecols{"$btype"}->[$i];
-				if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
-					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
-				} elsif (defined $batches{"$btype"}->{"$bid"}->{"$key"}) {
-					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"$key"};
-				} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
-					print $ufh "\t" . $sample2id{"$sample_id"}->{"$key"};
-				} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
-					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
-				} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
-					print $ufh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
-				} else {
-					print $ufh "\t";
+
+		if (defined $control_cells{$cell}) {
+			#die "$cell\n";
+			foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
+				next unless defined $control_cells{$cell}->{"$fluor"};
+				my $rep = $control_cells{$cell}->{"$fluor"}->{"rep"};
+				my $uid = "x.$rep";
+				print $xfh "$uid";
+				for (my $i=1; $i<scalar(@{$updatecols{"control_k"}}); $i++) {
+					my $key = $updatecols{"control_k"}->[$i];
+					my $fkey = "${key}_${rep}";
+					if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
+					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
+						print $xfh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$fkey"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$fkey"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$fkey"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$fkey"};
+					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$fkey"}) {
+						print $xfh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$fkey"};
+					} else {
+						print $xfh "\t";
+					}
 				}
+				print $xfh "\n";
 			}
-			print $ufh "\n";
+
+		} else {
+			# handle assay data
+			my $sample_id = $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
+			my $count = 1;
+			foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
+				my $uid = "$sample_id.${lead}$count";
+				$count++;
+				print $ufh "$uid";
+				for (my $i=1; $i<scalar(@{$updatecols{"$btype"}}); $i++) {
+					my $key = $updatecols{"$btype"}->[$i];
+					if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
+						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"$key"}) {
+						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"$key"};
+					} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
+						print $ufh "\t" . $sample2id{"$sample_id"}->{"$key"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
+						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
+					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
+						print $ufh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
+					} else {
+						print $ufh "\t";
+					}
+				}
+				print $ufh "\n";
+			}
 		}
+		
 	}
 }
 close $ufh;
+close $xfh;
 
-
-# write controls to update file
-$btype = "control";
-open (my $cfh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
-print $cfh join("\t", @{$updatecols{"$btype"}}) . "\n";
-my $lead = substr $btype, 0, 1;
-foreach my $bid (keys %{$batches{"$btype"}}) {
-	foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
-		my $sample_id = $batches{"assay"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
-
-		print $cfh "\n";
-	}
-}
-close $cfh;
 
 
 sub read_batch_metadata {
@@ -297,7 +304,25 @@ sub read_batch_metadata {
 		foreach my $dye (keys %local_fluoro) {
 			$batch->{"$bid"}->{"fluorophores"}->{$dye} = {};
 			foreach my $key (keys %{$local_fluoro{$dye}}) {
-				$batch->{"$bid"}->{"fluorophores"}->{$dye}->{"$key"} = "$local_fluoro{$dye}->{$key}";
+				if ("$key" =~ /^assay_control_(\d+)_(.+)$/) {
+					my $rep   = $1;
+					my $field = $2;
+					my $key_new = "control_${field}_${rep}";
+					if ("well" eq "$field") {
+						my $ctl_well = "$local_fluoro{$dye}->{$key}";
+						if ("$ctl_well" =~ /([A-Za-z])(\d+)/) {
+							my ($row, $col) = ($1, $2);
+							$row = uc $row;
+							$col = "0$col" if $col < 10;
+							$ctl_well = "$row$col";
+							$control_cells{"$ctl_well"} = {} unless defined $control_cells{"$ctl_well"};
+							$control_cells{"$ctl_well"}->{"$dye"} = {"rep" => $rep};
+						}
+					}
+					$batch->{"$bid"}->{"fluorophores"}->{$dye}->{"$key_new"} = "$local_fluoro{$dye}->{$key}";
+				} else {
+					$batch->{"$bid"}->{"fluorophores"}->{$dye}->{"$key"} = "$local_fluoro{$dye}->{$key}";
+				}
 			}
 		}
 	}
