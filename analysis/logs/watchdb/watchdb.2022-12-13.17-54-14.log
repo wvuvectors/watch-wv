@@ -1,0 +1,125 @@
+# WaTCHdb update log.
+# Command: 2_updateWaTCH.pl.
+# Data output written to updates/watchdb/watchdb.2022-12-13.17-54-14.txt and updates/watchdb.LATEST.txt.
+# Fatal errors and system warnings are NOT logged here; see STDERR for those.
+#
+# Run started 2022-12-13.17-54-14.
+#
+4 molecular targets added.
+INFO: Finished WaTCHdb import. 6159 total assets present.
+INFO: Finished AssetTiger import. 53 new assets added. 6212 total assets present.
+HIGH: Mysterious sample ID F6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F6 will be ignored!
+HIGH: Mysterious sample ID C3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C3 will be ignored!
+HIGH: Mysterious sample ID G5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G5 will be ignored!
+HIGH: Mysterious sample ID NAB 76 A1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: NAB 76 A1 will be ignored!
+HIGH: Mysterious sample ID C7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C7 will be ignored!
+HIGH: Mysterious sample ID A6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A6 will be ignored!
+HIGH: Mysterious sample ID PC found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: PC will be ignored!
+HIGH: Mysterious sample ID E5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E5 will be ignored!
+HIGH: Mysterious sample ID G8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G8 will be ignored!
+HIGH: Mysterious sample ID E4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E4 will be ignored!
+HIGH: Mysterious sample ID H4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: H4 will be ignored!
+HIGH: Mysterious sample ID C2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C2 will be ignored!
+HIGH: Mysterious sample ID D1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D1 will be ignored!
+HIGH: Mysterious sample ID G4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G4 will be ignored!
+HIGH: Mysterious sample ID E8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E8 will be ignored!
+HIGH: Mysterious sample ID A4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A4 will be ignored!
+HIGH: Mysterious sample ID D2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D2 will be ignored!
+HIGH: Mysterious sample ID NAB 76 C1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: NAB 76 C1 will be ignored!
+HIGH: Mysterious sample ID F8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F8 will be ignored!
+HIGH: Mysterious sample ID F4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F4 will be ignored!
+HIGH: Mysterious sample ID A8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A8 will be ignored!
+HIGH: Mysterious sample ID G6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G6 will be ignored!
+HIGH: Mysterious sample ID F5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F5 will be ignored!
+HIGH: Mysterious sample ID E6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E6 will be ignored!
+HIGH: Mysterious sample ID D3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D3 will be ignored!
+HIGH: Mysterious sample ID A5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A5 will be ignored!
+HIGH: Mysterious sample ID D7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D7 will be ignored!
+HIGH: Mysterious sample ID F2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F2 will be ignored!
+HIGH: Mysterious sample ID E1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E1 will be ignored!
+HIGH: Mysterious sample ID D8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D8 will be ignored!
+HIGH: Mysterious sample ID A2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A2 will be ignored!
+HIGH: Mysterious sample ID G1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G1 will be ignored!
+HIGH: Mysterious sample ID D4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D4 will be ignored!
+HIGH: Mysterious sample ID H1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: H1 will be ignored!
+HIGH: Mysterious sample ID A3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A3 will be ignored!
+HIGH: Mysterious sample ID B1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: B1 will be ignored!
+HIGH: Mysterious sample ID A7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: A7 will be ignored!
+HIGH: Mysterious sample ID D5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D5 will be ignored!
+HIGH: Mysterious sample ID C6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C6 will be ignored!
+HIGH: Mysterious sample ID F3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F3 will be ignored!
+HIGH: Mysterious sample ID F7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F7 will be ignored!
+HIGH: Mysterious sample ID D6 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: D6 will be ignored!
+HIGH: Mysterious sample ID E3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E3 will be ignored!
+HIGH: Mysterious sample ID E7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E7 will be ignored!
+HIGH: Mysterious sample ID G7 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G7 will be ignored!
+HIGH: Mysterious sample ID H3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: H3 will be ignored!
+HIGH: Mysterious sample ID B2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: B2 will be ignored!
+HIGH: Mysterious sample ID G3 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G3 will be ignored!
+HIGH: Mysterious sample ID C5 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C5 will be ignored!
+HIGH: Mysterious sample ID NC found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: NC will be ignored!
+HIGH: Mysterious sample ID H2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: H2 will be ignored!
+HIGH: Mysterious sample ID C4 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C4 will be ignored!
+HIGH: Mysterious sample ID G2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: G2 will be ignored!
+HIGH: Mysterious sample ID E2 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: E2 will be ignored!
+HIGH: Mysterious sample ID C8 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: C8 will be ignored!
+HIGH: Mysterious sample ID F1 found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.
+HIGH: F1 will be ignored!
+#
+# WaTCHdb update complete.
+# 2022-12-13.17-54-14.
