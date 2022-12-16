@@ -18,9 +18,7 @@ else
 	mkdir "restore/"
 fi
 
-echo "Looping over all csv files."
-echo "I expect two: one containing the ddPCR results, one containing the field data (assets)."
-echo "These files will be renamed and checked for known issues."
+echo "Looking for the ddPCR results file, in csv format."
 
 csv_files=*.csv
 for f in $csv_files
@@ -62,17 +60,7 @@ done
 
 cd "$WD"
 
-echo "Finished run file pre-processing."
+echo "Finished run file processing."
 echo "In the event of a catastrophic error, run the 'restore.sh' script to restore the original state. Then fix the error(s) and run this script again."
 echo "******"
-
-echo "Entering 1_compile_run.pl script."
-./1_compile_run.pl "$indir"
-echo "Exited 1_compile_run.pl script."
-echo "******"
-echo ""
-
-#./2_updateWaTCH.pl "$indir"
-#./3_updateNWSS.pl
-#./4_updateAssetTiger.pl
 
