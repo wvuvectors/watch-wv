@@ -350,7 +350,7 @@ sub fill_calculated {
 	} elsif ("$field" eq "ntc_amplify") {
 		# yes if samples.Assay Target 1 PCR NC Result (CN/Rxn) > $NTC_THRESHOLD; otherwise no
 		$return_val = "yes";
-		$return_val = "no" if !defined $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} or $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} =~ /^\s*$/ or $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} < $NTC_THRESHOLD;
+		$return_val = "no" if !defined $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} or $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} eq "NA" or $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} =~ /^\s*$/ or $sample_ref->{"Assay Target 1 PCR NC Result (CN/Rxn)"} < $NTC_THRESHOLD;
 	} elsif ("$field" eq "rec_eff_percent") {
 		# -1 if if samples.Assay Control, Process is empty; 100 * (samples.Assay Control, Process Result (CN/L) / samples.Assay Control, Process Spike-In (CN/L))
 		if (defined $sample_ref->{"Assay Control, Process"} and $sample_ref->{"Assay Control, Process"} !~ /^\s*$/ and $sample_ref->{"Assay Control, Process Result (CN/L)"} !~ /^\s*$/ and $sample_ref->{"Assay Control, Process Spike-In (CN/L)"} !~ /^\s*$/) {
