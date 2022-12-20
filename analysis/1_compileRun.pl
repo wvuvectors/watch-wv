@@ -3,7 +3,7 @@
 
 use strict;
 use warnings;
-use Text::CSV;
+use Text::CSV qw(csv);
 #use DateTime qw( );
 use Spreadsheet::Read qw(ReadData);
 use Spreadsheet::ParseXLSX;
@@ -31,24 +31,25 @@ while (@ARGV) {
 
 die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined $rundir and -d "$rundir";
 
-my $rundf = "$rundir/run_data.csv";
+opendir(my $dirHa, $rundir) or die "Unable to open directory $rundir: $!";
+my @rund_files  = grep { (/\.csv$/) && (!/^~/) && -f "$rundir/$_" } readdir($dirHa);
+closedir $dirHa;
 
-opendir(my $dirH, $rundir) or die "Unable to open directory $rundir: $!";
-my @batch_files = grep { (/\.xlsx$/) && (!/^~/) && -f "$rundir/$_" } readdir($dirH);
-closedir $dirH;
+opendir(my $dirHb, $rundir) or die "Unable to open directory $rundir: $!";
+my @batch_files = grep { (/\.xlsx$/) && (!/^~/) && -f "$rundir/$_" } readdir($dirHb);
+closedir $dirHb;
+
 
 my %batches       = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
 my %batchcols     = ("assay" => {}, "concentration" => {}, "extraction" => {}, "archive" => {});
-my %control_cells = ();
+my %control_wells = ();
 my %sample2id     = ();
 
 my %updatecols    = (
 	"assay"         => ["assay_id", "extraction_id", "assay_batch_id", "assay_location_in_batch", "assay_input_ul", "assay_target", "assay_target_category", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "assay_target_calculated_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_comment"], 
-#	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_input_ml", "concentration_output_ml", "concentration_comment"], 
 	"control"       => ["control_id", "control_batch_id", "control_type", "control_location_in_batch", "control_input_ul", "control_template", "control_macromolecule", "control_fluorophore", "control_accepted_droplets", "control_calculated_copies_per_ul_reaction", "control_copies_per_ul_reaction", "control_comment"], 
 	"control_k"     => ["control_id", "assay_batch_id", "control_type", "assay_location_in_batch", "assay_input_ul", "control_template", "control_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "control_calculated_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
-#	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_input_ul", "extraction_output_ul", "extraction_comment"],
 	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_comment"],
 	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"]
 );
@@ -56,33 +57,69 @@ my %updatecols    = (
 my %fluorcols = ();
 
 
-# read in assay data file, run_data.csv
-# Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
-my %cell2data = ();
-my $csvA = Text::CSV->new({auto_diag => 4, binary => 1});
-open (my $afh, "<", "$rundf") or die "Unable to open $rundf for reading: $!\n";
-my $count = 0;
-while (my $line = $csvA->getline($afh)) {
-	my @cols = @$line;
-	$count++;
-	if (scalar @cols < 15) {
-		warn "WARN  : Line $count in $rundf has " . scalar(@cols) . " columns but requires *exactly* 15. Skipping.\n";
-		next;
+# Read in the run data file(s) (csv)
+# There many be multiple csv files in the run directory so we want to test each one
+# ATM there can be only one data file per run; that may change in the future?
+#
+#Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
+#my @plate2wells = ();
+my %well2data = ();
+foreach my $rundF (@rund_files) {
+	my $csvA  = Text::CSV->new({auto_diag => 4, binary => 1});
+	open (my $afh, "<", "$rundir/$rundF") or die "Unable to open $rundir/$rundF for reading: $!\n";
+	#my %well2data = ();
+	my %fieldHash = ();
+	my $lineCount = 0;
+	while (my $line = $csvA->getline($afh)) {
+		my @cols = @$line;
+		if ($lineCount == 0) {
+			if ("$cols[0]" eq "Well") {
+				# record the cell headers so we can access the data by hash
+				my $n = 0;
+				foreach (@cols) {
+					$fieldHash{"$_"} = $n;
+					$n++;
+				}
+			} else {
+				# Not a data file so close the fh and skip to the next
+				close $afh;
+				last;
+			}
+		} else {
+#			my ($cell, $result, $dye, $accepted_droplets) = ($cols[0], $cols[6], $cols[12], $cols[13]);
+			my $well   = $cols[$fieldHash{"Well"}] if defined $fieldHash{"Well"};
+			my $t_conc = $cols[$fieldHash{"Conc(copies/uL)"}] if defined $fieldHash{"Conc(copies/uL)"};
+			my $dye    = $cols[$fieldHash{"DyeName(s)"}] if defined $fieldHash{"DyeName(s)"};
+			my $axdrop = $cols[$fieldHash{"Accepted Droplets"}] if defined $fieldHash{"Accepted Droplets"};
+			if (defined $well and defined $t_conc and defined $dye and defined $axdrop) {
+				$well2data{"$well"} = {} unless defined $well2data{"$well"};
+				$well2data{"$well"}->{"$dye"} = {
+					"assay_target_copies_per_ul_reaction" => $t_conc, 
+					"assay_accepted_droplets"             => $axdrop
+				};
+			} else {
+				print "***** ERROR : Malformed line in run data. *****\n";
+				print "File: $rundF.\n";
+				print "Line: $lineCount.\n";
+				print "Data: " . join(", ", @$line) . "\n";
+				print "***** ACTION: This line will be ignored. *****\n";
+			}
+		}
+		$lineCount++;
 	}
-	my ($cell, $result, $dye, $accepted_droplets) = ($cols[0], $cols[6], $cols[12], $cols[13]);
-	$cell2data{"$cell"} = {} unless defined $cell2data{"$cell"};
-	$cell2data{"$cell"}->{"$dye"} = {"assay_target_copies_per_ul_reaction" => $result, "assay_accepted_droplets" => $accepted_droplets};
+	close $afh;
+	#push @plate2wells, \%well2data;
 }
-close $afh;
+
 
 
 foreach (@batch_files) {
 	my $batch_wkbk = ReadData("$rundir/$_", dtfmt => "mm/dd/yy");
 	
 	# Parse data based on batch type, which is recorded in cell B1 (page 1, row 1, column 2) of the Excel file
-	my @mdrows = Spreadsheet::Read::rows($batch_wkbk->[1]);
+	my @mdrows  = Spreadsheet::Read::rows($batch_wkbk->[1]);
 	my @typerow = Spreadsheet::Read::row($batch_wkbk->[1], 1);
-	my $btype = lc $typerow[1];
+	my $btype   = lc $typerow[1];
 	
 	next unless defined $batches{"$btype"};
 	
@@ -93,9 +130,8 @@ foreach (@batch_files) {
 	read_batch_data("$btype", $batch_id, $batch_wkbk, $batches{"$btype"}->{"$batch_id"}, \%sample2id);
 }
 
-#print Dumper(\%cell2data);
 #print Dumper(\%batches);
-#print Dumper(\%control_cells);
+#print Dumper(\%control_wells);
 #print Dumper(\%sample2id);
 #print Dumper(\%batchcols);
 #die;
@@ -141,14 +177,14 @@ foreach my $btype (keys %batches) {
 	open (my $ufh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
 	print $ufh join("\t", @{$updatecols{"$btype"}}) . "\n";
 	foreach my $bid (keys %{$batches{"$btype"}}) {
-		foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
-			my $sample_id = $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
+		foreach my $well (keys %{$batches{"$btype"}->{"$bid"}->{"wells"}}) {
+			my $sample_id = $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
 			my $uid = $sample2id{"$sample_id"}->{"${btype}_id"};
 			print $ufh "$uid";
 			for (my $i=1; $i<scalar(@{$updatecols{"$btype"}}); $i++) {
 				my $key = $updatecols{"$btype"}->[$i];
-				if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
-					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
+				if (defined $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"}) {
+					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"};
 				} elsif (defined $batches{"$btype"}->{"$bid"}->{"$key"}) {
 					print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"$key"};
 				} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
@@ -172,30 +208,30 @@ open (my $xfh, ">", "$rundir/updates/update.control.txt") or die "Unable to open
 print $xfh join("\t", @{$updatecols{"control"}}) . "\n";
 
 foreach my $bid (keys %{$batches{"$btype"}}) {
-	foreach my $cell (keys %{$batches{"$btype"}->{"$bid"}->{"cells"}}) {
+	foreach my $well (keys %{$batches{"$btype"}->{"$bid"}->{"wells"}}) {
 
-		if (defined $control_cells{$cell}) {
-			#die "$cell\n";
+		if (defined $control_wells{$well}) {
+			#die "$well\n";
 			foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
-				next unless defined $control_cells{$cell}->{"$fluor"};
-				my $rep = $control_cells{$cell}->{"$fluor"}->{"rep"};
+				next unless defined $control_wells{$well}->{"$fluor"};
+				my $rep = $control_wells{$well}->{"$fluor"}->{"rep"};
 				my $uid = "x.$rep";
 				print $xfh "$uid";
 				for (my $i=1; $i<scalar(@{$updatecols{"control_k"}}); $i++) {
 					my $key = $updatecols{"control_k"}->[$i];
 					my $fkey = "${key}_${rep}";
-					if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
-						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
+					if (defined $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"};
 					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
 						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
-					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
-						print $xfh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
-					} elsif (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$fkey"}) {
-						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$fkey"};
+					} elsif (defined $well2data{"$well"}->{"$fluor"}->{"$key"}) {
+						print $xfh "\t" . $well2data{"$well"}->{"$fluor"}->{"$key"};
+					} elsif (defined $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$fkey"}) {
+						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$fkey"};
 					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$fkey"}) {
 						print $xfh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$fkey"};
-					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$fkey"}) {
-						print $xfh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$fkey"};
+					} elsif (defined $well2data{"$well"}->{"$fluor"}->{"$fkey"}) {
+						print $xfh "\t" . $well2data{"$well"}->{"$fluor"}->{"$fkey"};
 					} else {
 						print $xfh "\t";
 					}
@@ -205,7 +241,7 @@ foreach my $bid (keys %{$batches{"$btype"}}) {
 
 		} else {
 			# handle assay data
-			my $sample_id = $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"sample_id"};
+			my $sample_id = $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
 			my $count = 1;
 			foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
 				my $uid = "$sample_id.${lead}$count";
@@ -213,16 +249,16 @@ foreach my $bid (keys %{$batches{"$btype"}}) {
 				print $ufh "$uid";
 				for (my $i=1; $i<scalar(@{$updatecols{"$btype"}}); $i++) {
 					my $key = $updatecols{"$btype"}->[$i];
-					if (defined $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"}) {
-						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"cells"}->{"$cell"}->{"$key"};
+					if (defined $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"}) {
+						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"$key"};
 					} elsif (defined $batches{"$btype"}->{"$bid"}->{"$key"}) {
 						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"$key"};
 					} elsif (defined $sample2id{"$sample_id"}->{"$key"}) {
 						print $ufh "\t" . $sample2id{"$sample_id"}->{"$key"};
 					} elsif (defined $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"}) {
 						print $ufh "\t" . $batches{"$btype"}->{"$bid"}->{"fluorophores"}->{"$fluor"}->{"$key"};
-					} elsif (defined $cell2data{"$cell"}->{"$fluor"}->{"$key"}) {
-						print $ufh "\t" . $cell2data{"$cell"}->{"$fluor"}->{"$key"};
+					} elsif (defined $well2data{"$well"}->{"$fluor"}->{"$key"}) {
+						print $ufh "\t" . $well2data{"$well"}->{"$fluor"}->{"$key"};
 					} else {
 						print $ufh "\t";
 					}
@@ -285,7 +321,7 @@ sub read_batch_metadata {
 	$batch->{"$bid"} = {} unless defined $batch->{"$bid"};
 	
 	# placeholder to hold sample data (keyed per well)	
-	$batch->{"$bid"}->{"cells"} = {};
+	$batch->{"$bid"}->{"wells"} = {};
 	
 	foreach my $key (keys %local_batch) {
 		$batch->{"$bid"}->{"$key"} = "$local_batch{$key}";
@@ -307,8 +343,8 @@ sub read_batch_metadata {
 							$row = uc $row;
 							$col = "0$col" if $col < 10;
 							$ctl_well = "$row$col";
-							$control_cells{"$ctl_well"} = {} unless defined $control_cells{"$ctl_well"};
-							$control_cells{"$ctl_well"}->{"$dye"} = {"rep" => $rep};
+							$control_wells{"$ctl_well"} = {} unless defined $control_wells{"$ctl_well"};
+							$control_wells{"$ctl_well"}->{"$dye"} = {"rep" => $rep};
 						}
 					}
 					$batch->{"$bid"}->{"fluorophores"}->{$dye}->{"$key_new"} = "$local_fluoro{$dye}->{$key}";
@@ -354,9 +390,9 @@ sub read_batch_data {
 				my $batch_loc = "$row2name[$i]" . sprintf("%02d", $j);
 				
 				unless ("" eq "$sample_id" or "buffer" eq lc($sample_id)) {
-					$batch->{"cells"}->{"$batch_loc"} = {"${btype}_location_in_batch" => "$batch_loc", "${btype}_batch_id" => "$bid"};
+					$batch->{"wells"}->{"$batch_loc"} = {"${btype}_location_in_batch" => "$batch_loc", "${btype}_batch_id" => "$bid"};
 					# record the sample id
-					$batch->{"cells"}->{"$batch_loc"}->{"sample_id"} = "$sample_id";
+					$batch->{"wells"}->{"$batch_loc"}->{"sample_id"} = "$sample_id";
 
 					# record the sample to id mapping
 					my $lead = substr $btype, 0, 1;
@@ -366,17 +402,17 @@ sub read_batch_data {
 					$s2id->{"$sample_id"}->{"${btype}_id"} = "$uid";
 
 					# record any comment on the sample in this batch
-					$batch->{"cells"}->{"$batch_loc"}->{"${btype}_comment"} = "$comment_rows[$i][$j]" if defined $comment_rows[$i][$j];
+					$batch->{"wells"}->{"$batch_loc"}->{"${btype}_comment"} = "$comment_rows[$i][$j]" if defined $comment_rows[$i][$j];
 					if ("assay" eq "$btype") {
 						# for assay batch, record any custom input volume
 						if (defined $volstor_rows[$i][$j] and "$volstor_rows[$i][$j]" ne "") {
-							$batch->{"cells"}->{"$batch_loc"}->{"${btype}_input_ul"} = "$volstor_rows[$i][$j]";
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = "$volstor_rows[$i][$j]";
 						} else {
-							$batch->{"cells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batch->{"assay_input_ul"};
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batch->{"assay_input_ul"};
 						}
 					} elsif ("extraction" eq "$btype" or "archive" eq "$btype") {
 						# for extraction and archive batches, record the storage location
-						$batch->{"cells"}->{"$batch_loc"}->{"${btype}_location_in_storage"} = "$volstor_rows[$i][$j]" if defined $volstor_rows[$i][$j];
+						$batch->{"wells"}->{"$batch_loc"}->{"${btype}_location_in_storage"} = "$volstor_rows[$i][$j]" if defined $volstor_rows[$i][$j];
 					}
 				}
 			}

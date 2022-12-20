@@ -5,31 +5,42 @@ WD=$(pwd)
 
 echo "Restoring the run in '$indir' to its original state."
 
-# Remove the processed files
 cd "$indir"
-files2rm=*.csv
 
-for f in $files2rm
+# Remove the processed files
+csv2rm=*.csv
+for f in $csv2rm
+do
+	rm "$f"
+done
+xlsx2rm=*.xlsx
+for f in $xlsx2rm
 do
 	rm "$f"
 done
 
 
-# Restore the original files
 cd "restore/"
-files2rs=*.csv
 
-for f in $files2rs
+# Restore the original files
+csv2rs=*.csv
+for f in $csv2rs
+do
+	cp "$f" "../$f"
+done
+xlsx2rs=*.xlsx
+for f in $xlsx2rs
 do
 	cp "$f" "../$f"
 done
 
 
-# Remove the restore folder
 cd ../
-rm -r "restore/"
+
+# Remove the restore folder
+#rm -r "restore/"
+
 cd "$WD"
-
-
 echo "Done."
+echo "You may delete the restore folder after verifying the restore went well."
 
