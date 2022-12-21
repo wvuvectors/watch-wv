@@ -15,7 +15,10 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=   "Compile WaTCH laboratory Excel files for a run into database update tables.\n";
+$usage   .=   "Compile WaTCH lab run files into database update tables.\n";
+$usage   .=   "RUNDIR must contain exactly one ABATCH Excel file and one ddPCR results file, in csv format.\n";
+$usage   .=   "RUNDIR can contain multiple CBATCH, EBATCH, and RBATCH files as needed.\n";
+$usage   .=   "A new directory RUNDIR/updates will be created to hold the database update files.\n";
 $usage   .=   "\n";
 
 my $rundir;

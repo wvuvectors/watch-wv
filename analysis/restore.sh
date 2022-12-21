@@ -42,5 +42,6 @@ cd ../
 
 cd "$WD"
 echo "Done."
-echo "You may delete the restore folder after verifying the restore went well."
+echo "You may delete the restore folder after verifying the restore was successful."
 
+exit 0
