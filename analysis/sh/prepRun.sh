@@ -1,12 +1,14 @@
 #! /bin/bash
 
 echo "******"
+echo "Running prepRun.sh."
+echo "******"
+
 
 indir="$1"
 WD=$(pwd)
 
-runf="run_data.csv"
-assf="assets.csv"
+status=0
 
 echo "Switching to run directory $indir."
 cd "$indir"
@@ -38,22 +40,17 @@ do
 	if [[ "$is_ddpcr" == "1" ]]
 	then
 		echo "File $f appears to be a ddPCR results file."
-#		echo "Renaming $f to '$runf' for easier processing..."
-#		mv "$f" "$runf"
 		echo "  Fixing known incompatibilities..."
-#		perl -pi -e 's/,Taget,/,Target,/i' "$runf"
-#		perl -pi -e 's/,N1,/,SARS-CoV-2 N1,/i' "$runf"
-#		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$runf"
-#		perl -pi -e 's/,RP,/,Human RNase P,/i' "$runf"
+#		perl -pi -e 's/,Taget,/,Target,/i' "$f"
+#		perl -pi -e 's/,N1,/,SARS-CoV-2 N1,/i' "$f"
+#		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$f"
+#		perl -pi -e 's/,RP,/,Human RNase P,/i' "$f"
 		perl -pi -e 's/µ/u/i' "$f"
+		$status=1
 		echo "Done."
 	elif [[ "$is_asset" == "1" ]]
 	then
 		echo "File $f appears to be an asset file."
-#		echo "Renaming $f to '$assf' for easier processing..."
-#		mv "$f" "$assf"
-#		echo "Extracting asset data..."
-#		grep "," "$assf" > "$assf"
 		echo "  This should be processed for new sample data using 2_updateSamples.pl."
 		echo "Done."
 	else
@@ -78,7 +75,12 @@ done
 
 cd "$WD"
 
-echo "Finished run file processing."
-echo "In the event of a catastrophic error, run the 'restore.sh' script to restore the original state. Then fix the error(s) and run this script again."
 echo "******"
+echo "Finished prepRun.sh."
+echo "In the event of a catastrophic error, run:"
+echo "  ./sh/rollBack.sh $indir"
+echo "to restore the original state. Then fix the error(s) and run this script again."
+echo "******"
+
+exit $status
 

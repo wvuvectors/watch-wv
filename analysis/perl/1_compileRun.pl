@@ -13,6 +13,11 @@ use Data::Dumper;
 my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
+print "******\n";
+print "Running $progname."
+print "******\n";
+
+
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
 $usage   .=   "Compile WaTCH lab run files into database update tables.\n";
@@ -422,6 +427,10 @@ sub read_batch_data {
 		}	# j loop
 	}	# i loop
 }
+
+print "******\n";
+print "Finished $progname."
+print "******\n";
 
 exit 0;
 
