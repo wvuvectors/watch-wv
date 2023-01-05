@@ -26,7 +26,7 @@ then
 	echo "This csv file is required for run processing." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted after phase 0 (run file prep)." | tee -a "$logf"
+	echo "patchr aborted during phase 0 (run file prep)." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -40,22 +40,22 @@ then
 	echo "patchr will now abort." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted after phase 1 (run data compilation)." | tee -a "$logf"
+	echo "patchr aborted during phase 1 (run data compilation)." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
 
 
 echo "Backing up watchdb LATEST/ directory to LATEST_BK/." | tee -a "$logf"
-cp -r "watchdb/LATEST/" "watchdb/LATEST_BK/"
+cp -r "data/watchdb/LATEST/" "data/watchdb/LATEST_BK/"
 
 tables=("abatch" "archive" "assay" "cbatch" "concentration" "control" "ebatch" "extraction" "rbatch")
 for i in ${!tables[@]}
 do
 	table=${tables[$i]}
 	updatef="$indir/updates/update.$table.txt"
-	dbinf="watchdb/LATEST/watchdb.$table.txt"
-	dboutf="watchdb/$TODAY/watchdb.$table.txt"
+	dbinf="data/watchdb/LATEST/watchdb.$table.txt"
+	dboutf="data/watchdb/$TODAY/watchdb.$table.txt"
 
 	echo "Appending $updatef to watchdb.$table.txt." | tee -a "$logf"
 	awk '(NR>1)' "$updatef" | cat - "$dbinf" > "$dboutf"
@@ -73,7 +73,7 @@ then
 	echo "patchr will now abort." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted after phase 3 (Updating dashboard feed)." | tee -a "$logf"
+	echo "patchr aborted during phase 3 (Updating dashboard feed)." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -87,7 +87,7 @@ then
 	echo "patchr will now abort." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted after phase 4 (Updating NWSS feed)." | tee -a "$logf"
+	echo "patchr aborted during phase 4 (Updating NWSS feed)." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi

@@ -24,7 +24,7 @@ my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
 $usage   .=  "Update the WaTCH database with the data from a compiled run.\n";
 $usage   .=  "Compiled run files are found in the RUNDIR/updates folder.\n";
-$usage   .=  "Updated database files will be written to watchdb/LATEST/ and watchdb/$NOW/ folders.\n";
+$usage   .=  "Updated data files will be written to data/watchdb/LATEST/ and data/watchdb/$NOW/ folders.\n";
 $usage   .=   "\n";
 
 my $rundir;
@@ -63,16 +63,15 @@ my %keyids = ("abatch"        => "assay_batch_id",
 
 
 print "Run data read from $rundir/updates/ folder.\n";
-print "Updated database tables written to watchdb/LATEST/ and watchdb/$NOW/.\n";
+print "Updated database tables written to data/watchdb/LATEST/ and data/watchdb/$NOW/.\n";
 
 
 # Fetch the current WaTCH database tables.
 
 foreach my $table (keys %tables) {
-	`awk '(NR>1)' 
 	my @fields = ();
 	
-	open (my $dbFH, "<", "watchdb/LATEST/watchdb.${table}.txt") or die "Unable to open watchdb/LATEST/watchdb.${table}.txt for reading: $!\n";
+	open (my $dbFH, "<", "data/watchdb/LATEST/watchdb.${table}.txt") or die "Unable to open data/watchdb/LATEST/watchdb.${table}.txt for reading: $!\n";
 	while (my $line = <$dbFH>) {
 		chomp $line;
 		next if $line =~ /^\s*$/;
