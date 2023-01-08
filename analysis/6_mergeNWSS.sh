@@ -47,6 +47,12 @@ perl -pi -e 's/\r$//' READY/wvu_nwss.LATEST.csv
 perl -pi -e 's/,+$//' READY/mu_nwss.LATEST.csv
 perl -pi -e 's/,+$//' READY/wvu_nwss.LATEST.csv
 
+# Remove any empty rows
+# This can occur when exporting from damn Excel
+sed -i '/^[[:space:]]*$/d' READY/mu_nwss.LATEST.csv
+sed -i '/^[[:space:]]*$/d' READY/wvu_nwss.LATEST.csv
+
+
 # remove the header line from the WVU data file
 # since this is the second file in the concat we don't need the header
 tail -n +2 READY/wvu_nwss.LATEST.csv > READY/wvu_tmp.csv
