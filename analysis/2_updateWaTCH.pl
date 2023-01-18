@@ -487,7 +487,7 @@ foreach my $asset_id (keys %sample2well) {
 				# Record results of the PCR controls for the current run (keys in %current_ctl)
 				# Each sample in the current run will receive the PCR control data
 				#
-				if (defined $ctl2data{"PCR NC"} and defined $ctl2data{"PCR NC"}->{"Assay Plate Location"}) {
+				if (defined $ctl2data{"PCR NC"} and defined $ctl2data{"PCR NC"}->{"Assay Plate Location"} and defined $well2assay{$ctl2data{"PCR NC"}->{"Assay Plate Location"}}) {
 					my $well_id_nc = $ctl2data{"PCR NC"}->{"Assay Plate Location"};
 					my %nc_data = %{$well2assay{$well_id_nc}};
 					$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id PCR NC Result (CN/Rxn)"} = $nc_data{"$target_name"}->{"Concentration (CN/Rxn)"};
@@ -495,7 +495,7 @@ foreach my $asset_id (keys %sample2well) {
 					$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id PCR NC Result (CN/Rxn)"} = "NA";
 				}
 
-				if (defined $ctl2data{"PCR PC"} and defined $ctl2data{"PCR PC"}->{"Assay Plate Location"}) {
+				if (defined $ctl2data{"PCR PC"} and defined $ctl2data{"PCR PC"}->{"Assay Plate Location"}  and defined $well2assay{$ctl2data{"PCR PC"}->{"Assay Plate Location"}}) {
 					my $well_id_pc = $ctl2data{"PCR PC"}->{"Assay Plate Location"};
 					my %pc_data = %{$well2assay{$well_id_pc}};
 					$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id PCR PC Result (CN/Rxn)"} = $pc_data{"$target_name"}->{"Concentration (CN/Rxn)"};
