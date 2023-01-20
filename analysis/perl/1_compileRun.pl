@@ -14,7 +14,7 @@ my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
 print "******\n";
-print "Running $progname."
+print "Running $progname.\n";
 print "******\n";
 
 
@@ -429,7 +429,7 @@ sub read_batch_data {
 }
 
 print "******\n";
-print "Finished $progname."
+print "Finished $progname.\n";
 print "******\n";
 
 exit 0;

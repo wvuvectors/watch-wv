@@ -5,25 +5,34 @@ WD=$(pwd)
 
 
 # Get the current date and time
-START=$(date + '%Y-%m-%d_%H-%M')
-TODAY=$(date + '%Y-%m-%d')
+START=$(date "+%F_%H-%M")
+TODAY=$(date "+%F_%H-%M")
 
 # Write all output to log file
 logf="patchr_log.$START.txt"
-touch "$logf"
+if [ -f "$logf" ]; then
+	rm "$logf"
+fi
 
+touch "$logf"
 echo "#############################################" | tee -a "$logf"
 echo "Initiated patchr.sh" | tee -a "$logf"
 echo "$START" | tee -a "$logf"
+echo "In the event of a catastrophic error, run:"
+echo "  ./sh/rollBack.sh $indir"
+echo "at any point to restore the original files. Then fix the error(s) and run patchr again."
 echo "" | tee -a "$logf"
 
 
-status=$(./sh/prepRun.sh "$indir" | tee -a "$logf")
+./sh/prepRun.sh "$indir" | tee -a "$logf"
+status="$?"
+echo "" | tee -a "$logf"
 
-if [[ "$status" == "0" ]]
+if [[ "$status" != "0" ]]
 then
-	echo "sh/prepRun.sh was unable to locate a ddPCR results file." | tee -a "$logf"
-	echo "This csv file is required for run processing." | tee -a "$logf"
+#	echo "sh/prepRun.sh was unable to locate a ddPCR results file." | tee -a "$logf"
+#	echo "This csv file is required for run processing." | tee -a "$logf"
+	echo "sh/prepRun.sh exited with error code $status." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "patchr aborted during phase 0 (run file prep)." | tee -a "$logf"
@@ -32,7 +41,9 @@ then
 fi
 
 
-status=$(./perl/1_compileRun.pl "$indir" | tee -a "$logf")
+./perl/1_compileRun.pl "$indir" | tee -a "$logf"
+status="$?"
+echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
@@ -49,6 +60,11 @@ fi
 echo "Backing up watchdb LATEST/ directory to LATEST_BK/." | tee -a "$logf"
 cp -r "data/watchdb/LATEST/" "data/watchdb/LATEST_BK/"
 
+if [ -d "data/watchdb/$TODAY/" ]; then
+	rm -r "data/watchdb/$TODAY/"
+fi
+mkdir "data/watchdb/$TODAY/"
+
 tables=("abatch" "archive" "assay" "cbatch" "concentration" "control" "ebatch" "extraction" "rbatch")
 for i in ${!tables[@]}
 do
@@ -62,43 +78,7 @@ do
 	cp "$dboutf" "$dbinf"
 done
 
-#status=$(./perl/2_validateWaTCH.pl | tee -a "$logf")
+#./perl/2_validateWaTCH.pl | tee -a "$logf"
+#status="$?"
 
-
-status=$(./perl/3_feedDashboard.pl | tee -a "$logf")
-
-if [[ "$status" != "0" ]]
-then
-	echo "perl/3_feedDashboard.pl reported a fatal error." | tee -a "$logf"
-	echo "patchr will now abort." | tee -a "$logf"
-	echo "Please see $logf for more information." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (Updating dashboard feed)." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
-
-status=$(./perl/4_feedNWSS.pl | tee -a "$logf")
-
-if [[ "$status" != "0" ]]
-then
-	echo "perl/4_feedNWSS.pl reported a fatal error." | tee -a "$logf"
-	echo "patchr will now abort." | tee -a "$logf"
-	echo "Please see $logf for more information." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 4 (Updating NWSS feed)." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
-
-END=$(date + '%Y-%m-%d_%H-%M')
-
-echo "" | tee -a "$logf"
-echo "$END" | tee -a "$logf"
-echo "Finished patchr.sh" | tee -a "$logf"
-echo "#############################################" | tee -a "$logf"
-
-exit 0
 
