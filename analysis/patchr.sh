@@ -18,9 +18,10 @@ touch "$logf"
 echo "#############################################" | tee -a "$logf"
 echo "Initiated patchr.sh" | tee -a "$logf"
 echo "$START" | tee -a "$logf"
-echo "In the event of a catastrophic error, run:"
-echo "  ./sh/rollBack.sh $indir"
-echo "at any point to restore the original files. Then fix the error(s) and run patchr again."
+echo "" | tee -a "$logf"
+echo "In the event of a catastrophic error, run"| tee -a "$logf"
+echo "  ./sh/rollBack.sh $indir"| tee -a "$logf"
+echo "at any point to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
 echo "" | tee -a "$logf"
 
 
@@ -32,7 +33,7 @@ if [[ "$status" != "0" ]]
 then
 #	echo "sh/prepRun.sh was unable to locate a ddPCR results file." | tee -a "$logf"
 #	echo "This csv file is required for run processing." | tee -a "$logf"
-	echo "sh/prepRun.sh exited with error code $status." | tee -a "$logf"
+	echo "sh/prepRun.sh exited with error code $status  and caused patchr to abort." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "patchr aborted during phase 0 (run file prep)." | tee -a "$logf"
@@ -47,8 +48,7 @@ echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "perl/1_compileRun.pl reported a fatal error." | tee -a "$logf"
-	echo "patchr will now abort." | tee -a "$logf"
+	echo "perl/1_compileRun.pl reported a fatal error and caused patchr to abort." | tee -a "$logf"
 	echo "Please see $logf for more information." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "patchr aborted during phase 1 (run data compilation)." | tee -a "$logf"
@@ -74,7 +74,7 @@ do
 	dboutf="data/watchdb/$TODAY/watchdb.$table.txt"
 
 	echo "Appending $updatef to watchdb.$table.txt." | tee -a "$logf"
-	awk '(NR>1)' "$updatef" | cat - "$dbinf" > "$dboutf"
+	awk '(NR>1)' "$updatef" | cat "$dbinf" - > "$dboutf"
 	cp "$dboutf" "$dbinf"
 done
 

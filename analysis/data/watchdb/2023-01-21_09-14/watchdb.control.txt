@@ -1,8 +1,3 @@
-x.1	AB42	PCR Negative	G01	5	None	None	FAM		0		
-x.1	AB42	PCR Negative	G01	5	None	None	FAM/HEX		0		
-x.1	AB42	PCR Negative	G01	5	None	None	HEX		0		
-x.2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM	20091	100	0.292821913957596	
-x.2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM/HEX	20091	600	0.117120020091534	
 control_id	control_batch_id	control_type	control_location_in_batch	control_input_ul	control_template	control_macromolecule	control_fluorophore	control_accepted_droplets	control_calculated_copies_per_ul_reaction	control_copies_per_ul_reaction	control_comment
 AP4.b3	AP4	PCR Negative		5	None	None	FAM/HEX		0	0	
 MA0.b1	MA0	PCR Negative		5	None	None	FAM		0	0	
@@ -396,3 +391,8 @@ AP4.b4	AP4	PCR Positive		5	LV-SARS_N	RNA	FAM/HEX			3151.898499
 AP0.3.b4	AP0.3	PCR Positive		5	LV-SARS_N	RNA	FAM/HEX			3336.080627	
 AP0.4.b4	AP0.4	PCR Positive		5	LV-SARS_N	RNA	FAM/HEX			3336.080627	
 AP0.5.b4	AP0.5	PCR Positive		5	LV-SARS_N	RNA	FAM/HEX			3336.080627	
+x.2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM	20091	100	0.292821913957596	
+x.2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM/HEX	20091	600	0.117120020091534	
+x.1	AB42	PCR Negative	G01	5	None	None	HEX		0		
+x.1	AB42	PCR Negative	G01	5	None	None	FAM		0		
+x.1	AB42	PCR Negative	G01	5	None	None	FAM/HEX		0		
