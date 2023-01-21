@@ -1,14 +1,8 @@
 #! /usr/bin/env perl
 
-
 use strict;
 use warnings;
-use Text::CSV;
-use DateTime qw( );
 
-use Spreadsheet::Read qw(ReadData);
-use Spreadsheet::ParseXLSX;
-use DateTime::Format::Excel;
 use Data::Dumper;
 
 
@@ -16,17 +10,17 @@ my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
 print "******\n";
-print "Running $progname."
+print "Running $progname.\n";
 print "******\n";
 
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=  "Update the WaTCH database with the data from a compiled run.\n";
-$usage   .=  "Compiled run files are found in the RUNDIR/updates folder.\n";
-$usage   .=  "Updated data files will be written to data/watchdb/LATEST/ and data/watchdb/$NOW/ folders.\n";
+$usage   .=  "Validate the compiled run in RUNDIR vs the main watch database. Particularly look for duplication of table IDs.\n";
 $usage   .=   "\n";
 
+my $dbdir  = "data/watchdb/LATEST";
+my $buffer = "             "; # 13 spaces to buffer short table names in print statements
 my $rundir;
 
 while (@ARGV) {
@@ -40,423 +34,227 @@ while (@ARGV) {
 
 die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined $rundir and -d "$rundir";
 
-# WaTCH tables to track
-my %tables = ("abatch"        => {}, 
-							"archive"       => {}, 
-							"assay"         => {}, 
-							"cbatch"        => {}, 
-							"concentration" => {}, 
-							"control"       => {}, 
-							"ebatch"        => {}, 
-							"extraction"    => {}, 
-							"rbatch"        => {});
+# WaTCH key columns
+my %table2key = ("abatch"        => "assay_batch_id", 
+								 "archive"       => "archive_id", 
+								 "assay"         => "assay_id", 
+								 "cbatch"        => "concentration_batch_id", 
+								 "concentration" => "concentration_id", 
+								 "control"       => "control_id", 
+								 "ebatch"        => "extraction_batch_id", 
+								 "extraction"    => "extraction_id", 
+								 "rbatch"        => "archive_batch_id");
 
-my %keyids = ("abatch"        => "assay_batch_id", 
-							"archive"       => "archive_id", 
-							"assay"         => "assay_id", 
-							"cbatch"        => "concentration_batch_id", 
-							"concentration" => "concentration_id", 
-							"control"       => "control_id", 
-							"ebatch"        => "extraction_batch_id", 
-							"extraction"    => "extraction_id", 
-							"rbatch"        => "archive_batch_id");
+# Existing WaTCH ids keyed by WaTCH table
+my %watch2id = ("abatch"        => {}, 
+								"archive"       => {}, 
+								"assay"         => {}, 
+								"cbatch"        => {}, 
+								"concentration" => {}, 
+								"control"       => {}, 
+								"ebatch"        => {}, 
+								"extraction"    => {}, 
+								"rbatch"        => {});
+
+# Count lines in each WaTCH table file
+my %watch2lines = ("abatch"        => 0, 
+									 "archive"       => 0, 
+									 "assay"         => 0, 
+									 "cbatch"        => 0, 
+									 "concentration" => 0, 
+									 "control"       => 0, 
+									 "ebatch"        => 0, 
+									 "extraction"    => 0, 
+									 "rbatch"        => 0);
+
+# Track duplicated IDs in the WaTCH database
+my %watchdup = ("abatch"        => {}, 
+								"archive"       => {}, 
+								"assay"         => {}, 
+								"cbatch"        => {}, 
+								"concentration" => {}, 
+								"control"       => {}, 
+								"ebatch"        => {}, 
+								"extraction"    => {}, 
+								"rbatch"        => {});
 
 
-print "Run data read from $rundir/updates/ folder.\n";
-print "Updated database tables written to data/watchdb/LATEST/ and data/watchdb/$NOW/.\n";
+# Run update IDs keyed by WaTCH table
+my %runup2id = ("abatch"        => {}, 
+								"archive"       => {}, 
+								"assay"         => {}, 
+								"cbatch"        => {}, 
+								"concentration" => {}, 
+								"control"       => {}, 
+								"ebatch"        => {}, 
+								"extraction"    => {}, 
+								"rbatch"        => {});
+
+# Count lines in each update file
+my %runup2lines = ("abatch"        => 0, 
+									 "archive"       => 0, 
+									 "assay"         => 0, 
+									 "cbatch"        => 0, 
+									 "concentration" => 0, 
+									 "control"       => 0, 
+									 "ebatch"        => 0, 
+									 "extraction"    => 0, 
+									 "rbatch"        => 0);
+
+# Track duplicated IDs in the update tables
+my %runupdup = ("abatch"        => {}, 
+								"archive"       => {}, 
+								"assay"         => {}, 
+								"cbatch"        => {}, 
+								"concentration" => {}, 
+								"control"       => {}, 
+								"ebatch"        => {}, 
+								"extraction"    => {}, 
+								"rbatch"        => {});
 
 
-# Fetch the current WaTCH database tables.
+# Track ID collisions between update and the WaTCH database
+my %collisions = ("abatch"        => {}, 
+									"archive"       => {}, 
+									"assay"         => {}, 
+									"cbatch"        => {}, 
+									"concentration" => {}, 
+									"control"       => {}, 
+									"ebatch"        => {}, 
+									"extraction"    => {}, 
+									"rbatch"        => {});
 
-foreach my $table (keys %tables) {
-	my @fields = ();
-	
-	open (my $dbFH, "<", "data/watchdb/LATEST/watchdb.${table}.txt") or die "Unable to open data/watchdb/LATEST/watchdb.${table}.txt for reading: $!\n";
+
+print "Validating run data from $rundir/updates/ folder against WaTCH database tables in $dbdir.\n";
+
+# Fetch ids from the current WaTCH database tables.
+#
+my $idtotal = 0;
+foreach my $table (keys %watch2id) {
+	print "Retrieving ids from WaTCH table $table\n";
+	my $keyname = $table2key{"$table"};
+	my $keycol  = -1;
+	my $linenum = 0;
+	open (my $dbFH, "<", "$dbdir/watchdb.${table}.txt") or die "Unable to open $dbdir/watchdb.${table}.txt for reading: $!\n";
 	while (my $line = <$dbFH>) {
 		chomp $line;
 		next if $line =~ /^\s*$/;
 		my @cols = split "\t", "$line", -1;
-		if (scalar @fields == 0) {
-			# first line of the file contains the field names
-			foreach my $field (@cols) {
-				push @fields, "$field";
-			}
-		} else {
-			my %row = ();
-			for (my $i=0; $i<scalar(@cols); $i++) {
-				my $key = $fields[$i];
-				my $val = $cols[$i];
-				$row{"$key"} = "$val";
-			}
-			
-		}
-	}
-}
-
-	if ($count == 0) {
-		# populate the keys array with values on the first line
-		for (my $i=0; $i < scalar(@values); $i++) {
-			$w_field_names[$i] = $values[$i];
-		}
-	} else {
-			# first field is the asset ID. second is the replicate id.
-			my $asset_id = $values[0];
-			my $rep_id = $values[1];
-			
-			# populate the hash entry for this asset with the remaining values
-			$asset2data{"$asset_id"} = {} unless defined $asset2data{"$asset_id"};
-			$asset2data{"$asset_id"}->{"$rep_id"} = {} unless defined $asset2data{"$asset_id"}->{"$rep_id"};
-			for (my $i=2; $i < scalar(@values); $i++) {
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$w_field_names[$i]"} = $values[$i];
-			}
-		}
-		$count++;
-	}
-	close $watchInFH;
-}
-print "INFO: Finished WaTCHdb import. " . scalar(keys(%asset2data)) . " total assets present.\n";
-
-#print Dumper(\%asset2data);
-#die;
-
-
-#
-# Read in assets from AssetTiger file.
-# This will populate IDs and metadata for samples in the current run and any other samples not in the master db yet.
-# This data goes into the asset2data hash.
-#
-# AssetTiger field metadata overwrites WaTCH data by default, to allow field team to update info. These names are keys of %atdom_fields.
-#
-# WaTCH may contain multiple replicates on a single asset id, while AT contains only the latest replicate. So if an incoming AT 
-# id is already present in WaTCH, overwrite with the metadata (%atdom_fields) but otherwise, ignore the AT entry.
-#
-#
-my @a_field_names = ();
-my $new_from_AT = 0;
-
-my $csvA = Text::CSV->new({auto_diag => 4, binary => 1});
-open (my $assetsInFH, "<", "$rundir/$assetsF") or die "Unable to open $rundir/$assetsF for reading: $!\n";
-$count = 0;
-while (my $line = $csvA->getline($assetsInFH)) {
-	my @values = @$line;
-	@values = @{trim(\@values)};
-	
-	if ($count == 0) {
-		# populate the fields array with values on the first line
-		for (my $i=0; $i < scalar(@values); $i++) {
-			$a_field_names[$i] = $values[$i];
-		}
-	} else {
-		# value in the first field is the asset ID / sample ID
-		my $asset_id = $values[0];
-
-		if (defined $asset2data{"$asset_id"}) {
-			# incoming asset from AT found in WaTCHdb
-			# overwrite WaTCHdb metadata from AT (%atdom_fields membership required) but otherwise ignore
-			foreach my $rep_id (keys %{$asset2data{"$asset_id"}}) {
-				for (my $i=1; $i < scalar(@values); $i++) {
-					next if !defined $values[$i] or "$values[$i]" eq "" or "$values[$i]" eq "NA" or "$values[$i]" eq "-";
-					$asset2data{"$asset_id"}->{"$rep_id"}->{"$a_field_names[$i]"} = "$values[$i]" if defined $atdom_fields{"$a_field_names[$i]"};
+		if ($linenum == 0) {
+			# First line of the file contains the column names
+			# Determine which column matches the key and contains the table ids
+			FIND:
+			foreach (my $i=0; $i<scalar(@cols); $i++) {
+				if ("$keyname" eq "$cols[$i]") {
+					$keycol = $i;
+					last FIND;
 				}
 			}
 		} else {
-			# incoming asset from AT is absent from WaTCHdb
-			# add as a new id to WatchDB and write AT data
-			$new_from_AT++;
-			$asset2data{"$asset_id"} = {};
-			# Since this is a new db entry, replicate id is 1.1 by default
-			$asset2data{"$asset_id"}->{"1.1"} = {};
-			
-			# init new entry with WaTCHdb fields
-			for (my $i=2; $i < scalar(@w_field_names); $i++) {
-				$asset2data{"$asset_id"}->{"1.1"}->{"$w_field_names[$i]"} = "";
-			}
-			
-			# add AT values for this new entry. Should only be sample info at this point.
-			for (my $i=2; $i < scalar(@values); $i++) {
-				# Set the Status: NWSS and Status: WaTCH of new entries to "Processing"
-				if ("Status: NWSS" eq "$a_field_names[$i]" or "Status: WaTCH" eq "$a_field_names[$i]") {
-					$asset2data{"$asset_id"}->{"1.1"}->{"$a_field_names[$i]"} = "Processing" if !defined $asset2data{"$asset_id"}->{"1.1"}->{"$a_field_names[$i]"} or $asset2data{"$asset_id"}->{"1.1"}->{"$a_field_names[$i]"} eq "" or "values[$i]" eq "";
-				} else {
-					next if !defined $values[$i] or "$values[$i]" eq "" or "$values[$i]" eq "NA" or "$values[$i]" eq "-";
-					$asset2data{"$asset_id"}->{"1.1"}->{"$a_field_names[$i]"} = "$values[$i]" if defined $atdom_fields{"$a_field_names[$i]"};
-				}
-			}
-		}
-	}
-	$count++;
-}
-close $assetsInFH;
-
-print "INFO: Finished AssetTiger import. $new_from_AT new assets added. " . scalar(keys(%asset2data)) . " total assets present.\n";
-
-#print Dumper(\%asset2data);
-#die;
-
-
-#
-# Read the run metadata file, which contains all of the merged plate file information
-# This goes into the master asset2data hash as well
-# Also parses out a map of well id to sample id for later use
-#
-my @r_field_names = ();
-my %sample2well   = ();
-
-my $csvR = Text::CSV->new({auto_diag => 4, binary => 1});
-open (my $runMetaFH, "<", "$rundir/$runMetaF") or die "Unable to open $rundir/$runMetaF for reading: $!\n";
-$count = 0;
-while (my $line = $csvR->getline($runMetaFH)) {
-	my @values = @$line;
-
-	if ($count == 0) {
-		# populate the keys array with values on the first line
-		for (my $i=0; $i < scalar(@values); $i++) {
-			my $key = $values[$i];
-#			$key = "Control, Internal (Type)" if "$key" eq "Assay Internal Control";
-#			$key = "Control, Process (Type)" if "$key" eq "Assay Process Control";
-			$r_field_names[$i] = "$key";
-		}
-	} else {
-		# first field is the sample ID == asset ID
-		my $asset_id = $values[0];
-
-		# PCR control data get stored in a separate hash; they are processed differently from samples
-		if ("$asset_id" =~ /^PCR/) {
-			$current_ctl{$asset_id} = 1;
-			$ctl2data{$asset_id} = {} unless defined $ctl2data{$asset_id};
-			for (my $i=1; $i < scalar(@values); $i++) {
-				$ctl2data{"$asset_id"}->{"$r_field_names[$i]"} = "$values[$i]" unless "$values[$i]" eq "";
-			}
-		} else {
-			# populate/update the master hash entry for this asset with the sample metadata
-			if (defined $asset2data{"$asset_id"}) {
-				# Add assay data to the entry.
-				# If a complete rep already exists, add as a new rep. Completed assay requires an Assay Date.
-				my ($brep, $trep) = (1,1);
-				
-				while (defined $asset2data{"$asset_id"}->{"${brep}.${trep}"} and defined $asset2data{"$asset_id"}->{"${brep}.${trep}"}->{"Assay Date"} and $asset2data{"$asset_id"}->{"${brep}.${trep}"}->{"Assay Date"} ne "") {
-					$trep++;
-				}
-				
-				# initialize the rep if it is being added here
-				unless (defined $asset2data{"$asset_id"}->{"${brep}.${trep}"}) {
-					$asset2data{"$asset_id"}->{"${brep}.${trep}"} = {};
-					for (my $i=2; $i < scalar(@w_field_names); $i++) {
-						$asset2data{"$asset_id"}->{"${brep}.${trep}"}->{"$w_field_names[$i]"} = "";
-					}
-					# copy over all the data from rep 1.1 except Assay data (%techrep_fields).
-					for (my $i=2; $i < scalar(@w_field_names); $i++) {
-						my $key = "$w_field_names[$i]";
-						next if defined $techrep_fields{"$key"};
-						$asset2data{"$asset_id"}->{"${brep}.${trep}"}->{"$key"} = $asset2data{"$asset_id"}->{"1.1"}->{"$key"};
-					}
-					
-				}
-				
-				# set run metadata
-				for (my $i=1; $i < scalar(@values); $i++) {
-					next if "$values[$i]" eq "";
-					$asset2data{"$asset_id"}->{"${brep}.${trep}"}->{"$r_field_names[$i]"} = "$values[$i]";
-					if ("$r_field_names[$i]" eq "Assay Plate Location") {
-						$sample2well{"$asset_id"} = {} unless defined $sample2well{"$asset_id"};
-						$sample2well{"$asset_id"}->{"${brep}.${trep}"} = "$values[$i]";
-					}
-				}
-				
+			# Extract the id for this row
+			my $thisId = "$cols[$keycol]";
+			if (defined $watch2id{"$table"}->{"$thisId"}) {
+				# If the id already exists in the id hash, mark it as a duplicate
+				$watchdup{"$table"}->{"$thisId"} = 0 unless defined $watchdup{"$table"}->{"$thisId"};
+				$watchdup{"$table"}->{"$thisId"} = $watchdup{"$table"}->{"$thisId"} + 1;
 			} else {
-				print "HIGH: Mysterious sample ID $asset_id found during Run Metadata import, does not exist in AT or WaTCHdb. This is concerning.\nHIGH: $asset_id will be ignored!\n";
+				# If it is a new id, add it to the main id hash
+				$watch2id{"$table"}->{"$cols[$keycol]"} = 1;
 			}
-			
 		}
-
+		$linenum++;
 	}
-	$count++;
+	$watch2lines{"$table"} = $linenum;
+	close $dbFH;
 }
-close $runMetaFH;
+print "Finished reading " . scalar(keys %watch2id) . " WaTCH tables.\n";
+
+print "-------------------------------\n";
+print "WaTCH internal validation results ($dbdir):\n";
+print sprintf('%-13s', "TABLE") . "\t" . sprintf('%-13s', "WaTCH IDS") . "\t" . sprintf('%-13s', "DUPLICATES") . "\n";
+foreach my $table (keys %watch2id) {
+	print sprintf('%-13s', "$table") . "\t" . sprintf('%-13s', scalar(keys %{$watch2id{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$watchdup{"$table"}})) . "\n";
+}
+print "-------------------------------\n\n";
 
 
-#
-# At this point, the asset2data hash should contain all data for all samples except samples assayed in the current run
-# (and possibly future runs if they've been logged into AssetTiger already)
-#
-#print $logFH "INFO: Finished run metadata import. " . scalar(keys(%asset2data)) . " total assets present.\n";
-#print "INFO: Finished run metadata import. " . scalar(keys(%asset2data)) . " total assets present.\n";
-
-#print Dumper(\%asset2data);
+#print Dumper(\%table2id);
 #die;
 
 
-
+# Scan update tables for duplicate IDs and flag.
 #
-# Read and parse the ddPCR data file for the current run
-# These data are keyed by plate location, not sample id, so they are stored in a separate hash, %well2assay
-#
-my %well2assay = ();
-my %p_field_pos = ("Target" => -1, "Status" => -1, "Experiment" => -1, "DyeName(s)" => -1, "Conc(copies/uL)" => -1, "Accepted Droplets" => -1);
-
-my $csvP = Text::CSV->new({auto_diag => 4, binary => 1});
-open (my $assayDataFH, "<", "$rundir/$assayDataF") or die "Unable to open $rundir/$assayDataF for reading: $!\n";
-$count = 0;
-while (my $line = $csvP->getline($assayDataFH)) {
-	my @values = @$line;
-
-	if ($count == 0) {
-		# populate the p_field_pos hash with values on the first line (as keys) and their column positions (as values)
-		for (my $i=0; $i < scalar(@values); $i++) {
-			$p_field_pos{"$values[$i]"} = $i if defined $p_field_pos{"$values[$i]"};
-		}
-	} else {
-		# first column is the well ID
-		# there will be multiple rows for each well in a multiplex file
-		my $well_id = $values[0];
-		
-		# populate this well2assay hash entry for this well using the remaining column values
-		$well2assay{$well_id} = {} unless defined $well2assay{$well_id};
-		$well2assay{$well_id}->{"Status"} = $values[$p_field_pos{"Status"}];
-		$well2assay{$well_id}->{"Experiment"} = $values[$p_field_pos{"Experiment"}];
-		$well2assay{$well_id}->{"Accepted Droplets"} = $values[$p_field_pos{"Accepted Droplets"}];
-		
-		# sort out each target in the well
-		my $target_name = $values[$p_field_pos{"Target"}];
-		$well2assay{$well_id}->{"$target_name"} = {} unless defined $well2assay{$well_id}->{"$target_name"};
-		$well2assay{$well_id}->{"$target_name"}->{"DyeName(s)"} = $values[$p_field_pos{"DyeName(s)"}];
-		
-		# A negative value here indicates an assay failure
-		my $cn_per_ul = $values[$p_field_pos{"Conc(copies/uL)"}];
-		#print "$well_id\t$cn_per_ul\n";
-		$cn_per_ul = -1 if $cn_per_ul eq "" or $cn_per_ul eq "No Call";
-		$well2assay{$well_id}->{"$target_name"}->{"Concentration (CN/Rxn)"} = $cn_per_ul * $REACTION_VOL_UL;
-		
-		#foreach my $key (keys %p_field_pos) {
-		#	$well2assay{"$well_id"}->{"$values[$p_field_pos{Target}]"}->{"$key"} = $values[$p_field_pos{"$key"}] unless "$key" eq "Target";
-		#}
-		
-	}
-	$count++;
-}
-close $assayDataFH;
-
-#print Dumper(\%well2assay);
-#die;
-
-
-my $dowrite = 1;
-
-#
-# merge data from current run - stored in %well2assay and keyed by well id - into the main asset2data hash - keyed by asset id
-# also calculate the CN/L for each target in the current run
-#
-foreach my $asset_id (keys %sample2well) {
-
-	foreach my $rep_id (keys %{$sample2well{"$asset_id"}}) {
-		# get the well id for this sample/asset
-		my $well_id = $sample2well{"$asset_id"}->{"$rep_id"};
-		next unless defined $well_id and $well_id ne "";
-		#print "$asset_id\t$well_id\n";
-	
-		# All of the assay results for this sample/asset should be stored under the corresponding well id in the well2assay hash
-		# Transfer it over into the master asset2data hash, which is keyed by the sample/asset id
-		#
-		unless (defined $well2assay{$well_id}) {
-			$dowrite = 0;
-			my $END =
-				 DateTime
-						->now( time_zone => 'local' )
-						->set_time_zone('floating')
-						->strftime('%Y-%m-%d.%H-%M-%S');
-
-			print "HIGH: During run data merge, well ID $well_id is not in the well2assay hash. This is fatal.\n";
-			print "    Here are the well2assay hash keys: " . join(", ", keys(%well2assay)) . "\n";
-			print "WaTCH database update ABORTED.\n";
-			print "$END.\n";
-			die(1);
-		}
-	
-		my %sample_data = %{$well2assay{$well_id}};
-		$asset2data{"$asset_id"}->{"$rep_id"}->{"Assay Droplet Quantification Method"} = $sample_data{"Status"};
-		$asset2data{"$asset_id"}->{"$rep_id"}->{"Assay Experiment Type"} = $sample_data{"Experiment"};
-		$asset2data{"$asset_id"}->{"$rep_id"}->{"Assay Accepted Droplets"} = $sample_data{"Accepted Droplets"};
-		
-		# Calculate the CN/L for each target in the current run found in the TARGETS hash
-		# If the concentration is negative it means the assay returned a "No Call"
-		# This should be replaced by a ND or something equivalent, but at the moment it is just given as 0
-		#
-		foreach my $target_id (keys %TARGETS) {
-			my $target_name = $TARGETS{$target_id};
-			if (defined $sample_data{"$target_name"}) {
-				#print "$asset_id\t$target_name\t";
-				my $assay_result = 0;
-				$assay_result = calc_result("$asset_id", "$rep_id", $sample_data{"$target_name"}->{"Concentration (CN/Rxn)"}) unless $sample_data{"$target_name"}->{"Concentration (CN/Rxn)"} < 0;
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id"} = "$target_name";
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id Result (CN/L)"} = $assay_result;
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id Concentration (CN/Rxn)"} = $sample_data{"$target_name"}->{"Concentration (CN/Rxn)"};
-			
-				#
-				# Record results of the PCR controls for the current run (keys in %current_ctl)
-				# Each sample in the current run will receive the PCR control data
-				#
-				my $well_id_nc = $ctl2data{"PCR NC"}->{"Assay Plate Location"};
-				my %nc_data = %{$well2assay{$well_id_nc}};
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id PCR NC Result (CN/Rxn)"} = $nc_data{"$target_name"}->{"Concentration (CN/Rxn)"};
-				my $well_id_pc = $ctl2data{"PCR PC"}->{"Assay Plate Location"};
-				my %pc_data = %{$well2assay{$well_id_pc}};
-				$asset2data{"$asset_id"}->{"$rep_id"}->{"$target_id PCR PC Result (CN/Rxn)"} = $pc_data{"$target_name"}->{"Concentration (CN/Rxn)"};
+foreach my $table (keys %runup2id) {
+	print "Validating ids from update table $table\n";
+	my $keyname = $table2key{"$table"};
+	my $keycol  = -1;
+	my $linenum = 0;
+	open (my $dbFH, "<", "$rundir/updates/update.${table}.txt") or die "Unable to open $rundir/updates/update.${table}.txt for reading: $!\n";
+	while (my $line = <$dbFH>) {
+		chomp $line;
+		next if $line =~ /^\s*$/;
+		my @cols = split "\t", "$line", -1;
+		if ($linenum == 0) {
+			# First line of the file contains the column names
+			# Determine which column matches the key and contains the table ids
+			FIND:
+			foreach (my $i=0; $i<scalar(@cols); $i++) {
+				if ("$keyname" eq "$cols[$i]") {
+					$keycol = $i;
+					last FIND;
+				}
+			}
+		} else {
+			# Extract the id for this row
+			my $thisId = "$cols[$keycol]";
+			if (defined $runup2id{"$table"}->{"$thisId"}) {
+				# If the id already exists in the id hash, mark it as a duplicate
+				# No need to compare against WaTCH since that was done on the first instance
+				$runupdup{"$table"}->{"$thisId"} = 0 unless defined $runupdup{"$table"}->{"$thisId"};
+				$runupdup{"$table"}->{"$thisId"} = $runupdup{"$table"}->{"$thisId"} + 1;
+			} else {
+				# If it is a new id, add it to the main id hash
+				$runup2id{"$table"}->{"$cols[$keycol]"} = 1;
+				if (defined $watch2id{"$table"}->{"$thisId"}) {
+					# If the id already exists in the watch id hash, mark it as a collision
+					$collisions{"$table"}->{"$thisId"} = 1;
+				}
 			}
 		}
+		$linenum++;
 	}
+	$runup2lines{"$table"} = $linenum;
+	close $dbFH;
 }
 
-#print Dumper(\%asset2data);
-#die;
-
-
-
-#
-# %asset2data now contains all the asset data
-# Write to the WaTCHdb file
-#
-if ($dowrite == 0) {
-	print "\n###\n##\n#\nThere was at least one fatal or high-level warning during the update. As a result, $WATCHFILE_MAIN has NOT been changed!\n#\n##\n###\n\n"; 
-	`rm $WATCHFILE_MAIN.OLD`;
-} else {
-	open (my $watchFH, ">", "$WATCHFILE_INCR") or die "Unable to open $WATCHFILE_INCR for writing: $!";
-	print $watchFH join("\t", @watchdb_fields) . "\n";
-	foreach my $asset_id (keys %asset2data) {
-		foreach my $rep_id (keys %{$asset2data{"$asset_id"}}) {
-			my $asset = $asset2data{"$asset_id"}->{"$rep_id"};
-			print $watchFH "$asset_id\t$rep_id";
-			foreach my $field (@watchdb_fields) {
-				next if "$field" eq "Sample ID" or "$field" eq "Asset ID" or "$field" eq "Replicate (Bio.Tech)";
-				my $value = "";
-				$value = "$asset->{$field}" if defined $asset->{"$field"};
-				print $watchFH "\t$value";
-			}
-			print $watchFH "\n";
-		}
-	}
-	close $watchFH;
-
-	`cp $WATCHFILE_INCR $WATCHFILE_MAIN`;
+print "-------------------------------\n";
+print "Update validation results ($rundir):\n";
+print sprintf('%-13s', "TABLE") . "\t" . sprintf('%-13s', "UPDATE IDS") . "\t" . sprintf('%-13s', "DUPLICATES") . "\t" . sprintf('%-13s', "COLLISIONS") . "\n";
+foreach my $table (keys %runup2id) {
+	print sprintf('%-13s', "$table") . "\t" . sprintf('%-13s', scalar(keys %{$runup2id{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$runupdup{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$collisions{"$table"}})) . "\n";
 }
-
-
-my $END =
-   DateTime
-      ->now( time_zone => 'local' )
-      ->set_time_zone('floating')
-      ->strftime('%Y-%m-%d.%H-%M-%S');
-
-
-print "WaTCHdb update complete.\n";
-
+print "-------------------------------\n\n";
 
 print "******\n";
-print "Finished $progname."
+print "Finished $progname.\n";
 print "******\n";
 
-exit 0;
+
+my $status = 0;
+my ($num_dups_watch, $num_dups_runup, $num_collisions) = (0,0,0);
+foreach my $table (keys %table2key) {
+	$num_dups_watch = $num_dups_watch + scalar(keys %{$watchdup{"$table"}});
+	$num_dups_runup = $num_dups_runup + scalar(keys %{$runupdup{"$table"}});
+	$num_collisions = $num_collisions + scalar(keys %{$collisions{"$table"}});
+}
+$status = $num_dups_watch + $num_dups_runup + $num_collisions;
+if ($status > 0) {
+	# print dup ids and collisions!
+}
+exit $status;
 
 
+=cut
 sub calc_result {
 	my $aid = shift;
 	my $rid = shift;
@@ -501,31 +299,7 @@ sub calc_result {
 	
 	#return 0;
 }
-
-
-sub change_status {
-	my $asset_hash = shift;
-	
-	# If NWSS status is empty, set to the default of Processing. This will be checked during NWSS output (separate script).
-	$asset_hash->{"Status: NWSS"} = "Processing" unless defined $asset_hash->{"Status: NWSS"} and $asset_hash->{"Status: NWSS"} ne "";
-	# If WaTCH status is empty, set to the default of Processing.
-	$asset_hash->{"Status: WaTCH"} = "Processing" unless defined $asset_hash->{"Status: WaTCH"} and $asset_hash->{"Status: WaTCH"} ne "";
-	
-	# Do nothing if the WaTCH status is already Complete or Rejected. These are EOL status settings.
-	return 0 if $asset_hash->{"Status: WaTCH"} eq "Complete" or $asset_hash->{"Status: WaTCH"} =~ /Rejected/;
-	
-	# Only if there is an existing droplet count, the status can change to either Confirming or Complete.
-	if (defined $asset_hash->{"Assay Accepted Droplets"} and $asset_hash->{"Assay Accepted Droplets"} ne "" and $asset_hash->{"Assay Accepted Droplets"} >= 8000) {
-		if (defined $asset_hash->{"Assay Target 1 Result (CN/L)"} and $asset_hash->{"Assay Target 1 Result (CN/L)"} ne "" and $asset_hash->{"Assay Target 1 Result (CN/L)"} ne "-1") {
-			$asset_hash->{"Status: WaTCH"} = "Complete";
-		} else {
-			$asset_hash->{"Status: WaTCH"} = "Confirming";
-		}
-		return 1;
-	}
-	
-	return 0;
-}
+=cut
 
 
 sub trim {
@@ -548,10 +322,5 @@ sub trim {
 
 	return $input;
 }
-
-
-
-
-
 
 
