@@ -20,12 +20,24 @@ print "******\n";
 
 
 my $usage = "\n";
-$usage   .= "Usage: $progname [options]\n";
-$usage   .=   "Extract WaTCH data for the custom Dashboard Writes data files to .\n";
+$usage   .= "Usage: $progname [options] DBDIR\n";
+$usage   .=   "Updates the result table in DBDIR using other database files from the same dir.\n";
 $usage   .=   "\n";
 
 
-my $dbdir = "data/watchdb/LATEST";
+my $dbdir;
+
+while (@ARGV) {
+  my $arg = shift;
+  if ($arg eq "-h") {
+		die $usage;
+  } else {
+		$dbdir = $arg;
+	}
+}
+
+die "FATAL: $progname requires a valid watchdb directory.\n$usage\n" unless defined $dbdir and -d "$dbdir";
+
 my $status = 0;
 
 my $LOD   = 2855;
@@ -134,7 +146,6 @@ foreach my $asset_id (keys %asset2data) {
 		$asset->{"$key"} = "NA" unless defined $asset->{"$key"};
 	}
 }
-
 =cut
 
 #print Dumper(\%table2watch);
@@ -245,19 +256,21 @@ my @result_colnames = ("result_id",
 											 "target_copies_per_literww",
 											 "target_result_validated");
 											 
-print join("\t", @result_colnames) . "\n";
+open (my $rFH, ">", "$dbdir/watchdb.result.txt") or die "Unable to open $dbdir/watchdb.result.txt for writing: $!";
+print $rFH join("\t", @result_colnames) . "\n";
 foreach my $result_id (keys %{$table2watch{"result"}}) {
-	print "$result_id";
+	print $rFH "$result_id";
 	for (my $i=1; $i < scalar(@result_colnames); $i++) {
 		my $colname = $result_colnames[$i];
 		my $colval  = "NA";
 		if (defined $table2watch{"result"}->{"$result_id"}->{"$colname"} and isEmpty($table2watch{"result"}->{"$result_id"}->{"$colname"}) == 0) {
 			$colval = trim($table2watch{"result"}->{"$result_id"}->{"$colname"});
 		}
-		print "\t$value";
+		print $rFH "\t$colval";
 	}
-	print "\n";
+	print $rFH "\n";
 }
+close $rFH;
 
 
 print "******\n";

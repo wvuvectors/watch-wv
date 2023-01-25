@@ -86,12 +86,17 @@ fi
 echo "Backing up watchdb LATEST/ directory to LATEST_BK/." | tee -a "$logf"
 cp -r "$DBDIR/watchdb/LATEST/" "$DBDIR/watchdb/LATEST_BK/"
 
+
+
+echo "Creating new watch version in $DBDIR/watchdb/$TODAY/ that includes compiled run from $indir." | tee -a "$logf"
+
 if [ -d "$DBDIR/watchdb/$TODAY/" ]; then
 	rm -r "$DBDIR/watchdb/$TODAY/"
 fi
 mkdir "$DBDIR/watchdb/$TODAY/"
 
-tables=("abatch" "archive" "assay" "cbatch" "concentration" "control" "ebatch" "extraction" "rbatch")
+
+tables=("abatch" "archive" "assay" "cbatch" "concentration" "control" "ebatch" "extraction" "rbatch" "result")
 for i in ${!tables[@]}
 do
 	table=${tables[$i]}
@@ -106,23 +111,37 @@ done
 
 
 
-./perl/3_feedDashboard.pl > "$DBDIR/dashboard/dashboard.$START.txt" | tee -a "$logf"
+echo "Updating result table in $DBDIR/watchdb/$TODAY/, taking into account any new assay data from $indir." | tee -a "$logf"
+
+./perl/3_calculateResults.pl "$DBDIR/watchdb/$TODAY" | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "perl/3_feedDashboard.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
-	echo "$DBDIR/dashboard.LATEST.txt has *not* been modified!" | tee -a "$logf"
+	echo "perl/3_calculateResults.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	#echo "Removing $DBDIR/watchdb/$TODAY/" | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (Updating dashboard feed)." | tee -a "$logf"
+	echo "patchr aborted during phase 3 (Calculating and updating results)." | tee -a "$logf"
 	echo "Run "| tee -a "$logf"
 	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
 	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	mv "$DBDIR/dashboard/dashboard.$START.txt" "$DBDIR/dashboard/dashboard.$START.ABORTED.txt"
 	exit 1
 fi
 
-cp "$DBDIR/dashboard/dashboard.$START.txt" "$DBDIR/dashboard.LATEST.txt"
+
+
+echo "Copying updated watchdb files from $DBDIR/watchdb/$TODAY/ to $DBDIR/watchdb/LATEST/." | tee -a "$logf"
+for i in ${!tables[@]}
+do
+	table=${tables[$i]}
+	cp "$DBDIR/watchdb/$TODAY/watchdb.$table.txt" "$DBDIR/watchdb/LATEST/watchdb.$table.txt"
+done
+
+
+
+#echo "$DBDIR/dashboard.LATEST.txt has *not* been modified!" | tee -a "$logf"
+#mv "$DBDIR/dashboard/dashboard.$START.txt" "$DBDIR/dashboard/dashboard.$START.ABORTED.txt"
+#cp "$DBDIR/dashboard/dashboard.$START.txt" "$DBDIR/dashboard.LATEST.txt"
 
