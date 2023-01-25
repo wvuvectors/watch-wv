@@ -1,4 +1,4 @@
-sample_id	sample_status_watch	sample_description	sample_department	sample_site	sample_location	sample_qc	sample_collection_method	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comments
+sample_id	sample_status_watch	sample_description	sample_department	sample_site	location_id	sample_qc	sample_collection_method	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comments
 A0020	Rejected: No NTC	Sample	WWTP	Monongalia	StarCityWWTP-01	Pass	Composite	11/17/20 0:00	11/17/20 23:59	11/17/20 0:00	GG	6.708	TD	11/19/20		
 A0021	Rejected: No NTC	Sample	WWTP	Monongalia	StarCityWWTP-01	Pass	Composite	11/18/20 0:00	11/18/20 23:59	11/18/20 0:00	GG	6.705	TD	11/19/20		
 A0022	Rejected: No NTC	Sample	WWTP	Monongalia	StarCityWWTP-01	Pass	Composite	11/19/20 0:00	11/19/20 23:59	11/19/20 0:00	GG	9.875	TD	11/30/20		

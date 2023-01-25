@@ -20,7 +20,6 @@ $usage   .=  "Validate the compiled run in RUNDIR vs the main watch database. Pa
 $usage   .=   "\n";
 
 my $dbdir  = "data/watchdb/LATEST";
-my $buffer = "             "; # 13 spaces to buffer short table names in print statements
 my $rundir;
 
 while (@ARGV) {
@@ -125,10 +124,10 @@ my %collisions = ("abatch"        => {},
 									"rbatch"        => {});
 
 
-print "Validating run data from $rundir/updates/ folder against WaTCH database tables in $dbdir.\n";
 
 # Fetch ids from the current WaTCH database tables.
 #
+print "Validating ids from existing WaTCH database tables...\n";
 my $idtotal = 0;
 foreach my $table (keys %watch2id) {
 	print "Retrieving ids from WaTCH table $table\n";
@@ -167,7 +166,8 @@ foreach my $table (keys %watch2id) {
 	$watch2lines{"$table"} = $linenum;
 	close $dbFH;
 }
-print "Finished reading " . scalar(keys %watch2id) . " WaTCH tables.\n";
+#print "Finished reading " . scalar(keys %watch2id) . " WaTCH tables.\n";
+print "Done.\n\n";
 
 print "-------------------------------\n";
 print "WaTCH internal validation results ($dbdir):\n";
@@ -184,8 +184,8 @@ print "-------------------------------\n\n";
 
 # Scan update tables for duplicate IDs and flag.
 #
+print "Validating ids from run update tables...\n";
 foreach my $table (keys %runup2id) {
-	print "Validating ids from update table $table\n";
 	my $keyname = $table2key{"$table"};
 	my $keycol  = -1;
 	my $linenum = 0;
@@ -226,18 +226,15 @@ foreach my $table (keys %runup2id) {
 	$runup2lines{"$table"} = $linenum;
 	close $dbFH;
 }
+print "Done.\n\n";
 
 print "-------------------------------\n";
-print "Update validation results ($rundir):\n";
+print "Run validation results ($rundir):\n";
 print sprintf('%-13s', "TABLE") . "\t" . sprintf('%-13s', "UPDATE IDS") . "\t" . sprintf('%-13s', "DUPLICATES") . "\t" . sprintf('%-13s', "COLLISIONS") . "\n";
 foreach my $table (keys %runup2id) {
 	print sprintf('%-13s', "$table") . "\t" . sprintf('%-13s', scalar(keys %{$runup2id{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$runupdup{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$collisions{"$table"}})) . "\n";
 }
 print "-------------------------------\n\n";
-
-print "******\n";
-print "Finished $progname.\n";
-print "******\n";
 
 
 my $status = 0;
@@ -248,9 +245,38 @@ foreach my $table (keys %table2key) {
 	$num_collisions = $num_collisions + scalar(keys %{$collisions{"$table"}});
 }
 $status = $num_dups_watch + $num_dups_runup + $num_collisions;
-if ($status > 0) {
-	# print dup ids and collisions!
-}
+#if ($status > 0) {
+	open (my $v1FH, ">", "$rundir/updates/_collisions.txt");
+	print $v1FH "The following IDs are present in both the existing WaTCH database and the current run.\n\nTABLE\tID\n";
+	foreach my $table (keys %collisions) {
+		foreach my $id (keys %{$collisions{"$table"}}) {
+			print $v1FH "$table\t$id\n";
+		}
+	}
+	close $v1FH;
+	open (my $v2FH, ">", "$rundir/updates/_rundups.txt");
+	print $v2FH "The following IDs are duplicated in the current run data.\n\nTABLE\tID\n";
+	foreach my $table (keys %runupdup) {
+		foreach my $id (keys %{$runupdup{"$table"}}) {
+			print $v2FH "$table\t$id\n";
+		}
+	}
+	close $v2FH;
+	open (my $v3FH, ">", "$rundir/updates/_watchdups.txt");
+	print $v3FH "The following IDs are duplicated in the WaTCH database (before appending any data from the current run).\n\nTABLE\tID\n";
+	foreach my $table (keys %watchdup) {
+		foreach my $id (keys %{$watchdup{"$table"}}) {
+			print $v3FH "$table\t$id\n";
+		}
+	}
+	close $v3FH;
+#}
+
+print "******\n";
+print "Finished $progname.\n";
+print "******\n";
+
+
 exit $status;
 
 

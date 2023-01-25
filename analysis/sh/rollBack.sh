@@ -37,6 +37,12 @@ done
 
 cd ../
 
+# Remove the updates folder, if it exists
+if [ -d "updates/" ]; then
+	rm -r "updates/"
+fi
+
+
 # Remove the restore folder
 #rm -r "restore/"
 

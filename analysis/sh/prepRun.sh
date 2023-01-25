@@ -46,7 +46,6 @@ do
 #		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$f"
 #		perl -pi -e 's/,RP,/,Human RNase P,/i' "$f"
 		perl -pi -e 's/µ/u/i' "$f"
-		status=1
 	elif [[ "$is_asset" == "1" ]]
 	then
 		echo "File $f appears to be an asset file. It will be ignored. You may want to process this separately using 2_updateSamples.pl."
