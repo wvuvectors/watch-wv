@@ -1,9 +1,5 @@
 #! /bin/bash
 
-echo "******"
-echo "Running prepRun.sh."
-echo "******"
-
 
 indir="$1"
 WD=$(pwd)
@@ -66,10 +62,6 @@ done
 
 
 cd "$WD"
-
-echo "******"
-echo "Finished prepRun.sh."
-echo "******"
 
 exit $status
 

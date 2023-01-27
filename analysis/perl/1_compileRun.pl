@@ -13,10 +13,6 @@ use Data::Dumper;
 my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
-print "******\n";
-print "Running $progname.\n";
-print "******\n";
-
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
@@ -207,6 +203,18 @@ foreach my $btype (keys %batches) {
 	close $ufh;
 }
 
+# Simplified fluorophore codes, mostly to append to the control IDs to make them unique
+my %fabbrevs = ("FAM" => "FA",
+								"HEX" => "HE",
+								"Cy5" => "CY",
+								"Cy5.5" => "CZ",
+								"ROX" => "RO", 
+								"ATTO 590" => "AT",
+								"FAM/HEX" => "FH",
+								"Cy5/Cy5.5" => "CC",
+								"ROX/ATTO 590" => "RA");
+
+
 # write assay and control update files, a many-to-one set
 my $btype = "assay";
 open (my $ufh, ">", "$rundir/updates/update.$btype.txt") or die "Unable to open $rundir/updates/update.$btype.txt for writing: $!";
@@ -223,7 +231,10 @@ foreach my $bid (keys %{$batches{"$btype"}}) {
 			foreach my $fluor (keys %{$batches{"$btype"}->{"$bid"}->{"fluorophores"}}) {
 				next unless defined $control_wells{$well}->{"$fluor"};
 				my $rep = $control_wells{$well}->{"$fluor"}->{"rep"};
-				my $uid = "x.$rep";
+				my $sid = $batches{"$btype"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
+				$sid =~ s/\s//gi;
+				my $fabbrev = $fabbrevs{"$fluor"};
+				my $uid = "$bid.$sid.$fabbrev$rep";
 				print $xfh "$uid";
 				for (my $i=1; $i<scalar(@{$updatecols{"control_k"}}); $i++) {
 					my $key = $updatecols{"control_k"}->[$i];
@@ -428,9 +439,6 @@ sub read_batch_data {
 	}	# i loop
 }
 
-print "******\n";
-print "Finished $progname.\n";
-print "******\n";
 
 exit 0;
 

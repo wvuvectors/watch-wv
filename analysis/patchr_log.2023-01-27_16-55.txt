@@ -1,0 +1,107 @@
+#############################################
+Initiated patchr.sh
+2023-01-27_16-55
+
+See patchr_log.2023-01-27_16-55.txt for warnings, errors, and other important information.
+In the event of a catastrophic error, run
+  ./sh/rollBack.sh /Users/tpd0001/github/watch-wv/analysis/TEST
+at any point to restore the original files. Then fix the error(s) and run patchr again.
+
+******
+Running prepRun.sh.
+******
+Switching to run directory /Users/tpd0001/github/watch-wv/analysis/TEST.
+Creating directory restore/ to hold original data files.
+Processing files in /Users/tpd0001/github/watch-wv/analysis/TEST.
+Backing up csv file AP42_ANALYZED.csv to restore/
+Repairing known issues in AP42_ANALYZED.csv
+File AP42_ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AP42_ANALYZED.csv...
+Done.
+Backing up csv file asset_08262022_024441.csv to restore/
+Repairing known issues in asset_08262022_024441.csv
+File asset_08262022_024441.csv appears to be an asset file. It will be ignored. You may want to process this separately using 2_updateSamples.pl.
+Done.
+Backing up xlsx file  ABATCH.v2.0.0.xlsx to restore/
+Backing up xlsx file  CBATCH.v2.0.0.xlsx to restore/
+Backing up xlsx file  CBATCH.v2.0.0_1.xlsx to restore/
+Backing up xlsx file  EBATCH.v2.0.0.xlsx to restore/
+Backing up xlsx file  RBATCH.v2.0.0.xlsx to restore/
+
+******
+Running 1_compileRun.pl.
+******
+
+******
+Running 2_validateRun.pl.
+******
+******
+Running 2_validateRun.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table extraction
+Retrieving ids from WaTCH table assay
+Retrieving ids from WaTCH table rbatch
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table cbatch
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table control
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/watchdb/LATEST):
+TABLE        	WaTCH IDS    	DUPLICATES   
+ebatch       	288          	0            
+extraction   	3782         	0            
+assay        	11271        	0            
+rbatch       	0            	0            
+archive      	0            	0            
+cbatch       	327          	0            
+abatch       	120          	0            
+concentration	3790         	0            
+control      	390          	0            
+-------------------------------
+
+Validating ids from run update tables...
+Done.
+
+-------------------------------
+Run validation results (/Users/tpd0001/github/watch-wv/analysis/TEST):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+ebatch       	1            	0            	0            
+assay        	102          	0            	0            
+rbatch       	1            	0            	0            
+extraction   	36           	0            	0            
+cbatch       	2            	0            	0            
+archive      	18           	0            	0            
+control      	4            	0            	0            
+concentration	36           	0            	0            
+abatch       	1            	0            	0            
+-------------------------------
+
+******
+Finished 2_validateRun.pl.
+******
+
+Ok, I'm about to start working with the watchdb files in data/watchdb/LATEST/.
+Backing up data/watchdb/LATEST/ to data/watchdb/LATEST_BK/.
+Creating a new version of watchdb in data/watchdb/2023-01-27_16-55/.
+It will be updated with data from the run in /Users/tpd0001/github/watch-wv/analysis/TEST.
+Merging the run update tables with their corresponding watchdb tables.
+Copying the watchdb RESULT table into data/watchdb/2023-01-27_16-55/.
+Updating the RESULT table taking into account any new assay data from /Users/tpd0001/github/watch-wv/analysis/TEST.
+******
+Running 3_calculateResults.pl.
+******
+
+data/watchdb/2023-01-27_16-55/ now contains the most recent version of the watchdb.
+Copying from data/watchdb/2023-01-27_16-55/ to data/watchdb/LATEST/.
+data/watchdb/LATEST/ now contains the most recent version of the watchdb.
+data/watchdb/LATEST_BK/ contains the watchdb right before this update was applied.
+
+Finished patchr.sh
+See patchr_log.2023-01-27_16-55.txt for warnings, errors, and other important information.
+#############################################
+

@@ -14,11 +14,6 @@ use Data::Dumper;
 my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
-print "******\n";
-print "Running $progname.\n";
-print "******\n";
-
-
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] DBDIR\n";
 $usage   .=   "Updates the result table in DBDIR using other database files from the same dir.\n";
@@ -49,7 +44,6 @@ my %table2key = ("abatch"        => "assay_batch_id",
 								 "assay"         => "assay_id", 
 								 "cbatch"        => "concentration_batch_id", 
 								 "concentration" => "concentration_id", 
-								 "control"       => "control_id", 
 								 "ebatch"        => "extraction_batch_id", 
 								 "extraction"    => "extraction_id", 
 								 "result"        => "assay_id");
@@ -60,13 +54,13 @@ my %table2watch = ("abatch"        => {},
 									 "assay"         => {}, 
 									 "cbatch"        => {}, 
 									 "concentration" => {}, 
-									 "control"       => {}, 
 									 "ebatch"        => {}, 
 									 "extraction"    => {},
 									 "result"        => {});
 
 # Read WaTCH tables into hash
 foreach my $table (keys %table2key) {
+	#print "DEBUG::: $progname Reading $table.\n";
 	my $keyname = $table2key{"$table"};
 	my @colnames = ();
 	my $keycol  = -1;
@@ -88,6 +82,12 @@ foreach my $table (keys %table2key) {
 			my $thisId = "$cols[$keycol]";
 			$table2watch{"$table"}->{"$thisId"} = {};
 			for (my $i=0; $i<scalar(@cols); $i++) {
+				if (!defined $colnames[$i]) {
+					print "DEBUG:: $table col name ($i) does not exist!\n";
+					print "$line\n";
+					print Dumper(@colnames);
+					die;
+				}
 				$table2watch{"$table"}->{"$thisId"}->{"$colnames[$i]"} = "$cols[$i]";
 			}
 		}
@@ -98,14 +98,14 @@ foreach my $table (keys %table2key) {
 
 
 # Every assay has one and only one corresponding result
-# Samples may have more thane one assay (and result)
+# Samples may have more than one assay (and result)
 # The result table is a simplfied table with the calculated copies/L of the target
 #
 # Required input data:
 # assay.assay_target (eg SARS-CoV-2)
 # assay.assay_target_category (eg Pathogen)
 # assay.assay_target_genetic_locus (eg N1)
-# assay.assay_target_copies_per_rxn
+# assay.assay_target_copies_per_ul_reaction
 # assay.assay_input_ul
 # abatch.assay_reaction_ul
 # cbatch.concentration_input_ml
@@ -185,22 +185,41 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 																					 "target_category"           => $assay{"assay_target_category"},
 																					 "target_genetic_locus"      => $assay{"assay_target_genetic_locus"}, 
 																					 "responsible_lab_name"      => "WVU Zoonotic Pathogen Testing Laboratory",
-																					 "responsible_lab_abbrev"    => "Zoo@WVU",
+																					 "responsible_lab_abbrev"    => "ZooWVU",
+																					 "assay_target_copies_per_ul_reaction" => "NA",
+																					 "assay_reaction_ul" => "NA",
+																					 "extraction_output_ul" => "NA",
+																					 "concentration_output_ml" => "NA",
+																					 "assay_input_ul" => "NA",
+																					 "extraction_input_ul" => "NA",
+																					 "concentration_input_ml" => "NA",
 																					 "target_copies_per_literww" => "NA",
 																					 "target_result_validated"   => 0};
 	
 	## NEED to check all of these values exist. Otherwise set status and skip the calculation.
-	if (defined $assay{"assay_target_copies_per_rxn"} and isEmpty($assay{"assay_target_copies_per_rxn"}) == 0) {
-		my $copies_per_rxn = $assay{"assay_target_copies_per_rxn"};
-		my $copies_per_lww = 1000 * 
-												 ($copies_per_rxn * (1000 * $ebatch{"extraction_output_ul"}) * $cbatch{"concentration_output_ml"}) / 
-												 ((1000 * $assay{"assay_input_ul"}) * (1000 * $ebatch{"extraction_input_ul"}) * $cbatch{"concentration_input_ml"});
+	if (defined $assay{"assay_target_copies_per_ul_reaction"} and isEmpty($assay{"assay_target_copies_per_ul_reaction"}) == 0) {
+		my $copies_per_lww = 1000 * 1000 * 
+			($assay{"assay_target_copies_per_ul_reaction"} * $abatch{"assay_reaction_ul"} * $ebatch{"extraction_output_ul"} * $cbatch{"concentration_output_ml"}) / 
+			($assay{"assay_input_ul"} * $ebatch{"extraction_input_ul"} * $cbatch{"concentration_input_ml"});
+		
+		$table2watch{"result"}->{"$assay_id"}->{"assay_target_copies_per_ul_reaction"} = $assay{"assay_target_copies_per_ul_reaction"};
+		$table2watch{"result"}->{"$assay_id"}->{"assay_reaction_ul"} = $abatch{"assay_reaction_ul"};
+		$table2watch{"result"}->{"$assay_id"}->{"extraction_output_ul"} = $ebatch{"extraction_output_ul"};
+		$table2watch{"result"}->{"$assay_id"}->{"concentration_output_ml"} = $cbatch{"concentration_output_ml"};
+		$table2watch{"result"}->{"$assay_id"}->{"assay_input_ul"} = $assay{"assay_input_ul"};
+		$table2watch{"result"}->{"$assay_id"}->{"extraction_input_ul"} = $ebatch{"extraction_input_ul"};
+		$table2watch{"result"}->{"$assay_id"}->{"concentration_input_ml"} = $cbatch{"concentration_input_ml"};
+		
 		$table2watch{"result"}->{"$assay_id"}->{"target_copies_per_literww"} = $copies_per_lww;
 		
 		## NEED some better way to validate this result. Compare to control?
 		$table2watch{"result"}->{"$assay_id"}->{"target_result_validated"}   = 1;
 	}
 }
+
+#my $cn_per_l = 1000 * 
+#(CN/RXN * $calc_vals{"Extraction Output Volume (mL)"} * $calc_vals{"Concentration Output Volume (mL)"}) / 
+#($calc_vals{"Assay Volume (mL)"} * $calc_vals{"Extraction Input Volume (mL)"} * $calc_vals{"Concentration Input Volume (mL)"});
 
 
 # Add data from Marshall University to result file
@@ -250,9 +269,16 @@ my @result_colnames = ("result_id",
 											 "assay_id",
 											 "target",
 											 "target_category",
-											 "target_genetic_locus" 
+											 "target_genetic_locus", 
 											 "responsible_lab_name",
 											 "responsible_lab_abbrev",
+#											 "assay_target_copies_per_ul_reaction",
+#											 "assay_reaction_ul",
+#											 "extraction_output_ul",
+#											 "concentration_output_ml",
+#											 "assay_input_ul",
+#											 "extraction_input_ul",
+#											 "concentration_input_ml",
 											 "target_copies_per_literww",
 											 "target_result_validated");
 											 
@@ -273,15 +299,10 @@ foreach my $result_id (keys %{$table2watch{"result"}}) {
 close $rFH;
 
 
-print "******\n";
-print "Finished $progname.\n";
-print "******\n";
-
-
 exit $status;
 
 
-
+=cut
 sub extract {
 	my $target = shift;
 	my $scope  = shift;
@@ -329,7 +350,7 @@ sub extract {
 #		print "\t" . scalar(@vals) . " vals: " . join(",", @vals) . "\n";
 #	}
 }
-
+=cut
 
 sub trim {
 	my $val = shift;
@@ -351,7 +372,7 @@ sub isEmpty {
 	return $is_empty;
 }
 
-
+=cut
 sub convertKey {
 	my $keyIn = shift;
 	my %converter = ("N1" => "Assay Target 1 Result (CN/L)",
@@ -369,7 +390,6 @@ sub convertKey {
 	}
 	
 }
-
 
 sub mean {
 	my $vals = shift;
@@ -443,6 +463,7 @@ sub regress {
 
 	return $slope;
 }
+=cut
 
 
 
