@@ -5,10 +5,10 @@ account: wvuvectors
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6177490
-bundleId: 6007970
+bundleId: 6795015
 url: https://wvuvectors.shinyapps.io/watch-wv-pre/
-when: 1655240511.87993
-lastSyncTime: 1655240511.87995
+when: 1675197871.61479
+lastSyncTime: 1675197871.61481
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: notebook/release_notes.xlsx|notebook/task_list.txt|test.R|ui copy.R|www/.DS_Store|IGNORE
+ignoredFiles: notebook/release_notes.xlsx|notebook/task_list.txt|analysis

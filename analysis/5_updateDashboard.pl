@@ -58,7 +58,7 @@ my $NOW =
       ->strftime('%Y-%m-%d.%H-%M-%S');
 
 my $WATCHFILE    = "updates/watchdb.LATEST.txt";
-my $WATCHFILE_MU = "~/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/zpm_dashboard.LATEST.txt";
+my $WATCHFILE_MU = "/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/mu_dashboard.LATEST.tsv";
 
 my $TABLEFILE    = "resources/WaTCH_Tables.xlsx";
 my $FIELDSFILE   = "resources/fields_dashboard.txt";
@@ -249,6 +249,8 @@ if (-f "$WATCHFILE_MU") {
 		$count++;
 	}
 	close $watchMuInFH;
+} else {
+	print "!!!!!!!!!!\nWARN : $WATCHFILE_MU is not a readable file!\n!!!!!!!!!!\n";
 }
 
 
@@ -311,14 +313,18 @@ foreach my $asset_id (keys %asset2data) {
 
 	# Raw values, for assets with unknown daily flow and population served
 	if (defined $asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"}) {
+		$asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} =~ s/,//gi;
+		
 		$asset2data{"$asset_id"}->{"n1"} = $asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"};
 		$asset2data{"$asset_id"}->{"n1"} = 1 + int rand($LOD) unless $asset2data{"$asset_id"}->{"n1"} eq "NA" or $asset2data{"$asset_id"}->{"n1"} > 1;
 	}
 	if (defined $asset2data{"$asset_id"}->{"Assay Target 2 Result (CN/L)"}) {
+		$asset2data{"$asset_id"}->{"Assay Target 2 Result (CN/L)"} =~ s/,//gi;
 		$asset2data{"$asset_id"}->{"n2"} = $asset2data{"$asset_id"}->{"Assay Target 2 Result (CN/L)"};
 		$asset2data{"$asset_id"}->{"n2"} = 1 + int rand($LOD) unless $asset2data{"$asset_id"}->{"n2"} eq "NA" or $asset2data{"$asset_id"}->{"n2"} > 1;
 	}
 	if (defined $asset2data{"$asset_id"}->{"Sample Flow (MGD)"}) {
+		$asset2data{"$asset_id"}->{"Sample Flow (MGD)"} =~ s/,//gi;
 		$asset2data{"$asset_id"}->{"daily_flow"} = $asset2data{"$asset_id"}->{"Sample Flow (MGD)"};
 	} else {
 		$asset2data{$asset_id}->{"daily_flow"} = "NA";
@@ -589,7 +595,7 @@ sub convertKey {
 									 "sample composite start" => "Sample Composite Start",
 									 "sample composite end" => "Sample Composite End",
 									 "sample received date" => "Sample Received Date",
-									 "Sample flow (MGD)" => "Sample Flow (MGD)",
+									 "sample flow (MGD)" => "Sample Flow (MGD)",
 									 "location" => "Location");
 	
 	if (defined $converter{"$keyIn"}) {
