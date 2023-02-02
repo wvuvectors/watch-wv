@@ -46,8 +46,8 @@ options(tigris_use_cache = TRUE)
 
 
 MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
-													"lat" = c(38.951883, 39.642414),
-													"lng" = c(-81.0534217, -79.9792327),
+													"lat" = c(38.991883, 39.642414),
+													"lng" = c(-81.6534217, -79.9792327),
 													"zoom" = c(8, 13))
 
 INFECTIONS <- c("SARS-CoV-2")
@@ -163,8 +163,8 @@ df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
 
 # Set date constraints on input data
 # May want to change this in the future?
-first_day <- as_date("2021-07-01")
 last_day <- max(df_watch_pre$day)
+first_day <- last_day - years(1)
 df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 
 # TEMP KLUDGE!!!

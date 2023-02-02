@@ -3,6 +3,19 @@
 indir="$1"
 WD=$(pwd)
 
+now=$(date +'%Y-%m-%d.%k_%M')
+
+WATCHFILE_MU="/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/mu_dashboard.LATEST.tsv"
+WATCHFILE_MUBK="/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/ARCHIVED/mu_dashboard.$now.tsv"
+
+if [ -f "$WATCHFILE_MU" ]
+then
+	cp "$WATCHFILE_MU" "$WATCHFILE_MUBK"
+	perl -pi -e 's/\r$//' "$WATCHFILE_MU"
+	sed -i '' -e '$a\' "$WATCHFILE_MU"
+fi
+
+
 cd "$indir"
 csv_files=*.csv
 
@@ -32,6 +45,3 @@ done
 
 cd "$WD"
 ./1_compile_run.pl "$indir"
-#./2_updateWaTCH.pl "$indir"
-#./3_updateNWSS.pl
-#./4_updateAssetTiger.pl
