@@ -79,8 +79,10 @@ echo "******" | tee -a "$logf"
 # This script also needs to merge entries from discontiguous events.
 # For example, an extraction that used a concentration from an earlier run.
 # In this case, the concentration will already exist in the watchdb, but not in the update.
-# The extraction will have no concntration_id value and everything downstream will fail.
-
+# The extraction will have no concentration_id value and everything downstream will fail.
+#
+# To KISS we will assume only one concentration and extraction exist per sample.
+#
 ./perl/2_validateRun.pl "$indir" | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 #echo "Status of validation: $status" | tee -a "$logf"
