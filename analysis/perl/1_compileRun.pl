@@ -395,7 +395,7 @@ sub read_batch_data {
 	@comment_rows = Spreadsheet::Read::rows($wkbk->[3]);
 	@volstor_rows = Spreadsheet::Read::rows($wkbk->[4]) if defined Spreadsheet::Read::rows($wkbk->[4]);
 	
-	# all batch sheets except the Metadata sheet are based off sample_rows (ie the "Plate" sheet), so we only need to loop over that
+	# all batch sheets except the Metadata sheet are based off sample_rows (ie the "Sample IDs" sheet), so we only need to loop over that
 	for (my $i=1; $i < scalar(@sample_rows); $i++) {
 		for (my $j=1; $j < scalar(@{$sample_rows[$i]}); $j++) {
 			if (!defined $sample_rows[$i][$j]) {

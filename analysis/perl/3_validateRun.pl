@@ -9,9 +9,9 @@ use Data::Dumper;
 my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
-print "******\n";
-print "Running $progname.\n";
-print "******\n";
+#print "******\n";
+#print "Running $progname.\n";
+#print "******\n";
 
 
 my $usage = "\n";
@@ -272,60 +272,12 @@ $status = $num_dups_watch + $num_dups_runup + $num_collisions;
 	close $v3FH;
 #}
 
-print "******\n";
-print "Finished $progname.\n";
-print "******\n";
+#print "******\n";
+#print "Finished $progname.\n";
+#print "******\n";
 
 
 exit $status;
-
-
-=cut
-sub calc_result {
-	my $aid = shift;
-	my $rid = shift;
-	my $CN = shift;
-	
-	my %calc_vals = ();
-	$calc_vals{"Extraction Output Volume (mL)"} = $asset2data{"$aid"}->{"$rid"}->{"Extraction Output Volume (mL)"};
-	$calc_vals{"Concentration Output Volume (mL)"} = $asset2data{"$aid"}->{"$rid"}->{"Concentration Output Volume (mL)"};
-	$calc_vals{"Assay Volume (mL)"} = $asset2data{"$aid"}->{"$rid"}->{"Assay Volume (mL)"};
-	$calc_vals{"Extraction Input Volume (mL)"} = $asset2data{"$aid"}->{"$rid"}->{"Extraction Input Volume (mL)"};
-	$calc_vals{"Concentration Input Volume (mL)"} = $asset2data{"$aid"}->{"$rid"}->{"Concentration Input Volume (mL)"};
-	
-	my $valid = 1;
-	foreach my $k (keys %calc_vals) {
-		if (!defined $calc_vals{$k} or $calc_vals{$k} eq "") {
-			print $logFH "HIGH: I have assay data for $aid $rid in this run, but no value for $k. This is concerning.\n";
-			print "HIGH: I have assay data for $aid $rid in this run, but no value for $k. This is concerning.\n";
-			$dowrite = 0;
-			$valid = 0;
-		} elsif ($k eq "Assay Volume (mL)" or $k eq "Extraction Input Volume (mL)" or $k eq "Concentration Input Volume (mL)") {
-			if ($calc_vals{$k} == 0) {
-				print $logFH "HIGH: Sample $aid $rid in this run has a $k value of 0. This is concerning.\n";
-				print "HIGH: Sample $aid $rid in this run has a $k value of 0. This is concerning.\n";
-				$dowrite = 0;
-				$valid = 0;
-			}
-		}
-	}
-	unless ($valid == 1) {
-		print $logFH "    I am unable to calculate a result for $aid $rid. This should be confirmed.\n";
-		print "    I am unable to calculate a result for $aid $rid. This should be confirmed.\n";
-		$dowrite = 0;
-		return -1;
-	}
-	
-	my $cn_per_l = 1000 * 
-								 ($CN * $calc_vals{"Extraction Output Volume (mL)"} * $calc_vals{"Concentration Output Volume (mL)"}) / 
-								 ($calc_vals{"Assay Volume (mL)"} * $calc_vals{"Extraction Input Volume (mL)"} * $calc_vals{"Concentration Input Volume (mL)"});
-	print $logFH "INFO: Sample $aid $rid has a new calculated value of $cn_per_l.\n";
-	#print "INFO: Sample $aid has a calculated value of $cn_per_l.\n";
-	return $cn_per_l;
-	
-	#return 0;
-}
-=cut
 
 
 sub trim {
