@@ -7,6 +7,7 @@ cd "$indir"
 # get the current datetime
 now=$(date +'%Y-%m-%d.%k_%M')
 
+
 mu_len=$(wc -l < READY/mu_nwss.LATEST.csv)
 mu_len=$((mu_len-1))
 
@@ -49,8 +50,15 @@ perl -pi -e 's/,+$//' READY/wvu_nwss.LATEST.csv
 
 # Remove any empty rows
 # This can occur when exporting from damn Excel
-sed -i '/^[[:space:]]*$/d' READY/mu_nwss.LATEST.csv
-sed -i '/^[[:space:]]*$/d' READY/wvu_nwss.LATEST.csv
+sed -i '' '/^[[:space:]]*$/d' READY/mu_nwss.LATEST.csv
+sed -i '' '/^[[:space:]]*$/d' READY/wvu_nwss.LATEST.csv
+
+# Ensure both files contain a line ending at the end of the file
+tail -c1 < "READY/mu_nwss.LATEST.csv" | read -r _ || echo >> "READY/mu_nwss.LATEST.csv"
+tail -c1 < "READY/wvu_nwss.LATEST.csv" | read -r _ || echo >> "READY/wvu_nwss.LATEST.csv"
+
+#sed -i '' -e '$a\' READY/mu_nwss.LATEST.csv
+#sed -i '' -e '$a\' READY/wvu_nwss.LATEST.csv
 
 
 # remove the header line from the WVU data file
@@ -60,15 +68,25 @@ tail -n +2 READY/wvu_nwss.LATEST.csv > READY/wvu_tmp.csv
 
 # concatenate MU and WVU data files
 cat READY/mu_nwss.LATEST.csv READY/wvu_tmp.csv > READY/merged_nwss.LATEST.csv
+
+# Recalculate the length of each individul file since processing might have changed this
+mu_len=$(wc -l < READY/mu_nwss.LATEST.csv)
+mu_len=$((mu_len-1))
+wvu_len=$(wc -l < READY/wvu_nwss.LATEST.csv)
+wvu_len=$((wvu_len-1))
+sum_len=$((mu_len + wvu_len))
+
+# Calculate the length of the merged file
 merged_len=$(wc -l < READY/merged_nwss.LATEST.csv)
 merged_len=$((merged_len-1))
-sum_len=$((mu_len + wvu_len))
+
+
 
 if [ $merged_len -lt 1 ]
 then
 	echo "******"
 	echo "The merged data file appears to be empty."
-	echo "Aborting the merge. All intermediate files will remain so you can find the problem."
+	echo "The merge has occurred but all intermediate files will remain so you can find the problem."
 	echo "No files have been archived!"
 	echo "******"
 	exit 1
@@ -82,7 +100,7 @@ if [ $sum_len -ne $merged_len ]
 then
 	echo "******"
 	echo "The merged file ($merged_len) does not contain the expected number of data rows ($sum_len)."
-	echo "Aborting the merge. All intermediate files will remain so you can find the problem."
+	echo "The merge has occurred but all intermediate files will remain so you can find the problem."
 	echo "No files have been archived!"
 	echo "******"
 	exit 1
