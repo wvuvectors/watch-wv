@@ -60,6 +60,15 @@ my %updatecols    = (
 
 my %fluorcols = ();
 
+# id link map
+my %ref2source = ("assay" => "extraction", "extraction" => "concentration", "concentration" => "sample");
+
+# Batch sheet orders
+my %sheet2batch = ("assay"         => {"metadata" => 1, "sample ids" => 2, "backrefs" => 3, "comments" => 4, "volume overrides" => 5}, # backrefs are extraction ids, defaults to 1
+									 "concentration" => {"metadata" => 1, "sample ids" => 2, "comments" => 3}, 
+									 "extraction"    => {"metadata" => 1, "sample ids" => 2, "backrefs" => 3, "comments" => 4, "storage ids" => 5}, # backrefs are concentration ids, defaults to 1
+									 "archive"       => {"metadata" => 1, "sample ids" => 2, "comments" => 3, "storage ids" => 4});
+
 
 # Read in the run data file(s) (csv)
 # There many be multiple csv files in the run directory so we want to test each one
@@ -389,11 +398,14 @@ sub read_batch_data {
 	$btype = lc $btype;
 	
 	my @row2name = ("", "A", "B", "C", "D", "E", "F", "G", "H");
-
-	my (@sample_rows, @volstor_rows, @comment_rows);
-	@sample_rows  = Spreadsheet::Read::rows($wkbk->[2]);
-	@comment_rows = Spreadsheet::Read::rows($wkbk->[3]);
-	@volstor_rows = Spreadsheet::Read::rows($wkbk->[4]) if defined Spreadsheet::Read::rows($wkbk->[4]);
+	
+	my %position2sheet = %{$sheet2batch{"$btype"}};
+	
+	my @sample_rows  = Spreadsheet::Read::rows($wkbk->[$position2sheet{"sample ids"}]);
+	my @comment_rows = Spreadsheet::Read::rows($wkbk->[$position2sheet{"comments"}]);
+	my @backref_rows = Spreadsheet::Read::rows($wkbk->[$position2sheet{"backrefs"}]) if defined $position2sheet{"backrefs"};
+	my @volume_rows  = Spreadsheet::Read::rows($wkbk->[$position2sheet{"volume overrides"}]) if defined $position2sheet{"volume overrides"};
+	my @storage_rows = Spreadsheet::Read::rows($wkbk->[$position2sheet{"storage ids"}]) if defined $position2sheet{"storage ids"};
 	
 	# all batch sheets except the Metadata sheet are based off sample_rows (ie the "Sample IDs" sheet), so we only need to loop over that
 	for (my $i=1; $i < scalar(@sample_rows); $i++) {
@@ -408,31 +420,53 @@ sub read_batch_data {
 				
 				my $batch_loc = "$row2name[$i]" . sprintf("%02d", $j);
 				
-				unless ("" eq "$sample_id" or "buffer" eq lc($sample_id)) {
+				unless ("" eq "$sample_id" or "buffer" eq lc("$sample_id")) {
 					$batch->{"wells"}->{"$batch_loc"} = {"${btype}_location_in_batch" => "$batch_loc", "${btype}_batch_id" => "$bid"};
 					# record the sample id
 					$batch->{"wells"}->{"$batch_loc"}->{"sample_id"} = "$sample_id";
 
-					# record the sample to id mapping
+					# make an id for this entry in the batch, based on the sample id
 					my $lead = substr $btype, 0, 1;
 					$s2id->{"$sample_id"} = {} unless defined $s2id->{"$sample_id"};
 					my $num = 1;
 					my $uid = "$sample_id.${lead}${num}";
 					$s2id->{"$sample_id"}->{"${btype}_id"} = "$uid";
 
-					# record any comment on the sample in this batch
-					$batch->{"wells"}->{"$batch_loc"}->{"${btype}_comment"} = "$comment_rows[$i][$j]" if defined $comment_rows[$i][$j];
-					if ("assay" eq "$btype") {
-						# for assay batch, record any custom input volume
-						if (defined $volstor_rows[$i][$j] and "$volstor_rows[$i][$j]" ne "") {
-							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = "$volstor_rows[$i][$j]";
-						} else {
-							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batch->{"assay_input_ul"};
+					if (defined $comment_rows[0]) {
+						# record any comment on the sample in this batch
+						if (defined $comment_rows[$i][$j] and "$comment_rows[$i][$j]" ne "") {
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_comments"} = "$comment_rows[$i][$j]";
 						}
-					} elsif ("extraction" eq "$btype" or "archive" eq "$btype") {
-						# for extraction and archive batches, record the storage location
-						$batch->{"wells"}->{"$batch_loc"}->{"${btype}_location_in_storage"} = "$volstor_rows[$i][$j]" if defined $volstor_rows[$i][$j];
 					}
+					
+					if (defined $volume_rows[0]) {
+						# Record the input volume
+						if (defined $volume_rows[$i][$j] and "$volume_rows[$i][$j]" ne "") {
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = "$volume_rows[$i][$j]";
+						} else {
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batch->{"${btype}_input_ul"};
+						}
+					}
+					
+					if (defined $storage_rows[0]) {
+						# Record the storage location
+						if (defined $storage_rows[$i][$j] and "$storage_rows[$i][$j]" ne "") {
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_location_in_storage"} = "$storage_rows[$i][$j]";
+						} else {
+							$batch->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batch->{"${btype}_input_ul"};
+						}
+					}
+
+					if (defined $backref_rows[0]) {
+						# Record the back reference.
+						# For extractions the source is the concentration. For assays the source is the extraction.
+						my $source      = $ref2source{"$btype"};
+						my $source_code = substr "$source", 0, 1;
+						my $num         = 1;
+						$num = "$backref_rows[$i][$j]" if defined $backref_rows[$i][$j] and "$backref_rows[$i][$j]" ne "";
+						$batch->{"wells"}->{"$batch_loc"}->{"${source}_id"} = "${sample_id}.${source_code}${num}";
+					}
+
 				}
 			}
 		}	# j loop

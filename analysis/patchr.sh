@@ -71,61 +71,32 @@ then
 fi
 
 
-# This script will merge entries from discontiguous events;for example, an extraction that 
-# used a concentration from an earlier run, or an assay run on an existing extraction.
-# In this case, the earlier event will already exist in the watchdb, but not in the update.
-# The update event will have no linking id and everything downstream will fail.
-#
-# To KISS we will assume only one concentration and extraction exist per sample.
-# We will want to change this later!
-#
-
 echo "******" | tee -a "$logf"
-echo "Running 2_mergeRun.pl." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-./perl/2_mergeRun.pl "$indir" | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "perl/2_mergeRun.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 2 (run data & watchdb merge)." | tee -a "$logf"
-	echo "Run "| tee -a "$logf"
-	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
-	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
-
-echo "******" | tee -a "$logf"
-echo "Running 3_validateRun.pl." | tee -a "$logf"
+echo "Running 2_validateRun.pl." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
 
-./perl/3_validateRun.pl "$indir" | tee -a "$logf"
+./perl/2_validateRun.pl "$indir" | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 #echo "Status of validation: $status" | tee -a "$logf"
 echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "perl/3_validateRun.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "perl/2_validateRun.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
 	echo "Most likely this script identifed overlapping or duplicate IDs. Check the following files for more info:" | tee -a "$logf"
 	echo "    $indir/updates/_collisions.txt" | tee -a "$logf"
 	echo "    $indir/updates/_rundups.txt" | tee -a "$logf"
 	echo "    $indir/updates/_watchdups.txt" | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (run validation)." | tee -a "$logf"
+	echo "patchr aborted during phase 2 (run validation)." | tee -a "$logf"
 	echo "Run "| tee -a "$logf"
 	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
 	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
+
 
 
 echo "Ok, I'm about to start working with the watchdb files in $DBDIR/watchdb/LATEST/." | tee -a "$logf"
@@ -142,6 +113,7 @@ fi
 mkdir "$DBDIR/watchdb/$TODAY/"
 
 
+
 echo "Merging the run update tables with their corresponding watchdb tables." | tee -a "$logf"
 tables=("abatch" "archive" "assay" "cbatch" "concentration" "control" "ebatch" "extraction" "rbatch")
 for i in ${!tables[@]}
@@ -155,6 +127,28 @@ do
 	awk '(NR>1)' "$updatef" | cat "$dbinf" - > "$dboutf"
 	#cp "$dboutf" "$dbinf"
 done
+
+# echo "******" | tee -a "$logf"
+# echo "Running 2_mergeRun.pl." | tee -a "$logf"
+# echo "******" | tee -a "$logf"
+# 
+# ./perl/2_mergeRun.pl "$indir" | tee -a "$logf"
+# status="${PIPESTATUS[0]}"
+# echo "" | tee -a "$logf"
+# 
+# if [[ "$status" != "0" ]]
+# then
+# 	echo "perl/2_mergeRun.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	echo "patchr aborted during phase 2 (run data & watchdb merge)." | tee -a "$logf"
+# 	echo "Run "| tee -a "$logf"
+# 	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
+# 	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	exit 1
+# fi
+
+
 
 echo "Copying the watchdb RESULT table into $DBDIR/watchdb/$TODAY/." | tee -a "$logf"
 cp "$DBDIR/watchdb/LATEST/watchdb.result.txt" "$DBDIR/watchdb/$TODAY/watchdb.result.txt"

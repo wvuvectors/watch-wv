@@ -16,7 +16,6 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=  "Validate the compiled run in RUNDIR vs the main watch database. Particularly look for duplication of table IDs.\n";
 $usage   .=   "\n";
 
 my $dbdir  = "data/watchdb/LATEST";
@@ -125,7 +124,6 @@ my %collisions = ("abatch"        => {},
 									"ebatch"        => {}, 
 									"extraction"    => {}, 
 									"rbatch"        => {});
-
 
 
 # Fetch ids from the current WaTCH database tables.
