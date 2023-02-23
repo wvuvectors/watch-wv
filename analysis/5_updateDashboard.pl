@@ -247,9 +247,9 @@ if (-f "$WATCHFILE_MU") {
 			$asset2data{$asset_id}->{"responsible_lab"} = "Marshall University Infectious Disease Surveillance Lab";
 			$asset2data{$asset_id}->{"responsible_lab_abbrev"} = "MUIDSL";
 			# MU date hack
-			$site2date{"Location"} = {} unless defined $site2date{"Location"};
-			$site2date{"Location"}->{"Sample Composite End"} = {} unless defined $site2date{"Location"}->{"Sample Composite End"};
-			$site2date{"Location"}->{"Sample Composite End"}->{"$asset_id"} = 1;
+			$site2date{$asset2data{$asset_id}->{"Location"}} = {} unless defined $site2date{$asset2data{$asset_id}->{"Location"}};
+			$site2date{$asset2data{$asset_id}->{"Location"}}->{$asset2data{$asset_id}->{"Sample Composite End"}} = {} unless defined $site2date{$asset2data{$asset_id}->{"Location"}}->{$asset2data{$asset_id}->{"Sample Composite End"}};
+			$site2date{$asset2data{$asset_id}->{"Location"}}->{$asset2data{$asset_id}->{"Sample Composite End"}}->{"$asset_id"} = 1;
 		}
 		$count++;
 	}
@@ -258,14 +258,30 @@ if (-f "$WATCHFILE_MU") {
 	print "!!!!!!!!!!\nWARN : $WATCHFILE_MU is not a readable file!\n!!!!!!!!!!\n";
 }
 
+#print Dumper(\%site2date);
+#die;
 
 # Hack to remove MU data with overlapping dates
+=cut
 foreach my $location (keys %site2date) {
 	foreach my $date (keys %{$site2date{"$location"}}) {
+		next unless scalar keys %{$site2date{"$location"}->{"$date"}} > 1;
+		my $maxval = -1;
+		foreach my $asset_id (keys %{$site2date{"$location"}->{"$date"}}) {
+			$asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} =~ s/,//gi;
+			if ($asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} > $maxval) {
+				$maxval = $asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"};
+			} else {
+				delete $asset2data{"$asset_id"};
+			}
+		}
 	}
 }
+=cut
 # End MU date hack
 
+#print Dumper(\%asset2data);
+#die;
 
 #
 # Make sure all required keys have some value for each asset
@@ -302,12 +318,12 @@ foreach my $asset_id (keys %asset2data) {
 	
 	# Parse month, day, and year for sorting
 	# Throw a warning if does not work!
-	if (defined $asset->{"Sample Composite Start"} and isEmpty($asset->{"Sample Composite Start"}) == 0 and $asset->{"Sample Composite Start"} =~ /(\d{1,2})\/(\d{1,2})\/(\d{2,4}).*/) {
+	if (defined $asset->{"Sample Composite End"} and isEmpty($asset->{"Sample Composite End"}) == 0 and $asset->{"Sample Composite End"} =~ /(\d{1,2})\/(\d{1,2})\/(\d{2,4}).*/) {
 		$asset2data{"$asset_id"}->{"_month"} = "$1";
 		$asset2data{"$asset_id"}->{"_day"} = "$2";
 		$asset2data{"$asset_id"}->{"_year"} = "$3";
 	} else {
-		warn "Asset $asset_id does not have a correctly formatted Sample Composite Start field.";
+		warn "Asset $asset_id does not have a correctly formatted Sample Composite End field.";
 	}
 	
 	#
@@ -397,13 +413,20 @@ foreach my $loc (keys %locations) {
 			$hash_by_loc{$y} = {} unless defined $hash_by_loc{$y};
 			$hash_by_loc{$y}->{$m} = {} unless defined $hash_by_loc{$y}->{$m};
 			if (defined $hash_by_loc{$y}->{$m}->{$d}) {
-				print "WARNING!! Multiple samples assigned to $y-$m-$d for $loc. This is generally a BAD THING.\n";
-				print "          Asset $asset_id will be offset by 0.1 day to allow calculations but THIS SHOULD BE EXPLORED.\n";
-				print "          Overlapping IDs are $asset_id and $hash_by_loc{$y}->{$m}->{$d}.\n";
-				$d = "$d.1";
-				$asset2data{"$asset_id"}->{"_day"} = "$d";
+				#print "WARNING!! Multiple samples assigned to $y-$m-$d for $loc. This is generally a BAD THING.\n";
+				#print "          Asset $asset_id will be offset by 0.1 day to allow calculations but THIS SHOULD BE EXPLORED.\n";
+				#print "          Overlapping IDs are $asset_id and $hash_by_loc{$y}->{$m}->{$d}.\n";
+				#$d = "$d.1";
+				#$asset2data{"$asset_id"}->{"_day"} = "$d";
+				if ($asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} > $asset2data{$hash_by_loc{$y}->{$m}->{$d}}->{"Assay Target 1 Result (CN/L)"}) {
+					delete $asset2data{$hash_by_loc{$y}->{$m}->{$d}};
+					$hash_by_loc{$y}->{$m}->{$d} = "$asset_id";
+				} else {
+					delete $asset2data{"$asset_id"};
+				}
+			} else {
+				$hash_by_loc{$y}->{$m}->{$d} = "$asset_id";
 			}
-			$hash_by_loc{$y}->{$m}->{$d} = "$asset_id";
 			print "$asset_id date hashed: $y-$m-$d.\n" if $debug == 1;
 		}
 	}
