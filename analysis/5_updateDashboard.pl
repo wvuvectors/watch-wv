@@ -218,8 +218,9 @@ foreach my $asset_id (keys %asset2data) {
 
 
 # Read data from Marshall University
-my @keysWmu = ();
-$count      = 0;
+my @keysWmu   = ();
+$count        = 0;
+my %site2date = ();	# Hack to remove MU assets with overlapping dates
 
 if (-f "$WATCHFILE_MU") {
 	open (my $watchMuInFH, "<", "$WATCHFILE_MU") or die "Unable to open WATCHFILE_MU for reading: $!\n";
@@ -245,6 +246,10 @@ if (-f "$WATCHFILE_MU") {
 			}
 			$asset2data{$asset_id}->{"responsible_lab"} = "Marshall University Infectious Disease Surveillance Lab";
 			$asset2data{$asset_id}->{"responsible_lab_abbrev"} = "MUIDSL";
+			# MU date hack
+			$site2date{"Location"} = {} unless defined $site2date{"Location"};
+			$site2date{"Location"}->{"Sample Composite End"} = {} unless defined $site2date{"Location"}->{"Sample Composite End"};
+			$site2date{"Location"}->{"Sample Composite End"}->{"$asset_id"} = 1;
 		}
 		$count++;
 	}
@@ -252,6 +257,14 @@ if (-f "$WATCHFILE_MU") {
 } else {
 	print "!!!!!!!!!!\nWARN : $WATCHFILE_MU is not a readable file!\n!!!!!!!!!!\n";
 }
+
+
+# Hack to remove MU data with overlapping dates
+foreach my $location (keys %site2date) {
+	foreach my $date (keys %{$site2date{"$location"}}) {
+	}
+}
+# End MU date hack
 
 
 #
