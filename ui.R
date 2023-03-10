@@ -22,7 +22,7 @@ shinyUI(bootstrapPage(
 		collapsible = TRUE,
 
 		tabPanel(
-			"Wastewater Nowcast",
+			"Wastewater Influenza A",
 			div(
 				class="outer",
 
@@ -340,16 +340,16 @@ shinyUI(bootstrapPage(
 			) # div
 		), # tabPanel
 
-		tabPanel(
-			"Variant analysis",
-			tags$div(
-				tags$h4("Coming soon..."), 
-				#h6(paste0(update)),
+#		tabPanel(
+#			"Wastewater Flu",
+#			tags$div(
+#				tags$h4("Coming soon..."), 
+#				#h6(paste0(update)),
 #				"This site is updated weekly or biweekly. ", 
 #				tags$a(href="https://experience.arcgis.com/experience/685d0ace521648f8a5beeeee1b9125cd", "the WHO,"),
-				"This tab will present results of our RNA virus genome sequencing efforts."
-			)
-		), # tabPanel
+#				"This tab will present results of our RNA virus genome sequencing efforts."
+#			)
+#		), # tabPanel
 
 #		tabPanel(
 #			"Insights",

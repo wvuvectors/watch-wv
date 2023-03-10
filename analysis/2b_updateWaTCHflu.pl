@@ -388,7 +388,7 @@ foreach my $asset_id (keys %sample2well) {
 # Write to the flu WaTCHdb file
 #
 my @flu_outfields = ("Sample ID", "Sample Composite Start", "Sample Composite End", "Sample Received Date", "Sample Flow (MGD)", 
-										 "Assay Target 1", "Assay Target 1 Result (CN/L)", "Assay Target 2", "Assay Target 2 Result (CN/L)");
+										 "Location", "Assay Target 1", "Assay Target 1 Result (CN/L)", "Assay Target 2", "Assay Target 2 Result (CN/L)");
 
 if ($dowrite == 0) {
 	print "\n###\n##\n#\nThere was at least one fatal or high-level warning during the update. As a result, $FLUFILE_MAIN has NOT been changed!\n#\n##\n###\n\n"; 
@@ -404,7 +404,8 @@ if ($dowrite == 0) {
 		print $watchFH "$asset_id";
 		foreach my $field (@flu_outfields) {
 			next if "$field" eq "Sample ID";
-			my $value = "$fluset->{$field}";
+			my $value = "NA";
+			$value = "$fluset->{$field}" if defined $fluset->{"$field"};
 			print $watchFH "\t$value";
 		}
 		print $watchFH "\n";

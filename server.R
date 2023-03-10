@@ -226,8 +226,8 @@ shinyServer(function(input, output, session) {
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
-											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
-											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("flua" = "Influenza A", "flub" = "Influenza B")) + 
+											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("flua" = "Influenza A", "flub" = "Influenza B")) + 
 											plot_theme()
 
 		for (target in targets) {
@@ -294,24 +294,29 @@ shinyServer(function(input, output, session) {
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = comma) + 
 											scale_x_date(breaks = date_step, labels = format_dates, limits = lims_x_date) + 
-											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
-											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+											scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("flua" = "Influenza A", "flub" = "Influenza B")) + 
+											scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("flua" = "Influenza A", "flub" = "Influenza B")) + 
 											plot_theme()
 
 		for (target in targets) {
 
-			gplot <- gplot + geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[1], ymax = SIGNAL_BINS$fold_change_smoothed[2]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[1], alpha = 0.4) + 
-							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[2], ymax = SIGNAL_BINS$fold_change_smoothed[3]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[2], alpha = 0.4) + 
-							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[3], ymax = SIGNAL_BINS$fold_change_smoothed[4]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[3], alpha = 0.4) + 
-							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[4], ymax = SIGNAL_BINS$fold_change_smoothed[5]-1), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[4], alpha = 0.4) + 
-							 				 geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[5], ymax = max(fold_change, na.rm = TRUE)), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[5], alpha = 0.4) + 
-							 				 geom_col(aes(x = day, y = fold_change, fill = target), alpha=0.4, na.rm = TRUE) + 
-							 				 #geom_point(aes(x = day, y = delta), color = "#991111", shape = 2, size = 2, alpha=0.4) + 
-							 				 #geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
-							 				 #geom_point(aes(x = day, y = fold_change_smoothed, color = target), shape = 1, size = 2, alpha=0.4) + 
-							 				 geom_line(aes(x = day, y = fold_change_smoothed, color = target, group = 1))
+			gplot <- gplot + 
+				#geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[1], ymax = SIGNAL_BINS$fold_change_smoothed[2]), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[1], alpha = 0.4) + 
+				#geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[2], ymax = SIGNAL_BINS$fold_change_smoothed[3]), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[2], alpha = 0.4) + 
+				#geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[3], ymax = SIGNAL_BINS$fold_change_smoothed[4]), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[3], alpha = 0.4) + 
+				#geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[4], ymax = SIGNAL_BINS$fold_change_smoothed[5]), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[4], alpha = 0.4) + 
+				#geom_ribbon(aes(x = day, ymin = SIGNAL_BINS$fold_change_smoothed[5], ymax = max(fold_change, na.rm = TRUE)), outline.type = "upper", fill = NA, color = SIGNAL_CODES$color[5], alpha = 0.4) + 
+				geom_hline(yintercept=SIGNAL_BINS$fold_change_smoothed[2], color = SIGNAL_CODES$color[2], alpha = 0.4) + 
+				geom_hline(yintercept=SIGNAL_BINS$fold_change_smoothed[3], color = SIGNAL_CODES$color[3], alpha = 0.4) + 
+				geom_hline(yintercept=SIGNAL_BINS$fold_change_smoothed[4], color = SIGNAL_CODES$color[4], alpha = 0.4) + 
+				geom_hline(yintercept=SIGNAL_BINS$fold_change_smoothed[5], color = SIGNAL_CODES$color[5], alpha = 0.4) + 
+				geom_col(aes(x = day, y = fold_change, fill = target), alpha=0.4, na.rm = TRUE) + 
+				#geom_point(aes(x = day, y = delta), color = "#991111", shape = 2, size = 2, alpha=0.4) + 
+				#geom_line(aes(x = day, y = val), color = target_pal(target), alpha=0.1) + 
+				#geom_point(aes(x = day, y = fold_change_smoothed, color = target), shape = 1, size = 2, alpha=0.4) + 
+				geom_line(aes(x = day, y = fold_change_smoothed, color = target, group = 1))
 		}
-
+		
 		ggplotly(gplot)
 	}
 
@@ -419,13 +424,13 @@ shinyServer(function(input, output, session) {
 			df_plot <- df_watch %>% 
 								 filter(group == layer) %>% 
 								 group_by(location_common_name) %>% 
-								 mutate(plot_val = n1n2.loadcap)
+								 mutate(plot_val = flua.loadcap)
 			max_y <- 1000
 		} else {
 			df_plot <- df_watch %>% 
 								 filter(group == layer) %>% 
 								 group_by(location_common_name) %>% 
-								 mutate(plot_val = n1n2)
+								 mutate(plot_val = flua)
 			max_y <- 5000
 		}
 
@@ -542,12 +547,12 @@ shinyServer(function(input, output, session) {
 
 		}
 		
-		print(paste0("Facility Name   : ", facility, sep=""))
-		print(paste0("Signal Strength : ", df_alerts$signal, sep=""))
-		print(paste0("Fold Above     : ", df_alerts$fold_above, sep=""))
-		print(paste0("Fold Below     : ", df_alerts$fold_below, sep=""))
-		print(paste0("Trend           : ", df_alerts$trend, sep=""))
-		print(paste0("Scaled Trend    : ", df_alerts$scaled_trend, sep=""))
+		#print(paste0("Facility Name   : ", facility, sep=""))
+		#print(paste0("Signal Strength : ", df_alerts$signal, sep=""))
+		#print(paste0("Fold Above     : ", df_alerts$fold_above, sep=""))
+		#print(paste0("Fold Below     : ", df_alerts$fold_below, sep=""))
+		#print(paste0("Trend           : ", df_alerts$trend, sep=""))
+		#print(paste0("Scaled Trend    : ", df_alerts$scaled_trend, sep=""))
 		
 		# get the text code for the fold-change value
 		#fold_change_bin <- cut(df_alerts$fold_change, SIGNAL_BINS$fold_change_smoothed, include.lowest=TRUE, labels=FALSE)
@@ -652,15 +657,15 @@ shinyServer(function(input, output, session) {
 	togglePanels <- function(on, off) {
 		if (!missing(on)) {
 			for (targ in on) {
-				print("On!")
-				print (targ)
+				#print("On!")
+				#print (targ)
 				shinyjs::show(id = targ)
 			}
 		}
 		if (!missing(off)) {
 			for (targ in off) {
-				print("Off!")
-				print (targ)
+				#print("Off!")
+				#print (targ)
 				shinyjs::hide(id = targ)
 			}
 		}

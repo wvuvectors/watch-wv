@@ -50,19 +50,19 @@ MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
 													"lng" = c(-81.6534217, -79.9792327),
 													"zoom" = c(8, 13))
 
-INFECTIONS <- c("SARS-CoV-2")
-INFECTIONS_DEFAULT <- "SARS-CoV-2"
+INFECTIONS <- c("Influenza")
+INFECTIONS_DEFAULT <- "Flu A"
 
-TARGETS <- c("Mean N1 & N2", "N1", "N2")
-TARGET_VALUES <- c("n1n2", "n1", "n2")
-TARGETS_DEFAULT <- "n1n2"
+TARGETS <- c("Flu A", "Flu B")
+TARGET_VALUES <- c("flua", "flub")
+TARGETS_DEFAULT <- "flua"
 
-TARGET_COLORS <- c("#4b1f6f", "#0084d1", "#aecf00")
-TARGET_FILLS <- c("#4b1f6f", "#0084d1", "#aecf00")
+TARGET_COLORS <- c("#941100", "#FF9300")
+TARGET_FILLS <- c("#941100", "#FF9300")
 
-TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
-												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
-												 "target_value" = c("n1n2", "n1", "n2")
+TARGETS_DF <- data.frame("infection" = c("Influenza", "Influenza"),
+												 "target_name" = c("Flu A", "Flu B"),
+												 "target_value" = c("flua", "flub")
 												)
 
 SIGNAL_TREND_WINDOW <- 5
@@ -141,31 +141,31 @@ format_dates <- function(x) {
 #county_sf <- read_sf("data/WV_Counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 
-watch_file = "data/watch_dashboard.LATEST.txt"
-df_watch_pre <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
-df_watch_pre <- df_watch_pre %>% filter(status == "active" | status == "new")
+watch_file = "data/watch_fluboard.LATEST.txt"
+df_watch_raw <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
+df_watch_active <- df_watch_raw %>% filter(status == "active" | status == "new")
 
 
 # Convert date strings into Date objects
 
-df_watch_pre$"Sample Composite Start" <- mdy(df_watch_pre$"Sample Composite Start")
-df_watch_pre$"Sample Composite End" <- mdy(df_watch_pre$"Sample Composite End")
-df_watch_pre$"Sample Received Date" <- mdy(df_watch_pre$"Sample Received Date")
+df_watch_active$"Sample Composite Start" <- mdy(df_watch_active$"Sample Composite Start")
+df_watch_active$"Sample Composite End" <- mdy(df_watch_active$"Sample Composite End")
+df_watch_active$"Sample Received Date" <- mdy(df_watch_active$"Sample Received Date")
 
-df_watch_pre$day <- as_date(df_watch_pre$"Sample Composite End")
-df_watch_pre$week_starting <- floor_date(df_watch_pre$day, "week", week_start = 1)
-df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 7)
+df_watch_active$day <- as_date(df_watch_active$"Sample Composite End")
+df_watch_active$week_starting <- floor_date(df_watch_active$day, "week", week_start = 1)
+df_watch_active$week_ending <- ceiling_date(df_watch_active$day, "week", week_start = 7)
 
-df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
+df_watch_active$day_received <- as_date(df_watch_active$"Sample Received Date")
 #df_watch_pre$week_num <- week(df_watch_pre$week_ending)
 #df_watch_pre$week_alt <- 1 + (df_watch_pre$week_num %% 2)
 
 
 # Set date constraints on input data
 # May want to change this in the future?
-last_day <- max(df_watch_pre$day)
-first_day <- last_day - years(1)
-df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
+last_day <- max(df_watch_active$day) + 7
+first_day <- mdy("11-27-2022")
+df_watch_dated <- df_watch_active %>% filter(day >= first_day & day <= last_day)
 
 # TEMP KLUDGE!!!
 #df_watch_pre <- df_watch_pre %>% filter(location_common_name != "Huntington")
@@ -177,18 +177,18 @@ df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 # Make some simpler aliases for common numeric columns
 #df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
 
-df_watch_pre$n1n2.day1.mean <- df_watch_pre$n1n2
-df_watch_pre$n1n2.day1.ci <- 0
+df_watch_dated$flua.day1.mean <- df_watch_dated$flua
+df_watch_dated$flua.day1.ci <- 0
 
-df_watch_pre$n1n2.load.day1.mean <- df_watch_pre$n1n2.load
-df_watch_pre$n1n2.load.day1.ci <- 0
+df_watch_dated$flua.load.day1.mean <- df_watch_dated$flua.load
+df_watch_dated$flua.load.day1.ci <- 0
 
-df_watch_pre$n1n2.loadcap.day1.mean <- df_watch_pre$n1n2.loadcap
-df_watch_pre$n1n2.loadcap.day1.ci <- 0
+df_watch_dated$flua.loadcap.day1.mean <- df_watch_dated$flua.loadcap
+df_watch_dated$flua.loadcap.day1.ci <- 0
 
-baselines <- c("n1n2", "n1n2.load", "n1n2.loadcap", "n1n2.day5.mean", "n1n2.load.day5.mean", "n1n2.loadcap.day5.mean")
+baselines <- c("flua", "flua.load", "flua.loadcap", "flua.day5.mean", "flua.load.day5.mean", "flua.loadcap.day5.mean")
 
-df_baseline <- data.frame(location_common_name = unique(df_watch_pre$location_common_name))
+df_baseline <- data.frame(location_common_name = unique(df_watch_dated$location_common_name))
 for (baseline in baselines) {
 #	base_mean <- paste0(baseline, ".mean", sep="")
 #	base_ci <- paste0(baseline, ".ci", sep="")
@@ -198,30 +198,30 @@ for (baseline in baselines) {
 #	base_mean_new <- paste0(baseline, ".mean.baseline", sep="")
 #	base_ci_new <- paste0(baseline, ".ci.baseline", sep="")
 
-	df_this <- df_watch_pre %>% group_by(location_common_name) %>% 
+	df_this <- df_watch_dated %>% group_by(location_common_name) %>% 
 						 slice_min(.data[[baseline]], n=1, with_ties = FALSE) %>% 
 						 select(location_common_name, !!base_day_new := day, !!base_new := baseline)
 	df_baseline <- left_join(df_baseline, df_this, by="location_common_name")
 }
 
-df_watch_pre <- left_join(df_watch_pre, df_baseline, by="location_common_name")
+df_watch_pre <- left_join(df_watch_dated, df_baseline, by="location_common_name")
 
 # calculate signal strength, fold change, and percent change from baseline for each day
-df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
-df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															percent_change_smoothed = 100*(n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															signal_strength_smoothed = n1n2.loadcap.day5.mean,
-															fold_change = (n1n2.loadcap - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															signal_strength = n1n2.loadcap)
-df_wwtp <- df_wwtp[!is.na(df_wwtp$n1n2.loadcap.day5.mean), ]												
+df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(flua) & !is.na(flub) & !is.na(flua.day5.mean))
+df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (flua.loadcap.day5.mean - flua.loadcap.day5.mean.baseline)/flua.loadcap.day5.mean.baseline,
+															percent_change_smoothed = 100*(flua.loadcap.day5.mean - flua.loadcap.day5.mean.baseline)/flua.loadcap.day5.mean.baseline,
+															signal_strength_smoothed = flua.loadcap.day5.mean,
+															fold_change = (flua.loadcap - flua.loadcap.day5.mean.baseline)/flua.loadcap.day5.mean.baseline,
+															signal_strength = flua.loadcap)
+df_wwtp <- df_wwtp[!is.na(df_wwtp$flua.loadcap.day5.mean), ]												
 
-df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
-df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline, 
-														percent_change_smoothed = 100*(n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
-														signal_strength_smoothed = n1n2.day5.mean,
-														fold_change = (n1n2 - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
-														signal_strength = n1n2)
-df_swr <- df_swr[!is.na(df_swr$n1n2.day5.mean), ]												
+df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(flua) & !is.na(flub) & !is.na(flua.day5.mean))
+df_swr <- df_swr %>% mutate(fold_change_smoothed = (flua.day5.mean - flua.day5.mean.baseline)/flua.day5.mean.baseline, 
+														percent_change_smoothed = 100*(flua.day5.mean - flua.day5.mean.baseline)/flua.day5.mean.baseline,
+														signal_strength_smoothed = flua.day5.mean,
+														fold_change = (flua - flua.day5.mean.baseline)/flua.day5.mean.baseline,
+														signal_strength = flua)
+df_swr <- df_swr[!is.na(df_swr$flua.day5.mean), ]												
 
 df_watch_pre <- rbind(df_wwtp, df_swr)
 df_watch <- df_watch_pre
@@ -284,7 +284,7 @@ df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "loc
 #df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
 #
 wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 26, 101, 251, 501, 5001),
+SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 5, 10, 20, 35, 50),
 													signal_trend = c(-500000001, -50, -2, 2, 50, 500000001)) 
 													#scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
