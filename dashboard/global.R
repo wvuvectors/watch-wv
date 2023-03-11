@@ -138,10 +138,10 @@ format_dates <- function(x) {
 
 # Load the data files
 
-#county_sf <- read_sf("data/WV_Counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
-state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+#county_sf <- read_sf("shapefiles/wv_counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+state_sf <- read_sf("shapefiles/wv_state/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 
-watch_file = "data/watch_dashboard.LATEST.txt"
+watch_file = "data/watch_dashboard.txt"
 df_watch_pre <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
 df_watch_pre <- df_watch_pre %>% filter(status == "active" | status == "new")
 
