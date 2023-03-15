@@ -67,35 +67,39 @@ foreach my $table (keys %table2key) {
 	my @colnames = ();
 	my $keycol  = -1;
 	my $linenum = 0;
-	open (my $dbFH, "<", "$dbdir/watchdb.${table}.txt") or die "Unable to open $dbdir/watchdb.${table}.txt for reading: $!\n";
-	while (my $line = <$dbFH>) {
-		chomp $line;
-		next if $line =~ /^\s*$/;
-		my @cols = split "\t", "$line", -1;
-		if ($linenum == 0) {
-			# First line of the file contains the column names
-			# Store them and determine which column matches the key
-			foreach (my $i=0; $i<scalar(@cols); $i++) {
-				push @colnames, "$cols[$i]";
-				$keycol = $i if "$keyname" eq "$cols[$i]";
-			}
-		} else {
-			# Extract the data for this row, keyed by the ID
-			my $thisId = "$cols[$keycol]";
-			$table2watch{"$table"}->{"$thisId"} = {};
-			for (my $i=0; $i<scalar(@cols); $i++) {
-				if (!defined $colnames[$i]) {
-					print "DEBUG:: $table col name ($i) does not exist!\n";
-					print "$line\n";
-					print Dumper(@colnames);
-					die;
+	if (-f"$dbdir/watchdb.${table}.txt") {
+		open (my $dbFH, "<", "$dbdir/watchdb.${table}.txt") or die "Unable to open $dbdir/watchdb.${table}.txt for reading: $!\n";
+		while (my $line = <$dbFH>) {
+			chomp $line;
+			next if $line =~ /^\s*$/;
+			my @cols = split "\t", "$line", -1;
+			if ($linenum == 0) {
+				# First line of the file contains the column names
+				# Store them and determine which column matches the key
+				foreach (my $i=0; $i<scalar(@cols); $i++) {
+					push @colnames, "$cols[$i]";
+					$keycol = $i if "$keyname" eq "$cols[$i]";
 				}
-				$table2watch{"$table"}->{"$thisId"}->{"$colnames[$i]"} = "$cols[$i]";
+			} else {
+				# Extract the data for this row, keyed by the ID
+				my $thisId = "$cols[$keycol]";
+				$table2watch{"$table"}->{"$thisId"} = {};
+				for (my $i=0; $i<scalar(@cols); $i++) {
+					if (!defined $colnames[$i]) {
+						print "DEBUG:: $table col name ($i) does not exist!\n";
+						print "$line\n";
+						print Dumper(@colnames);
+						die;
+					}
+					$table2watch{"$table"}->{"$thisId"}->{"$colnames[$i]"} = "$cols[$i]";
+				}
 			}
+			$linenum++;
 		}
-		$linenum++;
+		close $dbFH;
+	} else {
+		print "WARN : File $dbdir/watchdb.${table}.txt does not exist or can not be read.\n";
 	}
-	close $dbFH;
 }
 
 # read resource table "location" into hash
@@ -248,13 +252,16 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	my %cbatch = %{$table2watch{"cbatch"}->{"$cbid"}};
 	
 	# Initialize the result entry, keyed by assay id
-	$table2watch{"result"}->{"$assay_id"} = {"result_id"                 => "$assay_id", 
+	$table2watch{"result"}->{"$assay_id"} = {"assay_id"                  => "$assay_id", 
 																					 "sample_id"                 => $smid,
-																					 "assay_id"                  => "$assay_id",
 																					 "target"                    => $assay{"assay_target"},
 																					 "target_category"           => $assay{"assay_target_category"},
 																					 "target_genetic_locus"      => $assay{"assay_target_genetic_locus"}, 
 																					 "lab_id"   								 => "ZooWVU",
+																					 "location_id"               => "$lcid",
+																					 "collection_start_datetime" => $table2watch{"sample"}->{"$smid"}->{"sample_collection_start_datetime"}, 
+																					 "collection_end_datetime"   => $table2watch{"sample"}->{"$smid"}->{"sample_collection_end_datetime"}, 
+																					 "sample_flow" => $table2watch{"sample"}->{"$smid"}->{"sample_flow"}, 
 																					 "assay_target_copies_per_ul_reaction" => "NA",
 																					 "assay_reaction_ul"									 => "NA",
 																					 "extraction_output_ul"								 => "NA",
@@ -358,9 +365,13 @@ if (-f "$WATCHFILE_MU") {
 # Write the result file
 #
 
-my @result_colnames = ("result_id",
+my @result_colnames = ("assay_id",
 											 "sample_id",
-											 "assay_id",
+											 "collection_start_datetime",
+											 "collection_end_datetime",
+											 "sample_flow",
+											 "sample_qc", 
+											 "location_id",
 											 "target",
 											 "target_category",
 											 "target_genetic_locus", 
@@ -374,13 +385,13 @@ my @result_colnames = ("result_id",
 											 
 open (my $rFH, ">", "$dbdir/watchdb.result.txt") or die "Unable to open $dbdir/watchdb.result.txt for writing: $!";
 print $rFH join("\t", @result_colnames) . "\n";
-foreach my $result_id (keys %{$table2watch{"result"}}) {
-	print $rFH "$result_id";
+foreach my $assay_id (keys %{$table2watch{"result"}}) {
+	print $rFH "$assay_id";
 	for (my $i=1; $i < scalar(@result_colnames); $i++) {
 		my $colname = $result_colnames[$i];
 		my $colval  = "NA";
-		if (defined $table2watch{"result"}->{"$result_id"}->{"$colname"} and isEmpty($table2watch{"result"}->{"$result_id"}->{"$colname"}) == 0) {
-			$colval = trim($table2watch{"result"}->{"$result_id"}->{"$colname"});
+		if (defined $table2watch{"result"}->{"$assay_id"}->{"$colname"} and isEmpty($table2watch{"result"}->{"$assay_id"}->{"$colname"}) == 0) {
+			$colval = trim($table2watch{"result"}->{"$assay_id"}->{"$colname"});
 		}
 		print $rFH "\t$colval";
 	}
