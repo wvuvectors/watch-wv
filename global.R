@@ -148,8 +148,8 @@ df_watch_active <- df_watch_raw %>% filter(status == "active" | status == "new")
 
 # Convert date strings into Date objects
 
-df_watch_active$"Sample Composite Start" <- mdy(df_watch_active$"Sample Composite Start")
-df_watch_active$"Sample Composite End" <- mdy(df_watch_active$"Sample Composite End")
+df_watch_active$"Sample Composite Start" <- mdy_hm(df_watch_active$"Sample Composite Start")
+df_watch_active$"Sample Composite End" <- mdy_hm(df_watch_active$"Sample Composite End")
 df_watch_active$"Sample Received Date" <- mdy(df_watch_active$"Sample Received Date")
 
 df_watch_active$day <- as_date(df_watch_active$"Sample Composite End")
