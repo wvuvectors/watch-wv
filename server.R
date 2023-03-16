@@ -380,10 +380,10 @@ shinyServer(function(input, output, session) {
 #			df_plot <- df_watch %>% filter(location_common_name == facility) %>% group_by(day_received)
 		}
 
-		df_plot <- df_plot %>% mutate(year = year(day_received),
-											 						month = month(day_received, label = TRUE),
-																	wkday = fct_relevel(wday(day_received, label=TRUE), c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")),
-																	rday = day(day_received),
+		df_plot <- df_plot %>% mutate(year = lubridate::year(day_received),
+											 						month = lubridate::month(day_received, label = TRUE),
+																	wkday = fct_relevel(lubridate::wday(day_received, label=TRUE), c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")),
+																	rday = lubridate::day(day_received),
 																	wk = format(day_received, "%W"),
 																	total = total) %>%
 													select(year, month, wkday, rday, wk, total)

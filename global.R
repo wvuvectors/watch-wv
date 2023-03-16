@@ -3,6 +3,7 @@ source("version.R")
 # libraries
 library(tidyverse)
 library(dplyr)
+library(lubridate)
 library(data.table)
 library(zoo)
 
@@ -12,7 +13,6 @@ library(viridis)
 library(RColorBrewer)
 
 library(scales)
-library(lubridate)
 
 library(plotly)
 library(shiny)
