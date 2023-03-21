@@ -282,6 +282,8 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 		my $copies_per_lww = 1000 * 1000 * 
 			($assay{"assay_target_copies_per_ul_reaction"} * $abatch{"assay_reaction_ul"} * $ebatch{"extraction_output_ul"} * $cbatch{"concentration_output_ml"}) / 
 			($assay{"assay_input_ul"} * $ebatch{"extraction_input_ul"} * $cbatch{"concentration_input_ml"});
+
+#		$copies_per_lww = 1 + int rand($LOD) if $copies_per_lww < 1;
 		
 		$table2watch{"result"}->{"$assay_id"}->{"assay_target_copies_per_ul_reaction"} = $assay{"assay_target_copies_per_ul_reaction"};
 		$table2watch{"result"}->{"$assay_id"}->{"target_copies_per_l"} = $copies_per_lww;

@@ -28,6 +28,7 @@ library(rsconnect)
 library(sf)
 library(tigris)
 options(tigris_use_cache = TRUE)
+library(rgdal)
 
 #rsconnect::deployApp('path/to/your/app')
 
@@ -46,7 +47,7 @@ options(tigris_use_cache = TRUE)
 #12 Chart 12 #0084d1	Carolina blue
 
 
-GEOLEVELS <- c("Facility", "County", "Region")
+GEOLEVELS <- c("Facility", "County")
 GEOLEVELS_DEFAULT <- "County"
 
 TARGETS <- c("SARS-CoV-2", "Influenza A", "Influenza B", "RSV")
@@ -55,15 +56,11 @@ TARGETS_DEFAULT <- "SARS-CoV-2"
 LOCI <- c("N1", "N2")
 LOCI_DEFAULT <- "N1"
 
-
-MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
-													"lat" = c(38.951883, 39.642414),
-													"lng" = c(-80.0534217, -79.9792327),
-													"zoom" = c(7, 13))
-
+MAP_CENTER <- list2env(list(lat = 38.951883, lng = -80.0534217, zoom = 7))
 
 Sys.setenv(TZ="America/New_York")
-today <- Sys.Date()
+#today <- Sys.Date()
+today <- as.Date("2022-07-12")
 
 plot_theme <- function () { 
 	theme(axis.text = element_text(size = 8),
@@ -77,10 +74,11 @@ plot_theme <- function () {
 				panel.background = element_rect(fill="transparent"), 
 				panel.border = element_rect(fill=NA, color="#bbbbbb", size=1), 
 				legend.position = "none",
-				#legend.justification = c("right", "top"),
-				#legend.box.just = "right",
+				legend.justification = c("left", "top"),
+				#legend.direction = "horizontal",
+				legend.box.just = "center",
 				#legend.margin = margin(6, 6, 6, 6),
-				legend.title = element_text(size = 10, color = "#888888"),
+				legend.title = element_blank(),
 				legend.background = element_rect(fill="transparent"), 
 				legend.text = element_text(size = 8, color = "#333333"),
 				plot.background = element_rect(fill="transparent"), 
@@ -124,29 +122,46 @@ format_dates <- function(x) {
 
 
 
-# Load the data files
 
-county_sf <- read_sf("shapefiles/wv_counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
-state_sf <- read_sf("shapefiles/wv_state/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+# Load shape files
+county_spdf <- readOGR( 
+  dsn= paste0("shapefiles/wv_counties/") , 
+  layer="WV_Counties",
+  verbose=FALSE
+)
+#state_spdf <- read_sf("shapefiles/wv_state/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+mypalette <- colorBin(palette="YlOrBr", domain=county_spdf@data$POPCH_PCT, na.color="transparent")
 
+
+
+# Load data files
 df_county <- as.data.frame(read.table("data/county.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_lab <- as.data.frame(read.table("data/lab.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_location <- as.data.frame(read.table("data/location.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_result <- as.data.frame(read.table("data/result.txt", sep="\t", header=TRUE, check.names=FALSE))
-#df_sample <- as.data.frame(read.table("data/sample.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_sample <- as.data.frame(read.table("data/sample.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_wwtp <- as.data.frame(read.table("data/wwtp.txt", sep="\t", header=TRUE, check.names=FALSE))
 
 
 # Convert date strings into Date objects
 df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
 df_result$collection_end_datetime <- mdy_hm(df_result$collection_end_datetime)
-#df_sample$sample_collection_start_datetime <- mdyhm(df_sample$sample_collection_start_datetime)
-#df_sample$sample_collection_end_datetime <- mdyhm(df_sample$sample_collection_end_datetime)
-#df_sample$sample_recovered_datetime <- mdyhm(df_sample$sample_recovered_datetime)
-#df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
+df_sample$sample_collection_start_datetime <- mdy_hm(df_sample$sample_collection_start_datetime)
+df_sample$sample_collection_end_datetime <- mdy_hm(df_sample$sample_collection_end_datetime)
+df_sample$sample_recovered_datetime <- mdy_hm(df_sample$sample_recovered_datetime)
+df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
 
 # Create a plot date
-df_result$date_to_plot <- as_date(df_result$collection_end_datetime)
+df_result$date_to_plot <- as.Date(df_result$collection_end_datetime)
+
+
+# Filter out locations that are not active
+df_location <- df_location %>% filter(tolower(location_status) == "active")
+
+# Filter out data entries that did not pass QC
+df_result <- df_result %>% filter(target_result_validated == 1)
+df_sample <- df_sample %>% filter(tolower(sample_qc) == "pass")
+
 
 #df_sample$week_starting <- floor_date(df_sample$day, "week", week_start = 1)
 #df_sample$week_ending <- ceiling_date(df_sample$day, "week", week_start = 0)

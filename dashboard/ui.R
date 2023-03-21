@@ -13,7 +13,7 @@ shinyUI(bootstrapPage(
 		collapsible = FALSE,
 
 		tabPanel(
-			"Viral WaTCH",
+			"Routine WaTCH",
 			div(
 				class="outer",
 				
@@ -41,7 +41,7 @@ shinyUI(bootstrapPage(
 					fixed=TRUE, draggable = FALSE,
 					div(
 						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
-						span("Pathogen Targets and Test Loci")
+						span("Infections")
 					),
 					fluidRow(
 						column(
@@ -71,30 +71,51 @@ shinyUI(bootstrapPage(
 									status = "primary",
 									selected = LOCI_DEFAULT,
 									outline = TRUE
-								)
-							)
-						)
+								) #  group
+							) # div
+						) # column
 					) # fluidRow
 				), # absolutePanel
 				
-				absolutePanel(
-					id = "tableview", 
-					class = "panel panel-default",
-					fixed = TRUE, draggable = FALSE, 
-					top = 170, left = 570, width = 290, height = 310, 
-#					div(textOutput("plot_title"), style="padding-top: 10px; font-size: 17px; font-style: bold; color:#045a8d; text-align: center;"),
-					div(style="font-size: 9px;", dataTableOutput("tableWW"))
-#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-				), # absolutePanel
+#				absolutePanel(
+#					id = "tableview", 
+#					class = "panel panel-default",
+#					fixed = TRUE, draggable = FALSE, 
+#					top = 170, left = 570, width = 290, height = 310, 
+##					div(textOutput("plot_title"), style="padding-top: 10px; font-size: 17px; font-style: bold; color:#045a8d; text-align: center;"),
+#					div(style="font-size: 9px;", dataTableOutput("tableWW"))
+##					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+#				), # absolutePanel
 
 				absolutePanel(
-					id = "plotview", 
 					class = "panel panel-default",
 					fixed = TRUE, draggable = FALSE, 
-					top = 540, left = 0, width = 900, height = 350, 
-#					div(textOutput("plot_title"), style="padding-top: 10px; font-size: 17px; font-style: bold; color:#045a8d; text-align: center;"),
-					plotlyOutput("plotWW", height="300px", width="100%")
-#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+					top = 485, left = 4, width = 900, height = 380, 
+					div(textOutput("plotww_title"), style="padding-top: 5px; font-size: 16px; font-style: bold; color:#000000; text-align: center;"),
+					div(
+						style = "background-color: #ffffff;text-align: center; padding-top: 5px;",
+						uiOutput("plotww_locus_legend")
+					),
+					fluidRow(
+						column(
+							width = 6,
+							div(
+								class = "wwplot", 
+								div(textOutput("plotww_wide_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+								plotlyOutput("plotww_wide", height="300px", width="100%")
+			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+							) # div
+						), # column
+						column(
+							width = 6,
+							div(
+								class = "wwplot", 
+								div(textOutput("plotww_narrow_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+								plotlyOutput("plotww_narrow", height="300px", width="100%")
+			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+							) # div
+						) # column
+					) # fluidRow
 				) # absolutePanel
 				
 			) # div
