@@ -142,6 +142,10 @@ df_result <- as.data.frame(read.table("data/result.txt", sep="\t", header=TRUE, 
 df_sample <- as.data.frame(read.table("data/sample.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_wwtp <- as.data.frame(read.table("data/wwtp.txt", sep="\t", header=TRUE, check.names=FALSE))
 
+df_hosp <- as.data.frame(read.table("data/hospitalizations.csv", sep=",", header=TRUE, check.names=TRUE))
+colnames(df_hosp)[1] <- "i"
+df_hosp$time_value <- ymd(df_hosp$time_value)
+df_hosp <- df_hosp %>% group_by(time_value, location_name) %>% summarize(weekly_mean = sum(value))
 
 # Convert date strings into Date objects
 df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
@@ -150,6 +154,7 @@ df_sample$sample_collection_start_datetime <- mdy_hm(df_sample$sample_collection
 df_sample$sample_collection_end_datetime <- mdy_hm(df_sample$sample_collection_end_datetime)
 df_sample$sample_recovered_datetime <- mdy_hm(df_sample$sample_recovered_datetime)
 df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
+
 
 # Create a plot date
 df_result$date_to_plot <- as.Date(df_result$collection_end_datetime)
