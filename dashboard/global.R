@@ -145,7 +145,7 @@ df_wwtp <- as.data.frame(read.table("data/wwtp.txt", sep="\t", header=TRUE, chec
 df_hosp <- as.data.frame(read.table("data/hospitalizations.csv", sep=",", header=TRUE, check.names=TRUE))
 colnames(df_hosp)[1] <- "i"
 df_hosp$time_value <- ymd(df_hosp$time_value)
-df_hosp <- df_hosp %>% group_by(time_value, location_name) %>% summarize(weekly_mean = sum(value))
+df_hosp2 <- df_hosp %>% group_by(time_value, location_name) %>% summarize(rolling_weekly_mean = sum(value)*7)
 
 # Convert date strings into Date objects
 df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
@@ -168,8 +168,9 @@ df_result <- df_result %>% filter(target_result_validated == 1)
 df_sample <- df_sample %>% filter(tolower(sample_qc) == "pass")
 
 
-#df_sample$week_starting <- floor_date(df_sample$day, "week", week_start = 1)
-#df_sample$week_ending <- ceiling_date(df_sample$day, "week", week_start = 0)
+df_result$mmr_year <- lubridate::year(df_result$date_to_plot)
+df_result$mmr_week <- lubridate::week(df_result$date_to_plot)
 
-#week_starting <- floor_date(df_result$collection_end_datetime, "week", week_start = 1)
+df_result$week_starting <- floor_date(df_result$date_to_plot, "week", week_start = 1)
+df_result$week_ending <- ceiling_date(df_result$date_to_plot, "week", week_start = 1)
 

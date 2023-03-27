@@ -8,12 +8,12 @@ shinyUI(bootstrapPage(
 	navbarPage(
 		theme = shinytheme("flatly"), 
 		id="nav",
-		HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">Wastewater Testing for Community Health in WV</a>'), 
+		HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">Wastewater Testing for Community Health in WV (WaTCH)</a>'), 
 		windowTitle = "WaTCH-WV",
 		collapsible = FALSE,
 
 		tabPanel(
-			"Routine WaTCH",
+			"SARS-CoV-2",
 			div(
 				class="outer",
 				
@@ -35,47 +35,57 @@ shinyUI(bootstrapPage(
 				), # absolutePanel
 				
 				absolutePanel(
-					id = "controls",
-					#class = "panel panel-default",
-					top = 60, left = 635, height = 120, width = 320,
+					id = "location-info",
+					class = "mdblock",
+					top = 60, left = 570, height = 120, width = 334,
 					fixed=TRUE, draggable = FALSE,
-					div(
-						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
-						span("Infections")
-					),
-					fluidRow(
-						column(
-							width = 6,
-							div(
-								class = "control_group",
-								prettyCheckboxGroup(
-									inputId = "target_control",
-									label = NULL,
-									choices = TARGETS,
-									icon = icon("check-square"), 
-									status = "primary",
-									selected = TARGETS_DEFAULT,
-									outline = TRUE
-								)
-							)
-						),
-						column(
-							width = 6,
-							div(
-								class = "control_group",
-								prettyCheckboxGroup(
-									inputId = "locus_control",
-									label = NULL,
-									choices = LOCI,
-									icon = icon("check-square"), 
-									status = "primary",
-									selected = LOCI_DEFAULT,
-									outline = TRUE
-								) #  group
-							) # div
-						) # column
-					) # fluidRow
+					span("Mean daily flow", style="font-size: 13px;"),
+					#span(textOutput("mean_flow"), style="font-size: 16px;"),
+					span("(million gallons per day)", style="font-size: 11px;")
 				), # absolutePanel
+				
+#				absolutePanel(
+#					id = "controls",
+#					class = "mdblock",
+#					top = 350, left = 635, height = 120, width = 375,
+#					fixed=TRUE, draggable = FALSE,
+#					div(
+#						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
+#						span("Infections")
+#					),
+#					fluidRow(
+#						column(
+#							width = 6,
+#							div(
+#								class = "control_group",
+#								prettyCheckboxGroup(
+#									inputId = "target_control",
+#									label = NULL,
+#									choices = TARGETS,
+#									icon = icon("check-square"), 
+#									status = "primary",
+#									selected = TARGETS_DEFAULT,
+#									outline = TRUE
+#								)
+#							)
+#						),
+#						column(
+#							width = 6,
+#							div(
+#								class = "control_group",
+#								prettyCheckboxGroup(
+#									inputId = "locus_control",
+#									label = NULL,
+#									choices = LOCI,
+#									icon = icon("check-square"), 
+#									status = "primary",
+#									selected = LOCI_DEFAULT,
+#									outline = TRUE
+#								) #  group
+#							) # div
+#						) # column
+#					) # fluidRow
+#				), # absolutePanel
 				
 #				absolutePanel(
 #					id = "tableview", 
@@ -90,7 +100,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					class = "panel panel-default",
 					fixed = TRUE, draggable = FALSE, 
-					top = 485, left = 4, width = 900, height = 380, 
+					top = 485, left = 4, width = 900, height = 400, 
 					div(textOutput("plotww_title"), style="padding-top: 5px; font-size: 16px; font-style: bold; color:#000000; text-align: center;"),
 					div(
 						style = "background-color: #ffffff;text-align: center; padding-top: 5px;",
@@ -119,8 +129,26 @@ shinyUI(bootstrapPage(
 				) # absolutePanel
 				
 			) # div
-		) # tabPanel
+		), # tabPanel
+		
+		tabPanel(
+			"Flu",
+			div(
+				class="outer",
+				leafletOutput("map_flu", width=567, height=425)
+			) # div
 
+		), # tabPanel
+
+		tabPanel(
+			"RSV",
+			div(
+				class="outer",
+				leafletOutput("map_rsv", width=567, height=425)
+			) # div
+
+		), # tabPanel
+		
 	)	# navbarPage
 ))
 
