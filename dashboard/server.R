@@ -21,10 +21,13 @@ shinyServer(function(input, output, session) {
 	controlRV <- reactiveValues(
 #								Dates = c(first_day, last_day),
 								activeGeoLevel = GEOLEVELS_DEFAULT, 
-								visibleTarget = TARGETS_DEFAULT, 
+								visibleTarget = TARGET_PRIMARY, 
+								visibleDisease = DISEASE_PRIMARY, 
+								visibleLocus = LOCUS_PRIMARY, 
+								visibleClass = TARGET_CLASS, 
 								mapClick = "WV", 
-								widePlotMonths = 12, 
-								narrowPlotMonths = 2, 
+								widePlotMonths = LONGVIEW_MONTHS, 
+								narrowPlotMonths = SHORTVIEW_MONTHS, 
 								clickLat=0, clickLng=0
 	)
 
@@ -33,9 +36,7 @@ shinyServer(function(input, output, session) {
 #	}
 
 	
-	#
 	# Generate a basic plot on the given data frame
-	#
 	plotOne <- function(df_plot, date_win) {
 		#print("plotOne called!")
 
@@ -46,9 +47,15 @@ shinyServer(function(input, output, session) {
 											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											plot_theme() + 
 											labs(x = NULL, y = NULL, color = NULL) + 
-											geom_point(aes(x = date_to_plot, y = val, color = target_genetic_locus), shape = 1, size = 2, alpha=0.9) + 
-											geom_line(aes(x = date_to_plot, y = val, color = target_genetic_locus), alpha=0.4, na.rm = TRUE)
-		ggplotly(gplot)# %>% layout(legend = list(orientation = "h"))
+											geom_point(aes(x = date_to_plot, y = val, color = target), shape = 1, size = 2, alpha=0.9) + 
+											geom_line(aes(x = date_to_plot, y = val, color = target), alpha=0.4, na.rm = TRUE)
+
+#    gplot <- plotly::layout(gplot, xaxis = list(showspikes = TRUE,
+#                                        showline = TRUE,
+#                                        spikemode = "across",
+#                                        hovermode = "x"))
+                                        
+		ggplotly(gplot) %>% layout(xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
 	
 
@@ -63,9 +70,78 @@ shinyServer(function(input, output, session) {
 		if (loc_name == "WV") {
 			df_plot <- df_targ %>% 
 								 filter(date_to_plot >= dates[1] & date_to_plot <= dates[2]) %>%
-								 group_by(date_to_plot, target_genetic_locus) %>% 
-								 arrange(date_to_plot, target_genetic_locus) %>%
+								 group_by(date_to_plot, target, target_genetic_locus) %>% 
+								 arrange(date_to_plot, target, target_genetic_locus) %>%
 								 summarize(val := mean(target_copies_per_l, na.rm = TRUE))
+		} else {
+			loc_id <- unique((df_location %>% filter(location_common_name == loc_name))$location_id)
+		
+			df_plot <- left_join(
+					df_targ %>% filter(location_id == loc_id & date_to_plot >= dates[1] & date_to_plot <= dates[2]), 
+					df_location %>% filter(tolower(location_status) == "active") %>% select(location_id, location_common_name), 
+					by="location_id")
+			df_plot <- df_plot %>% 
+								 group_by(date_to_plot, target, target_genetic_locus) %>% 
+								 arrange(date_to_plot, target, target_genetic_locus) %>%
+								 summarize(val := mean(target_copies_per_l, na.rm = TRUE))
+		}
+		return(df_plot)
+	}
+	
+
+	# Generate a dataframe for a class plot
+	getClassPlotData <- function(date_win) {
+		
+		targ <- controlRV$visibleTarget
+		tclass <- controlRV$visibleClass
+		
+		df_related <- df_target %>% filter(target_class == tclass)
+		#df_targ <- df_result %>% filter(target %in% df_related$target_id & target != targ)
+		df_targ <- df_result %>% filter(target %in% df_related$target_id)
+		#print(df_targ)
+		dates <- c(today %m-% months(date_win), today)
+		
+		loc_name <- controlRV$mapClick
+		if (loc_name == "WV") {
+			df_plot <- df_targ %>% 
+								 filter(date_to_plot >= dates[1] & date_to_plot <= dates[2]) %>%
+								 group_by(date_to_plot, target, target_genetic_locus) %>% 
+								 arrange(date_to_plot, target, target_genetic_locus) %>%
+								 summarize(val := mean(target_copies_per_l, na.rm = TRUE))
+		} else {
+			loc_id <- unique((df_location %>% filter(location_common_name == loc_name))$location_id)
+		
+			df_plot <- left_join(
+					df_targ %>% filter(location_id == loc_id & date_to_plot >= dates[1] & date_to_plot <= dates[2]), 
+					df_location %>% filter(tolower(location_status) == "active") %>% select(location_id, location_common_name), 
+					by="location_id")
+			df_plot <- df_plot %>% 
+								 group_by(date_to_plot, target, target_genetic_locus) %>% 
+								 arrange(date_to_plot, target, target_genetic_locus) %>%
+								 summarize(val := mean(target_copies_per_l, na.rm = TRUE))
+		}
+		return(df_plot)
+	}
+	
+
+	# Generate a dataframe for a plot of hospitalization data
+	getHospPlotData <- function(date_win) {
+		
+		dates <- c(today %m-% months(date_win), today)
+		#years <- c(lubridate::year(dates[1]), lubridate::year(dates[2]))
+		#weeks <- c(lubridate::week(dates[1]), lubridate::week(dates[2]))
+		
+		df_plot <- df_hospital
+		df_plot$date_to_plot <- as.Date(with(df_plot, paste(mmr_year, mmr_week, 1, sep="-")),"%Y-%U-%u")
+		
+		loc_name <- controlRV$mapClick
+		if (loc_name == "WV") {
+			df_plot <- df_plot %>% 
+								 filter(date_to_plot >= dates[1] & date_to_plot <= dates[2]) %>%
+								 #filter(mmr_year >= years[1] & mmr_year <= years[2] & mmr_week >= weeks[1] & mmr_week <= weeks[2]) %>%
+								 group_by(date_to_plot) %>% 
+								 arrange(date_to_plot) %>%
+								 summarize(val := mean(weekly_sum, na.rm = TRUE))
 		} else {
 			loc_id <- unique((df_location %>% filter(location_common_name == loc_name))$location_id)
 		
@@ -78,9 +154,12 @@ shinyServer(function(input, output, session) {
 								 arrange(date_to_plot, target_genetic_locus) %>%
 								 summarize(val := mean(target_copies_per_l, na.rm = TRUE))
 		}
+
+		df_plot$target <- 'SARS-CoV-2'
 		return(df_plot)
 	}
 	
+
 	#
 	# Render the WW table
 	#
@@ -134,18 +213,33 @@ shinyServer(function(input, output, session) {
 
 	output$plotww_narrow_title = renderText(paste0("Past ", controlRV$narrowPlotMonths, " months", sep=""))
 
+	output$plothosp_title = renderText(paste0(controlRV$visibleDisease, " hospitalizations, past ", controlRV$widePlotMonths, " months", sep=""))
+
+	output$plotclass_title = renderText(paste0("All ", controlRV$visibleClass, " targets", sep=""))
+
 
 	#
-	# Render the pathogen plots
+	# Render the plots
 	#
 	output$plotww_wide <- renderPlotly({
 		df_plot <- getPlotData(controlRV$widePlotMonths)
-		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 	})	
 
 	output$plotww_narrow <- renderPlotly({
 		df_plot <- getPlotData(controlRV$narrowPlotMonths)
-		plotOne(df_plot, controlRV$narrowPlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")
+		plotOne(df_plot, controlRV$narrowPlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+	})	
+
+	output$plothosp <- renderPlotly({
+		df_plot <- getHospPlotData(controlRV$widePlotMonths)
+		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+	})	
+
+
+	output$plotclass <- renderPlotly({
+		df_plot <- getClassPlotData(controlRV$widePlotMonths)
+		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 	})	
 
 

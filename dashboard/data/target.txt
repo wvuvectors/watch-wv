@@ -1,0 +1,8 @@
+target_id	target_abbreviation	target_class	target_disease
+Adenovirus	Adenovirus	Respiratory	Adenovirus
+Infleunza Virus A	Flu A	Respiratory	FluA
+Influenza Virus B	Flu B	Respiratory	FluB
+Norovirus	Norovirus	Gastrointestinal	Norovirus
+Respiratory Syncitital Virus, Human	RSV	Respiratory	RSV
+Rhinovirus	Rhinovirus	Respiratory	Rhinovirus
+SARS-CoV-2	SARS-CoV-2	Respiratory	COVID

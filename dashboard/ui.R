@@ -44,59 +44,39 @@ shinyUI(bootstrapPage(
 					span("(million gallons per day)", style="font-size: 11px;")
 				), # absolutePanel
 				
-#				absolutePanel(
-#					id = "controls",
-#					class = "mdblock",
-#					top = 350, left = 635, height = 120, width = 375,
-#					fixed=TRUE, draggable = FALSE,
-#					div(
-#						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
-#						span("Infections")
-#					),
-#					fluidRow(
-#						column(
-#							width = 6,
-#							div(
-#								class = "control_group",
-#								prettyCheckboxGroup(
-#									inputId = "target_control",
-#									label = NULL,
-#									choices = TARGETS,
-#									icon = icon("check-square"), 
-#									status = "primary",
-#									selected = TARGETS_DEFAULT,
-#									outline = TRUE
-#								)
-#							)
-#						),
-#						column(
-#							width = 6,
-#							div(
-#								class = "control_group",
-#								prettyCheckboxGroup(
-#									inputId = "locus_control",
-#									label = NULL,
-#									choices = LOCI,
-#									icon = icon("check-square"), 
-#									status = "primary",
-#									selected = LOCI_DEFAULT,
-#									outline = TRUE
-#								) #  group
-#							) # div
-#						) # column
-#					) # fluidRow
-#				), # absolutePanel
-				
-#				absolutePanel(
-#					id = "tableview", 
-#					class = "panel panel-default",
-#					fixed = TRUE, draggable = FALSE, 
-#					top = 170, left = 570, width = 290, height = 310, 
-##					div(textOutput("plot_title"), style="padding-top: 10px; font-size: 17px; font-style: bold; color:#045a8d; text-align: center;"),
+				absolutePanel(
+					id = "hospital-plot",
+					class = "panel panel-default",
+					fixed = TRUE, draggable = FALSE, 
+					top = 180, left = 570, width = 334, height = 295, 
+					div(textOutput("plothosp_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+					plotlyOutput("plothosp", height="270px", width="100%")
 #					div(style="font-size: 9px;", dataTableOutput("tableWW"))
-##					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-#				), # absolutePanel
+#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+				), # absolutePanel
 
+				absolutePanel(
+					id = "other-data",
+					class = "panel panel-default",
+					top = 60, left = 910, height = 885, width = 400,
+					fixed=TRUE, draggable = FALSE,
+					div(
+						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
+						span("Other Related Data")
+					),
+					fluidRow(
+						column(
+							width = 12,
+							div(
+								#class = "control_group",
+								div(textOutput("plotclass_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+								plotlyOutput("plotclass", height="300px", width="100%")
+								
+							)
+						),
+					) # fluidRow
+				), # absolutePanel
+				
 				absolutePanel(
 					class = "panel panel-default",
 					fixed = TRUE, draggable = FALSE, 

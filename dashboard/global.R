@@ -50,11 +50,12 @@ library(rgdal)
 GEOLEVELS <- c("Facility", "County")
 GEOLEVELS_DEFAULT <- "County"
 
-TARGETS <- c("SARS-CoV-2", "Influenza A", "Influenza B", "RSV")
-TARGETS_DEFAULT <- "SARS-CoV-2"
-
+TARGET_PRIMARY <- "SARS-CoV-2"
 LOCI <- c("N1", "N2")
-LOCI_DEFAULT <- "N1"
+LOCUS_PRIMARY <- "N2"
+
+LONGVIEW_MONTHS  = 12
+SHORTVIEW_MONTHS = 2
 
 MAP_CENTER <- list2env(list(lat = 38.951883, lng = -80.0534217, zoom = 7))
 
@@ -138,14 +139,23 @@ mypalette <- colorBin(palette="YlOrBr", domain=county_spdf@data$POPCH_PCT, na.co
 df_county <- as.data.frame(read.table("data/county.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_lab <- as.data.frame(read.table("data/lab.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_location <- as.data.frame(read.table("data/location.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_target <- as.data.frame(read.table("data/target.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_result <- as.data.frame(read.table("data/result.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_sample <- as.data.frame(read.table("data/sample.txt", sep="\t", header=TRUE, check.names=FALSE))
 df_wwtp <- as.data.frame(read.table("data/wwtp.txt", sep="\t", header=TRUE, check.names=FALSE))
 
-df_hosp <- as.data.frame(read.table("data/hospitalizations.csv", sep=",", header=TRUE, check.names=TRUE))
-colnames(df_hosp)[1] <- "i"
-df_hosp$time_value <- ymd(df_hosp$time_value)
-df_hosp2 <- df_hosp %>% group_by(time_value, location_name) %>% summarize(rolling_weekly_mean = sum(value)*7)
+TARGET_CLASS = unique(df_target %>% filter(target_id == TARGET_PRIMARY))$target_class
+DISEASE_PRIMARY = unique(df_target %>% filter(target_id == TARGET_PRIMARY))$target_disease
+
+
+df_hosp1 <- as.data.frame(read.table("data/hospitalizations.csv", sep=",", header=TRUE, check.names=TRUE))
+colnames(df_hosp1)[1] <- "i"
+df_hosp1$time_value <- ymd(df_hosp1$time_value)
+df_hosp2 <- df_hosp1 %>% group_by(time_value, location_name) %>% summarize(rolling_weekly_mean = sum(value)*7)
+df_hosp2$mmr_year <- lubridate::year(df_hosp2$time_value)
+df_hosp2$mmr_week <- lubridate::week(df_hosp2$time_value)
+df_hospital <- df_hosp2 %>% group_by(mmr_year, mmr_week, location_name) %>% summarize(weekly_sum = round(sum(rolling_weekly_mean), digits = 0))
+
 
 # Convert date strings into Date objects
 df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
