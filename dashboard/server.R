@@ -55,7 +55,7 @@ shinyServer(function(input, output, session) {
 #                                        spikemode = "across",
 #                                        hovermode = "x"))
                                         
-		ggplotly(gplot) %>% layout(xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
+		ggplotly(gplot) %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
 	
 
@@ -445,6 +445,15 @@ shinyServer(function(input, output, session) {
 		
   }, ignoreInit = TRUE)
 
+
+	# 
+	# React to plot click
+	#
+  observeEvent(plotww_wide$plotly_click, { 
+    #clickedLocation <- input$watch_map_shape_click$id
+		print(plotww_wide$plotly_click)
+		
+  }, ignoreInit = TRUE)
 
 })
 
