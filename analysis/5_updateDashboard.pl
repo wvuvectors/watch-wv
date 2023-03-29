@@ -211,6 +211,7 @@ foreach my $asset_id (keys %asset2data) {
 #	delete $asset2data{"$asset_id"} unless defined $asset2data{"$asset_id"}->{"Status: WaTCH"} and $asset2data{"$asset_id"}->{"Status: WaTCH"} eq "Complete";
 	delete $asset2data{"$asset_id"} if !defined $asset2data{"$asset_id"}->{"Sample Collection Method"} or $asset2data{"$asset_id"}->{"Sample Collection Method"} =~ /Grab/i;
 	delete $asset2data{"$asset_id"} if defined $asset2data{"$asset_id"}->{"Description"} and $asset2data{"$asset_id"}->{"Description"} =~ /Ignore/i;
+	delete $asset2data{"$asset_id"} if !defined $asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} or $asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} eq "NA";
 }
 
 #print Dumper(\%asset2data);
@@ -407,12 +408,16 @@ foreach my $loc (keys %locations) {
 		next unless scalar keys %{$asset2data{"$asset_id"}} > 0;	# The delete function leaves the key so ignore empty assets.
 
 		next unless defined $asset2data{"$asset_id"}->{"_month"} and defined $asset2data{"$asset_id"}->{"_day"} and defined $asset2data{"$asset_id"}->{"_year"};
-
+				
 		if ("$loc" eq "$asset2data{$asset_id}->{Location}") {
 			my ($m, $d, $y) = ($asset2data{"$asset_id"}->{"_month"}, $asset2data{"$asset_id"}->{"_day"}, $asset2data{"$asset_id"}->{"_year"});
 			$hash_by_loc{$y} = {} unless defined $hash_by_loc{$y};
 			$hash_by_loc{$y}->{$m} = {} unless defined $hash_by_loc{$y}->{$m};
 			if (defined $hash_by_loc{$y}->{$m}->{$d}) {
+				if ($asset2data{"$asset_id"}->{"Assay Target 1 Result (CN/L)"} eq "NA" or $asset2data{$hash_by_loc{$y}->{$m}->{$d}}->{"Assay Target 1 Result (CN/L)"} eq "NA") {
+					print "NA found for value of Target 1 Result (CN/L): $asset_id\n";
+					next;
+				}
 				#print "WARNING!! Multiple samples assigned to $y-$m-$d for $loc. This is generally a BAD THING.\n";
 				#print "          Asset $asset_id will be offset by 0.1 day to allow calculations but THIS SHOULD BE EXPLORED.\n";
 				#print "          Overlapping IDs are $asset_id and $hash_by_loc{$y}->{$m}->{$d}.\n";
