@@ -82,28 +82,22 @@ shinyUI(bootstrapPage(
 					fixed = TRUE, draggable = FALSE, 
 					top = 485, left = 4, width = 900, height = 400, 
 					div(textOutput("plotww_title"), style="padding-top: 5px; font-size: 16px; font-style: bold; color:#000000; text-align: center;"),
-					div(
-						style = "background-color: #ffffff;text-align: center; padding-top: 5px;",
-						uiOutput("plotww_locus_legend")
-					),
 					fluidRow(
 						column(
-							width = 6,
+							width = 12,
 							div(
-								class = "wwplot", 
 								div(textOutput("plotww_wide_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
 								plotlyOutput("plotww_wide", height="300px", width="100%")
 			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
 							) # div
-						), # column
-						column(
-							width = 6,
-							div(
-								class = "wwplot", 
-								div(textOutput("plotww_narrow_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
-								plotlyOutput("plotww_narrow", height="300px", width="100%")
-			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-							) # div
+#						), # column
+#						column(
+#							width = 6,
+#							div(
+#								div(textOutput("plotww_narrow_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+#								plotlyOutput("plotww_narrow", height="300px", width="100%")
+#			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
+#							) # div
 						) # column
 					) # fluidRow
 				) # absolutePanel

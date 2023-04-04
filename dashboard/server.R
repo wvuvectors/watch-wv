@@ -449,11 +449,11 @@ shinyServer(function(input, output, session) {
 	# 
 	# React to plot click
 	#
-  observeEvent(plotww_wide$plotly_click, { 
+#  observeEvent(plotww_wide$plotly_click, { 
     #clickedLocation <- input$watch_map_shape_click$id
-		print(plotww_wide$plotly_click)
+		#print(plotww_wide$plotly_click)
 		
-  }, ignoreInit = TRUE)
+#	}, ignoreInit = TRUE)
 
 })
 

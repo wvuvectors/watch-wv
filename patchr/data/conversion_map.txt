@@ -1,0 +1,104 @@
+Sample ID	sample	sample_id
+Status: WaTCH	sample	sample_status
+Location	sample	location_id
+	sample	sample_event
+Sample QC Check	sample	sample_qc
+Sample Composite Start	sample	sample_collection_start_datetime
+Sample Composite End	sample	sample_collection_end_datetime
+Sample Collection Date/Time	sample	sample_recovered_datetime
+Sample Collection By	sample	sample_collection_by
+Sample Flow (MGD)	sample	sample_flow
+Sample Received By	sample	sample_received_by
+Sample Received Date	sample	sample_received_date
+Sample pH (Lab)	sample	sample_ph_lab
+Comments	sample	sample_comment
+Assay Amplification Method	abatch	assay_amplification_method
+Assay Lot ID	abatch	assay_amplification_method_lot_id
+Assay Plate Comment	abatch	assay_batch_comment
+Assay Plate ID	abatch	assay_batch_id
+	abatch	assay_batch_record_version
+Assay Date	abatch	assay_date
+Assay Machine	abatch	assay_machine
+Assay Type	abatch	assay_method
+	abatch	assay_method_lot_id
+Assay Experiment Type	abatch	assay_quantification_method
+	abatch	assay_quantification_type
+	abatch	assay_analysis_software_version
+	abatch	assay_reaction_ul
+Assay Run by	abatch	assay_run_by
+	archive	archive_id
+Sample ID	archive	sample_id
+	archive	archive_batch_id
+	archive	archive_location_in_batch
+	archive	archive_location_in_storage
+	archive	archive_comment
+Replicate (Bio.Tech)	assay	assay_id
+	assay	extraction_id
+Assay Plate ID	assay	assay_batch_id
+Assay Plate Location	assay	assay_location_in_batch
+Assay Volume (mL)	assay	assay_input_ul
+Assay Target 1; Assay Target 2	assay	assay_target
+Pathogen	assay	assay_target_category
+	assay	assay_target_genetic_locus
+	assay	assay_target_macromolecule
+	assay	assay_target_fluorophore
+Assay Accepted Droplets	assay	assay_accepted_droplets
+	assay	assay_target_predicted_copies_per_ul_reaction
+Assay Target 1 Concentration (CN/Rxn); Assay Target 2 Concentration (CN/Rxn)	assay	assay_target_copies_per_ul_reaction
+	assay	assay_comment
+Concentration Plate Comment	cbatch	concentration_batch_comment
+Concentration Plate ID	cbatch	concentration_batch_id
+	cbatch	concentration_batch_record_version
+Concentration Date	cbatch	concentration_date
+Concentration Input Volume (mL)	cbatch	concentration_input_ml
+Concentration Machine	cbatch	concentration_machine
+Concentration Method	cbatch	concentration_method
+Concentration Lot ID	cbatch	concentration_method_lot_id
+Concentration Output Volume (mL)	cbatch	concentration_output_ml
+Concentration Run by	cbatch	concentration_run_by
+	concentration	concentration_id
+Sample ID	concentration	sample_id
+Concentration Plate ID	concentration	concentration_batch_id
+Concentration Plate Location	concentration	concentration_location_in_batch
+	concentration	concentration_comment
+	control	control_id
+Assay Plate ID	control	assay_batch_id
+	control	control_type
+Assay Plate Location	control	control_location_in_batch
+	control	control_input_ul
+	control	control_template
+	control	control_macromolecule
+	control	control_fluorophore
+Assay Accepted Droplets	control	control_accepted_droplets
+	control	control_predicted_copies_per_ul_reaction
+Assay...Concentration (CN/Rxn)	control	control_copies_per_ul_reaction
+	control	control_comment
+	ebatch	extraction_batch_comment
+Extraction Plate ID	ebatch	extraction_batch_id
+	ebatch	extraction_batch_record_version
+Extraction Date	ebatch	extraction_date
+	ebatch	extraction_eluant
+Extraction Input Volume (mL)	ebatch	extraction_input_ul
+Extraction Machine	ebatch	extraction_machine
+Extraction Method	ebatch	extraction_method
+Extraction Lot ID	ebatch	extraction_method_lot_id
+Extraction Output Volume (mL)	ebatch	extraction_output_ul
+Extraction Run by	ebatch	extraction_run_by
+	extraction	extraction_id
+	extraction	concentration_id
+Extraction Plate ID	extraction	extraction_batch_id
+Extraction Plate Location	extraction	extraction_location_in_batch
+Extraction Plate Comment	extraction	extraction_location_in_storage
+	extraction	extraction_comment
+	rbatch	archive_batch_comment
+	rbatch	archive_batch_id
+	rbatch	archive_batch_record_version
+	rbatch	archive_date
+	rbatch	archive_eluant
+	rbatch	archive_input_ml
+	rbatch	archive_machine
+	rbatch	archive_method
+	rbatch	archive_method_lot_id
+	rbatch	archive_output_ml
+	rbatch	archive_run_by
+	
