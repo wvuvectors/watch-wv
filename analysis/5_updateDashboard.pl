@@ -158,6 +158,8 @@ foreach my $name (keys %locations) {
 	}
 }
 
+#print Dumper(\%locations);
+#die;
 
 
 #
@@ -258,6 +260,9 @@ if (-f "$WATCHFILE_MU") {
 } else {
 	print "!!!!!!!!!!\nWARN : $WATCHFILE_MU is not a readable file!\n!!!!!!!!!!\n";
 }
+
+#print Dumper(\%asset2data);
+#die;
 
 #print Dumper(\%site2date);
 #die;
@@ -521,6 +526,8 @@ foreach my $targ (sort @target_list) {
 	}
 }
 
+#print Dumper(\%asset2data);
+#die;
 
 #
 # Write the dashboard update file

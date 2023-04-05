@@ -142,8 +142,8 @@ format_dates <- function(x) {
 state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
 
 watch_file = "data/watch_dashboard.LATEST.txt"
-df_watch_pre <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
-df_watch_pre <- df_watch_pre %>% filter(status == "active" | status == "new")
+df_watch_load <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
+df_watch_pre <- df_watch_load %>% filter(status == "active" | status == "new")
 
 
 # Convert date strings into Date objects
@@ -207,7 +207,8 @@ for (baseline in baselines) {
 df_watch_pre <- left_join(df_watch_pre, df_baseline, by="location_common_name")
 
 # calculate signal strength, fold change, and percent change from baseline for each day
-df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+#df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2))
 df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
 															percent_change_smoothed = 100*(n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
 															signal_strength_smoothed = n1n2.loadcap.day5.mean,
@@ -215,7 +216,8 @@ df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n
 															signal_strength = n1n2.loadcap)
 df_wwtp <- df_wwtp[!is.na(df_wwtp$n1n2.loadcap.day5.mean), ]												
 
-df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+#df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
+df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2))
 df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline, 
 														percent_change_smoothed = 100*(n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
 														signal_strength_smoothed = n1n2.day5.mean,
@@ -223,8 +225,7 @@ df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.m
 														signal_strength = n1n2)
 df_swr <- df_swr[!is.na(df_swr$n1n2.day5.mean), ]												
 
-df_watch_pre <- rbind(df_wwtp, df_swr)
-df_watch <- df_watch_pre
+df_watch <- rbind(df_wwtp, df_swr)
 
 
 # Calculate signal trend (trajectory) for most recent window
