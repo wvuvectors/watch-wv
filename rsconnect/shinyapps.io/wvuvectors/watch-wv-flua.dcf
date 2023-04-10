@@ -1,0 +1,14 @@
+name: watch-wv-flua
+title: watch-wv-flua
+username:
+account: wvuvectors
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8811033
+bundleId: 7072246
+url: https://wvuvectors.shinyapps.io/watch-wv-flua/
+when: 1681156218.80953
+lastSyncTime: 1681156218.80953
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: analysis|dashboard
