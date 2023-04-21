@@ -5,7 +5,7 @@ indir=$1
 cd "$indir"
 
 # get the current datetime
-now=$(date +'%Y-%m-%d.%k_%M')
+now=$(date +'%Y-%m-%d.%H_%M')
 
 
 mu_len=$(wc -l < READY/mu_nwss.LATEST.csv)
@@ -13,6 +13,10 @@ mu_len=$((mu_len-1))
 
 wvu_len=$(wc -l < READY/wvu_nwss.LATEST.csv)
 wvu_len=$((wvu_len-1))
+
+echo ""
+echo "******"
+echo "$now"
 
 if [ $mu_len -lt 1 ]
 then
