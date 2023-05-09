@@ -26,8 +26,7 @@ shinyServer(function(input, output, session) {
 								visibleLocus = LOCUS_PRIMARY, 
 								visibleClass = TARGET_CLASS, 
 								mapClick = "WV", 
-								widePlotMonths = LONGVIEW_MONTHS, 
-								narrowPlotMonths = SHORTVIEW_MONTHS, 
+								viewMonths = VIEW_RANGE_PRIMARY, 
 								clickLat=0, clickLng=0
 	)
 
@@ -209,11 +208,9 @@ shinyServer(function(input, output, session) {
 					)
 	)
 
-	output$plotww_wide_title = renderText(paste0("Past ", controlRV$widePlotMonths, " months", sep=""))
+#	output$plotww_title = renderText(paste0("Past ", controlRV$viewMonths, " months", sep=""))
 
-	output$plotww_narrow_title = renderText(paste0("Past ", controlRV$narrowPlotMonths, " months", sep=""))
-
-	output$plothosp_title = renderText(paste0(controlRV$visibleDisease, " hospitalizations, past ", controlRV$widePlotMonths, " months", sep=""))
+	output$plothosp_title = renderText(paste0(controlRV$visibleDisease, " hospitalizations", sep=""))
 
 	output$plotclass_title = renderText(paste0("All ", controlRV$visibleClass, " targets", sep=""))
 
@@ -221,25 +218,20 @@ shinyServer(function(input, output, session) {
 	#
 	# Render the plots
 	#
-	output$plotww_wide <- renderPlotly({
-		df_plot <- getPlotData(controlRV$widePlotMonths)
-		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-	})	
-
-	output$plotww_narrow <- renderPlotly({
-		df_plot <- getPlotData(controlRV$narrowPlotMonths)
-		plotOne(df_plot, controlRV$narrowPlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+	output$plotww <- renderPlotly({
+		df_plot <- getPlotData(controlRV$viewMonths)
+		plotOne(df_plot, controlRV$viewMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 	})	
 
 	output$plothosp <- renderPlotly({
-		df_plot <- getHospPlotData(controlRV$widePlotMonths)
-		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		df_plot <- getHospPlotData(controlRV$viewMonths)
+		plotOne(df_plot, controlRV$viewMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 	})	
 
 
 	output$plotclass <- renderPlotly({
-		df_plot <- getClassPlotData(controlRV$widePlotMonths)
-		plotOne(df_plot, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+		df_plot <- getClassPlotData(controlRV$viewMonths)
+		plotOne(df_plot, controlRV$viewMonths) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 	})	
 
 
@@ -389,11 +381,8 @@ shinyServer(function(input, output, session) {
 			controlRV$mapClick <- "WV"
 
 			# Update the plots to reflect the mapClick
-			df_plotw <- getPlotData(controlRV$widePlotMonths)
-			output$plotww_wide <- renderPlotly({plotOne(df_plotw, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
-
-			df_plotn <- getPlotData(controlRV$narrowPlotMonths)
-			output$plotww_narrow <- renderPlotly({plotOne(df_plotn, controlRV$narrowPlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
+			df_plotww <- getPlotData(controlRV$viewMonths)
+			output$plotww <- renderPlotly({plotOne(df_plotww, controlRV$viewMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
 
 			# Update the plot title
 			output$plotww_title = renderText(paste0(controlRV$visibleTarget, " in ", controlRV$mapClick, " wastewater", sep=""))
@@ -421,16 +410,13 @@ shinyServer(function(input, output, session) {
 			# Update the map marker colors to indicate clicked marker
 		
 			# Update the base plots
-			df_plotw <- getPlotData(controlRV$widePlotMonths)
-			output$plotww_wide <- renderPlotly({plotOne(df_plotw, controlRV$widePlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
-
-			df_plotn <- getPlotData(controlRV$narrowPlotMonths)
-			output$plotww_narrow <- renderPlotly({plotOne(df_plotn, controlRV$narrowPlotMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
+			df_plotww <- getPlotData(controlRV$viewMonths)
+			output$plotww <- renderPlotly({plotOne(df_plotww, controlRV$viewMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
 
 			# Update the plot title
 			output$plotww_title = renderText(paste0(controlRV$visibleTarget, " in ", controlRV$mapClick, " wastewater", sep=""))
 		} else {
-			print(paste0("No results for ", clickedLocation))
+			print(paste0("No data for ", clickedLocation))
 		}
 				
   }, ignoreInit = TRUE)
@@ -444,6 +430,28 @@ shinyServer(function(input, output, session) {
 		print(paste0("County:", clickedLocation))
 		
   }, ignoreInit = TRUE)
+
+
+	#
+	# Change the date range to view
+	#
+  observeEvent(input$view_range, {
+
+		# Update some reactive elements
+		controlRV$viewMonths <- as.numeric(input$view_range)
+		
+		# Update the plots
+		df_plotww <- getPlotData(controlRV$viewMonths)
+		output$plotww <- renderPlotly({plotOne(df_plotww, controlRV$viewMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
+
+		df_plotho <- getHospPlotData(controlRV$viewMonths)
+		output$plothosp <- renderPlotly({plotOne(df_plotho, controlRV$viewMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
+
+		df_plotcl <- getClassPlotData(controlRV$viewMonths)
+		output$plotclass <- renderPlotly({plotOne(df_plotcl, controlRV$viewMonths) %>% config(displayModeBar = FALSE) %>% style(hoverinfo = "skip")})
+
+
+	}, ignoreInit = TRUE)
 
 
 	# 

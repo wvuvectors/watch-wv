@@ -50,12 +50,14 @@ library(rgdal)
 GEOLEVELS <- c("Facility", "County")
 GEOLEVELS_DEFAULT <- "County"
 
+TARGETS <- c("SARS-CoV-2", "Flu A", "Flu B", "RSV", "Norovirus")
 TARGET_PRIMARY <- "SARS-CoV-2"
+
 LOCI <- c("N1", "N2")
 LOCUS_PRIMARY <- "N2"
 
-LONGVIEW_MONTHS  = 12
-SHORTVIEW_MONTHS = 2
+VIEW_RANGES <- c(1, 3, 6, 12, 24)
+VIEW_RANGE_PRIMARY <- 12
 
 MAP_CENTER <- list2env(list(lat = 38.951883, lng = -80.0534217, zoom = 7))
 
@@ -157,6 +159,14 @@ df_hosp2$mmr_week <- lubridate::week(df_hosp2$time_value)
 df_hospital <- df_hosp2 %>% group_by(mmr_year, mmr_week, location_name) %>% summarize(weekly_sum = round(sum(rolling_weekly_mean), digits = 0))
 
 
+# Filter out locations that are not active
+df_location <- df_location %>% filter(tolower(location_status) == "active")
+
+# Filter out data entries that did not pass QC
+df_result <- df_result %>% filter(target_result_validated == 1)
+df_sample <- df_sample %>% filter(tolower(sample_qc) == "pass")
+
+
 # Convert date strings into Date objects
 df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
 df_result$collection_end_datetime <- mdy_hm(df_result$collection_end_datetime)
@@ -166,17 +176,8 @@ df_sample$sample_recovered_datetime <- mdy_hm(df_sample$sample_recovered_datetim
 df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
 
 
-# Create a plot date
+# Create a date to plot
 df_result$date_to_plot <- as.Date(df_result$collection_end_datetime)
-
-
-# Filter out locations that are not active
-df_location <- df_location %>% filter(tolower(location_status) == "active")
-
-# Filter out data entries that did not pass QC
-df_result <- df_result %>% filter(target_result_validated == 1)
-df_sample <- df_sample %>% filter(tolower(sample_qc) == "pass")
-
 
 df_result$mmr_year <- lubridate::year(df_result$date_to_plot)
 df_result$mmr_week <- lubridate::week(df_result$date_to_plot)

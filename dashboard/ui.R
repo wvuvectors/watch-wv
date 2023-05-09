@@ -20,6 +20,21 @@ shinyUI(bootstrapPage(
 				leafletOutput("watch_map", width=567, height=425),
 
 				absolutePanel(
+					id = "viewranges",
+					top = 65, left = 350, height = 47, width = 100,
+					fixed=TRUE, draggable=FALSE,
+					div(
+						class = "map_embed",
+						selectInput(
+							"view_range",
+							label = NULL,
+							choices = VIEW_RANGES, 
+							selected = VIEW_RANGE_PRIMARY
+						)
+					)
+				), # absolutePanel
+				
+				absolutePanel(
 					id = "geolevels",
 					top = 65, left = 462, height = 47, width = 100,
 					fixed=TRUE, draggable=FALSE,
@@ -37,7 +52,7 @@ shinyUI(bootstrapPage(
 				absolutePanel(
 					id = "location-info",
 					class = "mdblock",
-					top = 60, left = 570, height = 120, width = 334,
+					top = 60, left = 570, height = 110, width = 334,
 					fixed=TRUE, draggable = FALSE,
 					span("Mean daily flow", style="font-size: 13px;"),
 					#span(textOutput("mean_flow"), style="font-size: 16px;"),
@@ -49,7 +64,7 @@ shinyUI(bootstrapPage(
 					class = "panel panel-default",
 					fixed = TRUE, draggable = FALSE, 
 					top = 180, left = 570, width = 334, height = 295, 
-					div(textOutput("plothosp_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
+					div(textOutput("plothosp_title"), style="font-size: 13px;font-weight: 800;padding: 4px;text-align: center;background-color: #f3f3e1;"),
 					plotlyOutput("plothosp", height="270px", width="100%")
 #					div(style="font-size: 9px;", dataTableOutput("tableWW"))
 #					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
@@ -61,7 +76,7 @@ shinyUI(bootstrapPage(
 					top = 60, left = 910, height = 885, width = 400,
 					fixed=TRUE, draggable = FALSE,
 					div(
-						style="font-size: 13px;font-weight: 800;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
+						style="font-size: 13px;font-weight: 800;padding: 4px;margin-bottom: 6px;text-align: center;background-color: #f3f3e1;",
 						span("Other Related Data")
 					),
 					fluidRow(
@@ -81,25 +96,8 @@ shinyUI(bootstrapPage(
 					class = "panel panel-default",
 					fixed = TRUE, draggable = FALSE, 
 					top = 485, left = 4, width = 900, height = 400, 
-					div(textOutput("plotww_title"), style="padding-top: 5px; font-size: 16px; font-style: bold; color:#000000; text-align: center;"),
-					fluidRow(
-						column(
-							width = 12,
-							div(
-								div(textOutput("plotww_wide_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
-								plotlyOutput("plotww_wide", height="300px", width="100%")
-			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-							) # div
-#						), # column
-#						column(
-#							width = 6,
-#							div(
-#								div(textOutput("plotww_narrow_title"), style="padding-top: 2px; font-size: 14px; font-style: italic; color:#045a8d; text-align: center;"),
-#								plotlyOutput("plotww_narrow", height="300px", width="100%")
-#			#					span(textOutput("data_format"), style="font-size: 12px; font-style: italic; color:#888888; text-align: center;"),
-#							) # div
-						) # column
-					) # fluidRow
+					div(textOutput("plotww_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
+					plotlyOutput("plotww", height="300px", width="100%")
 				) # absolutePanel
 				
 			) # div
