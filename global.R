@@ -284,7 +284,7 @@ df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "loc
 #df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
 #
 wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 5, 10, 20, 35, 50),
+SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 5, 10, 25, 50, 500000001),
 													signal_trend = c(-500000001, -50, -2, 2, 50, 500000001)) 
 													#scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
 
