@@ -164,6 +164,7 @@ df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
 # Set date constraints on input data
 # May want to change this in the future?
 last_day <- max(df_watch_pre$day)
+#first_day <- min(df_watch_pre$day)
 first_day <- last_day - years(1)
 df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
 
