@@ -42,7 +42,8 @@ my $SAMPLESFILE = "updates/watchdb.LATEST.txt";
 my $FIPSFILE    = "resources/fips_codes.wv.txt";
 
 my $NWSSFILE_UPDATE       = "updates/nwss/wvu_nwss.$NOW.csv";
-my $NWSSFILE_UPDATE_EXT   = "/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/wvu_nwss.LATEST.csv";
+#my $NWSSFILE_UPDATE_EXT   = "/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/wvu_nwss.LATEST.csv";
+my $NWSSFILE_UPDATE_EXT   = "/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors\@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/wvu_nwss.LATEST.csv";
 
 # Eventually (soon!) this script will update the main WaTCHdb file directly.
 #my $SAMPLEFILE_NWSSUP = "DB/watchdb.NWSS_UP.$NOW.txt";
