@@ -271,13 +271,13 @@ while (my $line = $csvP->getline($assayDataFH)) {
 		
 		# sort out each target in the well
 		my $target_name = $values[$p_field_pos{"Target"}];
-		$target_name =~ s/FLUA/Flu A/;
-		$target_name =~ s/FLUB/Flu B/;
-		$target_name =~ s/RPP30/Rpp30/;
+		$target_name =~ s/FLUA/Flu A/i;
+		$target_name =~ s/FLUB/Flu B/i;
+		$target_name =~ s/RPP30/Rpp30/i;
 
-		$target_name =~ s/FLU A/Flu A/;
-		$target_name =~ s/FLU B/Flu B/;
-		$target_name =~ s/RPP 30/Rpp30/;
+		$target_name =~ s/FLU A/Flu A/i;
+		$target_name =~ s/FLU B/Flu B/i;
+		$target_name =~ s/RPP 30/Rpp30/i;
 
 		$well2assay{$well_id}->{"$target_name"} = {} unless defined $well2assay{$well_id}->{"$target_name"};
 		$well2assay{$well_id}->{"$target_name"}->{"DyeName(s)"} = $values[$p_field_pos{"DyeName(s)"}];
