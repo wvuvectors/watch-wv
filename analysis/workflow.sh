@@ -5,8 +5,8 @@ WD=$(pwd)
 
 now=$(date +'%Y-%m-%d.%k_%M')
 
-WATCHFILE_MU="/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/mu_dashboard.LATEST.tsv"
-WATCHFILE_MUBK="/Users/tpd0001/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/ARCHIVED/mu_dashboard.$now.tsv"
+WATCHFILE_MU='/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/mu_dashboard.LATEST.tsv'
+WATCHFILE_MUBK='/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/ARCHIVED/mu_dashboard.$now.tsv'
 
 if [ -f "$WATCHFILE_MU" ]
 then
