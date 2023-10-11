@@ -38,7 +38,7 @@ p_var <- ggplot(recent_weekly_var_df, aes(fill=variant, y=MUT, x=week)) +
 	theme(legend.position = "bottom")
 
 
-pcr_df <- as.data.frame(read.table("analysis/updates/watch_dashboard.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
+pcr_df <- as.data.frame(read.table("data/watch_dashboard.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
 
 pcr_df$day_end <- as_date(mdy(pcr_df$"Sample Composite End"))
 #pcr_df$week <- floor_date(as_date(mdy(pcr_df$day_end)), unit="week")
