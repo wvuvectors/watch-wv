@@ -55,9 +55,10 @@ p_pcr <- ggplot(display_pcr_df) + labs(y = "log2(viral particles per person)", x
 #	geom_ribbon(aes(x = day_end, y = n2.loadcap.day5.mean, xmin = min(day_end), xmax = max(day_end), ymin = n2.loadcap.day5.mean-n2.loadcap.day5.ci, ymax = n2.loadcap.day5.mean+n2.loadcap.day5.ci), fill = "#945200", alpha = 0.2) + 
 #	facet_wrap(~location_common_name, nrow=2, scales = "free") +
 	theme(legend.position = "none") +
-	ggtitle("COVID in Wastewater for Morgantown WV", subtitle = "On a log2 scale. Black line is the 5 day rolling trend") + 
+	ggtitle(paste("COVID in Wastewater for Morgantown WV (", max(pcr_df$day_end), ")", sep=""), subtitle = "On a log2 scale. Black line is the 5 day rolling trend") + 
 	scale_y_continuous(labels = comma) + 
 	scale_x_date(breaks = "1 week", labels = format_dates)
+
 
 
 
