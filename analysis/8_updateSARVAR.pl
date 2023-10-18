@@ -45,17 +45,102 @@ my @files = glob(qq("$rundir/7 DASHBOARD/*.txt"));
 
 my %metadata = ();
 my %props    = ();
+my %lineages = ();
 
 
 my $WATCHDB_MAIN  = "updates/watchdb.LATEST.txt";
 my $SARVARDB_MAIN = "updates/sarvardb.LATEST.txt";
 my $SARVARDB_INCR = "updates/sarvardb/sarvardb.$NOW.txt";
 
+my $SARVAR_ALIASES = "resources_seq/alias_key.json";
+my $SARVAR_VOIS    = "resources_seq/VTW.txt";
 
-`cp $SARVARDB_MAIN $SARVARDB_MAIN.OLD`;
 
-open my $fh, "<", "$SARVARDB_MAIN" or die "Unable to open $SARVARDB_MAIN: $!\n";
-while (my $line = <$fh>) {
+# Read in the SARS variant alias key (json)
+#
+print "Reading variant aliases from $SARVAR_ALIASES.\n";
+open my $fhA, "<", "$SARVAR_ALIASES" or die "Unable to open $SARVAR_ALIASES: $!\n";
+while (my $line = <$fhA>) {
+	chomp $line;
+	next if "$line" =~ /^{/ or "$line" =~ /^}/;
+	$line =~ s/ //gi;
+	my ($lineage, $aliases) = split /:/, "$line", -1;
+	$aliases =~ s/,$//;
+	$aliases =~ s/"|\[|\]//g;
+	my @alist = split /,/, "$aliases", -1;
+
+	$lineages{"$lineage"} = {} unless defined $lineages{"$lineage"};
+	$lineages{"$lineage"}->{"status"} = "";
+	$lineages{"$lineage"}->{"WHO_label"} = "";
+	$lineages{"$lineage"}->{"aliases"} = {};
+	foreach my $alias (@alist) {
+		$lineages{"$lineage"}->{"aliases"}->{"$alias"} = 1;
+	}
+}
+close $fhA;
+print "Done.\n";
+
+
+# Read in the file containing SARS variants of specific interest (VOCs, VBMs, VOIs, etc.)
+#
+my %vtw = ();
+print "Reading variants of specific interest to watch from $SARVAR_VOIS.\n";
+open my $fhI, "<", "$SARVAR_VOIS" or die "Unable to open $SARVAR_VOIS: $!\n";
+while (my $line = <$fhI>) {
+	chomp $line;
+	if ("$line" =~ /^# (.+?)$/) {
+		print "Note: list of variants to watch was last updated on $1.\n";
+	} elsif ("$line" =~ /^## (.+?)$/) {
+		print "Taken from: $1.\n";
+	} else {
+		next if "$line" =~ /^WHO/i;
+		my ($who_label, $lineage, $status) = split /\t/, "$line", -1;
+		$vtw{"$lineage"} = {} unless defined $vtw{"$lineage"};
+		$vtw{"$lineage"}->{"status"} = "$status";
+		$vtw{"$lineage"}->{"WHO_label"} = "$who_label";
+	}
+}
+close $fhI;
+print "Done.\n";
+
+# Add the VTW info to the lineages hash, making sure they are de-aliased as needed!
+#
+print "Adding info about variants to watch to the lineages hash.\n";
+foreach my $vtw_k (keys %vtw) {
+	my $vtw_set = 0;
+	if (defined $lineages{"$vtw_k"}) {
+		$lineages{"$vtw_k"}->{"status"} = $vtw{"$vtw_k"}->{"status"};
+		$lineages{"$vtw_k"}->{"WHO_label"} = $vtw{"$vtw_k"}->{"WHO_label"};
+		$vtw_set = 1;
+	} else {
+		foreach my $lineage (keys %lineages) {
+			if (defined $lineages{"$lineage"}->{"aliases"}->{"$vtw_k"}) {
+				$lineages{"$lineage"}->{"status"} = $vtw{"$vtw_k"}->{"status"};
+				$lineages{"$lineage"}->{"WHO_label"} = $vtw{"$vtw_k"}->{"WHO_label"};
+				$vtw_set = 1;
+				last;
+			}
+		}
+	}
+	if ($vtw_set == 0) {
+		$lineages{"$vtw_k"} = {"aliases" => {}, 
+													 "status" => $vtw{"$vtw_k"}->{"status"},
+													 "WHO_label" => $vtw{"$vtw_k"}->{"WHO_label"}
+													 };
+	}
+}
+
+print "Done.\n";
+
+print Dumper(\%lineages);
+die;
+
+
+# Read in the existing SARS variant database file
+#
+print "Reading the existing SARS variant database $SARVARDB_MAIN.\n";
+open my $fhV, "<", "$SARVARDB_MAIN" or die "Unable to open $SARVARDB_MAIN: $!\n";
+while (my $line = <$fhV>) {
 	next if "$line" =~ /^sample_id/;
 	chomp $line;
 	my ($at, $runid, $facility, $county, $start, $end, $varname, $prop) = split /\t/, "$line", -1;
@@ -64,9 +149,14 @@ while (my $line = <$fh>) {
 	$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
 	$props{"$at"}->{"$runid"}->{"$varname"} = $prop;
 }
-close $fh;
+close $fhV;
+print "Done.\n";
 
 
+
+# Read in the variant proportion files from the rundir dashboard directory
+#
+print "Reading new variant proportion files from $rundir.\n";
 foreach my $f (@files) {
 	open my $fh, "<", "$f" or die "Unable to open $f: $!\n";
 	while (my $line = <$fh>) {
@@ -80,10 +170,18 @@ foreach my $f (@files) {
 	}
 	close $fh;
 }
+print "Done.\n";
 
 #print Dumper(\%props);
 #die;
 
+
+
+# Read in the existing WaTCH database file
+# Restricted to those samples in either the existing sarvarDB or the new run
+#
+print "Reading the existing WaTCH database from $WATCHDB_MAIN.\n";
+print "This allows us to link sample IDs from the variant data to metadata such as county, dates, etc.\n";
 open my $fhw, "<", "$WATCHDB_MAIN" or die "Unable to open $WATCHDB_MAIN: $!\n";
 while (my $line = <$fhw>) {
 	chomp $line;
@@ -100,10 +198,18 @@ while (my $line = <$fhw>) {
 	}
 }
 close $fhw;
+print "Done.\n";
+
 
 #print Dumper(\%metadata);
 #die;
 
+
+print "Everything seems to have been read ok, so preparing to write updated sarsvarDB now.\n";
+print "Backing up $SARVARDB_MAIN to $SARVARDB_MAIN.OLD.\n";
+`cp $SARVARDB_MAIN $SARVARDB_MAIN.OLD`;
+
+print "Printing updated database to $SARVARDB_INCR.\n";
 open my $fho, ">", "$SARVARDB_INCR" or die "Unable to open $SARVARDB_INCR for writing: $!\n";
 print $fho "sample_id\tseqrun_id\tfacility\tcounty\tstart_datetime\tend_datetime\tvariant\tproportion\n";
 foreach my $at (keys %props) {
@@ -122,7 +228,9 @@ foreach my $at (keys %props) {
 }
 close $fho;
 
+print "Copying updated database to $SARVARDB_MAIN.\n";
 `cp $SARVARDB_INCR $SARVARDB_MAIN`;
 
+print "Done!\n";
 exit;
 
