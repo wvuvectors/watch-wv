@@ -28,7 +28,7 @@ var_df$percent <- as.numeric(var_df$proportion) * 100
 
 recent_var_df <- subset(var_df, day_end > today() - days(90))
 
-recent_weekly_var_df <- recent_var_df %>% filter(percent > 10) %>% 
+recent_weekly_var_df <- recent_var_df %>% filter(percent > 5) %>% 
 						 group_by(week, variant) %>% 
 						 summarize(MUT = mean(percent, na.rm = TRUE)) %>% 
 						 arrange(week, variant)
@@ -37,6 +37,10 @@ p_var <- ggplot(recent_weekly_var_df, aes(fill=variant, y=MUT, x=week)) +
 	geom_bar(position="stack", stat="identity") + 
 	theme(legend.position = "bottom")
 
+p_var_stadium <- ggplot(var_df %>% filter(str_detect(facility, "Stadium")), aes(fill=variant, y=percent, x=facility)) + 
+	geom_bar(position="stack", stat="identity") + 
+	facet_grid(~day_start) + 
+	theme(legend.position = "bottom")
 
 pcr_df <- as.data.frame(read.table("data/watch_dashboard.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
 
