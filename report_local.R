@@ -26,7 +26,7 @@ var_df$day_start <- as_date(mdy_hm(var_df$start_datetime))
 var_df$week <- floor_date(as_date(mdy_hm(var_df$end_datetime)), unit="week")
 var_df$percent <- as.numeric(var_df$proportion) * 100
 
-recent_var_df <- subset(var_df, day_end > today() - days(90))
+recent_var_df <- subset(var_df %>% filter(str_detect(facility, "WWTP")), day_end > today() - days(90))
 
 recent_weekly_var_df <- recent_var_df %>% filter(percent > 5) %>% 
 						 group_by(week, variant) %>% 

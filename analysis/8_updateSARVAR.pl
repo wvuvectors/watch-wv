@@ -40,6 +40,7 @@ my $NOW =
 
 
 my @files = glob(qq("$rundir/7 DASHBOARD/*.txt"));
+die "FATAL: $progname requires at least one txt file with freyja proportions in the run directory.\n$usage\n" unless scalar(@files) > 0;
 #print Dumper(\@files);
 #die;
 
@@ -56,6 +57,32 @@ my $SARVAR_ALIASES = "resources_seq/alias_key.json";
 my $SARVAR_VOIS    = "resources_seq/VTW.txt";
 
 
+# Read in the file containing SARS variants of specific interest (VOCs, VBMs, VOIs, etc.)
+#
+my %vtw = ();
+print "Reading variants of specific interest to watch from $SARVAR_VOIS.\n";
+open my $fhI, "<", "$SARVAR_VOIS" or die "Unable to open $SARVAR_VOIS: $!\n";
+while (my $line = <$fhI>) {
+	chomp $line;
+	if ("$line" =~ /^# (.+?)$/) {
+		print "Note: list of variants to watch was last updated on $1.\n";
+	} elsif ("$line" =~ /^## (.+?)$/) {
+		print "Taken from: $1.\n";
+	} else {
+		next if "$line" =~ /^WHO/i;
+		my ($who_label, $lineage, $status) = split /\t/, "$line", -1;
+		$vtw{"$lineage"} = {} unless defined $vtw{"$lineage"};
+		$vtw{"$lineage"}->{"status"} = "$status";
+		$vtw{"$lineage"}->{"WHO_label"} = "$who_label";
+	}
+}
+close $fhI;
+print "Done.\n";
+
+#print Dumper(\%vtw);
+#die;
+
+=cut
 # Read in the SARS variant alias key (json)
 #
 print "Reading variant aliases from $SARVAR_ALIASES.\n";
@@ -80,28 +107,6 @@ while (my $line = <$fhA>) {
 close $fhA;
 print "Done.\n";
 
-
-# Read in the file containing SARS variants of specific interest (VOCs, VBMs, VOIs, etc.)
-#
-my %vtw = ();
-print "Reading variants of specific interest to watch from $SARVAR_VOIS.\n";
-open my $fhI, "<", "$SARVAR_VOIS" or die "Unable to open $SARVAR_VOIS: $!\n";
-while (my $line = <$fhI>) {
-	chomp $line;
-	if ("$line" =~ /^# (.+?)$/) {
-		print "Note: list of variants to watch was last updated on $1.\n";
-	} elsif ("$line" =~ /^## (.+?)$/) {
-		print "Taken from: $1.\n";
-	} else {
-		next if "$line" =~ /^WHO/i;
-		my ($who_label, $lineage, $status) = split /\t/, "$line", -1;
-		$vtw{"$lineage"} = {} unless defined $vtw{"$lineage"};
-		$vtw{"$lineage"}->{"status"} = "$status";
-		$vtw{"$lineage"}->{"WHO_label"} = "$who_label";
-	}
-}
-close $fhI;
-print "Done.\n";
 
 # Add the VTW info to the lineages hash, making sure they are de-aliased as needed!
 #
@@ -132,8 +137,9 @@ foreach my $vtw_k (keys %vtw) {
 
 print "Done.\n";
 
-print Dumper(\%lineages);
-die;
+#print Dumper(\%lineages);
+#die;
+=cut
 
 
 # Read in the existing SARS variant database file
@@ -143,11 +149,12 @@ open my $fhV, "<", "$SARVARDB_MAIN" or die "Unable to open $SARVARDB_MAIN: $!\n"
 while (my $line = <$fhV>) {
 	next if "$line" =~ /^sample_id/;
 	chomp $line;
-	my ($at, $runid, $facility, $county, $start, $end, $varname, $prop) = split /\t/, "$line", -1;
+	my ($at, $runid, $facility, $county, $start, $end, $lineage, $varname, $prop) = split /\t/, "$line", -1;
 	next unless defined $runid and $runid ne "";
+	#my $lineage = makeLineage($varname);
 	$props{"$at"} = {} unless defined $props{"$at"};
 	$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
-	$props{"$at"}->{"$runid"}->{"$varname"} = $prop;
+	$props{"$at"}->{"$runid"}->{"$varname"} = {"proportion" => $prop, "lineage" => "$lineage"};
 }
 close $fhV;
 print "Done.\n";
@@ -163,17 +170,18 @@ foreach my $f (@files) {
 		chomp $line;
 		my ($runid, $at, $varname, $prop) = split /\t/, "$line", -1;
 		next unless defined $runid and $runid ne "";
+		my $lineage = makeLineage($varname);
 		$props{"$at"} = {} unless defined $props{"$at"};
 		$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
-		$props{"$at"}->{"$runid"}->{"$varname"} = $prop;
+		$props{"$at"}->{"$runid"}->{"$varname"} = {"proportion" => $prop, "lineage" => "$lineage"};
 		$metadata{"$at"} = {} unless defined $metadata{"$at"};
 	}
 	close $fh;
 }
 print "Done.\n";
 
-#print Dumper(\%props);
-#die;
+print Dumper(\%props);
+die;
 
 
 
@@ -211,7 +219,7 @@ print "Backing up $SARVARDB_MAIN to $SARVARDB_MAIN.OLD.\n";
 
 print "Printing updated database to $SARVARDB_INCR.\n";
 open my $fho, ">", "$SARVARDB_INCR" or die "Unable to open $SARVARDB_INCR for writing: $!\n";
-print $fho "sample_id\tseqrun_id\tfacility\tcounty\tstart_datetime\tend_datetime\tvariant\tproportion\n";
+print $fho "sample_id\tseqrun_id\tfacility\tcounty\tstart_datetime\tend_datetime\tlineage\tvariant\tproportion\n";
 foreach my $at (keys %props) {
 	foreach my $rid (keys %{$props{"$at"}}) {
 		foreach my $varname (keys %{$props{"$at"}->{"$rid"}}) {
@@ -221,8 +229,9 @@ foreach my $at (keys %props) {
 			print $fho "$metadata{$at}->{county}\t";
 			print $fho "$metadata{$at}->{start_datetime}\t";
 			print $fho "$metadata{$at}->{end_datetime}\t";
+			print $fho "$props{$at}->{$rid}->{$varname}->{lineage}\t";
 			print $fho "$varname\t";
-			print $fho "$props{$at}->{$rid}->{$varname}\n";
+			print $fho "$props{$at}->{$rid}->{$varname}->{proportion}\n";
 		}
 	}
 }
@@ -233,4 +242,33 @@ print "Copying updated database to $SARVARDB_MAIN.\n";
 
 print "Done!\n";
 exit;
+
+
+
+
+sub makeLineage {
+	my $variant = shift;
+	if ("$variant" !~ /\./) {
+		return "$variant";
+	}
+
+	if (defined $vtw{"$variant"}) {
+		print "Found $variant (a Variant to Watch) in the new data!\n";
+		return "$variant";
+	}
+	
+	my @subs = split /\./, "$variant", -1;
+	my $lineage = "$subs[0]";
+	$lineage = "$lineage.$subs[1]" if scalar(@subs) > 1;
+	$lineage = "$lineage.$subs[2]" if "$subs[0]" eq "XBB" and scalar(@subs) > 2;	
+	return "$lineage";
+	
+}
+
+
+
+
+
+
+
 

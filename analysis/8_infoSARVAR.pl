@@ -49,26 +49,21 @@ Columns in the sarvarDB:
 	3	county
 	4	start_datetime
 	5	end_datetime
-	6	variant
-	7	proportion
+	6 lineage
+	7	variant
+	8	proportion
 =cut
 
 my %sarvar      = ("by_county" => {}, "by_facility" => {}, "by_run" => {}, "by_variant" => {}, "by_month" => {});
 my %sample_ids  = ();
-my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1, "run" => "");
+my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1);
+my %last_run    = ("yr" => 2020, "mo" => 1, "day" => 1);
 
 open my $fh, "<", "$SARVARDB_MAIN" or die "Unable to open $SARVARDB_MAIN: $!\n";
 while (my $line = <$fh>) {
 	next if "$line" =~ /^sample_id/;
 	chomp $line;
-	my ($sample_id, $runid, $facility, $county, $start, $end, $varname, $prop) = split /\t/, "$line", -1;
-	
-	my $lineage = "$varname";
-	if ($varname =~ /^XBB/i) {
-		$lineage =~ s/XBB\.(.+?)\.(.+?)\..*$/XBB.$1.$2/i;
-	} else {
-		$lineage =~ s/(.+?)\.(.+?)\..*$/$1.$2/i;
-	}
+	my ($sample_id, $runid, $facility, $county, $start, $end, $lineage, $varname, $prop) = split /\t/, "$line", -1;
 	
 	unless (defined $sample_ids{"$sample_id"}) {
 		
@@ -77,14 +72,21 @@ while (my $line = <$fh>) {
 		if ($end =~ m/(\d+?)\/(\d+?)\/(\d+?)\s/) {
 			($mo, $day, $yr) = ($1, $2, $3);
 		}
-		
 		if ($yr >= $last_sample{"yr"} and $mo >= $last_sample{"mo"} and $day > $last_sample{"day"}) {
 			$last_sample{"yr"} = $yr;
 			$last_sample{"mo"} = $mo;
 			$last_sample{"day"} = $day;
-			$last_sample{"run"} = "$runid";
 		}
 		
+		($mo, $day, $yr) = (0,0,0);
+		if ($runid =~ m/SARS_(\d{4})(\d{2})(\d{2})/) {
+			($yr, $mo, $day) = ($1, $2, $3);
+		}
+		if ($yr >= $last_run{"yr"} and $mo >= $last_run{"mo"} and $day > $last_run{"day"}) {
+			$last_run{"yr"} = $yr;
+			$last_run{"mo"} = $mo;
+			$last_run{"day"} = $day;
+		}
 		
 		$sarvar{"by_month"}->{"$yr-$mo"} = 0 unless defined $sarvar{"by_month"}->{"$yr-$mo"};
 		$sarvar{"by_month"}->{"$yr-$mo"} = $sarvar{"by_month"}->{"$yr-$mo"}+1;
@@ -112,10 +114,10 @@ close $fh;
 #die;
 
 # summary info to STDOUT
-print "#\n# Summary of sarsvarDB from $NOW.\n#\n\n";
+print "#\n# Summary of sarvarDB from $NOW.\n#\n\n";
 print "Total num sequenced : " . scalar(keys %sample_ids) . ".\n";
 print "Date of last sample : " . $last_sample{"mo"} . "/" . $last_sample{"day"} . "/" . $last_sample{"yr"} . ".\n";
-print "Last sequencing run : " . $last_sample{"run"} . ".\n";
+print "Last sequencing run : " . $last_run{"mo"} . "/" . $last_run{"day"} . "/" . $last_run{"yr"} . ".\n";
 print "\n";
 print "Top 20 most abundant lineages across all samples:\n\n";
 
