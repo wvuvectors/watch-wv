@@ -19,43 +19,37 @@ format_dates <- function(x) {
 }
 
 
-var_df <- as.data.frame(read.table("analysis/updates/sarvardb.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
-var_df$day_end <- as_date(mdy_hm(var_df$end_datetime))
-var_df$day_start <- as_date(mdy_hm(var_df$start_datetime))
-var_df$week <- floor_date(as_date(mdy_hm(var_df$end_datetime)), unit="week")
-var_df$percent <- as.numeric(var_df$proportion) * 100
+all_df <- as.data.frame(read.table("analysis/updates/sarvardb.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
+all_df$day_end <- as_date(mdy_hm(all_df$end_datetime))
+all_df$day_start <- as_date(mdy_hm(all_df$start_datetime))
+all_df$week <- floor_date(as_date(mdy_hm(all_df$end_datetime)), unit="week")
+all_df$percent <- as.numeric(all_df$proportion) * 100
 
-recent_var_df <- subset(var_df %>% filter(str_detect(facility, "WWTP")), day_end > today() - days(90))
+recent_df <- subset(all_df %>% filter(str_detect(facility, "WWTP")), day_end > today() - days(90))
 
-recent_daily_var_df <- recent_var_df %>% filter(percent > 5) %>% 
-						 group_by(day_end, lineage) %>% 
-						 summarize(MUT = sum(percent, na.rm = TRUE)) %>% 
-						 arrange(day_end, lineage)
+recent_2pct_df <- recent_df %>% filter(percent >= 2)
 
-recent_weekly_var_df <- recent_var_df %>% filter(percent > 5) %>% 
-						 group_by(week, lineage) %>% 
-						 summarize(MUT = mean(percent, na.rm = TRUE)) %>% 
-						 arrange(week, lineage)
-
-recent_daily_starcity_df <- recent_var_df %>% filter(percent > 2 & facility == "StarCityWWTP-01") %>% 
-	group_by(day_end, lineage) %>% 
-	summarize(MUT = sum(percent, na.rm = TRUE)) %>% 
-	arrange(day_end, lineage)
+#recent_weekly_var_df <- recent_var_df %>% filter(percent > 5) %>% 
+#						 group_by(week, parental) %>% 
+#						 summarize(MUT = mean(percent, na.rm = TRUE)) %>% 
+#						 arrange(week, parental)
 
 
-p_daily_var <- ggplot(recent_daily_var_df, aes(fill=lineage, y=MUT, x=day_end)) + 
+p_all <- ggplot(recent_2pct_df, aes(fill=parental, y=percent, x=day_end)) + 
 	geom_bar(position="stack", stat="identity") + 
-	scale_x_date(date_breaks = "5 days") + 
+	facet_wrap(~facility, nrow=3) + 
+	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
 	theme(legend.position = "bottom")
 
-p_daily_starcity <- ggplot(recent_daily_starcity_df, aes(fill=lineage, y=MUT, x=day_end)) + 
+p_starcity <- ggplot(recent_2pct_df %>% filter(facility == "StarCityWWTP-01"), aes(fill=parental, y=percent, x=day_end)) + 
 	geom_bar(position="stack", stat="identity") + 
-	scale_x_date(date_breaks = "5 days") + 
+	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
 	theme(legend.position = "bottom")
 	
-p_var_stadium <- ggplot(var_df %>% filter(str_detect(facility, "Stadium")), aes(fill=lineage, y=percent, x=facility)) + 
+p_var_stadium <- ggplot(all_df %>% filter(str_detect(facility, "Stadium")), aes(fill=lineage, y=percent, x=facility)) + 
 	geom_bar(position="stack", stat="identity") + 
 	facet_grid(~day_start) + 
+	scale_x_date(date_breaks = "1 day", labels = format_dates) + 
 	theme(legend.position = "bottom")
 
 

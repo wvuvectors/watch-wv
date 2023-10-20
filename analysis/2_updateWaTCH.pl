@@ -75,8 +75,6 @@ my $WATCHFILE_INCR = "updates/watchdb/watchdb.$NOW.txt";
 my $LOGFILE        = "logs/watchdb/watchdb.$NOW.log";
 
 
-`cp $WATCHFILE_MAIN $WATCHFILE_MAIN.OLD`;
-
 
 # Open the log file for writing.
 open (my $logFH, ">", "$LOGFILE") or die "Unable to open $LOGFILE for reading: $!\n";
@@ -552,9 +550,11 @@ foreach my $asset_id (keys %sample2well) {
 # Write to the WaTCHdb file
 #
 if ($dowrite == 0) {
+
 	print "\n###\n##\n#\nThere was at least one fatal or high-level warning during the update. As a result, $WATCHFILE_MAIN has NOT been changed!\n#\n##\n###\n\n"; 
-	`rm $WATCHFILE_MAIN.OLD`;
+
 } else {
+	
 	open (my $watchFH, ">", "$WATCHFILE_INCR") or die "Unable to open $WATCHFILE_INCR for writing: $!";
 	print $watchFH join("\t", @watchdb_fields) . "\n";
 	foreach my $asset_id (keys %asset2data) {
@@ -573,6 +573,7 @@ if ($dowrite == 0) {
 	}
 	close $watchFH;
 
+	`cp $WATCHFILE_MAIN $WATCHFILE_MAIN.OLD`;
 	`cp $WATCHFILE_INCR $WATCHFILE_MAIN`;
 }
 
