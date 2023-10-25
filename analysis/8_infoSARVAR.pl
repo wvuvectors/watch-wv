@@ -166,7 +166,7 @@ foreach my $lineage (@vtw_sorted) {
 		} else {
 			print "ies:\n";
 		}
-		foreach my $county (sort({$vtw{"$lineage"}->{"by_county"}->{"$b"} <=> $vtw{"$lineage"}->{"by_county"}->{"$b"}} keys %{$vtw{"$lineage"}->{"by_county"}})) {
+		foreach my $county (sort({$vtw{"$lineage"}->{"by_county"}->{"$b"} <=> $vtw{"$lineage"}->{"by_county"}->{"$a"}} keys %{$vtw{"$lineage"}->{"by_county"}})) {
 			my $datestr = $vtw{"$lineage"}->{"by_county"}->{"$county"};
 			$datestr =~ s/(\d{4})(\d{2})(\d{2})/$2\/$3\/$1/i;
 			print "   $county, most recent detection on $datestr.\n";

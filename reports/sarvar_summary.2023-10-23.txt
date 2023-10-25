@@ -8,24 +8,24 @@ Last sequencing run : 10/16/2023.
 
 Distribution of variants to watch across all samples (WaTCH level <= 2, sorted by most recent detection):
 
-Omicron variant EG.5 found in 8 counties:
-   Jefferson, most recent detection on 08/23/2023.
-   Boone, most recent detection on 08/21/2023.
-   Mercer, most recent detection on 09/13/2023.
-   Mineral, most recent detection on 09/16/2023.
-   Ohio, most recent detection on 09/01/2023.
-   Preston, most recent detection on 08/31/2023.
-   Monongalia, most recent detection on 09/25/2023.
-   Doddridge, most recent detection on 08/20/2023.
-
 Omicron variant BA.2.86 found in 1 county:
    Monongalia, most recent detection on 09/23/2023.
 
 Omicron variant HV.1 found in 4 counties:
-   Jefferson, most recent detection on 08/22/2023.
-   Monongalia, most recent detection on 08/28/2023.
-   Mineral, most recent detection on 07/31/2023.
    Mercer, most recent detection on 09/13/2023.
+   Monongalia, most recent detection on 08/28/2023.
+   Jefferson, most recent detection on 08/22/2023.
+   Mineral, most recent detection on 07/31/2023.
+
+Omicron variant EG.5 found in 8 counties:
+   Monongalia, most recent detection on 09/25/2023.
+   Mineral, most recent detection on 09/16/2023.
+   Mercer, most recent detection on 09/13/2023.
+   Ohio, most recent detection on 09/01/2023.
+   Preston, most recent detection on 08/31/2023.
+   Jefferson, most recent detection on 08/23/2023.
+   Boone, most recent detection on 08/21/2023.
+   Doddridge, most recent detection on 08/20/2023.
 
 
 Top 20 most abundant variants across all samples:
@@ -33,22 +33,22 @@ Top 20 most abundant variants across all samples:
 53 samples contain XBB.1.5.8
 47 samples contain B.10
 46 samples contain XBB.1.5.34
-44 samples contain XBB.1.5.37
 44 samples contain XBB.1.5.95
+44 samples contain XBB.1.5.37
 35 samples contain XBB.1.45.1
-32 samples contain XBB.1.5.88
 32 samples contain JF.1
+32 samples contain XBB.1.5.88
 31 samples contain XBB.1.5.62
 29 samples contain XBB.1.13
 27 samples contain XBB.1.10
+26 samples contain BA.5.5.3
 26 samples contain XBB.1.5.67
 26 samples contain HY.1
-26 samples contain BA.5.5.3
 24 samples contain XBB.1.5.10
-24 samples contain XBB.1.16.19
 24 samples contain XBB.1.5.100
-23 samples contain XBB.1.5.93
+24 samples contain XBB.1.16.19
 23 samples contain FP.4
+23 samples contain XBB.1.36
 23 samples contain XBB.1.16.12
 
 Overall there are 856 variants comprising 343 lineages in the database.
