@@ -58,8 +58,10 @@ Columns in the sarvarDB:
 
 my %sarvar      = ("by_county" => {}, "by_facility" => {}, "by_run" => {}, "by_variant" => {}, "by_month" => {});
 my %sample_ids  = ();
-my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1);
-my %last_run    = ("yr" => 2020, "mo" => 1, "day" => 1);
+my $last_sample = 0;
+my $last_run    = 0;
+#my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1);
+#my %last_run    = ("yr" => 2020, "mo" => 1, "day" => 1);
 
 my %vtw = ();
 open my $wfh, "<", "$SARVAR_VTW" or die "Unable to open $SARVAR_VTW: $!\n";
@@ -88,25 +90,18 @@ while (my $line = <$fh>) {
 	unless (defined $sample_ids{"$sample_id"}) {
 		
 		$sample_ids{"$sample_id"} = 1;
-
-		if ($yr >= $last_sample{"yr"} and $mo >= $last_sample{"mo"} and $day > $last_sample{"day"}) {
-			$last_sample{"yr"} = $yr;
-			$last_sample{"mo"} = $mo;
-			$last_sample{"day"} = $day;
-		}
 		
-		my ($rmo, $rday, $ryr) = (0,0,0);
-		if ($runid =~ m/SARS_(\d{4})(\d{2})(\d{2})/) {
-			($ryr, $rmo, $rday) = ($1, $2, $3);
-		}
-		if ($ryr >= $last_run{"yr"} and $rmo >= $last_run{"mo"} and $rday > $last_run{"day"}) {
-			$last_run{"yr"} = $ryr;
-			$last_run{"mo"} = $rmo;
-			$last_run{"day"} = $rday;
-		}
+		$last_sample = $datecomp if $datecomp > $last_sample;
 		
-		$sarvar{"by_sample_month"}->{"$yr-$mo"} = 0 unless defined $sarvar{"by_sample_month"}->{"$yr-$mo"};
-		$sarvar{"by_sample_month"}->{"$yr-$mo"} = $sarvar{"by_sample_month"}->{"$yr-$mo"}+1;
+		my $rdatecomp = 0;
+		if ($runid =~ m/SARS_(.+)/) {
+			$rdatecomp = $1;
+		}
+		$last_run = $rdatecomp if $rdatecomp > $last_run;
+		
+		
+#		$sarvar{"by_sample_month"}->{"$yr-$mo"} = 0 unless defined $sarvar{"by_sample_month"}->{"$yr-$mo"};
+#		$sarvar{"by_sample_month"}->{"$yr-$mo"} = $sarvar{"by_sample_month"}->{"$yr-$mo"}+1;
 		
 		$sarvar{"by_county"}->{"$county"} = 0 unless defined $sarvar{"by_county"}->{"$county"};
 		$sarvar{"by_county"}->{"$county"} = $sarvar{"by_county"}->{"$county"}+1;
@@ -147,12 +142,27 @@ close $fh;
 #print Dumper(\%vtw);
 #die;
 
+my %sdate = ("yr" => 0, "mo" => 0, "day" => 0);
+if ($last_sample =~ m/(\d{4})(\d{2})(\d{2})/) {
+	$sdate{"yr"}  = $1;
+	$sdate{"mo"}  = $2;
+	$sdate{"day"} = $3;
+}
+
+my %rdate = ("yr" => 0, "mo" => 0, "day" => 0);
+if ($last_run =~ m/(\d{4})(\d{2})(\d{2})/) {
+	$rdate{"yr"}  = $1;
+	$rdate{"mo"}  = $2;
+	$rdate{"day"} = $3;
+}
 
 # Print summary info to STDOUT
 print "#\n# Summary of sarvarDB from $NOW.\n#\n\n";
 print "Total num sequenced : " . scalar(keys %sample_ids) . ".\n";
-print "Date of last sample : " . $last_sample{"mo"} . "/" . $last_sample{"day"} . "/" . $last_sample{"yr"} . ".\n";
-print "Last sequencing run : " . $last_run{"mo"} . "/" . $last_run{"day"} . "/" . $last_run{"yr"} . ".\n";
+print "Date of last sample : " . $sdate{"mo"} . "/" . $sdate{"day"} . "/" . $sdate{"yr"} . ".\n";
+print "Last sequencing run : " . $rdate{"mo"} . "/" . $rdate{"day"} . "/" . $rdate{"yr"} . ".\n";
+#print "Date of last sample : " . $last_sample{"mo"} . "/" . $last_sample{"day"} . "/" . $last_sample{"yr"} . ".\n";
+#print "Last sequencing run : " . $last_run{"mo"} . "/" . $last_run{"day"} . "/" . $last_run{"yr"} . ".\n";
 
 print "\n";
 print "Distribution of variants to watch across all samples (WaTCH level <= $warn_level, sorted by most recent detection):\n\n";

@@ -38,19 +38,25 @@ recent_2pct_df <- recent_df %>% filter(percent >= 2)
 p_all <- ggplot(recent_2pct_df, aes(fill=parental, y=percent, x=day_end)) + 
 	geom_bar(position="stack", stat="identity") + 
 	facet_wrap(~facility, nrow=3) + 
+	labs(x="", y="") + 
+	ggtitle("Proportion of SARS-CoV-2 Variants in WV Wastewater, by Treatment Facility", subtitle="Only variants > 2% abundance are shown.") +
 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom")
+	theme(legend.position = "bottom", legend.title=element_blank())
 
 p_starcity <- ggplot(recent_2pct_df %>% filter(facility == "StarCityWWTP-01"), aes(fill=parental, y=percent, x=day_end)) + 
 	geom_bar(position="stack", stat="identity") + 
+	labs(x="", y="") + 
+	ggtitle("Proportion of SARS-CoV-2 Variants appearing in the Star City Wastewater Facility", subtitle="Only variants > 2% abundance are shown.") +
 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom")
+	theme(legend.position = "bottom", legend.title=element_blank())
 	
 p_var_stadium <- ggplot(all_df %>% filter(str_detect(facility, "Stadium")), aes(fill=lineage, y=percent, x=facility)) + 
 	geom_bar(position="stack", stat="identity") + 
 	facet_grid(~day_start) + 
+	labs(x="", y="") + 
+	ggtitle("Proportion of SARS-CoV-2 Variants during WVU Home Football Games", subtitle="Only variants > 2% abundance are shown.") +
 	scale_x_date(date_breaks = "1 day", labels = format_dates) + 
-	theme(legend.position = "bottom")
+	theme(legend.position = "bottom", legend.title=element_blank())
 
 
 
