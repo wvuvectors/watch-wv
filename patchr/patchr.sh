@@ -45,4 +45,4 @@ do
 done
 
 cd "$WD"
-./1_compile_run.pl "$indir"
+./perl/1_compile_run.pl "$indir"
