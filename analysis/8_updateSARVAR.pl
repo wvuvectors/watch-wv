@@ -13,20 +13,22 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
 $usage   .=  "Using sequence demix proportion files located in RUNDIR/7 DASHBOARD/, update the WaTCH-WV SARS variant database.\n";
+$usage   .=   "  [-r --relineage] Recalculate the parental and lineage assignments for all entries.";
 $usage   .=   "\n";
 
 my $rundir;
+my $relin = 0;
 
 while (@ARGV) {
   my $arg = shift;
   if ($arg eq "-h") {
 		die $usage;
+  } elsif ("$arg" eq "-r" or "$arg" eq "--relineage") {
+		$relin = 1;
   } else {
 		$rundir = $arg;
 	}
 }
-
-die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined $rundir and -d "$rundir";
 
 #
 # Get time stamp for now
@@ -38,11 +40,6 @@ my $NOW =
       ->strftime('%Y-%m-%d.%H-%M-%S');
 
 
-
-my @files = glob(qq("$rundir/7 DASHBOARD/*.txt"));
-die "FATAL: $progname requires at least one txt file with freyja proportions in the run directory.\n$usage\n" unless scalar(@files) > 0;
-#print Dumper(\@files);
-#die;
 
 my %metadata = ();
 my %props    = ();
@@ -157,7 +154,10 @@ while (my $line = <$fhV>) {
 	chomp $line;
 	my ($at, $runid, $facility, $county, $start, $end, $parental, $lineage, $varname, $prop) = split /\t/, "$line", -1;
 	next unless defined $runid and $runid ne "";
-	#my $parental = makeParental($varname);
+	if ($relin == 1) {
+		$lineage = makeLineage($varname);
+		$parental = makeParental($varname);
+	}
 	$props{"$at"} = {} unless defined $props{"$at"};
 	$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
 	$props{"$at"}->{"$runid"}->{"$varname"} = {"proportion" => $prop, "parental" => "$parental", "lineage" => "$lineage"};
@@ -169,23 +169,32 @@ print "Done.\n";
 
 # Read in the variant proportion files from the rundir dashboard directory
 #
-print "Reading new variant proportion files from $rundir.\n";
-foreach my $f (@files) {
-	open my $fh, "<", "$f" or die "Unable to open $f: $!\n";
-	while (my $line = <$fh>) {
-		chomp $line;
-		my ($runid, $at, $varname, $prop) = split /\t/, "$line", -1;
-		next unless defined $runid and $runid ne "";
-		my $lineage = makeLineage($varname);
-		my $parental = makeParental($varname);
-		$props{"$at"} = {} unless defined $props{"$at"};
-		$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
-		$props{"$at"}->{"$runid"}->{"$varname"} = {"proportion" => $prop, "lineage" => "$lineage", "parental" => "$parental"};
-		$metadata{"$at"} = {} unless defined $metadata{"$at"};
+if (defined $rundir) {
+	die "FATAL: $progname requires a valid run directory.\n$usage\n" unless -d "$rundir";
+	print "Reading new variant proportion files from $rundir.\n";
+
+	my @files = glob(qq("$rundir/7 DASHBOARD/*.txt"));
+	die "FATAL: $progname requires at least one txt file with freyja proportions in the run directory.\n$usage\n" unless scalar(@files) > 0;
+	#print Dumper(\@files);
+	#die;
+
+	foreach my $f (@files) {
+		open my $fh, "<", "$f" or die "Unable to open $f: $!\n";
+		while (my $line = <$fh>) {
+			chomp $line;
+			my ($runid, $at, $varname, $prop) = split /\t/, "$line", -1;
+			next unless defined $runid and $runid ne "";
+			my $lineage = makeLineage($varname);
+			my $parental = makeParental($varname);
+			$props{"$at"} = {} unless defined $props{"$at"};
+			$props{"$at"}->{"$runid"} = {} unless defined $props{"$at"}->{"$runid"};
+			$props{"$at"}->{"$runid"}->{"$varname"} = {"proportion" => $prop, "lineage" => "$lineage", "parental" => "$parental"};
+			$metadata{"$at"} = {} unless defined $metadata{"$at"};
+		}
+		close $fh;
 	}
-	close $fh;
+	print "Done.\n";
 }
-print "Done.\n";
 
 #print Dumper(\%props);
 #die;
@@ -256,9 +265,10 @@ exit;
 
 sub makeParental {
 	my $variant = shift;
-#	if ("$variant" !~ /\./) {
-#		return "$variant";
-#	}
+
+	if ("$variant" !~ /\./) {
+		return "$variant";
+	}
 
 #	if (defined $vtw{"$variant"}) {
 		#print "Found $variant (a Variant to Watch) in the new data!\n";
@@ -302,14 +312,26 @@ sub makeParental {
 
 sub makeLineage {
 	my $variant = shift;
+	
 	if ("$variant" !~ /\./) {
 		return "$variant";
 	}
-
-	if (defined $vtw{"$variant"}) {
-		#print "Found $variant (a Variant to Watch) in the new data!\n";
-		return "$variant";
+	
+	foreach my $vartw (keys %vtw) {
+		if ("$vartw" eq "$variant") {
+			return "$variant";
+		} elsif ("$vartw" =~ /\*$/) {
+			my $base = "$vartw";
+			#print "Trying to chop $base\n";
+			chop($base);
+			return "$vartw" if (defined $base and index("$variant", "$base") != -1);
+		}
 	}
+	
+#	if (defined $vtw{"$variant"}) {
+		#print "Found $variant (a Variant to Watch) in the new data!\n";
+#		return "$variant";
+#	}
 	
 	my @subs = split /\./, "$variant", -1;
 	my $lineage_base = "$subs[0]";

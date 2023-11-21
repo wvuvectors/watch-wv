@@ -1,7 +1,7 @@
 ## 2023-09-01
 ### https://www.cdc.gov/coronavirus/2019-ncov/variants/variant-classifications.html#anchor_1679059484954
 WHO_label	pango_lineage	CDC_status	watch_status
-Omicron	BA.2.86	VBM	1
+Omicron	BA.2.86*	VBM	1
 Omicron	XBB.1.9.1	VBM	3	
 Omicron	XBB.1.9.2	VBM	3
 Omicron	XBB.2.3	VBM	3
@@ -26,5 +26,5 @@ Mu	B.1.621.1	VBM	5
 Omicron	EG.5	VOI	2
 Omicron	FL.1.5.1	VOI	3
 Omicron	XBB.1.16.6	VOI	3
-Omicron	HV.1	VBM	1
+Omicron	HV.1	VBM	2
 Omicron	JN.1	VBM	1

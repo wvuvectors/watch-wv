@@ -10,6 +10,7 @@ WATCHFILE_MUBK='/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail
 
 if [ -f "$WATCHFILE_MU" ]
 then
+	echo "Processing MU dashboard file $WATCHFILE_MU"
 	cp "$WATCHFILE_MU" "$WATCHFILE_MUBK"
 	perl -pi -e 's/\r$//' "$WATCHFILE_MU"
 	sed -i '' -e '$a\' "$WATCHFILE_MU"

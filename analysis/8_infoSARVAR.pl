@@ -89,7 +89,7 @@ while (my $line = <$fh>) {
 	
 	unless (defined $sample_ids{"$sample_id"}) {
 		
-		$sample_ids{"$sample_id"} = 1;
+		$sample_ids{"$sample_id"} = {"runid" => "$runid", "print_date" => "$mo/$day/$yr", "sort_date" => "$datecomp", "county" => "$county", "facility" => "$facility"};
 		
 		$last_sample = $datecomp if $datecomp > $last_sample;
 		
@@ -117,14 +117,23 @@ while (my $line = <$fh>) {
 		$vtw{"$varname"}->{"by_county"} = {} unless defined $vtw{"$varname"}->{"by_county"};
 		$vtw{"$varname"}->{"by_county"}->{"$county"} = $datecomp unless defined $vtw{"$varname"}->{"by_county"}->{"$county"};
 		$vtw{"$varname"}->{"by_county"}->{"$county"} = $datecomp if $datecomp > $vtw{"$varname"}->{"by_county"}->{"$county"};
+		$vtw{"$varname"}->{"by_sample"} = {} unless defined $vtw{"$varname"}->{"by_sample"};
+		$vtw{"$varname"}->{"by_sample"}->{"$sample_id"} = 0 unless defined $vtw{"$varname"}->{"by_sample"}->{"$sample_id"};
+		$vtw{"$varname"}->{"by_sample"}->{"$sample_id"} = $vtw{"$varname"}->{"by_sample"}->{"$sample_id"} + $prop;
 	} elsif (defined $vtw{"$lineage"}) {
 		$vtw{"$lineage"}->{"by_county"} = {} unless defined $vtw{"$lineage"}->{"by_county"};
 		$vtw{"$lineage"}->{"by_county"}->{"$county"} = $datecomp unless defined $vtw{"$lineage"}->{"by_county"}->{"$county"};
 		$vtw{"$lineage"}->{"by_county"}->{"$county"} = $datecomp if $datecomp > $vtw{"$lineage"}->{"by_county"}->{"$county"};
+		$vtw{"$lineage"}->{"by_sample"} = {} unless defined $vtw{"$lineage"}->{"by_sample"};
+		$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} = 0 unless defined $vtw{"$lineage"}->{"by_sample"}->{"$sample_id"};
+		$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} = $vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} + $prop;
 	} elsif (defined $vtw{"$parental"}) {
 		$vtw{"$parental"}->{"by_county"} = {} unless defined $vtw{"$parental"}->{"by_county"};
 		$vtw{"$parental"}->{"by_county"}->{"$county"} = $datecomp unless defined $vtw{"$parental"}->{"by_county"}->{"$county"};
 		$vtw{"$parental"}->{"by_county"}->{"$county"} = $datecomp if $datecomp > $vtw{"$parental"}->{"by_county"}->{"$county"};
+		$vtw{"$parental"}->{"by_sample"} = {} unless defined $vtw{"$parental"}->{"by_sample"};
+		$vtw{"$parental"}->{"by_sample"}->{"$sample_id"} = 0 unless defined $vtw{"$parental"}->{"by_sample"}->{"$sample_id"};
+		$vtw{"$parental"}->{"by_sample"}->{"$sample_id"} = $vtw{"$parental"}->{"by_sample"}->{"$sample_id"} + $prop;
 	}
 	
 	$sarvar{"by_variant"}->{"$varname"} = 0 unless defined $sarvar{"by_variant"}->{"$varname"};
@@ -157,16 +166,47 @@ if ($last_run =~ m/(\d{4})(\d{2})(\d{2})/) {
 }
 
 # Print summary info to STDOUT
-print "#\n# Summary of sarvarDB from $NOW.\n#\n\n";
+print "#\n# Summary of sarvarDB from $NOW.\n#\n";
+
+
+print "\n\n########################################\n";
+print "Overview:";
+print "\n########################################\n\n";
 print "Total num sequenced : " . scalar(keys %sample_ids) . ".\n";
 print "Date of last sample : " . $sdate{"mo"} . "/" . $sdate{"day"} . "/" . $sdate{"yr"} . ".\n";
 print "Last sequencing run : " . $rdate{"mo"} . "/" . $rdate{"day"} . "/" . $rdate{"yr"} . ".\n";
-#print "Date of last sample : " . $last_sample{"mo"} . "/" . $last_sample{"day"} . "/" . $last_sample{"yr"} . ".\n";
-#print "Last sequencing run : " . $last_run{"mo"} . "/" . $last_run{"day"} . "/" . $last_run{"yr"} . ".\n";
+print "Total variants found: " . scalar(keys %{$sarvar{"by_variant"}}) . ".\n";
+print "Total lineages found: " . scalar(keys %{$sarvar{"by_lineage"}}) . ".\n";
 
-print "\n";
-print "Distribution of variants to watch across all samples (WaTCH level <= $warn_level, sorted by most recent detection):\n\n";
+
+# sort by variant name
 my @vtw_sorted = sort {$vtw{"$a"} cmp $vtw{"$b"}} keys %vtw;
+
+
+print "\n\n########################################\n";
+print "Distribution of highest concern variants across all samples:";
+print "\n########################################\n\n";
+foreach my $lineage (@vtw_sorted) {
+	next if $vtw{"$lineage"}->{"watch_status"} > 1;
+	if (defined $vtw{"$lineage"}->{"by_sample"}) {
+		print "$vtw{$lineage}->{label} variant $lineage found in " . scalar(keys %{$vtw{"$lineage"}->{"by_sample"}}) . " sample";
+		if (scalar(keys %{$vtw{"$lineage"}->{"by_sample"}}) == 1) {
+			print ":\n";
+		} else {
+			print "s:\n";
+		}
+		foreach my $sample_id (keys %{$vtw{"$lineage"}->{"by_sample"}}) {
+			my $sample_ref = $sample_ids{"$sample_id"};
+			print "   $sample_ref->{print_date} (run $sample_ref->{runid}) -> " . sprintf("%.1f", (100*$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"})) . "% of sample $sample_id from $sample_ref->{facility} in $sample_ref->{county} county.\n";
+		}
+		print "\n";
+	}
+}
+
+
+print "\n\n########################################\n";
+print "Geographic distribution of all variants to watch (WaTCH level <= $warn_level, sorted by most recent detection):";
+print "\n########################################\n\n";
 foreach my $lineage (@vtw_sorted) {
 	next if $vtw{"$lineage"}->{"watch_status"} > $warn_level;
 	if (defined $vtw{"$lineage"}->{"by_county"}) {
@@ -185,30 +225,9 @@ foreach my $lineage (@vtw_sorted) {
 	}
 }
 
-=cut
-print "\n";
-print "Top 20 most abundant parental groups across all samples:\n\n";
-my @parentals_sorted = sort {$sarvar{"by_parent"}->{"$b"} <=> $sarvar{"by_parent"}->{"$a"}} keys %{$sarvar{"by_parent"}};
-my $i = 0;
-foreach my $parental (@parentals_sorted) {
-	$i++;
-	print "$sarvar{by_parent}->{$parental} samples contain $parental\n";
-	last if $i == 20;
-}
-
-print "\n";
-print "Top 20 most abundant lineages across all samples:\n\n";
-my @lineages_sorted = sort {$sarvar{"by_lineage"}->{"$b"} <=> $sarvar{"by_lineage"}->{"$a"}} keys %{$sarvar{"by_lineage"}};
-$i = 0;
-foreach my $lineage (@lineages_sorted) {
-	$i++;
-	print "$sarvar{by_lineage}->{$lineage} samples contain $lineage\n";
-	last if $i == 20;
-}
-=cut
-
-print "\n";
-print "Top 20 most abundant variants across all samples:\n\n";
+print "\n\n########################################\n";
+print "Top 20 most abundant variants across all samples:";
+print "\n########################################\n\n";
 my @variants_sorted = sort {$sarvar{"by_variant"}->{"$b"} <=> $sarvar{"by_variant"}->{"$a"}} keys %{$sarvar{"by_variant"}};
 my $i = 0;
 foreach my $variant (@variants_sorted) {
@@ -218,7 +237,6 @@ foreach my $variant (@variants_sorted) {
 }
 
 print "\n";
-print "Overall there are " . scalar(keys %{$sarvar{"by_variant"}}) . " variants comprising " . scalar(keys %{$sarvar{"by_lineage"}}) . " lineages in the database.\n";
 print "\n# EOF.\n";
 
 
