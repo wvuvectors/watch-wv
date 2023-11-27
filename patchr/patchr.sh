@@ -3,46 +3,70 @@
 indir="$1"
 WD=$(pwd)
 
-now=$(date +'%Y-%m-%d.%k_%M')
+DBDIR="data"
 
-WATCHFILE_MU='/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/mu_dashboard.LATEST.tsv'
-WATCHFILE_MUBK='/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR DASHBOARD/ARCHIVED/mu_dashboard.$now.tsv'
+# Get the current date and time
+START=$(date "+%F_%H-%M")
+TODAY=$(date "+%F_%H-%M")
 
-if [ -f "$WATCHFILE_MU" ]
+# Write all output to log file
+logf="logs/patchr/patchr.$START.log"
+if [ -f "$logf" ]; then
+	rm "$logf"
+fi
+
+touch "$logf"
+echo "#############################################" | tee -a "$logf"
+echo "Initiated patchr.sh" | tee -a "$logf"
+echo "$START" | tee -a "$logf"
+echo "" | tee -a "$logf"
+echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
+echo "In the event of a catastrophic error, run"| tee -a "$logf"
+echo "  ./sh/rollBack.sh $indir"| tee -a "$logf"
+echo "at any point to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
+echo "" | tee -a "$logf"
+
+
+
+echo "******" | tee -a "$logf"
+echo "Running prepRun.sh." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+
+./sh/prepRun.sh "$indir" | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
+if [[ "$status" != "0" ]]
 then
-	echo "Processing MU dashboard file $WATCHFILE_MU"
-	cp "$WATCHFILE_MU" "$WATCHFILE_MUBK"
-	perl -pi -e 's/\r$//' "$WATCHFILE_MU"
-	sed -i '' -e '$a\' "$WATCHFILE_MU"
+	echo "prepRun.sh exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr aborted during phase 0 (run file prep)." | tee -a "$logf"
+	echo "Run "| tee -a "$logf"
+	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
+	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
 fi
 
 
-cd "$indir"
-csv_files=*.csv
+echo "******" | tee -a "$logf"
+echo "Running 1_compileRun.pl." | tee -a "$logf"
+echo "******" | tee -a "$logf"
 
-for f in $csv_files
-do
-	cp "$f" "$f.bak"
-	perl -pi -e 's/\r$//' "$f"
-	sed $'1s/\xef\xbb\xbf//' < "$f" > "$f.tmp"
-	mv "$f.tmp" "$f"
-	is_ddpcr=$(head -n 1 "$f" | grep -c "Well,")
-	is_asset=$(grep -c "Asset Tag ID," "$f")
-	if [[ "$is_ddpcr" == "1" ]]
-	then
-		echo "Processing data file $f"
-		perl -pi -e 's/,Taget,/,Target,/i' "$f"
-		perl -pi -e 's/,N1,/,SARS-CoV-2 N1,/i' "$f"
-		perl -pi -e 's/,N2,/,SARS-CoV-2 N2,/i' "$f"
-		perl -pi -e 's/,RP,/,Human RNase P,/i' "$f"
-		perl -pi -e 's/µ/u/i' "$f"
-		mv "$f" "assay_plate.csv"
-	elif [[ "$is_asset" == "1" ]]
-	then
-		echo "Processing asset file $f"
-		grep "," "$f" > "assets_all.csv"
-	fi
-done
+./perl/1_compileRun.pl "$indir" | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
 
-cd "$WD"
-./perl/1_compile_run.pl "$indir"
+if [[ "$status" != "0" ]]
+then
+	echo "1_compileRun.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr aborted during phase 1 (run data compilation)." | tee -a "$logf"
+	echo "Run "| tee -a "$logf"
+	echo "    ./sh/rollBack.sh $indir"| tee -a "$logf"
+	echo "to restore the original files. Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
