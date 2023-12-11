@@ -1,0 +1,38 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+F42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/25/22 6:00	5/26/22 6:00	5/26/22 6:00		0.688	AJ	6/2/22	6.71
+E1	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/24/22 6:00	5/25/22 6:00	5/25/22 6:00		0.696	AJ	6/2/22	6.89
+D1	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/23/22 6:00	5/24/22 6:00	5/24/22 6:00		0.712	AJ	6/2/22	6.64
+D2	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/19/22 6:00	5/20/22 6:00	5/20/22 6:00			AJ	6/2/22	6.86	
+D6	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/18/22 6:00	5/19/22 6:00	5/19/22 6:00		0.783	AJ	6/2/22	6.54
+E4	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/17/22 6:00	5/18/22 6:00	5/18/22 6:00		0.762	JL	5/19/22	6.99
+F4	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/16/22 6:00	5/17/22 6:00	5/17/22 6:00		0.845	JL	5/19/22	6.92
+D42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/5/22 6:00	5/6/22 6:00	5/6/22 6:00		0.837	JL	5/19/22	6.96	
+E42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/4/22 6:00	5/5/22 6:00	5/5/22 6:00		0.812	JL	5/19/22	7.05	
+F3	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/3/22 6:00	5/4/22 6:00	5/4/22 6:00		0.874	JL	5/19/22	6.99	
+D4	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	5/2/22 6:00	5/3/22 7:00	5/3/22 6:00		0.726	JL	5/19/22	6.89	
+E6	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/28/22 6:00	4/29/22 6:00	4/29/22 6:00		0.633	JL	5/19/22	6.93
+F6	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/27/22 6:00	4/28/22 6:00	4/28/22 6:00		0.656	JL	5/19/22	6.91
+E3	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/26/22 6:00	4/27/22 6:00	4/27/22 6:00		0.699	JL	5/19/22	6.74
+F2	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/25/22 6:00	4/26/22 6:00	4/26/22 6:02		0.755	AJ	4/27/22	7.06
+D5	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/21/22 6:00	4/22/22 6:00	4/22/22 6:05		0.741	AJ	4/27/22	7.09
+E5	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/20/22 6:00	4/21/22 6:00	4/21/22 6:03		0.765	AJ	4/27/22	7.19
+F5	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/19/22 6:00	4/20/22 6:00	4/20/22 6:07		0.886	AJ	4/27/22	6.92
+A5	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/18/22 6:00	4/19/22 6:00	4/19/22 6:04		0.78	AJ	4/27/22	7.1	
+B42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/14/22 6:00	4/15/22 6:00	4/15/22 6:05		0.709	AJ	4/27/22	7.14
+C5	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/13/22 6:00	4/14/22 6:00	4/14/22 6:02		0.695	AJ	4/27/22	7.09
+A2	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/12/22 6:00	4/13/22 6:00	4/13/22 6:00		0.701	JL	4/14/22	6.95
+A42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/11/22 6:00	4/12/22 6:00	4/12/22 6:00		0.756	JL	4/14/22	6.89
+B4	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	4/7/22 6:00	4/8/22 6:00	4/8/22 6:00		0.789	JL	4/14/22	7.06	
+C42	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/31/22 6:00	4/1/22 6:00	4/1/22 6:00		0.745	JL	4/14/22	7.21	
+A3	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/30/22 6:00	3/31/22 6:00	3/31/22 6:00		0.698	JL	4/14/22	7.16
+C3	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/29/22 6:00	3/30/22 6:00	3/30/22 6:00		0.737	JL	4/14/22	6.91
+B2	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/28/22 6:00	3/29/22 6:00	3/29/22 6:07		0.799	AJ	3/30/22	6.75
+B6	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/24/22 6:00	3/25/22 6:00	3/25/22 6:05		0.719	AJ	3/30/22	7.09
+A4	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/23/22 6:00	3/24/22 6:00	3/24/22 6:05		0.784	AJ	3/30/22	7.02
+C6	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/22/22 6:00	3/23/22 6:00	3/23/22 6:07		0.657	AJ	3/30/22	7.05
+C2	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/7/22 6:00	3/8/22 6:00	3/8/22 6:05		0.944	AJ	3/16/22	6.7	
+B3	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/8/22 6:00	3/9/22 6:00	3/9/22 7:00		0.835	AJ	3/16/22	6.69	
+C1	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/9/22 7:00	3/10/22 7:00	3/10/22 7:00		0.886	AJ	3/16/22	6.77	
+B1	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/10/22 7:00	3/11/22 7:00	3/11/22 7:00		0.811	AJ	3/16/22	6.88
+A1	Complete	FollansbeeWWTP-01	Routine Surveillance	Pass	3/21/22 6:00	3/22/22 6:00	3/22/22 6:03		0.622	AJ	3/30/22	6.95
+

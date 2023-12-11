@@ -60,7 +60,9 @@ my %table2watch = ("abatch"        => {},
 									 "sample"		     => {},
 									 "result"        => {});
 
-# Read WaTCH tables into hash
+
+
+# Read data tables into hash
 foreach my $table (keys %table2key) {
 	#print "DEBUG::: $progname Reading $table.\n";
 	my $keyname = $table2key{"$table"};
@@ -102,41 +104,63 @@ foreach my $table (keys %table2key) {
 	}
 }
 
-# read resource table "location" into hash
-my $table = "location";
-my $keyname = "location_id";
-my @colnames = ();
-my $keycol  = -1;
-my $linenum = 0;
-open (my $dbFH, "<", "resources/watchdb.$table.txt") or die "Unable to open resources/watchdb.$table.txt for reading: $!\n";
-while (my $line = <$dbFH>) {
-	chomp $line;
-	next if $line =~ /^\s*$/;
-	my @cols = split "\t", "$line", -1;
-	if ($linenum == 0) {
-		# First line of the file contains the column names
-		# Store them and determine which column matches the key
-		foreach (my $i=0; $i<scalar(@cols); $i++) {
-			push @colnames, "$cols[$i]";
-			$keycol = $i if "$keyname" eq "$cols[$i]";
-		}
-	} else {
-		# Extract the data for this row, keyed by the ID
-		my $thisId = "$cols[$keycol]";
-		$table2watch{"$table"}->{"$thisId"} = {};
-		for (my $i=0; $i<scalar(@cols); $i++) {
-			if (!defined $colnames[$i]) {
-				print "DEBUG:: $table col name ($i) does not exist!\n";
-				print "$line\n";
-				print Dumper(@colnames);
-				die;
-			}
-			$table2watch{"$table"}->{"$thisId"}->{"$colnames[$i]"} = "$cols[$i]";
+
+# WaTCH resource tables read into their own hash
+my %resources = ();
+
+# Read resource tables into hash
+my $resource_wkbk = ReadData("resources/watchdb.all_tables.xlsx", dtfmt => "mm/dd/yy");
+#print Dumper($resource_wkbk);
+#die;
+
+foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
+	#print "$sheet_name\n";
+	my @field_names = ();
+	$resources{"$sheet_name"} = {} unless defined $resources{"$sheet_name"};
+	my $pos = $resource_wkbk->[0]->{"sheet"}->{"$sheet_name"};
+	my $sheetRef = $resource_wkbk->[$pos];
+	
+	# The field labels are in row A (or, index 1 of each array in 'cell' ). Store these in an array.
+	for (my $i=1; $i < scalar(@{$sheetRef->{"cell"}}); $i++) {
+		#print "$sheetRef->{cell}->[$i]->[1]\n";
+		next unless defined $sheetRef->{"cell"}->[$i]->[1] and "$sheetRef->{cell}->[$i]->[1]" ne "";
+		my $col_name = "$sheetRef->{cell}->[$i]->[1]";
+		push @field_names, "$col_name";
+	}
+	#print Dumper(\@field_names);
+
+	# The keys for each resource sheet are in column A (or, array 1 of 'cell'). 
+	# Loop over these to add entries to the resources hash.
+	for (my $i=2; $i < scalar(@{$sheetRef->{"cell"}->[1]}); $i++) {
+		#print "$sheetRef->{cell}->[1]->[$i]\n";
+		next unless defined $sheetRef->{"cell"}->[1]->[$i] and "$sheetRef->{cell}->[1]->[$i]" ne "";
+		my $key = "$sheetRef->{cell}->[1]->[$i]";
+		$resources{"$sheet_name"}->{"$key"} = {};
+	}
+	
+	# To get the actual values, loop over the 'cell' array.
+	# Get the key from array 1.
+	# Loop over the field_names array to get the values.
+	for (my $i=1; $i < scalar(@{$sheetRef->{"cell"}}); $i++) {
+		next unless defined $sheetRef->{"cell"}->[$i];
+		my $colRef = $sheetRef->{"cell"}->[$i];
+		my $field = "$field_names[$i-1]";
+		my $resourceRef = $resources{"$sheet_name"};
+		# Loop over the values in this column. Add each to the resources hash.
+		for (my $j=2; $j < scalar(@{$colRef}); $j++) {
+			my $key = "$sheetRef->{cell}->[1]->[$j]";
+			my $value = "";
+			$value = "$colRef->[$j]" if defined $colRef->[$j];
+			$resources{"$sheet_name"}->{"$key"}->{"$field"} = "$value";
 		}
 	}
-	$linenum++;
+
 }
-close $dbFH;
+
+#print Dumper(\%resources);
+#die;
+
+
 
 
 # Every assay has one and only one corresponding result
@@ -236,10 +260,10 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	my %sample = %{$table2watch{"sample"}->{"$smid"}};
 	my $lcid = $sample{"location_id"};
 	
-	if (!defined $table2watch{"location"}->{"$lcid"}) {
+	if (!defined $resources{"location"}->{"$lcid"}) {
 		print "##########################################################################\n";
 		print "#\n";
-		print "WARN: $lcid was not found in the LOCATION table! This assay will be skipped.\n";
+		print "WARN: $lcid was not found in the LOCATION resource table! This assay will be skipped.\n";
 		print "      assay id        : $assay_id\n";
 		print "      extraction id   : $exid\n";
 		print "      concentration id: $cnid\n";
@@ -288,11 +312,11 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 		$table2watch{"result"}->{"$assay_id"}->{"assay_target_copies_per_ul_reaction"} = $assay{"assay_target_copies_per_ul_reaction"};
 		$table2watch{"result"}->{"$assay_id"}->{"target_copies_per_l"} = $copies_per_lww;
 
-		$table2watch{"location"}->{"$lcid"}->{"location_population_served"} =~ s/,//i;
+		$resources{"location"}->{"$lcid"}->{"location_population_served"} =~ s/,//i;
 		$table2watch{"sample"}->{"$smid"}->{"sample_flow"} =~ s/,//i;
 		
 		$table2watch{"result"}->{"$assay_id"}->{"target_copies_per_lday"} = 
-			$copies_per_lww * 24 * (1/$table2watch{"location"}->{"$lcid"}->{"location_collection_window_hrs"});
+			$copies_per_lww * 24 * (1/$resources{"location"}->{"$lcid"}->{"location_collection_window_hrs"});
 	
 		if (defined $table2watch{"sample"}->{"$smid"}->{"sample_flow"} and $table2watch{"sample"}->{"$smid"}->{"sample_flow"} ne "" and $table2watch{"sample"}->{"$smid"}->{"sample_flow"} ne "NA") {
 			# copies/liter x 3.78541 liters/gallon x 10^6 gallon/million_gallons x million_gallons/day x 1 day/24 hrs x collection_time_hrs
@@ -300,20 +324,20 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 			$table2watch{"result"}->{"$assay_id"}->{"target_copies_flownorm"} = 
 				$copies_per_lww * 3.78541 * 1000000 * 
 				$table2watch{"sample"}->{"$smid"}->{"sample_flow"} * 
-				($table2watch{"location"}->{"$lcid"}->{"location_collection_window_hrs"} / 24);
+				($resources{"location"}->{"$lcid"}->{"location_collection_window_hrs"} / 24);
 
-			if (defined $table2watch{"location"}->{"$lcid"}->{"location_population_served"} and $table2watch{"location"}->{"$lcid"}->{"location_population_served"} ne "" and $table2watch{"location"}->{"$lcid"}->{"location_population_served"} ne "NA") {
+			if (defined $resources{"location"}->{"$lcid"}->{"location_population_served"} and $resources{"location"}->{"$lcid"}->{"location_population_served"} ne "" and $resources{"location"}->{"$lcid"}->{"location_population_served"} ne "NA") {
 				$table2watch{"result"}->{"$assay_id"}->{"target_copies_flownorm_per_person"} = 
-					$table2watch{"result"}->{"$assay_id"}->{"target_copies_flownorm"} / $table2watch{"location"}->{"$lcid"}->{"location_population_served"};
+					$table2watch{"result"}->{"$assay_id"}->{"target_copies_flownorm"} / $resources{"location"}->{"$lcid"}->{"location_population_served"};
 			}
 		}
 
 		# copies/liter x 24 hrs/day x 1/collection_time_hrs x 1/population_served
-		if (defined $table2watch{"location"}->{"$lcid"}->{"location_population_served"} and $table2watch{"location"}->{"$lcid"}->{"location_population_served"} ne "" and $table2watch{"location"}->{"$lcid"}->{"location_population_served"} ne "NA") {
+		if (defined $resources{"location"}->{"$lcid"}->{"location_population_served"} and $resources{"location"}->{"$lcid"}->{"location_population_served"} ne "" and $resources{"location"}->{"$lcid"}->{"location_population_served"} ne "NA") {
 			$table2watch{"result"}->{"$assay_id"}->{"target_copies_per_ldayperson"} = 
 					$copies_per_lww * 24 * 
-					(1/$table2watch{"location"}->{"$lcid"}->{"location_collection_window_hrs"}) * 
-					(1/$table2watch{"location"}->{"$lcid"}->{"location_population_served"});
+					(1/$resources{"location"}->{"$lcid"}->{"location_collection_window_hrs"}) * 
+					(1/$resources{"location"}->{"$lcid"}->{"location_population_served"});
 		}
 		## NEED some better way to validate this result. Compare to control?
 		$table2watch{"result"}->{"$assay_id"}->{"target_result_validated"}   = 1;
