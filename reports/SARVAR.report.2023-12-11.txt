@@ -1,0 +1,99 @@
+#
+# Summary of sarvarDB from 12/11/2023.
+#
+
+
+########################################
+Overview:
+########################################
+
+Total num sequenced : 185.
+Date of last sample : 11/06/2023.
+Last sequencing run : 11/29/2023.
+Total variants found: 1018.
+Total lineages found: 406.
+
+
+########################################
+Distribution of highest concern variants across all samples:
+########################################
+
+Omicron variant JN.1 found in 1 sample:
+   11/05/2023 (run SARS_20231129_B) -> 3.5% of sample A01-0714 from StarCityWWTP-01 in Monongalia county.
+
+Omicron variant BA.2.86* found in 3 samples:
+   11/01/2023 (run SARS_20231129_B) -> 1.9% of sample E01-0377 from PrincetonWWTP-01 in Mercer county.
+   09/23/2023 (run SARS_20231002) -> 98.0% of sample A02-1305 from StadiumSW-01 in Monongalia county.
+   10/16/2023 (run SARS_20231102) -> 64.6% of sample J01-0379 from AlpineLakeWWTP-01 in Preston county.
+
+
+
+########################################
+Geographic distribution of all variants to watch (WaTCH level <= 2, sorted by most recent detection):
+########################################
+
+Omicron variant HV.1 found in 10 counties:
+   Taylor, most recent detection on 11/06/2023.
+   Monongalia, most recent detection on 11/05/2023.
+   Mercer, most recent detection on 11/01/2023.
+   Jefferson, most recent detection on 10/31/2023.
+   Mineral, most recent detection on 10/23/2023.
+   Kanawha, most recent detection on 10/23/2023.
+   Wood, most recent detection on 10/17/2023.
+   Preston, most recent detection on 10/16/2023.
+   Ohio, most recent detection on 10/10/2023.
+   Marshall, most recent detection on 10/02/2023.
+
+Omicron variant EG.5 found in 14 counties:
+   Taylor, most recent detection on 11/06/2023.
+   Monongalia, most recent detection on 11/05/2023.
+   Mercer, most recent detection on 11/01/2023.
+   Jefferson, most recent detection on 10/31/2023.
+   Randolph, most recent detection on 10/30/2023.
+   Marion, most recent detection on 10/30/2023.
+   Wood, most recent detection on 10/24/2023.
+   Kanawha, most recent detection on 10/23/2023.
+   Mineral, most recent detection on 10/23/2023.
+   Ohio, most recent detection on 10/16/2023.
+   Preston, most recent detection on 10/16/2023.
+   Marshall, most recent detection on 10/02/2023.
+   Boone, most recent detection on 08/21/2023.
+   Doddridge, most recent detection on 08/20/2023.
+
+Omicron variant JN.1 found in 1 county:
+   Monongalia, most recent detection on 11/05/2023.
+
+Omicron variant BA.2.86* found in 3 counties:
+   Mercer, most recent detection on 11/01/2023.
+   Preston, most recent detection on 10/16/2023.
+   Monongalia, most recent detection on 09/23/2023.
+
+
+
+########################################
+Top 20 most abundant variants across all samples:
+########################################
+
+60 samples contain B.10
+60 samples contain XBB.1.5.34
+59 samples contain XBB.1.5.8
+58 samples contain JF.1
+50 samples contain XBB.1.5.95
+46 samples contain XBB.1.5.37
+42 samples contain XBB.1.16.12
+41 samples contain XBB.1.45.1
+40 samples contain XBB.1.5.100
+38 samples contain XBB.1.16.19
+38 samples contain HK.18
+38 samples contain XBB.1.22
+38 samples contain HY.1
+36 samples contain XBB.1.5.88
+36 samples contain XBB.1.5.67
+36 samples contain XBB.1.5.62
+34 samples contain XBB.1.5.10
+34 samples contain XBB.1.10
+34 samples contain XBB.1.25
+33 samples contain EG.5.1
+
+
+# EOF.

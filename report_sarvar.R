@@ -53,7 +53,7 @@ p_all_10 <- ggplot(recent_10pct_df, aes(fill=lineage, y=percent, x=day_end)) +
 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
 	theme(legend.position = "bottom", legend.title=element_blank())
 
-p_starcity_2 <- ggplot(recent_2pct_df %>% filter(facility == "StarCityWWTP-01"), aes(fill=parental, y=percent, x=day_end)) + 
+p_starcity_2 <- ggplot(recent_2pct_df %>% filter(facility == "StarCityWWTP-01"), aes(fill=lineage, y=percent, x=day_end)) + 
 	geom_bar(position="stack", stat="identity") + 
 	labs(x="", y="") + 
 	ggtitle("Proportion of SARS-CoV-2 Lineages in the Star City Wastewater Facility", subtitle="Only lineages > 2% abundance are shown.") +
@@ -80,7 +80,15 @@ p_var_stadium <- ggplot(all_df %>% filter(str_detect(facility, "Stadium")), aes(
 
 
 
-focus_df <- subset(all_df %>% filter(str_detect(facility, "AlpineLakeWWTP") & percent > 1.0), day_end > today() - days(60))
+p_focus_2 <- ggplot(subset(all_df %>% filter(facility == "PrincetonWWTP-01" & percent > 1.0), day_end > today() - days(130)), aes(fill=lineage, y=percent, x=day_end)) + 
+	geom_bar(position="stack", stat="identity") + 
+	labs(x="", y="") + 
+	ggtitle("Proportion of SARS-CoV-2 Lineages in the Princeton Wastewater Facility", subtitle="Only lineages > 2% abundance are shown.") +
+	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+	theme(legend.position = "bottom", legend.title=element_blank())
+
+
+focus_df <- subset(all_df %>% filter(str_detect(facility, "StarCityWWTP-01") & percent > 1.0), day_end > today() - days(60))
 
 # Compute the position of labels
 focus_df <- focus_df %>% 
@@ -95,6 +103,6 @@ p_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage)) +
 	#theme(legend.position="none") +
 	
 	#geom_text(aes(y = ypos, label = lineage), color = "white", size=3) +
-	ggtitle("Proportion of SARS-CoV-2 Lineages in Alpine Lake WWTP, 15-Oct-2023", subtitle="Only lineages > 1% abundance are shown.") +
+	ggtitle("Proportion of SARS-CoV-2 Lineages in Star City WWTP, 06-Nov-2023", subtitle="Only lineages > 1% abundance are shown.") +
 	scale_fill_brewer(palette="Set1")
 
