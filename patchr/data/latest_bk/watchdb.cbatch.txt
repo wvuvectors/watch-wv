@@ -1,328 +1,648 @@
-concentration_batch_comment	concentration_batch_id	concentration_batch_record_version	concentration_date	concentration_input_ml	concentration_machine	concentration_method	concentration_method_lot_id	concentration_output_ml	concentration_run_by
-	CP0	1.0.0	6/4/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
-	CP0.1	1.0.0	7/7/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
-	CP0.2	1.0.0	7/9/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
-	CP0.3	1.0.0	7/30/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.95	
-	CP0.4	1.0.0	8/13/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP1	1.0.0	8/16/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP1.1	1.0.0	8/18/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP1.2	1.0.0	8/20/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP1.3	1.0.0	8/27/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP10	1.0.0	9/8/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP100	1.0.0	3/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP101	1.0.0	3/23/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP102	1.0.0	3/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP103	1.0.0	3/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP104	1.0.0	3/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP105	1.0.0	3/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP106	1.0.0	3/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP107	1.0.0	3/30/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP108	1.0.0	3/30/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP109	1.0.0	4/1/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP11	1.0.0	9/13/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP110	1.0.0	3/31/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP111	1.0.0	4/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP112	1.0.0	4/5/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
-	CP113	1.0.0	4/6/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP114	1.0.0	4/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP115	1.0.0	4/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP116	1.0.0	4/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP117	1.0.0	4/12/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP118	1.0.0	4/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP119	1.0.0	4/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
-	CP12	1.0.0	9/15/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP120	1.0.0	4/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP121	1.0.0	4/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP122	1.0.0	4/19/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP123	1.0.0	4/20/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP124	1.0.0	4/20/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP125	1.0.0	4/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP126	1.0.0	4/22/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP127	1.0.0	4/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP128	1.0.0	4/26/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP129	1.0.0	4/27/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP13	1.0.0	9/17/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP130	1.0.0	4/27/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP131	1.0.0	4/28/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP132	1.0.0	4/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP133	1.0.0	5/3/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP134	1.0.0	5/4/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP135	1.0.0	5/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP136	1.0.0	5/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP137	1.0.0	5/5/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP138	1.0.0	5/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP139	1.0.0	5/11/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP140	1.0.0	5/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP141	1.0.0	5/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP142	1.0.0	5/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP143	1.0.0	5/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP144	1.0.0	5/17/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP145	1.0.0	5/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP146	1.0.0	5/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP147	1.0.0	5/19/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP148	1.0.0	5/19/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP149	1.0.0	5/20/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP150	1.0.0	5/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP151	1.0.0	5/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP152	1.0.0	5/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP153	1.0.0	5/25/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP154	1.0.0	5/27/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP155	1.0.0	5/27/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP156	1.0.0	5/31/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP157	1.0.0	6/1/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP158	1.0.0	6/1/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP159	1.0.0	6/2/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP16	1.0.0	9/24/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP160	1.0.0	6/2/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP161	1.0.0	6/3/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP162	1.0.0	6/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP163	1.0.0	6/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP164	1.0.0	6/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP165	1.0.0	6/10/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP166	1.0.0	6/10/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP167	1.0.0	6/15/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP168	1.0.0	6/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP169	1.0.0	6/17/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP17	1.0.0	9/27/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP170	1.0.0	6/17/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP172	1.0.0	6/22/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP173	1.0.0	6/22/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP174	1.0.0	6/24/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP175	1.0.0	6/24/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP176	1.0.0	6/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP177	1.0.0	6/29/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP178	1.0.0	6/29/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP179	1.0.0	6/30/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP18	1.0.0	9/29/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP180	1.0.0	7/6/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP181	1.0.0	7/6/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP182	1.0.0	7/7/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP183	1.0.0	7/8/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP184	1.0.0	7/8/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP185	1.0.0	7/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP186	1.0.0	7/13/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP187	1.0.0	7/13/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP19	1.0.0	10/1/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP2	1.0.0	8/23/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP20	1.0.0	10/5/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP21	1.0.0	10/7/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP22	1.0.0	10/8/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP23	1.0.0	10/11/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP24	1.0.0	10/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP25	1.0.0	10/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP26	1.0.0	10/18/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP27	1.0.0	10/20/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP28	1.0.0	10/25/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP29	1.0.0	10/27/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
-	CP3	1.0.0	8/24/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP30	1.0.0	10/28/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP31	1.0.0	11/2/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
-	CP32	1.0.0	11/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP33	1.0.0	11/5/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
-	CP34	1.0.0	11/11/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	JL
-	CP35	1.0.0	11/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	LW
-	CP36	1.0.0	11/16/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.425	AJ
-	CP37	1.0.0	11/17/21	10	Halcyon	Ceres Nanotrap	NT04474	0.425	JL
-	CP38	1.0.0	11/19/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP39	1.0.0	11/22/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP4	1.0.0	8/25/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP40	1.0.0	11/29/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP41	1.0.0	11/30/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP42	1.0.0	12/2/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
-	CP43	1.0.0	12/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP44	1.0.0	12/6/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP45	1.0.0	12/8/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP46	1.0.0	12/9/21	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
-	CP47	1.0.0	12/10/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP48	1.0.0	12/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP49	1.0.0	12/15/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP5	1.0.0	8/27/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP50	1.0.0	12/16/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP51	1.0.0	12/17/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP52	1.0.0	12/21/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP53	1.0.0	12/22/21	10	Halcyon	Ceres Nanotrap	NT04774	0.475	AJ
-	CP54	1.0.0	1/3/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	JL
-	CP55	1.0.0	1/4/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP56	1.0.0	1/6/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP57	1.0.0	1/10/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP58	1.0.0	1/11/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	aj
-	CP59	1.0.0	1/13/21	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP60	1.0.0	1/19/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP61	1.0.0	1/19/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP62	1.0.0	1/20/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP63	1.0.0	1/21/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP64	1.0.0	1/24/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP65	1.0.0	1/25/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP66	1.0.0	1/26/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP67	1.0.0	1/28/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP68	1.0.0	1/31/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP69	1.0.0	2/1/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP7	1.0.0	9/2/21	10	Kookaburra	Ceres Nanotrap	NT04155	0.425	JL
-	CP70	1.0.0	2/2/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP71	1.0.0	2/4/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	LW
-	CP72	1.0.0	2/7/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP73	1.0.0	2/9/22	10	Kookaburra	Ceres Nanotrap	NT04474	0.475	AJ
-	CP74	1.0.0	2/10/22	10	Halcyon	Ceres Nanotrap	NT04474	0.475	AJ
-	CP76	1.0.0	2/14/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP77	1.0.0	2/14/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP78	1.0.0	2/15/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP79	1.0.0	2/16/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP8	1.0.0	9/3/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP80	1.0.0	2/18/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP81	1.0.0	2/18/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP82	1.0.0	2/21/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP83	1.0.0	2/23/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP84	1.0.0	2/23/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP85	1.0.0	2/25/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	JL
-	CP86	1.0.0	2/28/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP87	1.0.0	3/2/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	aj
-	CP88	1.0.0	3/2/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP89	1.0.0	3/4/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP9	1.0.0	9/8/21	10	Halcyon	Ceres Nanotrap	NT04155	0.425	JL
-	CP90	1.0.0	3/4/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP91	1.0.0	3/9/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP92	1.0.0	3/9/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP93	1.0.0	3/10/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP94	1.0.0	3/11/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP95	1.0.0	3/11/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP96	1.0.0	3/15/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP97	1.0.0	3/16/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	CP98	1.0.0	3/16/22	10	Kookaburra	Ceres Nanotrap	NT04473	0.475	AJ
-	CP99	1.0.0	3/21/22	10	Halcyon	Ceres Nanotrap	NT04473	0.475	AJ
-	PE1	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		4	MS
-	PE10	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
-	PE100	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE101	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE102	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE103	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE104	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		5	JL
-	PE105	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		6	JL
-	PE106	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		4	JL
-	PE107	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		4	JL
-	PE108	1.0.0	4/16/21	100	Sorvall	PEG Precipitation		8	JL
-	PE109	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
-	PE11	1.0.0	11/16/20	100	Sorvall	PEG Precipitation		4.2	MS
-	PE110	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE111	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		4	MVS
-	PE112	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
-	PE113	1.0.0	4/23/21	100	Sorvall	PEG Precipitation		7	MVS
-	PE114	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		2	KED
-	PE115	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		3	KED
-	PE116	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		3	KED
-	PE117	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		5	KED
-	PE118	1.0.0	4/30/21	100	Sorvall	PEG Precipitation		7.5	KED
-	PE119	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
-	PE12	1.0.0	11/16/20	100	Sorvall	PEG Precipitation		4	MS
-	PE120	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
-	PE121	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
-	PE122	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
-	PE123	1.0.0	5/7/21	100	Sorvall	PEG Precipitation		5	
-	PE124	1.0.0	5/14/21	100	Sorvall	PEG Precipitation		7	MVS
-	PE125	1.0.0	5/14/21	100	Sorvall	PEG Precipitation		4	MVS
-	PE126	1.0.0	5/18/21	100	Sorvall	PEG Precipitation		4.5	KD
-	PE127	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
-	PE128	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
-	PE129	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		8	TD
-	PE13	1.0.0	11/19/20	100	Sorvall	PEG Precipitation		4	MS
-	PE130	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
-	PE131	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		5	TD
-	PE132	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		6	TD
-	PE133	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
-	PE134	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		3	TD
-	PE135	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		4	TD
-	PE136	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		3	TD
-	PE137	1.0.0	2/13/21	100	Sorvall	PEG Precipitation		5	TD
-	PE14	1.0.0	11/19/20	100	Sorvall	PEG Precipitation		3.6	MS
-	PE15	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.6	MS
-	PE16	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
-	PE17	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3	MS
-	PE18	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.8	MS
-	PE19	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.2	MS
-	PE2	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		4.2	MS
-	PE20	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
-	PE21	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.4	MS
-	PE22	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		4.8	MS
-	PE23	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.4	MS
-	PE24	1.0.0	12/4/20	100	Sorvall	PEG Precipitation		3.8	MS
-	PE25	1.0.0	12/7/20	100	Sorvall	PEG Precipitation		4	MS
-	PE26	1.0.0	12/7/20	100	Sorvall	PEG Precipitation		3.2	MS
-	PE27	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		5	MS
-	PE28	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		3.8	MS
-	PE29	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		4	MS
-	PE3	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		3.4	MS
-	PE30	1.0.0	12/13/20	100	Sorvall	PEG Precipitation		3.6	AT
-	PE31	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		3.8	AT
-	PE32	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4.2	AT
-	PE33	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4	AT
-	PE34	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4	AT
-	PE35	1.0.0	12/14/20	100	Sorvall	PEG Precipitation		4.2	AT
-	PE36	1.0.0	12/21/20	100	Sorvall	PEG Precipitation		3.4	AT
-	PE37	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		7	MS
-	PE38	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		15	MS
-	PE39	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		6	MS
-	PE4	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		3.4	MS
-	PE40	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		5.5	MS
-	PE41	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		8	MS
-	PE42	1.0.0	1/3/21	100	Sorvall	PEG Precipitation		7	MS
-	PE43	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		6	MS
-	PE44	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		4	MS
-	PE45	1.0.0	1/4/21	100	Sorvall	PEG Precipitation		4	MS
-	PE46	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE47	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE48	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE49	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
-	PE5	1.0.0	11/9/20	100	Sorvall	PEG Precipitation		5	MS
-	PE50	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
-	PE51	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE52	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
-	PE53	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
-	PE54	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE55	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE56	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4.5	MS
-	PE57	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE58	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
-	PE59	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5.5	MS
-	PE6	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
-	PE60	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE61	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		3	MS
-	PE62	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
-	PE63	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE64	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5.5	MS
-	PE65	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE66	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE67	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		4	MS
-	PE68	1.0.0	2/5/21	100	Sorvall	PEG Precipitation		5	MS
-	PE69	1.0.0	2/19/21	100	Sorvall	PEG Precipitation		4	AT
-	PE7	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		3.8	MS
-	PE70	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
-	PE71	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
-	PE72	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
-	PE73	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
-	PE74	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		6	AT
-	PE75	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
-	PE76	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		5	AT
-	PE77	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
-	PE78	1.0.0	2/22/21	100	Sorvall	PEG Precipitation		4	AT
-	PE79	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
-	PE8	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		3.4	MS
-	PE80	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
-	PE81	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
-	PE82	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
-	PE83	1.0.0	3/12/21	100	Sorvall	PEG Precipitation		5	AHT
-	PE84	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		4.2	TD
-	PE85	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.4	TD
-	PE86	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.6	TD
-	PE87	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.6	TD
-	PE88	1.0.0	3/19/21	100	Sorvall	PEG Precipitation		3.5	TD
-	PE89	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		4	MVS
-	PE9	1.0.0	11/13/20	100	Sorvall	PEG Precipitation		4	MS
-	PE90	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		9	MVS
-	PE91	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		8	MVS
-	PE92	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		4	MVS
-	PE93	1.0.0	3/26/21	100	Sorvall	PEG Precipitation		7	MVS
-	PE94	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE95	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE96	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		6	MVS
-	PE97	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE98	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
-	PE99	1.0.0	4/9/21	100	Sorvall	PEG Precipitation		5	MVS
+concentration_batch_id	concentration_batch_record_version	concentration_date	concentration_input_ml	concentration_machine	concentration_method	concentration_method_lot_id	concentration_output_ml	concentration_run_by	concentration_batch_comment
+CP800	1.0.0	05/30/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP801	1.0.0	08/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP0	1.0.0	06/04/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.95		
+CP0.1	1.0.0	07/07/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.95		
+CP0.2	1.0.0	07/09/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.95		
+CP0.3	1.0.0	07/30/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.95		
+CP0.4	1.0.0	08/13/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP1	1.0.0	08/16/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP1.1	1.0.0	08/18/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP1.2	1.0.0	08/20/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP1.3	1.0.0	08/27/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP10	1.0.0	09/08/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP100	1.0.0	03/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP101	1.0.0	03/23/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP102	1.0.0	03/23/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP103	1.0.0	03/25/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP104	1.0.0	03/25/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP105	1.0.0	03/29/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP106	1.0.0	03/29/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP107	1.0.0	03/30/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP108	1.0.0	03/30/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP109	1.0.0	04/01/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP11	1.0.0	09/13/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP110	1.0.0	03/31/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP111	1.0.0	04/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP112	1.0.0	04/05/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	JL	
+CP113	1.0.0	04/06/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP114	1.0.0	04/06/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP115	1.0.0	04/08/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP116	1.0.0	04/08/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP117	1.0.0	04/12/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP118	1.0.0	04/14/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP119	1.0.0	04/13/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	JL	
+CP12	1.0.0	09/15/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP120	1.0.0	04/18/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP121	1.0.0	04/18/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP122	1.0.0	04/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP123	1.0.0	04/20/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP124	1.0.0	04/20/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP125	1.0.0	04/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP126	1.0.0	04/22/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP127	1.0.0	04/25/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP128	1.0.0	04/26/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP129	1.0.0	04/27/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP13	1.0.0	09/17/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP130	1.0.0	04/27/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP131	1.0.0	04/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP132	1.0.0	04/29/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP133	1.0.0	05/03/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP134	1.0.0	05/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP135	1.0.0	05/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP136	1.0.0	05/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP137	1.0.0	05/05/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP138	1.0.0	05/06/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP139	1.0.0	05/11/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP140	1.0.0	05/11/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP141	1.0.0	05/11/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP142	1.0.0	05/13/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP143	1.0.0	05/13/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP144	1.0.0	05/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP145	1.0.0	05/18/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP146	1.0.0	05/18/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP147	1.0.0	05/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP148	1.0.0	05/19/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP149	1.0.0	05/20/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP150	1.0.0	05/23/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP151	1.0.0	05/25/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP152	1.0.0	05/25/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP153	1.0.0	05/25/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP154	1.0.0	05/27/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP155	1.0.0	05/27/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP156	1.0.0	05/31/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP157	1.0.0	06/01/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP158	1.0.0	06/01/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP159	1.0.0	06/02/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP16	1.0.0	09/24/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP160	1.0.0	06/02/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP161	1.0.0	06/03/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP162	1.0.0	06/08/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP163	1.0.0	06/08/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP164	1.0.0	06/08/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP165	1.0.0	06/10/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP166	1.0.0	06/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP167	1.0.0	06/15/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP168	1.0.0	06/14/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP169	1.0.0	06/17/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP17	1.0.0	09/27/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP170	1.0.0	06/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP172	1.0.0	06/22/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP173	1.0.0	06/22/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP174	1.0.0	06/24/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP175	1.0.0	06/24/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP176	1.0.0	06/29/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP177	1.0.0	06/29/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP178	1.0.0	06/29/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP179	1.0.0	06/30/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP18	1.0.0	09/29/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP180	1.0.0	07/06/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP181	1.0.0	07/06/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP182	1.0.0	07/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP183	1.0.0	07/08/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP184	1.0.0	07/08/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP185	1.0.0	07/13/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP186	1.0.0	07/13/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP187	1.0.0	07/13/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP188	1.0.0	07/15/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP189	1.0.0	07/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP19	1.0.0	10/01/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP190	1.0.0	07/20/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP191	1.0.0	07/20/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP192	1.0.0	07/20/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP193	1.0.0	07/22/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP194	1.0.0	07/22/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP195	1.0.0	07/27/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP196	1.0.0	07/27/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP197	1.0.0	07/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP198	1.0.0	07/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP199	1.0.0	08/01/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP2	1.0.0	08/23/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP20	1.0.0	10/05/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP200	1.0.0	08/01/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP201	1.0.0	08/03/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP202	1.0.0	08/02/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP203	1.0.0	08/03/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP205	1.0.0	08/05/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP206	1.0.0	08/08/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP207	1.0.0	08/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP208	1.0.0	08/10/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP209	1.0.0	08/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP21	1.0.0	10/07/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP210	1.0.0	08/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	JL	
+CP211	1.0.0	08/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	JL	
+CP212	1.0.0	08/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP213	1.0.0	08/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP214	1.0.0	08/17/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP216	1.0.0	08/19/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP217	1.0.0	08/23/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP218	1.0.0	08/24/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP219	1.0.0	08/24/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP22	1.0.0	10/08/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP220	1.0.0	08/24/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP221	1.0.0	08/26/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.53	AJ	
+CP222	1.0.0	08/26/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.53	AJ	
+CP223	1.0.0	08/31/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP224	1.0.0	08/31/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP225	1.0.0	08/31/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP226	1.0.0	09/02/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP227	1.0.0	09/02/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP228	1.0.0	09/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP229	1.0.0	09/07/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP23	1.0.0	10/11/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP230	1.0.0	09/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP231	1.0.0	09/07/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP232	1.0.0	09/13/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP233	1.0.0	09/13/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP234	1.0.0	09/13/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP235	1.0.0	09/14/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP236	1.0.0	09/14/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP237	1.0.0	09/16/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP238	1.0.0	09/16/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP239	1.0.0	09/21/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP24	1.0.0	10/13/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP240	1.0.0	09/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP241	1.0.0	09/21/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP242	1.0.0	09/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP243	1.0.0	09/26/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP244	1.0.0	09/26/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP245	1.0.0	09/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP246	1.0.0	09/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP247.1	1.0.0	09/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP247	1.0.0	10/12/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP248	1.0.0	10/12/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	SB	
+CP248.1	1.0.0	09/30/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP249	1.0.0	10/03/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP25	1.0.0	10/15/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP250	1.0.0	10/03/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP251	1.0.0	10/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0445	0.475	AJ	
+CP252	1.0.0	10/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP253	1.0.0	10/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP254	1.0.0	10/07/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP255	1.0.0	10/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP256	1.0.0	10/07/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP259	1.0.0	10/17/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP26	1.0.0	10/18/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP260	1.0.0	10/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP261	1.0.0	10/17/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP262	1.0.0	10/17/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP263	1.0.0	10/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP264	1.0.0	10/19/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP265	1.0.0	10/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP266	1.0.0	10/24/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP267	1.0.0	10/24/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP268	1.0.0	10/26/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP269	1.0.0	10/26/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP27	1.0.0	10/20/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP270	1.0.0	10/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP271	1.0.0	10/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP272	1.0.0	10/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP273	1.0.0	11/03/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	SB	
+CP274	1.0.0	11/03/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	SB	
+CP275	1.0.0	11/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	SB	
+CP276	1.0.0	11/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	SB	
+CP277	1.0.0	11/09/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP278	1.0.0	11/09/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP279	1.0.0	11/10/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP28	1.0.0	10/25/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP280	1.0.0	11/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP281	1.0.0	11/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP282	1.0.0	11/15/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP283	1.0.0	11/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP284	1.0.0	11/18/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP285	1.0.0	11/18/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP286	1.0.0	11/18/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP287	1.0.0	11/18/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP288	1.0.0	11/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP289	1.0.0	11/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP29	1.0.0	10/27/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP290	1.0.0	11/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP291	1.0.0	11/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP292	1.0.0	11/30/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP293	1.0.0	11/30/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT0455	0.475	AJ	
+CP294	1.0.0	12/05/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP295	1.0.0	12/05/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP296	1.0.0	12/07/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP297	1.0.0	12/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP298	1.0.0	12/08/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP299	1.0.0	12/12/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP3	1.0.0	08/24/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP30	1.0.0	10/28/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP300	1.0.0	12/12/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP301	1.0.0	12/14/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP302	1.0.0	12/14/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP303	1.0.0	12/14/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP304	1.0.0	12/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP305	1.0.0	12/19/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP306	1.0.0	12/21/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0455	0.475	AJ	
+CP307	1.0.0	12/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP308	1.0.0	12/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP309	1.0.0	12/28/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP31	1.0.0	11/02/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP310	1.0.0	12/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP311	1.0.0	01/04/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP312	1.0.0	01/04/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP313	1.0.0	01/04/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP314	1.0.0	01/09/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP315	1.0.0	01/09/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP316	1.0.0	01/11/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP317	1.0.0	01/11/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP318	1.0.0	01/11/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP319	1.0.0	01/11/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP32	1.0.0	11/03/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP320	1.0.0	01/18/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP321	1.0.0	01/18/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP322	1.0.0	01/18/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP323	1.0.0	01/18/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP324	1.0.0	01/18/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP325	1.0.0	01/25/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	JL	
+CP326	1.0.0	01/25/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	JL	
+CP327	1.0.0	01/25/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	JL	
+CP328	1.0.0	01/26/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP329	1.0.0	01/26/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP33	1.0.0	11/05/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP330	1.0.0	01/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP331	1.0.0	01/30/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP332	1.0.0	01/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP333	1.0.0	02/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP334	1.0.0	02/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP335	1.0.0	02/06/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP336	1.0.0	02/06/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP337	1.0.0	02/08/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP338	1.0.0	02/08/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP339	1.0.0	02/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP34	1.0.0	11/11/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP340	1.0.0	02/13/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP341	1.0.0	02/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP342	1.0.0	02/15/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP343	1.0.0	02/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP344	1.0.0	02/20/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP345	1.0.0	02/20/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP346	1.0.0	02/20/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP347	1.0.0	02/22/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP348	1.0.0	02/22/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP349	1.0.0	02/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP35	1.0.0	11/15/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	LW	
+CP350	1.0.0	02/27/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP351	1.0.0	02/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP352	1.0.0	03/01/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP353	1.0.0	03/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP354	1.0.0	03/02/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP355	1.0.0	03/02/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP356	1.0.0	03/06/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP357	1.0.0	03/06/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP358	1.0.0	03/08/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP359	1.0.0	03/08/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP36	1.0.0	11/16/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	AJ	
+CP360	1.0.0	03/08/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP361	1.0.0	03/10/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP362	1.0.0	03/10/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP363	1.0.0	03/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP364	1.0.0	03/15/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP365	1.0.0	03/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP366	1.0.0	03/16/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP367	1.0.0	03/20/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP368	1.0.0	03/20/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP369	1.0.0	03/22/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP370	1.0.0	03/22/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP37	1.0.0	11/17/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.425	JL	
+CP371	1.0.0	03/23/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	0.475	AJ	
+CP372	1.0.0	03/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP373	1.0.0	03/27/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP374	1.0.0	03/29/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP375	1.0.0	03/29/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP376	1.0.0	03/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP377	1.0.0	04/03/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP378	1.0.0	04/03/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP379	1.0.0	04/05/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP38	1.0.0	11/19/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP380	1.0.0	04/05/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP381	1.0.0	04/06/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP382	1.0.0	04/06/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP383	1.0.0	04/10/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	JL	
+CP384	1.0.0	04/10/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	JL	
+CP385	1.0.0	04/12/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP386	1.0.0	04/12/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP387	1.0.0	04/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP388	1.0.0	04/13/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP389	1.0.0	04/17/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP39	1.0.0	11/22/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP390	1.0.0	04/17/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP391	1.0.0	04/19/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP392	1.0.0	04/19/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP393	1.0.0	04/20/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP393.1	1.0.0	04/24/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP394	1.0.0	04/24/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP396	1.0.0	04/26/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP397	1.0.0	04/26/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP398	1.0.0	04/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP399	1.0.0	05/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP4	1.0.0	08/25/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP40	1.0.0	11/29/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP400	1.0.0	05/01/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP401	1.0.0	05/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP402	1.0.0	05/03/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP403	1.0.0	05/03/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP404	1.0.0	05/04/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP405	1.0.0	05/04/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP406	1.0.0	05/08/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP407	1.0.0	05/08/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP408	1.0.0	05/10/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP409	1.0.0	05/10/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP41	1.0.0	11/30/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP410	1.0.0	05/11/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP411	1.0.0	05/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04665	0.475	AJ	
+CP412	1.0.0	05/15/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP413	1.0.0	05/17/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP414	1.0.0	05/17/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP415	1.0.0	05/18/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP416	1.0.0	05/23/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP417	1.0.0	05/24/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP418	1.0.0	05/24/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP42	1.0.0	12/02/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	LW	
+CP420	1.0.0	05/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP421	1.0.0	06/01/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP422	1.0.0	06/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP423	1.0.0	06/01/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW/AJ	
+CP424	1.0.0	06/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW/AJ	
+CP425	1.0.0	06/05/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP426	1.0.0	06/08/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP427	1.0.0	06/08/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP428	1.0.0	06/08/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP429	1.0.0	06/12/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP43	1.0.0	12/03/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP430	1.0.0	06/14/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP431	1.0.0	06/14/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP432	1.0.0	06/15/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP433	1.0.0	06/15/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP434	1.0.0	06/21/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP435	1.0.0	06/21/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP436	1.0.0	06/22/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP437	1.0.0	06/22/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP438	1.0.0	06/26/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP439	1.0.0	06/26/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	GC	
+CP44	1.0.0	12/06/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP440	1.0.0	06/28/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP441	1.0.0	06/28/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	GC	
+CP442	1.0.0	06/29/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP443	1.0.0	07/05/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP444	1.0.0	07/07/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP445	1.0.0	07/07/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP446	1.0.0	07/13/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP447	1.0.0	07/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	GC	
+CP448	1.0.0	07/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP449	1.0.0	07/13/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	GC	
+CP45	1.0.0	12/08/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP450	1.0.0	07/17/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP451	1.0.0	07/19/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	SB	
+CP452	1.0.0	07/19/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP453	1.0.0	07/20/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	LW	
+CP454	1.0.0	07/26/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP455	1.0.0	07/26/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP456	1.0.0	07/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP457	1.0.0	07/27/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP458	1.0.0	08/01/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP459	1.0.0	08/01/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP46	1.0.0	12/09/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	LW	
+CP460	1.0.0	08/02/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP461	1.0.0	08/02/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP462	1.0.0	08/09/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP463	1.0.0	08/09/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP464	1.0.0	08/10/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP465	1.0.0	08/10/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP466	1.0.0	08/16/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	JL	
+CP467	1.0.0	08/16/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	JL	
+CP468	1.0.0	08/21/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP469	1.0.0	08/21/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP47	1.0.0	12/10/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP470	1.0.0	08/23/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP471	1.0.0	08/23/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP472	1.0.0	08/24/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP473	1.0.0	08/24/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP474	1.0.0	08/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP475	1.0.0	08/30/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP476	1.0.0	08/30/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP477	1.0.0	09/05/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	GC	
+CP478	1.0.0	09/05/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	0.475	AJ	
+CP479	1.0.0	09/07/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465/ NT4473	0.475	GC	
+CP48	1.0.0	12/13/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP480	1.0.0	09/11/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP481	1.0.0	09/11/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP482	1.0.0	09/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP483	1.0.0	09/13/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP484	1.0.0	09/13/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP485	1.0.0	09/18/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP486	1.0.0	09/18/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP487	1.0.0	09/18/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0487	0.475	AJ	
+CP488	1.0.0	09/20/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP489	1.0.0	09/20/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP49	1.0.0	12/15/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP490	1.0.0	09/26/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP491	1.0.0	09/27/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP492	1.0.0	03/27/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP493	1.0.0	10/03/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP494	1.0.0	10/02/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP495	1.0.0	10/04/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	GC	
+CP496	1.0.0	10/06/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP497	1.0.0	10/06/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP498	1.0.0	10/11/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP499	1.0.0	10/17/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP5	1.0.0	08/27/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP50	1.0.0	12/16/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP500	1.0.0	10/18/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP501	1.0.0	10/24/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP502	1.0.0	10/31/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP503	1.0.0	10/31/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP504	1.0.0	11/07/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP505	1.0.0	11/07/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP506	1.0.0	11/14/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP507	1.0.0	11/14/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP508	1.0.0	11/16/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	
+CP51	1.0.0	12/17/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP52	1.0.0	12/21/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP53	1.0.0	12/22/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04774	0.475	AJ	
+CP54	1.0.0	01/03/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	JL	
+CP55	1.0.0	01/04/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP56	1.0.0	01/06/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP57	1.0.0	01/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP58	1.0.0	01/11/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	aj	
+CP59	1.0.0	01/13/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP60	1.0.0	01/19/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP61	1.0.0	01/19/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP62	1.0.0	01/20/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP63	1.0.0	01/21/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP64	1.0.0	01/24/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP65	1.0.0	01/25/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP66	1.0.0	01/26/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP67	1.0.0	01/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP68	1.0.0	01/31/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP69	1.0.0	02/01/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP7	1.0.0	09/02/2021	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP70	1.0.0	02/02/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP71	1.0.0	02/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	LW	
+CP72	1.0.0	02/07/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP73	1.0.0	02/09/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP74	1.0.0	02/10/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	0.475	AJ	
+CP76	1.0.0	02/14/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP77	1.0.0	02/14/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP78	1.0.0	02/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP79	1.0.0	02/16/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP8	1.0.0	09/03/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP80	1.0.0	02/18/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP81	1.0.0	02/18/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP82	1.0.0	02/21/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP83	1.0.0	02/23/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP84	1.0.0	02/23/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP85	1.0.0	02/25/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	JL	
+CP86	1.0.0	02/28/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP87	1.0.0	03/02/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	aj	
+CP88	1.0.0	03/02/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP89	1.0.0	03/04/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP9	1.0.0	09/08/2021	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	0.425	JL	
+CP90	1.0.0	03/04/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP91	1.0.0	03/09/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP92	1.0.0	03/09/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP93	1.0.0	03/10/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP94	1.0.0	03/11/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP95	1.0.0	03/11/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP96	1.0.0	03/15/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP97	1.0.0	03/16/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP98	1.0.0	03/16/2022	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+CP99	1.0.0	03/21/2022	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	
+PE1	1.0.0	11/09/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE10	1.0.0	11/13/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE100	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE101	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE102	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE103	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE104	1.0.0	04/16/2021	100	Sorvall	PEG Precipitation		5	JL	
+PE105	1.0.0	04/16/2021	100	Sorvall	PEG Precipitation		6	JL	
+PE106	1.0.0	04/16/2021	100	Sorvall	PEG Precipitation		4	JL	
+PE107	1.0.0	04/16/2021	100	Sorvall	PEG Precipitation		4	JL	
+PE108	1.0.0	04/16/2021	100	Sorvall	PEG Precipitation		8	JL	
+PE109	1.0.0	04/23/2021	100	Sorvall	PEG Precipitation		7	MVS	
+PE11	1.0.0	11/16/2020	100	Sorvall	PEG Precipitation		4.2	MS	
+PE110	1.0.0	04/23/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE111	1.0.0	04/23/2021	100	Sorvall	PEG Precipitation		4	MVS	
+PE112	1.0.0	04/23/2021	100	Sorvall	PEG Precipitation		7	MVS	
+PE113	1.0.0	04/23/2021	100	Sorvall	PEG Precipitation		7	MVS	
+PE114	1.0.0	04/30/2021	100	Sorvall	PEG Precipitation		2	KED	
+PE115	1.0.0	04/30/2021	100	Sorvall	PEG Precipitation		3	KED	
+PE116	1.0.0	04/30/2021	100	Sorvall	PEG Precipitation		3	KED	
+PE117	1.0.0	04/30/2021	100	Sorvall	PEG Precipitation		5	KED	
+PE118	1.0.0	04/30/2021	100	Sorvall	PEG Precipitation		7.5	KED	
+PE119	1.0.0	05/07/2021	100	Sorvall	PEG Precipitation		5		
+PE12	1.0.0	11/16/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE120	1.0.0	05/07/2021	100	Sorvall	PEG Precipitation		5		
+PE121	1.0.0	05/07/2021	100	Sorvall	PEG Precipitation		5		
+PE122	1.0.0	05/07/2021	100	Sorvall	PEG Precipitation		5		
+PE123	1.0.0	05/07/2021	100	Sorvall	PEG Precipitation		5		
+PE124	1.0.0	05/14/2021	100	Sorvall	PEG Precipitation		7	MVS	
+PE125	1.0.0	05/14/2021	100	Sorvall	PEG Precipitation		4	MVS	
+PE126	1.0.0	05/18/2021	100	Sorvall	PEG Precipitation		4.5	KD	
+PE127	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		6	TD	
+PE128	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		4	TD	
+PE129	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		8	TD	
+PE13	1.0.0	11/19/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE130	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		6	TD	
+PE131	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		5	TD	
+PE132	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		6	TD	
+PE133	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		4	TD	
+PE134	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		3	TD	
+PE135	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		4	TD	
+PE136	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		3	TD	
+PE137	1.0.0	02/13/2021	100	Sorvall	PEG Precipitation		5	TD	
+PE14	1.0.0	11/19/2020	100	Sorvall	PEG Precipitation		3.6	MS	
+PE15	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3.6	MS	
+PE16	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3.8	MS	
+PE17	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3	MS	
+PE18	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		4.8	MS	
+PE19	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		4.2	MS	
+PE2	1.0.0	11/09/2020	100	Sorvall	PEG Precipitation		4.2	MS	
+PE20	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3.8	MS	
+PE21	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		4.4	MS	
+PE22	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		4.8	MS	
+PE23	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3.4	MS	
+PE24	1.0.0	12/04/2020	100	Sorvall	PEG Precipitation		3.8	MS	
+PE25	1.0.0	12/07/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE26	1.0.0	12/07/2020	100	Sorvall	PEG Precipitation		3.2	MS	
+PE27	1.0.0	12/13/2020	100	Sorvall	PEG Precipitation		5	MS	
+PE28	1.0.0	12/13/2020	100	Sorvall	PEG Precipitation		3.8	MS	
+PE29	1.0.0	12/13/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE3	1.0.0	11/09/2020	100	Sorvall	PEG Precipitation		3.4	MS	
+PE30	1.0.0	12/13/2020	100	Sorvall	PEG Precipitation		3.6	AT	
+PE31	1.0.0	12/14/2020	100	Sorvall	PEG Precipitation		3.8	AT	
+PE32	1.0.0	12/14/2020	100	Sorvall	PEG Precipitation		4.2	AT	
+PE33	1.0.0	12/14/2020	100	Sorvall	PEG Precipitation		4	AT	
+PE34	1.0.0	12/14/2020	100	Sorvall	PEG Precipitation		4	AT	
+PE35	1.0.0	12/14/2020	100	Sorvall	PEG Precipitation		4.2	AT	
+PE36	1.0.0	12/21/2020	100	Sorvall	PEG Precipitation		3.4	AT	
+PE37	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		7	MS	
+PE38	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		15	MS	
+PE39	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		6	MS	
+PE4	1.0.0	11/09/2020	100	Sorvall	PEG Precipitation		3.4	MS	
+PE40	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		5.5	MS	
+PE41	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		8	MS	
+PE42	1.0.0	01/03/2021	100	Sorvall	PEG Precipitation		7	MS	
+PE43	1.0.0	01/04/2021	100	Sorvall	PEG Precipitation		6	MS	
+PE44	1.0.0	01/04/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE45	1.0.0	01/04/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE46	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE47	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE48	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE49	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		3	MS	
+PE5	1.0.0	11/09/2020	100	Sorvall	PEG Precipitation		5	MS	
+PE50	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5	MS	
+PE51	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE52	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		3	MS	
+PE53	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5	MS	
+PE54	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE55	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE56	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4.5	MS	
+PE57	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE58	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5	MS	
+PE59	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5.5	MS	
+PE6	1.0.0	11/13/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE60	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE61	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		3	MS	
+PE62	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5	MS	
+PE63	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE64	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5.5	MS	
+PE65	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE66	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE67	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		4	MS	
+PE68	1.0.0	02/05/2021	100	Sorvall	PEG Precipitation		5	MS	
+PE69	1.0.0	02/19/2021	100	Sorvall	PEG Precipitation		4	AT	
+PE7	1.0.0	11/13/2020	100	Sorvall	PEG Precipitation		3.8	MS	
+PE70	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		4	AT	
+PE71	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		5	AT	
+PE72	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		5	AT	
+PE73	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		4	AT	
+PE74	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		6	AT	
+PE75	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		5	AT	
+PE76	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		5	AT	
+PE77	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		4	AT	
+PE78	1.0.0	02/22/2021	100	Sorvall	PEG Precipitation		4	AT	
+PE79	1.0.0	03/12/2021	100	Sorvall	PEG Precipitation		5	AHT	
+PE8	1.0.0	11/13/2020	100	Sorvall	PEG Precipitation		3.4	MS	
+PE80	1.0.0	03/12/2021	100	Sorvall	PEG Precipitation		5	AHT	
+PE81	1.0.0	03/12/2021	100	Sorvall	PEG Precipitation		5	AHT	
+PE82	1.0.0	03/12/2021	100	Sorvall	PEG Precipitation		5	AHT	
+PE83	1.0.0	03/12/2021	100	Sorvall	PEG Precipitation		5	AHT	
+PE84	1.0.0	03/19/2021	100	Sorvall	PEG Precipitation		4.2	TD	
+PE85	1.0.0	03/19/2021	100	Sorvall	PEG Precipitation		3.4	TD	
+PE86	1.0.0	03/19/2021	100	Sorvall	PEG Precipitation		3.6	TD	
+PE87	1.0.0	03/19/2021	100	Sorvall	PEG Precipitation		3.6	TD	
+PE88	1.0.0	03/19/2021	100	Sorvall	PEG Precipitation		3.5	TD	
+PE89	1.0.0	03/26/2021	100	Sorvall	PEG Precipitation		4	MVS	
+PE9	1.0.0	11/13/2020	100	Sorvall	PEG Precipitation		4	MS	
+PE90	1.0.0	03/26/2021	100	Sorvall	PEG Precipitation		9	MVS	
+PE91	1.0.0	03/26/2021	100	Sorvall	PEG Precipitation		8	MVS	
+PE92	1.0.0	03/26/2021	100	Sorvall	PEG Precipitation		4	MVS	
+PE93	1.0.0	03/26/2021	100	Sorvall	PEG Precipitation		7	MVS	
+PE94	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE95	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE96	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		6	MVS	
+PE97	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE98	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	
+PE99	1.0.0	04/09/2021	100	Sorvall	PEG Precipitation		5	MVS	

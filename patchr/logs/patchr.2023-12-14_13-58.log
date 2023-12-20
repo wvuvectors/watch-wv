@@ -1,0 +1,15 @@
+#############################################
+Initiated patchr.sh
+2023-12-14_13-58
+
+See logs/patchr.2023-12-14_13-58.log for warnings, errors, and other important information.
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/PROJECTS/WaTCH/TESTING_LAB/DATA_PCR.
+******
+
+1_queryBatches.pl exited with error code 255 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 1 (batch identification).
+!!!!!!!!

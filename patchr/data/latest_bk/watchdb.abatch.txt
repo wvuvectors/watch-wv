@@ -1,121 +1,234 @@
 assay_amplification_method	assay_amplification_method_lot_id	assay_batch_comment	assay_batch_id	assay_batch_record_version	assay_date	assay_machine	assay_method	assay_method_lot_id	assay_quantification_method	assay_quantification_type	assay_qx_manager_version	assay_reaction_ul	assay_run_by
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0	1.0.0	8/13/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.1	1.0.0	8/16/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.2	1.0.0	8/18/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.3	1.0.0	8/20/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0.4	1.0.0	9/2/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0.5	1.0.0	9/3/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP0.6	1.0.0	6/1/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP10	1.0.0	9/29/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP11	1.0.0	10/5/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP12	1.0.0	10/11/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP13	1.0.0	10/14/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP14	1.0.0	10/20/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP15	1.0.0	11/1/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP16	1.0.0	11/4/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP17	1.0.0	11/8/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP19	1.0.0	11/17/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP20	1.0.0	11/18/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP21	1.0.0	11/22/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP22	1.0.0	11/29/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP23	1.0.0	12/3/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP24	1.0.0	12/6/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP25	1.0.0	12/9/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP27	1.0.0	12/14/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP28	1.0.0	12/21/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP30	1.0.0	12/28/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP32	1.0.0	1/12/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP33	1.0.0	1/13/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP35	1.0.0	1/14/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP36	1.0.0	1/19/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP38	1.0.0	1/24/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP39	1.0.0	1/26/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4	1.0.0	8/20/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.1	1.0.0	8/23/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.2	1.0.0	8/24/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.3	1.0.0	8/25/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP40	1.0.0	2/2/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP41	1.0.0	2/7/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP42	1.0.0	2/10/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP45	1.0.0	2/16/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP46	1.0.0	2/17/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP47	1.0.0	2/22/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP48	1.0.0	2/24/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP49	1.0.0	2/28/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5	1.0.0	8/20/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5.1	1.0.0	8/27/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5.2	1.0.0	8/30/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP50	1.0.0	3/2/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP51	1.0.0	3/9/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP52	1.0.0	3/10/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP53	1.0.0	3/14/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP54	1.0.0	3/18/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP55	1.0.0	3/28/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP56	1.0.0	3/28/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP57	1.0.0	3/29/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP58	1.0.0	3/30/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP59	1.0.0	3/31/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP60	1.0.0	4/4/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP61	1.0.0	4/6/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP62	1.0.0	4/7/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP63	1.0.0	4/11/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP64	1.0.0	4/14/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP65	1.0.0	4/18/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP66	1.0.0	4/19/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP67	1.0.0	4/20/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP68	1.0.0	4/21/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP69	1.0.0	4/25/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP7	1.0.0	9/9/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP70	1.0.0	4/26/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP71	1.0.0	4/27/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP72	1.0.0	4/28/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP73	1.0.0	4/29/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP74	1.0.0	5/2/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497		AP75	1.0.0	5/4/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497		AP76	1.0.0	5/5/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP77	1.0.0	5/9/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP78	1.0.0	5/11/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP79	1.0.0	5/12/22	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP8	1.0.0	9/20/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP80	1.0.0	5/16/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP81	1.0.0	5/18/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP82	1.0.0	5/19/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64464142		AP83	1.0.0	5/20/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP84	1.0.0	5/24/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP85	1.0.0	5/26/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP87	1.0.0	6/2/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP88	1.0.0	6/6/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP89	1.0.0	6/9/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP9	1.0.0	9/24/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP90	1.0.0	6/13/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP91	1.0.0	6/15/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP92	1.0.0	6/20/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP93	1.0.0	6/23/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP94	1.0.0	6/28/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP95	1.0.0	6/30/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP96	1.0.0	7/5/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	XXXXXX		AP97	1.0.0	7/7/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP98	1.0.0	7/11/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP99	1.0.0	7/14/22	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA0	1.0.0	11/10/20	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA1	1.0.0	11/17/20	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA10	1.0.0	4/12/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA11	1.0.0	4/19/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA12	1.0.0	4/26/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA13	1.0.0	5/3/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA14	1.0.0	5/7/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA15	1.0.0	5/17/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA16	1.0.0	5/19/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA17	1.0.0	6/4/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA18	1.0.0	6/7/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA19	1.0.0	7/7/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA2	1.0.0	11/20/20	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA20	1.0.0	7/9/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA21	1.0.0	7/30/21	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA3	1.0.0	12/14/20	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA4	1.0.0	2/22/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA5	1.0.0	3/11/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA6	1.0.0	3/15/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA7	1.0.0	3/16/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA8	1.0.0	3/22/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
-Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA9	1.0.0	3/30/21	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP999	1.0.0	09/17/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0	1.0.0	08/13/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.1	1.0.0	08/16/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.2	1.0.0	08/18/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP0.3	1.0.0	08/20/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0.4	1.0.0	09/02/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0.5	1.0.0	09/03/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP0.6	1.0.0	06/01/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP10	1.0.0	09/29/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP100	1.0.0	07/18/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP102	1.0.0	07/25/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP103	1.0.0	07/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP104	1.0.0	08/01/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP105	1.0.0	08/04/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP106	1.0.0	08/10/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP107	1.0.0	08/11/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP108	1.0.0	08/17/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP109	1.0.0	08/18/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP11	1.0.0	10/05/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP110	1.0.0	08/23/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP111	1.0.0	08/25/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP112	1.0.0	08/30/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP113	1.0.0	09/01/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP114	1.0.0	09/07/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP115	1.0.0	09/08/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP116	1.0.0	09/14/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP117	1.0.0	09/15/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP118	1.0.0	09/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP119	1.0.0	09/22/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP12	1.0.0	10/11/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP120	1.0.0	09/27/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP121	1.0.0	09/29/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP122	1.0.0	10/04/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP123	1.0.0	10/06/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP124	1.0.0	10/17/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP125	1.0.0	10/13/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP127	1.0.0	10/18/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP128	1.0.0	10/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP129	1.0.0	10/25/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP13	1.0.0	10/14/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP130	1.0.0	10/31/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP131	1.0.0	11/04/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP132	1.0.0	11/10/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP133	1.0.0	11/15/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837		AP134	1.0.0	11/21/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837		AP135	1.0.0	11/29/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63089746		AP136	1.0.0	12/02/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837		AP137	1.0.0	12/07/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP139	1.0.0	12/13/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP14	1.0.0	10/20/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP142	1.0.0	12/16/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP143	1.0.0	12/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP146	1.0.0	12/29/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP149	1.0.0	01/06/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP15	1.0.0	11/01/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP150	1.0.0	01/10/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP153	1.0.0	01/12/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP156	1.0.0	01/19/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP157	1.0.0	01/20/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP158	1.0.0	01/26/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP159	1.0.0	01/27/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP16	1.0.0	11/04/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP162	1.0.0	02/01/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP165	1.0.0	02/02/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP167	1.0.0	02/07/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP17	1.0.0	11/08/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP171	1.0.0	02/10/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP172	1.0.0	02/13/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP175	1.0.0	02/17/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP176	1.0.0	02/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP178	1.0.0	02/24/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP179	1.0.0	02/28/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP180	1.0.0	03/03/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP184	1.0.0	03/06/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP187	1.0.0	03/10/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP19	1.0.0	11/17/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP190	1.0.0	03/15/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP191	1.0.0	03/17/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP195	1.0.0	03/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP198	1.0.0	03/24/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP20	1.0.0	11/18/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP201	1.0.0	03/28/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP202	1.0.0	03/31/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP206	1.0.0	04/03/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837		AP209	1.0.0	04/07/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP21	1.0.0	11/22/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP210	1.0.0	04/11/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP213	1.0.0	04/14/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP214	1.0.0	04/18/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP216	1.0.0	04/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP217	1.0.0	04/25/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP218	1.0.0	04/28/2023	QX 600	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP219	1.0.0	05/02/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP22	1.0.0	11/29/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP220	1.0.0	05/09/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP221	1.0.0	05/09/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP222	1.0.0	05/12/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP223	1.0.0	05/16/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP224	1.0.0	05/19/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP225	1.0.0	05/26/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP226	1.0.0	06/02/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP227	1.0.0	06/09/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP228	1.0.0	06/16/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP229	1.0.0	06/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP23	1.0.0	12/03/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP230	1.0.0	06/26/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP231	1.0.0	07/03/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP235	1.0.0	07/06/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP236	1.0.0	07/13/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP237	1.0.0	07/13/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP238	1.0.0	07/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP24	1.0.0	12/06/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP240	1.0.0	07/28/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP241	1.0.0	07/28/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP242	1.0.0	08/03/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP244	1.0.0	08/14/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP245	1.0.0	08/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP246	1.0.0	08/25/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP247	1.0.0	08/25/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP248	1.0.0	09/01/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP25	1.0.0	12/09/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63094496,63089746		AP250	1.0.0	09/08/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP251	1.0.0	09/14/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP252	1.0.0	09/15/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP255	1.0.0	09/21/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP256	1.0.0	09/28/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP257	1.0.0	10/09/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP258	1.0.0	10/13/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP259	1.0.0	10/18/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP260	1.0.0	10/25/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP261	1.0.0	11/02/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP263	1.0.0	11/10/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP264	1.0.0	11/20/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP27	1.0.0	12/14/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP28	1.0.0	12/21/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP30	1.0.0	12/28/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP32	1.0.0	01/12/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP33	1.0.0	01/13/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP35	1.0.0	01/14/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP36	1.0.0	01/19/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP38	1.0.0	01/24/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP39	1.0.0	01/26/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4	1.0.0	08/20/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.1	1.0.0	08/23/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.2	1.0.0	08/24/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP4.3	1.0.0	08/25/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP40	1.0.0	02/02/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP41	1.0.0	02/07/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP42	1.0.0	02/10/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP45	1.0.0	02/16/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP46	1.0.0	02/17/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP47	1.0.0	02/22/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP48	1.0.0	02/24/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP49	1.0.0	02/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5	1.0.0	08/20/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5.1	1.0.0	08/27/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036		AP5.2	1.0.0	08/30/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038		AP50	1.0.0	03/02/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP51	1.0.0	03/09/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP52	1.0.0	03/10/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039		AP53	1.0.0	03/14/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP54	1.0.0	03/18/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP55	1.0.0	03/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP56	1.0.0	03/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP57	1.0.0	03/29/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP58	1.0.0	03/30/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP59	1.0.0	03/31/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040		AP60	1.0.0	04/04/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP61	1.0.0	04/06/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP62	1.0.0	04/07/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549		AP63	1.0.0	04/11/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP64	1.0.0	04/14/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP65	1.0.0	04/18/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP66	1.0.0	04/19/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP67	1.0.0	04/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP68	1.0.0	04/21/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP69	1.0.0	04/25/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP7	1.0.0	09/09/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP70	1.0.0	04/26/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP71	1.0.0	04/27/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP72	1.0.0	04/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP73	1.0.0	04/29/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP74	1.0.0	05/02/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497		AP75	1.0.0	05/04/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497		AP76	1.0.0	05/05/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP77	1.0.0	05/09/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP78	1.0.0	05/11/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP79	1.0.0	05/12/2022	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037		AP8	1.0.0	09/20/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP80	1.0.0	05/16/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839		AP800	1.0.0	09/18/2023	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	2	20	AJ
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP81	1.0.0	05/18/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP82	1.0.0	05/19/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64464142		AP83	1.0.0	05/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP84	1.0.0	05/24/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP85	1.0.0	05/26/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP87	1.0.0	06/02/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP88	1.0.0	06/06/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP89	1.0.0	06/09/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP9	1.0.0	09/24/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP90	1.0.0	06/13/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP91	1.0.0	06/15/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP92	1.0.0	06/20/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP93	1.0.0	06/23/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP94	1.0.0	06/28/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP95	1.0.0	06/30/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP96	1.0.0	07/05/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP97	1.0.0	07/07/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP98	1.0.0	07/11/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041		AP99	1.0.0	07/14/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	JL
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA0	1.0.0	11/10/2020	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA1	1.0.0	11/17/2020	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA10	1.0.0	04/12/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA11	1.0.0	04/19/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA12	1.0.0	04/26/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA13	1.0.0	05/03/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA14	1.0.0	05/07/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA15	1.0.0	05/17/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA16	1.0.0	05/19/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA17	1.0.0	06/04/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA18	1.0.0	06/07/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA19	1.0.0	07/07/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA2	1.0.0	11/20/2020	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA20	1.0.0	07/09/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA21	1.0.0	07/30/2021	Zoo QX200	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA3	1.0.0	12/14/2020	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA4	1.0.0	02/22/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA5	1.0.0	03/11/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA6	1.0.0	03/15/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA7	1.0.0	03/16/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA8	1.0.0	03/22/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			MA9	1.0.0	03/30/2021	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes			AP805	1.0.0	11/15/2022	Zoo QX200	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		ddPCR	Direct Quantification	1.2	20	AJ

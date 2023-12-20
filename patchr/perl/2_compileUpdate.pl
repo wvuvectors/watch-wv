@@ -22,6 +22,7 @@ $usage   .=   "If update.batch_files.txt does not exist or is empty, $progname w
 $usage   .=   "\n";
 
 my $updir;
+my $status = 0;
 
 while (@ARGV) {
   my $arg = shift;
@@ -48,12 +49,11 @@ close $upFH;
 
 # Store the column names that we want to print to the set of update files.
 my %updatecols    = (
-	"assay"         => ["assay_id", "extraction_id", "assay_batch_id", "assay_location_in_batch", "assay_input_ul", "assay_target", "assay_target_genetic_locus", "assay_target_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "assay_target_predicted_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
+	"assay"         => ["assay_id", "extraction_id", "sample_id", "assay_batch_id", "assay_location_in_batch", "assay_input_ul", "assay_class", "assay_type", "assay_target", "assay_target_genetic_locus", "assay_template", "assay_target_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "assay_target_predicted_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_comment"], 
-	"control"       => ["control_id", "assay_batch_id", "control_type", "control_location_in_batch", "control_input_ul", "control_template", "control_macromolecule", "control_fluorophore", "control_accepted_droplets", "control_predicted_copies_per_ul_reaction", "control_copies_per_ul_reaction", "control_comment"], 
-	"control_k"     => ["control_id", "assay_batch_id", "control_type", "assay_location_in_batch", "assay_input_ul", "control_template", "control_macromolecule", "assay_target_fluorophore", "assay_accepted_droplets", "control_predicted_copies_per_ul_reaction", "assay_target_copies_per_ul_reaction", "assay_comment"], 
 	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_comment"],
-	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"]
+	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"],
+	"sample"        => ["sample_id", "sample_status", "location_id", "sample_event", "sample_qc", "sample_collection_start_datetime", "sample_collection_end_datetime", "sample_recovered_datetime", "sample_collection_by", "sample_flow", "sample_received_by", "sample_received_date", "sample_ph_lab", "sample_comment"]
 );
 
 
@@ -62,7 +62,7 @@ my %updatecols    = (
 # Now read in the list of batch file paths.
 # Key off the file extension to determine if it is data (csv) or metadata (excel) file.
 
-# Assay data are stored in the %well2data hash.
+# Assay data are stored in the %well2data hash and keyed by abatch id.
 my %well2data = ();
 
 # Metadata are stored in the batches, batchcols, control_wells, and sample2id hashes.
@@ -71,13 +71,22 @@ my %batchcols     = ("assay" => {}, "concentration" => {}, "extraction" => {}, "
 my %control_wells = ();
 my %sample2id     = ();
 
+# Hold the known sample metatdata, for writing to the sample update table.
+my %sid2meta     	= ();
+
 
 foreach my $filepath (@batch_files) {
 	chomp $filepath;
-	if ("$filepath" =~ /\.csv$/) {
+	if ("$filepath" =~ /AssetTagReport\.csv$/) {
+		procSampleMetadata("$filepath", \%sid2meta, $updatecols{"sample"});
+	} elsif ("$filepath" =~ /\.csv$/) {
 		# csv files contain the ddPCR data.
 		# This populates the well2data hash.
-		procAssayData("$filepath", \%well2data);
+		my $abid = $filepath;
+		$abid =~ s/.+\/(.+\.csv)$/$1/i;
+		$abid =~ s/(.+?)_.+\.csv/$1/i;
+		
+		procAssayData("$filepath", $abid, \%well2data);
 	} elsif ("$filepath" =~ /\.xlsx$/) {
 		# xlsx files contain the run metadata
 		my $batch_wkbk = ReadData("$filepath", dtfmt => "mm/dd/yy");
@@ -102,6 +111,8 @@ foreach my $filepath (@batch_files) {
 #print Dumper(\%batchmeta);
 #print Dumper(\%well2data);
 #print Dumper(\%control_wells);
+#print Dumper(\%sid2meta);
+#print Dumper(\%sample2id);
 #die;
 
 
@@ -134,6 +145,23 @@ foreach my $btype (keys %batchmeta) {
 	}
 	close $pfh;
 }
+
+
+# Write the update table for sample data.
+open (my $sfh, ">", "$updir/update.sample.txt") or die "Unable to open $updir/update.sample.txt for writing: $!";
+print $sfh join("\t", @{$updatecols{"sample"}}) . "\n";
+foreach my $sid (keys %sample2id) {
+	unless (defined $sid2meta{"$sid"}) {
+#		$status = 42;
+		next;
+	}
+	print $sfh "$sid";
+	foreach my $colhead (@{$updatecols{"sample"}}) {
+		print $sfh "\t$sid2meta{$sid}->{$colhead}" unless "$colhead" eq "sample_id";
+	}
+	print $sfh "\n";
+}
+close $sfh;
 
 
 # Write the easy, one-to-one update files (concentration, extract, and archive sets).
@@ -188,40 +216,60 @@ print $ufh join("\t", @{$updatecols{"assay"}}) . "\n";
 my $lead = substr "assay", 0, 1;
 
 foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the metadata hash
+	my $ccount = 1;
 	foreach my $well (keys %{$batchmeta{"assay"}->{"$bid"}->{"wells"}}) {	# Each well in the metadata hash
-		# Skip wells that we've identified as controls.
-		# These will be printed in the next block.
-		next if defined $control_wells{$well};
-		
+
 		# Get the sample id (aka asset id).
 		my $sample_id = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
 		# Init an incrementor, for the uid.
-		my $count = 1;
+		my $scount = 1;
 		
 		# Get the data for this well from the well2data hash.
 		# Each well contains a hash keyed on the dye.
-		my %well_data = %{$well2data{"$well"}};
+		my %well_data = %{$well2data{"$bid"}->{"$well"}};
 
 		# Loop over the dyes for this well.
 		# Each dye represents a single assay and prints to a row.
 		foreach my $dye (keys %well_data) {
-			# Construct a uid based on sample id and the incrementor.
-			my $uid = "$sample_id.${lead}$count";
-			$count++;
+		
+			# Skip if this is a control well but not for this dye.
+			next if defined $control_wells{$well} and !defined $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"};
+			
+			my $uid = "";
+			
+			if (defined $control_wells{$well}) {
+				# Control assays get a special uid since they are not associated with single samples.
+				# They also increment over the batch, not the dye.
+				my $dshrt = $fabbrevs{"$dye"};
+				$uid = "$bid.${dshrt}$ccount";
+				$ccount++;
+			} else {
+				# Construct a uid based on sample id and the incrementor.
+				$uid = "$sample_id.${lead}$scount";
+				$scount++;
+			}
 			# Print the uid.
 			print $ufh "$uid";
 			
 			# Loop over the update column names for this batch type, stored in the updatecols hash.
 			# These are in array form to control the print order to the output.
 			foreach my $colname (@{$updatecols{"assay"}}) {
+				next if "$colname" eq "assay_id";
+				
 				# We pull update values from several hashes.
 				# This block tests for the existence in these hashes in order to find the value.
 				my $val = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"$colname"};
 				$val = $batchmeta{"assay"}->{"$bid"}->{"$colname"} unless defined $val;
 				$val = $sample2id{"$sample_id"}->{"$colname"} unless defined $val;
 				$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"$colname"} unless defined $val;
-				$val = $well2data{"$well"}->{"$dye"}->{"$colname"} unless defined $val;
-				
+				$val = $well_data{"$dye"}->{"$colname"} unless defined $val;
+
+				if (defined $control_wells{$well}) {
+					$val = "NA" if "$colname" eq "sample_id" or "$colname" eq "extraction_id";
+					$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"}->{"type"} if "$colname" eq "assay_type";
+					$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"}->{"template"} if "$colname" eq "assay_template";
+				}
+						
 				print $ufh "\t";
 				print $ufh "$val" if defined $val;
 			}
@@ -233,70 +281,107 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 close $ufh;
 
 
+exit $status;
 
-# Write the controls update file.
-# This is a more complicated, many-to-one set.
-# A control is linked to an assay batch (ie many assays), so we record the control-to-abatch relationship here.
-open (my $xfh, ">", "$updir/update.control.txt") or die "Unable to open $updir/update.control.txt for writing: $!";
-print $xfh join("\t", @{$updatecols{"control"}}) . "\n";
 
-# Get the first letter of the batch type to use in the unique IDs.
-$lead = substr "control", 0, 1;
+sub procSampleMetadata {
+	my $fp            = shift;
+	my $sid2metaRef   = shift;
+	my $samplecolsRef = shift;
 
-# Each assay batch in the metadata hash has its own set of controls, keyed by dye.
-# Control data are stored as an array of hashes.
-foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each assay batch in the metadata hash
-	foreach my $dye (keys %{$batchmeta{"assay"}->{"$bid"}->{"fluorophores"}}) {	# Each dye in this assay batch
+	my $csvA  = Text::CSV->new({auto_diag => 4, binary => 1});
+	
+	my @colheaders = ();
+	my $lineCount  = 0;
 
-		# Init an incrementor, for the uid.
-		my $count = 1;
-		my $dshrt = $fabbrevs{"$dye"};
+	open (my $afh, "<", "$fp") or die "procSampleMetadata sub is unable to open $fp for reading: $!\n";
+	while (my $line = $csvA->getline($afh)) {
+		my @cols = @$line;
+		if ($lineCount == 0) {
+			if ("$cols[0]" =~ /Asset Tag ID/) {
+				$cols[0] = "Asset Tag ID";
+				# Record the cell headers so we can store the data by column.
+				foreach (@cols) {
+					my $val = translateSampleHeader("$_");
+					push @colheaders, "$val";
+				}
+			} else {
+				# Not a data file so close the fh and dump out.
+				close $afh;
+				last;
+			}
+		} else {
+#			my ($cell, $result, $dye, $accepted_droplets) = ($cols[0], $cols[6], $cols[12], $cols[13]);
+			$sid2metaRef->{"$cols[0]"} = {};
+			for (my $i=1; $i < scalar(@cols); $i++) {
+				my $val = $cols[$i];
+				if (defined $colheaders[$i] and "$colheaders[$i]" ne "ignore") {
+					$val = "Routine Surveillance" if "$colheaders[$i]" eq "sample_event" and "$val" eq "";
+					$sid2metaRef->{"$cols[0]"}->{"$colheaders[$i]"} = "$val";
+				}
+			}
+			$sid2metaRef->{"$cols[0]"}->{"sample_event"} = "Routine Surveillance" unless defined $sid2metaRef->{"$cols[0]"}->{"sample_event"};
+		}
+		$lineCount++;
+	}
+}
 
-		foreach my $controlRef (@{$batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}}) {	# Each control for this dye in this assay batch
-			
-			my @control_wells = split /,\s*/, "$controlRef->{well}", -1;
-			foreach my $well (@control_wells) {
-				my $uid = "$bid.${lead}.${dshrt}.$count";
-				$count++;
-				# Print the uid.
-				print $xfh "$uid";
-		
-				# Loop over the update column names for this batch type, stored in the updatecols hash.
-				# These are in array form to control the print order to the output.
-				foreach my $colname (@{$updatecols{"assay"}}) {
-					# We pull update values from several hashes.
-					# This block tests for the existence in these hashes in order to find the value.
-					my $val = $controlRef{"control_$colname"};
-					$val = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"$colname"} unless defined $val;
-					$val = $batchmeta{"assay"}->{"$bid"}->{"$colname"} unless defined $val;
-					$val = $sample2id{"$sample_id"}->{"$colname"} unless defined $val;
-					$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"$colname"} unless defined $val;
-					$val = $well2data{"$well"}->{"$dye"}->{"$colname"} unless defined $val;
-				
-					print $xfh "\t";
-					print $xfh "$val" if defined $val;
-				}	# update columns
-				print $ufh "\n";
-			}	# control wells
-		}	# controls array
-	}	# dyes
-}	# assay batches
 
-close $xfh;
-
-exit 0;
+sub translateSampleHeader {
+	my $raw = shift;
+	
+	my %lookup = (
+		"Asset Tag ID" 								=> "sample_id", 
+		"Status: WaTCH" 							=> "sample_status", 
+		"Location" 										=> "location_id", 
+		"Event Type" 									=> "sample_event", 
+		"Sample QC Check" 						=> "sample_qc", 
+		"Sample Collection Start" 		=> "sample_collection_start_datetime", # v2
+		"Sample Composite Start" 			=> "sample_collection_start_datetime", # v1
+		"Sample Collection End" 			=> "sample_collection_end_datetime", # v2
+		"Sample Composite End" 				=> "sample_collection_end_datetime", # v1
+		"Sample Retrieved Date/Time" 	=> "sample_recovered_datetime", # v2
+		"Sample Collection Date/Time" => "sample_recovered_datetime", # v1
+		"Sample Collection By" 				=> "sample_collection_by", 
+		"Sample Flow (MGD)" 					=> "sample_flow", 
+		"Sample Received By" 					=> "sample_received_by", 
+		"Sample Received Date" 				=> "sample_received_date", 
+		"Sample pH (Lab)" 						=> "sample_ph_lab", 
+		"Comments" 										=> "sample_comment", 
+		"Description" 								=> "ignore", 
+		"Site" 												=> "ignore", 
+		"Assay Date" 									=> "ignore", 
+		"Control, Process (Type)" 		=> "ignore", 
+		"Control Internal (Type)" 		=> "ignore", 
+		"Assay Target 1" 							=> "ignore", 
+		"Assay Target 1 Result (CN/L)"=> "ignore", 
+		"Assay Target 2" 							=> "ignore", 
+		"Assay Target 2 Result (CN/L)"=> "ignore",
+		"Category" 										=> "ignore", 
+		"Department" 									=> "ignore", 
+		"Sample Collection Method" 		=> "ignore"
+	);
+	
+	my $val = "ignore";
+	$val = $lookup{"$raw"} if defined $lookup{"$raw"};
+	
+	return "$val";
+}
 
 
 sub procAssayData {
 	my $fp           = shift;
+	my $abid         = shift;
 	my $well2dataRef = shift;
 
 	my $csvA  = Text::CSV->new({auto_diag => 4, binary => 1});
 	
-	open (my $afh, "<", "$fp") or die "procData sub is unable to open $fp for reading: $!\n";
+	open (my $afh, "<", "$fp") or die "procAssayData sub is unable to open $fp for reading: $!\n";
 	my %fieldHash = ();
 	my $lineCount = 0;
-
+	
+	$well2dataRef->{"$abid"} = {};
+	
 	while (my $line = $csvA->getline($afh)) {
 		my @cols = @$line;
 		if ($lineCount == 0) {
@@ -320,8 +405,8 @@ sub procAssayData {
 			my $dye    = $cols[$fieldHash{"DyeName(s)"}] if defined $fieldHash{"DyeName(s)"};
 			my $axdrop = $cols[$fieldHash{"Accepted Droplets"}] if defined $fieldHash{"Accepted Droplets"};
 			if (defined $well and defined $t_conc and defined $dye and defined $axdrop) {
-				$well2dataRef->{"$well"} = {} unless defined $well2dataRef->{"$well"};
-				$well2dataRef->{"$well"}->{"$dye"} = {
+				$well2dataRef->{"$abid"}->{"$well"} = {} unless defined $well2dataRef->{"$abid"}->{"$well"};
+				$well2dataRef->{"$abid"}->{"$well"}->{"$dye"} = {
 					"assay_target_copies_per_ul_reaction" => $t_conc, 
 					"assay_accepted_droplets"             => $axdrop
 				};
@@ -366,7 +451,7 @@ sub procBatchMetadata {
 			$bid = "$val";
 		} elsif ("$key" eq "date") {
 			my $datetime = DateTime::Format::Excel->parse_datetime($val);
-			$val = $datetime->ymd('-');
+			$val = $datetime->mdy('/');
 		}
 		$key =~ s/ /_/gi;
 		$key = "${btype}_$key";
@@ -378,10 +463,20 @@ sub procBatchMetadata {
 		}
 	}
 	
-	#if ("$btype" eq "assay") {
-	#	print Dumper(\%local_fluoro);
-	#	die;
-	#}
+	foreach my $dye (keys %local_fluoro) {
+		$local_fluoro{"$dye"}->{"reject"} = "no";
+		if (!defined $local_fluoro{"$dye"}->{"assay_target"} or 
+				"$local_fluoro{$dye}->{assay_target}" eq "NA" or 
+				"$local_fluoro{$dye}->{assay_target}" eq "") {
+			$local_fluoro{"$dye"}->{"reject"} = "yes";
+		}
+	}
+	
+#	if ("$btype" eq "assay") {
+#		print Dumper(\%local_fluoro);
+#		print Dumper(\%local_batch);
+#		die;
+#	}
 	
 	die "FATAL: No batch id recognized: $btype\n" unless defined $bid;
 	
@@ -398,9 +493,11 @@ sub procBatchMetadata {
 	if (scalar keys %local_fluoro > 0) {
 		$batchmetaRef->{"$bid"}->{"fluorophores"} = {};
 		foreach my $dye (keys %local_fluoro) {
-			$batchmetaRef->{"$bid"}->{"fluorophores"}->{$dye} = {"controls" => []};
+			next unless $local_fluoro{"$dye"}->{"reject"} eq "no";
+			
+			$batchmetaRef->{"$bid"}->{"fluorophores"}->{"$dye"} = {"controls" => {}};
 			my @controls = ();
-			foreach my $key (keys %{$local_fluoro{$dye}}) {
+			foreach my $key (keys %{$local_fluoro{"$dye"}}) {
 				if ("$key" =~ /^assay_control_(\d+)_(.+)$/) {
 					my $rep   = $1;
 					my $field = lc $2;
@@ -426,19 +523,16 @@ sub procBatchMetadata {
 				}
 			}
 			
-			# Prune controls that are undefined or have type NA before storing in the batch meta hash.
-			# First we store the indices of controls that are not defined (the first) or have type NA.
-			my @nas = ();
-			for (my $i=0; $i<scalar(@controls); $i++) {
-				push @nas, $i if !defined $controls[$i] or $controls[$i]->{"type"} eq "NA";
+			foreach my $controlRef (@controls) {
+				next unless defined $controlRef and $controlRef->{"type"} ne "NA";
+				my @wells = split(/,\s*/, $controlRef->{"well"}, -1);
+				foreach my $well (@wells) {
+					$batchmetaRef->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"} = {} unless defined $batchmetaRef->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"};
+					foreach my $key (keys %{$controlRef}) {
+						$batchmetaRef->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"}->{"$key"} = $controlRef->{"$key"};
+					}
+				}
 			}
-			# Then we splice out those indices from the controls array.
-			# This must be done in reverse order to preserve the index order!
-			foreach my $index (reverse @nas) {
-				splice @controls, $index, 1;
-			}
-			# Store the pruned controls array in the batch meta hash.
-			$batchmetaRef->{"$bid"}->{"fluorophores"}->{$dye}->{"controls"} = \@controls unless scalar(@controls) == 0;
 		}
 	}
 	
@@ -500,6 +594,17 @@ sub procBatchSamples {
 					my $num = 1;
 					my $uid = "$sample_id.${lead}${num}";
 					$sample2idRef->{"$sample_id"}->{"${btype}_id"} = "$uid";
+
+					if ("$btype" eq "assay") {
+						$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_class"} 	 = "unknown";
+						$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_type"}     = "sample";
+						$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_template"} = "sample";
+						if (defined $control_wells{"$batch_loc"}) {
+							$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_class"} 					= "control";
+							$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_type"}     				= "control";
+							$batchmetaRef->{"wells"}->{"$batch_loc"}->{"assay_template"} 				= "control";
+						}
+					}
 
 					if (defined $comment_rows[0]) {
 						# record any comment on the sample in this batch

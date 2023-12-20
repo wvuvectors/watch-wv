@@ -16,7 +16,7 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=   "Query RUNDIR for any unprocessed batch files in subfolders '1 CB_PLATES', '2 EB_PLATES', '3 AB_PLATES,' '4 AB_RESULTS,' and '5 RB_PLATES.'\n";
+$usage   .=   "Query RUNDIR for any unprocessed batch files in subfolders '0 SAMPLES', '1 CB_PLATES', '2 EB_PLATES', '3 AB_PLATES,' '4 AB_RESULTS,' and '5 RB_PLATES.'\n";
 $usage   .=   "Any batch files in these subfolders that do not appear in the latest database will be printed as file paths to STDOUT.\n";
 $usage   .=   "The list of batch IDs that already exist is in data/latest/watchdb.completed_batches.txt.\n";
 $usage   .=   "\n";
@@ -38,28 +38,12 @@ die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined 
 
 my $barchive_f = "data/latest/watchdb.completed_batches.txt";
 my %completed    = ();
-my @ordered_keys = ();
 
 open(my $achFH, "<", "$barchive_f") or die "Unable to read list of completed batches from $barchive_f: $!";
 my $count = 1;
 while (my $line = <$achFH>) {
 	chomp $line;
-	my @cells = split /\t/, "$line", -1;
-
-	if ($count == 1) {
-		for (my $i=0; $i<scalar(@cells); $i++) {
-			$completed{"$cells[$i]"} = {};
-			push @ordered_keys, "$cells[$i]";
-		}
-		$count = 0;
-	} else {
-		for (my $i=0; $i<scalar(@cells); $i++) {
-			next unless defined $cells[$i] and "$cells[$i]" ne "";
-			my $key = "$ordered_keys[$i]";
-			$completed{"$key"}->{"$cells[$i]"} = 1;
-		}
-	}
-	
+	$completed{"$line"} = 1;
 }
 close $achFH;
 
@@ -86,7 +70,7 @@ foreach my $subf (@subfolders) {
 		my @idrow = Spreadsheet::Read::row($batch_wkbk->[1], 6);
 		my $bid   = $idrow[1];
 		#print "$btype\t$bid\n";
-		unless (defined $completed{"${btype}_batch_id"}->{"$bid"}) {
+		unless (defined $completed{"$bid"}) {
 			if ("assay" eq "$btype") {
 				# For assay batches, we first confirm the assay data file exists. 
 				# These are in "4 AB_RESULTS" subfolder and begin with the assay batch id and end in csv.
@@ -107,6 +91,21 @@ foreach my $subf (@subfolders) {
 	}
 }
 
+
+# Handle the Asset Tiger file that contains the sample metadata.
+# Only do this if there is at least one batch file to process.
+unless (scalar(@files2proc) == 0) {
+	my $subf = "0 SAMPLES";
+	my $f = "AssetTagReport.csv";
+	opendir(my $dirResults, "$rundir/$subf/") or die "Although I found it, I am unable to open $rundir/$subf/: $!";
+	my @at_files  = grep { (/^AssetTagReport\.csv$/) && (!/^~/) && -f "$rundir/$subf/$_" } readdir($dirResults);
+	if (scalar(@at_files) > 0) {
+		push(@files2proc, "$rundir/$subf/$f");
+	}
+}
+
+
+# Print the list of files to STDOUT.
 foreach my $uf (@files2proc) {
 	print "$uf\n";
 }

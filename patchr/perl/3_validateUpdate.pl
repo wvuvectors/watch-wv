@@ -15,23 +15,23 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 
 my $usage = "\n";
-$usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=  "Validate the compiled run in RUNDIR vs the main watch database. Particularly look for duplication of table IDs.\n";
+$usage   .= "Usage: $progname [options] UPDATEDIR\n";
+$usage   .=  "Validate the compiled update in UPDATEDIR vs the main watch database. Particularly look for duplication of table IDs.\n";
 $usage   .=   "\n";
 
 my $dbdir  = "data/latest";
-my $rundir;
+my $update_dir;
 
 while (@ARGV) {
   my $arg = shift;
   if ($arg eq "-h") {
 		die $usage;
   } else {
-		$rundir = $arg;
+		$update_dir = $arg;
 	}
 }
 
-die "FATAL: $progname requires a valid run directory.\n$usage\n" unless defined $rundir and -d "$rundir";
+die "FATAL: $progname requires a valid update directory.\n$usage\n" unless defined $update_dir and -d "$update_dir";
 
 # WaTCH key columns
 my %table2key = ("abatch"        => "assay_batch_id", 
@@ -39,9 +39,9 @@ my %table2key = ("abatch"        => "assay_batch_id",
 								 "assay"         => "assay_id", 
 								 "cbatch"        => "concentration_batch_id", 
 								 "concentration" => "concentration_id", 
-								 "control"       => "control_id", 
 								 "ebatch"        => "extraction_batch_id", 
 								 "extraction"    => "extraction_id", 
+								 "sample"        => "sample_id", 
 								 "rbatch"        => "archive_batch_id");
 
 # Existing WaTCH ids keyed by WaTCH table
@@ -50,9 +50,9 @@ my %watch2id = ("abatch"        => {},
 								"assay"         => {}, 
 								"cbatch"        => {}, 
 								"concentration" => {}, 
-								"control"       => {}, 
 								"ebatch"        => {}, 
 								"extraction"    => {}, 
+								"sample"        => {}, 
 								"rbatch"        => {});
 
 # Count lines in each WaTCH table file
@@ -61,9 +61,9 @@ my %watch2lines = ("abatch"        => 0,
 									 "assay"         => 0, 
 									 "cbatch"        => 0, 
 									 "concentration" => 0, 
-									 "control"       => 0, 
 									 "ebatch"        => 0, 
 									 "extraction"    => 0, 
+									 "sample"        => 0, 
 									 "rbatch"        => 0);
 
 # Track duplicated IDs in the WaTCH database
@@ -72,9 +72,9 @@ my %watchdup = ("abatch"        => {},
 								"assay"         => {}, 
 								"cbatch"        => {}, 
 								"concentration" => {}, 
-								"control"       => {}, 
 								"ebatch"        => {}, 
 								"extraction"    => {}, 
+								"sample"        => {}, 
 								"rbatch"        => {});
 
 
@@ -84,9 +84,9 @@ my %runup2id = ("abatch"        => {},
 								"assay"         => {}, 
 								"cbatch"        => {}, 
 								"concentration" => {}, 
-								"control"       => {}, 
 								"ebatch"        => {}, 
 								"extraction"    => {}, 
+								"sample"        => {}, 
 								"rbatch"        => {});
 
 # Count lines in each update file
@@ -95,9 +95,9 @@ my %runup2lines = ("abatch"        => 0,
 									 "assay"         => 0, 
 									 "cbatch"        => 0, 
 									 "concentration" => 0, 
-									 "control"       => 0, 
 									 "ebatch"        => 0, 
 									 "extraction"    => 0, 
+									 "sample"        => {}, 
 									 "rbatch"        => 0);
 
 # Track duplicated IDs in the update tables
@@ -106,9 +106,9 @@ my %runupdup = ("abatch"        => {},
 								"assay"         => {}, 
 								"cbatch"        => {}, 
 								"concentration" => {}, 
-								"control"       => {}, 
 								"ebatch"        => {}, 
 								"extraction"    => {}, 
+								"sample"        => {}, 
 								"rbatch"        => {});
 
 
@@ -118,9 +118,9 @@ my %collisions = ("abatch"        => {},
 									"assay"         => {}, 
 									"cbatch"        => {}, 
 									"concentration" => {}, 
-									"control"       => {}, 
 									"ebatch"        => {}, 
 									"extraction"    => {}, 
+									"sample"        => {}, 
 									"rbatch"        => {});
 
 
@@ -184,12 +184,12 @@ print "-------------------------------\n\n";
 
 # Scan update tables for duplicate IDs and flag.
 #
-print "Validating ids from run update tables...\n";
+print "Validating ids from the update tables...\n";
 foreach my $table (keys %runup2id) {
 	my $keyname = $table2key{"$table"};
 	my $keycol  = -1;
 	my $linenum = 0;
-	open (my $dbFH, "<", "$rundir/updates/update.${table}.txt") or die "Unable to open $rundir/updates/update.${table}.txt for reading: $!\n";
+	open (my $dbFH, "<", "$update_dir/update.${table}.txt") or die "Unable to open $update_dir/update.${table}.txt for reading: $!\n";
 	while (my $line = <$dbFH>) {
 		chomp $line;
 		next if $line =~ /^\s*$/;
@@ -211,13 +211,13 @@ foreach my $table (keys %runup2id) {
 				# If the id already exists in the id hash, mark it as a duplicate
 				# No need to compare against WaTCH since that was done on the first instance
 				$runupdup{"$table"}->{"$thisId"} = 0 unless defined $runupdup{"$table"}->{"$thisId"};
-				$runupdup{"$table"}->{"$thisId"} = $runupdup{"$table"}->{"$thisId"} + 1;
+				$runupdup{"$table"}->{"$thisId"} = $runupdup{"$table"}->{"$thisId"} + 1 unless "$table" eq "sample";
 			} else {
 				# If it is a new id, add it to the main id hash
 				$runup2id{"$table"}->{"$cols[$keycol]"} = 1;
 				if (defined $watch2id{"$table"}->{"$thisId"}) {
 					# If the id already exists in the watch id hash, mark it as a collision
-					$collisions{"$table"}->{"$thisId"} = 1;
+					$collisions{"$table"}->{"$thisId"} = 1 unless "$table" eq "sample";
 				}
 			}
 		}
@@ -228,8 +228,10 @@ foreach my $table (keys %runup2id) {
 }
 print "Done.\n\n";
 
+
+
 print "-------------------------------\n";
-print "Run validation results ($rundir):\n";
+print "Update validation results ($update_dir):\n";
 print sprintf('%-13s', "TABLE") . "\t" . sprintf('%-13s', "UPDATE IDS") . "\t" . sprintf('%-13s', "DUPLICATES") . "\t" . sprintf('%-13s', "COLLISIONS") . "\n";
 foreach my $table (keys %runup2id) {
 	print sprintf('%-13s', "$table") . "\t" . sprintf('%-13s', scalar(keys %{$runup2id{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$runupdup{"$table"}})) . "\t" . sprintf('%-13s', scalar(keys %{$collisions{"$table"}})) . "\n";
@@ -245,36 +247,31 @@ foreach my $table (keys %table2key) {
 	$num_collisions = $num_collisions + scalar(keys %{$collisions{"$table"}});
 }
 $status = $num_dups_watch + $num_dups_runup + $num_collisions;
-#if ($status > 0) {
-	open (my $v1FH, ">", "$rundir/updates/_collisions.txt");
-	print $v1FH "The following IDs are present in both the existing WaTCH database and the current run.\n\nTABLE\tID\n";
-	foreach my $table (keys %collisions) {
-		foreach my $id (keys %{$collisions{"$table"}}) {
-			print $v1FH "$table\t$id\n";
-		}
-	}
-	close $v1FH;
-	open (my $v2FH, ">", "$rundir/updates/_rundups.txt");
-	print $v2FH "The following IDs are duplicated in the current run data.\n\nTABLE\tID\n";
-	foreach my $table (keys %runupdup) {
-		foreach my $id (keys %{$runupdup{"$table"}}) {
-			print $v2FH "$table\t$id\n";
-		}
-	}
-	close $v2FH;
-	open (my $v3FH, ">", "$rundir/updates/_watchdups.txt");
-	print $v3FH "The following IDs are duplicated in the WaTCH database (before appending any data from the current run).\n\nTABLE\tID\n";
-	foreach my $table (keys %watchdup) {
-		foreach my $id (keys %{$watchdup{"$table"}}) {
-			print $v3FH "$table\t$id\n";
-		}
-	}
-	close $v3FH;
-#}
 
-#print "******\n";
-#print "Finished $progname.\n";
-#print "******\n";
+open (my $v1FH, ">", "$update_dir/_collisions.txt");
+print $v1FH "The following IDs are present in both the existing WaTCH database and the current run.\n\nTABLE\tID\n";
+foreach my $table (keys %collisions) {
+	foreach my $id (keys %{$collisions{"$table"}}) {
+		print $v1FH "$table\t$id\n";
+	}
+}
+close $v1FH;
+open (my $v2FH, ">", "$update_dir/_rundups.txt");
+print $v2FH "The following IDs are duplicated in the current run data.\n\nTABLE\tID\n";
+foreach my $table (keys %runupdup) {
+	foreach my $id (keys %{$runupdup{"$table"}}) {
+		print $v2FH "$table\t$id\n";
+	}
+}
+close $v2FH;
+open (my $v3FH, ">", "$update_dir/_watchdups.txt");
+print $v3FH "The following IDs are duplicated in the WaTCH database (before appending any data from the current run).\n\nTABLE\tID\n";
+foreach my $table (keys %watchdup) {
+	foreach my $id (keys %{$watchdup{"$table"}}) {
+		print $v3FH "$table\t$id\n";
+	}
+}
+close $v3FH;
 
 
 exit $status;

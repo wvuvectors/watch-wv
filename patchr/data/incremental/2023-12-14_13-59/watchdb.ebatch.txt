@@ -1,0 +1,289 @@
+extraction_batch_comment	extraction_batch_id	extraction_batch_record_version	extraction_date	extraction_eluant	extraction_input_ul	extraction_machine	extraction_method	extraction_method_lot_id	extraction_output_ul	extraction_run_by
+	EP0	1.0.0	6/4/21	Kit buffer	400		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		50	
+	EP0.1	1.0.0	7/7/21	Kit buffer	400		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		50	JL
+	EP0.2	1.0.0	7/9/21	Kit buffer	400		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		50	JL
+	EP0.3	1.0.0	7/30/21	Kit buffer	400		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		50	JL
+	EP0.4	1.0.0	8/13/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP1	1.0.0	8/16/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP1.2	1.0.0	8/18/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP1.4	1.0.0	8/20/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP10	1.0.0	9/8/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP100	1.0.0	3/21/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP102	1.0.0	3/23/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP104	1.0.0	3/25/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP106	1.0.0	3/29/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP108	1.0.0	3/30/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP109	1.0.0	4/1/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP11	1.0.0	9/13/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	50	JL
+	EP110	1.0.0	3/31/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP111	1.0.0	4/4/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2120258	75	AJ
+	EP112	1.0.0	4/5/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	JL
+	EP114	1.0.0	4/6/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP116	1.0.0	4/8/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP117	1.0.0	4/12/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP118	1.0.0	4/14/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP119	1.0.0	4/13/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP12	1.0.0	9/15/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	50	JL
+	EP12.1	1.0.0	9/17/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	50	JL
+	EP121	1.0.0	4/18/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP122	1.0.0	4/19/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP124	1.0.0	4/20/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP125	1.0.0	4/21/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP126	1.0.0	4/22/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP127	1.0.0	4/25/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP128	1.0.0	4/26/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP130	1.0.0	4/27/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP131	1.0.0	4/28/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP132	1.0.0	4/29/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP133	1.0.0	5/3/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP135	1.0.0	5/4/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP136	1.0.0	5/4/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP137	1.0.0	5/5/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP138	1.0.0	5/6/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP140	1.0.0	5/11/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP141	1.0.0	5/11/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP143	1.0.0	5/13/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP144	1.0.0	5/17/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP146	1.0.0	5/18/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP148	1.0.0	5/19/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP149	1.0.0	5/20/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP150	1.0.0	5/23/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP152	1.0.0	5/25/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP153	1.0.0	5/25/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP155	1.0.0	5/27/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP156	1.0.0	5/31/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP158	1.0.0	6/1/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP16	1.0.0	9/24/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	XXXXXX	50	JL
+	EP160	1.0.0	6/2/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP161	1.0.0	6/3/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP163	1.0.0	6/8/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP164	1.0.0	6/8/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP166	1.0.0	6/10/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP168	1.0.0	6/14/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP17	1.0.0	9/27/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	50	JL
+	EP170	1.0.0	6/17/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP173	1.0.0	6/22/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP175	1.0.0	6/24/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP178	1.0.0	6/29/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP179	1.0.0	6/30/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP18	1.0.0	9/29/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	50	JL
+	EP181	1.0.0	7/6/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP182	1.0.0	7/7/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP184	1.0.0	7/8/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP187	1.0.0	7/13/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP19	1.0.0	10/1/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	50	JL
+	EP2	1.0.0	8/23/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP20	1.0.0	10/5/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	50	JL
+	EP21	1.0.0	10/7/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	50	JL
+	EP22	1.0.0	10/8/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	50	JL
+	EP23	1.0.0	10/11/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP24	1.0.0	10/13/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP25	1.0.0	10/15/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP26	1.0.0	10/18/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP27	1.0.0	10/20/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP28	1.0.0	10/25/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP29	1.0.0	10/27/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP3	1.0.0	8/24/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP30	1.0.0	10/28/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP31	1.0.0	11/2/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	50	JL
+	EP32	1.0.0	11/3/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	50	JL
+	EP32.1	1.0.0	1/21/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP33	1.0.0	11/5/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	50	JL
+	EP34	1.0.0	11/11/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP35	1.0.0	11/12/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	AJ
+	EP35.1	1.0.0	11/15/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP36	1.0.0	11/16/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	AJ
+	EP37	1.0.0	11/17/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	50	JL
+	EP38	1.0.0	11/19/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP39	1.0.0	11/22/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP4	1.0.0	8/25/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP40	1.0.0	11/29/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP41	1.0.0	11/30/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP42	1.0.0	12/2/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	LW
+	EP43	1.0.0	12/3/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP44	1.0.0	12/6/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP45	1.0.0	12/8/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP46	1.0.0	12/9/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	LW
+	EP47	1.0.0	12/10/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP48	1.0.0	12/13/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP49	1.0.0	12/15/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP5	1.0.0	8/27/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP50	1.0.0	12/16/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108355	75	AJ
+	EP51	1.0.0	12/17/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP52	1.0.0	12/21/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP53	1.0.0	12/22/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP54	1.0.0	1/3/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	JL
+	EP55	1.0.0	1/4/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP56	1.0.0	1/6/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP57	1.0.0	1/10/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP58	1.0.0	1/11/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP59	1.0.0	1/13/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP6	1.0.0	8/30/21	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP60	1.0.0	1/19/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP61	1.0.0	1/20/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP63	1.0.0	1/24/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP64	1.0.0	1/25/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP65	1.0.0	1/26/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP66	1.0.0	1/28/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP67	1.0.0	1/31/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP69	1.0.0	2/1/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP7	1.0.0	9/2/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP70	1.0.0	2/2/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP71	1.0.0	2/4/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	LW
+	EP72	1.0.0	2/7/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP73	1.0.0	2/9/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP74	1.0.0	2/10/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP76	1.0.0	2/14/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP78	1.0.0	2/15/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP79	1.0.0	2/16/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP8	1.0.0	9/3/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP81	1.0.0	2/18/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP82	1.0.0	2/21/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP84	1.0.0	2/23/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	75	AJ
+	EP85	1.0.0	2/25/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	75	JL
+	EP86	1.0.0	2/28/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	75	AJ
+	EP88	1.0.0	3/2/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP9	1.0.0	9/8/21	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	50	JL
+	EP90	1.0.0	3/4/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	75	AJ
+	EP92	1.0.0	3/9/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP93	1.0.0	3/10/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP95	1.0.0	3/11/22	Kit buffer	400	Halcyon	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP96	1.0.0	3/15/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	EP98	1.0.0	3/16/22	Kit buffer	400	Kookaburra	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	75	AJ
+	ME1	1.0.0	11/10/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME10	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME100	1.0.0	3/29/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME101	1.0.0	3/29/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME102	1.0.0	3/29/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME103	1.0.0	3/29/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME104	1.0.0	3/29/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME105	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME106	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME107	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME108	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME109	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME11	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME110	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME111	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME112	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME113	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME114	1.0.0	4/12/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME115	1.0.0	4/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	JL
+	ME116	1.0.0	4/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	JL
+	ME117	1.0.0	4/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	JL
+	ME118	1.0.0	4/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	JL
+	ME119	1.0.0	4/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	JL
+	ME12	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME120	1.0.0	4/26/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME121	1.0.0	4/26/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME122	1.0.0	4/26/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME123	1.0.0	4/26/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME124	1.0.0	4/26/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME125	1.0.0	5/3/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KED
+	ME126	1.0.0	5/3/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KED
+	ME127	1.0.0	5/3/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KED
+	ME128	1.0.0	5/3/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KED
+	ME129	1.0.0	5/3/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KED
+	ME13	1.0.0	11/20/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME130	1.0.0	5/7/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	
+	ME131	1.0.0	5/7/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	
+	ME132	1.0.0	5/7/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	
+	ME133	1.0.0	5/7/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	
+	ME134	1.0.0	5/7/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	
+	ME135	1.0.0	5/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME136	1.0.0	5/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MVS
+	ME137	1.0.0	5/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	KD
+	ME14	1.0.0	11/20/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME15	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME16	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME17	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME18	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME19	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME2	1.0.0	11/10/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME20	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME21	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME22	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME23	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME24	1.0.0	12/7/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME25	1.0.0	12/8/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME26	1.0.0	12/8/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME27	1.0.0	12/14/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME28	1.0.0	12/14/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME29	1.0.0	12/14/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME3	1.0.0	11/10/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME30	1.0.0	12/15/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME31	1.0.0	12/15/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME32	1.0.0	12/21/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME33	1.0.0	12/21/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME34	1.0.0	12/21/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME35	1.0.0	12/21/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME36	1.0.0	12/21/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME37	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME38	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME39	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME4	1.0.0	11/10/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME40	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME41	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME42	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME43	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME44	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME45	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME46	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME47	1.0.0	2/13/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME48	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME49	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME5	1.0.0	11/10/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME50	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME51	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME52	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME53	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME54	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME55	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME56	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME57	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME58	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME59	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME6	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME60	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME61	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME62	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME63	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME64	1.0.0	2/17/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME65	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME66	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME67	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME68	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME69	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME7	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME70	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME71	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME72	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME73	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME74	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME75	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME76	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME77	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME78	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME79	1.0.0	2/19/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME8	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME80	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME81	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME82	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME83	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME84	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME85	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME86	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME87	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME88	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME89	1.0.0	2/24/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AT
+	ME9	1.0.0	11/17/20	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	MS
+	ME90	1.0.0	3/15/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AHT
+	ME91	1.0.0	3/15/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AHT
+	ME92	1.0.0	3/15/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AHT
+	ME93	1.0.0	3/15/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AHT
+	ME94	1.0.0	3/15/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	AHT
+	ME95	1.0.0	3/21/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME96	1.0.0	3/21/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME97	1.0.0	3/21/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME98	1.0.0	3/21/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
+	ME99	1.0.0	3/21/21	Kit buffer	200	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		60	TD
