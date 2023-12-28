@@ -1,0 +1,17 @@
+nwss_field	nwss_value	watch_table	watch_field	watch_value reference
+pcr_target	sars-cov-2	assay	assay_target	SARS-CoV-2	
+pcr_target	hMPXV Clade I	assay	assay_target	MPXV I	
+pcr_target	hMPXV Clade II	assay	assay_target	MPXV II	
+pcr_target	NoV GI	assay	assay_target	huNoVGI	
+pcr_target	NoV GII	assay	assay_target	huNoVGII	
+pcr_target	FLUAV	assay	assay_target	Flu A	
+pcr_target	FLUBV	assay	assay_target	Flu B	
+pcr_gene_target	n1	assay	assay_target_genetic_locus	N1:SARS	https://doi.org/10.1039/D0EW00946F
+pcr_gene_target	n2	assay	assay_target_genetic_locus	N2:SARS	https://doi.org/10.1039/D0EW00946F
+pcr_gene_target	del69/70	assay	assay_target_genetic_locus	S:HVdel69-70	
+pcr_gene_target	InfA	assay	assay_target_genetic_locus	M:FLUA	
+pcr_gene_target	InfB	assay	assay_target_genetic_locus	NEP/NS1:FLUB	
+concentration_method	ceres nanotrap	cbatch	concentration_method	Ceres Nanotrap Magnetic Microbiome A Particles	
+concentration_method	peg precipitation	cbatch	concentration_method	PEG Precipitation	
+extraction_method	qiaamp viral rna kit	ebatch	extraction_method	Qiagen QiaAMP Viral Mini-RNA Kit	
+extraction_method	thermo magmax microbiome ultra nucleic acid isolation kit	ebatch	extraction_method	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	

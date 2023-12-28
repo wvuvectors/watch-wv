@@ -1,0 +1,21 @@
+#############################################
+Initiated patchr_feed.sh
+2023-12-28_11-34
+
+See logs/patchr_feed.2023-12-28_11-34.log for warnings, errors, and other important information.
+
+Generating NWSS feed for WVU.
+******
+Running 7_feedNWSS.pl data/latest.
+******
+
+******
+Running 7b_mergeNWSS.pl.
+******
+
+7b_mergeNWSS.pl exited with error code 255 and caused patchr_feed to abort.
+!!!!!!!!
+patchr_feed aborted during phase 3 (NWSS merge).
+Delete the file data/extref/nwss/merged_nwss.2023-12-28_11-34.csv, if it exists. 
+Then fix the error(s) and run patchr_feed again.
+!!!!!!!!
