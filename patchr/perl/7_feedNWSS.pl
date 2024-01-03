@@ -234,10 +234,21 @@ print "\"" . join("\",\"", @feed_headers) . "\"\n";
 RSLTLOOP:
 foreach my $assay_id (keys %{$tables{"result"}}) {
 	my $resultRef = $tables{"result"}->{"$assay_id"};
-
-	# Let's just skip results with NTC contamination.
-	next if "$resultRef->{target_result_validated}" eq "NTC above threshold";
 	
+	# A few short-circuits:
+	#
+	# Skip results with NTC contamination.
+	next if lc("$resultRef->{target_result_validated}") eq "ntc above threshold";
+	#
+	# Skip if pcr_target is not in NWSS controlled vocabulary.
+	next unless defined $feed_cvmap{"pcr_target"}->{"assay_target"}->{"$resultRef->{target}"};
+	#
+	# Skip if pcr_gene_target is not in NWSS controlled vocabulary.
+	next unless defined $feed_cvmap{"pcr_target"}->{"assay_target"}->{"$resultRef->{target_genetic_locus}"};
+	#	
+	# Standardize results with no flow.
+	$resultRef->{"sample_flow"} = "" if "$resultRef->{sample_flow}" eq "NA" or "$resultRef->{sample_flow}" eq "0";
+
 	my @result_vals = ();
 	my $val_pass    = 0;
 	HDRLOOP:
@@ -387,7 +398,7 @@ sub calcNWSS {
 		}
 	} elsif ("$nwss_field" eq "ntc_amplify") {
 		# if result.target_result_validated eq 'NTC above threshold' then yes; otherwise no
-		if (lc "$tables{result}->{$aid}->{target_result_validated}" eq "ntc above threshold") {
+		if (lc("$tables{result}->{$aid}->{target_result_validated}") eq "ntc above threshold") {
 			$val = "yes";
 		} else {
 			$val = "no";
