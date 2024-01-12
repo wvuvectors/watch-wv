@@ -1,0 +1,17 @@
+#############################################
+Initiated feed_WVWD.sh
+2024-01-04_12-35
+
+See logs/feed_WVD.2024-01-04_12-35.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+******
+Running 7_feedWVWD.pl data/latest.
+******
+
+7_feedWVWD.pl exited with error code 255 and caused patchr_feed to abort.
+!!!!!!!!
+patchr_feed aborted during phase 1 (WVWD).
+Delete the file data/extref/wvwd/wvu_wvwd.2024-01-04_12-35.tdf. 
+Then fix the error(s) and run patchr_feed again.
+!!!!!!!!

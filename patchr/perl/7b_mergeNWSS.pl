@@ -90,6 +90,10 @@ foreach my $uid (keys %data) {
 	foreach my $hdr (@outheaders) {
 		my $val = "";
 		$val = "$data{$uid}->{$hdr}" if defined $data{"$uid"}->{"$hdr"};
+		# kludge
+		if ("$hdr" eq "major_lab_desc" and "$val" eq "") {
+			$val = "The WV jurisdiction consisting of WVBPH and academic labs uses very similar lab methods including Ceres nanotrap virus concentration of raw influent WW and final analysis with BioRad ddPCR instrumentation and mostly BioRad designed assays.";
+		}
 		print "," unless $start == 0;
 		print "\"" . "$val" . "\"";
 		$start++;

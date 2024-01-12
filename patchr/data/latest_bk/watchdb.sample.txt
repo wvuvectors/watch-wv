@@ -1,50 +1,4 @@
 sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
-A01-0019	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0020	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0021	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0022	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0023	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0024	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0025	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0102	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A01-0103	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
-A02-0033	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0043	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0044	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0045	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0046	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0047	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0143	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0144	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0145	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0146	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0003	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0008	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0009	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0012	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0015	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0022	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0025	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A03-0371	Rejected		Routine Surveillance	Fail: Missing Required Data									
-C01-0021	Rejected		Routine Surveillance	Fail: Missing Required Data									
-M01-0029	Rejected		Routine Surveillance	Fail: Missing Required Data									
-R01-0108	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A02-0001 10K	Rejected		Routine Surveillance	Pass									
-A02-0002 100K	Rejected		Routine Surveillance	Pass									
-A02-0003 0	Rejected		Routine Surveillance	Pass									
-A02-0004 1K	Rejected		Routine Surveillance	Pass									
-A1104	Rejected		Routine Surveillance	Fail: Missing Required Data									
-A1106	Rejected		Routine Surveillance	Fail: Missing Required Data									
-F01-0001	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021	7.07	
-F01-0021	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/27/2021	6.87	
-F01-0025	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021	6.52	COMPOSITE LABEL HAD NO DATA -- DATES AREW ASSUMED BASED ON PREVIOUSLY RECEIVED SAMPLES
-F01-0028	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021		
-G02-0010	Rejected	PotomacState-01	Routine Surveillance	Fail: Missing Required Data									
-G02-0020	Rejected	PotomacState-01	Routine Surveillance	Fail: Missing Required Data			11/29/2021 14:00			AJ	12/03/2021		
-A02-1313	Complete	StadiumNE-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:00	GZ					
-A02-1314	Complete	StadiumSW-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:36	GZ					
-A02-1315	Complete	StadiumSE-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:18	GZ					
-A02-1316	Complete	StadiumNW-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:25	GZ					
 A0020	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/17/2020 0:00	11/17/2020 23:59	11/17/2020 0:00	GG	6.708	TD	11/19/2020		
 A0021	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/18/2020 0:00	11/18/2020 23:59	11/18/2020 0:00	GG	6.705	TD	11/19/2020		
 A0022	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/19/2020 0:00	11/19/2020 23:59	11/19/2020 0:00	GG	9.875	TD	11/30/2020		
@@ -93,6 +47,13 @@ A01-0015	Complete	StarCityWWTP-01	Routine Surveillance	Pass	08/25/2021 0:00	08/2
 A01-0016	Complete	StarCityWWTP-01	Routine Surveillance	Pass	08/26/2021 0:00	08/26/2021 23:55	08/26/2021 23:55	GG	8.963	JL	08/27/2021	6.97	
 A01-0017	Complete	StarCityWWTP-01	Routine Surveillance	Pass	08/29/2021 0:00	08/29/2021 23:55	08/29/2021 23:55	JT	9.281	JL	09/01/2021	6.91	
 A01-0018	Complete	StarCityWWTP-01	Routine Surveillance	Pass	08/30/2021 0:00	08/30/2021 23:55	08/30/2021 23:55	JT	10.394	JL	09/01/2021	6.89	
+A01-0019	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0020	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0021	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0022	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0023	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0024	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0025	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
 A01-0026	Complete	StarCityWWTP-01	Routine Surveillance	Pass	08/31/2021 0:00	08/31/2021 23:55	08/31/2021 23:55	DW	10.024	JL	09/03/2021	6.42	
 A01-0027	Complete	StarCityWWTP-01	Routine Surveillance	Pass	09/04/2021 0:00	09/04/2021 23:55	09/04/2021 23:55	DW	9.983	JL	09/07/2021	6.38	
 A01-0028	Complete	StarCityWWTP-01	Routine Surveillance	Pass	09/05/2021 0:00	09/05/2021 23:55	09/05/2021 23:55	DW	10.388	JL	09/07/2021	6.6	
@@ -169,6 +130,8 @@ A01-0098	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/24/2021 0:00	11/2
 A01-0099	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/25/2021 0:00	11/25/2021 23:55	11/26/2021 0:00	-	6.639	AJ	11/30/2021	7.02	
 A01-0100	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/27/2021 0:00	11/27/2021 23:55	11/28/2021 0:00	-	6.235	AJ	11/30/2021	7.08	
 A01-0101	Complete	StarCityWWTP-01	Routine Surveillance	Pass	10/12/2021 0:00	10/12/2021 23:55	10/12/2021 23:55	GG	7.076	JL	10/20/2021		
+A01-0102	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
+A01-0103	Rejected	StarCityWWTP-01	Routine Surveillance	Fail: Missing Required Data									
 A01-0111	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/28/2021 0:00	11/28/2021 23:55	11/29/2021 0:00	-	6.543	AJ	11/30/2021	7.13	
 A01-0112	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/29/2021 0:00	11/29/2021 23:55	11/30/2021 0:00	AJ	6.977	AJ	11/30/2021	7.18	
 A01-0113	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/30/2021 0:00	11/30/2021 23:55	11/30/2021 0:00	GG		AJ	12/03/2021	7.17	
@@ -781,15 +744,47 @@ A01-0719	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/10/2023 0:00	11/1
 A01-0720	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/11/2023 0:00	11/12/2023 0:00	11/12/2023 0:00		7.1	AJ	11/13/2023		
 A01-0721	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/12/2023 0:00	11/13/2023 0:00	11/13/2023 0:00		7.3	AJ	11/16/2023		
 A01-0722	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/13/2023 0:00	11/14/2023 0:00	11/14/2023 0:00		7.2	AJ	11/16/2023		
+A01-0723		StarCityWWTP-01	Routine Surveillance	Pass	11/14/2023 12:00 AM	11/15/2023 12:00 AM	11/15/2023 12:00 AM		7.1	AJ	11/21/2023		
+A01-0725		StarCityWWTP-01	Routine Surveillance	Pass	11/15/2023 12:00 AM	11/16/2023 12:00 AM	11/16/2023 12:00 AM		7.0	AJ	11/21/2023		
+A01-0726		StarCityWWTP-01	Routine Surveillance	Pass	11/17/2023 12:00 AM	11/18/2023 12:00 AM	11/18/2023 12:00 AM		9.9	AJ	11/21/2023		
+A01-0727		StarCityWWTP-01	Routine Surveillance	Pass	11/18/2023 12:00 AM	11/19/2023 12:00 AM	11/19/2023 12:00 AM		7.3	AJ	11/21/2023		
+A01-0728		StarCityWWTP-01	Routine Surveillance	Pass	11/19/2023 12:00 AM	11/20/2023 12:00 AM	11/20/2023 12:00 AM		7.0	AJ	11/29/2023		
+A01-0729		StarCityWWTP-01	Routine Surveillance	Pass	11/20/2023 12:00 AM	11/21/2023 12:00 AM	11/21/2023 12:00 AM		13.5	AJ	11/29/2023		
+A01-0730		StarCityWWTP-01	Routine Surveillance	Pass	11/21/2023 12:00 AM	11/22/2023 12:00 AM	11/22/2023 12:00 AM		13.8	AJ	11/29/2023		
+A01-0731		StarCityWWTP-01	Routine Surveillance	Pass	11/22/2023 12:00 AM	11/23/2023 12:00 AM	11/23/2023 12:00 AM		8.8	AJ	11/29/2023		
+A01-0732		StarCityWWTP-01	Routine Surveillance	Pass	11/24/2023 12:00 AM	11/25/2023 12:00 AM	11/25/2023 12:00 AM		7.3	AJ	11/29/2023		
+A01-0733		StarCityWWTP-01	Routine Surveillance	Pass	11/25/2023 12:00 AM	11/26/2023 12:00 AM	11/26/2023 12:00 AM		7.7	AJ	11/29/2023		
+A01-0734		StarCityWWTP-01	Routine Surveillance	Pass	11/26/2023 12:00 AM	11/27/2023 12:00 AM	11/27/2023 12:00 AM		8.6	AJ	11/30/2023		
+A01-0735		StarCityWWTP-01	Routine Surveillance	Pass	11/27/2023 12:00 AM	11/28/2023 12:00 AM	11/28/2023 12:00 AM		8.1	AJ	11/30/2023		
+A01-0740		StarCityWWTP-01	Routine Surveillance	Pass	11/28/2023 12:00 AM	11/29/2023 12:00 AM	11/29/2023 12:00 AM		7.9	GC	12/05/2023		
+A01-0741		StarCityWWTP-01	Routine Surveillance	Pass	11/29/2023 12:00 AM	11/30/2023 12:00 AM	11/30/2023 12:00 AM		7.6	GC	12/05/2023		
+A01-0742		StarCityWWTP-01	Routine Surveillance	Pass	12/01/2023 12:00 AM	12/02/2023 12:00 AM	12/02/2023 12:00 AM		7.8	GC	12/05/2023		
+A01-0743		StarCityWWTP-01	Routine Surveillance	Pass	12/02/2023 12:00 AM	12/03/2023 12:00 AM	12/03/2023 12:00 AM		11.1	GC	12/05/2023		
+A01-0744		StarCityWWTP-01	Routine Surveillance	Pass	12/03/2023 12:00 AM	12/04/2023 12:00 AM	12/04/2023 12:00 AM		9.1	AJ	12/11/2023		
+A01-0745		StarCityWWTP-01	Routine Surveillance	Pass	12/04/2023 12:00 AM	12/05/2023 12:00 AM	12/05/2023 12:00 AM		10.1	AJ	12/11/2023		
+A01-0746		StarCityWWTP-01	Routine Surveillance	Pass	12/05/2023 12:00 AM	12/06/2023 12:00 AM	12/06/2023 12:00 AM		11.2	AJ	12/11/2023		
+A01-0747		StarCityWWTP-01	Routine Surveillance	Pass	12/06/2023 12:00 AM	12/07/2023 12:00 AM	12/07/2023 12:00 AM		9.2	AJ	12/11/2023		
+A01-0748		StarCityWWTP-01	Routine Surveillance	Pass	12/08/2023 12:00 AM	12/09/2023 12:00 AM	12/09/2023 12:00 AM		7.6	AJ	12/11/2023		
+A01-0749		StarCityWWTP-01	Routine Surveillance	Pass	12/09/2023 12:00 AM	12/10/2023 12:00 AM	12/10/2023 12:00 AM		15.7	AJ	12/11/2023		
+A01-0750		StarCityWWTP-01	Routine Surveillance	Pass	12/10/2023 12:00 AM	12/11/2023 12:00 AM	12/11/2023 12:00 AM		14.3	AJ	12/19/2023		
+A01-0751		StarCityWWTP-01	Routine Surveillance	Pass	12/11/2023 12:00 AM	12/12/2023 12:00 AM	12/12/2023 12:00 AM		10.8	AJ	12/19/2023		
+A01-0752		StarCityWWTP-01	Routine Surveillance	Pass	12/12/2023 12:00 AM	12/13/2023 12:00 AM	12/13/2023 12:00 AM		9.4	AJ	12/19/2023		
+A01-0753		StarCityWWTP-01	Routine Surveillance	Pass	12/13/2023 12:00 AM	12/14/2023 12:00 AM	12/14/2023 12:00 AM		8.6	AJ	12/19/2023		
+A01-0754		StarCityWWTP-01	Routine Surveillance	Pass	12/16/2023 12:00 AM	12/17/2023 12:00 AM	12/17/2023 12:00 AM		7.2	AJ	12/19/2023		
+A01-0755		StarCityWWTP-01	Routine Surveillance	Pass	12/17/2023 12:00 AM	12/18/2023 12:00 AM	12/18/2023 12:00 AM		10.5	AJ	12/19/2023		
 A0100	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/01/2020 0:00	11/01/2020 23:59	11/01/2020 0:00	GS	8.21	TD	11/09/2020		
 A0101	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/02/2020 0:00	11/02/2020 23:59	11/02/2020 0:00	GS	7.406	TD	11/09/2020		
 A0102	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/03/2020 0:00	11/03/2020 23:59	11/03/2020 0:00	GS	6.967	TD	11/09/2020		
 A0103	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/04/2020 0:00	11/04/2020 23:59	11/04/2020 0:00	GS	6.95	TD	11/09/2020		
 A0104	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/05/2020 0:00	11/05/2020 23:59	11/05/2020 0:00	GS	6.009	TD	11/09/2020		
 A02-0001	Complete	Evansdale-01	Routine Surveillance	Pass	08/11/2021 9:00	08/12/2021 9:00	08/12/2021 9:35	EL		JL	08/12/2021		
+A02-0001 10K	Rejected		Routine Surveillance	Pass									
 A02-0002	Complete	OaklandE-02	Routine Surveillance	Pass	08/11/2021 9:00	08/12/2021 9:00	08/12/2021 9:00	EL		JL	08/13/2021	6.65	
+A02-0002 100K	Rejected		Routine Surveillance	Pass									
 A02-0003	Complete	CollegePark-02	Routine Surveillance	Pass	08/11/2021 9:00	08/12/2021 9:00	08/12/2021 9:59	EL		JL	08/12/2021		
+A02-0003 0	Rejected		Routine Surveillance	Pass									
 A02-0004	Complete	NorthHighSt-02	Routine Surveillance	Pass	08/11/2021 9:00	08/12/2021 9:00	08/12/2021 10:05	EL		JL	08/12/2021		
+A02-0004 1K	Rejected		Routine Surveillance	Pass									
 A02-0005	Complete	Evansdale-01	Routine Surveillance	Pass	08/12/2021 9:00	08/13/2021 9:00	08/13/2021 9:12	Eric Lundstrom		Josh Lambert	08/13/2021	7.34	
 A02-0006	Complete	OaklandE-02	Routine Surveillance	Pass	08/12/2021 9:45	08/13/2021 9:22	08/13/2021 9:22	Eric Lundstrom		Josh Lambert	08/13/2021	7.34	
 A02-0008	Complete	NorthHighSt-02	Routine Surveillance	Pass	08/12/2021 9:45	08/13/2021 9:45	08/13/2021 10:02	Eric Lundstrom		Josh Lambert	08/13/2021	7.5	
@@ -817,6 +812,7 @@ A02-0029	Complete	HonorsSummit-01	Routine Surveillance	Pass	08/23/2021 9:46	08/2
 A02-0030	Complete	NorthHighSt-02	Routine Surveillance	Pass	08/21/2021 9:00	08/23/2021 9:00	08/23/2021 9:55	EL		JL	08/23/2021	7.28	
 A02-0031	Complete	NorthHighSt-02	Routine Surveillance	Pass	08/23/2021 9:55	08/23/2021 9:55	08/23/2021 9:55	EL		JL	08/23/2021	8.46	
 A02-0032	Complete	CollegePark-02	Routine Surveillance	Pass	08/23/2021 10:11	08/23/2021 10:11	08/23/2021 10:11	EL		JL	08/23/2021	7.78	
+A02-0033	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A02-0034	Complete	CollegePark-02	Routine Surveillance	Pass	08/21/2021 9:00	08/23/2021 9:00	08/23/2021 10:12	EL		JL	08/23/2021	8.07	
 A02-0035	Complete	Evansdale-01	Routine Surveillance	Pass	08/23/2021 9:16	08/25/2021 9:16	08/25/2021 9:12	EL		JL	08/25/2021	6.55	
 A02-0036	Complete	Evansdale-01	Routine Surveillance	Pass	08/25/2021 9:13	08/25/2021 9:13	08/25/2021 9:13	EL		JL	08/25/2021	7.79	
@@ -826,6 +822,11 @@ A02-0039	Complete	HonorsSummit-01	Routine Surveillance	Pass	08/23/2021 9:55	08/2
 A02-0040	Complete	HonorsSummit-01	Routine Surveillance	Pass	08/25/2021 9:39	08/25/2021 9:39	08/25/2021 9:39	EL		JL	08/25/2021	7.02	
 A02-0041	Complete	OaklandE-02	Routine Surveillance	Pass	08/27/2021 9:48	08/27/2021 9:48	08/27/2021 9:48	EL		JL	08/25/2021	7.22	Very Dense Fecal Sample
 A02-0042	Complete	NorthHighSt-02	Routine Surveillance	Pass	08/25/2021 9:48	08/25/2021 9:48	08/25/2021 9:48	EL		JL	08/25/2021	8.31	
+A02-0043	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0044	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0045	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0046	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0047	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A02-0048	Complete	CollegePark-02	Routine Surveillance	Pass	08/23/2021 10:12	08/25/2021 10:12	08/25/2021 10:03	EL		JL	08/25/2021	7.33	
 A02-0049	Complete	CollegePark-02	Routine Surveillance	Pass	08/25/2021 10:04	08/25/2021 10:04	08/25/2021 10:04	EL		JL	08/25/2021	7.55	
 A02-0050	Complete	Evansdale-01	Routine Surveillance	Pass	08/23/2021 9:13	08/27/2021 9:13	08/27/2021 9:32	EL		JL	08/27/2021	6.51	
@@ -921,6 +922,10 @@ A02-0139	Complete	Evansdale-01	Routine Surveillance	Pass	10/02/2021 9:00	10/04/2
 A02-0140	Complete	OaklandE-02	Routine Surveillance	Pass	10/02/2021 9:00	10/04/2021 9:00	10/04/2021 9:35	EL		JL	10/04/2021	8.16	
 A02-0141	Complete	NorthHighSt-02	Routine Surveillance	Pass	10/02/2021 9:56	10/04/2021 9:00	10/04/2021 9:56	EL		JL	10/04/2021	7.76	
 A02-0142	Complete	CollegePark-02	Routine Surveillance	Pass	10/02/2021 10:00	10/04/2021 9:00	10/04/2021 10:00	EL		JL	10/05/2021	7.54	
+A02-0143	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0144	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0145	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A02-0146	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A02-0147	Complete	Evansdale-01	Routine Surveillance	Pass	10/06/2021 9:18	10/08/2021 9:18	10/08/2021 9:18	EL		JL	10/08/2021	6.42	
 A02-0148	Complete	OaklandE-02	Routine Surveillance	Pass	10/06/2021 9:28	10/08/2021 9:28	10/08/2021 9:28	EL		JL	10/08/2021	7.69	
 A02-0149	Complete	HonorsSummit-01	Routine Surveillance	Pass	10/06/2021 9:37	10/08/2021 9:38	10/08/2021 9:37	EL		JL	10/08/2021	7.45	
@@ -2027,6 +2032,12 @@ A02-1308	Complete	StadiumNE-01	Routine Surveillance	Pass	11/04/2023 17:00	11/05/
 A02-1309	Complete	StadiumSE-01	Routine Surveillance	Pass	11/04/2023 17:00	11/05/2023 1:00	11/06/2023 12:44	GZ		GC	11/07/2023		
 A02-1310	Complete	StadiumSW-01	Routine Surveillance	Pass	11/04/2023 17:00	11/05/2023 1:00	11/06/2023 12:47	GZ		GC	11/07/2023		
 A02-1311	Complete	Coliseum-01	Mass-Gathering Event	Pass	11/14/2023 17:00	11/14/2023 23:00	11/15/2023 10:50			AJ	11/16/2023		
+A02-1312		Coliseum-01	Routine Surveillance	Pass	12/01/2023 05:00 PM	12/01/2023 11:00 PM	12/04/2023 11:55 AM	BL		GC	12/05/2023		
+A02-1313	Complete	StadiumNE-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:00	GZ					
+A02-1314	Complete	StadiumSW-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:36	GZ					
+A02-1315	Complete	StadiumSE-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:18	GZ					
+A02-1316	Complete	StadiumNW-01	Mass-Gathering Event	Pass	11/18/2023 14:30	11/18/2023 18:30	11/20/2023 13:25	GZ					
+A02-1322		Coliseum-01	Routine Surveillance	Pass	12/09/2023 02:00 PM	12/09/2023 08:00 PM	12/11/2023 08:00 AM			AJ	12/11/2023		
 A0205	Complete	StarCityWWTP-01	Routine Surveillance	Pass	12/30/2020 0:00	12/30/2020 23:59	12/30/2020 0:00	GG	9.604	TD	01/07/2021		
 A0206	Complete	StarCityWWTP-01	Routine Surveillance	Pass	12/31/2020 0:00	12/31/2020 23:59	12/31/2020 0:00	GG	12.743	TD	01/07/2021		
 A0207	Complete	StarCityWWTP-01	Routine Surveillance	Pass	01/03/2021 0:00	01/03/2021 23:59	01/03/2021 0:00	GG	12.379	TD	01/07/2021		
@@ -2071,22 +2082,29 @@ A0249	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/11/2020 0:00	11/11/2
 A0250	Complete	StarCityWWTP-01	Routine Surveillance	Pass	11/12/2020 0:00	11/12/2020 23:59	11/12/2020 0:00	DW	6.315	TD	11/13/2020		
 A03-0001	Complete	SuncrestES-01	Routine Surveillance	Pass	09/13/2021 6:00	09/13/2021 14:00	09/14/2021 15:00	BL		jl	09/15/2021	6.23	
 A03-0002	Complete	NorthES-01	Routine Surveillance	Pass	09/20/2021 6:00	09/20/2021 14:00	09/21/2021 9:00	BL		JL	09/21/2021	8.62	
+A03-0003	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0004	Complete	NorthES-01	Routine Surveillance	Pass	09/15/2021 6:00	09/15/2021 14:00	09/16/2021 18:00	TD		TD	09/16/2021	7.24	
 A03-0005	Complete	BrookhavenES-01	Routine Surveillance	Pass	09/15/2021 6:00	09/15/2021 14:00	09/16/2021 17:00	TD		TD	09/16/2021	6.71	
 A03-0006	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/15/2021 6:00	09/15/2021 14:00	09/16/2021 16:35	TD		TD	09/16/2021	7.78	
 A03-0007	Complete	UniversityHS-01	Routine Surveillance	Pass	09/15/2021 6:00	09/15/2021 14:00	09/20/2021 17:15	TD		TD	09/16/2021	7.99	
+A03-0008	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A03-0009	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0010	Complete	BrookhavenES-01	Routine Surveillance	Pass	09/20/2021 6:00	09/20/2021 14:00	09/21/2021 9:00	BL		JL	09/21/2021	8.02	
 A03-0011	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/20/2021 6:00	09/20/2021 14:00	09/21/2021 9:00	BL		JL	09/21/2021	8.9	
+A03-0012	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0013	Complete	SuncrestES-01	Routine Surveillance	Pass	09/29/2021 6:00	09/29/2021 14:00	09/30/2021 12:25	BL		JL	10/06/2021	6.64	
 A03-0014	Complete	NorthES-01	Routine Surveillance	Pass	09/29/2021 6:00	09/29/2021 14:10	09/30/2021 12:05	BL		JL	10/06/2021	7.12	
+A03-0015	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0016	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/29/2021 6:00	09/29/2021 14:00	09/30/2021 9:40	BL		JL	10/06/2021	8.26	
 A03-0017	Complete	UniversityHS-01	Routine Surveillance	Pass	09/29/2021 6:00	09/29/2021 14:00	09/30/2021 11:45	BL		JL	10/06/2021	8.29	
 A03-0018	Complete	SuncrestES-01	Routine Surveillance	Pass	10/01/2021 6:00	10/01/2021 14:00	10/08/2021 14:25	BL		JL	10/15/2021		
 A03-0019	Complete	NorthES-01	Routine Surveillance	Pass	09/24/2021 6:00	09/24/2021 14:00	09/24/2021 14:30	BL		JL	09/27/2021	9.13	
 A03-0020	Complete	MorgantownHS-01	Routine Surveillance	Pass	10/01/2021 6:00	10/01/2021 14:00	10/07/2021 10:45	BL		JL	10/15/2021		
 A03-0021	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/24/2021 6:00	09/24/2021 14:00	09/24/2021 14:30	BL		JL	09/27/2021	9.04	
+A03-0022	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0023	Complete	SuncrestES-01	Routine Surveillance	Pass	10/11/2021 6:00	10/11/2021 14:00	10/14/2021 11:15	BL		JL	10/18/2021		
 A03-0024	Complete	NorthES-01	Routine Surveillance	Pass	09/22/2021 6:00	09/22/2021 14:00	09/23/2021 11:15	BL		JL	09/24/2021	6.97	
+A03-0025	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0026	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/22/2021 6:00	09/22/2021 14:00	09/23/2021 9:35	BL		JL	09/24/2021	8.09	
 A03-0027	Complete	UniversityHS-01	Routine Surveillance	Pass	09/24/2021 6:00	09/24/2021 14:00	09/24/2021 14:30	BL		JL	09/27/2021	8.71	
 A03-0028	Complete	MorgantownHS-01	Routine Surveillance	Pass	09/17/2021 6:00	09/17/2021 14:00	09/20/2021 10:00	BL		TD	09/21/2021	7.59	
@@ -2368,6 +2386,7 @@ A03-0366	Complete	NorthES-01	Routine Surveillance	Pass	05/20/2022 6:00	05/20/202
 A03-0367	Complete	MountainviewES-01	Routine Surveillance	Pass	06/01/2022 6:00	06/01/2022 14:00	06/02/2022 9:41	GZ		AJ	06/02/2022	7.45	
 A03-0368	Complete	SuncrestES-01	Routine Surveillance	Pass	06/01/2022 6:00	06/01/2022 14:00	06/02/2022 9:18	GZ		AJ	06/02/2022	6.98	
 A03-0370	Complete	NorthES-01	Routine Surveillance	Pass	06/01/2022 6:00	06/01/2022 14:00	06/02/2022 9:03	GZ		AJ	06/02/2022	7.35	
+A03-0371	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A03-0372	Complete	SuncrestES-01	Routine Surveillance	Pass	06/03/2022 6:00	06/03/2022 13:44	06/03/2022 13:44	GZ		AJ	06/06/2022	7.13	
 A03-0374	Complete	NorthES-01	Routine Surveillance	Pass	06/03/2022 6:00	06/03/2022 13:28	06/03/2022 13:28	GZ		AJ	06/06/2022	7.27	
 A04-0001	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	01/25/2022 9:00	01/26/2022 9:00	01/26/2022 9:00		0.667	AJ	01/28/2022	7.05	
@@ -2762,7 +2781,7 @@ A04-0492	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/06/2023 0:00	09/
 A04-0493	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/05/2023 8:00	09/06/2023 8:00	09/06/2023 8:00		0.579	GC	09/06/2023		
 A04-0494	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/07/2023 0:00	09/08/2023 0:00	09/08/2023 0:00		0.537	GC	09/12/2023		
 A04-0495	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/04/2023 8:00	09/05/2023 8:00	09/05/2023 8:00		0.569	GC	09/06/2023		
-A04-0496	Complete	CheatLakeES-01	Routine Surveillance	Pass	09/08/2023 8:00	09/09/2023 8:00	09/09/2023 8:00		0.522	GC	09/12/2023		
+A04-0496	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/08/2023 8:00	09/09/2023 8:00	09/09/2023 8:00		0.522	GC	09/12/2023		
 A04-0497	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/11/2023 8:00	09/12/2023 8:00	09/12/2023 8:00		0.511	AJ	09/13/2023		
 A04-0498	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/13/2023 8:00	09/14/2023 8:00	09/14/2023 8:00		0.502	AJ	09/15/2023		
 A04-0499	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	09/12/2023 8:00	09/13/2023 8:00	09/13/2023 8:00		0.509	AJ	09/13/2023		
@@ -2784,8 +2803,13 @@ A04-0514	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	10/08/2023 8:00	10/
 A04-0515	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	10/22/2023 8:00	10/23/2023 8:00	10/23/2023 8:00		0.793	AJ	10/24/2023		
 A04-0516	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	10/15/2023 8:00	10/16/2023 8:00	10/16/2023 8:00		0.93	AJ	10/17/2023		
 A04-0517	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	10/29/2023 8:00	10/30/2023 8:00	10/30/2023 8:00		0.663	AJ	10/31/2023		
+A04-0518		CheatLakeWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.601	AJ	11/21/2023		
 A04-0519	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.61	AJ	11/13/2023		
 A04-0520	Complete	CheatLakeWWTP-01	Routine Surveillance	Pass	11/05/2023 0:00	11/06/2023 0:00	11/06/2023 0:00		0.639	GC	11/07/2023		
+A04-0521		CheatLakeWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.752	GC	12/05/2023		
+A04-0522		CheatLakeWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		1.129	AJ	12/11/2023		
+A04-0524		CheatLakeWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		0.660	AJ	12/19/2023		
+A04-0525		CheatLakeWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.637	AJ	11/29/2023		
 A1000	Complete	StarCityWWTP-01	Routine Surveillance	Pass	03/07/2021 12:00	03/07/2021 12:00	03/07/2021 12:00	EL	9.116	MVS	03/12/2021		
 A1001	Complete	StarCityWWTP-01	Routine Surveillance	Pass	03/08/2021 12:00	03/08/2021 12:00	03/08/2021 12:00	EL	8.776	MVS	03/12/2021		
 A1002	Complete	StarCityWWTP-01	Routine Surveillance	Pass	03/09/2021 12:00	03/09/2021 12:00	03/09/2021 12:00	EL	8.423	MVS	03/12/2021		
@@ -2887,6 +2911,8 @@ A1098	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/22/2021 0:00	07/22/2
 A1099	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/25/2021 0:00	07/25/2021 23:55	07/25/2021 23:55	EL	6.52	JL	07/30/2021		
 A1100	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/29/2021 0:00	07/29/2021 23:55	07/29/2021 23:55	EL	7.981	JL	07/30/2021		
 A1101	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/26/2021 0:00	07/26/2021 23:55	07/26/2021 23:55	EL	8.172	JL	07/30/2021		
+A1104	Rejected		Routine Surveillance	Fail: Missing Required Data									
+A1106	Rejected		Routine Surveillance	Fail: Missing Required Data									
 A1109	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/27/2021 0:00	07/27/2021 23:55	07/27/2021 23:55	EL	7.447	JL	07/30/2021		
 A1110	Complete	StarCityWWTP-01	Routine Surveillance	Pass	07/28/2021 0:00	07/28/2021 23:55	07/28/2021 23:55	EL	6.999	JL	07/30/2021		
 B01-0001	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	09/15/2021 7:00	09/16/2021 7:00	09/16/2021 8:30	KM		JL	09/21/2021	6.91	
@@ -3396,12 +3422,14 @@ B01-0576	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	08/28/2023 7:00	08
 B01-0577	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	08/23/2023 7:00	08/24/2023 7:00	08/24/2023 7:00		5.87	AJ	08/30/2023		
 B01-0578	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	09/12/2023 7:00	09/13/2023 7:00	09/13/2023 7:00		12.16	AJ	09/15/2023		
 B01-0580	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	10/08/2023 7:00	10/09/2023 7:00	10/09/2023 7:00		5.03	AJ	10/24/2023		
+B01-0581		CharlestonWWTP-01	Routine Surveillance	Pass	11/27/2023 07:00 AM	11/28/2023 07:00 AM	11/28/2023 07:00 AM		6.997	AJ	12/11/2023		
 B01-0582	Complete	CharlestonWWTP-01	Routine Surveillance	Fail: Missing Required Data	11/08/2023 7:00	11/09/2023 7:00	11/09/2023 7:00			GC	11/13/2023		
 B01-0585	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	11/01/2023 7:00	11/02/2023 7:00	11/02/2023 7:00		7.582	GC	11/13/2023		
 B01-0586	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	11/07/2023 7:00	11/08/2023 7:00	11/08/2023 7:00		5.77	GC	11/13/2023		
 B01-0588	Complete	CharlestonWWTP-01	Routine Surveillance	Fail: Missing Required Data	10/22/2023 7:00	10/23/2023 7:00	10/23/2023 7:00			AJ	10/31/2023		ILLEGIBLE FLOW
 B01-0591	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	11/05/2023 7:00	11/06/2023 7:00	11/06/2023 7:00		5.286	GC	11/13/2023		
 B01-0594	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	10/15/2023 7:00	10/16/2023 7:00	10/16/2023 7:00		6.15	AJ	10/24/2023		
+B01-0599		CharlestonWWTP-01	Routine Surveillance	Pass	12/04/2023 07:00 AM	12/05/2023 07:00 AM	12/05/2023 07:00 AM		6.63	AJ	12/11/2023		
 B01-0600	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	11/06/2023 7:00	11/07/2023 7:00	11/07/2023 7:00		5.819	GC	11/13/2023		
 B01-0601	Complete	CharlestonWWTP-01	Routine Surveillance	Pass	10/29/2023 7:00	10/30/2023 7:00	10/30/2023 7:00		7.36	AJ	11/03/2023		
 C01-0001	Complete	WheelingWWTP-01	Routine Surveillance	Pass	09/12/2021 7:00	09/13/2021 7:00	09/13/2021 7:00	MVC		JL	09/17/2021	6.28	
@@ -3424,6 +3452,7 @@ C01-0017	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/10/2021 7:00	10/1
 C01-0018	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/11/2021 7:00	10/12/2021 7:00	10/12/2021 7:00	MVC		JL	10/15/2021	6.57	
 C01-0019	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/12/2021 7:00	10/13/2021 7:00	10/13/2021 7:00	MVC		JL	10/15/2021	6.31	
 C01-0020	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/13/2021 7:00	10/14/2021 7:00	10/14/2021 7:00	MVC		JL	10/15/2021	6.31	
+C01-0021	Rejected		Routine Surveillance	Fail: Missing Required Data									
 C01-0022	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/20/2021 7:00	10/21/2021 7:00	10/21/2021 7:00	OR		JL	10/27/2021	6.55	
 C01-0023	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/19/2021 7:00	10/20/2021 7:00	10/20/2021 7:00	OR		JL	10/27/2021	6.6	
 C01-0024	Complete	WheelingWWTP-01	Routine Surveillance	Pass	10/18/2021 7:00	10/19/2021 7:00	10/19/2021 7:00	OR		JL	10/27/2021	6.74	
@@ -3925,6 +3954,31 @@ C01-0532	Complete	WheelingWWTP-01	Routine Surveillance	Pass	11/07/2023 7:00	11/0
 C01-0533	Complete	WheelingWWTP-01	Routine Surveillance	Pass	11/08/2023 7:00	11/09/2023 7:00	11/09/2023 7:00		5.895	GC	11/14/2023		
 C01-0534	Complete	WheelingWWTP-01	Routine Surveillance	Pass	11/09/2023 7:00	11/10/2023 7:00	11/10/2023 7:00		7.685	GC	11/14/2023		
 C01-0535	Complete	WheelingWWTP-01	Routine Surveillance	Pass	11/12/2023 7:00	11/13/2023 7:00	11/13/2023 7:00		6.343	GC	11/14/2023		
+C01-0536		WheelingWWTP-01	Routine Surveillance	Pass	11/13/2023 07:00 AM	11/14/2023 07:00 AM	11/14/2023 07:00 AM		6.089	AJ	11/21/2023		
+C01-0537		WheelingWWTP-01	Routine Surveillance	Pass	11/14/2023 07:00 AM	11/15/2023 07:00 AM	11/15/2023 07:00 AM		5.945	AJ	11/21/2023		
+C01-0538		WheelingWWTP-01	Routine Surveillance	Pass	11/15/2023 07:00 AM	11/16/2023 07:00 AM	11/16/2023 07:00 AM		4.999	AJ	11/21/2023		
+C01-0539		WheelingWWTP-01	Routine Surveillance	Pass	11/16/2023 07:00 AM	11/17/2023 07:00 AM	11/17/2023 07:00 AM		4.000	AJ	11/21/2023		
+C01-0540		WheelingWWTP-01	Routine Surveillance	Pass	11/19/2023 07:00 AM	11/20/2023 07:00 AM	11/20/2023 07:00 AM		6.040	AJ	11/21/2023		
+C01-0541		WheelingWWTP-01	Routine Surveillance	Pass	11/19/2023 07:00 AM	11/20/2023 07:00 AM	11/20/2023 07:00 AM		7.080	AJ	11/29/2023		
+C01-0542		WheelingWWTP-01	Routine Surveillance	Pass	11/20/2023 07:00 AM	11/21/2023 07:00 AM	11/21/2023 07:00 AM		8.050	AJ	11/29/2023		
+C01-0543		WheelingWWTP-01	Routine Surveillance	Pass	11/21/2023 07:00 AM	11/22/2023 07:00 AM	11/22/2023 07:00 AM		11.156	AJ	11/29/2023		
+C01-0544		WheelingWWTP-01	Routine Surveillance	Pass	11/22/2023 07:00 AM	11/23/2023 07:00 AM	11/23/2023 07:00 AM		8.902	AJ	11/29/2023		
+C01-0545		WheelingWWTP-01	Routine Surveillance	Pass	11/26/2023 07:00 AM	11/27/2023 07:00 AM	11/27/2023 07:00 AM		7.015	AJ	11/29/2023		
+C01-0546		WheelingWWTP-01	Routine Surveillance	Pass	11/27/2023 07:00 AM	11/28/2023 07:00 AM	11/28/2023 07:00 AM		6.913	AJ	12/05/2023		
+C01-0547		WheelingWWTP-01	Routine Surveillance	Pass	11/28/2023 07:00 AM	11/29/2023 07:00 AM	11/29/2023 07:00 AM		6.402	AJ	12/05/2023		
+C01-0548		WheelingWWTP-01	Routine Surveillance	Pass	11/29/2023 07:00 AM	11/30/2023 07:00 AM	11/30/2023 07:00 AM		6.319	AJ	12/05/2023		
+C01-0549		WheelingWWTP-01	Routine Surveillance	Pass	11/30/2023 07:00 AM	12/01/2023 07:00 AM	12/01/2023 07:00 AM		6.181	AJ	12/05/2023		
+C01-0550		WheelingWWTP-01	Routine Surveillance	Pass	12/03/2023 07:00 AM	12/04/2023 07:00 AM	12/04/2023 07:00 AM		12.844	AJ	12/05/2023		
+C01-0551		WheelingWWTP-01	Routine Surveillance	Pass	12/04/2023 07:00 AM	12/05/2023 07:00 AM	12/05/2023 07:00 AM		8.558	AJ	12/12/2023		
+C01-0552		WheelingWWTP-01	Routine Surveillance	Pass	12/04/2023 07:00 AM	12/05/2023 07:00 AM	12/05/2023 07:00 AM		8.599	AJ	12/12/2023		
+C01-0553		WheelingWWTP-01	Routine Surveillance	Pass	12/06/2023 07:00 AM	12/07/2023 07:00 AM	12/07/2023 07:00 AM		7.950	AJ	12/12/2023		
+C01-0554		WheelingWWTP-01	Routine Surveillance	Pass	12/07/2023 07:00 AM	12/08/2023 07:00 AM	12/08/2023 07:00 AM		7.601	AJ	12/12/2023		
+C01-0555		WheelingWWTP-01	Routine Surveillance	Pass	12/10/2023 07:00 AM	12/11/2023 07:00 AM	12/11/2023 07:00 AM		9.158	AJ	12/12/2023		
+C01-0556		WheelingWWTP-01	Routine Surveillance	Pass	12/11/2023 07:00 AM	12/12/2023 07:00 AM	12/12/2023 07:00 AM		7.233	AJ	12/19/2023		
+C01-0557		WheelingWWTP-01	Routine Surveillance	Pass	12/12/2023 07:00 AM	12/13/2023 07:00 AM	12/13/2023 07:00 AM		6.526	AJ	12/19/2023		
+C01-0558		WheelingWWTP-01	Routine Surveillance	Pass	12/13/2023 07:00 AM	12/14/2023 07:00 AM	12/14/2023 07:00 AM		6.538	AJ	12/19/2023		
+C01-0559		WheelingWWTP-01	Routine Surveillance	Pass	12/14/2023 07:00 AM	12/15/2023 07:00 AM	12/15/2023 07:00 AM		6.201	AJ	12/19/2023		
+C01-0560		WheelingWWTP-01	Routine Surveillance	Pass	12/17/2023 07:00 AM	12/18/2023 07:00 AM	12/18/2023 07:00 AM		11.648	AJ	12/19/2023		
 D01-0001	Complete	CharlesTownWWTP-01	Routine Surveillance	Fail: Missing Required Data	01/23/2022 8:00	01/24/2022 8:00	01/24/2022 8:00	RS		AJ	01/26/2022	7.35	
 D01-0002	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	12/19/2021 7:00	12/20/2021 7:00	12/20/2021 7:30	RS		AJ	12/21/2021	7.36	
 D01-0003	Complete	CharlesTownWWTP-01	Routine Surveillance	Fail: Missing Required Data	02/20/2022 7:30	02/21/2022 7:30	02/21/2022 7:35	RS		AJ	02/23/2022	7.01	
@@ -4139,6 +4193,7 @@ D01-0249	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	02/01/2023 7:40	0
 D01-0250	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	02/22/2023 7:00	02/23/2023 7:00	02/23/2023 7:00		1.1	AJ	03/01/2023		
 D01-0251	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/09/2023 8:00	07/10/2023 8:00	07/10/2023 8:00		1	SB	07/12/2023		
 D01-0252	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/17/2023 7:00	07/18/2023 7:00	07/18/2023 7:00		1.2	AJ	07/19/2023		
+D01-0255		CharlesTownWWTP-01	Routine Surveillance	Pass	11/27/2023 07:00 AM	11/28/2023 07:00 AM	11/28/2023 07:00 AM		1.2	AJ	11/30/2023		
 D01-0257	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/06/2023 8:00	07/07/2023 8:00	07/07/2023 8:00		1.1	SB	07/12/2023		
 D01-0258	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	11/13/2023 7:00	11/14/2023 7:00	11/14/2023 7:00		1.2	AJ	11/16/2023		
 D01-0259	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	06/26/2023 7:30	06/27/2023 7:30	06/27/2023 7:30		1.19	AJ	06/29/2023		
@@ -4148,6 +4203,7 @@ D01-0263	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	06/25/2023 7:30	0
 D01-0264	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	06/27/2023 7:30	06/28/2023 7:30	06/28/2023 7:30		1.19	AJ	06/29/2023		
 D01-0269	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/16/2023 7:00	07/17/2023 7:00	07/17/2023 7:00		1.1	LW	07/20/2023		
 D01-0270	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/10/2023 8:00	07/11/2023 8:00	07/11/2023 8:00		1.1	SB	07/12/2023		
+D01-0271		CharlesTownWWTP-01	Routine Surveillance	Pass	11/20/2023 07:00 AM	11/21/2023 07:00 AM	11/21/2023 07:00 AM		1.0	AJ	11/29/2023		
 D01-0273	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/12/2023 7:00	07/13/2023 7:00	07/13/2023 7:00		1	LW	07/20/2023		
 D01-0274	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	07/05/2023 8:00	07/06/2023 8:00	07/06/2023 8:00		1		07/12/2023		
 D01-0276	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	05/04/2023 7:00	05/05/2023 7:00	05/05/2023 7:00		1.2	LW	05/15/2023		
@@ -4227,6 +4283,8 @@ D01-0373	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	09/03/2023 7:00	0
 D01-0375	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/22/2023 7:00	08/23/2023 7:00	08/23/2023 7:00		1	GC	09/01/2023		
 D01-0381	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/01/2023 7:00	08/02/2023 7:00	08/02/2023 7:00		1.1	AJ	08/09/2023		
 D01-0382	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/20/2023 7:20	08/21/2023 7:20	08/21/2023 7:20		1.11	AJ	08/23/2023		
+D01-0383		CharlesTownWWTP-01	Routine Surveillance	Pass	12/11/2023 07:00 AM	12/12/2023 07:00 AM	12/12/2023 07:00 AM		1.4	AJ	12/19/2023		
+D01-0385		CharlesTownWWTP-01	Routine Surveillance	Pass	12/04/2023 07:00 AM	12/05/2023 07:00 AM	12/05/2023 07:00 AM		103	AJ	12/11/2023		
 D01-0392	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/06/2023 7:00	08/07/2023 7:00	08/07/2023 7:00		1.1	AJ	08/09/2023		
 D01-0394	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/21/2023 7:20	08/22/2023 7:20	08/22/2023 7:20		1.11	AJ	08/23/2023		
 D01-0395	Complete	CharlesTownWWTP-01	Routine Surveillance	Pass	08/17/2023 7:20	08/18/2023 7:20	08/18/2023 7:20		1.12	AJ	08/23/2023		
@@ -4561,6 +4619,18 @@ E01-0378	Complete	PrincetonWWTP-01	Routine Surveillance	Pass	11/01/2023 11:00	11
 E01-0379	Complete	PrincetonWWTP-01	Routine Surveillance	Pass	11/02/2023 10:00	11/03/2023 10:00	11/03/2023 10:00		1.321	GC	11/13/2023		
 E01-0380	Complete	PrincetonWWTP-01	Routine Surveillance	Pass	11/06/2023 10:00	11/07/2023 10:00	11/07/2023 10:00		1.256	GC	11/13/2023		
 E01-0381	Complete	PrincetonWWTP-01	Routine Surveillance	Pass	11/07/2023 11:00	11/08/2023 11:00	11/08/2023 11:00		1.123	GC	11/13/2023		
+E01-0382		PrincetonWWTP-01	Routine Surveillance	Pass	11/13/2023 10:30 AM	11/14/2023 10:30 AM	11/14/2023 10:30 AM		1.313	AJ	11/21/2023		
+E01-0383		PrincetonWWTP-01	Routine Surveillance	Pass	11/14/2023 10:30 AM	11/15/2023 10:30 AM	11/15/2023 10:30 AM		1.289	AJ	11/21/2023		
+E01-0384		PrincetonWWTP-01	Routine Surveillance	Pass	11/15/2023 11:00 AM	11/16/2023 11:00 AM	11/16/2023 11:00 AM		1.204	GC	12/04/2023		
+E01-0385		PrincetonWWTP-01	Routine Surveillance	Pass	11/16/2023 11:00 AM	11/17/2023 11:00 AM	11/17/2023 11:00 AM		1.177	GC	12/04/2023		
+E01-0386		PrincetonWWTP-01	Routine Surveillance	Pass	11/27/2023 11:00 AM	11/28/2023 11:00 AM	11/28/2023 11:00 AM		1.482	GC	12/04/2023		
+E01-0387		PrincetonWWTP-01	Routine Surveillance	Pass	11/28/2023 11:00 AM	11/29/2023 11:00 AM	11/29/2023 11:00 AM		1.359	GC	12/04/2023		
+E01-0388		PrincetonWWTP-01	Routine Surveillance	Pass	11/29/2023 10:00 AM	11/30/2023 10:00 AM	11/30/2023 10:00 AM		1.563	AJ	12/11/2023		
+E01-0389		PrincetonWWTP-01	Routine Surveillance	Pass	11/30/2023 10:30 AM	12/01/2023 10:30 AM	12/01/2023 10:30 AM		1.174	AJ	12/11/2023		
+E01-0390		PrincetonWWTP-01	Routine Surveillance	Pass	12/04/2023 01:45 PM	12/05/2023 01:45 AM	12/05/2023 01:45 PM		2.219	AJ	12/11/2023		
+E01-0391		PrincetonWWTP-01	Routine Surveillance	Pass	12/06/2023 10:45 AM	12/07/2023 10:45 AM	12/07/2023 10:45 AM		1.486	AJ	12/19/2023		
+E01-0392		PrincetonWWTP-01	Routine Surveillance	Pass	12/07/2023 01:25 AM	12/08/2023 01:25 PM	12/08/2023 01:25 PM		1.438	AJ	12/19/2023		
+E01-0393		PrincetonWWTP-01	Routine Surveillance	Pass	12/11/2023 10:30 AM	12/12/2023 10:30 AM	12/12/2023 10:30 AM		2.987	AJ	12/19/2023		
 E02-0001	Complete	AthensWWTP-01	Routine Surveillance	Pass	11/02/2021 8:00	11/03/2021 8:00	11/03/2021 8:00	-		JL	11/08/2021	6.22	
 E02-0002	Complete	AthensWWTP-01	Routine Surveillance	Pass	11/03/2021 8:00	11/04/2021 8:00	11/04/2021 8:00	-		JL	11/08/2021	6.2	
 E02-0003	Complete	AthensWWTP-01	Routine Surveillance	Pass	11/04/2021 8:00	11/05/2021 8:00	11/05/2021 8:00	-		JL	11/08/2021	6.49	
@@ -4784,6 +4854,7 @@ E02-0245	Complete	AthensWWTP-01	Routine Surveillance	Pass	01/20/2023 8:00	01/21/
 E02-0246	Complete	AthensWWTP-01	Routine Surveillance	Pass	01/23/2023 8:00	01/24/2023 8:00	01/24/2023 8:00		0.129	AJ	01/30/2023		
 E02-0247	Complete	AthensWWTP-01	Routine Surveillance	Pass	01/24/2023 8:00	01/25/2023 8:00	01/25/2023 8:00		0.13	AJ	01/30/2023		
 E02-0248	Complete	AthensWWTP-01	Routine Surveillance	Pass	01/25/2023 8:00	01/26/2023 8:00	01/26/2023 8:00		0.283	AJ	01/30/2023		
+F01-0001	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021	7.07	
 F01-0006	Complete	WestonWWTP-01	Routine Surveillance	Pass	09/30/2021 10:00	10/01/2021 10:00	10/01/2021 23:50	BP		JL	10/04/2021	6.87	
 F01-0010	Complete	WestonWWTP-01	Routine Surveillance	Pass	10/07/2021 10:00	10/08/2021 10:00	10/08/2021 13:30	BP		JL	10/11/2021	6.82	
 F01-0011	Complete	WestonWWTP-01	Routine Surveillance	Pass	09/27/2021 10:00	09/28/2021 10:00	09/28/2021 11:00	BP		JL	09/30/2021		
@@ -4793,9 +4864,12 @@ F01-0015	Complete	WestonWWTP-01	Routine Surveillance	Pass	10/14/2021 10:00	10/15
 F01-0016	Complete	WestonWWTP-01	Routine Surveillance	Pass	09/29/2021 10:00	09/30/2021 10:00	09/30/2021 10:15	BP		JL	10/01/2021		
 F01-0019	Complete	WestonWWTP-01	Routine Surveillance	Pass	11/03/2021 14:00	11/04/2021 14:00	11/04/2021 14:00	BP		JL	11/05/2021		
 F01-0020	Complete	WestonWWTP-01	Routine Surveillance	Pass	10/06/2021 10:00	10/07/2021 10:00	10/07/2021 11:00	BP		JL	10/08/2021	7.05	
+F01-0021	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/27/2021	6.87	
 F01-0022	Complete	WestonWWTP-01	Routine Surveillance	Pass	11/01/2021 10:00	11/02/2021 10:00	11/02/2021 10:30	BP		JL	11/03/2021	7.07	
 F01-0023	Complete	WestonWWTP-01	Routine Surveillance	Pass	11/08/2021 10:00	11/09/2021 10:00	11/09/2021 10:30	BP		AJ	11/11/2021	7	
 F01-0024	Complete	WestonWWTP-01	Routine Surveillance	Pass	11/02/2021 10:00	11/03/2021 10:00	11/03/2021 14:00	BP		JL	11/05/2021	6.81	
+F01-0025	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021	6.52	COMPOSITE LABEL HAD NO DATA -- DATES AREW ASSUMED BASED ON PREVIOUSLY RECEIVED SAMPLES
+F01-0028	Rejected	WestonWWTP-01	Routine Surveillance	Fail: Missing Required Data						JL	09/24/2021		
 F01-0029	Complete	WestonWWTP-01	Routine Surveillance	Pass	07/20/2022 11:30	07/21/2022 11:30	07/21/2022 12:00		0.7	AJ	08/01/2022		
 F01-0032	Complete	WestonWWTP-01	Routine Surveillance	Pass	07/15/2022 13:00	07/16/2022 13:00	07/18/2022 10:00		1.9	AJ	08/01/2022		
 F01-0035	Complete	WestonWWTP-01	Routine Surveillance	Pass	05/24/2022 13:00	05/25/2022 13:00	05/25/2022 3:00		1.2	AJ	06/01/2022	7.03	
@@ -5267,8 +5341,13 @@ G01-0522	Complete	KeyserWWTP-01	Routine Surveillance	Pass	10/09/2023 8:00	10/10/
 G01-0523	Complete	KeyserWWTP-01	Routine Surveillance	Pass	09/19/2023 8:00	09/20/2023 8:00	09/20/2023 8:00		0.844	GC	09/25/2023		
 G01-0524	Complete	KeyserWWTP-01	Routine Surveillance	Pass	10/08/2023 8:00	10/09/2023 8:00	10/09/2023 8:00		0.691	GC	10/16/2023		
 G01-0527	Complete	KeyserWWTP-01	Routine Surveillance	Pass	10/29/2023 9:00	10/30/2023 9:00	10/30/2023 9:00		0.634	AJ	10/31/2023		
+G01-0530		KeyserWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.913	AJ	12/05/2023		
 G01-0531	Complete	KeyserWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		0.674	GC	11/13/2023		
+G01-0538		KeyserWWTP-01	Routine Surveillance	Pass	12/10/2023 09:00 AM	12/11/2023 09:00 AM	12/11/2023 09:00 AM		1.805	AJ	12/12/2023		
+G01-0540		KeyserWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.941	AJ	11/29/2023		
 G01-0542	Complete	KeyserWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.66	GC	11/14/2023		
+G01-0546		KeyserWWTP-01	Routine Surveillance	Pass	12/17/2023 09:00 AM	12/18/2023 09:00 AM	12/18/2023 09:00 AM		1.073	AJ	12/19/2023		
+G01-0548		KeyserWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.689	GC	11/27/2023		
 G02-0001	Complete	PotomacState-01	Routine Surveillance	Pass	10/06/2021 10:35	10/06/2021 10:40	10/06/2021 10:40	MH		JL	10/13/2021	6.86	
 G02-0002	Complete	PotomacState-01	Routine Surveillance	Pass	10/09/2021 9:00	10/11/2021 9:00	10/11/2021 10:20	MH		JL	10/13/2021	6.89	
 G02-0003	Complete	PotomacState-01	Routine Surveillance	Pass	10/14/2021 9:30	10/14/2021 9:30	10/14/2021 9:30	SC		JL	10/27/2021	6.96	
@@ -5277,12 +5356,14 @@ G02-0006	Complete	PotomacState-01	Routine Surveillance	Pass	10/21/2021 11:00	10/
 G02-0007	Complete	PotomacState-01	Routine Surveillance	Pass	10/07/2021 10:40	10/08/2021 10:40	10/08/2021 10:50	MH		JL	10/13/2021	6.89	
 G02-0008	Complete	PotomacState-01	Routine Surveillance	Pass	10/19/2021 9:30	10/20/2021 12:30	10/20/2021 12:30	R		JL	10/27/2021	7.01	
 G02-0009	Complete	PotomacState-01	Routine Surveillance	Pass	10/30/2021 10:00	11/01/2021 11:00	11/01/2021 11:25	-		JL	11/02/2021	7.08	
+G02-0010	Rejected	PotomacState-01	Routine Surveillance	Fail: Missing Required Data									
 G02-0011	Complete	PotomacState-01	Routine Surveillance	Pass	10/12/2021 9:25	10/13/2021 9:25	10/13/2021 9:25	EDL		JL	10/27/2021	7.02	
 G02-0012	Complete	PotomacState-01	Routine Surveillance	Pass	10/26/2021 10:30	10/27/2021 11:30	10/27/2021 11:30	Z		JL	11/02/2021	7	
 G02-0013	Complete	PotomacState-01	Routine Surveillance	Pass	11/09/2021 11:00	11/10/2021 9:00	11/10/2021 9:00	S		JL	11/12/2021	7.03	
 G02-0016	Complete	PotomacState-01	Routine Surveillance	Pass	10/27/2021 11:00	10/28/2021 11:00	10/28/2021 11:30	-		JL	11/02/2021	7.04	
 G02-0017	Complete	PotomacState-01	Routine Surveillance	Pass	11/04/2021 0:00	11/04/2021 0:00	11/05/2021 12:00	MT		JL	11/12/2021	7.02	
 G02-0019	Complete	PotomacState-01	Routine Surveillance	Pass	11/29/2021 14:00	12/01/2021 10:30	12/01/2021 10:30	-		AJ	12/03/2021	7.08	
+G02-0020	Rejected	PotomacState-01	Routine Surveillance	Fail: Missing Required Data			11/29/2021 14:00			AJ	12/03/2021		
 G02-0021	Complete	PotomacState-01	Routine Surveillance	Pass	11/05/2021 10:30	11/07/2021 11:30	11/08/2021 11:30	S		JL	11/12/2021	7.03	
 G02-0022	Complete	PotomacState-01	Routine Surveillance	Pass	12/01/2021 11:00	12/03/2021 10:30	12/03/2021 10:30	-		JL	12/10/2021	7.13	
 G02-0023	Complete	PotomacState-01	Routine Surveillance	Fail: Temperature Above Threshold	12/06/2021 9:45	12/08/2021 10:30	12/08/2021 10:30	-		JL	12/10/2021	7.12	
@@ -6022,6 +6103,10 @@ H01-0735	Complete	MoundsvilleWWTP-01	Routine Surveillance	Pass	10/29/2023 8:00	1
 H01-0736	Complete	MoundsvilleWWTP-01	Routine Surveillance	Pass	10/15/2023 8:00	10/16/2023 8:00	10/16/2023 8:00		1.1	AJ	10/24/2023		
 H01-0737	Complete	MoundsvilleWWTP-01	Routine Surveillance	Fail: Missing Required Data	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00			AJ	11/07/2023		
 H01-0738	Complete	MoundsvilleWWTP-01	Routine Surveillance	Fail: Missing Required Data	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00			GC	11/14/2023		
+H01-0739		KeyserWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		1.4	GC	11/27/2023		
+H01-0740		MoundsvilleWWTP-01	Routine Surveillance	Pass	11/29/2023 08:00 AM	11/30/2023 08:00 AM	11/30/2023 08:00 AM		1.4	GC	12/04/2023		
+H01-0741		MoundsvilleWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		3.4	AJ	12/05/2023		
+H01-0744		MoundsvilleWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		2.2	AJ	12/19/2023		
 I01-0002	Complete	WarmSpringsWWTP-01	Routine Surveillance	Pass	10/25/2021 7:00	10/26/2021 7:00	10/26/2021 8:15	-		JL	10/29/2021	6.95	
 I01-0003	Complete	WarmSpringsWWTP-01	Routine Surveillance	Pass	10/27/2021 7:00	10/28/2021 7:00	10/28/2021 12:10	-		JL	10/29/2021	6.91	
 I01-0004	Complete	WarmSpringsWWTP-01	Routine Surveillance	Pass	11/01/2021 7:00	11/02/2021 7:00	11/02/2021 10:30	-		AJ	11/08/2021	7.08	
@@ -6389,6 +6474,10 @@ J01-0380	Complete	AlpineLakeWWTP-01	Routine Surveillance	Pass	10/22/2023 7:30	10
 J01-0381	Complete	AlpineLakeWWTP-01	Routine Surveillance	Pass	10/29/2023 7:30	10/30/2023 7:30	10/30/2023 7:30		0.135	AJ	11/03/2023		
 J01-0382	Complete	AlpineLakeWWTP-01	Routine Surveillance	Pass	11/05/2023 7:30	11/06/2023 7:30	11/06/2023 7:30		0.094	AJ	11/07/2023		
 J01-0383	Complete	AlpineLakeWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.088	GC	11/14/2023		
+J01-0384		AlpineLakeWWTP-01	Routine Surveillance	Pass	11/19/2023 07:30 AM	11/20/2023 07:30 AM	11/20/2023 07:30 AM		0.098	AJ	11/21/2023		
+J01-0385		AlpineLakeWWTP-01	Routine Surveillance	Pass	11/26/2023 07:30 AM	11/27/2023 07:30 AM	11/27/2023 07:30 AM		0.186	AJ	11/29/2023		
+J01-0386		AlpineLakeWWTP-01	Routine Surveillance	Pass	12/03/2023 07:30 AM	12/04/2023 07:30 AM	12/04/2023 07:34 AM		0.133	AJ	12/05/2023		
+J01-0387		AlpineLakeWWTP-01	Routine Surveillance	Pass	12/10/2023 07:30 AM	12/11/2023 07:30 AM	12/11/2023 07:30 AM		0.217	AJ	12/12/2023		
 K01-0001	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	12/15/2021 6:20	12/16/2021 6:28	12/16/2021 6:28	-	4.913	AJ	12/16/2021	7.24	
 K01-0002	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	01/27/2022 6:26	01/28/2022 6:46	01/28/2022 6:46		5.679	AJ	02/02/2022	7.18	
 K01-0003	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	01/25/2022 6:27	01/26/2022 6:27	01/26/2022 6:27		6.585	AJ	02/02/2022	7.16	
@@ -6733,6 +6822,12 @@ K01-0346	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	09/27/2023 7:00	0
 K01-0347	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	09/25/2023 7:00	09/26/2023 7:00	09/26/2023 7:00		4.205	GC	10/05/2023		
 K01-0348	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	10/16/2023 7:00	10/17/2023 7:00	10/17/2023 7:00		4.131	GC	10/26/2023		
 K01-0349	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	09/28/2023 7:00	09/29/2023 7:00	09/29/2023 7:00		4.359	GC	10/05/2023		
+K01-0356		ParkersburgWWTP-01	Routine Surveillance	Pass	11/20/2023 06:30 AM	11/21/2023 06:30 AM	11/21/2023 06:30 AM		4.292	AJ	11/30/2023		
+K01-0362		ParkersburgWWTP-01	Routine Surveillance	Pass	11/13/2023 06:30 AM	11/14/2023 06:30 AM	11/14/2023 06:30 AM		3.903	AJ	11/30/2023		
+K01-0363		ParkersburgWWTP-01	Routine Surveillance	Pass	11/27/2023 06:30 AM	11/28/2023 06:30 AM	11/28/2023 06:30 AM		4.924	AJ	11/30/2023		
+K01-0364		ParkersburgWWTP-01	Routine Surveillance	Pass	12/04/2023 06:30 AM	12/05/2023 06:30 AM	12/05/2023 06:30 AM		5.419	AJ	12/19/2023		
+K01-0365		ParkersburgWWTP-01	Routine Surveillance	Pass	12/11/2023 06:30 AM	12/12/2023 06:30 AM	12/12/2023 06:30 AM		4.969	AJ	12/19/2023		
+K01-0366		ParkersburgWWTP-01	Routine Surveillance	Pass	11/06/2023 06:30 AM	11/07/2023 06:30 AM	11/07/2023 06:30 AM		3.952	AJ	11/30/2023		
 K01-0372	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	10/19/2023 7:00	10/20/2023 7:00	10/20/2023 7:00		3.913	GC	10/26/2023		
 K01-0373	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	10/23/2023 6:30	10/24/2023 6:30	10/24/2023 6:30		3.983	AJ	11/01/2023		
 K01-0386	Complete	ParkersburgWWTP-01	Routine Surveillance	Pass	10/18/2023 7:00	10/19/2023 7:00	10/19/2023 7:00		4.144	GC	10/26/2023		
@@ -7264,11 +7359,17 @@ L01-0528	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	10/15/2023 8:00	10/
 L01-0529	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	10/08/2023 8:00	10/09/2023 8:00	10/09/2023 8:00		0.192	GC	10/10/2023		
 L01-0530	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	09/24/2023 8:00	09/25/2023 8:00	09/25/2023 8:00		0.171	GC	09/26/2023		
 L01-0533	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	10/01/2023 8:00	10/02/2023 8:00	10/02/2023 8:00		0.175	GC	10/03/2023		
+L01-0534		WestUnionWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.275	AJ	11/29/2023		
+L01-0536		WestUnionWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.247	AJ	11/21/2023		
+L01-0537		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM			AJ	12/19/2023		
+L01-0541		WestUnionWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		0.284	AJ	12/12/2023		
+L01-0542		WestUnionWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.233	GC	12/05/2023		
 L01-0543	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	09/17/2023 8:00	09/18/2023 8:00	09/18/2023 8:00		0.198	GC	09/26/2023		
 L01-0546	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	10/22/2023 8:00	10/23/2023 8:00	10/23/2023 8:00		0.47	AJ	10/24/2023		
 L01-0547	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		1.85	GC	11/07/2023		
 L01-0548	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.177	AJ	11/13/2023		
 L01-0549	Complete	WestUnionWWTP-01	Routine Surveillance	Pass	10/29/2023 8:00	10/30/2023 8:00	10/30/2023 8:00		0.47	AJ	10/31/2023		
+M01-0029	Rejected		Routine Surveillance	Fail: Missing Required Data									
 M03-0001	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	03/07/2022 11:00	03/08/2022 11:00	03/08/2022 11:00		0.429	AJ	03/09/2022	6.97	
 M03-0002	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	02/16/2022 10:30	02/17/2022 10:30	02/17/2022 10:30		0.206	AJ	02/23/2022	6.96	
 M03-0003	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	02/15/2022 11:04	02/16/2022 11:04	02/16/2022 11:04		0.214	AJ	02/23/2022	6.75	
@@ -7542,8 +7643,13 @@ M03-0275	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	06/08/2023 11:00	0
 M03-0276	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	07/24/2023 11:00	07/25/2023 11:00	07/25/2023 11:00		0.536	AJ	07/26/2023		
 M03-0279	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	07/20/2023 11:00	07/21/2023 11:00	07/21/2023 11:00		0.552	AJ	07/26/2023		
 M03-0284	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	07/19/2023 11:00	07/20/2023 11:00	07/20/2023 11:00		0.498	AJ	07/26/2023		
+M03-0290		ManningtonWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		0.169	AJ	12/19/2023		
 M03-0291	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	07/18/2023 11:00	07/19/2023 11:00	07/19/2023 11:00		0.533	AJ	07/26/2023		
 M03-0296	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	07/23/2023 11:00	07/24/2023 11:00	07/24/2023 11:00		0.723	AJ	07/26/2023		
+M03-0304		ManningtonWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		0.339	AJ	12/12/2023		
+M03-0308		ManningtonWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.163	AJ	11/21/2023		
+M03-0311		FarmingtonWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.149	AJ	11/29/2023		
+M03-0319		ManningtonWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.255	GC	12/05/2023		
 M03-0326	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.135	AJ	11/13/2023		
 M03-0328	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	08/24/2023 11:00	08/25/2023 11:00	08/25/2023 11:00		0.219	GC	09/05/2023		
 M03-0330	Complete	ManningtonWWTP-01	Routine Surveillance	Pass	10/15/2023 8:00	10/16/2023 8:00	10/16/2023 9:00		0.195	AJ	10/17/2023		
@@ -7748,8 +7854,12 @@ M04-0197	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	03/13/2023 0:00	03
 M04-0198	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	03/02/2023 0:00	03/03/2023 0:00	03/03/2023 0:00		0.15	AJ	03/08/2023		
 M04-0199	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	04/11/2023 12:00	05/03/2023 12:00	04/12/2023 12:00		0.132	AJ	05/03/2023		
 M04-0200	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	03/09/2023 0:00	03/10/2023 0:00	03/10/2023 0:00		0.084	AJ	03/15/2023		
+M04-0208		FarmingtonWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		0.092	AJ	12/12/2023		
 M04-0209	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	11/05/2023 9:00	11/06/2023 9:00	11/06/2023 9:00		0.062	GC	11/07/2023		
+M04-0211		FarmingtonWWTP-01	Routine Surveillance	Pass	11/26/2023 08:50 AM	11/27/2023 08:50 AM	11/27/2023 08:50 AM		0.065	AJ	11/29/2023		
 M04-0218	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	10/29/2023 9:00	10/30/2023 9:00	10/30/2023 9:00		0.075	AJ	10/31/2023		
+M04-0219		FarmingtonWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.073	GC	12/05/2023		
+M04-0224		FarmingtonWWTP-01	Routine Surveillance	Pass	12/17/2023 09:00 AM	12/18/2023 09:00 AM	12/18/2023 09:00 AM		0.069	AJ	12/19/2023		
 M04-0226	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	08/31/2023 14:00	09/01/2023 2:00	09/01/2023 14:00		0.056	GC	09/05/2023		
 M04-0227	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	06/14/2023 0:00	06/15/2023 0:00	06/15/2023 0:00		0.09	LW	06/22/2023		
 M04-0229	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	05/18/2023 0:00	05/19/2023 0:00	05/19/2023 0:00		0.073	LW	06/01/2023		
@@ -8122,7 +8232,10 @@ N02-0347	Complete	ClarksburgWWTP-01	Routine Surveillance	Fail: Volume Below Min	
 N02-0348	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	06/28/2023 8:00	06/29/2023 8:00	06/29/2023 8:00		5.68	SB	07/07/2023		
 N02-0349	Complete	ClarksburgWWTP-01	Routine Surveillance	Fail: Missing Required Data	06/27/2023 8:00	06/28/2023 8:00	06/28/2023 8:00		0	SB	07/07/2023		no flow written
 N02-0350	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	06/26/2023 8:00	06/27/2023 8:00	06/27/2023 8:00		6.8	SB	07/07/2023		
+N02-0355		ClarksburgWWTP-01	Routine Surveillance	Pass	12/10/2023 07:00 AM	12/11/2023 07:00 AM	12/11/2023 07:00 AM		11.247	AJ	12/12/2023		
 N02-0367	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	10/29/2023 7:00	10/30/2023 7:00	10/30/2023 7:00		7.104	AJ	10/31/2023		
+N02-0369		ClarksburgWWTP-01	Routine Surveillance	Pass	11/19/2023 07:00 AM	11/20/2023 07:00 AM	11/20/2023 07:00 AM		7.676	AJ	11/21/2023		
+N02-0375		ClarksburgWWTP-01	Routine Surveillance	Pass	11/26/2023 07:00 AM	11/27/2023 07:00 AM	11/27/2023 07:00 AM		8.384	AJ	11/29/2023		
 N02-0376	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	10/15/2023 7:00	10/16/2023 7:00	10/16/2023 7:00		8.13	AJ	10/17/2023		
 N02-0377	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	09/13/2023 7:00	09/14/2023 7:00	09/14/2023 7:00		7.66	AJ	09/15/2023		
 N02-0378	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	08/27/2023 7:00	08/28/2023 7:00	08/28/2023 7:00		9.186	GC	09/05/2023		
@@ -8146,6 +8259,8 @@ N02-0397	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	09/17/2023 7:00	09
 N02-0398	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	08/23/2023 7:00	08/24/2023 7:00	08/24/2023 7:00		6.18	AJ	08/30/2023		
 N02-0399	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	08/30/2023 7:00	08/31/2023 7:00	08/31/2023 7:00		17.01	GC	09/05/2023		
 N02-0400	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	08/29/2023 7:00	08/30/2023 7:00	08/30/2023 7:00		11.2	GC	09/05/2023		
+N02-0428		ClarksburgWWTP-01	Routine Surveillance	Pass	12/17/2023 07:00 AM	12/18/2023 07:00 AM	12/18/2023 07:00 AM		8.64	AJ	12/19/2023		
+N02-0439		ClarksburgWWTP-01	Routine Surveillance	Pass	12/03/2023 07:00 AM	12/04/2023 07:00 AM	12/04/2023 07:00 AM		6.588	GC	12/05/2023		
 N02-0441	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	10/01/2023 7:00	10/02/2023 7:00	10/02/2023 7:00		5.13	GC	10/03/2023		
 N02-0444	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	10/09/2023 7:00	10/10/2023 7:00	10/10/2023 7:00		5.86	AJ	10/11/2023		
 N02-0447	Complete	ClarksburgWWTP-01	Routine Surveillance	Pass	11/05/2023 7:00	11/06/2023 7:00	11/06/2023 7:00		5.28	GC	11/07/2023		
@@ -8575,8 +8690,10 @@ N03-0433	Complete	SalemWWTP-01	Routine Surveillance	Pass	11/12/2023 7:00	11/13/2
 N03-0434	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/08/2023 7:30	09/09/2023 7:30	09/09/2023 7:30		0.2271	AJ	09/15/2023		
 N03-0435	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/04/2023 7:00	09/05/2023 7:00	09/05/2023 7:00		0.39951	GC	09/12/2023		
 N03-0436	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/03/2023 11:00	09/04/2023 11:00	09/04/2023 11:00		0.48218	GC	09/11/2023		
+N03-0437		SalemWWTP-01	Routine Surveillance	Pass	11/26/2023 07:00 AM	11/27/2023 07:00 AM	11/27/2023 07:00 AM		0.327360	AJ	11/29/2023		
 N03-0438	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/12/2023 7:30	09/13/2023 7:30	09/13/2023 7:30		0.7213	AJ	09/15/2023		
 N03-0439	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/10/2023 7:30	09/11/2023 7:30	09/11/2023 7:30		0.38003	AJ	09/15/2023		
+N03-0440		SalemWWTP-01	Routine Surveillance	Pass	12/03/2023 07:00 AM	12/04/2023 07:00 AM	12/04/2023 07:00 AM		0.254180	GC	12/05/2023		
 N03-0441	Complete	SalemWWTP-01	Routine Surveillance	Pass	10/15/2023 7:30	10/16/2023 7:30	10/16/2023 7:30		0.32856	AJ	10/17/2023		
 N03-0442	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/02/2023 10:00	09/03/2023 10:00	09/03/2023 10:00		0.465	GC	09/11/2023		
 N03-0443	Complete	SalemWWTP-01	Routine Surveillance	Pass	10/01/2023 8:00	10/02/2023 8:00	10/02/2023 8:00		0.40017	GC	10/03/2023		
@@ -8587,8 +8704,9 @@ N03-0447	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/24/2023 8:00	09/25/2
 N03-0448	Complete	SalemWWTP-01	Routine Surveillance	Pass	09/06/2023 8:00	09/07/2023 8:00	09/07/2023 8:00		0.45464	GC	09/11/2023		
 N03-0449	Complete	SalemWWTP-01	Routine Surveillance	Pass	11/05/2023 7:30	11/06/2023 7:30	11/06/2023 7:30		0.20433	AJ	11/07/2023		
 N03-0450	Complete	SalemWWTP-01	Routine Surveillance	Pass	10/29/2023 7:30	10/30/2023 7:30	10/30/2023 7:30		0.52788	AJ	10/31/2023		
+N03-0476		SalemWWTP-01	Routine Surveillance	Pass	12/17/2023 07:30 AM	12/18/2023 07:30 AM	12/18/2023 07:30 AM		0.311370	AJ	12/19/2023		
+N03-0481		SalemWWTP-01	Routine Surveillance	Pass	12/10/2023 07:30 AM	12/11/2023 07:30 AM	12/11/2023 07:30 AM		0.770000	AJ	12/12/2023		
 NO3-0370	Complete	SalemWWTP-01	Routine Surveillance	Pass	06/12/2023 8:00	06/13/2023 8:00	06/13/2023 8:00		3.0519	LW	06/14/2023		
-O01-0438	Complete	GraftonWWTP-01	Routine Surveillance	Pass	09/04/2023 8:00	09/05/2023 8:00	09/05/2023 8:00		1.03	GC	09/12/2023		
 O01-0001	Complete	GraftonWWTP-01	Routine Surveillance	Pass	04/19/2022 6:00	04/20/2022 6:00	04/20/2022 6:00		2.37	AJ	04/27/2022	7.31	
 O01-0002	Complete	GraftonWWTP-01	Routine Surveillance	Pass	04/14/2022 6:15	04/15/2022 6:15	04/15/2022 6:15		1.39	AJ	04/20/2022	6.92	
 O01-0003	Complete	GraftonWWTP-01	Routine Surveillance	Pass	04/07/2022 6:00	04/08/2022 6:00	04/08/2022 8:00		2.94	JL	04/13/2022	7.27	
@@ -9012,8 +9130,13 @@ O01-0451	Complete	GraftonWWTP-01	Routine Surveillance	Pass	08/28/2023 7:00	08/29
 O01-0452	Complete	GraftonWWTP-01	Routine Surveillance	Pass	09/06/2023 7:00	09/07/2023 7:00	09/07/2023 7:00		0.89	GC	09/12/2023		
 O01-0453	Complete	GraftonWWTP-01	Routine Surveillance	Pass	10/01/2023 7:00	10/02/2023 7:00	10/02/2023 7:00		0.75	GC	10/03/2023		
 O01-0454	Complete	GraftonWWTP-01	Routine Surveillance	Pass	08/30/2023 7:00	08/31/2023 7:00	08/31/2023 7:00		1.13	AJ	09/05/2023		
+O01-0457		GraftonWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.91	AJ	11/21/2023		
+O01-0458		GraftonWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		1.40	AJ	12/19/2023		
+O01-0463		GraftonWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		1.94	AJ	11/29/2023		
 O01-0467	Complete	GraftonWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		0.74	GC	11/07/2023		
+O01-0468		GraftonWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		2.83	AJ	12/12/2023		
 O01-0476	Complete	GraftonWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.66	AJ	11/13/2023		
+O01-0477		GraftonWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		1.19	GC	12/05/2023		
 P01-0001	Complete	StMarysWWTP-01	Routine Surveillance	Pass	02/25/2022 9:43	02/26/2022 9:43	02/28/2022 9:43		0.479	AJ	03/02/2022	7.09	
 P01-0002	Complete	StMarysWWTP-01	Routine Surveillance	Fail: Missing Required Data						AJ	03/02/2022	7.05	
 P01-0003	Complete	StMarysWWTP-01	Routine Surveillance	Fail: Missing Required Data						AJ	03/02/2022	6.95	
@@ -9090,13 +9213,18 @@ P01-0074	Complete	StMarysWWTP-01	Routine Surveillance	Pass	05/18/2022 10:15	05/1
 P01-0075	Complete	StMarysWWTP-01	Routine Surveillance	Pass	05/17/2022 10:00	05/18/2022 10:00	05/18/2022 10:00		0.233	JL	05/19/2022	7.07	
 P01-0078	Complete	StMarysWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.187	AJ	11/13/2023		
 P01-0079	Complete	StMarysWWTP-01	Routine Surveillance	Pass	06/06/2022 9:48	06/07/2022 9:48	06/07/2022 9:56		0.143	AJ	06/24/2022		
+P01-0081		StMarysWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		0.269	AJ	12/12/2023		
+P01-0083		StMarysWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.281	GC	12/05/2023		
 P01-0085	Complete	StMarysWWTP-01	Routine Surveillance	Pass	06/21/2022 9:35	06/22/2022 9:35	06/22/2022 9:35		0.202	AJ	06/24/2022		
 P01-0086	Complete	StMarysWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		0.207	GC	11/07/2023		
 P01-0087	Complete	StMarysWWTP-01	Routine Surveillance	Pass	06/13/2022 9:30	06/14/2022 9:30	06/14/2022 10:00		0.246	AJ	06/24/2022		
+P01-0088		StMarysWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.227	AJ	11/29/2023		
 P01-0089	Complete	StMarysWWTP-01	Routine Surveillance	Pass	06/10/2022 12:48	06/11/2022 12:48	06/11/2022 12:48		0.227	AJ	06/24/2022		
 P01-0091	Complete	StMarysWWTP-01	Routine Surveillance	Pass	06/07/2022 9:56	06/08/2022 9:56	06/08/2022 11:05		0.124	AJ	06/24/2022		
 P01-0093	Complete	StMarysWWTP-01	Routine Surveillance	Fail: Missing Required Data	06/08/2022 11:05	06/09/2022 11:05	06/10/2022 12:44			AJ	06/24/2022		
 P01-0095	Complete	StMarysWWTP-01	Routine Surveillance	Pass	10/29/2023 8:00	10/30/2023 8:00	10/30/2023 8:00		0.313	GC	10/31/2023		
+P01-0097		StMarysWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		0.237	AJ	12/19/2023		
+P01-0100		StMarysWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.2	AJ	11/21/2023		
 Q01-0001	Complete	MadisonWWTP-01	Routine Surveillance	Pass	05/04/2022 14:30	05/05/2022 8:00	05/05/2022 8:00		0.691	AJ	05/12/2022	6.86	
 Q01-0002	Complete	MadisonWWTP-01	Routine Surveillance	Pass	05/05/2022 8:00	05/06/2022 8:00	05/06/2022 8:00		0.5575	AJ	05/12/2022	6.8	
 Q01-0003	Complete	MadisonWWTP-01	Routine Surveillance	Pass	05/06/2022 8:00	05/07/2022 7:00	05/07/2022 8:00		1.16	AJ	05/12/2022	6.97	
@@ -9534,6 +9662,10 @@ Q01-0477	Complete	MadisonWWTP-01	Routine Surveillance	Fail: Volume Below Min	10/
 Q01-0478	Complete	MadisonWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		0.241	AJ	11/07/2023		
 Q01-0479	Complete	MadisonWWTP-01	Routine Surveillance	Pass	11/12/2023 8:00	11/13/2023 8:00	11/13/2023 8:00		0.269	GC	11/14/2023		
 Q01-048	Complete	MadisonWWTP-01	Routine Surveillance	Pass	06/20/2022 8:00	06/21/2022 8:00	06/21/2022 8:00		0.314	AJ	06/24/2022		
+Q01-0480		MadisonWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		0.288	AJ	11/21/2023		
+Q01-0481		MadisonWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		0.322	AJ	11/29/2023		
+Q01-0482		MadisonWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		0.276	AJ	12/11/2023		
+Q01-0483		MadisonWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		0.627	AJ	12/12/2023		
 R01-0001	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	05/04/2022 9:00	05/05/2022 9:00	05/05/2022 8:45		0.145	AJ	05/11/2022	6.63	
 R01-0002	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	05/09/2022 9:00	05/10/2022 8:30	05/10/2022 7:30		0.143	AJ	05/11/2022	6.96	
 R01-0003	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	05/16/2022 9:00	05/17/2022 8:30	05/17/2022 8:48		0.15	AJ	05/27/2022	6.87	
@@ -9641,6 +9773,7 @@ R01-0104	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	08/02/2022 9:00	
 R01-0105	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	08/19/2022 9:00	08/20/2022 8:30	08/20/2022 8:45		0.135	AJ	08/24/2022		
 R01-0106	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	11/06/2022 9:00	11/07/2022 9:00	11/07/2022 9:00		0.17	AJ	11/11/2022		
 R01-0107	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	09/01/2022 9:00	09/02/2022 9:00	09/02/2022 8:45		0.187	AJ	09/07/2022		
+R01-0108	Rejected		Routine Surveillance	Fail: Missing Required Data									
 R01-0109	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	08/03/2022 9:00	08/04/2022 8:30	08/04/2022 8:30		0.119	AJ	08/10/2022		
 R01-0110	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	10/23/2022 9:00	10/24/2022 9:00	10/24/2022 9:00		0.192	AJ	10/28/2022		
 R01-0111	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	07/26/2022 9:00	07/27/2022 8:30	07/27/2022 8:30		0.15	AJ	08/03/2022		
@@ -9850,6 +9983,8 @@ R01-0348	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	07/06/2023 8:00	
 R01-0349	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	07/19/2023 9:00	07/20/2023 9:00	07/20/2023 9:00		0.285	AJ	08/02/2023		
 R01-0350	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	07/12/2023 8:00	07/13/2023 8:00	07/13/2023 8:00		0.175	SB	07/19/2023		
 R01-0351	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	07/13/2023 8:00	07/14/2023 8:00	07/14/2023 8:00		0.196	SB	07/19/2023		
+R01-0366		HuttonsvilleWWTP-01	Routine Surveillance	Pass	12/10/2023 09:00 AM	12/11/2023 09:00 AM	12/11/2023 09:00 AM		0.221	AJ	12/12/2023		
+R01-0369		HuttonsvilleWWTP-01	Routine Surveillance	Pass	12/17/2023 09:00 AM	12/18/2023 09:00 AM	12/18/2023 09:00 AM		0.178	AJ	12/19/2023		
 R01-0377	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	08/01/2023 9:00	08/02/2023 9:00	08/02/2023 9:00		0.204	AJ	08/09/2023		
 R01-0378	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	09/13/2023 9:00	09/14/2023 9:00	09/14/2023 9:00		0.195	AJ	09/20/2023		
 R01-0379	Complete	HuttonsvilleWWTP-01	Routine Surveillance	Pass	09/05/2023 9:00	09/06/2023 9:00	09/06/2023 9:00		0.173	AJ	09/13/2023		
@@ -10210,11 +10345,14 @@ R02-0372	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	10/02/2023 6:00	10/03/
 R02-0373	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/07/2023 6:00	08/08/2023 6:00	08/08/2023 6:00		4	AJ	08/09/2023		
 R02-0374	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/14/2023 7:00	08/15/2023 6:00	08/15/2023 6:00		2.6841	JL	08/17/2023		
 R02-0375	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/04/2023 6:00	09/05/2023 6:00	09/05/2023 6:00		1.3361	GC	09/08/2023		
+R02-0379		ElkinsWWTP-01	Routine Surveillance	Pass	12/03/2023 08:00 AM	12/04/2023 08:00 AM	12/04/2023 08:00 AM		2.57	AJ	12/05/2023		
 R02-0380	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/25/2023 6:00	08/26/2023 6:00	08/26/2023 6:00		1.407	AJ	08/30/2023		
 R02-0384	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/23/2023 6:00	08/24/2023 6:00	08/24/2023 6:00		1.738	AJ	08/30/2023		
 R02-0385	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/24/2023 6:00	08/25/2023 6:00	08/25/2023 6:00		1.449	AJ	08/30/2023		
 R02-0390	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/29/2023 6:00	08/30/2023 6:00	08/30/2023 6:00		1.7788	GC	09/08/2023		
+R02-0393		ElkinsWWTP-01	Routine Surveillance	Pass	12/17/2023 08:00 AM	12/18/2023 08:00 AM	12/18/2023 08:00 AM		2.815	AJ	12/19/2023		
 R02-0396	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/28/2023 6:00	08/29/2023 6:00	08/29/2023 6:00		1.479	AJ	08/30/2023		
+R02-0400		ElkinsWWTP-01	Routine Surveillance	Pass	12/10/2023 08:00 AM	12/11/2023 08:00 AM	12/11/2023 08:00 AM		7.647	AJ	12/12/2023		
 R02-0401	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	08/09/2023 7:00	08/10/2023 6:00	08/10/2023 6:00		2.0171	JL	08/17/2023		
 R02-0403	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/18/2023 6:00	09/19/2023 6:00	09/19/2023 6:00		4.5281	AJ	09/20/2023		
 R02-0404	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/13/2023 6:00	09/14/2023 6:00	09/14/2023 6:00		2	AJ	09/20/2023		
@@ -10228,9 +10366,11 @@ R02-0413	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/28/2023 6:00	09/29/
 R02-0414	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/26/2023 6:00	09/27/2023 6:00	09/27/2023 6:00		1.8242	GC	10/05/2023		
 R02-0416	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/12/2023 6:00	09/13/2023 6:00	09/13/2023 6:00		2.2571	AJ	09/20/2023		
 R02-0417	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	11/05/2023 8:00	11/06/2023 8:00	11/06/2023 8:00		1.6245	AJ	11/07/2023		
+R02-0418		ElkinsWWTP-01	Routine Surveillance	Pass	11/26/2023 08:00 AM	11/27/2023 08:00 AM	11/27/2023 08:00 AM		2.842	AJ	11/29/2023		
 R02-0419	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/06/2023 6:00	09/07/2023 6:00	09/07/2023 6:00		1.3569	GC	09/14/2023		
 R02-0420	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	10/29/2023 8:00	10/30/2023 8:00	10/30/2023 8:00		1.621	AJ	10/31/2023		
 R02-0421	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/08/2023 6:00	09/09/2023 6:00	09/11/2023 6:00		3.4971	GC	09/14/2023		
+R02-0422		ElkinsWWTP-01	Routine Surveillance	Pass	11/19/2023 08:00 AM	11/20/2023 08:00 AM	11/20/2023 08:00 AM		2.127	AJ	11/29/2023		
 R02-0423	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	10/09/2023 6:00	10/10/2023 6:00	10/10/2023 6:00		2.2014	AJ	10/11/2023		
 R02-0424	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/14/2023 6:00	09/15/2023 6:00	09/15/2023 6:00		1.6274	AJ	09/20/2023		
 R02-0425	Complete	ElkinsWWTP-01	Routine Surveillance	Pass	09/11/2023 6:00	09/12/2023 6:00	09/12/2023 6:00		3.3818	GC	09/14/2023		
@@ -10531,6 +10671,9 @@ T01-0238	Complete	PointPleasantWWTP-01	Routine Surveillance	Pass	10/02/2023 7:00
 T01-0239	Complete	PointPleasantWWTP-01	Routine Surveillance	Pass	10/03/2023 7:00	10/04/2023 7:00	10/04/2023 7:00		0.32	AJ	10/06/2023		
 T01-0240	Complete	PointPleasantWWTP-01	Routine Surveillance	Pass	10/04/2023 7:00	10/05/2023 7:00	10/05/2023 7:00		0.39	AJ	10/06/2023		
 T01-0241	Complete	PointPleasantWWTP-01	Routine Surveillance	Pass	10/05/2023 7:00	10/06/2023 7:00	10/06/2023 7:00		0.3	AJ	10/06/2023		
+T01-0244		PointPleasantWWTP-01	Routine Surveillance	Pass	12/04/2023 07:00 AM	12/05/2023 07:00 AM	12/05/2023 07:00 AM		0.34	AJ	12/05/2023		
+T01-0245		PointPleasantWWTP-01	Routine Surveillance	Pass	12/10/2023 07:00 AM	12/11/2023 07:00 AM	12/11/2023 07:00 AM		0.19	AJ	12/12/2023		
+T01-0246		PointPleasantWWTP-01	Routine Surveillance	Pass	12/17/2023 07:00 AM	12/18/2023 07:00 AM	12/18/2023 07:00 AM		0.25	AJ	12/19/2023		
 U01-0001	Complete	WhiteOakWWTP-01	Routine Surveillance	Pass	08/01/2023 8:00	08/02/2023 8:00	08/02/2023 8:00		0.252	AJ	09/13/2023		
 U01-0002	Complete	WhiteOakWWTP-01	Routine Surveillance	Pass	08/02/2023 8:00	08/03/2023 8:00	08/03/2023 8:00		0.317	AJ	09/13/2023		
 U01-0003	Complete	WhiteOakWWTP-01	Routine Surveillance	Pass	08/03/2023 8:00	08/04/2023 8:00	08/04/2023 8:00		0.302	AJ	09/13/2023		

@@ -11,7 +11,7 @@ TODAY=$(date "+%F_%H-%M")
 UPDAY=$(date "+%B %d, %Y at %T")
 
 # Write all output to log file
-logf="logs/patchr.$START.log"
+logf="logs/patchr/patchr.$START.log"
 if [ -f "$logf" ]
 then
 	rm "$logf"

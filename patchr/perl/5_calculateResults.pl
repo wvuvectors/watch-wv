@@ -25,10 +25,10 @@ my $dbdir;
 
 while (@ARGV) {
   my $arg = shift;
-  if ($arg eq "-h") {
+  if ("$arg" eq "-h") {
 		die $usage;
   } else {
-		$dbdir = $arg;
+		$dbdir = "$arg";
 	}
 }
 
@@ -79,7 +79,7 @@ foreach my $table (keys %table2key) {
 		open (my $dbFH, "<", "$dbdir/watchdb.${table}.txt") or die "Unable to open $dbdir/watchdb.${table}.txt for reading: $!\n";
 		while (my $line = <$dbFH>) {
 			chomp $line;
-			next if $line =~ /^\s*$/;
+			next if "$line" =~ /^\s*$/;
 			my @cols = split "\t", "$line", -1;
 			if ($linenum == 0) {
 				# First line of the file contains the column names
@@ -168,6 +168,7 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 		my $resourceRef = $resources{"$sheet_name"};
 		# Loop over the values in this column. Add each to the resources hash.
 		for (my $j=2; $j < scalar(@{$colRef}); $j++) {
+			next unless defined $sheetRef->{"cell"}->[1]->[$j] and "$sheetRef->{cell}->[1]->[$j]" ne "";
 			my $key = "$sheetRef->{cell}->[1]->[$j]";
 			my $value = "";
 			$value = "$colRef->[$j]" if defined $colRef->[$j];
@@ -226,27 +227,27 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	}
 	
 	# Assay id is already present in the result table and has been validated.
-	$ahashRef->{"reject"} = "pre-existing" if defined $table2watch{"result"}->{"$assay_id"} and $table2watch{"result"}->{"$assay_id"}->{"target_result_validated"} eq "yes";
+	$ahashRef->{"reject"} = "pre-existing" if defined $table2watch{"result"}->{"$assay_id"} and lc "$table2watch{result}->{$assay_id}->{target_result_validated}" eq "yes";
 	
-	next unless $ahashRef->{"reject"} eq "no";
+	next unless "$ahashRef->{reject}" eq "no";
 
 	# Sample for this assay has been rejected or failed initial QC.
-	$ahashRef->{"reject"} = "sample rejected" if $table2watch{"sample"}->{$ahashRef->{"sample_id"}}->{"sample_status"} =~ /Rejected/i;
-	$ahashRef->{"reject"} = "sample rejected" if $table2watch{"sample"}->{$ahashRef->{"sample_id"}}->{"sample_qc"} =~ /Fail/i;
+	$ahashRef->{"reject"} = "sample rejected" if "$table2watch{sample}->{$ahashRef->{sample_id}}->{sample_status}" =~ /Rejected/i;
+	$ahashRef->{"reject"} = "sample rejected" if "$table2watch{sample}->{$ahashRef->{sample_id}}->{sample_qc}" =~ /Fail/i;
 	
 	next unless $ahashRef->{"reject"} eq "no";
 	
 	$ahashRef->{"reject"} = "abatch id problem" if 
 			!defined $ahashRef->{"assay_batch_id"} or 
-			$ahashRef->{"assay_batch_id"} eq "" or 
+			"$ahashRef->{assay_batch_id}" eq "" or 
 			!defined $table2watch{"abatch"}->{$ahashRef->{"assay_batch_id"}} or 
-			$table2watch{"abatch"}->{$ahashRef->{"assay_batch_id"}} eq "";
+			"$table2watch{abatch}->{$ahashRef->{assay_batch_id}}" eq "";
 
 	$ahashRef->{"reject"} = "extraction id problem" if 
 			!defined $ahashRef->{"extraction_id"} or 
-			$ahashRef->{"extraction_id"} eq "" or 
+			"$ahashRef->{extraction_id}" eq "" or 
 			!defined $table2watch{"extraction"}->{$ahashRef->{"extraction_id"}} or 
-			$table2watch{"extraction"}->{$ahashRef->{"extraction_id"}} eq "";
+			"$table2watch{extraction}->{$ahashRef->{extraction_id}}" eq "";
 
 	next unless $ahashRef->{"reject"} eq "no";
 	
@@ -255,15 +256,15 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	
 	$ahashRef->{"reject"} = "ebatch id problem" if 
 			!defined $ehash{"extraction_batch_id"} or 
-			$ehash{"extraction_batch_id"} eq "" or 
+			"$ehash{extraction_batch_id}" eq "" or 
 			!defined $table2watch{"ebatch"}->{$ehash{"extraction_batch_id"}} or 
-			$table2watch{"ebatch"}->{$ehash{"extraction_batch_id"}} eq "";
+			"$table2watch{ebatch}->{$ehash{extraction_batch_id}}" eq "";
 
 	$ahashRef->{"reject"} = "concentration id problem" if 
 			!defined $ehash{"concentration_id"} or 
-			$ehash{"concentration_id"} eq "" or 
+			"$ehash{concentration_id}" eq "" or 
 			!defined $table2watch{"concentration"}->{$ehash{"concentration_id"}} or 
-			$table2watch{"concentration"}->{$ehash{"concentration_id"}} eq "";
+			"$table2watch{concentration}->{$ehash{concentration_id}}" eq "";
 
 	next unless $ahashRef->{"reject"} eq "no";
 	
@@ -272,15 +273,15 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	
 	$ahashRef->{"reject"} = "cbatch id problem" if 
 			!defined $chash{"concentration_batch_id"} or 
-			$chash{"concentration_batch_id"} eq "" or 
+			"$chash{concentration_batch_id}" eq "" or 
 			!defined $table2watch{"cbatch"}->{$chash{"concentration_batch_id"}} or 
-			$table2watch{"cbatch"}->{$chash{"concentration_batch_id"}} eq "";
+			"$table2watch{cbatch}->{$chash{concentration_batch_id}}" eq "";
 
 	$ahashRef->{"reject"} = "sample id problem" if 
 			!defined $chash{"sample_id"} or 
-			$chash{"sample_id"} eq "" or 
+			"$chash{sample_id}" eq "" or 
 			!defined $table2watch{"sample"}->{$chash{"sample_id"}} or 
-			$table2watch{"sample"}->{$chash{"sample_id"}} eq "";
+			"$table2watch{sample}->{$chash{sample_id}}" eq "";
 
 	next unless $ahashRef->{"reject"} eq "no";
 	
@@ -289,13 +290,14 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	
 	$ahashRef->{"reject"} = "location id problem" if 
 			!defined $shash{"location_id"} or 
-			$shash{"location_id"} eq "" or 
+			"$shash{location_id}" eq "" or 
 			!defined $resources{"location"}->{$shash{"location_id"}} or 
-			$resources{"location"}->{$shash{"location_id"}} eq "";
+			"$resources{location}->{$shash{location_id}}" eq "";
 
 }
 
 #print Dumper(\%table2watch);
+#print Dumper(\%resources);
 #print Dumper(\%controls);
 #die;
 
@@ -312,8 +314,8 @@ print $ctlFH "assay_batch_id\tdye\tassay_date\n";
 foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	my %assay = %{$table2watch{"assay"}->{"$assay_id"}};
 	
-	if ($assay{"reject"} ne "no") {
-		if ($assay{"reject"} =~ "problem") {
+	if ("$assay{reject}" ne "no") {
+		if ("$assay{reject}" =~ "problem") {
 			print $resFH "$assay_id\t$assay{reject}\n";
 			$status++;
 		}
@@ -364,7 +366,7 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 																					 "target_per_capita_basis"   => 100,
 																					 "nc_copies_per_rxn"	       => "NA",
 																					 "pc_copies_per_rxn"	       => "NA",
-																					 "target_result_validated"	 => "NA"
+																					 "target_result_validated"	 => ""
 																					};
 	
 	## NEED to check that all of the required values exist; otherwise skip to the next assay.
@@ -430,6 +432,8 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 
 close $resFH;
 
+#print Dumper($table2watch{"result"});
+#die;
 
 
 # Add data from Marshall University to result file
@@ -473,7 +477,6 @@ if (-f "$WATCHFILE_MU") {
 #
 # Write the result file
 #
-
 my @result_colnames = ("assay_id",
 											 "sample_id",
 											 "collection_start_datetime",
@@ -502,7 +505,7 @@ foreach my $assay_id (keys %{$table2watch{"result"}}) {
 	for (my $i=1; $i < scalar(@result_colnames); $i++) {
 		my $colname = $result_colnames[$i];
 		my $colval  = "NA";
-		if (defined $table2watch{"result"}->{"$assay_id"}->{"$colname"} and isEmpty($table2watch{"result"}->{"$assay_id"}->{"$colname"}) == 0) {
+		if (defined $table2watch{"result"}->{"$assay_id"}->{"$colname"}) {
 			$colval = trim($table2watch{"result"}->{"$assay_id"}->{"$colname"});
 		}
 		print $rFH "\t$colval";
@@ -574,36 +577,40 @@ sub doCalcBase {
 	
 	my $do = 1;
 	$do = 0 unless defined $a->{"assay_target_copies_per_ul_reaction"} and 
-												 $a->{"assay_target_copies_per_ul_reaction"} ne "" and 
-												 $a->{"assay_target_copies_per_ul_reaction"} ne "NA" and 
-								 defined $a->{"assay_input_ul"} and 
-												 $a->{"assay_input_ul"} ne "" and 
-												 $a->{"assay_input_ul"} ne "NA";
+												 "$a->{assay_target_copies_per_ul_reaction}" ne "" and 
+												 "$a->{assay_target_copies_per_ul_reaction}" ne "NA"; 
+
+	$do = 0 unless defined $a->{"assay_input_ul"} and 
+												 "$a->{assay_input_ul}" ne "" and 
+												 "$a->{assay_input_ul}" ne "NA";
 												 
 	$do = 0 unless defined $ab->{"assay_reaction_ul"} and 
-												 $ab->{"assay_reaction_ul"} ne "" and 
-												 $ab->{"assay_reaction_ul"} ne "NA";
+												 "$ab->{assay_reaction_ul}" ne "" and 
+												 "$ab->{assay_reaction_ul}" ne "NA";
 
 	$do = 0 unless defined $eb->{"extraction_output_ul"} and 
-												 $eb->{"extraction_output_ul"} ne "" and 
-												 $eb->{"extraction_output_ul"} ne "NA" and 
-								 defined $eb->{"extraction_input_ul"} and 
-												 $eb->{"extraction_input_ul"} ne "" and 
-												 $eb->{"extraction_input_ul"} ne "NA";
+												 "$eb->{extraction_output_ul}" ne "" and 
+												 "$eb->{extraction_output_ul}" ne "NA";
+												  
+	$do = 0 unless defined $eb->{"extraction_input_ul"} and 
+												 "$eb->{extraction_input_ul}" ne "" and 
+												 "$eb->{extraction_input_ul}" ne "NA";
 
 	$do = 0 unless defined $cb->{"concentration_output_ml"} and 
-												 $cb->{"concentration_output_ml"} ne "" and 
-												 $cb->{"concentration_output_ml"} ne "NA" and 
-								 defined $cb->{"concentration_input_ml"} and 
-												 $cb->{"concentration_input_ml"} ne "" and 
-												 $cb->{"concentration_input_ml"} ne "NA";
+												 "$cb->{concentration_output_ml}" ne "" and 
+												 "$cb->{concentration_output_ml}" ne "NA";
+												  
+	$do = 0 unless defined $cb->{"concentration_input_ml"} and 
+												 "$cb->{concentration_input_ml}" ne "" and 
+												 "$cb->{concentration_input_ml}" ne "NA";
 
 	$do = 0 unless defined $loc->{"location_collection_window_hrs"} and 
-												 $loc->{"location_collection_window_hrs"} ne "" and 
-												 $loc->{"location_collection_window_hrs"} ne "NA" and 
-								 defined $loc->{"location_collection_basis"} and 
-												 $loc->{"location_collection_basis"} ne "" and 
-												 $loc->{"location_collection_basis"} ne "NA";
+												 "$loc->{location_collection_window_hrs}" ne "" and 
+												 "$loc->{location_collection_window_hrs}" ne "NA";
+												  
+	$do = 0 unless defined $loc->{"location_collection_basis"} and 
+												 "$loc->{location_collection_basis}" ne "" and 
+												 "$loc->{location_collection_basis}" ne "NA";
 	return $do;
 }
 
@@ -612,19 +619,18 @@ sub doCalcFlowNorm {
 	my $loc = shift;
 	
 	my $do = 1;
-	$do = 0 unless defined $s->{"sample_flow"} and 
-												 $s->{"sample_flow"} ne "" and 
-												 $s->{"sample_flow"} ne "NA" and 
-								 defined $a->{"assay_input_ul"} and 
-												 $a->{"assay_input_ul"} ne "" and 
-												 $a->{"assay_input_ul"} ne "NA";
+	$do = 0 if !defined $s->{"sample_flow"} or 
+												 "$s->{sample_flow}" eq "0" or 
+												 "$s->{sample_flow}" eq "" or 
+												 "$s->{sample_flow}" eq "NA";
 
-	$do = 0 unless defined $loc->{"location_collection_window_hrs"} and 
-												 $loc->{"location_collection_window_hrs"} ne "" and 
-												 $loc->{"location_collection_window_hrs"} ne "NA" and 
-								 defined $loc->{"location_collection_basis"} and 
-												 $loc->{"location_collection_basis"} ne "" and 
-												 $loc->{"location_collection_basis"} ne "NA";
+	$do = 0 if !defined $loc->{"location_collection_window_hrs"} or 
+												 "$loc->{location_collection_window_hrs}" eq "" or 
+												 "$loc->{location_collection_window_hrs}" eq "NA"; 
+
+	$do = 0 if !defined $loc->{"location_collection_basis"} or 
+												 "$loc->{location_collection_basis}" eq "" or 
+												 "$loc->{location_collection_basis}" eq "NA";
 
 	return $do;
 }
@@ -633,9 +639,9 @@ sub doCalcPop {
 	my $loc = shift;
 	
 	my $do = 1;
-	$do = 0 unless defined $loc->{"location_population_served"} and 
-												 $loc->{"location_population_served"} ne "" and 
-												 $loc->{"location_population_served"} ne "NA";
+	$do = 0 if !defined $loc->{"location_population_served"} or 
+												 "$loc->{location_population_served}" eq "" or 
+												 "$loc->{location_population_served}" eq "NA";
 
 	return $do;
 }
@@ -668,7 +674,7 @@ sub calcCopiesPop {
 	my $basis = shift;
 	my $loc   = shift;
 
-	my $val = "NA";
+	my $val = "-";
 
 	my $pop = $loc->{"location_population_served"};
 	$pop =~ s/,//i;
@@ -677,14 +683,14 @@ sub calcCopiesPop {
 	return $val;
 }
 
-sub calcFlowNorm {
+sub calcCopiesFlowNorm {
 	# copies/liter x 3.78541 liters/gallon x 10^6 gallon/million_gallons x flow million_gallons/day x 1 day/24 hrs x collection_time_hrs
 	my $cpl = shift;
 	my $s   = shift;
 	my $loc = shift;
 
 	my $val = "NA";
-	if ($loc->{"location_collection_basis"}) {
+	if ("$loc->{location_collection_basis}" =~ /flow/) {
 		$val = $cpl;
 	} else {
 		my $flow = $s->{"sample_flow"};

@@ -1,0 +1,50 @@
+Sample ID
+type
+category
+group
+level
+county_population
+Location
+status
+Sample Composite Start
+Sample Composite End
+Sample Received Date
+collection_scheme
+location_common_name
+location_zipcode
+location_info
+longitude
+latitude
+population_served
+counties_served
+capacity_mgd
+responsible_lab
+responsible_lab_abbrev
+daily_flow
+n1
+n2
+n1n2
+n1.load
+n2.load
+n1n2.load
+n1.loadcap
+n2.loadcap
+n1n2.loadcap
+n1.day5.mean
+n1.day5.ci
+n1.load.day5.mean
+n1.load.day5.ci
+n1.loadcap.day5.mean
+n1.loadcap.day5.ci
+n1n2.day5.mean
+n1n2.day5.ci
+n1n2.load.day5.mean
+n1n2.load.day5.ci
+n1n2.loadcap.day5.mean
+n1n2.loadcap.day5.ci
+n2.day5.mean
+n2.day5.ci
+n2.load.day5.mean
+n2.load.day5.ci
+n2.loadcap.day5.mean
+n2.loadcap.day5.ci
