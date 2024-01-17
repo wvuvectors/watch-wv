@@ -59,7 +59,7 @@ open (my $fFH, "<", "resources/${feed}_fields.txt") or die "FATAL: Unable to ope
 while (my $line = <$fFH>) {
 	chomp $line;
 	next if $line =~ /^\s*$/;
-	push @feed_headers, "$line";
+	push @feed_headers, trim("$line");
 }
 close $fFH;
 
@@ -72,16 +72,26 @@ while (my $line = <$vFH>) {
 	chomp $line;
 	next if $line =~ /^\s*$/;
 	#my @cols = split /\t/, "$line", -1;
-	my ($extref_field, $extref_value, $watch_table, $watch_field, $watch_value, $reference) = split /\t/, "$line", -1;
 	if ($linenum == 0) {
 		$linenum++;
 	} else {
+		my ($extref_field, $watch_table, $watch_field, $watch_value, $extref_value) = split /\t/, "$line", -1;
+		$extref_field = trim("$extref_field");
+		$watch_table  = trim("$watch_table");
+		$watch_field  = trim("$watch_field");
+		$watch_value  = trim("$watch_value");
+		$extref_value = trim("$extref_value");
+
 		$feed_cvmap{"$extref_field"} = {} unless defined $feed_cvmap{"$extref_field"};
-		$feed_cvmap{"$extref_field"}->{"$watch_field"} = {} unless defined $feed_cvmap{"$extref_field"}->{"$watch_field"};
-		$feed_cvmap{"$extref_field"}->{"$watch_field"}->{"$watch_value"} = {"value" => "$extref_value", "reference" => "$reference"};
+		$feed_cvmap{"$extref_field"}->{"$watch_table"} = {} unless defined $feed_cvmap{"$extref_field"}->{"$watch_table"};
+		$feed_cvmap{"$extref_field"}->{"$watch_table"}->{"$watch_field"} = {} unless defined $feed_cvmap{"$extref_field"}->{"$watch_table"}->{"$watch_field"};
+		$feed_cvmap{"$extref_field"}->{"$watch_table"}->{"$watch_field"}->{"$watch_value"} = "$extref_value";
 	}
 }
 close $vFH;
+
+#print Dumper(\%feed_cvmap);
+#die;
 
 
 my %tables = (
@@ -120,11 +130,11 @@ foreach my $table (keys %tables) {
 		if ($linenum == 0) {
 			$linenum++;
 			for (@cols) {
-				push @headers, "$_";
+				push @headers, trim("$_");
 			}
 		} else {
 			# first field is always the uid regardless of table
-			my $uid = $cols[0];
+			my $uid = trim("$cols[0]");
 
 			$tables{"$table"}->{"$uid"} = {};
 			for (my $i=0; $i < scalar(@cols); $i++) {
@@ -159,7 +169,7 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 	for (my $i=1; $i < scalar(@{$sheetRef->{"cell"}}); $i++) {
 		#print "$sheetRef->{cell}->[$i]->[1]\n";
 		next unless defined $sheetRef->{"cell"}->[$i]->[1] and "$sheetRef->{cell}->[$i]->[1]" ne "";
-		my $col_name = "$sheetRef->{cell}->[$i]->[1]";
+		my $col_name = trim("$sheetRef->{cell}->[$i]->[1]");
 		push @field_names, "$col_name";
 	}
 	#print Dumper(\@field_names);
@@ -170,7 +180,7 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 	for (my $i=2; $i < scalar(@{$sheetRef->{"cell"}->[1]}); $i++) {
 		#print "$sheetRef->{cell}->[1]->[$i]\n";
 		next unless defined $sheetRef->{"cell"}->[1]->[$i] and "$sheetRef->{cell}->[1]->[$i]" ne "";
-		my $key = "$sheetRef->{cell}->[1]->[$i]";
+		my $key = trim("$sheetRef->{cell}->[1]->[$i]");
 		$resources{"$sheet_name"}->{"$key"} = {};
 	}
 	#last;
@@ -181,14 +191,14 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 	for (my $i=0; $i < scalar(@{$sheetRef->{"cell"}})-1; $i++) {
 		next unless defined $sheetRef->{"cell"}->[$i+1] and defined $field_names[$i] and "$field_names[$i]" ne "";
 		my $colRef = $sheetRef->{"cell"}->[$i+1];
-		my $field = "$field_names[$i]";
+		my $field = trim("$field_names[$i]");
 		my $resourceRef = $resources{"$sheet_name"};
 		# Loop over the values in this column. Add each to the resources hash.
 		for (my $j=2; $j < scalar(@{$colRef}); $j++) {
 			next unless defined $sheetRef->{"cell"}->[1]->[$j];
-			my $key = "$sheetRef->{cell}->[1]->[$j]";
+			my $key = trim("$sheetRef->{cell}->[1]->[$j]");
 			my $value = "";
-			$value = "$colRef->[$j]" if defined $colRef->[$j];
+			$value = trim("$colRef->[$j]") if defined $colRef->[$j];
 			$resources{"$sheet_name"}->{"$key"}->{"$field"} = "$value";
 		}
 	}
@@ -208,27 +218,27 @@ my @map_rows = Spreadsheet::Read::rows($map_wkbk->[1]);
 
 my %map_headers = ();
 for (my $i=0; $i < scalar(@{$map_rows[0]}); $i++) {
-	$map_headers{$i} = $map_rows[0][$i];
+	$map_headers{$i} = trim("$map_rows[0][$i]");
 }
 
 for (my $i=1; $i < scalar(@map_rows); $i++) {
-	my $extref_field = $map_rows[$i][1];
-	$map{$extref_field} = {};
+	my $extref_field = trim("$map_rows[$i][1]");
+	$map{"$extref_field"} = {};
 	for (my $j=0; $j < scalar(@{$map_rows[$i]}); $j++) {
-		$map{$extref_field}->{"$map_headers{$j}"} = $map_rows[$i][$j];
+		my $val = "";
+		$val = trim("$map_rows[$i][$j]") if defined $map_rows[$i][$j];
+		$map{"$extref_field"}->{"$map_headers{$j}"} = "$val";
 	}
 }
 #print Dumper(\%map);
 #die;
-
 #print Dumper(\@feed_headers);
 #die;
 
+
 # To assemble the output file, we loop over entries in the result table.
 # For each result, we loop over @feed_headers in order, assemble the line, and print it.
-
-#open(my $oFH, ">", "$OUTFILE_BK") or die "Unable to open $OUTFILE_BK for writing: $!";
-#print $oFH "\"" . join("\",\"", @feed_headers) . "\"\n";
+#
 print "\"" . join("\",\"", @feed_headers) . "\"\n";
 
 RSLTLOOP:
@@ -237,17 +247,28 @@ foreach my $assay_id (keys %{$tables{"result"}}) {
 	
 	# A few short-circuits:
 	#
+	# Standardize results with no flow.
+	$resultRef->{"sample_flow"} = "" if "$resultRef->{sample_flow}" eq "NA" or "$resultRef->{sample_flow}" eq "0";
+	#
 	# Skip results with NTC contamination.
 	next if lc("$resultRef->{target_result_validated}") eq "ntc above threshold";
 	#
 	# Skip if pcr_target is not in NWSS controlled vocabulary.
-	next unless defined $feed_cvmap{"pcr_target"}->{"assay_target"}->{"$resultRef->{target}"};
+	next unless defined $feed_cvmap{"pcr_target"}->{"assay"}->{"assay_target"}->{"$resultRef->{target}"};
 	#
 	# Skip if pcr_gene_target is not in NWSS controlled vocabulary.
-	next unless defined $feed_cvmap{"pcr_gene_target"}->{"assay_target_genetic_locus"}->{"$resultRef->{target_genetic_locus}"};
+	next unless defined $feed_cvmap{"pcr_gene_target"}->{"assay"}->{"assay_target_genetic_locus"}->{"$resultRef->{target_genetic_locus}"};
 	#	
-	# Standardize results with no flow.
-	$resultRef->{"sample_flow"} = "" if "$resultRef->{sample_flow}" eq "NA" or "$resultRef->{sample_flow}" eq "0";
+	# Skip if sample_flow is empty.
+	next if "$resultRef->{sample_flow}" eq "";
+	#
+	# Skip unless location_category is wwtp.
+	my $locid = $resultRef->{"location_id"};
+	next if !defined $locid or "$locid" eq "";
+	my $loc_cat = $resources{"location"}->{"$locid"}->{"location_category"};
+	next unless defined $loc_cat;
+	next unless "$loc_cat" eq "wwtp";
+
 
 	my @result_vals = ();
 	my $val_pass    = 0;
@@ -275,10 +296,15 @@ foreach my $assay_id (keys %{$tables{"result"}}) {
 			my $table = "$mapEntry{WaTCH_table}";
 			$val = lookupLinked("$assay_id", "$table", "$mapEntry{linked_field}");
 		} elsif ("$mapEntry{WaTCH_field}" eq "[calculated]") {
-			# Call the calcNWSS sub to figure this out.
+			# Call the calcExtref sub to figure this out.
 			my $lfield = "";
 			$lfield = "$mapEntry{linked_field}" if defined $mapEntry{"linked_field"};
 			$val = calcExtref("$assay_id", "$header", "$lfield");
+		} elsif ("$mapEntry{WaTCH_field}" eq "[translated]") {
+			# Call the translateExtref sub to figure this out.
+			my $lfield = "";
+			$lfield = "$mapEntry{linked_field}" if defined $mapEntry{"linked_field"};
+			$val = translateExtref("$assay_id", "$header", "$lfield");
 		} elsif ("$mapEntry{WaTCH_table}" eq "result") {
 			# Look up this field in the results table directly.
 			my $table = $mapEntry{"WaTCH_table"};
@@ -325,26 +351,28 @@ sub lookupLinked {
 	my $table_cat = "table";
 	my $linkedId;
 
-	if ("$tname" eq "abatch") {
+	if ("$tname" eq "abatch") {																											#abatch
 		$linkedId = $tables{"assay"}->{"$aid"}->{"assay_batch_id"};
-	} elsif ("$tname" eq "cbatch") {
+	} elsif ("$tname" eq "cbatch") {																								#cbatch
 		my $eid = $tables{"assay"}->{"$aid"}->{"extraction_id"};
 		my $cid = $tables{"extraction"}->{"$eid"}->{"concentration_id"};
 		$linkedId = $tables{"concentration"}->{"$cid"}->{"concentration_batch_id"};
-	} elsif ("$tname" eq "ebatch") {
+	} elsif ("$tname" eq "ebatch") {																								#ebatch
 		my $eid = $tables{"assay"}->{"$aid"}->{"extraction_id"};
 		$linkedId = $tables{"extraction"}->{"$eid"}->{"extraction_batch_id"};
-	} elsif ("$tname" eq "location") {
+	} elsif ("$tname" eq "location") {																							#location
 		$table_cat = "resource";
 		$linkedId = $tables{"result"}->{"$aid"}->{"location_id"};
-	} elsif ("$tname" eq "wwtp") {
+	} elsif ("$tname" eq "wwtp") {																									#wwtp
 		$table_cat = "resource";
 		my $locid = $tables{"result"}->{"$aid"}->{"location_id"};
 		$linkedId = $resources{"location"}->{"$locid"}->{"location_primary_wwtp_id"};
-	} elsif ("$tname" eq "county") {
+	} elsif ("$tname" eq "county") {																								#county
 		$table_cat = "resource";
 		my $locid = $tables{"result"}->{"$aid"}->{"location_id"};
 		$linkedId = $resources{"location"}->{"$locid"}->{"location_counties_served"};
+	} elsif ("$tname" eq "assay") {																									#assay
+		$linkedId = $aid;
 	}
 	
 	my $linked_val = "";
@@ -403,13 +431,6 @@ sub calcExtref {
 		} else {
 			$val = "no";
 		}
-	} elsif ("$extref_field" =~ /^pcr.+target(.*)$/) {
-		my $watch_val = $tables{"assay"}->{"$aid"}->{"$linked_field"};
-		if ("$1" eq "_ref") {
-			$val = "$feed_cvmap{$extref_field}->{$linked_field}->{$watch_val}->{reference}" if defined $feed_cvmap{"$extref_field"}->{"$linked_field"}->{"$watch_val"}->{"reference"};
-		} else {
-			$val = "$feed_cvmap{$extref_field}->{$linked_field}->{$watch_val}->{value}" if defined $feed_cvmap{"$extref_field"}->{"$linked_field"}->{"$watch_val"}->{"value"};
-		}
 	} elsif ("$extref_field" eq "sample_location") {
 		my $locid = $tables{"result"}->{"$aid"}->{"location_id"};
 		$val = $resources{"location"}->{"$locid"}->{"location_category"};
@@ -424,17 +445,41 @@ sub calcExtref {
 		my $hrs = $resources{"location"}->{"$locid"}->{"location_collection_window_hrs"};
 		my $bas = $resources{"location"}->{"$locid"}->{"location_collection_basis"};
 		$val = "$hrs" . "-hr " . "$bas" . "-weighted composite";
+	}
+	
+	return "$val";
+}
+
+
+sub translateExtref {
+	my $aid          = shift;
+	my $extref_field = shift;
+	my $linked_field = shift;
+	
+	my $val = "";
+	my $watch_val = "";
+	my $linked_table = "";
+	my $uid = "";
+	
+	if ("$extref_field" =~ /^pcr_/) {
+		$linked_table = "assay";
+		$uid = "$aid";
 	} elsif ("$extref_field" eq "extraction_method") {
 		my $eid  = $tables{"assay"}->{"$aid"}->{"extraction_id"};
 		my $ebid = $tables{"extraction"}->{"$eid"}->{"extraction_batch_id"};
-		my $wval = $tables{"ebatch"}->{"$ebid"}->{"$linked_field"};
-		$val = "$feed_cvmap{$extref_field}->{$linked_field}->{$wval}->{value}" if defined $feed_cvmap{"$extref_field"}->{"$linked_field"}->{"$wval"}->{"value"};
+		$linked_table = "ebatch";
+		$uid = "$ebid";
 	} elsif ("$extref_field" eq "concentration_method") {
 		my $eid  = $tables{"assay"}->{"$aid"}->{"extraction_id"};
 		my $cid  = $tables{"extraction"}->{"$eid"}->{"concentration_id"};
 		my $cbid = $tables{"concentration"}->{"$cid"}->{"concentration_batch_id"};
-		my $wval = $tables{"cbatch"}->{"$cbid"}->{"$linked_field"};
-		$val = "$feed_cvmap{$extref_field}->{$linked_field}->{$wval}->{value}" if defined $feed_cvmap{"$extref_field"}->{"$linked_field"}->{"$wval"}->{"value"};
+		$linked_table = "cbatch";
+		$uid = "$cbid";
+	}
+	
+	if (defined $tables{"$linked_table"}->{"$uid"}->{"$linked_field"}) {
+		$watch_val = "$tables{$linked_table}->{$uid}->{$linked_field}";
+		$val = "$feed_cvmap{$extref_field}->{$linked_table}->{$linked_field}->{$watch_val}" if defined $feed_cvmap{"$extref_field"}->{"$linked_table"}->{"$linked_field"}->{"$watch_val"};
 	}
 	
 	return "$val";

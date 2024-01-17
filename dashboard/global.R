@@ -3,7 +3,6 @@ source("version.R")
 # libraries
 library(tidyverse)
 library(dplyr)
-library(lubridate)
 library(data.table)
 library(zoo)
 
@@ -13,6 +12,7 @@ library(viridis)
 library(RColorBrewer)
 
 library(scales)
+library(lubridate)
 
 library(plotly)
 library(shiny)
@@ -21,12 +21,14 @@ library(shinythemes)
 library(shinyWidgets)
 library(leaflet)
 library(fontawesome)
+library(DT)
 #library(leaflet.extras)
 library(rsconnect)
 
 library(sf)
 library(tigris)
 options(tigris_use_cache = TRUE)
+library(rgdal)
 
 #rsconnect::deployApp('path/to/your/app')
 
@@ -45,37 +47,23 @@ options(tigris_use_cache = TRUE)
 #12 Chart 12 #0084d1	Carolina blue
 
 
-MAP_CENTERS <- data.frame("layer" = c("WWTP", "Sewer Network"),
-													"lat" = c(38.991883, 39.642414),
-													"lng" = c(-81.6534217, -79.9792327),
-													"zoom" = c(8, 13))
+GEOLEVELS <- c("Facility", "County")
+GEOLEVELS_DEFAULT <- "County"
 
-INFECTIONS <- c("SARS-CoV-2")
-INFECTIONS_DEFAULT <- "SARS-CoV-2"
+TARGETS <- c("SARS-CoV-2", "Flu A", "Flu B", "RSV", "Norovirus")
+TARGET_PRIMARY <- "SARS-CoV-2"
 
-TARGETS <- c("Mean N1 & N2", "N1", "N2")
-TARGET_VALUES <- c("n1n2", "n1", "n2")
-TARGETS_DEFAULT <- "n1n2"
+LOCI <- c("N1", "N2")
+LOCUS_PRIMARY <- "N2"
 
-TARGET_COLORS <- c("#4b1f6f", "#0084d1", "#aecf00")
-TARGET_FILLS <- c("#4b1f6f", "#0084d1", "#aecf00")
+VIEW_RANGES <- c(1, 3, 6, 12, 24)
+VIEW_RANGE_PRIMARY <- 12
 
-TARGETS_DF <- data.frame("infection" = c("SARS-CoV-2", "SARS-CoV-2", "SARS-CoV-2"),
-												 "target_name" = c("Mean N1 & N2", "N1", "N2"),
-												 "target_value" = c("n1n2", "n1", "n2")
-												)
-
-SIGNAL_TREND_WINDOW <- 5
-STRENGTH_WEIGHT <- 1
-TREND_WEIGHT <- 1.5
-
-SMOOTHER_OPTIONS <- c(1, 3, 5, 7, 10, 14)
-SMOOTHER_DEFAULT <- 5
-
-L_per_gal <- 3.78541
+MAP_CENTER <- list2env(list(lat = 38.951883, lng = -80.0534217, zoom = 7))
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
+#today <- as.Date("2022-07-12")
 
 plot_theme <- function () { 
 	theme(axis.text = element_text(size = 8),
@@ -89,10 +77,11 @@ plot_theme <- function () {
 				panel.background = element_rect(fill="transparent"), 
 				panel.border = element_rect(fill=NA, color="#bbbbbb", linewidth=1), 
 				legend.position = "none",
-				#legend.justification = c("right", "top"),
-				#legend.box.just = "right",
+				legend.justification = c("left", "top"),
+				#legend.direction = "horizontal",
+				legend.box.just = "center",
 				#legend.margin = margin(6, 6, 6, 6),
-				legend.title = element_text(size = 10, color = "#888888"),
+				legend.title = element_blank(),
 				legend.background = element_rect(fill="transparent"), 
 				legend.text = element_text(size = 8, color = "#333333"),
 				plot.background = element_rect(fill="transparent"), 
@@ -136,182 +125,63 @@ format_dates <- function(x) {
 
 
 
-# Load the data files
 
-#county_sf <- read_sf("data/WV_Counties/County_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
-state_sf <- read_sf("data/WV_State/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+# Load shape files
+county_spdf <- readOGR( 
+  dsn= paste0("shapefiles/wv_counties/") , 
+  layer="WV_Counties",
+  verbose=FALSE
+)
+#state_spdf <- read_sf("shapefiles/wv_state/State_wld.shp") %>% st_transform("+proj=longlat +datum=WGS84 +no_defs")
+mypalette <- colorBin(palette="YlOrBr", domain=county_spdf@data$POPCH_PCT, na.color="transparent")
 
-watch_file = "data/watch_dashboard.LATEST.txt"
-df_watch_load <- as.data.frame(read.table(watch_file, sep="\t", header=TRUE, check.names=FALSE))
-df_watch_pre <- df_watch_load %>% filter(status == "active" | status == "new")
+
+
+# Load data files
+df_county <- as.data.frame(read.table("data/county.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_lab <- as.data.frame(read.table("data/lab.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_location <- as.data.frame(read.table("data/location.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_target <- as.data.frame(read.table("data/target.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_result <- as.data.frame(read.table("data/result.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_sample <- as.data.frame(read.table("data/sample.txt", sep="\t", header=TRUE, check.names=FALSE))
+df_wwtp <- as.data.frame(read.table("data/wwtp.txt", sep="\t", header=TRUE, check.names=FALSE))
+
+TARGET_CLASS = unique(df_target %>% filter(target_id == TARGET_PRIMARY))$target_class
+DISEASE_PRIMARY = unique(df_target %>% filter(target_id == TARGET_PRIMARY))$target_disease
+
+
+df_hosp1 <- as.data.frame(read.table("data/hospitalizations.csv", sep=",", header=TRUE, check.names=TRUE))
+colnames(df_hosp1)[1] <- "i"
+df_hosp1$time_value <- ymd(df_hosp1$time_value)
+df_hosp2 <- df_hosp1 %>% group_by(time_value, location_name) %>% summarize(rolling_weekly_mean = sum(value)*7)
+df_hosp2$mmr_year <- lubridate::year(df_hosp2$time_value)
+df_hosp2$mmr_week <- lubridate::week(df_hosp2$time_value)
+df_hospital <- df_hosp2 %>% group_by(mmr_year, mmr_week, location_name) %>% summarize(weekly_sum = round(sum(rolling_weekly_mean), digits = 0))
+
+
+# Filter out locations that are not active
+df_location <- df_location %>% filter(tolower(location_status) == "active")
+
+# Filter out data entries that did not pass QC
+df_result <- df_result %>% filter(target_result_validated == 1)
+df_sample <- df_sample %>% filter(tolower(sample_qc) == "pass")
 
 
 # Convert date strings into Date objects
-
-df_watch_pre$"Sample Composite Start" <- mdy(df_watch_pre$"Sample Composite Start")
-df_watch_pre$"Sample Composite End" <- mdy(df_watch_pre$"Sample Composite End")
-df_watch_pre$"Sample Received Date" <- mdy(df_watch_pre$"Sample Received Date")
-
-df_watch_pre$day <- as_date(df_watch_pre$"Sample Composite End")
-df_watch_pre$week_starting <- floor_date(df_watch_pre$day, "week", week_start = 1)
-df_watch_pre$week_ending <- ceiling_date(df_watch_pre$day, "week", week_start = 7)
-
-df_watch_pre$day_received <- as_date(df_watch_pre$"Sample Received Date")
-#df_watch_pre$week_num <- week(df_watch_pre$week_ending)
-#df_watch_pre$week_alt <- 1 + (df_watch_pre$week_num %% 2)
+df_result$collection_start_datetime <- mdy_hm(df_result$collection_start_datetime)
+df_result$collection_end_datetime <- mdy_hm(df_result$collection_end_datetime)
+df_sample$sample_collection_start_datetime <- mdy_hm(df_sample$sample_collection_start_datetime)
+df_sample$sample_collection_end_datetime <- mdy_hm(df_sample$sample_collection_end_datetime)
+df_sample$sample_recovered_datetime <- mdy_hm(df_sample$sample_recovered_datetime)
+df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
 
 
-# Set date constraints on input data
-# May want to change this in the future?
-last_day <- max(df_watch_pre$day)
-#first_day <- min(df_watch_pre$day)
-first_day <- last_day - years(1)
-df_watch_pre <- df_watch_pre %>% filter(day >= first_day & day <= last_day)
+# Create a date to plot
+df_result$date_to_plot <- as.Date(df_result$collection_end_datetime)
 
-# TEMP KLUDGE!!!
-#df_watch_pre <- df_watch_pre %>% filter(location_common_name != "Huntington")
+df_result$mmr_year <- lubridate::year(df_result$date_to_plot)
+df_result$mmr_week <- lubridate::week(df_result$date_to_plot)
 
-# Set the primary plot column names for each group
-#df_watch_pre <- df_watch_pre %>% mutate(plot_view_col = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean", no = "n1n2.day5.mean"),
-#																				plot_view_colbase = ifelse(group == "WWTP", yes = "n1n2.loadcap.day5.mean.baseline", no = "n1n2.day5.mean.baseline"))
+df_result$week_starting <- floor_date(df_result$date_to_plot, "week", week_start = 1)
+df_result$week_ending <- ceiling_date(df_result$date_to_plot, "week", week_start = 1)
 
-# Make some simpler aliases for common numeric columns
-#df_watch_pre$daily_flow = df_watch_pre$"Sample Flow (MGD)"
-
-df_watch_pre$n1n2.day1.mean <- df_watch_pre$n1n2
-df_watch_pre$n1n2.day1.ci <- 0
-
-df_watch_pre$n1n2.load.day1.mean <- df_watch_pre$n1n2.load
-df_watch_pre$n1n2.load.day1.ci <- 0
-
-df_watch_pre$n1n2.loadcap.day1.mean <- df_watch_pre$n1n2.loadcap
-df_watch_pre$n1n2.loadcap.day1.ci <- 0
-
-baselines <- c("n1n2", "n1n2.load", "n1n2.loadcap", "n1n2.day5.mean", "n1n2.load.day5.mean", "n1n2.loadcap.day5.mean")
-
-df_baseline <- data.frame(location_common_name = unique(df_watch_pre$location_common_name))
-for (baseline in baselines) {
-#	base_mean <- paste0(baseline, ".mean", sep="")
-#	base_ci <- paste0(baseline, ".ci", sep="")
-
-	base_day_new <- paste0(baseline, ".day.baseline", sep="")
-	base_new <- paste0(baseline, ".baseline", sep="")
-#	base_mean_new <- paste0(baseline, ".mean.baseline", sep="")
-#	base_ci_new <- paste0(baseline, ".ci.baseline", sep="")
-
-	df_this <- df_watch_pre %>% group_by(location_common_name) %>% 
-						 slice_min(.data[[baseline]], n=1, with_ties = FALSE) %>% 
-						 select(location_common_name, !!base_day_new := day, !!base_new := baseline)
-	df_baseline <- left_join(df_baseline, df_this, by="location_common_name")
-}
-
-df_watch_pre <- left_join(df_watch_pre, df_baseline, by="location_common_name")
-
-# calculate signal strength, fold change, and percent change from baseline for each day
-#df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
-df_wwtp <- df_watch_pre %>% filter(group == "WWTP" & !is.na(daily_flow) & !is.na(n1) & !is.na(n2))
-df_wwtp <- df_wwtp %>% mutate(fold_change_smoothed = (n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															percent_change_smoothed = 100*(n1n2.loadcap.day5.mean - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															signal_strength_smoothed = n1n2.loadcap.day5.mean,
-															fold_change = (n1n2.loadcap - n1n2.loadcap.day5.mean.baseline)/n1n2.loadcap.day5.mean.baseline,
-															signal_strength = n1n2.loadcap)
-df_wwtp <- df_wwtp[!is.na(df_wwtp$n1n2.loadcap.day5.mean), ]												
-
-#df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2) & !is.na(n1n2.day5.mean))
-df_swr <- df_watch_pre %>% filter(group == "Sewer Network" & !is.na(n1) & !is.na(n2))
-df_swr <- df_swr %>% mutate(fold_change_smoothed = (n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline, 
-														percent_change_smoothed = 100*(n1n2.day5.mean - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
-														signal_strength_smoothed = n1n2.day5.mean,
-														fold_change = (n1n2 - n1n2.day5.mean.baseline)/n1n2.day5.mean.baseline,
-														signal_strength = n1n2)
-df_swr <- df_swr[!is.na(df_swr$n1n2.day5.mean), ]												
-
-df_watch <- rbind(df_wwtp, df_swr)
-
-
-# Calculate signal trend (trajectory) for most recent window
-# Uses the raw signal strength for the n most recent samples (copies/L for sewers, or per capita load for treatment plants)
-df_trend <- df_watch %>% 
-						 group_by(location_common_name, day) %>% 
-						 arrange(day) %>%
-						 summarize(mean_signal_strength = mean(signal_strength, na.rm = TRUE)) %>% 
-						 slice_tail(n=SIGNAL_TREND_WINDOW) %>%
-						 summarize(current_scaled_signal_trend = coef(lm(formula = ((mean_signal_strength-min(mean_signal_strength, na.rm = TRUE))/(max(mean_signal_strength, na.rm = TRUE)-min(mean_signal_strength, na.rm = TRUE))) ~ day))[2],
-						 					 current_signal_trend = coef(lm(formula = mean_signal_strength ~ day))[2])
-
-
-# Calculate strength and fold change for most recent day
-# Uses the 5-day mean already pre-calculated
-df_level <- df_watch %>% group_by(location_common_name) %>% summarize(current_fold_change_smoothed = fold_change_smoothed[day == max(day)])
-df_strength <- df_watch %>% group_by(location_common_name) %>% summarize(current_signal_strength_smoothed = signal_strength_smoothed[day == max(day)])
-
-
-# Merge signal trend, strength, and fold change data frames
-df_currents <- left_join(df_level, df_strength, by=c("location_common_name" = "location_common_name"))
-df_signal <- left_join(df_trend, df_currents, by=c("location_common_name" = "location_common_name"))
-
-# Add group identifiers
-df_loc <- df_watch %>% select(location_common_name, group)
-df_signal <- left_join(df_signal, distinct(df_loc), by=c("location_common_name" = "location_common_name"))
-
-df_maxmins <- df_watch %>% 
-							group_by(location_common_name) %>% 
-							summarize(max_signal_strength = max(signal_strength, na.rm = TRUE),
-												min_signal_strength = min(signal_strength, na.rm = TRUE),
-												max_signal_strength_smoothed = max(signal_strength_smoothed, na.rm = TRUE),
-												min_signal_strength_smoothed = min(signal_strength_smoothed, na.rm = TRUE),
-												max_fold_change_smoothed = max(fold_change_smoothed, na.rm = TRUE),
-												min_fold_change_smoothed = min(fold_change_smoothed, na.rm = TRUE),
-												max_percent_change_smoothed = max(percent_change_smoothed, na.rm = TRUE),
-												min_percent_change_smoothed = min(percent_change_smoothed, na.rm = TRUE))
-df_signal <- left_join(df_signal, df_maxmins, by=c("location_common_name" = "location_common_name"))
-
-
-# Scale strength so it falls between 0-1
-# Scale trend so it falls between -1 and 1
-# Weight accordingly
-# Take the sum of the weighted & scaled values
-# scaled signal goes from -1 (very low and decreasing rapidly) to 2 (very high and increasing rapidly)
-# weighted signal goes from total weight times scaled signal range
-#
-#df_signal <- df_signal %>% mutate(scaled_signal_strength = (current_signal_strength - min_signal_strength)/(max_signal_strength - min_signal_strength),
-#																	scaled_fold_change = (current_fold_change - min_fold_change)/(max_fold_change - min_fold_change),
-#																	scaled_signal_trend = current_signal_trend)
-#																	#scaled_signal_trend = ifelse(current_signal_trend < 0, yes = ((current_signal_trend - min_signal_trend)/(0 - min_signal_trend))-1, no = current_signal_trend/max_signal_trend))
-#
-#df_signal <- df_signal %>% mutate(scaled_signal_strength = ifelse(scaled_signal_strength > 1, yes = 1, no = scaled_signal_strength),
-#																	scaled_fold_change = ifelse(scaled_fold_change > 1, yes = 1, no = scaled_fold_change))
-#																	#scaled_signal_trend = ifelse(scaled_signal_trend > 1, yes = 1, no = scaled_signal_trend))
-#
-#df_signal <- df_signal %>% mutate(scaled_signal = (STRENGTH_WEIGHT * scaled_signal_strength) + (TREND_WEIGHT * scaled_signal_trend))
-#
-wt <- STRENGTH_WEIGHT * TREND_WEIGHT
-SIGNAL_BINS <- data.frame(fold_change_smoothed = c(0, 26, 101, 251, 501, 5001),
-													signal_trend = c(-500000001, -50, -2, 2, 50, 500000001)) 
-													#scaled_signal_indicator = c(wt*-1.1, wt*-0.49, wt*0.16, wt*0.34, wt*0.67, wt*1.01, wt*1.51, wt*2.1))
-
-SIGNAL_CODES <- data.frame(change = c("low", "moderate", "high", "very high", "extremely high"), 
-													 trend = c("downward", "downward", "stable", "upward", "upward"),
-													 color = c("#579d1c", "#ffd320", "#eedc82", "#ff950e", "#c5000b"))
-
-names(TARGET_COLORS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
-names(TARGET_FILLS) <- levels(factor(c(levels(as.factor(TARGET_VALUES)))))
-
-ALERT_COLORS = c("#579d1c", "#ffd320", "#eedc82", "#ff950e", "#c5000b")
-ALERT_TXT = c("low", "moderate", "high", "very high", "extremely high")
-
-alertPal <- colorBin(
-	palette = SIGNAL_CODES$color,
-	bins = SIGNAL_BINS$fold_change_smoothed,
-	na.color = "#808080",
-#	reverse=TRUE,
-	domain = df_watch$fold_change_smoothed)
-  
-
-targetPal <- colorFactor(
-	palette = TARGETS_DF$target_color,
-	domain = TARGETS_DF$target_value,
-	ordered = TRUE,
-	na.color = "#aaaaaa",
-	alpha = TRUE
-)

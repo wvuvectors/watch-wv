@@ -51,6 +51,8 @@ my %orderedcols = (
 
 my %watch = ();
 
+# Put the current data (before update) into %watch, keyed by table.
+#
 opendir(my $dbdFH, "$dbdir") or die "Although I found it, I am unable to open $dbdir: $!";
 my @dbfiles  = grep { (/^watchdb\..+\.txt$/) && (!/^~/) && -f "$dbdir/$_" } readdir($dbdFH);
 for my $f (@dbfiles) {
@@ -90,6 +92,8 @@ for my $f (@dbfiles) {
 }
 
 
+# Now add the update data to the tables in %watch.
+#
 opendir(my $updFH, "$updir") or die "Although I found it, I am unable to open $updir: $!";
 my @upfiles  = grep { (/^update\..+\.txt$/) && (!/^~/) && -f "$updir/$_" } readdir($updFH);
 for my $f (@upfiles) {
@@ -117,6 +121,13 @@ for my $f (@upfiles) {
 			}
 		} else {
 			my $uid = "$cols[$idcol]";
+			# The validation step should have caught ids in any table duplicated between the update 
+			# and the existing data, except for the sample table. 
+			#
+			# A fraction of samples, including but not just the newest, are stored in AT so there 
+			# will be some overlap with the watchDB. We don't need to load these dups into %watch 
+			# but they should not throw an error.
+			#
 			if (defined $watch{"$table"}->{"$uid"}) {
 				unless ("$table" eq "sample") {
 					print "INFO : $table id $uid already exists in either the update or the main watchdb (before update).\n";

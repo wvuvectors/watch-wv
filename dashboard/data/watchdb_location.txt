@@ -1,0 +1,80 @@
+location_id	sample_code_prefix	location_primary_lab	location_status	location_common_name	location_category	location_group	location_lng	location_lat	location_primary_wwtp_id	location_counties_served	location_population_served	location_sampler_type	location_collection_window_hrs	location_collection_pull_ml	location_collection_step_min	location_collection_basis	location_collection_type	location_zipcode	location_comment
+CharlesTownWWTP-01	D01	ZooWVU	active	Charles Town	wwtp	sentinel	-77.85589	39.27924	CharlesTownWWTP	Jefferson	17000	Facility hardware	24			flow	raw wastewater	25414	
+MadisonWWTP-01	Q01	ZooWVU	active	Danville	wwtp	non-sentinel	-81.8472888	38.102484	MadisonWWTP	Boone	4555	WVU ISCO	24	25	20	time	raw wastewater	25053	
+PrincetonWWTP-01	E01	ZooWVU	active	Princeton	wwtp	sentinel	-81.07993	37.38036	PrincetonWWTP	Mercer	36000	WVU HACH	24	25	20	time	raw wastewater	24740	
+WarmSpringsWWTP-01	I01	ZooWVU	withdrawn	Warm Springs	wwtp	non-sentinel	-78.22662	39.62802	WarmSpringsWWTP	Morgan	3255	Facility hardware	24			flow	raw wastewater	25411	
+ClarksburgWWTP-01	N02	ZooWVU	active	Clarksburg	wwtp	sentinel	-80.33857	39.27931	ClarksburgWWTP	Harrison	26498	Facility hardware	24			flow	raw wastewater	26301	
+Domain-01	A02	ZooWVU	inactive	The Domain	higher ed dorm	non-sentinel	-80.0004209	39.6535571	StarCityWWTP	Monongalia	912	WVU ISCO	48	25	30	time	raw wastewater	26505	Isolates The Domain (apartments).
+MountainviewES-01	A03	ZooWVU	inactive	Mountainview Elementary	k12	non-sentinel	-79.94331	39.61036	StarCityWWTP	Monongalia	726	WVU ISCO	8			time	raw wastewater	26501	
+SistervilleWWTP-01		ZooWVU	withdrawn	Sisterville	wwtp	non-sentinel			SistervilleWWTP	Tyler	1800	Facility hardware	24			flow	raw wastewater		
+SalemWWTP-01	N03	ZooWVU	active	Salem	wwtp	non-sentinel	-80.54515	39.28597	SalemWWTP	Harrison	1853	WVU ISCO	24	25	20	time	raw wastewater	26426	
+Lofts-02	A02	ZooWVU	inactive	The Lofts 2	higher ed dorm	non-sentinel	-79.9552454	39.6692795	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures the upper section of Station Road. Not clear exactly which buildings drop here vs. Lofts-01
+WestRun-01	A02	ZooWVU	inactive	West Run Apartments	higher ed dorm	non-sentinel	-79.925397	39.6565887	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures all of West Run Apartments
+WeirtonWWTP-01		ZooWVU	withdrawn	Weirton	wwtp	non-sentinel			WeirtonWWTP	Brooke	20411	Facility hardware	24			flow	raw wastewater		
+NorthES-01	A02	ZooWVU	inactive	North Elementary	k12	non-sentinel	-79.95674	39.66064	StarCityWWTP	Monongalia	688	WVU ISCO	8			time	raw wastewater	26505	
+Dadisman-02	A02	ZooWVU	inactive	WVU Dadisman Hall	higher ed dorm	non-sentinel	-79.9530932	39.6364231	StarCityWWTP	Monongalia	639	WVU ISCO	48	25	30	time	raw wastewater	26505	Isolates WVU Dadisman Hall.
+PRPSD		MUIDSL	inactive	Pea Ridge	wwtp	non-sentinel	-82.2982092548578	38.4196619081391	PeaRidgeWWTP-A	Cabell	7000	Facility hardware	24	25	20	time	raw wastewater	25705	
+Evolution-02	A02	ZooWVU	inactive	Evolution (bottom)	higher ed dorm	non-sentinel	-79.9562046	39.6681122	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Three-way junction. Sample from the outflow closer to the yard to catch all of this portion of the CEV complex. This flow can also be captured in the access for Evolution-01
+CSB		MUIDSL	inactive	Charleston	wwtp	non-sentinel	-81.6795542342985	38.3737355334849	CharlestonSanitaryBoardWWTP	Kanawha	49500	Facility hardware	24			flow	raw wastewater	25387	
+ElkinsWWTP-01	R02	ZooWVU	active	Elkins	wwtp	sentinel	-79.86543	38.92026	ElkinsWWTP	Randolph	13156	WVU ISCO	24	25	20	time	raw wastewater	26241	
+TowersBB-01	A02	ZooWVU	inactive	WVU Brooke & Braxton Towers	higher ed dorm	sentinel	-79.9663361	39.6495489	StarCityWWTP	Monongalia	904	WVU ISCO	48	25	30	time	raw wastewater	26505	Captures Brooke and Braxton Towers. Taken from the University Ave. side of the bottom flow, which compiles both towers
+SuncrestES-01	A03	ZooWVU	inactive	Suncrest Elementary	k12	non-sentinel	-79.97825	39.67137	StarCityWWTP	Monongalia	515	WVU ISCO	8			time	raw wastewater	26505	
+HSB		MUIDSL	inactive	Huntington	wwtp	non-sentinel	-82.5288640349052	38.4007449310171	HuntingtonSanitaryBoardWWTP	Cabell,Wayne	56000	Facility hardware	24	25	20	time	raw wastewater	25704	
+Northern Wayne Co PSD		MUIDSL	inactive	North Wayne	wwtp	non-sentinel	-82.4513038405833	38.3433361645866	HuntingtonSanitaryBoardWWTP	Wayne	1600	Facility hardware	24	25	20	time	raw wastewater	25701	upstream from Huntington Sanitary board
+MtValley-01	A02	ZooWVU	inactive	Mountain Valley Apartments	higher ed dorm	sentinel	-79.9657691	39.6727656	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures all of Mountain Valley
+FairmontWWTP-01		ZooWVU	withdrawn	Fairmont	wwtp	non-sentinel	-80.12445	39.49395	FairmontWWTP	Marion	25525	WVU ISCO	24	25	30	time	raw wastewater	26554	
+BrookhavenES-01	A03	ZooWVU	inactive	Brookhaven Elementary	k12	non-sentinel	-79.90501	39.61021	StarCityWWTP	Monongalia	579	WVU ISCO	8			time	raw wastewater	26508	
+DUN		MUIDSL	inactive	Dunbar	wwtp	non-sentinel	-81.758709180509	38.368519014597	DunbarWWTP	Kanawha	9000	Facility hardware	24	25	20	time	raw wastewater	25064	
+WheelingWWTP-01	C01	ZooWVU	active	Wheeling	wwtp	sentinel	-80.72757	40.05588	WheelingWWTP	Ohio	50000	Facility hardware	24			flow	raw wastewater	26003	
+PointPleasantWWTP-01	T01	ZooWVU	active	Point Pleasant	wwtp	non-sentinel	-82.1351148	38.8567084	PointPleasantWWTP	Mason	5515	WVU ISCO	24	25	20	time	raw wastewater	25550	
+StarCityWWTP-01	A01	ZooWVU	active	Morgantown Star City	wwtp	sentinel	-79.9920554	39.6551745	StarCityWWTP	Monongalia	48328	Facility hardware	24			flow	raw wastewater	26505	
+FarmingtonWWTP-01	M03	ZooWVU	active	Farmington	wwtp	non-sentinel	-80.24933	39.51181	FarmingtonWWTP	Marion	610	WVU ISCO	24	25	20	time	raw wastewater	26571	
+AlpineLakeWWTP-01	J01	ZooWVU	active	Alpine Lake	wwtp	non-sentinel	-79.50179	39.45709	AlpineLakeWWTP	Preston	700	WVU ISCO	24	25	20	time	raw wastewater	26764	
+BV		MUIDSL	inactive	Barboursville	wwtp	non-sentinel	-82.2856987708015	38.4149468235091	BarboursvilleLagoon	Cabell	4000	Facility hardware	0.08333333	250	5	grab	raw wastewater	25504	lagoon - plan to pump into PeaRidge some day when new pearidge plant comes to be
+UniversityHS-01	A03	ZooWVU	inactive	University High	k12	non-sentinel	-79.92615	39.68782	StarCityWWTP	Monongalia	1310	WVU ISCO	8			time	raw wastewater	26508	
+Coliseum-01	A02	ZooWVU	active	WVU Coliseum	mixed use	non-sentinel	-79.9850577	39.6481654	StarCityWWTP-01	Monongalia		WVU ISCO	8	25	30	time	raw wastewater	26505	
+Pea Ridge PSD LeSage		MUIDSL	inactive	LeSage	wwtp	non-sentinel	-82.2875639603452	38.5726236541722	PeaRidgeWWTP-C	Cabell	1000	Facility hardware	24	25	20	time	raw wastewater	25537	small independent plant under PeaRidge management
+WhiteOakWWTP-01	U01	ZooWVU	active	White Oak	wwtp	non-sentinel	-81.1824412	37.9464777	WhiteOakWWTP-01	Fayette	2626	WVU ISCO	24	25	30	time	raw wastewater	25917	
+UPlace-01	A02	ZooWVU	inactive	University Place Apartments	higher ed dorm	sentinel	-79.9567559	39.64019	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures UPlace and associated dining
+NorthHighSt-02	A02	ZooWVU	inactive	North High Street	higher ed dorm	sentinel	-79.9532029	39.6331164	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures a mixture of WVU campus and off-campus residential buildings, including Greek housing.
+HuttonsvilleWWTP-01	R01	ZooWVU	active	Huttonsville	wwtp	non-sentinel	-79.97895	38.71288	HuttonsvilleWWTP	Randolph	2101	WVU ISCO	24	25	20	time	raw wastewater	26273	
+PotomacState-01	G02	ZooWVU	withdrawn	WVU Keyser	higher ed dorm	non-sentinel	-78.98272	39.43807	KeyserWWTP	Mineral	1193	WVU ISCO	48	25	30	time	raw wastewater	26726	
+CheatLakeES-01	A03	ZooWVU	inactive	Cheat Lake Elementary	k12	non-sentinel	-79.86761	39.65267	StarCityWWTP	Monongalia	830	WVU ISCO	8			time	raw wastewater	26508	
+COM		MUIDSL	inactive	MU Commons	higher ed dorm	non-sentinel				Cabell							raw wastewater		
+Evansdale-01	A02	ZooWVU	inactive	WVU Evansdale	mixed use	sentinel	-79.9721575	39.6500969	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures all of the WVU Evansdale campus, including residential and academic buildings.
+PetersburgWWTP-01		ZooWVU	inactive	Petersburg	wwtp	non-sentinel	-79.12725	38.99091	PetersburgWWTP	Grant	2700	Facility hardware	24			flow	raw wastewater	26847	
+WestonWWTP-01	F01	ZooWVU	active	Weston	wwtp	non-sentinel	-80.45991	39.06224	WestonWWTP	Lewis	10364	WVU ISCO	24	25	20	time	raw wastewater	26452	
+CollegePark-02	A02	ZooWVU	inactive	College Park Apartments	higher ed dorm	non-sentinel	-79.9458019	39.6362083	StarCityWWTP	Monongalia	567	WVU ISCO	48	25	30	time	raw wastewater	26505	Isolates all of College Park Apartments.
+TTE		MUIDSL	inactive	MU Towers East	higher ed dorm	non-sentinel				Cabell							raw wastewater		
+MoundsvilleWWTP-01	H01	ZooWVU	active	Moundsville	wwtp	non-sentinel	-80.75493	39.92986	MoundsvilleWWTP	Marshall	12000	Facility hardware	24			flow	raw wastewater	26041	
+CameronWWTP-01		ZooWVU	withdrawn	Cameron	wwtp	non-sentinel	-80.56744	39.82661	CameronWWTP	Marshall	1340	WVU ISCO	24	25	30	time	raw wastewater	26033	
+BelingtonWWTP-01		ZooWVU	withdrawn	Belington	wwtp	non-sentinel	-79.93694	39.02201	BelingtonWWTP	Barbour	1974	Facility hardware	24			flow	raw wastewater	26250	
+3HG		MUIDSL	inactive	MU 3rd Ave Hal Greer	higher ed dorm	non-sentinel				Cabell							raw wastewater		
+StadiumNW-01	A02	ZooWVU	inactive	WVU Stadium NW	mixed use	non-sentinel			StarCityWWTP-01	Monongalia		WVU ISCO	12	25	30	time	raw wastewater	26505	
+GraftonWWTP-01	O01	ZooWVU	active	Grafton	wwtp	non-sentinel	-80.01837	39.33877	GraftonWWTP	Taylor	6071	Facility hardware	24			flow	raw wastewater	26354	
+HonorsSummit-01	A02	ZooWVU	inactive	WVU Honors & Summit	higher ed dorm	sentinel	-79.9567626	39.6378753	StarCityWWTP	Monongalia	874	WVU ISCO	48	25	30	time	raw wastewater	26505	Isolates WVU Honors and Summit Halls (confirmed by dye test).
+StadiumSE-01	A02	ZooWVU	inactive	WVU Stadium SE	mixed use	non-sentinel			StarCityWWTP-01	Monongalia		WVU ISCO	12	25	30	time	raw wastewater	26505	
+StMarysWWTP-01	P01	ZooWVU	inactive	Saint Marys	wwtp	non-sentinel	-81.20511	39.39125	StMarysWWTP	Pleasants	2892	WVU ISCO	24	25	20	time	raw wastewater	26170	
+ManningtonWWTP-01	M03	ZooWVU	active	Mannington	wwtp	non-sentinel	-80.32371	39.51814	ManningtonWWTP	Marion	1091	WVU ISCO	24	25	20	time	raw wastewater	26582	
+KeyserWWTP-01	G01	ZooWVU	active	Keyser	wwtp	non-sentinel	-78.97508	39.44123	KeyserWWTP	Mineral	8168	WVU ISCO	24	25	20	time	raw wastewater	26726	
+Evolution-01	A02	ZooWVU	inactive	Evolution (top)	higher ed dorm	non-sentinel	-79.9562341	39.6679098	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	The creekside pipe (south?) captures all of CEV to the south side of the creek. It also captures a small portion of residential above CEV. The north pipe (parking lot side) captures the smaller CEV portion on this side of the creek. This north pipe is Evolution-02; it can be sampled here, but might be easier via the adjacent site marked on the map
+BridgeportWWTP-01		ZooWVU	withdrawn	Bridgeport	wwtp	non-sentinel	-80.25899	39.28048	BridgeportWWTP	Harrison	6984	Facility hardware	24			flow	raw wastewater	26330	
+WorthingtonWWTP-01		ZooWVU	withdrawn	Worthington	wwtp	non-sentinel	-80.26036	39.45258	WorthingtonWWTP	Marion	2742	WVU ISCO	24	25	30	time	raw wastewater	26591	
+Lofts-01	A02	ZooWVU	inactive	The Lofts 1	higher ed dorm	non-sentinel	-79.9551221	39.6691886	StarCityWWTP	Monongalia		WVU ISCO	48	25	30	time	raw wastewater	26505	Captures some combination of Stanley St (probably all) and Station Road (probably partial)
+SRM		MUIDSL	inactive	Milton, Culloden	wwtp	non-sentinel	-82.105145	38.425437	SaltRockWWTP-A	Cabell	7200	Facility hardware	24	25	20	time	raw wastewater	25541	12" and 20" pipe allow ona (12") and milton (20") to be separated
+Seneca-01	A02	ZooWVU	inactive	WVU Seneca Hall	higher ed dorm	sentinel	-79.95614	39.6392	StarCityWWTP	Monongalia	474	WVU ISCO	48	25	30	time	raw wastewater	26505	Captures Seneca Hall and associated dining
+HRSB		MUIDSL	inactive	Hurricane	wwtp	non-sentinel	-82.006959612419	38.4465240845599	HurricaneWWTP	Putnam	28759	Facility hardware	72	25	20	time	raw wastewater	25526	
+SRO		MUIDSL	inactive	Ona, Salt Rock	wwtp	non-sentinel	-82.2448777512688	38.372162360135	SaltRockWWTP-B	Cabell	4050	Facility hardware	24	25	20	time	raw wastewater	25545	12" and 20" pipe allow ona (12") and milton (20") to be separated
+BlacksvilleWWTP-01		ZooWVU	withdrawn	Blacksville	wwtp	non-sentinel	-80.21201	39.72007	BlacksvilleWWTP	Monongalia	400	Facility hardware	24			flow	raw wastewater	26521	
+Hazelton-01		ZooWVU	inactive	Hazelton Correctional	correctional	non-sentinel	-79.51524	39.66807	HazeltonWWTP	Preston	1948	WVU ISCO	24			time	raw wastewater	26525	
+WestUnionWWTP-01	K01	ZooWVU	active	West Union	wwtp	non-sentinel	-80.77899	39.29906	WestUnionWWTP	Doddridge	564	WVU ISCO	24	25	20	time	raw wastewater	26456	
+FollansbeeWWTP-01	S01	ZooWVU	inactive	Follansbee	wwtp	non-sentinel	-80.59829	40.3258	FollansbeeWWTP	Brooke	6468	WVU ISCO	24	25	20	time	raw wastewater	26037	
+OaklandE-02	A02	ZooWVU	inactive	WVU Oakland Hall	higher ed dorm	sentinel	-79.9622118	39.6511596	StarCityWWTP	Monongalia	862	WVU ISCO	48	25	30	time	raw wastewater	26505	Isolates WVU Oakland Hall.
+CharlestonWWTP-01	B01	ZooWVU	active	Charleston	wwtp	non-sentinel	-81.67768	38.37287	CharlestonWWTP	Kanawha	50000	Facility hardware	24			flow	raw wastewater	25312	
+MorgantownHS-01	A03	ZooWVU	inactive	Morgantown High	k12	non-sentinel	-79.95736	39.62542	StarCityWWTP	Monongalia	1851	WVU ISCO	8			time	raw wastewater	26501	
+StadiumNE-01	A02	ZooWVU	inactive	WVU Stadium NE	mixed use	non-sentinel			StarCityWWTP-01	Monongalia		WVU ISCO	12	25	30	time	raw wastewater	26505	
+CheatLakeWWTP-01	A04	ZooWVU	active	Cheat Lake	wwtp	non-sentinel	-79.857	39.67712	CheatLakeWWTP	Monongalia	2000	WVU ISCO	24	25	20	time	raw wastewater	26508	
+StadiumSW-01	A02	ZooWVU	inactive	WVU Stadium SW	mixed use	non-sentinel			StarCityWWTP-01	Monongalia		WVU ISCO	12	25	30	time	raw wastewater	26505	
+AthensWWTP-01	E02	ZooWVU	inactive	Athens	wwtp	non-sentinel	-81.01598	37.42163	AthensWWTP	Mercer	2391	WVU HACH	24	25	20	time	raw wastewater	24740	
+TTW		MUIDSL	inactive	MU Towers West	higher ed dorm	non-sentinel				Cabell							raw wastewater		
+ParkersburgWWTP-01	K01	ZooWVU	active	Parkersburg	wwtp	non-sentinel	-81.55739	39.28171	ParkersburgWWTP	Wood	48050	Facility hardware	24			flow	raw wastewater	26101	

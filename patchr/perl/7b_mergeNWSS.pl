@@ -84,7 +84,7 @@ foreach my $f (@flist) {
 #print Dumper(\%data);
 #die;
 
-print join("\",\"", @outheaders) . "\"\n";
+print "\"" . join("\",\"", @outheaders) . "\"\n";
 foreach my $uid (keys %data) {
 	my $start = 0;
 	foreach my $hdr (@outheaders) {

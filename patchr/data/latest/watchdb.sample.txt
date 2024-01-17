@@ -1133,7 +1133,7 @@ A02-0320	Complete	Evansdale-01	Routine Surveillance	Pass	01/29/2022 9:00	01/31/2
 A02-0321	Complete	HonorsSummit-01	Routine Surveillance	Pass	01/31/2022 9:00	02/02/2022 9:00	02/02/2022 10:33	GZ		AJ	02/02/2022	7.42	
 A02-0322	Complete	NorthHighSt-02	Routine Surveillance	Pass	01/31/2022 9:00	02/02/2022 9:00	02/02/2022 10:43	GZ		AJ	02/02/2022	8.58	
 A02-0323	Complete	Evansdale-01	Routine Surveillance	Pass	02/07/2022 9:00	02/09/2022 8:41	02/09/2022 8:41	Gz		AJ	02/14/2022	7.28	
-A02-0324	Complete	HonorsSummit-01	Routine Surveillance	Pass	02/20/2022 9:00	02/04/2022 9:00	02/04/2022 11:26	Gz		AJ	02/04/2022	7.41	
+A02-0324	Complete	HonorsSummit-01	Routine Surveillance	Pass	02/02/2022 9:00	02/04/2022 9:00	02/04/2022 11:26	Gz		AJ	02/04/2022	7.41	
 A02-0325	Complete	NorthHighSt-02	Routine Surveillance	Pass	02/02/2022 9:00	02/04/2022 9:00	02/04/2022 11:39	Gz		AJ	02/04/2022	7.49	
 A02-0326	Complete	OaklandE-02	Routine Surveillance	Pass	02/02/2022 9:00	02/04/2022 9:00	02/04/2022 11:02	Gz		AJ	02/04/2022	7.14	
 A02-0327	Complete	Evansdale-01	Routine Surveillance	Pass	02/02/2022 9:00	02/04/2022 9:00	02/04/2022 10:49	Gz		AJ	02/04/2022	7.34	
@@ -2182,7 +2182,7 @@ A03-0096	Complete	NorthES-01	Routine Surveillance	Pass	11/17/2021 6:00	11/17/202
 A03-0097	Complete	MountainviewES-01	Routine Surveillance	Pass	12/03/2021 6:00	12/03/2021 14:00	12/03/2021 13:09	GZ		AJ	12/14/2021	8.12	
 A03-0098	Complete	SuncrestES-01	Routine Surveillance	Pass	12/03/2021 6:00	12/03/2021 14:00	12/03/2021 14:21	GZ		AJ	12/14/2021	9.02	
 A03-0099	Complete	NorthES-01	Routine Surveillance	Pass	02/23/2022 6:00	02/23/2022 14:00	02/24/2022 10:01	GZ		AJ	02/28/2022	8.37	
-A03-0100	Complete	MountainviewES-01	Routine Surveillance	Pass	03/28/2022 6:00	03/28/2022 14:00	03/03/2022 10:49	GZ		AJ	03/04/2022	5.94	
+A03-0100	Complete	MountainviewES-01	Routine Surveillance	Pass	02/28/2022 6:00	02/28/2022 14:00	03/03/2022 10:49	GZ		AJ	03/04/2022	5.94	
 A03-0101	Complete	MountainviewES-01	Routine Surveillance	Pass	10/25/2021 6:00	10/25/2021 14:00	10/26/2021 9:55	BL		JL	10/27/2021	7.06	
 A03-0102	Complete	MorgantownHS-01	Routine Surveillance	Pass	10/20/2021 6:00	10/20/2021 14:00	10/21/2021 13:55	BL		JL	10/22/2021		
 A03-0103	Complete	NorthES-01	Routine Surveillance	Pass	10/20/2021 6:00	10/20/2021 14:00	10/21/2021 9:25	BL		JL	10/22/2021	7.23	
@@ -5411,7 +5411,7 @@ G02-0021	Complete	PotomacState-01	Routine Surveillance	Pass	11/05/2021 10:30	11/
 G02-0022	Complete	PotomacState-01	Routine Surveillance	Pass	12/01/2021 11:00	12/03/2021 10:30	12/03/2021 10:30	-		JL	12/10/2021	7.13	
 G02-0023	Complete	PotomacState-01	Routine Surveillance	Fail: Temperature Above Threshold	12/06/2021 9:45	12/08/2021 10:30	12/08/2021 10:30	-		JL	12/10/2021	7.12	
 G02-0024	Complete	PotomacState-01	Routine Surveillance	Pass	12/04/2021 11:00	12/05/2021 11:00	12/06/2021 9:45	-		JL	12/10/2021	7.1	
-G02-0095	Complete	PotomacState-01	Routine Surveillance	Processing								02/18/2022	
+G02-0095	Complete	PotomacState-01	Routine Surveillance	Fail: Missing Required Data								02/18/2022	
 H01-0001	Complete	MoundsvilleWWTP-01	Routine Surveillance	Pass	09/27/2021 8:00	09/28/2021 8:00	09/28/2021 8:10	DRC		JL	10/01/2021		
 H01-0002	Complete	MoundsvilleWWTP-01	Routine Surveillance	Pass	09/28/2021 8:00	09/29/2021 8:00	09/29/2021 8:10	DRC		JL	10/01/2021		
 H01-0003	Complete	MoundsvilleWWTP-01	Routine Surveillance	Pass	09/29/2021 8:00	09/30/2021 8:00	09/30/2021 8:10	DRC		JL	10/01/2021		
@@ -7822,7 +7822,7 @@ M04-0108	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	09/15/2022 0:00	09
 M04-0109	Complete	FarmingtonWWTP-01	Routine Surveillance	Fail: Missing Required Data	09/14/2022 0:00	09/15/2022 0:00	09/15/2022 0:00		0.085	AJ	09/21/2022		DUPLICATE DATE TO MO4-0124
 M04-0110	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	08/25/2022 0:00	08/26/2022 0:00	08/26/2022 0:00		0.072	AJ	08/31/2022		
 M04-0111	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	09/12/2022 0:00	09/13/2022 0:00	09/13/2022 0:00		0.119	AJ	09/21/2022		
-M04-0113	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	10/22/2022 0:00	10/23/2022 0:00	10/22/2022 0:00		0.17	LW	11/12/2022		
+M04-0113	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	10/02/2022 0:00	10/03/2022 0:00	10/03/2022 0:00		0.17	LW	10/12/2022		
 M04-0114	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	09/11/2022 0:00	09/12/2022 0:00	09/12/2022 0:00		0.082	AJ	09/21/2022		
 M04-0115	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	08/22/2022 0:00	08/23/2022 0:00	08/23/2022 0:00		0.173	AJ	08/31/2022		
 M04-0116	Complete	FarmingtonWWTP-01	Routine Surveillance	Pass	08/26/2022 0:00	08/27/2022 0:00	08/27/2022 0:00		0.089	AJ	08/31/2022		
