@@ -59,9 +59,8 @@ Columns in the sarvarDB:
 my %sarvar      = ("by_county" => {}, "by_facility" => {}, "by_run" => {}, "by_variant" => {}, "by_month" => {});
 my %sample_ids  = ();
 my $last_sample = 0;
-my $last_run    = 0;
 #my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1);
-#my %last_run    = ("yr" => 2020, "mo" => 1, "day" => 1);
+my %last_run_h  = ("yr" => 2020, "mo" => 1, "day" => 1);
 
 my %vtw = ();
 open my $wfh, "<", "$SARVAR_VTW" or die "Unable to open $SARVAR_VTW: $!\n";
@@ -93,11 +92,21 @@ while (my $line = <$fh>) {
 		
 		$last_sample = $datecomp if $datecomp > $last_sample;
 		
-		my $rdatecomp = 0;
-		if ($runid =~ m/SARS_(.+)/) {
-			$rdatecomp = $1;
+		my ($rmo, $rday, $ryr) = (0,0,0);
+		if ($runid =~ m/SARS_(\d+)/) {
+			my $rdate = "$1";
+			($ryr, $rmo, $rday) = (substr($rdate, 0, 4), substr($rdate, 4, 2), substr($rdate, 6, 2));
 		}
-		$last_run = $rdatecomp if $rdatecomp > $last_run;
+
+		if ($ryr > $last_run_h{"yr"}) {
+			%last_run_h = ("yr" => $ryr, "mo" => $rmo, "day" => $rday);
+		} elsif ($ryr == $last_run_h{"yr"}) {
+			if ($rmo > $last_run_h{"mo"}) {
+				%last_run_h = ("yr" => $ryr, "mo" => $rmo, "day" => $rday);
+			} elsif ($rmo == $last_run_h{"mo"} and $rday > $last_run_h{"day"}) {
+				%last_run_h = ("yr" => $ryr, "mo" => $rmo, "day" => $rday);
+			}
+		}
 		
 		
 #		$sarvar{"by_sample_month"}->{"$yr-$mo"} = 0 unless defined $sarvar{"by_sample_month"}->{"$yr-$mo"};
@@ -158,13 +167,6 @@ if ($last_sample =~ m/(\d{4})(\d{2})(\d{2})/) {
 	$sdate{"day"} = $3;
 }
 
-my %rdate = ("yr" => 0, "mo" => 0, "day" => 0);
-if ($last_run =~ m/(\d{4})(\d{2})(\d{2})/) {
-	$rdate{"yr"}  = $1;
-	$rdate{"mo"}  = $2;
-	$rdate{"day"} = $3;
-}
-
 # Print summary info to STDOUT
 print "#\n# Summary of sarvarDB from $NOW.\n#\n";
 
@@ -174,7 +176,7 @@ print "Overview:";
 print "\n########################################\n\n";
 print "Total num sequenced : " . scalar(keys %sample_ids) . ".\n";
 print "Date of last sample : " . $sdate{"mo"} . "/" . $sdate{"day"} . "/" . $sdate{"yr"} . ".\n";
-print "Last sequencing run : " . $rdate{"mo"} . "/" . $rdate{"day"} . "/" . $rdate{"yr"} . ".\n";
+print "Last sequencing run : " . $last_run_h{"mo"} . "/" . $last_run_h{"day"} . "/" . $last_run_h{"yr"} . ".\n";
 print "Total variants found: " . scalar(keys %{$sarvar{"by_variant"}}) . ".\n";
 print "Total lineages found: " . scalar(keys %{$sarvar{"by_lineage"}}) . ".\n";
 

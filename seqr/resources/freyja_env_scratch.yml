@@ -1,0 +1,14 @@
+name: freyja_env_scratch
+channels:
+  - defaults
+  - bioconda
+  - conda-forge
+dependencies:
+  - python=3.7
+  - freyja
+  - ivar
+  - samtools
+  - UShER
+  - cvxpy
+  - numpy
+  - pandas
