@@ -20,7 +20,6 @@ my $rundir;
 my $status = 0;
 
 my $SEQR_ALIASES = "resources/alias_key.json";
-my $SEQR_VOIS    = "resources/vtws.txt";
 
 
 while (@ARGV) {
@@ -36,33 +35,8 @@ die "FATAL: A run directory containing demix files must be provided!\n$usage\n" 
 die "FATAL: Run directory $rundir is not a readable directory.\n$usage\n" unless -d $rundir;
 
 
-my %vtw      = ();	# Stores info about variant priority (to watch; of concern; of interest).
 my %aliases  = ();	# Stores info about variant aliases.
 my %props    = ();	# Stores the actual variant proportions from the run in $rundir.
-
-# Read in the file containing SARS variants to watch (VOCs, VBMs, VOIs, etc.)
-#
-open my $fhI, "<", "$SEQR_VOIS" or die "Unable to open $SEQR_VOIS: $!\n";
-while (my $line = <$fhI>) {
-	chomp $line;
-	if ("$line" =~ /^## (.+?)$/) {
-		warn "INFO : List of variants to watch was last updated on $1.\n";
-	} elsif ("$line" =~ /^### (.+?)$/) {
-		warn "INFO : List of variants to watch is derived from: $1.\n";
-	} else {
-		next if "$line" =~ /^WHO/i or "$line" =~ /^#/;
-		my ($who_label, $pango_lineage, $cdc_status, $watch_status) = split /\t/, "$line", -1;
-		$vtw{"$pango_lineage"} = {} unless defined $vtw{"$pango_lineage"};
-		$vtw{"$pango_lineage"}->{"cdc_status"}   = "$cdc_status";
-		$vtw{"$pango_lineage"}->{"watch_status"} = "$watch_status";
-		$vtw{"$pango_lineage"}->{"who_label"}    = "$who_label";
-	}
-}
-close $fhI;
-
-#print Dumper(\%vtw);
-#die;
-
 
 # Read in the variant alias key (json)
 #
@@ -151,125 +125,23 @@ foreach my $f (@files) {
 #print Dumper(\%props);
 #die;
 
-print "sbatch_id\tsample_id\tvariant\tproportion\taliases\tcdc_status\twatch_status\n";
+print "sample_id\tsbatch_id\tvariant\tproportion\taliases\n";
 foreach my $sample_id (keys %props) {
 	foreach my $runid (keys %{$props{"$sample_id"}}) {
 		foreach my $varname (keys %{$props{"$sample_id"}->{"$runid"}}) {
-			my $astring = "";
-			$astring = join(",", keys(%{$aliases{"$varname"}})) if defined $aliases{"$varname"};
+			my $astring = "$varname";
+			$astring .= "," . join(",", keys(%{$aliases{"$varname"}})) if defined $aliases{"$varname"};
 			
-			my ($status_cdc, $status_watch, $who) = ("NA", "5", "NA");
-			if (defined $vtw{"$varname"}) {
-				$status_cdc   = "$vtw{$varname}->{cdc_status}";
-				$status_watch = "$vtw{$varname}->{watch_status}";
-				$who          = "$vtw{$varname}->{who_label}";
-			} else {
-				foreach my $alias (keys %{$aliases{"$varname"}}) {
-					if (defined $vtw{"$alias"}) {
-						$status_cdc   = "$vtw{$alias}->{cdc_status}";
-						$status_watch = "$vtw{$alias}->{watch_status}";
-						$who          = "$vtw{$alias}->{who_label}";
-						last;
-					}
-				}
-			}
-			print "$runid\t";
 			print "$sample_id\t";
+			print "$runid\t";
 			print "$varname\t";
 			print "$props{$sample_id}->{$runid}->{$varname}\t";
-			print "$astring\t$status_cdc\t$status_watch\n";
+			print "$astring\n";
 		}
 	}
 }
 
 exit $status;
-
-
-
-=cut
-sub makeParental {
-	my $variant = shift;
-
-	if ("$variant" !~ /\./) {
-		return "$variant";
-	}
-
-#	if (defined $vtw{"$variant"}) {
-		#print "Found $variant (a Variant to Watch) in the new data!\n";
-#		return "$variant";
-#	}
-	
-	my @subs = split /\./, "$variant", -1;
-	my $variant_base = "$variant";
-	$variant_base = "$subs[0]" if scalar(@subs) > 0;
-	
-	if ("$variant_base" eq "XBB") {
-		my $parental = "$variant_base";
-		$parental = "$parental.$subs[1]" if scalar(@subs) > 1;
-		$parental = "$parental.$subs[2]" if scalar(@subs) > 2;	
-		return "$parental";
-	}
-	
-	if (defined $lineages{"$variant_base"}) {
-
-		my $parental = $lineages{"$variant_base"};
-
-		if ("$parental" =~ /^B\.1\.1\.529/i) {
-			return "B.1.1.529";
-		}
-
-		if ("$parental" =~ /^XBB/i) {
-			my @asubs = split /\./, "$parental", -1;
-			$parental = "XBB.$asubs[1]" if scalar(@asubs) > 1;
-			$parental = "$parental.$asubs[2]" if scalar(@asubs) > 2;	
-			return "$parental";
-		}
-
-		return "$parental";
-	}
-	
-	my $parental = "$variant_base";
-	$parental = "$parental.$subs[1]" if scalar(@subs) > 1;
-	return "$parental";
-}
-
-
-sub makeLineage {
-	my $variant = shift;
-	
-	if ("$variant" !~ /\./) {
-		return "$variant";
-	}
-	
-	foreach my $vartw (keys %vtw) {
-		if ("$vartw" eq "$variant") {
-			return "$variant";
-		} elsif ("$vartw" =~ /\*$/) {
-			my $base = "$vartw";
-			#print "Trying to chop $base\n";
-			chop($base);
-			return "$vartw" if (defined $base and index("$variant", "$base") != -1);
-		}
-	}
-	
-#	if (defined $vtw{"$variant"}) {
-		#print "Found $variant (a Variant to Watch) in the new data!\n";
-#		return "$variant";
-#	}
-	
-	my @subs = split /\./, "$variant", -1;
-	my $lineage_base = "$subs[0]";
-
-	my $lineage = "$lineage_base.$subs[1]" if scalar(@subs) > 1;
-	$lineage = "$lineage.$subs[2]" if "$subs[0]" eq "XBB" and scalar(@subs) > 2;	
-	return "$lineage";
-	
-}
-=cut
-
-
-
-
 
 
 

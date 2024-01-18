@@ -27,7 +27,16 @@ my ($infile, $outdir);
 my $dbdir = "../patchr/data/latest";
 my $relin = 0;
 
+my %aliases  = ();	# Stores info about variant aliases.
+my %vtw      = ();	# Stores info about variants of concern.
+my %metadata = ();	# Stores sample metadata from watchdb.
+my %props    = ();	# Stores variant proportion data.
+
 my $status = 0;
+
+my $SEQR_ALIASES = "resources/alias_key.json";
+my $SEQR_VOIS    = "resources/vtws.txt";
+
 
 while (@ARGV) {
   my $arg = shift;
@@ -52,8 +61,63 @@ die "FATAL: Output directory $outdir is not a readable directory.\n$usage\n" unl
 
 die "FATAL: watchDB directory $dbdir is not a readable directory.\n$usage\n" unless -d $dbdir;
 
-my %metadata = ();
-my %props    = ();
+
+
+
+# Read in the variant alias key (json) in case we need it.
+# Only necessary if the $relin flag is set, since the update file comes in with aliases already.
+#
+# This is a 1-to-1 map between variant alias pairs.
+#
+open my $fhA, "<", "$SEQR_ALIASES" or die "Unable to open $SEQR_ALIASES: $!\n";
+while (my $line = <$fhA>) {
+	chomp $line;
+	next if "$line" =~ /^{/ or "$line" =~ /^}/;
+	$line =~ s/ //gi;
+	my ($primary, $astring) = split /:/, "$line", -1;
+
+	$primary =~ s/"//g;
+		
+	$astring =~ s/,$//;
+	$astring =~ s/"|\[|\]//g;
+	
+	unless ("$astring" eq "") {
+		$aliases{"$primary"} = {} unless defined $aliases{"$primary"};
+		foreach my $alias (split /,/, "$astring", -1) {
+			$aliases{"$alias"} = {} unless defined $aliases{"$alias"};
+			$aliases{"$alias"}->{"$primary"} = 1;
+			$aliases{"$primary"}->{"$alias"} = 1;
+		}
+	}
+
+}
+close $fhA;
+
+
+
+# Read in the file containing SARS variants to watch (VOCs, VBMs, VOIs, etc.)
+#
+open my $fhI, "<", "$SEQR_VOIS" or die "Unable to open $SEQR_VOIS: $!\n";
+while (my $line = <$fhI>) {
+	chomp $line;
+	if ("$line" =~ /^## (.+?)$/) {
+		warn "INFO : List of variants to watch was last updated on $1.\n";
+	} elsif ("$line" =~ /^### (.+?)$/) {
+		warn "INFO : List of variants to watch is derived from: $1.\n";
+	} else {
+		next if "$line" =~ /^WHO/i or "$line" =~ /^#/;
+		my ($who_label, $pango_lineage, $cdc_status, $watch_status) = split /\t/, "$line", -1;
+		$vtw{"$pango_lineage"} = {} unless defined $vtw{"$pango_lineage"};
+		$vtw{"$pango_lineage"}->{"cdc_status"}   = "$cdc_status";
+		$vtw{"$pango_lineage"}->{"watch_status"} = "$watch_status";
+		$vtw{"$pango_lineage"}->{"who_label"}    = "$who_label";
+	}
+}
+close $fhI;
+
+#print Dumper(\%vtw);
+#die;
+
 
 
 # Read in the latest seqr database file to populate the props hash.
@@ -65,6 +129,7 @@ my %props    = ();
 # sample_collection_end_datetime
 # lineage_group
 # variant
+# variant_aliases
 # variant_proportion
 #
 if (-f "data/latest/seqrdb.txt") {
@@ -76,13 +141,18 @@ if (-f "data/latest/seqrdb.txt") {
 		my @cols = split /\t/, "$line", -1;
 
 		# Recalcuate the lineage group for previous variants, if that flag is set by the user.
-		$cols[6] = makeLineageGroup("$cols[7]") if $relin == 1;
+		if ($relin == 1) {
+			my $alist = makeAliases("$cols[7]");
+			$cols[8] = "$alist";
+			$cols[6] = makeLineageGroup("$alist");
+		}
 		
 		# Add the data to the props hash, keyed on sample id, run id, and variant.
 		$props{"$cols[0]"} = {} unless defined $props{"$cols[0]"};
 		$props{"$cols[0]"}->{"$cols[1]"} = {} unless defined $props{"$cols[0]"}->{"$cols[1]"};
 		$props{"$cols[0]"}->{"$cols[1]"}->{"$cols[7]"} = {
-			"proportion" => $cols[8], 
+			"aliases"       => "$cols[8]", 
+			"proportion"    => $cols[9], 
 			"lineage_group" => "$cols[6]"
 		};
 		
@@ -101,17 +171,15 @@ if (-f "data/latest/seqrdb.txt") {
 
 
 # Read in the seqrdb update file.
-# sbatch_id
 # sample_id
+# sbatch_id
 # variant
 # proportion
 # aliases
-# cdc_status
-# watch_status
 #
 my $linenum = 0;
-open my $fhI, "<", "$infile" or die "Unable to open $infile: $!\n";
-while (my $line = <$fhI>) {
+open my $fhU, "<", "$infile" or die "Unable to open $infile: $!\n";
+while (my $line = <$fhU>) {
 	chomp $line;
 	
 	my @cols = split /\t/, "$line", -1;
@@ -119,27 +187,21 @@ while (my $line = <$fhI>) {
 	if ($linenum == 0) {
 		$linenum++;
 	} else {
-		$props{"$cols[1]"} = {} unless defined $props{"$cols[1]"};
-		$props{"$cols[1]"}->{"$cols[0]"} = {} unless defined $props{"$cols[1]"}->{"$cols[0]"};
-		$props{"$cols[1]"}->{"$cols[0]"}->{"$cols[2]"} = {
+		$props{"$cols[0]"} = {} unless defined $props{"$cols[0]"};
+		$props{"$cols[0]"}->{"$cols[1]"} = {} unless defined $props{"$cols[0]"}->{"$cols[1]"};
+		$props{"$cols[0]"}->{"$cols[1]"}->{"$cols[2]"} = {
 			"proportion"    => $cols[3],
 			"aliases"       => "$cols[4]",
-			"cdc_status"    => "$cols[5]",
-			"watch_status"  => $cols[6],
 			"lineage_group" => ""
 		};
-
-		if ($cols[6] < 3) {
-			$props{"$cols[1]"}->{"$cols[0]"}->{"$cols[2]"}->{"lineage_group"} = "$cols[2]";
-		} else {
-			$props{"$cols[1]"}->{"$cols[0]"}->{"$cols[2]"}->{"lineage_group"} = makeLineageGroup("$cols[2]");
-		}
+		
+		$props{"$cols[0]"}->{"$cols[1]"}->{"$cols[2]"}->{"lineage_group"} = makeLineageGroup("$cols[4]");
 		
 		# Add the sample id to the metadata hash for lookup, if it doesn't already exist.
-		$metadata{"$cols[1]"} = {} unless defined $metadata{"$cols[1]"};
+		$metadata{"$cols[0]"} = {} unless defined $metadata{"$cols[0]"};
 	}
 }
-close $fhI;
+close $fhU;
 
 #print Dumper(\%props);
 #die;
@@ -284,7 +346,7 @@ foreach my $sample_id (keys %metadata) {
 # Write the updated seqrdb file to $outdir.
 #
 open my $fho, ">", "$outdir/seqrdb.txt" or die "Unable to open $outdir/seqrdb.txt for writing: $!\n";
-print $fho "sample_id\tsbatch_id\tlocation\tcounty\tsample_collection_start_datetime\tsample_collection_end_datetime\tlineage_group\tvariant\tvariant_proportion\n";
+print $fho "sample_id\tsbatch_id\tlocation\tcounty\tsample_collection_start_datetime\tsample_collection_end_datetime\tlineage_group\tvariant\tvariant_aliases\tvariant_proportion\n";
 foreach my $sample_id (keys %props) {
 	foreach my $sbid (keys %{$props{"$sample_id"}}) {
 		foreach my $varname (keys %{$props{"$sample_id"}->{"$sbid"}}) {
@@ -296,6 +358,7 @@ foreach my $sample_id (keys %props) {
 			print $fho "$metadata{$sample_id}->{sample_collection_end_datetime}\t";
 			print $fho "$props{$sample_id}->{$sbid}->{$varname}->{lineage_group}\t";
 			print $fho "$varname\t";
+			print $fho "$props{$sample_id}->{$sbid}->{$varname}->{aliases}\t";
 			print $fho "$props{$sample_id}->{$sbid}->{$varname}->{proportion}\n";
 		}
 	}
@@ -320,31 +383,86 @@ sub trim {
 
 
 sub makeLineageGroup {
-	my $variant = shift;
+	my $aliases_csv = shift;
 
-	if ("$variant" !~ /\./) {
-		return "$variant";
+	# input contains a comma-sep list of all aliases for this variant (including the "primary" name).
+	# Use @varlist to go through each alias.
+	#
+	my @varlist = split /,/, "$aliases_csv", -1;
+
+	my @voclist = keys %vtw;
+
+	# Check each alias against our list of variants of concern (keys of the %vtw hash).
+	# If found, use the pango_lineage as the LG.
+	# Variants in %vtw may include regex terms so it requires a N^n approach.
+	# Fortunately both arrays are short!
+	#
+	foreach my $v (@varlist) {
+		foreach my $voc (@voclist) {
+			if ("$voc" =~ /\*$/) {
+				$voc =~ s/\*$//;
+				return "$voc" if "$v" =~ /^$voc/;
+			} else {
+				return "$voc" if "$v" eq "$voc";
+			}
+		}
 	}
 	
-	my $group = "";
-	
-	my @subs = split /\./, "$variant", -1;
-	my $base = "$variant";
-	$base = "$subs[0]" if scalar(@subs) > 0;
-	
-	if ("$base" eq "XBB") {
-		$group = "$base";
-		$group = "$group.$subs[1]" if scalar(@subs) > 1;
-		$group = "$group.$subs[2]" if scalar(@subs) > 2;	
-	} elsif ("$base" =~ /^B\.1\.1\.529/i) {
-		$group = "B.1.1.529";
-	} else {
-		my $group = "$base";
-		$group = "$group.$subs[1]" if scalar(@subs) > 1;
+	# If we get here, it isn't a known VOC.
+	#
+	foreach my $v (@varlist) {
+
+	# If it's an XB+ lineage, use XB+.[0-9].[0-9]
+#	if ("$v" =~ /(^XB.+?\.\d+\.\d+).*/) {
+	# If it's an XB+ lineage, use XB+.[0-9]
+	if ("$v" =~ /(^XB.+?\.\d+)\..*/) {
+		return "$1";
 	}
 	
-	return "$group";
+	# If it's a CR lineage, use CR.[0-9]
+	if ("$v" =~ /(^CR\.\d+).*/) {
+		return "$1";
+	}
+	
+	# If it's a BA lineage, use BA.[0-9]
+	if ("$v" =~ /(^BA\.\d+).*/) {
+		return "$1";
+	}
+	
+	# If it's a BQ lineage, use BQ.[0-9].[0-9]
+	if ("$v" =~ /(^BQ\.\d+\.\d+).*/) {
+		return "$1";
+	}
+	
+	# If it's a B lineage, use B.[0-9].[0-9]
+	if ("$v" =~ /(^B\.\d+\.\d+).*/) {
+		return "$1";
+	}
+	
 }
+
+	# If we get here, it's an oddball.
+	# Let's use the shortest aliases.
+	#
+	my $lg = "";
+	foreach my $v (@varlist) {
+		$lg = "$v" if length "$lg" == 0 or length "$v" < length "$lg";
+	}
+	return "$lg";
+	
+}
+
+
+
+sub makeAliases {
+	my $varname = shift;
+
+	my $astring = "$varname";
+	$astring .= "," . join(",", keys(%{$aliases{"$varname"}})) if defined $aliases{"$varname"};
+	
+	return "$astring";
+}
+
 
 
 

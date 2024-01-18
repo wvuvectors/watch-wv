@@ -12,12 +12,7 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
 $usage   .= "Usage: $progname [options]\n";
-$usage   .=  "Print summary info about the WaTCH-WV SARS variant database to STDOUT.\n";
-$usage   .=  "   [-c FILE] Print county data in a tabular format amenable to R.\n";
-$usage   .=  "   [-f FILE] Print facility data in a tabular format amenable to R.\n";
-$usage   .=  "   [-r FILE] Print run data in a tabular format amenable to R.\n";
-$usage   .=  "   [-v FILE] Print variant data in a tabular format amenable to R.\n";
-$usage   .=  "   [-d FILE] Print date data in a tabular format amenable to R.\n";
+$usage   .=  "Print summary report on the WaTCH-WV seqr database to STDOUT.\n";
 $usage   .=   "\n";
 
 while (@ARGV) {
@@ -39,24 +34,24 @@ my $NOW =
 
 my $warn_level = 2;
 
-my $WATCHDB_MAIN  = "updates/watchdb.LATEST.txt";
-my $SARVARDB_MAIN = "updates/sarvardb.LATEST.txt";
-my $SARVAR_VTW    = "resources_seq/VTW.txt";
+my $WATCHDB_MAIN  = "../patchr/data/latest/watchdb.sample.txt";
+my $SARVARDB_MAIN = "data/latest/seqrdb.txt";
+my $SARVAR_VTW    = "resources/vtws.txt";
 
 =cut
-Columns in the sarvarDB:
+Columns in the seqrDB table:
 	0	sample_id
-	1	seqrun_id
-	2	facility
+	1	sbatch_id
+	2	location
 	3	county
-	4	start_datetime
-	5	end_datetime
-	6 lineage
+	4	sample_collection_start_datetime
+	5	sample_collection_end_datetime
+	6 lineage_group
 	7	variant
-	8	proportion
+	8	variant_proportion
 =cut
 
-my %sarvar      = ("by_county" => {}, "by_facility" => {}, "by_run" => {}, "by_variant" => {}, "by_month" => {});
+my %sarvar      = ("by_county" => {}, "by_location" => {}, "by_run" => {}, "by_variant" => {}, "by_month" => {});
 my %sample_ids  = ();
 my $last_sample = 0;
 #my %last_sample = ("yr" => 2020, "mo" => 1, "day" => 1);
@@ -77,7 +72,7 @@ open my $fh, "<", "$SARVARDB_MAIN" or die "Unable to open $SARVARDB_MAIN: $!\n";
 while (my $line = <$fh>) {
 	next if "$line" =~ /^sample_id/;
 	chomp $line;
-	my ($sample_id, $runid, $facility, $county, $start, $end, $parental, $lineage, $varname, $prop) = split /\t/, "$line", -1;
+	my ($sample_id, $sbatch_id, $location, $county, $start, $end, $lineage, $varname, $prop) = split /\t/, "$line", -1;
 	
 	my ($mo, $day, $yr) = (0,0,0);
 	if ($end =~ m/(\d+?)\/(\d+?)\/(\d+?)\s/) {
@@ -88,12 +83,12 @@ while (my $line = <$fh>) {
 	
 	unless (defined $sample_ids{"$sample_id"}) {
 		
-		$sample_ids{"$sample_id"} = {"runid" => "$runid", "print_date" => "$mo/$day/$yr", "sort_date" => "$datecomp", "county" => "$county", "facility" => "$facility"};
+		$sample_ids{"$sample_id"} = {"sbatch_id" => "$sbatch_id", "print_date" => "$mo/$day/$yr", "sort_date" => "$datecomp", "county" => "$county", "location" => "$location"};
 		
 		$last_sample = $datecomp if $datecomp > $last_sample;
 		
 		my ($rmo, $rday, $ryr) = (0,0,0);
-		if ($runid =~ m/SARS_(\d+)/) {
+		if ($sbatch_id =~ m/SARS_(\d+)/) {
 			my $rdate = "$1";
 			($ryr, $rmo, $rday) = (substr($rdate, 0, 4), substr($rdate, 4, 2), substr($rdate, 6, 2));
 		}
@@ -115,11 +110,11 @@ while (my $line = <$fh>) {
 		$sarvar{"by_county"}->{"$county"} = 0 unless defined $sarvar{"by_county"}->{"$county"};
 		$sarvar{"by_county"}->{"$county"} = $sarvar{"by_county"}->{"$county"}+1;
 
-		$sarvar{"by_facility"}->{"$facility"} = 0 unless defined $sarvar{"by_facility"}->{"$facility"};
-		$sarvar{"by_facility"}->{"$facility"} = $sarvar{"by_facility"}->{"$facility"}+1;
+		$sarvar{"by_location"}->{"$location"} = 0 unless defined $sarvar{"by_location"}->{"$location"};
+		$sarvar{"by_location"}->{"$location"} = $sarvar{"by_location"}->{"$location"}+1;
 	
-		$sarvar{"by_run"}->{"$runid"} = 0 unless defined $sarvar{"by_run"}->{"$runid"};
-		$sarvar{"by_run"}->{"$runid"} = $sarvar{"by_run"}->{"$runid"}+1;
+		$sarvar{"by_run"}->{"$sbatch_id"} = 0 unless defined $sarvar{"by_run"}->{"$sbatch_id"};
+		$sarvar{"by_run"}->{"$sbatch_id"} = $sarvar{"by_run"}->{"$sbatch_id"}+1;
 	}
 	
 	if (defined $vtw{"$varname"}) {
@@ -136,13 +131,6 @@ while (my $line = <$fh>) {
 		$vtw{"$lineage"}->{"by_sample"} = {} unless defined $vtw{"$lineage"}->{"by_sample"};
 		$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} = 0 unless defined $vtw{"$lineage"}->{"by_sample"}->{"$sample_id"};
 		$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} = $vtw{"$lineage"}->{"by_sample"}->{"$sample_id"} + $prop;
-	} elsif (defined $vtw{"$parental"}) {
-		$vtw{"$parental"}->{"by_county"} = {} unless defined $vtw{"$parental"}->{"by_county"};
-		$vtw{"$parental"}->{"by_county"}->{"$county"} = $datecomp unless defined $vtw{"$parental"}->{"by_county"}->{"$county"};
-		$vtw{"$parental"}->{"by_county"}->{"$county"} = $datecomp if $datecomp > $vtw{"$parental"}->{"by_county"}->{"$county"};
-		$vtw{"$parental"}->{"by_sample"} = {} unless defined $vtw{"$parental"}->{"by_sample"};
-		$vtw{"$parental"}->{"by_sample"}->{"$sample_id"} = 0 unless defined $vtw{"$parental"}->{"by_sample"}->{"$sample_id"};
-		$vtw{"$parental"}->{"by_sample"}->{"$sample_id"} = $vtw{"$parental"}->{"by_sample"}->{"$sample_id"} + $prop;
 	}
 	
 	$sarvar{"by_variant"}->{"$varname"} = 0 unless defined $sarvar{"by_variant"}->{"$varname"};
@@ -150,9 +138,6 @@ while (my $line = <$fh>) {
 
 	$sarvar{"by_lineage"}->{"$lineage"} = 0 unless defined $sarvar{"by_lineage"}->{"$lineage"};
 	$sarvar{"by_lineage"}->{"$lineage"} = $sarvar{"by_lineage"}->{"$lineage"}+1;
-
-	$sarvar{"by_parent"}->{"$parental"} = 0 unless defined $sarvar{"by_parent"}->{"$parental"};
-	$sarvar{"by_parent"}->{"$parental"} = $sarvar{"by_parent"}->{"$parental"}+1;
 
 }
 close $fh;
@@ -168,17 +153,21 @@ if ($last_sample =~ m/(\d{4})(\d{2})(\d{2})/) {
 }
 
 # Print summary info to STDOUT
-print "#\n# Summary of sarvarDB from $NOW.\n#\n";
+print "#\n# Summary of WaTCH-WV seqr database.\n";
+print "# Generated on $NOW.\n#\n";
+print "# NOTE: WaTCH level runs from 1 (most concerning) to 5 (least concerning).\n";
+print "# NOTE: It indicates the importance of a variant specifically for WV wastewater testing.\n";
+print "# NOTE: It is informed by CDC variant classification levels (VOI, VOC, etc.).\n#\n";
 
 
 print "\n\n########################################\n";
 print "Overview:";
 print "\n########################################\n\n";
-print "Total num sequenced : " . scalar(keys %sample_ids) . ".\n";
-print "Date of last sample : " . $sdate{"mo"} . "/" . $sdate{"day"} . "/" . $sdate{"yr"} . ".\n";
-print "Last sequencing run : " . $last_run_h{"mo"} . "/" . $last_run_h{"day"} . "/" . $last_run_h{"yr"} . ".\n";
-print "Total variants found: " . scalar(keys %{$sarvar{"by_variant"}}) . ".\n";
-print "Total lineages found: " . scalar(keys %{$sarvar{"by_lineage"}}) . ".\n";
+print "Total samples sequenced     : " . scalar(keys %sample_ids) . ".\n";
+print "Date last sample collected  : " . $sdate{"mo"} . "/" . $sdate{"day"} . "/" . $sdate{"yr"} . ".\n";
+print "Date of last sequencing run : " . $last_run_h{"mo"} . "/" . $last_run_h{"day"} . "/" . $last_run_h{"yr"} . ".\n";
+print "Total variants identified   : " . scalar(keys %{$sarvar{"by_variant"}}) . ".\n";
+print "Total lineages identified   : " . scalar(keys %{$sarvar{"by_lineage"}}) . ".\n";
 
 
 # sort by variant name
@@ -186,7 +175,7 @@ my @vtw_sorted = sort {$vtw{"$a"} cmp $vtw{"$b"}} keys %vtw;
 
 
 print "\n\n########################################\n";
-print "Distribution of highest concern variants across all samples:";
+print "Distribution of highest concern variants (WaTCH level = 1) across all samples:";
 print "\n########################################\n\n";
 foreach my $lineage (@vtw_sorted) {
 	next if $vtw{"$lineage"}->{"watch_status"} > 1;
@@ -199,7 +188,7 @@ foreach my $lineage (@vtw_sorted) {
 		}
 		foreach my $sample_id (keys %{$vtw{"$lineage"}->{"by_sample"}}) {
 			my $sample_ref = $sample_ids{"$sample_id"};
-			print "   $sample_ref->{print_date} (run $sample_ref->{runid}) -> " . sprintf("%.1f", (100*$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"})) . "% of sample $sample_id from $sample_ref->{facility} in $sample_ref->{county} county.\n";
+			print "   $sample_ref->{print_date} (run $sample_ref->{sbatch_id}) -> " . sprintf("%.1f", (100*$vtw{"$lineage"}->{"by_sample"}->{"$sample_id"})) . "% of sample $sample_id from $sample_ref->{location} in $sample_ref->{county} county.\n";
 		}
 		print "\n";
 	}
@@ -228,7 +217,7 @@ foreach my $lineage (@vtw_sorted) {
 }
 
 print "\n\n########################################\n";
-print "Top 20 most abundant variants across all samples:";
+print "Top 20 most abundant variants across all samples (any  WaTCH level):";
 print "\n########################################\n\n";
 my @variants_sorted = sort {$sarvar{"by_variant"}->{"$b"} <=> $sarvar{"by_variant"}->{"$a"}} keys %{$sarvar{"by_variant"}};
 my $i = 0;
