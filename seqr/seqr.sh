@@ -151,7 +151,7 @@ echo "$SEQR_DBDIR/latest_bk/ contains the data from immediately before this upda
 echo "" | tee -a "$logf"
 
 
-echo "All done! patchr will now exit."
+echo "All done! seqr will now exit."
 echo "" | tee -a "$logf"
 
 

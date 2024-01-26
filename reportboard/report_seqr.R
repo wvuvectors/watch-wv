@@ -80,15 +80,23 @@ p_var_stadium <- ggplot(all_df %>% filter(str_detect(location, "Stadium")), aes(
 
 
 
-focus_df <- subset(all_df %>% filter(str_detect(location, "AlpineLakeWWTP") & percent > 1.0))
+focus_df <- subset(all_df %>% filter(str_detect(location, "PrincetonWWTP") & percent > 1.0))
 
 # Compute the position of labels
 focus_df <- focus_df %>% 
 	arrange(desc(lineage_group)) %>%
 	mutate(ypos = cumsum(percent)- 0.5*percent )
 
+p_focus <- ggplot(recent_df %>% filter((str_detect(location, "PrincetonWWTP") & percent > 2.0)), aes(fill=lineage_group, y=percent, x=day_end)) + 
+	geom_bar(position="stack", stat="identity") + 
+	labs(x="", y="") + 
+	ggtitle("Proportion of SARS-CoV-2 Lineages in Princeton WWTP", subtitle="Only variants > 2% abundance are shown.") +
+	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+	theme(legend.position = "bottom", legend.title=element_blank())
+
+
 # Basic piechart
-p_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage_group)) +
+pie_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage_group)) +
 	geom_bar(stat="identity", width=1, color="white") +
 	coord_polar("y", start=0) +
 	theme_void() +
