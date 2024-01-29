@@ -94,37 +94,37 @@ else
 fi
 
 
-#echo ""
-#echo "Everything seems to have gone ok so I'm going to copy the NWSS files to the WaTCH shared directory."
-#cp "$nwss_out_merged" "$nwss_pub_merged"
-#status="${PIPESTATUS[0]}"
-#if [[ "$status" != "0" ]]
-#then
-#	echo "!!!!!!!!" | tee -a "$logf"
-#	echo "Copy of $nwss_out_merged to $nwss_pub_merged exited with error code $status." | tee -a "$logf"
-#	echo "This is not fatal but the file copy DID NOT HAPPEN." | tee -a "$logf"
-#	echo "!!!!!!!!" | tee -a "$logf"
-#fi
-#
-#cp "$nwss_out_wvu" "$nwss_pub_wvu"
-#status="${PIPESTATUS[0]}"
-#if [[ "$status" != "0" ]]
-#then
-#	echo "!!!!!!!!" | tee -a "$logf"
-#	echo "Copy of $nwss_out_wvu to $nwss_pub_wvu exited with error code $status." | tee -a "$logf"
-#	echo "This is not fatal but the file copy DID NOT HAPPEN." | tee -a "$logf"
-#	echo "!!!!!!!!" | tee -a "$logf"
-#fi
-#
-#rm "$NWSS_MU_LTST"
-#status="${PIPESTATUS[0]}"
-#if [[ "$status" != "0" ]]
-#then
-#	echo "!!!!!!!!" | tee -a "$logf"
-#	echo "Removal (rm) of $NWSS_MU_LTST exited with error code $status." | tee -a "$logf"
-#	echo "This is not fatal but the file was not removed." | tee -a "$logf"
-#	echo "!!!!!!!!" | tee -a "$logf"
-#fi
+echo ""
+echo "Everything seems to have gone ok so I'm going to copy the NWSS files to the WaTCH shared directory."
+cp "$nwss_out_merged" "$nwss_pub_merged"
+status="${PIPESTATUS[0]}"
+if [[ "$status" != "0" ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "Copy of $nwss_out_merged to $nwss_pub_merged exited with error code $status." | tee -a "$logf"
+	echo "This is not fatal but the file copy DID NOT HAPPEN." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+fi
+
+cp "$nwss_out_wvu" "$nwss_pub_wvu"
+status="${PIPESTATUS[0]}"
+if [[ "$status" != "0" ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "Copy of $nwss_out_wvu to $nwss_pub_wvu exited with error code $status." | tee -a "$logf"
+	echo "This is not fatal but the file copy DID NOT HAPPEN." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+fi
+
+rm "$NWSS_MU_LTST"
+status="${PIPESTATUS[0]}"
+if [[ "$status" != "0" ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "Removal (rm) of $NWSS_MU_LTST exited with error code $status." | tee -a "$logf"
+	echo "This is not fatal but the file was not removed." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+fi
 
 echo ""
 echo "Done."

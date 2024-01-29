@@ -41,7 +41,7 @@ MAX_LOADCAP <- 1000
 #	summarise_at(vars(pcr_target_avg_conc), list(name = mean))
 
 
-pcr_df <- as.data.frame(read.table("data/watchdb.result.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
+pcr_df <- as.data.frame(read.table("../patchr/data/latest/watchdb.result.txt", header=TRUE, sep="\t", check.names = FALSE))
 #pcr_df$report_day <- as_date(parse_date_time(pcr_df$collection_end_date, "%m/%d/%y"))
 pcr_df$report_day <- as_date(mdy(pcr_df$collection_end_date))
 pcr_df$report_week <- floor_date(as_date(ymd(pcr_df$report_day)), unit="week")
