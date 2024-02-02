@@ -215,15 +215,19 @@ print $ufh join("\t", @{$updatecols{"assay"}}) . "\n";
 # Get the first letter of the batch type to use in the unique IDs.
 my $lead = substr "assay", 0, 1;
 
+# Init an incrementor, for the uid.
+# We can & will have multiple assays for the same sample across multiple batches, but for different targets.
+# So this incrementor has to be independent of batch and tied to the sampel id.
+my %uid_tracker = ();
+
 foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the metadata hash
 	my $ccount = 1;
 	foreach my $well (keys %{$batchmeta{"assay"}->{"$bid"}->{"wells"}}) {	# Each well in the metadata hash
 
 		# Get the sample id (aka asset id).
 		my $sample_id = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
-		# Init an incrementor, for the uid.
-		my $scount = 1;
-		
+		$uid_tracker{"$sample_id"} = 1 unless defined $uid_tracker{"$sample_id"};
+
 		# Get the data for this well from the well2data hash.
 		# Each well contains a hash keyed on the dye.
 		my %well_data = %{$well2data{"$bid"}->{"$well"}};
@@ -245,8 +249,8 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 				$ccount++;
 			} else {
 				# Construct a uid based on sample id and the incrementor.
-				$uid = "$sample_id.${lead}$scount";
-				$scount++;
+				$uid = "$sample_id.${lead}" . "$uid_tracker{$sample_id}";
+				$uid_tracker{"$sample_id"} = $uid_tracker{"$sample_id"}+1;
 			}
 			# Print the uid.
 			print $ufh "$uid";
