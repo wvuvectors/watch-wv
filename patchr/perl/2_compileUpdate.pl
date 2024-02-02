@@ -408,7 +408,7 @@ sub procAssayData {
 			my $t_conc = $cols[$fieldHash{"Conc(copies/uL)"}] if defined $fieldHash{"Conc(copies/uL)"};
 			my $dye    = $cols[$fieldHash{"DyeName(s)"}] if defined $fieldHash{"DyeName(s)"};
 			my $axdrop = $cols[$fieldHash{"Accepted Droplets"}] if defined $fieldHash{"Accepted Droplets"};
-			if (defined $well and defined $t_conc and defined $dye and defined $axdrop) {
+			if (defined $well and defined $t_conc and defined $dye and defined $axdrop and lc("$t_conc") ne "no call") {
 				$well2dataRef->{"$abid"}->{"$well"} = {} unless defined $well2dataRef->{"$abid"}->{"$well"};
 				$well2dataRef->{"$abid"}->{"$well"}->{"$dye"} = {
 					"assay_target_copies_per_ul_reaction" => $t_conc, 
