@@ -1,0 +1,25 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+A01-0738		StarCityWWTP-01	Routine Surveillance	Pass	01/30/2024 12:00 AM	01/31/2024 12:00 AM	01/31/2024 12:00 AM		12.5	GC	02/06/2024		
+A01-0798		StarCityWWTP-01	Routine Surveillance	Pass	02/02/2024 12:00 AM	02/03/2024 12:00 AM	02/03/2024 12:00 AM		9.9	AJ	02/06/2024		
+L01-0538		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	02/04/2024 08:00 AM	02/05/2024 08:00 AM	02/05/2024 08:00 AM			GC	02/06/2024		
+G01-0543		KeyserWWTP-01	Routine Surveillance	Pass	02/04/2024 08:00 AM	02/05/2024 08:00 AM	02/05/2024 08:00 AM		1.287	AJ	02/07/2024		
+A01-0799		StarCityWWTP-01	Routine Surveillance	Pass	02/03/2024 12:00 AM	02/04/2024 12:00 AM	02/04/2024 12:00 AM		9.6	AJ	02/06/2024		
+T01-0251		PointPleasantWWTP-01	Routine Surveillance	Pass	02/05/2024 07:00 AM	02/06/2024 07:00 AM	02/06/2024 07:00 AM		0.07	AJ	02/06/2024		
+A01-0796		StarCityWWTP-01	Routine Surveillance	Pass	01/28/2024 12:00 AM	01/29/2024 12:00 AM	01/29/2024 12:00 AM		18.7	AJ	02/06/2024		
+A01-0739		StarCityWWTP-01	Routine Surveillance	Pass	01/31/2024 12:00 AM	02/01/2024 12:00 AM	02/01/2024 12:00 AM		11.7	GC	02/06/2024		
+A01-0790		StarCityWWTP-01	Routine Surveillance	Pass			02/05/2024 12:00 AM		9.1	AJ	02/07/2024		
+M03-0277		ManningtonWWTP-01	Routine Surveillance	Pass	01/14/2024 08:00 AM	01/15/2024 08:00 AM	01/15/2024 08:00 AM		0.218	GC	02/06/2024		
+A04-0540		CheatLakeWWTP-01	Routine Surveillance	Pass	02/04/2024 08:00 AM	02/05/2024 08:00 AM	02/05/2024 08:00 AM		0.735	AJ	02/06/2024		
+C01-0595		WheelingWWTP-01	Routine Surveillance	Pass	02/04/2024 07:00 AM	02/05/2024 07:00 AM	02/05/2024 07:00 AM		14.953	AJ	02/06/2024		
+A01-0791		StarCityWWTP-01	Routine Surveillance	Pass	02/05/2024 12:00 AM	02/06/2024 12:00 AM	02/06/2024 12:00 AM		8.8	AJ	02/07/2024		
+C01-0593		WheelingWWTP-01	Routine Surveillance	Pass	02/01/2024 07:00 AM	02/02/2024 07:00 AM	02/02/2024 07:00 AM		16.124	AJ	02/06/2024		
+C01-0594		WheelingWWTP-01	Routine Surveillance	Pass	02/02/2024 07:00 AM	02/03/2024 07:00 AM	02/03/2024 07:00 AM		15.879	AJ	02/06/2024		
+J01-0391		AlpineLakeWWTP-01	Routine Surveillance	Pass	01/28/2024 07:30 AM	01/29/2024 07:30 AM	01/29/2024 07:30 AM		0.418	AJ	01/30/2024		
+D01-0401		CharlesTownWWTP-01	Routine Surveillance	Pass	02/05/2024 07:10 AM	02/06/2024 07:10 AM	02/06/2024 07:10 AM		1.20	AJ	02/07/2024		
+Q01-0490		MadisonWWTP-01	Routine Surveillance	Pass	02/04/2024 08:00 AM	02/05/2024 08:00 AM	02/05/2024 08:00 AM		0.419	AJ	02/07/2024		
+A01-0797		StarCityWWTP-01	Routine Surveillance	Pass	01/29/2024 12:00 AM	01/30/2024 12:00 AM	01/30/2024 12:00 AM		15.2	AJ	02/06/2024		
+H01-0903		MoundsvilleWWTP-01	Routine Surveillance	Pass	02/04/2024 08:00 AM	02/05/2024 08:00 AM	02/05/2024 08:00 AM		1.3	AJ	02/06/2024		
+C01-0591		WheelingWWTP-01	Routine Surveillance	Pass	01/29/2024 07:00 AM	01/30/2024 07:00 AM	01/30/2024 07:00 AM		14.223	AJ	02/06/2024		
+C01-0592		WheelingWWTP-01	Routine Surveillance	Pass	01/30/2024 07:00 AM	01/31/2024 07:00 AM	01/31/2024 07:00 AM		16.194	AJ	02/06/2024		
+A02-1323		Coliseum-01	Routine Surveillance	Pass	02/03/2024 04:00 PM	02/04/2024 01:00 AM	02/06/2024 01:30 PM			AJ	02/07/2024		
+A02-1325		Coliseum-01	Routine Surveillance	Pass	01/31/2024 05:00 PM	01/31/2024 11:00 PM	01/31/2024 11:00 PM	GZ		AJ	02/01/2024		

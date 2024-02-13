@@ -1,0 +1,107 @@
+#
+# Summary of WaTCH-WV seqr database.
+# Generated on 01/18/2024.
+#
+# NOTE: WaTCH level runs from 1 (most concerning) to 5 (least concerning).
+# NOTE: It indicates the importance of a variant specifically for WV wastewater testing.
+# NOTE: It is informed by CDC variant classification levels (VOI, VOC, etc.).
+#
+
+
+############################################################
+Overview:
+############################################################
+
+Total samples sequenced     : 194.
+Date last sample collected  : 11/14/2023.
+Date of last sequencing run : 01/04/2024.
+Total variants identified   : 1110.
+
+
+
+############################################################
+WaTCH LEVEL 1 (highest concern) variants
+############################################################
+
+JN.1* (Omicron/Pirola) detected in 2 samples
+------------------------------------------------------------
+11/05/2023 in Monongalia county (StarCityWWTP-01): 3.5% of sample A01-0714, batch SARS_20231129_B
+11/13/2023 in Monongalia county (StarCityWWTP-01): 0.4% of sample A01-0721, batch SARS_20240104
+
+
+BA.2.86* (Omicron/Pirola) detected in 4 samples
+------------------------------------------------------------
+11/06/2023 in Monongalia county (StarCityWWTP-01): 0.9% of sample A01-0715, batch SARS_20240104
+09/23/2023 in Monongalia county (StadiumSW-01): 98.0% of sample A02-1305, batch SARS_20231002
+11/01/2023 in Mercer county (PrincetonWWTP-01): 1.9% of sample E01-0377, batch SARS_20231129_B
+10/16/2023 in Preston county (AlpineLakeWWTP-01): 64.6% of sample J01-0379, batch SARS_20231102
+
+
+
+
+############################################################
+WaTCH LEVEL 2 (high concern) variants
+############################################################
+
+HV.1* (Omicron) detected in 11 counties
+------------------------------------------------------------
+11/13/2023 in Boone county
+11/14/2023 in Jefferson county
+10/23/2023 in Kanawha county
+10/02/2023 in Marshall county
+11/01/2023 in Mercer county
+10/23/2023 in Mineral county
+11/12/2023 in Monongalia county
+10/10/2023 in Ohio county
+10/16/2023 in Preston county
+11/06/2023 in Taylor county
+10/17/2023 in Wood county
+
+
+EG.5* (Omicron/Eris) detected in 14 counties
+------------------------------------------------------------
+11/13/2023 in Boone county
+08/20/2023 in Doddridge county
+11/14/2023 in Jefferson county
+10/23/2023 in Kanawha county
+10/30/2023 in Marion county
+10/02/2023 in Marshall county
+11/01/2023 in Mercer county
+10/23/2023 in Mineral county
+11/14/2023 in Monongalia county
+10/16/2023 in Ohio county
+10/16/2023 in Preston county
+10/30/2023 in Randolph county
+11/06/2023 in Taylor county
+10/24/2023 in Wood county
+
+
+
+
+############################################################
+Top 20 most abundant variants (any WaTCH level)
+############################################################
+
+64 samples: XBB.1.5.34
+63 samples: JF.1
+60 samples: B.10
+60 samples: XBB.1.5.8
+50 samples: XBB.1.5.95
+46 samples: XBB.1.5.37
+45 samples: XBB.1.16.12
+44 samples: HK.18
+41 samples: XBB.1.5.100
+41 samples: XBB.1.45.1
+40 samples: XBB.1.22
+39 samples: HY.1
+38 samples: XBB.1.16.19
+36 samples: XBB.1.5.62
+36 samples: XBB.1.5.67
+36 samples: XBB.1.5.88
+36 samples: XBB.1.10
+35 samples: XBB.1.25
+35 samples: EG.5.1
+35 samples: EG.5.1.6
+
+
+# EOF.

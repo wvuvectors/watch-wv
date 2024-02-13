@@ -239,6 +239,11 @@ foreach my $table (keys %runup2id) {
 print "-------------------------------\n\n";
 
 
+# Now fix any collisions or duplicates in the concentration, assay, or extraction update tables
+# Collisions in batch IDs should be resolved manually and will throw an error to halt patchr
+#
+
+
 my $status = 0;
 my ($num_dups_watch, $num_dups_runup, $num_collisions) = (0,0,0);
 foreach my $table (keys %table2key) {

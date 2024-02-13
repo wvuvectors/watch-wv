@@ -69,36 +69,46 @@ p_all <- ggplot(recent_df, aes(fill=lineage_group, y=percent, x=day_end)) +
 	theme(legend.position = "bottom", legend.title=element_blank())
 
 
-p_all_2 <- ggplot(recent_2pct_df, aes(fill=lineage_group, y=percent, x=day_end)) + 
-	geom_bar(position="stack", stat="identity") + 
+p_sentinel <- ggplot(recent_df %>% filter(str_detect(location, "StarCity") | str_detect(location, "Princeton") | str_detect(location, "Wheeling")), aes(fill=lineage_group, y=percent, x=day_end)) + 
+	geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
+	scale_fill_brewer(type="qual", palette = "Dark2") + 
 	facet_wrap(~location, nrow=3) + 
 	labs(x="", y="") + 
-	ggtitle("Proportion of SARS-CoV-2 Lineages in WV Wastewater, by Location", subtitle="Only variants > 2% abundance are shown.") +
+	ggtitle("Proportion of SARS-CoV-2 Lineages in WV Wastewater, by Location") +
 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
 	theme(legend.position = "bottom", legend.title=element_blank())
 
-p_all_10 <- ggplot(recent_10pct_df, aes(fill=lineage_group, y=percent, x=day_end)) + 
-	geom_bar(position="stack", stat="identity") + 
-	facet_wrap(~location, nrow=3) + 
-	labs(x="", y="") + 
-	ggtitle("Proportion of SARS-CoV-2 Lineages in WV Wastewater, by Location", subtitle="Only variants > 10% abundance are shown.") +
-	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom", legend.title=element_blank())
 
-p_starcity_2 <- ggplot(recent_2pct_df %>% filter(location == "StarCityWWTP-01"), aes(fill=lineage_group, y=percent, x=day_end)) + 
-	geom_bar(position="stack", stat="identity") + 
-	labs(x="", y="") + 
-	ggtitle("Proportion of SARS-CoV-2 Lineages in the Star City Wastewater Facility", subtitle="Only variants > 2% abundance are shown.") +
-	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom", legend.title=element_blank())
-	
-p_starcity_10 <- ggplot(recent_10pct_df %>% filter(location == "StarCityWWTP-01"), aes(fill=lineage_group, y=percent, x=day_end)) + 
-	geom_bar(position="stack", stat="identity") + 
-	labs(x="", y="") + 
-	ggtitle("Proportion of SARS-CoV-2 Lineages in the Star City Wastewater Facility", subtitle="Only variants > 10% abundance are shown.") +
-	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom", legend.title=element_blank())
-
+# p_all_2 <- ggplot(recent_2pct_df, aes(fill=lineage_group, y=percent, x=day_end)) + 
+# 	geom_bar(position="stack", stat="identity") + 
+# 	facet_wrap(~location, nrow=3) + 
+# 	labs(x="", y="") + 
+# 	ggtitle("Proportion of SARS-CoV-2 Lineages in WV Wastewater, by Location", subtitle="Only variants > 2% abundance are shown.") +
+# 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+# 	theme(legend.position = "bottom", legend.title=element_blank())
+# 
+# p_all_10 <- ggplot(recent_10pct_df, aes(fill=lineage_group, y=percent, x=day_end)) + 
+# 	geom_bar(position="stack", stat="identity") + 
+# 	facet_wrap(~location, nrow=3) + 
+# 	labs(x="", y="") + 
+# 	ggtitle("Proportion of SARS-CoV-2 Lineages in WV Wastewater, by Location", subtitle="Only variants > 10% abundance are shown.") +
+# 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+# 	theme(legend.position = "bottom", legend.title=element_blank())
+# 
+# p_starcity_2 <- ggplot(recent_2pct_df %>% filter(location == "StarCityWWTP-01"), aes(fill=lineage_group, y=percent, x=day_end)) + 
+# 	geom_bar(position="stack", stat="identity") + 
+# 	labs(x="", y="") + 
+# 	ggtitle("Proportion of SARS-CoV-2 Lineages in the Star City Wastewater Facility", subtitle="Only variants > 2% abundance are shown.") +
+# 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+# 	theme(legend.position = "bottom", legend.title=element_blank())
+# 	
+# p_starcity_10 <- ggplot(recent_10pct_df %>% filter(location == "StarCityWWTP-01"), aes(fill=lineage_group, y=percent, x=day_end)) + 
+# 	geom_bar(position="stack", stat="identity") + 
+# 	labs(x="", y="") + 
+# 	ggtitle("Proportion of SARS-CoV-2 Lineages in the Star City Wastewater Facility", subtitle="Only variants > 10% abundance are shown.") +
+# 	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
+# 	theme(legend.position = "bottom", legend.title=element_blank())
+# 
 
 p_var_stadium <- ggplot(all_df %>% filter(str_detect(location, "Stadium")), aes(fill=lineage_group, y=percent, x=facility)) + 
 	geom_bar(position="stack", stat="identity") + 
@@ -130,13 +140,13 @@ p_focus <- ggplot(recent_df %>% filter((str_detect(location, "WheelingWWTP") & p
 
 
 # Basic piechart
-pie_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage_group)) +
-	geom_bar(stat="identity", width=1, color="white") +
-	coord_polar("y", start=0) +
-	theme_void() +
-	#theme(legend.position="none") +
+#pie_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage_group)) +
+#	geom_bar(stat="identity", width=1, color="white") +
+#	coord_polar("y", start=0) +
+#	theme_void() +
+#	#theme(legend.position="none") +
 	
-	#geom_text(aes(y = ypos, label = lineage), color = "white", size=3) +
-	ggtitle("Proportion of SARS-CoV-2 Lineages in Alpine Lake WWTP, 15-Oct-2023", subtitle="Only lineages > 1% abundance are shown.") +
-	scale_fill_brewer(palette="Set1")
+#	#geom_text(aes(y = ypos, label = lineage), color = "white", size=3) +
+#	ggtitle("Proportion of SARS-CoV-2 Lineages in Alpine Lake WWTP, 15-Oct-2023", subtitle="Only lineages > 1% abundance are shown.") +
+#	scale_fill_brewer(palette="Set1")
 

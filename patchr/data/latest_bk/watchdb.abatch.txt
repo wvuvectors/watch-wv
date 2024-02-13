@@ -1,9 +1,11 @@
 assay_batch_id	assay_date	assay_reaction_ul	assay_machine	assay_amplification_method	assay_amplification_method_lot_id	assay_quantification_method	assay_quantification_type	assay_batch_record_version	assay_method	assay_method_lot_id	assay_qx_manager_version	assay_run_by	assay_batch_comment
 AB1	11/30/2023	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64554453	ddPCR	Direct Quantification	2.0.0	SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839		JL	None
+AB10	01/31/2024	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	ddPCR	Direct Quantification	2.0.0	RSV A/B (G) (dEXD77482599)	66418870		JL	None
 AB2	12/14/2023	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64554453	ddPCR	Direct Quantification	2.0.0	SARS-CoV-2 (N2) (dEXD28513507)	341878142		JL	None
 AB5	01/08/2024	20	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	ddPCR	Direct Quantification	2.0.0	Custom Design	341878142,69915334,69899693		JL	Used too dilute of PC for signal. Will change next time.
 AB6	01/11/2024	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	ddPCR	Direct Quantification	2.0.0	Custom Design	341878142,69915334		JL	None
-AB7	01/25/2023	20	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	341878142,69915335	ddPCR	Direct Quantification	2.0.0	Custom Design	64571283		JL	None
+AB7	01/25/2024	20	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	341878142,69915335	ddPCR	Direct Quantification	2.0.0	Custom Design	64571283		JL	None
+AB8	01/31/2024	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	ddPCR	Direct Quantification	2.0.0	SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839		JL	None
 AP0	08/13/2021	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		ddPCR	Direct Quantification	1.0.0	SARS-CoV-2 N1, N2, BRSV Triplex (dEXD41434415)		1.2	JL	
 AP0.1	08/16/2021	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	ddPCR	Direct Quantification	1.0.0	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		1.2	JL	
 AP0.2	08/18/2021	20	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	ddPCR	Direct Quantification	1.0.0	SARS-CoV-2 ddPCR Triplex (dEXD28563542)		1.2	JL	

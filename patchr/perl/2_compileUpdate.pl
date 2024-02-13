@@ -217,7 +217,7 @@ my $lead = substr "assay", 0, 1;
 
 # Init an incrementor, for the uid.
 # We can & will have multiple assays for the same sample across multiple batches, but for different targets.
-# So this incrementor has to be independent of batch and tied to the sampel id.
+# So this incrementor has to be independent of batch and tied to the sample id.
 my %uid_tracker = ();
 
 foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the metadata hash
@@ -230,6 +230,11 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 
 		# Get the data for this well from the well2data hash.
 		# Each well contains a hash keyed on the dye.
+		unless (defined $well2data{"$bid"} and defined $well2data{"$bid"}->{"$well"}) {
+			warn "Batch $bid, well $well is in the metadata sheet but no ddPCR data was provided!\n";
+			warn "Most likely, a well was inadvertently dropped when the csv file was exported from the droplet reader.\n";
+			exit 255;
+		}
 		my %well_data = %{$well2data{"$bid"}->{"$well"}};
 
 		# Loop over the dyes for this well.
@@ -408,7 +413,8 @@ sub procAssayData {
 			my $t_conc = $cols[$fieldHash{"Conc(copies/uL)"}] if defined $fieldHash{"Conc(copies/uL)"};
 			my $dye    = $cols[$fieldHash{"DyeName(s)"}] if defined $fieldHash{"DyeName(s)"};
 			my $axdrop = $cols[$fieldHash{"Accepted Droplets"}] if defined $fieldHash{"Accepted Droplets"};
-			if (defined $well and defined $t_conc and defined $dye and defined $axdrop and lc("$t_conc") ne "no call") {
+			if (defined $well and defined $t_conc and defined $dye and defined $axdrop) {
+				$t_conc = 0 if lc("$t_conc") eq "no call";
 				$well2dataRef->{"$abid"}->{"$well"} = {} unless defined $well2dataRef->{"$abid"}->{"$well"};
 				$well2dataRef->{"$abid"}->{"$well"}->{"$dye"} = {
 					"assay_target_copies_per_ul_reaction" => $t_conc, 

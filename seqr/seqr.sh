@@ -142,13 +142,37 @@ echo "#" >> "$SEQR_DBDIR/latest/README.txt"
 
 
 echo "" | tee -a "$logf"
-echo "File copy finished."
+echo "File copy finished." | tee -a "$logf"
 echo "The most recent version of the seqrdb can be found in two places:" | tee -a "$logf"
 echo "    $SEQR_DBDIR/incremental/$START/" | tee -a "$logf"
 echo "    and" | tee -a "$logf"
 echo "    $SEQR_DBDIR/latest/" | tee -a "$logf"
 echo "$SEQR_DBDIR/latest_bk/ contains the data from immediately before this update was applied." | tee -a "$logf"
 echo "" | tee -a "$logf"
+
+
+
+rfile="$SEQR_DBDIR/reports/seqr_report.$START.txt"
+echo "" | tee -a "$logf"
+echo "Writing report to $rfile."  | tee -a "$logf"
+
+echo "******" | tee -a "$logf"
+echo "Running 3sv_generateReport.pl > $rfile." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+./perl/3sv_generateReport.pl > "$rfile"
+status="${PIPESTATUS[0]}"
+
+if [[ "$status" != "0" ]]
+then
+	echo "" | tee -a "$logf"
+	echo "3sv_generateReport.pl exited with error code $status and caused seqr to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "seqr aborted during phase 3 (report generation)." | tee -a "$logf"
+	echo "The data update was successful, but a report could not be generated." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
 
 
 echo "All done! seqr will now exit."

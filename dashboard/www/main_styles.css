@@ -20,12 +20,24 @@ body, label, input, button, select {
 h1, h2, h3, h5 { font-weight: 400; }
 h4 { font-weight: 800; }
 
-div.map_embed {
+.map-embed {
   /* Appearance */
   border: 0;
   padding: 0;
   background-color: none;
 }
+
+/*
+.map-embed label {
+	display: table-cell; 
+	text-align: center; 
+	vertical-align: top;
+}
+
+.map-embed .form-group {
+	display: table-row;
+}
+*/
 
 #plotview {
   /* Appearance */
@@ -45,7 +57,7 @@ div.map_embed {
   transition-delay: 0;
 }
 
-#controls {
+.controls {
   /* Appearance */
   background-color: #ffffff;
   border: 1px solid #666666;
@@ -58,7 +70,7 @@ div.map_embed {
   transition: opacity 100ms 200ms;
 }
 
-#controls:hover {
+.controls:hover {
   /* Fade in while hovering */
   opacity: 1;
   transition-delay: 0;
@@ -149,7 +161,7 @@ div.map_embed {
   border-radius: 3px;
 }
 
-#logo {
+.logo {
   /* Appearance */
   background-color: transparent;
   cursor: move;
@@ -159,8 +171,9 @@ div.map_embed {
   transition: opacity 200ms 200ms;
 }
 
-#logo:hover {
+.logo:hover {
   /* Fade in while hovering */
   opacity: 0.95;
   transition-delay: 0;
 }
+
