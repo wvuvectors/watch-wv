@@ -166,9 +166,9 @@ h4 { font-weight: 800; }
   background-color: transparent;
   cursor: move;
   /* Fade out while not hovering */
-  opacity: 0.5;
-  zoom: 0.9;
-  transition: opacity 200ms 200ms;
+  opacity: 0.7;
+  zoom: 1.0;
+  transition: opacity 100ms 100ms;
 }
 
 .logo:hover {

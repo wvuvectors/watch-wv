@@ -152,7 +152,7 @@ echo "" | tee -a "$logf"
 
 
 
-rfile="$SEQR_DBDIR/reports/seqr_report.$START.txt"
+rfile="reports/seqr_report.$START.txt"
 echo "" | tee -a "$logf"
 echo "Writing report to $rfile."  | tee -a "$logf"
 

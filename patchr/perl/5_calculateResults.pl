@@ -193,6 +193,8 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 # result, location, county, wwtp, and sample
 
 
+#print Dumper($table2watch{"sample"});
+#die;
 
 #
 # Make sure all required keys have some value for each asset
@@ -230,12 +232,21 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 	$ahashRef->{"reject"} = "pre-existing" if defined $table2watch{"result"}->{"$assay_id"} and lc "$table2watch{result}->{$assay_id}->{target_result_validated}" eq "yes";
 	
 	next unless "$ahashRef->{reject}" eq "no";
-
+		
+	if (!defined $ahashRef->{"sample_id"}) {
+		print "Undefined sample_id field in assay table for assay $assay_id\n";
+		die;
+	}
+	if (!defined $table2watch{"sample"}->{$ahashRef->{"sample_id"}}->{"sample_qc"}) {
+		print "Undefined sample with id $ahashRef->{sample_id} in sample table\n";
+		die;
+	}
+	
 	# Sample for this assay has been rejected or failed initial QC.
 	$ahashRef->{"reject"} = "sample rejected" if "$table2watch{sample}->{$ahashRef->{sample_id}}->{sample_status}" =~ /Rejected/i;
 	$ahashRef->{"reject"} = "sample rejected" if "$table2watch{sample}->{$ahashRef->{sample_id}}->{sample_qc}" =~ /Fail/i;
 	
-	next unless $ahashRef->{"reject"} eq "no";
+	next unless "$ahashRef->{reject}" eq "no";
 	
 	$ahashRef->{"reject"} = "abatch id problem" if 
 			!defined $ahashRef->{"assay_batch_id"} or 
@@ -249,7 +260,7 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 			!defined $table2watch{"extraction"}->{$ahashRef->{"extraction_id"}} or 
 			"$table2watch{extraction}->{$ahashRef->{extraction_id}}" eq "";
 
-	next unless $ahashRef->{"reject"} eq "no";
+	next unless "$ahashRef->{reject}" eq "no";
 	
 
 	my %ehash = %{$table2watch{"extraction"}->{$ahashRef->{"extraction_id"}}};
@@ -266,7 +277,7 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 			!defined $table2watch{"concentration"}->{$ehash{"concentration_id"}} or 
 			"$table2watch{concentration}->{$ehash{concentration_id}}" eq "";
 
-	next unless $ahashRef->{"reject"} eq "no";
+	next unless "$ahashRef->{reject}" eq "no";
 	
 
 	my %chash = %{$table2watch{"concentration"}->{$ehash{"concentration_id"}}};
@@ -283,7 +294,7 @@ foreach my $assay_id (keys %{$table2watch{"assay"}}) {
 			!defined $table2watch{"sample"}->{$chash{"sample_id"}} or 
 			"$table2watch{sample}->{$chash{sample_id}}" eq "";
 
-	next unless $ahashRef->{"reject"} eq "no";
+	next unless "$ahashRef->{reject}" eq "no";
 	
 
 	my %shash = %{$table2watch{"sample"}->{$chash{"sample_id"}}};

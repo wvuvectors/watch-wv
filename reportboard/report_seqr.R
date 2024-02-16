@@ -122,31 +122,16 @@ p_var_stadium <- ggplot(all_df %>% filter(str_detect(location, "Stadium")), aes(
 
 
 
-focus_df <- subset(all_df %>% filter(str_detect(location, "PrincetonWWTP") & percent > 1.0))
+focus_df <- subset(all_df %>% filter(str_detect(location, "WheelingWWTP") & percent > 1.0 & day_end > today() - months(9) & day_end < today() - months(3)))
 
-# Compute the position of labels
-focus_df <- focus_df %>% 
-	arrange(desc(lineage_group)) %>%
-	mutate(ypos = cumsum(percent)- 0.5*percent )
-
-p_focus <- ggplot(recent_df %>% filter((str_detect(location, "WheelingWWTP") & percent > 0)), aes(fill=lineage_group, y=percent, x=day_end)) + 
-	geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
-	scale_fill_brewer(type="qual", palette = "Dark2") + 
+#p_focus <- ggplot(focus_df %>% filter(str_detect(lineage_group, "EG.5")), aes(fill=variant, y=percent, x=day_end)) + 
+p_focus <- ggplot(focus_df, aes(fill=lineage_group, y=percent, x=day_end)) + 
+	geom_bar(position="stack", stat="identity") + 
+#	scale_fill_brewer(type="qual", palette = "Dark2") + 
 #	scale_color_manual(values = lineage_pal) + 
 	labs(x="", y="") + 
 	ggtitle("Proportion of SARS-CoV-2 Lineages in Wheeling WWTP") +
-	scale_x_date(date_breaks = "5 days", labels = format_dates) + 
-	theme(legend.position = "bottom", legend.title=element_blank())
+	scale_x_date(date_breaks = "7 days", labels = format_dates) + 
+	theme(legend.position = "right", legend.title=element_blank())
 
-
-# Basic piechart
-#pie_focus <- ggplot(focus_df, aes(x="", y=percent, fill=lineage_group)) +
-#	geom_bar(stat="identity", width=1, color="white") +
-#	coord_polar("y", start=0) +
-#	theme_void() +
-#	#theme(legend.position="none") +
-	
-#	#geom_text(aes(y = ypos, label = lineage), color = "white", size=3) +
-#	ggtitle("Proportion of SARS-CoV-2 Lineages in Alpine Lake WWTP, 15-Oct-2023", subtitle="Only lineages > 1% abundance are shown.") +
-#	scale_fill_brewer(palette="Set1")
 
