@@ -24,7 +24,6 @@ h4 { font-weight: 800; }
   /* Appearance */
   border: 0;
   padding: 0;
-  background-color: none;
 }
 
 /*
@@ -59,14 +58,14 @@ h4 { font-weight: 800; }
 
 .controls {
   /* Appearance */
-  background-color: #ffffff;
+  background-color: #fefef0;
   border: 1px solid #666666;
   border-radius: 5px;
-  padding: 5px 5px 5px 5px;
+  padding: 1px 5px 1px 5px;
   /*cursor: move;*/
   /* Fade out while not hovering */
   opacity: 0.8;
-  zoom: 0.9;
+  /*zoom: 0.9;*/
   transition: opacity 100ms 200ms;
 }
 
@@ -120,7 +119,7 @@ h4 { font-weight: 800; }
   /*transition: opacity 200ms 400ms;*/
 }
 
-.mdblock:hover {
+#alert_scale:hover {
   border: 2px solid #0096FF;
   cursor: pointer;
   /* Fade in while hovering */
@@ -177,3 +176,11 @@ h4 { font-weight: 800; }
   transition-delay: 0;
 }
 
+.dlsmall::before {
+  display: inline-block;
+  line-height: 1;
+  height: 25px;
+  width: 25px;
+  /*vertical-align: -.125em;*/
+  content: url(./dl_arrow.png);
+}

@@ -73,3 +73,104 @@ excel2df <- function(fname) {
 	data_frame
 } 
   
+
+calcTrend <- function(df_this, mo_base) {
+	
+	if (length(df_this$date_primary) == 0) {
+		return(NA)
+	}
+	
+	vec_all <- (df_this %>% filter(date_primary > (today %m-% months(mo_base))))$val
+
+	if (length(vec_all) == 0) {
+		trend <- NA
+	} else {
+		trend <- mean(vec_all, na.rm = TRUE)
+		trend <- as.numeric(trend)
+	}
+	
+	return(trend)
+}
+
+
+calcDelta <- function(df_this, mo_base) {
+	
+	if (length(df_this$date_primary) == 0) {
+		return(NA)
+	}
+	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
+	
+	vec_now <- (df_this %>% filter(ymd(date_primary) == ymd(most_recent_date)))$target_copies_fn_per_cap
+	vec_all <- (df_this %>% filter(date_primary > (today %m-% months(mo_base))))$target_copies_fn_per_cap
+
+	if (length(vec_now) == 0 | length(vec_all) == 0) {
+		delta <- NA
+	} else {
+		d_now <- mean(vec_now, na.rm = TRUE)
+		d_base <- mean(vec_all, na.rm = TRUE)
+		delta <- 100 *  (d_now - d_base)/d_base
+		delta <- formatC(as.numeric(delta), format="d")
+	}
+	
+	return(delta)
+}
+
+
+calcFresh <- function(df_this) {
+	
+	if (length(df_this$date_primary) == 0) {
+		return(NA)
+	}
+	
+	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
+	
+	freshness <- ymd(today)-ymd(most_recent_date)
+	
+	return(freshness)
+}
+
+
+#
+# Generate an alert color string based on the target levels at the given location(s).
+#
+getAlertColor <- function(freshness, delta) {
+	
+# 		df_targ <- df_rs %>% filter(
+# 			target == inputTarget & 
+# 			target_genetic_locus == inputLocus & 
+# 			location_id %in% locations)
+	
+	if (is.na(freshness) | as.numeric(freshness) >= STALE_DATA_THRESHOLDS[3]) {
+		this_color <- ALERT_LEVEL_COLORS[5]
+	} else {
+		delta <- as.numeric(delta)
+		this_color <- case_when(
+			delta <= ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_COLORS[1],
+			delta > ALERT_LEVEL_THRESHOLDS[1] & delta <= ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_COLORS[2],
+			delta > ALERT_LEVEL_THRESHOLDS[2] & delta <= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[3],
+			delta >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[4]
+		)
+	}
+	
+	return(this_color)
+}
+
+
+#
+# Generate a color string based on the data freshness at the given location(s).
+#
+getFreshnessColor <- function(freshness) {
+	
+	this_color <- case_when(
+		is.na(freshness) ~ STALE_DATA_COLORS[4],
+		freshness >= 0 & freshness < STALE_DATA_THRESHOLDS[1] ~ STALE_DATA_COLORS[1],
+		freshness >= STALE_DATA_THRESHOLDS[1] & freshness < STALE_DATA_THRESHOLDS[2] ~ STALE_DATA_COLORS[2],
+		freshness >= STALE_DATA_THRESHOLDS[2] & freshness < STALE_DATA_THRESHOLDS[3] ~ STALE_DATA_COLORS[3],
+		freshness >= STALE_DATA_THRESHOLDS[3] ~ STALE_DATA_COLORS[4]
+	)
+	
+	return(this_color)
+}
+
+
+

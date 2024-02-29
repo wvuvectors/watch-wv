@@ -18,6 +18,8 @@ library(shinyjs)
 library(shinythemes)
 library(shinyWidgets)
 library(leaflet)
+library(tableHTML)
+
 library(fontawesome)
 library(DT)
 #library(leaflet.extras)
