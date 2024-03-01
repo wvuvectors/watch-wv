@@ -50,8 +50,6 @@ shinyServer(function(input, output, session) {
 		#print("getBasicDF called!")
 	
 		#df_targ <- df_rs %>% filter(target == inputTarget & target_genetic_locus == inputLocus)
-		dates <- c(today %m-% months(date_win), today)
-	
 		if (loc_name == "WV") {
 			df_this <- dflist_rs[[index]] %>% 
 								 group_by(date_to_plot) %>% 
@@ -86,6 +84,9 @@ shinyServer(function(input, output, session) {
 	#			trendline_yr <- 0
 	#		}
 
+		end_date <- max(df_this$date_to_plot, na.rm=TRUE)
+		dates <- c(end_date %m-% months(date_win), end_date)
+	
 		df_return <- df_this %>% filter(date_to_plot >= dates[1] & date_to_plot <= dates[2])
 	
 		if (length(df_return$date_to_plot) == 0) {
@@ -99,11 +100,8 @@ shinyServer(function(input, output, session) {
 	getSeqrDF <- function(inputTarget, loc_name, date_win) {
 		#print("getBasicDF called!")
 	
-		dates <- c(today %m-% months(date_win), today)
-	
 		if (loc_name == "WV") {
-			df_plot <- df_seqr %>% 
-								 filter(date_to_plot >= dates[1] & date_to_plot <= dates[2]) %>%
+			df_this <- df_seqr %>% 
 								 group_by(date_to_plot, color_group) %>% 
 								 summarize(val := mean(percent, na.rm = TRUE)) %>% 
 								 arrange(date_to_plot, color_group)
@@ -115,14 +113,20 @@ shinyServer(function(input, output, session) {
 				loc_ids <- (df_active_loc %>% filter(location_common_name == loc_name))$location_id
 			}
 
-			df_plot <- df_seqr %>% 
-								 filter(location %in% loc_ids & date_to_plot >= dates[1] & date_to_plot <= dates[2]) %>%
+			df_this <- df_seqr %>% 
+								 filter(location %in% loc_ids) %>%
 								 group_by(date_to_plot, color_group) %>% 
 								 summarize(val := sum(percent, na.rm = TRUE)) %>% 
 								 arrange(date_to_plot, color_group)
 		}
 		#View(df_plot)
-		return(df_plot)
+
+		end_date <- max(df_this$date_to_plot, na.rm=TRUE)
+		dates <- c(end_date %m-% months(date_win), end_date)
+	
+		df_return <- df_this %>% filter(date_to_plot >= dates[1] & date_to_plot <= dates[2])
+
+		return(df_return)
 	}
 
 
@@ -151,9 +155,11 @@ shinyServer(function(input, output, session) {
 			date_win == 24 ~ DATE_BREAKS[5],
 		)
 		
+		end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
+		
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
-											scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(today %m-% months(date_win), today)) + 
+											scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
 											#scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											plot_theme() + 
@@ -189,11 +195,13 @@ shinyServer(function(input, output, session) {
 			controlRV$viewMonths[1] == 24 ~ DATE_BREAKS[5],
 		)
 		
+		end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
+
 		gplot <- ggplot(df_plot, aes(fill=lineage_group, y=val, x=date_to_plot)) + labs(y = "", x = "") + 
 							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
 							scale_fill_brewer(type="qual", palette = "Dark2") + 
 							labs(x="", y="") + 
-							scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(today %m-% months(date_win), today)) + 
+							scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
 							plot_theme() +
 							theme(legend.position = "right", legend.title=element_blank())
 
@@ -334,12 +342,10 @@ shinyServer(function(input, output, session) {
 		
 		if (missing(geolevel)) { layer = controlRV$activeGeoLevel[1] }
 		if (missing(loc_name)) { loc_name = controlRV$mapClick[1] }
-		if (missing(date_win)) { dates = controlRV$viewMonths[1] }
+		if (missing(date_win)) { date_win = controlRV$viewMonths[1] }
 		
 		#print(loc_name)
 
-		dates <- c(today %m-% months(VIEW_RANGE_PRIMARY), today)
-		
 		if (loc_name == "WV") {
 			
 			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
@@ -423,6 +429,9 @@ shinyServer(function(input, output, session) {
 		
 		# Calculate and print the site mean flow.
 		#		
+		end_date <- max(df_this$date_primary, na.rm=TRUE)
+		dates <- c(end_date %m-% months(VIEW_RANGE_PRIMARY), end_date)
+		
 		mean_flow <- mean((df_this %>% filter(date_primary >= dates[1] & date_primary <= dates[2]))$sample_flow)
 		output$site_rs_flow <- renderText(
 			paste0("Mean daily flow is ", prettyNum(mean_flow, digits = 2), 
@@ -453,12 +462,12 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircleMarkers(data = df_active_loc %>% filter(location_category == "wwtp"),
+				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-		#										 radius = 3500, 
-												 radius = 5, 
+												 radius = ~location_population_served/8, 
+		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
 												 opacity = 0.5,
@@ -466,14 +475,14 @@ shinyServer(function(input, output, session) {
 												 color = "#000000",
 												 fill = TRUE,
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-												 fillColor = "gray",
+												 fillColor = ~colorby,
 												 group = "facility", 
 												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
 				layerId = ~NAME, 
-				fillColor = ~color_group, 
+				fillColor = ~colorby, 
 				stroke=TRUE, 
 				fillOpacity = 0.7, 
 				color="#000000", 
@@ -494,12 +503,12 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircleMarkers(data = df_active_loc %>% filter(location_category == "wwtp"),
+				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-		#										 radius = 3500, 
-												 radius = 5, 
+												 radius = ~location_population_served/8, 
+		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
 												 opacity = 0.5,
@@ -507,14 +516,14 @@ shinyServer(function(input, output, session) {
 												 color = "#000000",  
 												 fill = TRUE,
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-												 fillColor = "gray",
+												 fillColor = ~colorby,
 												 group = "facility", 
 												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
 				layerId = ~NAME, 
-				fillColor = ~color_group, 
+				fillColor = ~colorby, 
 				stroke=TRUE, 
 				fillOpacity = 0.7, 
 				color="#000000", 
@@ -535,12 +544,12 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircleMarkers(data = df_active_loc %>% filter(location_category == "wwtp"),
+				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-		#										 radius = 3500, 
-												 radius = 5, 
+												 radius = ~location_population_served/8, 
+		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
 												 opacity = 0.5,
@@ -548,14 +557,14 @@ shinyServer(function(input, output, session) {
 												 color = "#000000",  
 												 fill = TRUE,
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-												 fillColor = "gray",
+												 fillColor = ~colorby,
 												 group = "facility", 
 												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
 				layerId = ~NAME, 
-				fillColor = ~color_group, 
+				fillColor = ~colorby, 
 				stroke=TRUE, 
 				fillOpacity = 0.7, 
 				color="#000000", 
@@ -683,26 +692,26 @@ shinyServer(function(input, output, session) {
 			rsLeafletProxy %>% 
 					clearMarkers() %>% 
 					clearShapes() %>% 
-					addCircleMarkers(data = df_active_loc %>% filter(location_category == "wwtp"),
+					addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
 										 layerId = ~location_common_name, 
 										 lat = ~location_lat, 
 										 lng = ~location_lng, 
-#										 radius = 3500, 
-										 radius = 5, 
+										 radius = ~location_population_served/8, 
+#										 radius = 5, 
 										 stroke = FALSE,
 										 weight = 4, 
 										 opacity = 0.5,
 #										 color = ~alertPal(current_fold_change_smoothed), 
 										 fill = TRUE,
 #										 fillColor = ~alertPal(current_fold_change_smoothed), 
-										 fillColor = "red",
+										 fillColor = ~colorby,
 										 group = "facility", 
 										 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 										 fillOpacity = 0.6) %>%
 					addPolygons( 
 						data = county_spdf, 
 						layerId = ~NAME, 
-						fillColor = ~color_group, 
+						fillColor = ~colorby, 
 						stroke=TRUE, 
 						fillOpacity = 0.7, 
 						color="black", 
@@ -723,26 +732,26 @@ shinyServer(function(input, output, session) {
 						addPolygons( 
 							data = county_spdf, 
 							layerId = ~NAME, 
-							#fillColor = ~mypalette(color_group), 
+							#fillColor = ~mypalette(colorby), 
 							stroke=TRUE, 
 							fillOpacity = 0, 
 							color="black", 
 							weight=1.0, 
 							group="county"
 						) %>% 
-						addCircleMarkers(data = df_active_loc %>% filter(location_category == "wwtp"),
+						addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
 											 layerId = ~location_common_name, 
 											 lat = ~location_lat, 
 											 lng = ~location_lng, 
-	#										 radius = 3500, 
-											 radius = 5, 
+											 radius = ~location_population_served/8, 
+	#										 radius = 5, 
 											 stroke = FALSE,
 											 weight = 4, 
 											 opacity = 0.9,
 	#										 color = ~alertPal(current_fold_change_smoothed), 
 											 fill = TRUE,
 	#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-											 fillColor = "red",
+											 fillColor = ~colorby,
 											 group = "facility", 
 											 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 											 fillOpacity = 0.6)

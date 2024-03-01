@@ -44,12 +44,23 @@ df_active_loc <- resources$location %>% filter(tolower(location_status) == "acti
 df_active_wwtp <- resources$wwtp %>% filter(wwtp_id %in% df_active_loc$location_primary_wwtp_id)
 df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$location_counties_served)
 
-# Add colors to county layer.
+# Add colors to county and location dataframes.
 #
-county_spdf$color_group <- case_when(
+county_spdf$colorby <- case_when(
   county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
   county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
   .default = "#eeeeee")
+
+df_active_county$colorby <- case_when(
+  df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
+  df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
+  .default = "#eeeeee")
+
+
+df_active_loc$colorby <- case_when(
+  tolower(df_active_loc$location_primary_lab) == "zoowvu" ~ "#EAAA00", 
+  tolower(df_active_loc$location_primary_lab) == "muidsl" ~ "#00B140", 
+  .default = "#cccccc")
 
 
 # Restrict results to those that pass sample QC
