@@ -1,6 +1,9 @@
 #! /bin/bash
 
 DBDIR="data/latest"
+RSDIR="resources"
+SVDIR="../seqr/data/latest"
+
 
 # Get the current date and time
 START=$(date "+%F_%H-%M")
@@ -47,24 +50,36 @@ then
 	exit 1
 fi
 
-
-echo "******" | tee -a "$logf"
-echo "Running 7_feedWVWD.pl '../dashboard/data'." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-./perl/7_feedWVWD.pl "../dashboard/data" | tee -a "$logf"
+cp "$RSDIR/watchdb.all_tables.xlsx" "../dashboard/data/watchdb.all_tables.xlsx"
 status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
 if [[ "$status" != "0" ]]
 then
-	echo "7_feedWVWD.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 3 (resource file generation)." | tee -a "$logf"
-	echo "Fix the error(s) and run patchr_feed again."| tee -a "$logf"
+	echo "Copy of watchdb.all_tables.xlsx from $RSDIR to dashboard/data exited with error code $status." | tee -a "$logf"
+	echo "This is fatal." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
+
+cp "$SVDIR/seqrdb.txt" "../dashboard/data/seqrdb.txt"
+status="${PIPESTATUS[0]}"
+if [[ "$status" != "0" ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "Copy of seqrdb.txt from $SVDIR to dashboard/data exited with error code $status." | tee -a "$logf"
+	echo "This is fatal." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "" | tee -a "$logf"
+echo "Updating the README file." | tee -a "$logf"
+echo "$UPDAY" > "../dashboard/data/README.txt"
+echo "" >> "../dashboard/data/README.txt"
+echo "#" >> "../dashboard/data/README.txt"
+echo "This folder contains the most recent dashboard raw data." >> "../dashboard/data/README.txt"
+echo "#" >> "../dashboard/data/README.txt"
+
 
 
 echo "All done! feed_WVWD will now exit."

@@ -1,0 +1,119 @@
+#############################################
+Initiated patchr.sh
+2024-03-08_16-52
+
+See logs/patchr/patchr.2024-03-08_16-52.log for warnings, errors, and other important information.
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/PROJECTS/WaTCH/TESTING_LAB/DATA_PCR.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder data/updates/2024-03-08_16-52/ to hold the results.
+Recording batch files to process in data/updates/2024-03-08_16-52//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory data/updates/2024-03-08_16-52/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB30.xlsx to batches/CB30.xlsx.
+Repairing known issues in CB30.xlsx.
+Copying file CB28.xlsx to batches/CB28.xlsx.
+Repairing known issues in CB28.xlsx.
+Copying file CB 29.xlsx to batches/CB 29.xlsx.
+Repairing known issues in CB 29.xlsx.
+Copying file EB28.xlsx to batches/EB28.xlsx.
+Repairing known issues in EB28.xlsx.
+Copying file EB 29.xlsx to batches/EB 29.xlsx.
+Repairing known issues in EB 29.xlsx.
+Copying file EB30.xlsx to batches/EB30.xlsx.
+Repairing known issues in EB30.xlsx.
+Copying file AB20.xlsx to batches/AB20.xlsx.
+Repairing known issues in AB20.xlsx.
+Copying file AB20_20240307_141435_023.ANALYZED.csv to batches/AB20_20240307_141435_023.ANALYZED.csv.
+Repairing known issues in AB20_20240307_141435_023.ANALYZED.csv.
+Done.
+File AB20_20240307_141435_023.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB20_20240307_141435_023.ANALYZED.csv.
+Done.
+Copying file AB19.xlsx to batches/AB19.xlsx.
+Repairing known issues in AB19.xlsx.
+Copying file AB19_20240308_130835_529.ANALYZED.csv to batches/AB19_20240308_130835_529.ANALYZED.csv.
+Repairing known issues in AB19_20240308_130835_529.ANALYZED.csv.
+Done.
+File AB19_20240308_130835_529.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB19_20240308_130835_529.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+******
+Running 3_validateUpdate.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table extraction
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table sample
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table assay
+Retrieving ids from WaTCH table cbatch
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table rbatch
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/latest):
+TABLE        	WaTCH IDS    	DUPLICATES   
+extraction   	11005        	0            
+abatch       	248          	0            
+sample       	10960        	0            
+archive      	0            	0            
+ebatch       	465          	0            
+assay        	33823        	0            
+cbatch       	674          	0            
+concentration	10817        	0            
+rbatch       	0            	0            
+-------------------------------
+
+Validating ids from the update tables...
+Done.
+
+-------------------------------
+Update validation results (data/updates/2024-03-08_16-52/):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+assay        	157          	0            	3            
+ebatch       	3            	0            	0            
+archive      	0            	0            	0            
+sample       	1            	0            	0            
+abatch       	2            	0            	0            
+extraction   	33           	0            	1            
+rbatch       	0            	0            	0            
+concentration	33           	0            	1            
+cbatch       	3            	0            	0            
+-------------------------------
+
+
+3_validateUpdate.pl exited with error code 5 and caused patchr to abort.
+Most likely this script identifed duplicate IDs or collisions (IDs present in both the existing db and the update). Check the following files for more info:
+    data/updates/2024-03-08_16-52//_collisions.txt
+    data/updates/2024-03-08_16-52//_rundups.txt
+    data/updates/2024-03-08_16-52//_watchdups.txt
+!!!!!!!!
+patchr aborted during phase 3 (update validation).
+Delete the folder data/updates/2024-03-08_16-52/. 
+Then fix the error(s) and run patchr again.
+!!!!!!!!

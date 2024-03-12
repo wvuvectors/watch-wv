@@ -1,0 +1,41 @@
+#############################################
+Initiated seqr.sh
+2024-03-11_11-11
+
+See logs/seqr.2024-03-11_11-11.log for warnings, errors, and other important information.
+
+Compiling update from run directory /Volumes/depot/tpd0001/ONT/SARS/SARS_20240229_B/8 DASHBOARD.
+******
+Running 1sv_compileUpdate.pl /Volumes/depot/tpd0001/ONT/SARS/SARS_20240229_B/8 DASHBOARD > data/updates/seqr_update.2024-03-11_11-11.txt.
+******
+
+Now I'll create a new seqr folder in data/incremental/2024-03-11_11-11/.
+It will hold the latest seqrdb after updating with the data from data/updates/seqr_update.2024-03-11_11-11.txt.
+This is an incremental backup file.
+
+Applying update data/updates/seqr_update.2024-03-11_11-11.txt to seqr database in data/incremental/2024-03-11_11-11/.
+******
+Running 2sv_appendUpdate.pl -w ../patchr/data/latest -i data/updates/seqr_update.2024-03-11_11-11.txt -o data/incremental/2024-03-11_11-11/.
+******
+
+Ok, I'm about to start modifying the seqrdb files in data/latest/.
+First, let's back up data/latest/ to data/latest_bk/.
+
+Backup complete!.
+Now I'm going to copy from data/incremental/2024-03-11_11-11 to data/latest/.
+
+Updating the README file.
+
+File copy finished.
+The most recent version of the seqrdb can be found in two places:
+    data/incremental/2024-03-11_11-11/
+    and
+    data/latest/
+data/latest_bk/ contains the data from immediately before this update was applied.
+
+
+Writing report to reports/seqr_report.2024-03-11_11-11.txt.
+******
+Running 3sv_generateReport.pl > reports/seqr_report.2024-03-11_11-11.txt.
+******
+

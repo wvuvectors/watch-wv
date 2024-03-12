@@ -44,7 +44,11 @@ df_active_loc <- resources$location %>% filter(tolower(location_status) == "acti
 df_active_wwtp <- resources$wwtp %>% filter(wwtp_id %in% df_active_loc$location_primary_wwtp_id)
 df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$location_counties_served)
 
+
+
 # Add colors to county and location dataframes.
+#
+# KLUDGE for now; working on a dynamic color palette approach.
 #
 county_spdf$colorby <- case_when(
   county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
@@ -56,13 +60,16 @@ df_active_county$colorby <- case_when(
   df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
   .default = "#eeeeee")
 
-
 df_active_loc$colorby <- case_when(
   tolower(df_active_loc$location_primary_lab) == "zoowvu" ~ "#EAAA00", 
   tolower(df_active_loc$location_primary_lab) == "muidsl" ~ "#00B140", 
   .default = "#cccccc")
 
 
+df_active_loc$dotsize <- case_when(
+  df_active_loc$location_population_served < 26000 ~ 3250, 
+  .default = df_active_loc$location_population_served/8)
+  
 # Restrict results to those that pass sample QC
 #
 df_result <- df_result %>% filter(tolower(sample_qc) == "pass")
@@ -150,38 +157,75 @@ df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>%
 # Pre-calculate freshness & deltas for each county.
 # Add this info to df_active_county.
 #
-
-anames <- c("County", DISEASE_RS)
-df_alert_county <- data.frame(matrix(ncol=5,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
+anames <- c("region_name", "region_geolevel", DISEASE_RS)
+df_regions <- data.frame(matrix(ncol=6,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
 
 for (county in df_active_county$county_id) {
 	#print(county)
-	this_row <- list("County" = c(county))
+	this_rowc <- list("region_name" = c(county), "region_geolevel" = c("county"))
 	
-	locations <- (df_active_loc %>% filter(location_counties_served == county))$location_id
+	locations <- (df_active_loc %>% filter(tolower(location_category) == "wwtp" & location_counties_served == county))$location_id
 	
 	for (i in 1:length(TARGETS_RS)) {
 		this_disease <- DISEASE_RS[[i]]
 		df_this <- dflist_rs[[i]] %>% filter(location_id %in% locations)
 		#print(df_this)
 		delta <- calcDelta(df_this, 12)
-		this_row <- append(this_row, list(this_disease = c(delta)))
+		this_rowc <- append(this_rowc, list(this_disease = c(delta)))
 	}
+	df_regions <- rbind(df_regions, as.data.frame(this_rowc))
 
-	df_alert_county <- rbind(df_alert_county, as.data.frame(this_row))
+	for (loc_id in locations) {
+		this_rowl <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
+		for (i in 1:length(TARGETS_RS)) {
+			this_disease <- DISEASE_RS[[i]]
+			df_this <- dflist_rs[[i]] %>% filter(location_id == loc_id)
+			#print(df_this)
+			delta <- calcDelta(df_this, 12)
+			this_rowl <- append(this_rowl, list(this_disease = c(delta)))
+		}
+		df_regions <- rbind(df_regions, as.data.frame(this_rowl))
+	}
+	
 }
-colnames(df_alert_county) <- anames
+colnames(df_regions) <- anames
 
-for (colname in colnames(df_alert_county)) {
-	if (colname != "County") {
-		df_alert_county[[colname]] <- as.numeric(df_alert_county[[colname]])
-		#df_alert_county[[colname]] <- replace_na(df_alert_county[[colname]], "-")
+for (colname in colnames(df_regions)) {
+	if (colname != "region_name" & colname != "region_geolevel") {
+		df_regions[[colname]] <- as.numeric(df_regions[[colname]])
+		#df_regions[[colname]] <- replace_na(df_regions[[colname]], "-")
 	}
 }
 
-df_alert_county$avg <- rowMeans(df_alert_county[,DISEASE_RS], na.rm = TRUE)
-df_alert_county <- df_alert_county %>% arrange(desc(avg))
+df_regions$avg <- rowMeans(df_regions[,DISEASE_RS], na.rm = TRUE)
+df_regions <- df_regions %>% arrange(desc(avg))
 
+df_regions$region_lab <- case_when(
+  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_id ~ "zoowvu", 
+  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_id ~ "muidsl", 
+  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "zoowvu", 
+  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "muidsl", 
+  .default = "Other")
+
+df_regions$region_lab <- replace_na(df_regions$region_lab, "Other")
+
+
+# getColorPal <- function(basis) {
+# 	pal <- case_when(
+# 		basis == "lab" ~ labPal()
+# 	)
+# 	return(pal)
+# }
+# 
+# labPal <- colorFactor(
+# 	palette = c("#EAAA00", "#00B140", "#EEEEEE"),
+# 	domain = df_regions$lab
+# )
+# 
+# alertPal <- colorFactor(
+# 	palette = c("#EAAA00", "#00B140", "#EEEEEE"),
+# 	domain = df_regions$lab
+# )
 
 
 

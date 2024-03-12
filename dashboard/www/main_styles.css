@@ -1,15 +1,21 @@
-input[type="number"] {
-  max-width: 80%;
+.nbcontainer .container{
+	margin: 0 auto;
+	padding:0;
+	min-width: 1400px;
+	width: auto !important;
 }
 
-div.outer {
-  position: fixed;
-  top: 56px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  padding: 0;
+.container-fluid {
+	min-width: 1400px;
+	width: auto !important;
+}
+
+.navbar.navbar-default.navbar-static-top {
+	margin-bottom:0px;
+}
+                  
+input[type="number"] {
+  max-width: 80%;
 }
 
 body, label, input, button, select { 
@@ -119,8 +125,12 @@ h4 { font-weight: 800; }
   /*transition: opacity 200ms 400ms;*/
 }
 
+#alert_scale {
+  border: 2px solid #EAAA00;
+}
+
 #alert_scale:hover {
-  border: 2px solid #0096FF;
+  border: 2px solid #00B140;
   cursor: pointer;
   /* Fade in while hovering */
   opacity: 1;

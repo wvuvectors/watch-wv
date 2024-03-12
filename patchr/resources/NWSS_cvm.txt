@@ -2,8 +2,8 @@ nwss_field	watch_table	watch_field	watch_value	nwss_value
 pcr_target	assay	assay_target	SARS-CoV-2	sars-cov-2
 pcr_target	assay	assay_target	MPXV I	hMPXV Clade I
 pcr_target	assay	assay_target	MPXV II	hMPXV Clade II
-pcr_target	assay	assay_target	huNoVGI	NoV GI
-pcr_target	assay	assay_target	huNoVGII	NoV GII
+pcr_target	assay	assay_target	HuNoV-GI	NoV GI
+pcr_target	assay	assay_target	HuNoV-GII	NoV GII
 pcr_target	assay	assay_target	Flu A	FLUAV
 pcr_target	assay	assay_target	Flu B	FLUBV
 pcr_gene_target	assay	assay_target_genetic_locus	N1:SARS	n1
@@ -11,6 +11,7 @@ pcr_gene_target	assay	assay_target_genetic_locus	N2:SARS	n2
 pcr_gene_target	assay	assay_target_genetic_locus	S:HVdel69-70	del69/70
 pcr_gene_target	assay	assay_target_genetic_locus	M:FLUA	InfA
 pcr_gene_target	assay	assay_target_genetic_locus	NEP/NS1:FLUB	InfB
+pcr_gene_target	assay	assay_target_genetic_locus	ORF1_2	NoV GII
 pcr_gene_target_ref	assay	assay_target_genetic_locus	N1:SARS	https://doi.org/10.1039/D0EW00946F
 pcr_gene_target_ref	assay	assay_target_genetic_locus	N2:SARS	https://doi.org/10.1039/D0EW00946F
 pcr_gene_target_ref	assay	assay_target_genetic_locus	S:HVdel69-70	 https://doi.org/10.1002/jmv.27155

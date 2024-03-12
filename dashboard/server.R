@@ -26,7 +26,8 @@ shinyServer(function(input, output, session) {
 								mapClick = c("WV", "WV", "WV"), 
 								trendLines = c(TRUE, TRUE),
 								viewMonths = c(VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY), 
-								clickLat=0, clickLng=0
+								mapClickLat = c(0, 0, 0),
+								mapClickLng = c(0, 0, 0),
 	)
 	
 	
@@ -466,7 +467,7 @@ shinyServer(function(input, output, session) {
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-												 radius = ~location_population_served/8, 
+												 radius = ~dotsize, 
 		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
@@ -507,7 +508,7 @@ shinyServer(function(input, output, session) {
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-												 radius = ~location_population_served/8, 
+												 radius = ~dotsize, 
 		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
@@ -548,7 +549,7 @@ shinyServer(function(input, output, session) {
 												 layerId = ~location_common_name, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
-												 radius = ~location_population_served/8, 
+												 radius = ~dotsize, 
 		#										 radius = 5, 
 												 stroke = FALSE,
 												 weight = 4, 
@@ -622,51 +623,57 @@ shinyServer(function(input, output, session) {
 	# 
 	# React to map shape click
 	#
-  observeEvent(input$map_rs_shape_click, { 
+  observeEvent(input$map_rs_shape_click, {
+  	#print(input$map_rs_shape_click$id)
+  	
 		if (length(input$map_rs_shape_click) == 0) {
 			clickedLocation <- "WV"
 		} else {
     	clickedLocation <- input$map_rs_shape_click$id
+			controlRV$mapClickLat[1] <- input$map_rs_shape_click$lat
+			controlRV$mapClickLng[1] <- input$map_rs_shape_click$lng
     }
 		
-		if (clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
-
+		if (clickedLocation %in% df_active_loc$location_common_name | clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
 			controlRV$mapClick[1] <- clickedLocation
-
-		  updatePlotsRS()
-
-			# Update the site info panel
-			updateSiteInfoRS(controlRV$activeGeoLevel[1], controlRV$mapClick[1], controlRV$viewMonths[1])
-			updateAlertLevelRS(controlRV$activeGeoLevel[1], controlRV$mapClick[1])
 		} else {
-			#print("Unknown location clicked!")
+			clickedLocation <- "WV"
+			controlRV$mapClick[1] <- clickedLocation
 		}
 		
+		updatePlotsRS()
+
+		# Update the site info panel
+		updateSiteInfoRS(controlRV$activeGeoLevel[1], clickedLocation, controlRV$viewMonths[1])
+		updateAlertLevelRS(controlRV$activeGeoLevel[1], clickedLocation)
+
   }, ignoreNULL = FALSE, ignoreInit = FALSE)
 
 	# 
-	# React to map click (off-marker)
+	# React to map click (off-marker). This is fired even if a marker or shape has been clicked.
+	# In this case, the marker/shape listener fires first.
+	# We can tell 
 	#
-#   observeEvent(input$map_rs_click, { 
-# 		#print("Map click top")
-# 		
-# 		# only respond if this click is in a new position on the map
-# 		if (input$map_rs_click$lat != controlRV$clickLat | input$map_rs_click$lng != controlRV$clickLng) {
-# 			controlRV$clickLat <- 0
-# 			controlRV$clickLng <- 0
-# 
-# 			# Update the reactive element
-# 			controlRV$mapClick[1] <- "WV"
-# 		
-# 			# Update the plots to show state-wide data
-# 			updatePlotsRS()
-# 			
-# 			# Update the site info panel
-# 			updateSiteInfoRS(controlRV$activeGeoLevel[1], controlRV$mapClick[1], controlRV$viewMonths[1])
-#				updateAlertLevelRS(controlRV$activeGeoLevel[1], controlRV$mapClick[1])
-# 		}
-# 				  				
-#   }, ignoreInit = TRUE)
+  observeEvent(input$map_rs_click, { 
+		#print("Map click top")
+		
+		# only respond if this click is in a new position on the map
+		if (input$map_rs_click$lat != controlRV$mapClickLat[1] | input$map_rs_click$lng != controlRV$mapClickLng[1]) {
+			controlRV$mapClickLat[1] <- 0
+			controlRV$mapClickLng[1] <- 0
+
+			# Update the reactive element
+			controlRV$mapClick[1] <- "WV"
+		
+			# Update the plots to show state-wide data
+			updatePlotsRS()
+			
+			# Update the site info panel
+			updateSiteInfoRS(controlRV$activeGeoLevel[1], "WV", controlRV$viewMonths[1])
+			updateAlertLevelRS(controlRV$activeGeoLevel[1], "WV")
+		}
+				  				
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
 
@@ -696,7 +703,7 @@ shinyServer(function(input, output, session) {
 										 layerId = ~location_common_name, 
 										 lat = ~location_lat, 
 										 lng = ~location_lng, 
-										 radius = ~location_population_served/8, 
+										 radius = ~dotsize, 
 #										 radius = 5, 
 										 stroke = FALSE,
 										 weight = 4, 
@@ -743,7 +750,7 @@ shinyServer(function(input, output, session) {
 											 layerId = ~location_common_name, 
 											 lat = ~location_lat, 
 											 lng = ~location_lng, 
-											 radius = ~location_population_served/8, 
+											 radius = ~dotsize, 
 	#										 radius = 5, 
 											 stroke = FALSE,
 											 weight = 4, 

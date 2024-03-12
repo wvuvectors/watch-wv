@@ -213,11 +213,22 @@ foreach my $table (keys %runup2id) {
 				$runupdup{"$table"}->{"$thisId"} = 0 unless defined $runupdup{"$table"}->{"$thisId"};
 				$runupdup{"$table"}->{"$thisId"} = $runupdup{"$table"}->{"$thisId"} + 1 unless "$table" eq "sample";
 			} else {
+				# If the id already exists in the watch id hash, try to resolve it
+				my $doMap = 0;
+				my ($idNum, $idPre, $newId) = ("$thisId", "$thisId", "$thisId");
+				unless ("$table" eq "sample") {
+					$idNum =~ s/^.+?\.[a-z](\d+)$/$1/i;
+					$idPre =~ s/^(.+?\.[a-z])\d+$/$1/i;
+					while (defined $watch2id{"$table"}->{"$newId"}) {
+						$doMap = 1;
+						$idNum++;
+						$newId = "$idPre" . $idNum;
+					}
+				}
 				# If it is a new id, add it to the main id hash
-				$runup2id{"$table"}->{"$cols[$keycol]"} = 1;
+				$runup2id{"$table"}->{"$newId"} = 1;
 				if (defined $watch2id{"$table"}->{"$thisId"}) {
-					# If the id already exists in the watch id hash, mark it as a collision
-					$collisions{"$table"}->{"$thisId"} = 1 unless "$table" eq "sample";
+					$collisions{"$table"}->{"$thisId"} = "$newId" unless "$table" eq "sample";
 				}
 			}
 		}
@@ -228,6 +239,8 @@ foreach my $table (keys %runup2id) {
 }
 print "Done.\n\n";
 
+#print Dumper(\%collisions);
+#die;
 
 
 print "-------------------------------\n";
@@ -243,21 +256,71 @@ print "-------------------------------\n\n";
 # Collisions in batch IDs should be resolved manually and will throw an error to halt patchr
 #
 
-
-my $status = 0;
 my ($num_dups_watch, $num_dups_runup, $num_collisions) = (0,0,0);
 foreach my $table (keys %table2key) {
 	$num_dups_watch = $num_dups_watch + scalar(keys %{$watchdup{"$table"}});
 	$num_dups_runup = $num_dups_runup + scalar(keys %{$runupdup{"$table"}});
 	$num_collisions = $num_collisions + scalar(keys %{$collisions{"$table"}});
 }
+
+if ($num_collisions > 0) {
+	print "Resolving $num_collisions collisons between update and watchdb...\n";
+	foreach my $table (keys %collisions) {
+		my $keyname = $table2key{"$table"};
+		my @rows = ();
+		my $keycol  = -1;
+		my $linenum = 0;
+		open (my $rFH, "<", "$update_dir/update.${table}.txt") or die "Unable to open $update_dir/update.${table}.txt for reading: $!\n";
+		while (my $line = <$rFH>) {
+			chomp $line;
+			next if $line =~ /^\s*$/;
+			my @cols = split "\t", "$line", -1;
+			if ($linenum == 0) {
+				# First line of the file contains the column names
+				# Determine which column matches the key and contains the table ids
+				FIND:
+				foreach (my $i=0; $i<scalar(@cols); $i++) {
+					if ("$keyname" eq "$cols[$i]") {
+						$keycol = $i;
+						last FIND;
+					}
+				}
+			} else {
+				# Extract the "old" id for this row
+				my $oldId = "$cols[$keycol]";
+				if (defined $collisions{"$table"}->{"$oldId"} and "$collisions{$table}->{$oldId}" ne "RESOLVED") {
+					$cols[$keycol] = "$collisions{$table}->{$oldId}";
+					$collisions{"$table"}->{"$oldId"} = "RESOLVED";
+				}
+			}
+			$linenum = 1;
+			push(@rows, join("\t", @cols));
+		}
+		close $rFH;
+		open (my $wFH, ">", "$update_dir/update.${table}.txt") or die "Unable to open $update_dir/update.${table}.txt for writing: $!\n";
+		foreach my $row (@rows) {
+			print $wFH "$row\n";
+		}
+		close $wFH;
+	}
+}
+
+
+$num_collisions = 0;
+foreach my $table (keys %table2key) {
+	foreach my $id (keys %{$collisions{"$table"}}) {
+		$num_collisions = $num_collisions + 1 unless "$collisions{$table}->{$id}" eq "RESOLVED";
+	}
+}
+
+my $status = 0;
 $status = $num_dups_watch + $num_dups_runup + $num_collisions;
 
 open (my $v1FH, ">", "$update_dir/_collisions.txt");
 print $v1FH "The following IDs are present in both the existing WaTCH database and the current run.\n\nTABLE\tID\n";
 foreach my $table (keys %collisions) {
 	foreach my $id (keys %{$collisions{"$table"}}) {
-		print $v1FH "$table\t$id\n";
+		print $v1FH "$table\t$id\n" unless "$collisions{$table}->{$id}" eq "RESOLVED";
 	}
 }
 close $v1FH;

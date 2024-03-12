@@ -695,19 +695,21 @@ sub calcCopiesPop {
 }
 
 sub calcCopiesFlowNorm {
-	# copies/liter x 3.78541 liters/gallon x 10^6 gallon/million_gallons x flow million_gallons/day x 1 day/24 hrs x collection_time_hrs
 	my $cpl = shift;
 	my $s   = shift;
 	my $loc = shift;
 
 	my $val = "NA";
-	if ("$loc->{location_collection_basis}" =~ /flow/) {
-		$val = $cpl;
-	} else {
+#	if ("$loc->{location_collection_basis}" =~ /flow/) {
+#		$val = $cpl;
+#	} else {
 		my $flow = $s->{"sample_flow"};
 		$flow =~ s/,//i;
-		$val = $cpl * 3.78541 * 1000000 * $flow * ($loc->{"location_collection_window_hrs"} / 24);
-	}
+		# copies/liter x 3.78541 liters/gallon x 10^6 gallon/million_gallons x flow million_gallons/day x 1 day/24 hrs x collection_time_hrs
+#		$val = $cpl * 3.78541 * 1000000 * $flow * ($loc->{"location_collection_window_hrs"} / 24);
+		# copies/liter x 3.78541 liters/gallon x flow million_gallons/day x 1 day/24 hrs x collection_time_hrs
+		$val = $cpl * 3.78541 * $flow * ($loc->{"location_collection_window_hrs"} / 24);
+#	}
 	
 	return $val;
 }

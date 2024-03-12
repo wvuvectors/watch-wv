@@ -8,6 +8,30 @@ library(ggthemes)
 library(scales)
 
 
+plot_theme <- function () { 
+	theme(axis.text = element_text(size = 8),
+				axis.title = element_text(size = 9, color="#333333"),
+				axis.line.x = element_line(color="#bbbbbb", linewidth=1),
+				axis.line.y = element_line(color="#bbbbbb", linewidth=1),
+				axis.ticks.length.y = unit(-0.5, "cm"), 
+				strip.text = element_text(size = 8),
+				panel.grid.major = element_line(color="#eeeeee", linewidth=1), 
+				panel.grid.minor.x = element_line(color="#eeeeee", linewidth=1),
+				panel.background = element_rect(fill="transparent"), 
+				panel.border = element_rect(fill=NA, color="#bbbbbb", linewidth=1), 
+				legend.position = "none",
+				legend.justification = c("left", "top"),
+				#legend.direction = "horizontal",
+				legend.box.just = "center",
+				#legend.margin = margin(6, 6, 6, 6),
+				legend.title = element_blank(),
+				legend.background = element_rect(fill="transparent"), 
+				legend.text = element_text(size = 8, color = "#333333"),
+				plot.background = element_rect(fill="transparent"), 
+				plot.title = element_text(size = 10, color="#045a8d", hjust=0.5)
+	)}
+
+
 format_dates <- function(x) {
 	month <- strftime(x, format = "%b")           		# Abbreviated name of the month.
 	day <- strftime(x, format = "%d")           			# Abbreviated name of the day.
@@ -18,47 +42,51 @@ format_dates <- function(x) {
 	)
 }
 
-MAX_LOADCAP <- 1000
+df_pcr <- as.data.frame(read.table("../patchr/data/latest/watchdb.result.txt", header=TRUE, sep="\t", check.names = FALSE))
+df_nov <- df_pcr %>% filter(target_genetic_locus == "ORF1_2")
 
-pcr_df <- as.data.frame(read.table("data/watch_dashboard.LATEST.txt", header=TRUE, sep="\t", check.names = FALSE))
+df_nov$collection_start_datetime <- mdy_hm(df_nov$collection_start_datetime)
+df_nov$collection_end_datetime <- mdy_hm(df_nov$collection_end_datetime)
+df_nov$date_primary <- as.Date(df_nov$collection_end_datetime)
 
-pcr_df$day_end <- as_date(mdy(pcr_df$"Sample Composite End"))
-#pcr_df$week <- floor_date(as_date(mdy(pcr_df$day_end)), unit="week")
+df_nov$target_copies_fn_per_cap <- df_nov$target_copies_fn_per_cap/df_nov$target_per_capita_basis
+df_nov$target_copies_per_ldcap <- df_nov$target_copies_per_ldcap/df_nov$target_per_capita_basis
+df_nov$target_per_capita_basis <- 1
 
-recent_pcr_df <- subset(pcr_df, day_end > today() - days(90))
+df_nov$val <- df_nov$target_copies_fn_per_cap
 
-#display_pcr_df <- recent_pcr_df %>% filter(location_common_name == "Morgantown Star City" | location_common_name == "Cheat Lake")
-display_pcr_df <- recent_pcr_df %>% filter(location_common_name == "Morgantown Star City")
-
-p_pcr_log <- ggplot(display_pcr_df) + labs(y = "log2(viral particles per person)", x = "") + 
-	geom_point(aes(y=log2(n2.loadcap), x=day_end), fill = "#945200", shape = 16, size = 2, alpha=0.3, na.rm = TRUE) + 
-	geom_col(aes(x = day_end, y = log2(n2.loadcap)), fill = "#945200", alpha = 0.7, na.rm = TRUE) + 
-	geom_line(aes(x = day_end, y = log2(n2.loadcap.day5.mean)), color = "#000000", na.rm = TRUE) + 
-#	geom_ribbon(aes(x = day_end, y = n2.loadcap.day5.mean, xmin = min(day_end), xmax = max(day_end), ymin = n2.loadcap.day5.mean-n2.loadcap.day5.ci, ymax = n2.loadcap.day5.mean+n2.loadcap.day5.ci), fill = "#945200", alpha = 0.2) + 
-#	facet_wrap(~location_common_name, nrow=2, scales = "free") +
+p1 <- ggplot(df_nov) + labs(y = "viral particles per person", x = "") + 
+	geom_point(aes(x=date_primary, y=val), fill = "#945200", shape = 16, size = 2, alpha=0.3, na.rm = TRUE) + 
+	geom_col(aes(x = date_primary, y = val), fill = "#945200", alpha = 0.7, na.rm = TRUE) + 
+	facet_wrap(~location_id, nrow=4, scales = "free") +
+	plot_theme() + 
 	theme(legend.position = "none") +
-	ggtitle(paste("COVID in Wastewater for Morgantown WV (", max(pcr_df$day_end), ")", sep=""), subtitle = "On a log2 scale. Black line is the 5 day rolling trend.") + 
-	scale_y_continuous(labels = comma) + 
-	scale_x_date(breaks = "1 week", labels = format_dates)
+	ggtitle(paste("Norovirus (GII) in WV Wastewater (", max(df_nov$date_primary), ")", sep="")) + 
+#	scale_y_continuous(labels = comma, limits = c(0, MAX_LOADCAP)) + 
+	scale_x_date(breaks = "1 day", labels = format_dates)
 
-
-limited_pcr_df <- display_pcr_df %>% mutate(n2.loadcap = case_when(
-	n2.loadcap > MAX_LOADCAP ~ MAX_LOADCAP,
-	TRUE ~ n2.loadcap
-))
-
-limited_pcr_df <- limited_pcr_df %>% mutate(n2.loadcap.day5.mean = case_when(
-	n2.loadcap.day5.mean > MAX_LOADCAP ~ MAX_LOADCAP,
-	TRUE ~ n2.loadcap.day5.mean
-))
-
-p_pcr_lin <- ggplot(limited_pcr_df) + labs(y = "viral particles per person", x = "") + 
-	geom_point(aes(y=n2.loadcap, x=day_end), fill = "#945200", shape = 16, size = 2, alpha=0.3, na.rm = TRUE) + 
-	geom_col(aes(x = day_end, y = n2.loadcap), fill = "#945200", alpha = 0.7, na.rm = TRUE) + 
-	geom_line(aes(x = day_end, y = n2.loadcap.day5.mean), color = "#000000", na.rm = TRUE) + 
-#	geom_ribbon(aes(x = day_end, y = n2.loadcap.day5.mean, xmin = min(day_end), xmax = max(day_end), ymin = n2.loadcap.day5.mean-n2.loadcap.day5.ci, ymax = n2.loadcap.day5.mean+n2.loadcap.day5.ci), fill = "#945200", alpha = 0.2) + 
-#	facet_wrap(~location_common_name, nrow=2, scales = "free") +
+p2 <- ggplot(df_nov %>% filter(location_id == "StarCityWWTP-01" | location_id == "WheelingWWTP-01")) + labs(y = "viral particles per person", x = "") + 
+	geom_point(aes(x=date_primary, y=val), fill = "#945200", shape = 16, size = 2, alpha=0.3, na.rm = TRUE) + 
+	geom_col(aes(x = date_primary, y = val), fill = "#945200", alpha = 0.7, na.rm = TRUE) + 
+	facet_wrap(~location_id, nrow=1, scales = "free") +
+	plot_theme() + 
 	theme(legend.position = "none") +
-	ggtitle(paste("COVID in Wastewater for Morgantown WV (", max(pcr_df$day_end), ")", sep=""), subtitle = "Black line is the 5 day rolling trend.") + 
-	scale_y_continuous(labels = comma, limits = c(0, MAX_LOADCAP)) + 
-	scale_x_date(breaks = "1 week", labels = format_dates)
+	ggtitle(paste("Norovirus (GII) in WV Wastewater (", max(df_nov$date_primary), ")", sep="")) + 
+	#	scale_y_continuous(labels = comma, limits = c(0, MAX_LOADCAP)) + 
+	scale_x_date(breaks = "1 day", labels = format_dates)
+
+df_mean <- df_nov %>% 
+	group_by(date_primary) %>%
+	summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE)) %>%
+	arrange(date_primary)
+
+	
+p3 <- ggplot(df_mean) + labs(y = "viral particles per person", x = "") + 
+	geom_point(aes(x=date_primary, y=val), fill = "#945200", shape = 16, size = 2, alpha=0.3, na.rm = TRUE) + 
+	geom_col(aes(x = date_primary, y = val), fill = "#945200", alpha = 0.7, na.rm = TRUE) + 
+	#facet_wrap(~location_id, nrow=4, scales = "free") +
+	plot_theme() +
+	#theme(legend.position = "none") +
+	ggtitle(paste("Norovirus (GII) in WV Wastewater (", max(df_nov$date_primary), ")", sep="")) + 
+	#	scale_y_continuous(labels = comma, limits = c(0, MAX_LOADCAP)) + 
+	scale_x_date(breaks = "1 day", labels = format_dates)
