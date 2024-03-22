@@ -35,8 +35,14 @@ county_spdf <- readOGR(
 
 
 # Load data files
-df_result <- as.data.frame(read.table(DB_RESULTS, sep="\t", header=TRUE, check.names=FALSE))
-df_sample <- as.data.frame(read.table(DB_SAMPLES, sep="\t", header=TRUE, check.names=FALSE))
+df_r_wvu <- as.data.frame(read.table(DB_RESULTS_WVU, sep="\t", header=TRUE, check.names=FALSE))
+df_r_mu <- as.data.frame(read.table(DB_RESULTS_MU, sep="\t", header=TRUE, check.names=FALSE))
+df_result <- rbind(df_r_wvu, df_r_mu)
+
+df_s_wvu <- as.data.frame(read.table(DB_SAMPLES_WVU, sep="\t", header=TRUE, check.names=FALSE))
+df_s_mu <- as.data.frame(read.table(DB_SAMPLES_MU, sep="\t", header=TRUE, check.names=FALSE))
+df_sample <- rbind(df_s_wvu, df_s_mu)
+
 df_seqr <- as.data.frame(read.table(DB_SEQR, sep="\t", header=TRUE, check.names=FALSE))
 
 resources <- excel2df(RES_ALL)
@@ -159,10 +165,12 @@ df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>%
 #
 anames <- c("region_name", "region_geolevel", DISEASE_RS)
 df_regions <- data.frame(matrix(ncol=6,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
+df_fresh <- data.frame(matrix(ncol=6,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
 
 for (county in df_active_county$county_id) {
 	#print(county)
 	this_rowc <- list("region_name" = c(county), "region_geolevel" = c("county"))
+	this_rowf <- list("region_name" = c(county), "region_geolevel" = c("county"))
 	
 	locations <- (df_active_loc %>% filter(tolower(location_category) == "wwtp" & location_counties_served == county))$location_id
 	
@@ -171,20 +179,27 @@ for (county in df_active_county$county_id) {
 		df_this <- dflist_rs[[i]] %>% filter(location_id %in% locations)
 		#print(df_this)
 		delta <- calcDelta(df_this, 12)
+		fresh <- calcFresh(df_this)
 		this_rowc <- append(this_rowc, list(this_disease = c(delta)))
+		this_rowf <- append(this_rowf, list(this_disease = c(fresh)))
 	}
 	df_regions <- rbind(df_regions, as.data.frame(this_rowc))
+	df_fresh <- rbind(df_fresh, as.data.frame(this_rowf))
 
 	for (loc_id in locations) {
 		this_rowl <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
+		this_rowg <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
 		for (i in 1:length(TARGETS_RS)) {
 			this_disease <- DISEASE_RS[[i]]
 			df_this <- dflist_rs[[i]] %>% filter(location_id == loc_id)
 			#print(df_this)
 			delta <- calcDelta(df_this, 12)
+			fresh <- calcFresh(df_this)
 			this_rowl <- append(this_rowl, list(this_disease = c(delta)))
+			this_rowg <- append(this_rowg, list(this_disease = c(fresh)))
 		}
 		df_regions <- rbind(df_regions, as.data.frame(this_rowl))
+		df_fresh <- rbind(df_fresh, as.data.frame(this_rowg))
 	}
 	
 }
@@ -196,9 +211,9 @@ for (colname in colnames(df_regions)) {
 		#df_regions[[colname]] <- replace_na(df_regions[[colname]], "-")
 	}
 }
-
 df_regions$avg <- rowMeans(df_regions[,DISEASE_RS], na.rm = TRUE)
 df_regions <- df_regions %>% arrange(desc(avg))
+
 
 df_regions$region_lab <- case_when(
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_id ~ "zoowvu", 
@@ -208,6 +223,15 @@ df_regions$region_lab <- case_when(
   .default = "Other")
 
 df_regions$region_lab <- replace_na(df_regions$region_lab, "Other")
+
+
+colnames(df_fresh) <- anames
+
+for (colname in colnames(df_fresh)) {
+	if (colname != "region_name" & colname != "region_geolevel") {
+		df_fresh[[colname]] <- as.numeric(df_fresh[[colname]])
+	}
+}
 
 
 # getColorPal <- function(basis) {

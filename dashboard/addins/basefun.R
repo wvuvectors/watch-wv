@@ -80,7 +80,9 @@ calcTrend <- function(df_this, mo_base) {
 		return(NA)
 	}
 	
-	vec_all <- (df_this %>% filter(date_primary > (today %m-% months(mo_base))))$val
+	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
+
+	vec_all <- (df_this %>% filter(date_primary > (most_recent_date %m-% months(mo_base))))$val
 
 	if (length(vec_all) == 0) {
 		trend <- NA
@@ -101,14 +103,14 @@ calcDelta <- function(df_this, mo_base) {
 	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
 	
 	vec_now <- (df_this %>% filter(ymd(date_primary) == ymd(most_recent_date)))$target_copies_fn_per_cap
-	vec_all <- (df_this %>% filter(date_primary > (today %m-% months(mo_base))))$target_copies_fn_per_cap
+	vec_all <- (df_this %>% filter(date_primary > (most_recent_date %m-% months(mo_base))))$target_copies_fn_per_cap
 
 	if (length(vec_now) == 0 | length(vec_all) == 0) {
 		delta <- NA
 	} else {
 		d_now <- mean(vec_now, na.rm = TRUE)
 		d_base <- mean(vec_all, na.rm = TRUE)
-		delta <- 100 *  (d_now - d_base)/d_base
+		delta <- 100 * (d_now - d_base)/d_base
 		delta <- formatC(as.numeric(delta), format="d")
 	}
 	

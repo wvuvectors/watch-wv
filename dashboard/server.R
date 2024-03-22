@@ -276,24 +276,24 @@ shinyServer(function(input, output, session) {
 		
 		if (loc_name == "WV") {
 			
-			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
-			df_this_site <- df_rs
+			#loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
+			#df_this_site <- df_rs
 			title_text <- "State of West Virginia"
 
 		} else {
 		
 			if (geolevel == "Facility") {
 			
-				loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_id)
-				this_wwtp_id <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_primary_wwtp_id)
+				#loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_id)
+				#this_region_id <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_primary_wwtp_id)
 			
-				df_this_site <- df_rs %>% filter(location_id == loc_ids)
+				#df_this_site <- df_rs %>% filter(location_id == loc_ids)
 				title_text <- loc_name
 
 			} else {
 				# county click!
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
-				df_this_site <- df_rs %>% filter(location_id %in% loc_ids)
+				#loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
+				#df_this_site <- df_rs %>% filter(location_id %in% loc_ids)
 				title_text <- paste0(loc_name, " county, WV", sep="")
 			}
 		}
@@ -304,20 +304,30 @@ shinyServer(function(input, output, session) {
 		for (i in 1:length(TARGETS_RS)) {
 			eval(parse(text = paste0("output$rs_CSL_", i, " <- renderText(DISEASE_RS[", i, "])")))
 			
-			df_this <- df_this_site %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
-
-			delta <- calcDelta(df_this, 12)
-			fresh <- calcFresh(df_this)
+			#df_this <- df_this_site %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
+			#df_this_d <- df_regions %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
+			
+			if (loc_name == "WV") {
+				delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
+				fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
+			} else {
+				delta <- (df_regions %>% filter(region_name == loc_name))[[DISEASE_RS[i]]]
+				fresh <- (df_fresh %>% filter(region_name == loc_name))[[DISEASE_RS[i]]]
+			}
+#			delta <- calcDelta(df_this, 12)
+#			fresh <- calcFresh(df_this)
 					
 			if (is.na(fresh)) {
 				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('-')")))
 			} else {
+				fresh <- formatC(as.numeric(fresh), format="d")
 				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('", fresh, "')")))
 			}
 			
 			if (is.na(delta)) {
 				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('-')")))
 			} else {
+				delta <- formatC(as.numeric(delta), format="d")
 				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('", delta, " %')")))
 			}
 

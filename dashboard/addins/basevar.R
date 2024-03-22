@@ -12,6 +12,7 @@ DISEASE_RS <- c("FLUA", "NoV", "COVID", "RSV")
 TRENDL_MO_COLOR <- "#00B140"	# MU Green
 TRENDL_YR_COLOR <- "#EAAA00"	# WVU Gold
 
+#002855	# WVU Blue
 
 VIEW_RANGES <- c(1, 3, 6, 12, 24)
 DATE_BREAKS <- c("5 days", "15 days", "1 month", "2 months", "4 months")

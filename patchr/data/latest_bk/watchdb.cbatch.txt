@@ -1,5 +1,4 @@
 concentration_batch_id	concentration_date	concentration_input_ml	concentration_machine	concentration_method	concentration_method_lot_id	concentration_output_ml	concentration_run_by	concentration_batch_record_version	concentration_batch_comment
-CB29	03/06/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	SK	2.0.0	
 CB1	11/29/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	2.0.0	
 CB10	01/04/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
 CB11	01/04/2024	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
@@ -21,8 +20,10 @@ CB25	02/21/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473
 CB26	02/27/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
 CB27	02/28/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
 CB28	03/05/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
+CB29	03/06/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	SK	2.0.0	
 CB3	12/05/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	2.0.0	
 CB30	03/07/2024	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
+CB31	03/12/2024	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04437	0.475	AJ	2.0.0	
 CB4	12/05/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	0.475	AJ	2.0.0	
 CB5	12/12/2023	10	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
 CB6	12/12/2023	10	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	0.475	AJ	2.0.0	
