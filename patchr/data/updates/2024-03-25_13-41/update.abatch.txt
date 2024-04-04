@@ -1,0 +1,3 @@
+assay_amplification_method	assay_amplification_method_lot_id	assay_analysis_software_version	assay_batch_comment	assay_batch_id	assay_batch_record_version	assay_date	assay_machine	assay_method	assay_method_lot_id	assay_quantification_method	assay_quantification_type	assay_reaction_ul	assay_run_by
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	2.0	None	AB23	2.0.1	03/20/2023	Zoo QX200	SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	64580484	ddPCR	Direct Quantification	20	TD
+Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	67284502,69915335	2.0	None	AB24	2.0.1	03/20/2024	Zoo QX200	Custom Design	64580484	ddPCR	Direct Quantification	20	JL

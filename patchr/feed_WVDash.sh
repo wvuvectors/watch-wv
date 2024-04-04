@@ -105,6 +105,27 @@ fi
 
 
 
+echo "******" | tee -a "$logf"
+echo "Running 7b_feedWVDash.pl." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+./perl/7b_feedWVDash.pl | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
+if [[ "$status" != "0" ]]
+then
+	echo "7b_feedWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr_feed aborted during phase 3 (pre-calc deltas)." | tee -a "$logf"
+	echo "Delete the file dashboard.precalc.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
+	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+
+
 echo "" | tee -a "$logf"
 echo "Updating the README file." | tee -a "$logf"
 
@@ -115,7 +136,8 @@ echo "$UPDAY" > "../dashboard/data/README.txt"
 echo "" >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"
 echo "This folder contains the most recent dashboard data." >> "../dashboard/data/README.txt"
-echo "WaTCH data was last updated on $DBUP." >> "../dashboard/data/README.txt"
+echo "WVU data was last updated on $DBUP." >> "../dashboard/data/README.txt"
+#echo "MU data was last updated on $DBUP_MU." >> "../dashboard/data/README.txt"
 echo "SEQR  data was last updated on $SVUP." >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"
 

@@ -1,13 +1,19 @@
 #! /usr/bin/env perl
 
-
 use strict;
 use warnings;
+
 use Text::CSV qw(csv);
-#use DateTime qw( );
+
+use Date::Format;
+use DateTime qw( );
+use DateTime::Duration;
+use DateTime::Format::Strptime qw( );
+
 use Spreadsheet::Read qw(ReadData);
 use Spreadsheet::ParseXLSX;
 use DateTime::Format::Excel;
+
 use Data::Dumper;
 
 my $progname = $0;
@@ -79,6 +85,8 @@ foreach my $filepath (@batch_files) {
 	chomp $filepath;
 	if ("$filepath" =~ /AssetTagReport\.csv$/) {
 		procSampleMetadata("$filepath", \%sid2meta, $updatecols{"sample"});
+		#$status += checkSampleDates(\%sid2meta);
+		#exit $status if $status > 0;
 	} elsif ("$filepath" =~ /\.csv$/) {
 		# csv files contain the ddPCR data.
 		# This populates the well2data hash.
@@ -114,6 +122,9 @@ foreach my $filepath (@batch_files) {
 #print Dumper(\%sid2meta);
 #print Dumper(\%sample2id);
 #die;
+
+
+# CHECK DATE OF BATCHES AGAINST SAMPLE DATES. ALL MUST BE > COLLECTION END DATE!
 
 
 
@@ -377,6 +388,35 @@ sub translateSampleHeader {
 	return "$val";
 }
 
+=cut
+sub checkSampleDates {
+	my $sid2metaRef = shift;
+	my $sup = 0;
+	foreach my $sid (keys %{$sid2metaRef}) {
+		my $startDT = makeDT($sid2metaRef->{"$sid"}->{"sample_collection_start_datetime"});
+		my $endDT   = makeDT($sid2metaRef->{"$sid"}->{"sample_collection_end_datetime"});
+		my $recDT   = makeDT($sid2metaRef->{"$sid"}->{"sample_collection_received_date"});
+
+		$startDT->set_time_zone('UTC');
+		$endDT->set_time_zone('UTC');
+		$recDT->set_time_zone('UTC');
+
+		my $diff1 = $endDT - $startDT;
+		my $diff2 = $recDT - $endDT;
+
+		if (DateTime->compare($endDT, $startDT) < 0) {
+			$sup++;
+			print "DATE CONFLICT ($sid). collection end dt (" . $endDT->ymd() . ") comes before start dt (" . $startDT->ymd() . ").\n";
+		}
+		if (DateTime->compare($recDT, $endDT) < 0) {
+			$sup++;
+			print "DATE CONFLICT ($sid). sample receipt dt (" . $recDT->ymd() . ") comes before the collection end dt (" . $endDT->ymd() . ").\n";
+		}
+	}
+	
+	return $sup;
+}
+=cut
 
 sub procAssayData {
 	my $fp           = shift;
@@ -656,4 +696,42 @@ sub procBatchSamples {
 		}	# j loop
 	}	# i loop
 }
+
+=cut
+sub makeDT {
+	my $dtstr = shift;
+	
+	my $dformat1 = DateTime::Format::Strptime->new(
+		pattern   => '%Y-%m-%d %H:%M',
+		time_zone => 'local',
+		on_error  => 'croak',
+	);
+	my $dformat2 = DateTime::Format::Strptime->new(
+		pattern   => '%m/%d/%Y %H:%M',
+		time_zone => 'local',
+		on_error  => 'croak',
+	);
+	
+	my $dformat3 = DateTime::Format::Strptime->new(
+		pattern   => '%m/%d/%Y %I:%M %p',
+		time_zone => 'local',
+		on_error  => 'croak',
+	);
+	#print "$dtstr\n";
+	my $dtobj;
+	if ("$dtstr" =~ /-/) {
+		$dtobj = $dformat1->parse_datetime("$dtstr");
+	} elsif ("$dtstr" =~ /\//) {
+		if ("$dtstr" =~ /\sA|PM$/) {
+			$dtobj = $dformat3->parse_datetime("$dtstr");
+		} else {
+			$dtobj = $dformat2->parse_datetime("$dtstr");
+		}
+	} else {
+		$dtobj = "";
+	}
+	
+	return $dtobj;
+}
+=cut
 
