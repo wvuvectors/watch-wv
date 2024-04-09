@@ -1,5 +1,0 @@
-control_id	control_batch_id	control_type	control_location_in_batch	control_input_ul	control_template	control_macromolecule	control_fluorophore	control_accepted_droplets	control_calculated_copies_per_ul_reaction	control_copies_per_ul_reaction	control_comment
-AB42.PCRNC.FA1	AB42	PCR Negative	G01	5	NA	NA	FAM				
-AB42.PCRNC.FH1	AB42	PCR Negative	G01	5	NA	NA	FAM/HEX				
-AB42.PCRPC.FA2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM	20091		0.292821913957596	
-AB42.PCRPC.FH2	AB42	PCR Positive	G02	5	LV-SARS_N	RNA	FAM/HEX	20091		0.117120020091534	

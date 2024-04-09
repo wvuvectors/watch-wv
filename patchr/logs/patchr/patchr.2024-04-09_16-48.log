@@ -1,0 +1,134 @@
+#############################################
+Initiated patchr.sh
+2024-04-09_16-48
+
+See logs/patchr/patchr.2024-04-09_16-48.log for warnings, errors, and other important information.
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/PROJECTS/WaTCH/TESTING_LAB/DATA_PCR.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder data/updates/2024-04-09_16-48/ to hold the results.
+Recording batch files to process in data/updates/2024-04-09_16-48//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory data/updates/2024-04-09_16-48/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB37.xlsx to batches/CB37.xlsx.
+Repairing known issues in CB37.xlsx.
+Copying file CB38.xlsx to batches/CB38.xlsx.
+Repairing known issues in CB38.xlsx.
+Copying file EB38.xlsx to batches/EB38.xlsx.
+Repairing known issues in EB38.xlsx.
+Copying file AB27.xlsx to batches/AB27.xlsx.
+Repairing known issues in AB27.xlsx.
+Copying file AB27_20240405_151011_058.ANALYZED.csv to batches/AB27_20240405_151011_058.ANALYZED.csv.
+Repairing known issues in AB27_20240405_151011_058.ANALYZED.csv.
+Done.
+File AB27_20240405_151011_058.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB27_20240405_151011_058.ANALYZED.csv.
+Done.
+Copying file AB28.xlsx to batches/AB28.xlsx.
+Repairing known issues in AB28.xlsx.
+Copying file AB28_20240405_151011_058.ANALYZED.csv to batches/AB28_20240405_151011_058.ANALYZED.csv.
+Repairing known issues in AB28_20240405_151011_058.ANALYZED.csv.
+Done.
+File AB28_20240405_151011_058.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB28_20240405_151011_058.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+******
+Running 3_validateUpdate.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table assay
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table rbatch
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table extraction
+Retrieving ids from WaTCH table sample
+Retrieving ids from WaTCH table cbatch
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/latest):
+TABLE        	WaTCH IDS    	DUPLICATES   
+abatch       	257          	0            
+assay        	34531        	0            
+archive      	0            	0            
+rbatch       	0            	0            
+concentration	10935        	0            
+ebatch       	472          	0            
+extraction   	11123        	0            
+sample       	11078        	0            
+cbatch       	683          	0            
+-------------------------------
+
+Validating ids from the update tables...
+Done.
+
+-------------------------------
+Update validation results (data/updates/2024-04-09_16-48/):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+archive      	0            	0            	0            
+rbatch       	0            	0            	0            
+concentration	28           	0            	0            
+abatch       	2            	0            	0            
+assay        	159          	0            	0            
+cbatch       	2            	0            	0            
+extraction   	28           	0            	0            
+ebatch       	1            	0            	0            
+sample       	27           	0            	0            
+-------------------------------
+
+
+
+Ok, I'm about to start modifying the watchdb files in data/latest/.
+First, let's back up data/latest/ to data/latest_bk/.
+
+Now I'll create a new watchdb folder in data/incremental/2024-04-09_16-48/.
+It will hold the latest watchdb after update with data from data/updates/2024-04-09_16-48/.
+
+
+Now I'm merging the watchdb tables from data/latest/ with the update tables in data/updates/2024-04-09_16-48/.
+These merged tables will be put in the folder that I just created, data/incremental/2024-04-09_16-48/.
+
+******
+Running 4_appendUpdate.pl data/incremental/2024-04-09_16-48 data/updates/2024-04-09_16-48/.
+******
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in data/incremental/2024-04-09_16-48.
+
+******
+Running 5_calculateResults.pl data/incremental/2024-04-09_16-48.
+******
+Undefined sample with id U01-0072 in sample table
+
+5_calculateResults.pl exited with error code 255 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 5 (calculating results).
+Check the file data/incremental/2024-04-09_16-48/_result.rejections.txt for details.
+I STRONGLY recommend deleting data/incremental/2024-04-09_16-48/ after exploring this error.
+Then delete the folder data/updates/2024-04-09_16-48/, fix the error(s), and run patchr again. 
+!!!!!!!!
