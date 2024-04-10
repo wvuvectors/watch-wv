@@ -1,0 +1,15 @@
+#############################################
+Initiated feed_NWSS.sh
+2024-04-10_13-00
+
+See logs/feeds/NWSS/feed_NWSS.2024-04-10_13-00.log for warnings, errors, and other important information.
+
+Generating National Wastewater Surveillance System (NWSS) feed for WVU.
+******
+Running 7_feedNWSS.pl data/latest.
+******
+
+******
+Running 7b_mergeNWSS.pl.
+******
+
