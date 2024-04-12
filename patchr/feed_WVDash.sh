@@ -107,25 +107,27 @@ else
 fi
 
 
-
-echo "******" | tee -a "$logf"
-echo "Running 8b_OptimizeWVDash.pl." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-./perl/8b_OptimizeWVDash.pl | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "8b_OptimizeWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
-	echo "Delete the file dashboard.precalc.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
+# Pausing (probably abandoning) the dashboard optimization of delta and freshness calculations.
+# These will change every day so need to be calculated on the fly. Sad face.
+#
+# echo "******" | tee -a "$logf"
+# echo "Running 8b_OptimizeWVDash.pl." | tee -a "$logf"
+# echo "******" | tee -a "$logf"
+# 
+# ./perl/8b_OptimizeWVDash.pl | tee -a "$logf"
+# status="${PIPESTATUS[0]}"
+# echo "" | tee -a "$logf"
+# 
+# if [[ "$status" != "0" ]]
+# then
+# 	echo "8b_OptimizeWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
+# 	echo "Delete the file dashboard.precalc.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
+# 	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	exit 1
+# fi
 
 
 

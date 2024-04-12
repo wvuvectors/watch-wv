@@ -177,7 +177,8 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 #die;
 
 
-my %printable = ();
+my %outputMeta = ();
+my %outputData = ();
 
 # Output file columns, metadata:
 # region_name	region_geolevel	region_lab
@@ -187,25 +188,25 @@ foreach my $locid (keys %{$resources{"location"}}) {
 	$geo = "upstream" unless "$resources{location}->{$locid}->{location_category}" eq "wwtp";
 	my $county = $resources{"location"}->{"$locid"}->{"location_counties_served"};
 	my $lab = $resources{"location"}->{"$locid"}->{"location_primary_lab"};
-	$printable{"$locid"} = {
+	$outputMeta{"$locid"} = {
 		"region" 					=> "$loc_name", 
 		"region_geolevel" => "$geo",
 		"region_lab"			=> "$lab"
 	};
 	foreach my $target (keys %targ2disease) {
-		$printable{"$locid"}->{"$target"} = {
+		$outputData{"$locid"}->{"$target"} = {
 				"vals_yr" 				=> [],
 				"vals_mo" 				=> [],
 				"included_dates"  => []
 		};
 	}
-	$printable{"$county"} = {
+	$outputMeta{"$county"} = {
 		"region" 					=> "$county", 
 		"region_geolevel" => "county",
 		"region_lab"			=> "$lab"
 	};
 	foreach my $target (keys %targ2disease) {
-		$printable{"$county"}->{"$target"} = {
+		$outputData{"$county"}->{"$target"} = {
 				"vals_yr" 				=> [],
 				"vals_mo" 				=> [],
 				"included_dates"  => []
