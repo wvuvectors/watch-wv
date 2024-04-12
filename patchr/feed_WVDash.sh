@@ -78,16 +78,16 @@ NWSS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My 
 if [ -f "$NWSS_F" ]
 then
 	echo "******" | tee -a "$logf"
-	echo "Running 7a_MU2WVDash.pl." | tee -a "$logf"
+	echo "Running 8a_MU2WVDash.pl." | tee -a "$logf"
 	echo "******" | tee -a "$logf"
 
-	./perl/7a_MU2WVDash.pl < "$NWSS_F" | tee -a "$logf"
+	./perl/8a_MU2WVDash.pl "$NWSS_F" | tee -a "$logf"
 	status="${PIPESTATUS[0]}"
 	echo "" | tee -a "$logf"
 
 	if [[ "$status" != "0" ]]
 	then
-		echo "7a_MU2WVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+		echo "8a_MU2WVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 		echo "!!!!!!!!" | tee -a "$logf"
 		echo "patchr_feed aborted during phase 2 (MU data merge)." | tee -a "$logf"
 		echo "Delete the files mu.result.txt and mu.sample.txt in ../dashboard/data/, if they exist. "| tee -a "$logf"

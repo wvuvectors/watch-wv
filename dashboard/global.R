@@ -27,12 +27,13 @@ today <- Sys.Date()
 #today <- as.Date("2022-07-12")
 
 # Load shape files
-county_spdf <- readOGR( 
-  dsn= paste0(RES_BASE, "/shapefiles/wv_counties/") , 
-  layer="WV_Counties",
-  verbose=FALSE
-)
+#county_spdf <- read_sf( 
+#  dsn= paste0(RES_BASE, "/shapefiles/wv_counties/") , 
+#  layer="WV_Counties",
+#  verbose=FALSE
+#)
 
+county_spdf <- read_sf(paste0(RES_BASE, "/shapefiles/wv_counties/WV_Counties.shp"))
 
 # Load data files
 df_r_wvu <- as.data.frame(read.table(DB_RESULTS_WVU, sep="\t", header=TRUE, check.names=FALSE))
@@ -59,17 +60,17 @@ df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$loc
 county_spdf$colorby <- case_when(
   county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
   county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
-  .default = "#eeeeee")
+  .default = "#EEEEEE")
 
 df_active_county$colorby <- case_when(
   df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
   df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
-  .default = "#eeeeee")
+  .default = "#EEEEEE")
 
 df_active_loc$colorby <- case_when(
   tolower(df_active_loc$location_primary_lab) == "zoowvu" ~ "#EAAA00", 
   tolower(df_active_loc$location_primary_lab) == "muidsl" ~ "#00B140", 
-  .default = "#cccccc")
+  .default = "#CCCCCC")
 
 
 df_active_loc$dotsize <- case_when(

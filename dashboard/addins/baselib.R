@@ -4,6 +4,8 @@ library(data.table)
 library(DT)
 library(zoo)
 
+library(readxl)
+
 library(ggplot2)
 library(ggthemes)
 library(viridis)
@@ -28,6 +30,6 @@ library(rsconnect)
 library(sf)
 library(tigris)
 options(tigris_use_cache = TRUE)
-options("rgdal_show_exportToProj4_warnings"="none")
-library(rgdal)
+#options("rgdal_show_exportToProj4_warnings"="none")
+#library(rgdal)
 

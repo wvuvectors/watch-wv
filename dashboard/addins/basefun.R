@@ -1,4 +1,3 @@
-library(readxl)
 
 plot_theme <- function () { 
 	theme(axis.text = element_text(size = 8),
