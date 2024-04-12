@@ -90,6 +90,10 @@ foreach my $uid (keys %data) {
 	foreach my $hdr (@outheaders) {
 		my $val = "";
 		$val = "$data{$uid}->{$hdr}" if defined $data{"$uid"}->{"$hdr"};
+		
+		if ("$hdr" eq "pcr_target_avg_conc" and $val =~ /[^0-9\.]/) {
+			warn "WARN: $hdr value for $uid is non-numeric: $val. It will be excluded.\n";
+		}
 		# kludge
 		if ("$hdr" eq "major_lab_desc" and "$val" eq "") {
 			$val = "The WV jurisdiction consisting of WVBPH and academic labs uses very similar lab methods including Ceres nanotrap virus concentration of raw influent WW and final analysis with BioRad ddPCR instrumentation and mostly BioRad designed assays.";
