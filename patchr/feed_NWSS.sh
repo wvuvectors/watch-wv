@@ -32,16 +32,16 @@ nwss_pub_merged="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmai
 nwss_pub_wvu="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/ARCHIVED/WVU/wvu_nwss.$START.csv"
 
 echo "******" | tee -a "$logf"
-echo "Running 7_feedNWSS.pl $DBDIR." | tee -a "$logf"
+echo "Running 7a_WaTCH2NWSS.pl $DBDIR." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
-./perl/7_feedNWSS.pl "$DBDIR" > "$nwss_out_wvu" | tee -a "$logf"
+./perl/7a_WaTCH2NWSS.pl "$DBDIR" > "$nwss_out_wvu" | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "7_feedNWSS.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "7a_WaTCH2NWSS.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "patchr_feed aborted during phase 1 (NWSS)." | tee -a "$logf"
 	echo "Delete the file $nwss_out_wvu. "| tee -a "$logf"
@@ -67,16 +67,16 @@ then
 	echo "Done."
 	
 	echo "******" | tee -a "$logf"
-	echo "Running 7b_mergeNWSS.pl." | tee -a "$logf"
+	echo "Running 7b_MU2NWSS.pl." | tee -a "$logf"
 	echo "******" | tee -a "$logf"
 
-	./perl/7b_mergeNWSS.pl "$nwss_out_wvu" "$NWSS_MU_LTST" < "resources/NWSS_fields.txt" > "$nwss_out_merged" | tee -a "$logf"
+	./perl/7b_MU2NWSS.pl "$nwss_out_wvu" "$NWSS_MU_LTST" < "resources/NWSS_fields.txt" > "$nwss_out_merged" | tee -a "$logf"
 	status="${PIPESTATUS[0]}"
 	echo "" | tee -a "$logf"
 
 	if [[ "$status" != "0" ]]
 	then
-		echo "7b_mergeNWSS.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+		echo "7b_MU2NWSS.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 		echo "!!!!!!!!" | tee -a "$logf"
 		echo "patchr_feed aborted during phase 3 (NWSS merge)." | tee -a "$logf"
 		echo "Delete the file $nwss_out_merged, if it exists. "| tee -a "$logf"

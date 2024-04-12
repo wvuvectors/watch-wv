@@ -19,7 +19,7 @@ fi
 
 touch "$logf"
 echo "#############################################" | tee -a "$logf"
-echo "Initiated feed_WVWD.sh" | tee -a "$logf"
+echo "Initiated feed_WVDash.sh" | tee -a "$logf"
 echo "$START" | tee -a "$logf"
 echo "" | tee -a "$logf"
 echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
@@ -50,6 +50,7 @@ then
 	exit 1
 fi
 
+
 cp "$RSDIR/watchdb.all_tables.xlsx" "../dashboard/data/watchdb.all_tables.xlsx"
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -61,6 +62,7 @@ then
 	exit 1
 fi
 
+
 cp "$SVDIR/seqrdb.txt" "../dashboard/data/seqrdb.txt"
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -71,6 +73,7 @@ then
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
+
 
 
 NWSS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/merged_nwss.LATEST.csv"
@@ -106,18 +109,18 @@ fi
 
 
 echo "******" | tee -a "$logf"
-echo "Running 7b_feedWVDash.pl." | tee -a "$logf"
+echo "Running 8b_OptimizeWVDash.pl." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
-./perl/7b_feedWVDash.pl | tee -a "$logf"
+./perl/8b_OptimizeWVDash.pl | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "7b_feedWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "8b_OptimizeWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 3 (pre-calc deltas)." | tee -a "$logf"
+	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
 	echo "Delete the file dashboard.precalc.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
 	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
@@ -129,19 +132,19 @@ fi
 echo "" | tee -a "$logf"
 echo "Updating the README file." | tee -a "$logf"
 
-DBUP=$(head -n 1 "$DBDIR/README.txt")
-SVUP=$(head -n 1 "$SVDIR/README.txt")
+patchrUp=$(head -n 1 "$DBDIR/README.txt")
+seqrUP=$(head -n 1 "$SVDIR/README.txt")
 
 echo "$UPDAY" > "../dashboard/data/README.txt"
 echo "" >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"
 echo "This folder contains the most recent dashboard data." >> "../dashboard/data/README.txt"
-echo "WVU data was last updated on $DBUP." >> "../dashboard/data/README.txt"
+echo "WVU data was last updated on $patchrUp." >> "../dashboard/data/README.txt"
 #echo "MU data was last updated on $DBUP_MU." >> "../dashboard/data/README.txt"
-echo "SEQR  data was last updated on $SVUP." >> "../dashboard/data/README.txt"
+echo "SEQR data was last updated on $seqrUP." >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"
 
 
-echo "All done! feed_WVWD will now exit."
+echo "All done! feed_WVDash will now exit."
 echo ""
 
