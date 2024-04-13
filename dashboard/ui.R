@@ -21,7 +21,7 @@ shinyUI(fluidPage(
 					style = "margin-top: 5px;padding: 3px;",
 					fluidRow(
 						column(12,
-							leafletOutput("map_rs", width = "100%", height = "438px")
+							leafletOutput("map_rs", width = "100%", height = "443px")
 						)
 					), # fluidRow (map)
 					fluidRow(
@@ -94,17 +94,19 @@ shinyUI(fluidPage(
 						column(6,
 							#style = "padding: 3px;",
 							fluidRow(
+								#style = "border: 2px solid #941100;",
 								column(12,
 									# title
 									style = "text-align: center;font-size: 18px;font-weight: 800;padding: 3px;",
 									div(
 										textOutput("site_rs_title"), 
-										style="padding: 4px;color: #ffffff;background-color: #000000;"
+										style="padding: 4px;color: #ffffff;background-color: #303D4E;"
 									)
 								)
-							), # fluidRow (title)
+							), # fluidRow (selection title)
 							fluidRow(
 								# alert blocks
+								#style = "border: 2px solid #941100;",
 								column(4,
 									style = "text-align: right;font-size: 13px;font-weight: 800;padding: 3px;",
 									div(id = "rs_CSL_label", "Alert Color Level: ", style = "padding: 2px;height: 25px;"),
@@ -171,7 +173,7 @@ shinyUI(fluidPage(
 										style = "background-color: #000000;color: #FFFFFF;"
 									)
 								) # column
-							), # fluidRow (title)
+							), # fluidRow (county table title)
 							fluidRow(
 								# alert blocks
 								column(4,
@@ -255,7 +257,7 @@ shinyUI(fluidPage(
 							style = "font-size: 14px;padding: 3px;font-weight: 400;",
 							div(
 								style = "padding: 2px 20px 2px 2px;text-align: left;",
-								"Plot values are reported as the copies of viral particles per person, after correction for daily flow. Variant proportions are shown as the percent of total identified SARS variants."
+								"Plot values are reported as the copies of viral particles per person after correction for daily flow, averaged across all selected sites. SARS-CoV-2 variant proportions are shown as the percent of total identified variants, averaged across all selected sites."
 							)
 						),
 						column(5,
