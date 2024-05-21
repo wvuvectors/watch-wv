@@ -1,0 +1,405 @@
+assay_id	extraction_id	sample_id	assay_batch_id	assay_location_in_batch	assay_input_ul	assay_class	assay_type	assay_target	assay_target_genetic_locus	assay_template	assay_target_macromolecule	assay_target_fluorophore	assay_accepted_droplets	assay_target_predicted_copies_per_ul_reaction	assay_target_copies_per_ul_reaction	assay_comment
+E01-0431.a1	E01-0431.e1	E01-0431	AB33	C07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18984	0	0	
+E01-0431.a2	E01-0431.e1	E01-0431	AB33	C07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18984	0	0	
+H01-0915.a1	H01-0915.e1	H01-0915	AB33	F09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16209	0	0.155214920639992	
+H01-0915.a2	H01-0915.e1	H01-0915	AB33	F09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16209	0	0	
+C01-0643.a1	C01-0643.e1	C01-0643	AB33	E08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16848	0	0	
+C01-0643.a2	C01-0643.e1	C01-0643	AB33	E08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16848	0	0	
+J01-0418.a1	J01-0418.e1	J01-0418	AB33	E11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18514	0	0	
+J01-0418.a2	J01-0418.e1	J01-0418	AB33	E11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18514	0	0.0679429396986961	
+A01-0354.a4	A01-0354.e1	A01-0354	AB33	H07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18939	0	0.0664182305335999	
+A01-0354.a4	A01-0354.e1	A01-0354	AB33	H07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18939	0	0	
+A01-0353.a4	A01-0353.e1	A01-0353	AB33	G07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18463	0	0	
+A01-0353.a4	A01-0353.e1	A01-0353	AB33	G07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18463	0	0.0681306272745132	
+A01-0855.a1	A01-0855.e1	A01-0855	AB33	A08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17450	0	0	
+A01-0855.a2	A01-0855.e1	A01-0855	AB33	A08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17450	0	0	
+E01-0432.a1	E01-0432.e1	E01-0432	AB33	D07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17983	0	0.069949209690094	
+E01-0432.a2	E01-0432.e1	E01-0432	AB33	D07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17983	0	0.069949209690094	
+A01-0843.a1	A01-0843.e1	A01-0843	AB33	A11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	11888	0	0.105813801288605	
+A01-0843.a2	A01-0843.e1	A01-0843	AB33	A11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	11888	0	0	
+AB33.HE1	NA	NA	AB33	B10	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	HEX	19450	0	0.0646732151508331	
+AB33.FA2	NA	NA	AB33	B10	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	FAM	19450	0	0.0646732151508331	
+AB33.FA3	NA	NA	AB33	D10	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	FAM	18461	0	0.0681380033493042	
+AB33.HE4	NA	NA	AB33	D10	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	HEX	18461	0	0.136279702186584	
+K01-0384.a1	K01-0384.e1	K01-0384	AB33	F11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17124	0	0	
+K01-0384.a2	K01-0384.e1	K01-0384	AB33	F11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17124	0	0	
+E01-0430.a1	E01-0430.e1	E01-0430	AB33	B07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18468	0	0	
+E01-0430.a2	E01-0430.e1	E01-0430	AB33	B07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18468	0	0	
+C01-0644.a1	C01-0644.e1	C01-0644	AB33	F08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16104	0	0	
+C01-0644.a2	C01-0644.e1	C01-0644	AB33	F08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16104	0	0	
+N02-0426.a1	N02-0426.e1	N02-0426	AB33	E09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17093	0	0	
+N02-0426.a2	N02-0426.e1	N02-0426	AB33	E09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17093	0	0.0735914334654808	
+AB33.FA5	NA	NA	AB33	C10	5	control	PCR Positive	Respiratory Syncitial Virus, Human (RSV)	G	GBlock	RNA	FAM	19615	0	0.577280223369598	
+AB33.HE6	NA	NA	AB33	C10	5	control	PCR Positive	Influenza Virus A (FluA)	M	GBlock	RNA	HEX	19615	0	0.513124942779541	
+O01-0466.a1	O01-0466.e1	O01-0466	AB33	A09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16525	0	0	
+O01-0466.a2	O01-0466.e1	O01-0466	AB33	A09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16525	0	0.0761210098862648	
+T01-0261.a1	T01-0261.e1	T01-0261	AB33	H09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17564	0	0	
+T01-0261.a2	T01-0261.e1	T01-0261	AB33	H09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17564	0	0	
+A01-0856.a1	A01-0856.e1	A01-0856	AB33	B08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16077	0	2.42777585983276	
+A01-0856.a2	A01-0856.e1	A01-0856	AB33	B08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16077	0	0	
+M03-0299.a1	M03-0299.e1	M03-0299	AB33	C09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17844	0	0	
+M03-0299.a2	M03-0299.e1	M03-0299	AB33	C09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17844	0	0	
+A01-0352.a4	A01-0352.e1	A01-0352	AB33	F07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18432	0	0	
+A01-0352.a4	A01-0352.e1	A01-0352	AB33	F07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18432	0	0	
+A01-0857.a1	A01-0857.e1	A01-0857	AB33	B11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	15900	0	0.079113282263279	
+A01-0857.a2	A01-0857.e1	A01-0857	AB33	B11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	15900	0	0.079113282263279	
+R01-0382.a4	R01-0382.e1	R01-0382	AB33	A10	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16044	0	0	
+R01-0382.a4	R01-0382.e1	R01-0382	AB33	A10	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16044	0	0.0784031897783279	
+M04-0221.a1	M04-0221.e1	M04-0221	AB33	D09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18518	0	0	
+M04-0221.a2	M04-0221.e1	M04-0221	AB33	D09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18518	0	0	
+G01-0533.a1	G01-0533.e1	G01-0533	AB33	G09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17169	0	0	
+G01-0533.a2	G01-0533.e1	G01-0533	AB33	G09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17169	0	0	
+AB33.FA7	NA	NA	AB33	E10	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	FAM	18512	0	0.0679502785205841	
+AB33.HE8	NA	NA	AB33	E10	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	HEX	18512	0	0.203861862421036	
+C01-0641.a1	C01-0641.e1	C01-0641	AB33	C08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	19160	0	0	
+C01-0641.a2	C01-0641.e1	C01-0641	AB33	C08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	19160	0	0	
+R01-0361.a1	R01-0361.e1	R01-0361	AB33	E07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18495	0	0	
+R01-0361.a2	R01-0361.e1	R01-0361	AB33	E07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18495	0	0	
+R01-0481.a1	R01-0481.e1	R01-0481	AB33	H11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17848	0	0	
+R01-0481.a2	R01-0481.e1	R01-0481	AB33	H11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17848	0	0	
+A01-0858.a1	A01-0858.e1	A01-0858	AB33	C11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17973	0	0	
+A01-0858.a2	A01-0858.e1	A01-0858	AB33	C11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17973	0	0	
+P01-0104.a1	P01-0104.e1	P01-0104	AB33	H08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17737	0	0	
+P01-0104.a2	P01-0104.e1	P01-0104	AB33	H08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17737	0	0	
+N03-0486.a6	N03-0486.e1	N03-0486	AB33	B09	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16639	0	0	
+N03-0486.a6	N03-0486.e1	N03-0486	AB33	B09	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16639	0	0	
+A04-0543.a1	A04-0543.e1	A04-0543	AB33	G08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17100	0	0	
+A04-0543.a2	A04-0543.e1	A04-0543	AB33	G08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17100	0	0	
+D01-0416.a1	D01-0416.e1	D01-0416	AB33	D11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	17316	0	0	
+D01-0416.a2	D01-0416.e1	D01-0416	AB33	D11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	17316	0	0	
+E01-0429.a1	E01-0429.e1	E01-0429	AB33	A07	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	18329	0	0	
+E01-0429.a2	E01-0429.e1	E01-0429	AB33	A07	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	18329	0	0	
+C01-0642.a1	C01-0642.e1	C01-0642	AB33	D08	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16527	0	0	
+C01-0642.a2	C01-0642.e1	C01-0642	AB33	D08	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16527	0	0	
+U01-0071.a1	U01-0071.e1	U01-0071	AB33	G11	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	HEX	16190	0	0	
+U01-0071.a2	U01-0071.e1	U01-0071	AB33	G11	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	FAM	16190	0	0	
+A01-0879.a1	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21665	0	0	
+A01-0879.a2	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+A01-0879.a3	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+A01-0879.a4	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21665	0	0	
+A01-0879.a5	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+A01-0879.a6	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21665	0	0.116124592721462	
+A01-0879.a7	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+A01-0879.a8	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+A01-0879.a9	A01-0879.e1	A01-0879	AB36	B06	5	unknown	sample			sample			21665		0	
+AB36.FH1	NA	NA	AB36	G12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	19634	0	0.128137484192848	
+AB36.HE2	NA	NA	AB36	G12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	19634	0	0	
+AB36.FA3	NA	NA	AB36	G12	5	control	PCR Negative	Influenza Virus A (FluA)	M:FLUA	NA	RNA	FAM	19634	0	0.128137484192848	
+E01-0448.a1	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21236	0	0	
+E01-0448.a2	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+E01-0448.a3	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21236	0	0	
+E01-0448.a4	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+E01-0448.a5	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+E01-0448.a6	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+E01-0448.a7	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21236	0	0	
+E01-0448.a8	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+E01-0448.a9	E01-0448.e1	E01-0448	AB36	B07	5	unknown	sample			sample			21236		0	
+H01-0919.a1	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+H01-0919.a2	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+H01-0919.a3	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20058	0	0.0627127811312675	
+H01-0919.a4	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20058	0	0.0627127811312675	
+H01-0919.a5	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+H01-0919.a6	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+H01-0919.a7	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20058	0	0.0627127811312675	
+H01-0919.a8	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+H01-0919.a9	H01-0919.e1	H01-0919	AB36	F08	5	unknown	sample			sample			20058		0	
+AB36.FH4	NA	NA	AB36	H12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	19199	0	0	
+AB36.FA5	NA	NA	AB36	H12	5	control	PCR Negative	Influenza Virus A (FluA)	M:FLUA	NA	RNA	FAM	19199	0	0	
+AB36.HE6	NA	NA	AB36	H12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	19199	0	0	
+A04-0531.a1	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20562	0	0.0611755773425102	
+A04-0531.a2	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A04-0531.a3	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A04-0531.a4	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A04-0531.a5	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A04-0531.a6	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20562	0	0	
+A04-0531.a7	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A04-0531.a8	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20562	0	0.0611755773425102	
+A04-0531.a9	A04-0531.e1	A04-0531	AB36	C07	5	unknown	sample			sample			20562		0	
+A01-0880.a1	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20604	0	0	
+A01-0880.a2	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+A01-0880.a3	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+A01-0880.a4	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20604	0	0	
+A01-0880.a5	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+A01-0880.a6	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+A01-0880.a7	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20604	0	0	
+A01-0880.a8	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+A01-0880.a9	A01-0880.e1	A01-0880	AB36	C06	5	unknown	sample			sample			20604		0	
+G01-0488.a1	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+G01-0488.a2	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21386	0	0	
+G01-0488.a3	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+G01-0488.a4	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21386	0	0	
+G01-0488.a5	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+G01-0488.a6	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+G01-0488.a7	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+G01-0488.a8	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21386	0	0	
+G01-0488.a9	G01-0488.e1	G01-0488	AB36	E08	5	unknown	sample			sample			21386		0	
+E01-0446.a1	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+E01-0446.a2	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20471	0	0	
+E01-0446.a3	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+E01-0446.a4	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20471	0	0	
+E01-0446.a5	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+E01-0446.a6	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+E01-0446.a7	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+E01-0446.a8	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20471	0	0	
+E01-0446.a9	E01-0446.e1	E01-0446	AB36	H06	5	unknown	sample			sample			20471		0	
+M04-0206.a1	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a2	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21164	0	0	
+M04-0206.a3	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a4	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a5	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a6	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a7	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21164	0	0.059435423463583	
+M04-0206.a8	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample			sample			21164		0	
+M04-0206.a9	M04-0206.e1	M04-0206	AB36	H07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21164	0	0	
+Q01-0503.a1	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+Q01-0503.a2	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20571	0	0.0611488111317158	
+Q01-0503.a3	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+Q01-0503.a4	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+Q01-0503.a5	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+Q01-0503.a6	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20571	0	0	
+Q01-0503.a7	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+Q01-0503.a8	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20571	0	0	
+Q01-0503.a9	Q01-0503.e1	Q01-0503	AB36	G07	5	unknown	sample			sample			20571		0	
+P01-0105.a1	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+P01-0105.a2	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	22215	0	0.113249443471432	
+P01-0105.a3	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+P01-0105.a4	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+P01-0105.a5	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+P01-0105.a6	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+P01-0105.a7	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	22215	0	0.113249443471432	
+P01-0105.a8	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	22215	0	0	
+P01-0105.a9	P01-0105.e1	P01-0105	AB36	A08	5	unknown	sample			sample			22215		0	
+E01-0445.a1	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+E01-0445.a2	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20595	0	0.0610775500535965	
+E01-0445.a3	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+E01-0445.a4	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+E01-0445.a5	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+E01-0445.a6	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+E01-0445.a7	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20595	0	0	
+E01-0445.a8	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20595	0	0	
+E01-0445.a9	E01-0445.e1	E01-0445	AB36	G06	5	unknown	sample			sample			20595		0	
+N02-0454.a1	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+N02-0454.a2	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+N02-0454.a3	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20395	0	0	
+N02-0454.a4	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+N02-0454.a5	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20395	0	0	
+N02-0454.a6	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+N02-0454.a7	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20395	0	0	
+N02-0454.a8	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+N02-0454.a9	N02-0454.e1	N02-0454	AB36	D07	5	unknown	sample			sample			20395		0	
+A01-0881.a1	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+A01-0881.a2	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21407	0	0	
+A01-0881.a3	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21407	0	0.235059410333633	
+A01-0881.a4	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+A01-0881.a5	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+A01-0881.a6	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21407	0	0	
+A01-0881.a7	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+A01-0881.a8	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+A01-0881.a9	A01-0881.e1	A01-0881	AB36	D06	5	unknown	sample			sample			21407		0	
+U01-0068.a1	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21202	0	0.0593288987874985	
+U01-0068.a2	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+U01-0068.a3	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+U01-0068.a4	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21202	0	0.0593288987874985	
+U01-0068.a5	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+U01-0068.a6	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+U01-0068.a7	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+U01-0068.a8	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21202	0	0.0593288987874985	
+U01-0068.a9	U01-0068.e1	U01-0068	AB36	C08	5	unknown	sample			sample			21202		0	
+A01-0882.a1	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a2	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a3	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20633	0	0	
+A01-0882.a4	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a5	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a6	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20633	0	0	
+A01-0882.a7	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a8	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample			sample			20633		0	
+A01-0882.a9	A01-0882.e1	A01-0882	AB36	E06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20633	0	0.0609650611877441	
+M03-0295.a1	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+M03-0295.a2	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21200	0	0.0593344941735268	
+M03-0295.a3	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+M03-0295.a4	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+M03-0295.a5	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+M03-0295.a6	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+M03-0295.a7	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21200	0	0.0593344941735268	
+M03-0295.a8	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21200	0	0	
+M03-0295.a9	M03-0295.e1	M03-0295	AB36	E07	5	unknown	sample			sample			21200		0	
+A02-1332.a1	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20458	0	0.122976154088974	
+A02-1332.a2	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+A02-1332.a3	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+A02-1332.a4	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20458	0	0.0614865757524967	
+A02-1332.a5	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+A02-1332.a6	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+A02-1332.a7	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+A02-1332.a8	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20458	0	0.0614865757524967	
+A02-1332.a9	A02-1332.e1	A02-1332	AB36	H08	5	unknown	sample			sample			20458		0	
+N03-0493.a1	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+N03-0493.a2	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+N03-0493.a3	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20547	0	0.183669656515121	
+N03-0493.a4	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+N03-0493.a5	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+N03-0493.a6	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20547	0	0	
+N03-0493.a7	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20547	0	0.183669656515121	
+N03-0493.a8	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+N03-0493.a9	N03-0493.e1	N03-0493	AB36	G08	5	unknown	sample			sample			20547		0	
+A01-0878.a1	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+A01-0878.a2	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+A01-0878.a3	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+A01-0878.a4	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	19792	0	0.0635556504130363	
+A01-0878.a5	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+A01-0878.a6	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+A01-0878.a7	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	19792	0	0	
+A01-0878.a8	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	19792	0	0.0635556504130363	
+A01-0878.a9	A01-0878.e1	A01-0878	AB36	A06	5	unknown	sample			sample			19792		0	
+E01-0447.a1	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+E01-0447.a2	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+E01-0447.a3	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21088	0	0	
+E01-0447.a4	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+E01-0447.a5	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21088	0	0	
+E01-0447.a6	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+E01-0447.a7	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+E01-0447.a8	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21088	0	0.0596496313810349	
+E01-0447.a9	E01-0447.e1	E01-0447	AB36	A07	5	unknown	sample			sample			21088		0	
+N03-0473.a1	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a2	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a3	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21787	0	0	
+N03-0473.a4	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a5	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a6	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21787	0	0	
+N03-0473.a7	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a8	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample			sample			21787		0	
+N03-0473.a9	N03-0473.e1	N03-0473	AB36	D08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21787	0	0	
+AB36.FA7	NA	NA	AB36	F12	5	control	PCR Negative	Influenza Virus A (FluA)	M:FLUA	NA	RNA	FAM	19492	0	0.0645338520407677	
+AB36.HE8	NA	NA	AB36	F12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	19492	0	0	
+AB36.FH9	NA	NA	AB36	F12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	19492	0	0.0645338520407677	
+O01-0491.a1	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+O01-0491.a2	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+O01-0491.a3	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	22401	0	0	
+O01-0491.a4	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	22401	0	0	
+O01-0491.a5	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+O01-0491.a6	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+O01-0491.a7	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	22401	0	0	
+O01-0491.a8	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+O01-0491.a9	O01-0491.e1	O01-0491	AB36	B08	5	unknown	sample			sample			22401		0	
+R01-0485.a1	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+R01-0485.a2	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+R01-0485.a3	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20260	0	0.248368367552757	
+R01-0485.a4	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20260	0	0	
+R01-0485.a5	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+R01-0485.a6	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+R01-0485.a7	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20260	0	0.124178051948547	
+R01-0485.a8	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+R01-0485.a9	R01-0485.e1	R01-0485	AB36	F07	5	unknown	sample			sample			20260		0	
+A02-1341.a1	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a2	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a3	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a4	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21090	0	0	
+A02-1341.a5	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a6	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	21090	0	0.298248171806335	
+A02-1341.a7	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a8	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample			sample			21090		0	
+A02-1341.a9	A02-1341.e1	A02-1341	AB36	A10	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21090	0	0	
+A01-0883.a1	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+A01-0883.a2	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+A01-0883.a3	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20872	0	0	
+A01-0883.a4	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+A01-0883.a5	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20872	0	0.060266949236393	
+A01-0883.a6	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+A01-0883.a7	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample	Influenza Virus A (FluA)	M:FLUA	sample	RNA	FAM	20872	0	0	
+A01-0883.a8	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+A01-0883.a9	A01-0883.e1	A01-0883	AB36	F06	5	unknown	sample			sample			20872		0	
+N02-0454.a10	N02-0454.e1	N02-0454	AB35	D02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20538	0	0.0612470656633377	
+N02-0454.a11	N02-0454.e1	N02-0454	AB35	D02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20538	0	0.122497111558914	
+N02-0454.a12	N02-0454.e1	N02-0454	AB35	D02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20538	0	0	
+G01-0488.a10	G01-0488.e1	G01-0488	AB35	E03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20486	0	1.04425096511841	
+G01-0488.a11	G01-0488.e1	G01-0488	AB35	E03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20486	0	0.122808068990707	
+G01-0488.a12	G01-0488.e1	G01-0488	AB35	E03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20486	0	0.307042628526688	
+A01-0883.a10	A01-0883.e1	A01-0883	AB35	F01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21686	0	1.16060316562653	
+A01-0883.a11	A01-0883.e1	A01-0883	AB35	F01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21686	0	2.14795851707458	
+A01-0883.a12	A01-0883.e1	A01-0883	AB35	F01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21686	0	3.07794260978699	
+Q01-0503.a10	Q01-0503.e1	Q01-0503	AB35	G02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20395	0	0.802030622959137	
+Q01-0503.a11	Q01-0503.e1	Q01-0503	AB35	G02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20395	0	0.0616765096783638	
+Q01-0503.a12	Q01-0503.e1	Q01-0503	AB35	G02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20395	0	0.616901278495789	
+M04-0206.a10	M04-0206.e1	M04-0206	AB35	H02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20554	0	0	
+M04-0206.a11	M04-0206.e1	M04-0206	AB35	H02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20554	0	0.183607086539268	
+M04-0206.a12	M04-0206.e1	M04-0206	AB35	H02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20554	0	0	
+P01-0105.a10	P01-0105.e1	P01-0105	AB35	A03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20243	0	0.0621396377682686	
+P01-0105.a11	P01-0105.e1	P01-0105	AB35	A03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20243	0	0.124282337725163	
+P01-0105.a12	P01-0105.e1	P01-0105	AB35	A03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20243	0	0.124282337725163	
+A04-0531.a10	A04-0531.e1	A04-0531	AB35	C02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20953	0	3.54691529273987	
+A04-0531.a11	A04-0531.e1	A04-0531	AB35	C02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20953	0	3.727534532547	
+A04-0531.a12	A04-0531.e1	A04-0531	AB35	C02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20953	0	0.360246777534485	
+H01-0919.a10	H01-0919.e1	H01-0919	AB35	F03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21059	0	1.19517481327057	
+H01-0919.a11	H01-0919.e1	H01-0919	AB35	F03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21059	0	0.179203823208809	
+H01-0919.a12	H01-0919.e1	H01-0919	AB35	F03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21059	0	1.31475484371185	
+A01-0882.a10	A01-0882.e1	A01-0882	AB35	E01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20789	0	2.78636503219604	
+A01-0882.a11	A01-0882.e1	A01-0882	AB35	E01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20789	0	1.33183932304382	
+A01-0882.a12	A01-0882.e1	A01-0882	AB35	E01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20789	0	2.36195468902588	
+T01-0265.a1	T01-0265.e1	T01-0265	AB35	E04	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20294	0	0.0619834735989571	
+T01-0265.a2	T01-0265.e1	T01-0265	AB35	E04	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20294	0	0.0619834735989571	
+T01-0265.a3	T01-0265.e1	T01-0265	AB35	E04	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20294	0	0	
+A01-0878.a10	A01-0878.e1	A01-0878	AB35	A01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20512	0	0.98155415058136	
+A01-0878.a11	A01-0878.e1	A01-0878	AB35	A01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20512	0	2.39388155937195	
+A01-0878.a12	A01-0878.e1	A01-0878	AB35	A01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20512	0	2.39388155937195	
+AB35.FH1	NA	NA	AB35	A12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	21089	0	0	
+AB35.FA2	NA	NA	AB35	A12	5	control	PCR Negative	SARS-CoV-2	N1:SARS	NA	RNA	FAM	21089	0	0.0596468038856983	
+AB35.HE3	NA	NA	AB35	A12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	21089	0	0.0596468038856983	
+A02-1341.a10	A02-1341.e1	A02-1341	AB35	A04	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	19427	0	0.259019136428833	
+A02-1341.a11	A02-1341.e1	A02-1341	AB35	A04	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	19427	0	0.388548672199249	
+A02-1341.a12	A02-1341.e1	A02-1341	AB35	A04	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	19427	0	0.0647497773170471	
+E01-0448.a10	E01-0448.e1	E01-0448	AB35	B02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21323	0	2.65739274024963	
+E01-0448.a11	E01-0448.e1	E01-0448	AB35	B02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21323	0	0.176984965801239	
+E01-0448.a12	E01-0448.e1	E01-0448	AB35	B02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21323	0	3.01213645935059	
+A01-0880.a10	A01-0880.e1	A01-0880	AB35	C01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20921	0	3.91416645050049	
+A01-0880.a11	A01-0880.e1	A01-0880	AB35	C01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20921	0	0.300657689571381	
+A01-0880.a12	A01-0880.e1	A01-0880	AB35	C01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20921	0	3.3111937046051	
+AB35.FA4	NA	NA	AB35	C12	5	control	PCR Negative	SARS-CoV-2	N1:SARS	NA	RNA	FAM	20997	0	0.0599081553518772	
+AB35.HE5	NA	NA	AB35	C12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	20997	0	0	
+AB35.FH6	NA	NA	AB35	C12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	20997	0	0.0599081553518772	
+O01-0491.a10	O01-0491.e1	O01-0491	AB35	B03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20592	0	0.855480372905731	
+O01-0491.a11	O01-0491.e1	O01-0491	AB35	B03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20592	0	0.0610864497721195	
+O01-0491.a12	O01-0491.e1	O01-0491	AB35	B03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20592	0	0.549884855747223	
+R02-0467.a1	R02-0467.e1	R02-0467	AB35	C04	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20819	0	0.785691380500793	
+R02-0467.a2	R02-0467.e1	R02-0467	AB35	C04	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20819	0	0.725236117839813	
+R02-0467.a3	R02-0467.e1	R02-0467	AB35	C04	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20819	0	0.120843656361103	
+E01-0446.a10	E01-0446.e1	E01-0446	AB35	H01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21063	0	0.358365118503571	
+E01-0446.a11	E01-0446.e1	E01-0446	AB35	H01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21063	0	0	
+E01-0446.a12	E01-0446.e1	E01-0446	AB35	H01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21063	0	0.418102592229843	
+E01-0445.a10	E01-0445.e1	E01-0445	AB35	G01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20054	0	0.0627252906560898	
+E01-0445.a11	E01-0445.e1	E01-0445	AB35	G01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20054	0	0.376398652791977	
+E01-0445.a12	E01-0445.e1	E01-0445	AB35	G01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20054	0	0.188185259699821	
+K01-0389.a1	K01-0389.e1	K01-0389	AB35	D04	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20582	0	0.122235223650932	
+K01-0389.a2	K01-0389.e1	K01-0389	AB35	D04	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20582	0	0.122235223650932	
+K01-0389.a3	K01-0389.e1	K01-0389	AB35	D04	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20582	0	0.122235223650932	
+R01-0485.a10	R01-0485.e1	R01-0485	AB35	F02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20461	0	0	
+R01-0485.a11	R01-0485.e1	R01-0485	AB35	F02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20461	0	0.0614775605499744	
+R01-0485.a12	R01-0485.e1	R01-0485	AB35	F02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20461	0	0	
+A01-0881.a10	A01-0881.e1	A01-0881	AB35	D01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20633	0	1.40294444561005	
+A01-0881.a11	A01-0881.e1	A01-0881	AB35	D01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20633	0	0.304854869842529	
+A01-0881.a12	A01-0881.e1	A01-0881	AB35	D01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20633	0	1.83023846149445	
+A02-1332.a10	A02-1332.e1	A02-1332	AB35	H03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	19926	0	0.1262596398592	
+A02-1332.a11	A02-1332.e1	A02-1332	AB35	H03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	19926	0	0.1262596398592	
+A02-1332.a12	A02-1332.e1	A02-1332	AB35	H03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	19926	0	0.1262596398592	
+A01-0879.a10	A01-0879.e1	A01-0879	AB35	B01	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20392	0	1.0490665435791	
+A01-0879.a11	A01-0879.e1	A01-0879	AB35	B01	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20392	0	0.493569403886795	
+A01-0879.a12	A01-0879.e1	A01-0879	AB35	B01	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20392	0	0.98733252286911	
+AB35.FH7	NA	NA	AB35	B12	5	control	PCR Negative	SARS-CoV-2	N2:SARS	NA	RNA	FAM/HEX	21051	0	0	
+AB35.HE8	NA	NA	AB35	B12	5	control	PCR Negative	Homo sapiens	RNase P	NA	RNA	HEX	21051	0	0	
+AB35.FA9	NA	NA	AB35	B12	5	control	PCR Negative	SARS-CoV-2	N1:SARS	NA	RNA	FAM	21051	0	0	
+E01-0447.a10	E01-0447.e1	E01-0447	AB35	A02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	19397	0	0.064849928021431	
+E01-0447.a11	E01-0447.e1	E01-0447	AB35	A02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	19397	0	0.064849928021431	
+E01-0447.a12	E01-0447.e1	E01-0447	AB35	A02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	19397	0	0.064849928021431	
+J01-0402.a1	J01-0402.e1	J01-0402	AB35	B04	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20365	0	0	
+J01-0402.a2	J01-0402.e1	J01-0402	AB35	B04	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20365	0	0	
+J01-0402.a3	J01-0402.e1	J01-0402	AB35	B04	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20365	0	0	
+U01-0068.a10	U01-0068.e1	U01-0068	AB35	C03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20881	0	0	
+U01-0068.a11	U01-0068.e1	U01-0068	AB35	C03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20881	0	0	
+U01-0068.a12	U01-0068.e1	U01-0068	AB35	C03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20881	0	0	
+N03-0473.a10	N03-0473.e1	N03-0473	AB35	D03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21170	0	0.118839964270592	
+N03-0473.a11	N03-0473.e1	N03-0473	AB35	D03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21170	0	0.178264155983925	
+N03-0473.a12	N03-0473.e1	N03-0473	AB35	D03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21170	0	0.0594185814261436	
+M03-0295.a10	M03-0295.e1	M03-0295	AB35	E02	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	20605	0	0.48846623301506	
+M03-0295.a11	M03-0295.e1	M03-0295	AB35	E02	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	20605	0	0.183152616024017	
+M03-0295.a12	M03-0295.e1	M03-0295	AB35	E02	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	20605	0	0	
+N03-0493.a10	N03-0493.e1	N03-0493	AB35	G03	5	unknown	sample	SARS-CoV-2	N2:SARS	sample	RNA	FAM/HEX	21637	0	0.0581360943615437	
+N03-0493.a11	N03-0493.e1	N03-0493	AB35	G03	5	unknown	sample	SARS-CoV-2	N1:SARS	sample	RNA	FAM	21637	0	0	
+N03-0493.a12	N03-0493.e1	N03-0493	AB35	G03	5	unknown	sample	Homo sapiens	RNase P	sample	RNA	HEX	21637	0	0	

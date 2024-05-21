@@ -62,6 +62,7 @@ foreach my $subf (@subfolders) {
 	closedir $dirBatch;
 	#print Dumper(\@batch_files);
 	foreach my $f (@batch_files) {
+		#print "$f\n";
 		my $batch_wkbk = ReadData("$rundir/$subf/$f", dtfmt => "mm/dd/yy");
 
 		# Get the batch type and id, which are recorded in cells B1 & B6 (sheet 1, rows 1 & 6, zero-based column 1) of each Excel file.
@@ -72,6 +73,7 @@ foreach my $subf (@subfolders) {
 		my $bid   = $idrow[1];
 		#print "$btype\t$bid\n";
 		unless (defined $completed{"$bid"}) {
+			#print "$btype\t$bid\n";
 			if ("assay" eq "$btype") {
 				# For assay batches, we first confirm the assay data file exists. 
 				# These are in "4 AB_RESULTS" subfolder and begin with the assay batch id and end in csv.

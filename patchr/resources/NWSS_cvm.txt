@@ -10,7 +10,7 @@ pcr_target	assay	assay_target	Respiratory Syncitial Virus, Human (RSV)	RSV
 pcr_gene_target	assay	assay_target_genetic_locus	N1:SARS	n1
 pcr_gene_target	assay	assay_target_genetic_locus	N2:SARS	n2
 pcr_gene_target	assay	assay_target_genetic_locus	S:HVdel69-70	del69/70
-pcr_gene_target	assay	assay_target_genetic_locus	M	InfA1 and InfA2 combined
+pcr_gene_target	assay	assay_target_genetic_locus	M:FLUA	InfA1 and InfA2 combined
 pcr_gene_target	assay	assay_target_genetic_locus	NEP/NS1	InfB
 pcr_gene_target	assay	assay_target_genetic_locus	ORF1_2	NoV GII
 pcr_gene_target	assay	assay_target_genetic_locus	G	RSV-A and RSV-B combined
