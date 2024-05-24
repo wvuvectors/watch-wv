@@ -1,0 +1,31 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+E01-0450		PrincetonWWTP-01	Routine Surveillance	Pass	05/14/2024 09:00 AM	05/15/2024 09:00 AM	05/15/2024 09:00 AM		3.485	GC	05/20/2024		
+R02-0469		ElkinsWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		1.266	GC	05/21/2024		
+Q01-0509		MadisonWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		0.323	GC	05/22/2024		
+E01-0449		PrincetonWWTP-01	Routine Surveillance	Pass	05/09/2024 10:00 AM	05/10/2024 10:00 AM	05/10/2024 10:00 AM		2.42	GC	05/20/2024		
+E01-0529		PrincetonWWTP-01	Routine Surveillance	Fail: Missing Required Data	05/21/2024 09:35 AM	05/22/2024 09:35 AM	05/22/2024 09:35 AM			SK	05/23/2024		
+A01-0884		StarCityWWTP-01	Routine Surveillance	Pass	05/15/2024 12:00 AM	05/16/2024 12:00 AM	05/16/2024 12:00 AM		8.4	GC	05/20/2024		
+E01-0526		PrincetonWWTP-01	Routine Surveillance	Pass	05/15/2024 09:00 AM	05/16/2024 09:00 AM	05/16/2024 09:00 AM		7.797	SK	05/23/2024		
+E01-0528		PrincetonWWTP-01	Routine Surveillance	Pass	05/20/2024 09:35 AM	05/21/2024 09:35 AM	05/21/2024 09:35 AM		4.088	SK	05/23/2024		
+T01-0266		PointPleasantWWTP-01	Routine Surveillance	Fail: Missing Required Data	05/19/2024 07:00 AM	05/20/2024 07:00 AM	05/20/2024 08:00 AM			GC	05/22/2024		
+R01-0486		HuttonsvilleWWTP-01	Routine Surveillance	Pass	05/14/2024 09:00 AM	05/15/2024 09:00 AM	05/15/2024 09:00 AM		0.192	GC	05/20/2024		
+E01-0527		PrincetonWWTP-01	Routine Surveillance	Pass	05/16/2024 09:00 AM	05/17/2024 09:00 AM	05/17/2024 09:00 AM		5.133	SK	05/23/2024		
+C01-0649		WheelingWWTP-01	Routine Surveillance	Pass	05/16/2024 07:00 AM	05/17/2024 07:00 AM	05/17/2024 07:00 AM		5.854	GC	05/21/2024		
+H01-0920		MoundsvilleWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		1.7	GC	05/21/2024		
+A04-0536		CheatLakeWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		0.633	AJ	05/21/2024		
+A01-0885		StarCityWWTP-01	Routine Surveillance	Pass	05/16/2024 12:00 AM	05/17/2024 12:00 AM	05/17/2024 12:00 AM		7.9	GC	05/20/2024		
+C01-0650		WheelingWWTP-01	Routine Surveillance	Pass	05/19/2024 07:00 AM	05/20/2024 07:00 AM	05/20/2024 07:00 AM		7.829	GC	05/21/2024		
+Q01-0504		MadisonWWTP-01	Routine Surveillance	Pass	05/12/2024 08:00 AM	05/13/2024 08:00 AM	05/13/2024 08:00 AM		0.273	GC	05/20/2024		grey-ish and dirty
+M03-0376		ManningtonWWTP-01	Routine Surveillance	Pass	05/20/2024 08:00 AM	05/19/2024 08:00 AM	05/20/2024 08:00 AM		0.166	SK	05/23/2024		
+C01-0648		WheelingWWTP-01	Routine Surveillance	Pass	05/15/2024 07:00 AM	05/16/2024 07:00 AM	05/16/2024 07:00 AM		6.904	GC	05/21/2024		
+L01-0527		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM				05/23/2024		
+M04-0215		FarmingtonWWTP-01	Routine Surveillance	Pass	05/19/2024 08:30 AM	05/20/2024 08:30 AM	05/20/2024 08:30 AM		0.062	SK	05/23/2024		
+C01-0646		WheelingWWTP-01	Routine Surveillance	Pass	05/13/2024 07:00 AM	05/14/2024 07:00 AM	05/14/2024 07:00 AM		8.555	GC	05/21/2024		
+A01-0886		StarCityWWTP-01	Routine Surveillance	Pass	05/18/2024 12:00 AM	05/19/2024 12:00 AM	05/19/2024 12:00 AM		8.7	GC	05/20/2024		
+J01-0403		AlpineLakeWWTP-01	Routine Surveillance	Pass	05/19/2024 07:00 AM	05/20/2024 07:00 AM	05/20/2024 07:00 AM		0.120	GC	05/21/2024		
+C01-0647		WheelingWWTP-01	Routine Surveillance	Pass	05/14/2024 07:00 AM	05/15/2024 07:00 AM	05/15/2024 07:00 AM		6.600	GC	05/21/2024		
+A01-0887		StarCityWWTP-01	Routine Surveillance	Pass	05/19/2024 12:00 AM	05/20/2024 12:00 AM	05/20/2024 12:00 AM		7.4	GC	05/20/2024		
+K01-0377		ParkersburgWWTP-01	Routine Surveillance	Pass	05/20/2024 07:00 AM	05/21/2024 07:00 AM	05/21/2024 07:00 AM		4.331	GC	05/22/2024		
+P01-0112		StMarysWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		0.215	SK	05/23/2024		super green
+O01-0488		GraftonWWTP-01	Routine Surveillance	Pass	05/19/2024 08:00 AM	05/20/2024 08:00 AM	05/20/2024 08:00 AM		1.47	SK	05/23/2024		
+N02-0360		ClarksburgWWTP-01	Routine Surveillance	Pass	05/19/2024 07:00 AM	05/20/2024 07:00 AM	05/20/2024 07:00 AM		11.03	SK	05/23/2024		
