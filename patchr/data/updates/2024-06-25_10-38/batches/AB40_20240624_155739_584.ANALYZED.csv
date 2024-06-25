@@ -1,0 +1,105 @@
+Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
+A01,,,,,SARS-CoV-2 N2,2.56968760490417,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18130,37,18093
+A01,,,,,FLUA,0.0693820342421532,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18130,1,18129
+A01,,,,,FLUB,7.37587594985962,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,18130,106,18024
+A01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,18130,0,18130
+A02,,,,,SARS-CoV-2 N2,0.742429792881012,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20337,12,20325
+A02,,,,,FLUA,0.990003764629364,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20337,16,20321
+A02,,,,,FLUB,6.8220648765564,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20337,110,20227
+A02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20337,0,20337
+A03,,,,,SARS-CoV-2 N2,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21502,0,21502
+A03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21502,0,21502
+A03,,,,,FLUB,6.62790298461914,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21502,113,21389
+A03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21502,0,21502
+A04,,,,,SARS-CoV-2 N2,0.0563419200479984,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,22326,1,22325
+A04,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,22326,0,22326
+A04,,,,,FLUB,7.62907791137695,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,22326,135,22191
+A04,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,22326,0,22326
+B01,,,,,SARS-CoV-2 N2,2.74028301239014,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17462,38,17424
+B01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17462,0,17462
+B01,,,,,FLUB,5.70361566543579,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,17462,79,17383
+B01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,17462,0,17462
+B02,,,,,SARS-CoV-2 N2,0.182356044650078,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20695,3,20692
+B02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20695,0,20695
+B02,,,,,FLUB,7.86528062820435,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20695,129,20566
+B02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20695,0,20695
+B03,,,,,SARS-CoV-2 N2,0.494563966989517,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20351,8,20343
+B03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20351,0,20351
+B03,,,,,FLUB,8.37192535400391,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20351,135,20216
+B03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20351,0,20351
+B04,,,,,SARS-CoV-2 N2,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21403,0,21403
+B04,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21403,0,21403
+B04,,,,,FLUB,8.25487518310547,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21403,140,21263
+B04,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21403,0,21403
+C01,,,,,SARS-CoV-2 N2,3.76096153259277,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21102,63,21039
+C01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21102,0,21102
+C01,,,,,FLUB,6.0349268913269,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21102,101,21001
+C01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21102,0,21102
+C02,,,,,SARS-CoV-2 N2,3.51570987701416,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21497,60,21437
+C02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21497,0,21497
+C02,,,,,FLUB,6.80592823028564,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21497,116,21381
+C02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21497,0,21497
+C03,,,,,SARS-CoV-2 N2,0.178567826747894,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21134,3,21131
+C03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21134,0,21134
+C03,,,,,FLUB,9.31930637359619,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21134,156,20978
+C03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21134,0,21134
+D01,,,,,SARS-CoV-2 N2,2.02307295799255,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19290,31,19259
+D01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19290,0,19290
+D01,,,,,FLUB,8.30879306793213,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,19290,127,19163
+D01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,19290,0,19290
+D02,,,,,SARS-CoV-2 N2,10.8757495880127,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20560,177,20383
+D02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20560,0,20560
+D02,,,,,FLUB,8.40971565246582,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20560,137,20423
+D02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20560,0,20560
+D03,,,,,SARS-CoV-2 N2,0.0599996000528336,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20965,1,20964
+D03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20965,0,20965
+D03,,,,,FLUB,6.79813051223755,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20965,113,20852
+D03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20965,0,20965
+E01,,,,,SARS-CoV-2 N2,5.40103960037231,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19605,84,19521
+E01,,,,,FLUA,0.128327026963234,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19605,2,19603
+E01,,,,,FLUB,7.85200643539429,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,19605,122,19483
+E01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,19605,0,19605
+E02,,,,,SARS-CoV-2 N2,4.40302038192749,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,22036,77,21959
+E02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,22036,0,22036
+E02,,,,,FLUB,6.63901519775391,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,22036,116,21920
+E02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,22036,0,22036
+E03,,,,,SARS-CoV-2 N2,0.598497211933136,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21022,10,21012
+E03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21022,0,21022
+E03,,,,,FLUB,7.38138008117676,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21022,123,20899
+E03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21022,0,21022
+F01,,,,,SARS-CoV-2 N2,0.695737421512604,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19893,11,19882
+F01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19893,0,19893
+F01,,,,,FLUB,8.69266414642334,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,19893,137,19756
+F01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,19893,0,19893
+F02,,,,,SARS-CoV-2 N2,0.533859372138977,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21210,9,21201
+F02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21210,0,21210
+F02,,,,,FLUB,8.38994026184082,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21210,141,21069
+F02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21210,0,21210
+F03,,,,,SARS-CoV-2 N2,0.419197350740433,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21008,7,21001
+F03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21008,0,21008
+F03,,,,,FLUB,7.2658634185791,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21008,121,20887
+F03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21008,0,21008
+G01,,,,,SARS-CoV-2 N2,0.200386837124825,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18833,3,18830
+G01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18833,0,18833
+G01,,,,,FLUB,6.4282660484314,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,18833,96,18737
+G01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,18833,0,18833
+G02,,,,,SARS-CoV-2 N2,0.120438687503338,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20889,2,20887
+G02,,,,,FLUA,0.0602179020643234,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20889,1,20888
+G02,,,,,FLUB,7.48909091949463,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20889,124,20765
+G02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20889,0,20889
+G03,,,,,SARS-CoV-2 N2,0.0580288134515285,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21677,1,21676
+G03,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21677,0,21677
+G03,,,,,FLUB,5.99107503890991,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21677,103,21574
+G03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21677,0,21677
+H01,,,,,SARS-CoV-2 N2,1.2011411190033,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18859,18,18841
+H01,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18859,0,18859
+H01,,,,,FLUB,6.6205153465271,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,18859,99,18760
+H01,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,18859,0,18859
+H02,,,,,SARS-CoV-2 N2,0.652217984199524,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,21220,11,21209
+H02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,21220,0,21220
+H02,,,,,FLUB,6.59703540802002,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,21220,111,21109
+H02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,21220,0,21220
+H03,,,,,SARS-CoV-2 N2,0.437745481729507,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20118,7,20111
+H03,,,,,FLUA,0.0625257417559624,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20118,1,20117
+H03,,,,,FLUB,8.02866363525391,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,20118,128,19990
+H03,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,20118,0,20118
