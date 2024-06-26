@@ -48,7 +48,10 @@ shinyServer(function(input, output, session) {
 	# Generate a dataframe for a basic RS plot.
 	#
 	getDataRS <- function(index, loc_name, date_win) {
-		#print("getBasicDF called!")
+		print("getDataRS called!")
+		print(index)
+		print(loc_name)
+		print(date_win)
 	
 		#df_targ <- df_rs %>% filter(target == inputTarget & target_genetic_locus == inputLocus)
 		if (loc_name == "WV") {
