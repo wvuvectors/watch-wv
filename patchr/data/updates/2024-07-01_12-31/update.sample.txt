@@ -1,0 +1,29 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+C01-0671		WheelingWWTP-01	Routine Surveillance	Pass	06/17/2024 07:00 AM	06/18/2024 07:00 AM	06/18/2024 07:00 AM		4.85	SK	06/25/2024		
+L01-0572		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 10:00 AM			SK	06/25/2024		
+A01-0922		StarCityWWTP-01	Routine Surveillance	Pass	06/23/2024 12:00 AM	06/24/2024 12:00 AM	06/24/2024 12:00 AM		7.7	Sk	06/25/2024		
+H01-0930		MoundsvilleWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:00 AM		2.0	SK	06/25/2024		
+Q01-0505		MadisonWWTP-01	Routine Surveillance	Pass	06/16/2024 08:00 AM	06/17/2024 08:00 AM	06/17/2024 08:00 AM			AJ	06/21/2024		
+M03-0383		ManningtonWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:00 AM		0.224	SK	06/25/2024		
+A04-0537		CheatLakeWWTP-01	Routine Surveillance	Pass	06/23/2024 12:00 AM	06/24/2024 12:00 AM	06/24/2024 12:00 AM		0.574	SK	06/25/2024		
+P01-0115		StMarysWWTP-01	Routine Surveillance	Fail: Missing Required Data	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:50 AM			SK	06/25/2024		
+C01-0672		WheelingWWTP-01	Routine Surveillance	Pass	06/18/2024 07:00 AM	06/19/2024 07:00 AM	06/19/2024 07:00 AM		4.63	SK	06/25/2024		
+R02-0473		ElkinsWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:00 AM		1.805	SK	06/25/2024		
+A01-0919		StarCityWWTP-01	Routine Surveillance	Pass	06/18/2024 12:00 AM	06/19/2024 12:00 AM	06/19/2024 12:00 AM		8.0	AJ	06/21/2024		
+A01-0921		StarCityWWTP-01	Routine Surveillance	Pass	06/22/2024 12:00 AM	06/23/2024 12:00 AM	06/23/2024 12:00 AM		6.4	SK	06/25/2024		
+A01-0918		StarCityWWTP-01	Routine Surveillance	Pass	06/17/2024 12:00 AM	06/18/2024 12:00 AM	06/18/2024 12:00 AM		10.0	AJ	06/21/2024		
+J01-0408		AlpineLakeWWTP-01	Routine Surveillance	Pass	06/23/2024 07:30 AM	06/24/2024 07:30 AM	06/24/2024 07:30 AM		0.082	SK	06/25/2024		
+C01-0675		WheelingWWTP-01	Routine Surveillance	Pass	06/23/2024 07:00 AM	06/24/2024 07:00 AM	06/24/2024 07:00 AM		8.062	SK	06/25/2024		
+Q01-0514		MadisonWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:00 AM		0.37	SK	06/27/2024		
+K01-0378		ParkersburgWWTP-01	Routine Surveillance	Pass	06/24/2024 06:26 AM	06/25/2024 06:26 AM	06/25/2024 07:00 AM		3.837	SK	06/27/2024		
+O01-0492		GraftonWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:00 AM		0.77	SK	06/25/2024		
+A01-0924		StarCityWWTP-01	Routine Surveillance	Pass	06/25/2024 12:00 AM	06/25/2024 12:00 AM	06/25/2024 12:00 AM		7.6	SK	06/27/2024		
+K01-0381		ParkersburgWWTP-01	Routine Surveillance	Pass	06/17/2024 06:30 AM	06/18/2024 06:30 AM	06/18/2024 06:30 AM		3.637	AJ	06/21/2024		
+C01-0673		WheelingWWTP-01	Routine Surveillance	Pass	06/19/2024 07:00 AM	06/19/2024 07:00 AM	06/20/2024 07:00 AM		4.02	SK	06/25/2024		
+D01-0532		CharlesTownWWTP-01	Routine Surveillance	Pass	06/17/2024 07:00 AM	06/18/2024 07:00 AM	06/18/2024 07:00 AM		1.13	AJ	06/21/2024		
+C01-0674		WheelingWWTP-01	Routine Surveillance	Pass	06/20/2024 07:00 AM	06/21/2024 07:00 AM	06/21/2024 07:00 AM		5.14	SK	06/25/2024		
+A01-0923		StarCityWWTP-01	Routine Surveillance	Pass	06/24/2024 12:00 AM	06/24/2024 12:00 AM	06/24/2024 12:00 AM		10.6	SK	06/27/2024		
+K01-0396		ParkersburgWWTP-01	Routine Surveillance	Pass	06/10/2024 06:30 AM	06/11/2024 06:30 AM	06/11/2024 06:30 AM		3.909	AJ	06/21/2024		
+U01-0063		WhiteOakWWTP-01	Routine Surveillance	Pass	06/23/2024 08:00 AM	06/24/2024 08:00 AM	06/24/2024 08:50 AM		0.303	SK	06/27/2024		
+A01-0920		StarCityWWTP-01	Routine Surveillance	Pass	06/20/2024 12:00 AM	06/21/2024 12:00 AM	06/21/2024 12:00 AM		7.2	SK	06/25/2024		
+N02-0434		ClarksburgWWTP-01	Routine Surveillance	Pass	06/23/2024 07:00 AM	06/24/2024 07:00 AM	06/24/2024 07:00 AM		8.3	SK	06/25/2024		
