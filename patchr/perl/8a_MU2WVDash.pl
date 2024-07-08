@@ -46,13 +46,14 @@ my %mu_data = ();
 
 my %nwss2watch = (
 	"sars-cov-2" => "SARS-CoV-2",
-	"n1"				 => "N1:SARS",
-	"n2"				 => "N2:SARS",
+	"n1"				 => "N1",
+	"n2"				 => "N2",
+	"n"				 	 => "SC2",
 	"FLUAV"			 => "Flu A",
 	"FLUBV"			 => "Flu B",
-	"InfA"			 => "M:FLUA",
-	"InfB"			 => "NEP/NS1:FLUB",
-	"InfA1 and InfA2 combined" => "M:FLUA",
+	"InfA"			 => "M",
+	"InfB"			 => "NEP/NS1",
+	"InfA1 and InfA2 combined" => "M",
 	"RSV-A and RSV-B combined" => "G",
 	"RSV"        => "Respiratory Syncitial Virus, Human (RSV)"
 );

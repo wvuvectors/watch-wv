@@ -7,18 +7,20 @@ pcr_target	assay	assay_target	HuNoV-GII	NoV GII
 pcr_target	assay	assay_target	Influenza Virus A (FluA)	FLUAV
 pcr_target	assay	assay_target	Influenza Virus B (FluB)	FLUBV
 pcr_target	assay	assay_target	Respiratory Syncitial Virus, Human (RSV)	RSV
-pcr_gene_target	assay	assay_target_genetic_locus	N1:SARS	n1
-pcr_gene_target	assay	assay_target_genetic_locus	N2:SARS	n2
+pcr_gene_target	assay	assay_target_genetic_locus	N1	n1
+pcr_gene_target	assay	assay_target_genetic_locus	N2	n2
+pcr_gene_target	assay	assay_target_genetic_locus	SC2	n
 pcr_gene_target	assay	assay_target_genetic_locus	S:HVdel69-70	del69/70
-pcr_gene_target	assay	assay_target_genetic_locus	M:FLUA	InfA1 and InfA2 combined
+pcr_gene_target	assay	assay_target_genetic_locus	M	InfA1 and InfA2 combined
 pcr_gene_target	assay	assay_target_genetic_locus	NEP/NS1	InfB
 pcr_gene_target	assay	assay_target_genetic_locus	ORF1_2	NoV GII
 pcr_gene_target	assay	assay_target_genetic_locus	G	RSV-A and RSV-B combined
-pcr_gene_target_ref	assay	assay_target_genetic_locus	N1:SARS	https://doi.org/10.1039/D0EW00946F
-pcr_gene_target_ref	assay	assay_target_genetic_locus	N2:SARS	https://doi.org/10.1039/D0EW00946F
+pcr_gene_target_ref	assay	assay_target_genetic_locus	N1	https://doi.org/10.1039/D0EW00946F
+pcr_gene_target_ref	assay	assay_target_genetic_locus	N2	https://doi.org/10.1039/D0EW00946F
+pcr_gene_target_ref	assay	assay_target_genetic_locus	SC2	https://www.cdc.gov/coronavirus/2019-ncov/lab/multiplex.html
 pcr_gene_target_ref	assay	assay_target_genetic_locus	S:HVdel69-70	 https://doi.org/10.1002/jmv.27155
 pcr_gene_target_ref	assay	assay_target_genetic_locus	M	https://doi.org/10.1021/acs.estlett.2c00350
-pcr_gene_target_ref	assay	assay_target_genetic_locus	NEP/NS1:FLUB	https://doi.org/10.1021/acs.estlett.2c00350
+pcr_gene_target_ref	assay	assay_target_genetic_locus	NEP/NS1	https://doi.org/10.1021/acs.estlett.2c00350
 pcr_gene_target_ref	assay	assay_target_genetic_locus	ORF1_2	https://www.nature.com/articles/s41370-023-00592-4
 pcr_gene_target_ref	assay	assay_target_genetic_locus	G	https://www.bio-rad.com/digital-assays/assay-detail/dEXD77482599?_gl=1*wb42kj*_gcl_au*MTA0MjQ3Mzc0MC4xNzEyOTUzOTc2
 concentration_method	cbatch	concentration_method	Ceres Nanotrap Magnetic Microbiome A Particles	ceres nanotrap
