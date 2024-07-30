@@ -1,0 +1,15 @@
+#############################################
+Initiated patchr.sh
+2024-07-23_08-25
+
+See logs/patchr/patchr.2024-07-23_08-25.log for warnings, errors, and other important information.
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl .
+******
+
+1_queryBatches.pl exited with error code 2 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 1 (batch identification).
+!!!!!!!!

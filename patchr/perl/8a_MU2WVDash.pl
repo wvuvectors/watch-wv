@@ -267,8 +267,35 @@ foreach my $uid (keys %mu_data) {
 
 		$prnt .= "Routine Surveillance\t$thisd{flow_rate}\tPass\t$locRef->{location_id}\t";
 
+
 		# target & target_genetic_locus need to be looked up
-		$prnt .= "$nwss2watch{$thisd{pcr_target}}\t$nwss2watch{$thisd{pcr_gene_target}}\t";
+		my $t = "";
+		if (defined $nwss2watch{"$thisd{pcr_target}"}) {
+			$t = "$nwss2watch{$thisd{pcr_target}}";
+		} elsif (defined $nwss2watch{lc("$thisd{pcr_target}")}) {
+			$t = $nwss2watch{lc("$thisd{pcr_target}")};
+		} elsif (defined $nwss2watch{uc("$thisd{pcr_target}")}) {
+			$t = $nwss2watch{uc("$thisd{pcr_target}")};
+		} else {
+			$status = 42;
+			warn "WARN : target $thisd{pcr_target} was not recognized in the CVM.";
+			next;
+		}
+
+		my $tgl = "";
+		if (defined $nwss2watch{"$thisd{pcr_gene_target}"}) {
+			$tgl = "$nwss2watch{$thisd{pcr_gene_target}}";
+		} elsif (defined $nwss2watch{lc("$thisd{pcr_gene_target}")}) {
+			$tgl = $nwss2watch{lc("$thisd{pcr_gene_target}")};
+		} elsif (defined $nwss2watch{uc("$thisd{pcr_gene_target}")}) {
+			$tgl = $nwss2watch{uc("$thisd{pcr_gene_target}")};
+		} else {
+			$status = 43;
+			warn "WARN : target locus $thisd{pcr_gene_target} was not recognized in the CVM.";
+			next;
+		}
+
+		$prnt .= "$t\t$tgl\t";
 
 		# copies per ld, ldcap, flownorm, fn_per_cap, and target_per_capita_basis need to be calculated
 		my $copies_per_ld    = $thisd{"pcr_target_avg_conc"} / ($interval_hrs/24);

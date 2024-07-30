@@ -1,13 +1,68 @@
 #! /bin/bash
 
-indir="$1"
+while getopts ":hi:o:" opt; do
+	case $opt in
+		h)
+			echo "help not available."
+			exit 1
+			;;
+		i)
+			indir=$OPTARG
+			;;
+		o)
+			DBDIR=$OPTARG
+			;;
+		\?)
+			echo "Invalid option: -$OPTARG" >&2
+			exit 1
+			;;
+		:)
+			echo "Option -$OPTARG requires an argument." >&2
+			exit 1
+			;;
+	esac
+done
+
+if [ -z "$indir" ]; then
+	echo "WARN : no input directory provided (-i). Using the default directory:"
+	echo "WARN : /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My\ Drive/DRISCOLL_LAB/2\ PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
+	indir="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My\ Drive/DRISCOLL_LAB/2\ PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
+fi
+
+if [ -z "$DBDIR" ]; then
+	echo "WARN : no data output directory provided (-o). Using the default directory:"
+	echo "WARN : watch-wv/patchr/data/"
+	DBDIR="data"
+fi
+
 WD=$(pwd)
-
-DBDIR="data"
-
+ 
 # Get the current date and time
 START=$(date "+%F_%H-%M")
 UPDAY=$(date "+%B %d, %Y at %T")
+
+if [ ! -d "$DBDIR/" ]
+then
+	mkdir "$DBDIR/"
+fi
+
+if [ ! -d "$DBDIR/updates" ]
+then
+	mkdir "$DBDIR/updates/"
+fi
+
+if [ ! -d "$DBDIR/latest" ]
+then
+	mkdir "$DBDIR/latest"
+	echo "Folder created  $UPDAY" > "$DBDIR/latest/README.txt"
+fi
+
+if [ ! -d "$DBDIR/latest_bk" ]
+then
+	mkdir "$DBDIR/latest_bk"
+	echo "Folder created  $UPDAY" > "$DBDIR/latest_bk/README.txt"
+fi
+
 
 # Write all output to log file
 logf="logs/patchr/patchr.$START.log"
@@ -22,6 +77,8 @@ echo "Initiated patchr.sh" | tee -a "$logf"
 echo "$START" | tee -a "$logf"
 echo "" | tee -a "$logf"
 echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
+echo "Input data dir: $indir" | tee -a "$logf"
+echo "Output data dir: $DBDIR" | tee -a "$logf"
 echo "" | tee -a "$logf"
 
 
@@ -60,7 +117,7 @@ fi
 echo "1_queryBatches.pl identified unprocessed batch files, so an update will be prepared." | tee -a "$logf"
 echo "Preparing an update to WaTCH now." | tee -a "$logf"
 
-update_dir="data/updates/$START/"
+update_dir="$DBDIR/updates/$START/"
 echo "Creating update folder $update_dir to hold the results." | tee -a "$logf"
 if [ ! -d "$update_dir" ]
 then

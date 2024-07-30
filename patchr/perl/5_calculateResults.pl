@@ -659,6 +659,8 @@ sub doCalcPop {
 
 sub calcCopiesPerL {
 
+	# copies/uL_rxn * (rxn_total_uL/rxn_input_uL) * (extraction_output_uL/extraction_input_uL) * (concentration_output_mL/concentration_input_mL)
+
 	my $a  = shift;
 	my $ab = shift;
 	my $eb = shift;

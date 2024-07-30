@@ -1,0 +1,129 @@
+Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/uL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
+A01,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,4070,702,3368
+A01,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,4070,495,3575
+A02,,,,,1,69.3816528320313,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18746,1006,17740
+A02,,,,,2,19.8156433105469,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18746,293,18453
+A03,,,,,1,312.571197509766,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18007,3962,14045
+A03,,,,,2,78.0967636108398,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18007,1084,16923
+A04,,,,,1,106.241966247559,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17952,1454,16498
+A04,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17952,631,17321
+A05,,,,,1,115.012359619141,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17075,1492,15583
+A05,,,,,2,3.54098844528198,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17075,48,17027
+A06,,,,,1,538.42333984375,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19258,6706,12552
+A06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19258,0,19258
+A07,,,,,1,27.385347366333,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19270,415,18855
+A07,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19270,6086,13184
+A12,,,,,1,15.7129383087158,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18769,233,18536
+A12,,,,,2,14.2208919525146,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18769,211,18558
+B01,,,,,1,286.576721191406,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17223,3509,13714
+B01,,,,,2,102.753646850586,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17223,1351,15872
+B02,,,,,1,191.269149780273,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18148,2560,15588
+B02,,,,,2,50.2716674804688,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18148,711,17437
+B03,,,,,1,28.0886840820313,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18838,416,18422
+B03,,,,,2,140.582214355469,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18838,1992,16846
+B04,,,,,1,142.811782836914,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17032,1828,15204
+B04,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17032,644,16388
+B05,,,,,1,271.590423583984,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,15747,3058,12689
+B05,,,,,2,79.9722595214844,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,15747,970,14777
+B06,,,,,1,489.280822753906,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20453,6591,13862
+B06,,,,,2,90.0472183227539,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20453,1413,19040
+B07,,,,,1,63.8221130371094,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18212,901,17311
+B07,,,,,2,100.987731933594,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18212,1405,16807
+B12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+B12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+C01,,,,,1,307.886688232422,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18907,4105,14802
+C01,,,,,2,163.988082885742,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18907,2311,16596
+C02,,,,,1,136.008041381836,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18022,1847,16175
+C02,,,,,2,57.7714729309082,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18022,809,17213
+C03,,,,,1,345.614013671875,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,15971,3837,12134
+C03,,,,,2,49.9676132202148,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,15971,622,15349
+C04,,,,,1,139.388595581055,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17999,1888,16111
+C04,,,,,2,10.5266876220703,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17999,150,17849
+C05,,,,,1,197.317581176758,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,15849,2301,13548
+C05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,15849,0,15849
+C06,,,,,1,189.734405517578,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18941,2652,16289
+C06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18941,1713,17228
+C07,,,,,1,368.305053710938,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18209,4622,13587
+C07,,,,,2,2.00489139556885,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18209,29,18180
+C12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+C12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+D01,,,,,1,240.999359130859,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17768,3098,14670
+D01,,,,,2,130.344116210938,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17768,1749,16019
+D02,,,,,1,191.631301879883,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20494,2896,17598
+D02,,,,,2,25.6702690124512,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20494,414,20080
+D03,,,,,1,67.3228149414063,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19342,1008,18334
+D03,,,,,2,55.5772247314453,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19342,836,18506
+D04,,,,,1,120.236755371094,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17266,1574,15692
+D04,,,,,2,25.9832611083984,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17266,353,16913
+D05,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+D05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+D06,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20016,3959,16057
+D06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20016,1366,18650
+D07,,,,,1,190.879730224609,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19688,2772,16916
+D07,,,,,2,59.9952049255371,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19688,917,18771
+D12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+D12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+E01,,,,,1,283.801086425781,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17170,3468,13702
+E01,,,,,2,56.2572021484375,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17170,751,16419
+E02,,,,,1,53.0594863891602,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,16705,690,16015
+E02,,,,,2,110.180938720703,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,16705,1401,15304
+E03,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18855,0,18855
+E03,,,,,2,5.88443040847778,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18855,88,18767
+E04,,,,,1,280.453857421875,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17783,3554,14229
+E04,,,,,2,23.9219074249268,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17783,335,17448
+E05,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+E05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+E06,,,,,1,889.322814941406,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20699,10492,10207
+E06,,,,,2,1274.11096191406,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20699,13182,7517
+E07,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17737,746,16991
+E07,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17737,3079,14658
+E12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+E12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+F01,,,,,1,280.465301513672,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17277,3453,13824
+F01,,,,,2,31.7025623321533,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17277,430,16847
+F02,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19715,0,19715
+F02,,,,,2,18.7696056365967,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19715,292,19423
+F03,,,,,1,221.490798950195,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,16017,2586,13431
+F03,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,16017,397,15620
+F04,,,,,1,162.42854309082,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18722,2268,16454
+F04,,,,,2,20.1825656890869,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18722,298,18424
+F05,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+F05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+F06,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19717,0,19717
+F06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19717,4683,15034
+F07,,,,,1,133.130752563477,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18351,1843,16508
+F07,,,,,2,76.1502914428711,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18351,1078,17273
+F12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+F12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+G01,,,,,1,120.095031738281,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18142,1652,16490
+G01,,,,,2,38.4378471374512,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18142,546,17596
+G02,,,,,1,750.969421386719,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18256,8207,10049
+G02,,,,,2,224.082214355469,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18256,2979,15277
+G03,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,20862,0,20862
+G03,,,,,2,1.56863188743591,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,20862,26,20836
+G04,,,,,1,250.311401367188,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17451,3149,14302
+G04,,,,,2,1.73110175132751,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17451,24,17427
+G05,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+G05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+G06,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,2566,0,2566
+G06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,2566,0,2566
+G07,,,,,1,58.0591697692871,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17314,781,16533
+G07,,,,,2,241.541381835938,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17314,3025,14289
+G12,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+G12,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+H01,,,,,1,338.454895019531,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19342,4563,14779
+H01,,,,,2,63.623420715332,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19342,954,18388
+H02,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17923,0,17923
+H02,,,,,2,88.599479675293,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17923,1219,16704
+H03,,,,,1,773.711059570313,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18750,8614,10136
+H03,,,,,2,39.3859176635742,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18750,578,18172
+H04,,,,,1,49.5648956298828,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,18324,708,17616
+H04,,,,,2,9.71645832061768,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,18324,141,18183
+H05,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,0,0,0
+H05,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,0,0,0
+H06,,,,,1,6.80377864837646,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19650,106,19544
+H06,,,,,2,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19650,0,19650
+H07,,,,,1,No Call,CHECK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,17215,0,17215
+H07,,,,,2,4.61171293258667,OK,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,17215,63,17152
+H12,,,,,1,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,19010,0,19010
+H12,,,,,2,2.18545532226563,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,19010,33,18977

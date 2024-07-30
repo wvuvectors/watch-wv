@@ -1,0 +1,16 @@
+#############################################
+Initiated feed_NWSS.sh
+2024-07-30_10-21
+
+See logs/feeds/NWSS/feed_NWSS.2024-07-30_10-21.log for warnings, errors, and other important information.
+
+Generating National Wastewater Surveillance System (NWSS) feed for WVU.
+******
+Running 7a_WaTCH2NWSS.pl data/latest.
+******
+
+I could not find /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/mu_nwss.LATEST.csv from Marshall lab, so there is nothing to merge.
+!!!!!!!!
+patchr_feed aborted during phase 3 (NWSS merge).
+NO MERGE WAS PERFORMED. 
+!!!!!!!!
