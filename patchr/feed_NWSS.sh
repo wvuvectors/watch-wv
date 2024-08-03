@@ -116,15 +116,15 @@ then
 	echo "!!!!!!!!" | tee -a "$logf"
 fi
 
-rm "$NWSS_MU_LTST"
-status="${PIPESTATUS[0]}"
-if [[ "$status" != "0" ]]
-then
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "Removal (rm) of $NWSS_MU_LTST exited with error code $status." | tee -a "$logf"
-	echo "This is not fatal but the file was not removed." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-fi
+# rm "$NWSS_MU_LTST"
+# status="${PIPESTATUS[0]}"
+# if [[ "$status" != "0" ]]
+# then
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	echo "Removal (rm) of $NWSS_MU_LTST exited with error code $status." | tee -a "$logf"
+# 	echo "This is not fatal but the file was not removed." | tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# fi
 
 echo ""
 echo "Done."

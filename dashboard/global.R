@@ -79,9 +79,10 @@ df_active_loc$dotsize <- case_when(
   
 # Restrict results to those that pass sample QC and have NTC below threshold
 #
-df_result <- df_result %>% filter(tolower(sample_qc) == "pass" & tolower(target_result_validated) != "ntc above threshold")
-df_result <- df_result %>% filter(location_id != "CheatLakeWWTP-01")
-#df_result <- df_result %>% filter(tolower(sample_qc) == "pass" & location_id %in% df_active_loc$location_id)
+df_result <- df_result %>% filter(location_id %in% df_active_loc$location_id)
+df_result <- df_result %>% filter(tolower(sample_qc) == "pass")
+df_result <- df_result %>% filter(tolower(target_result_validated) != "ntc above threshold")
+#df_result <- df_result %>% filter(location_id != "CheatLakeWWTP-01")
 
 
 # Convert date strings into Date objects.
