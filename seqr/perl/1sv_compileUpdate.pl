@@ -19,6 +19,9 @@ $usage   .=   "\n";
 my $rundir;
 my $status = 0;
 
+# Uses file from this original source:
+# https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json
+
 my $SEQR_ALIASES = "resources/alias_key.json";
 
 
