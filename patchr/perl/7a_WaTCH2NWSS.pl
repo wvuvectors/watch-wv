@@ -420,9 +420,9 @@ sub calcExtref {
 		# Test abatch.assay_quantification_method
 		my $abid = $tables{"assay"}->{"$aid"}->{"assay_batch_id"};
 		if (lc "$tables{abatch}->{$abid}->{assay_quantification_method}" eq "ddpcr") {
-			$val = "The WV jurisdiction consisting of WVBPH and academic labs uses very similar lab methods including Ceres nanotrap virus concentration of raw influent WW and final analysis with BioRad ddPCR instrumentation and mostly BioRad designed assays.";
+			$val = "Untreated influent is collected, concentrated with Ceres Nanotrap A, total nucleic acids extracted, and targets assayed by droplet digital PCR (Bio-Rad QX system).";
 		} else {
-			$val = "This sample was quantified by real-time qPCR";
+			$val = "Untreated influent is collected, concentrated with Ceres Nanotrap A, total nucleic acids extracted, and targets assayed by real-time qPCR.";
 		}
 	} elsif ("$extref_field" eq "ntc_amplify") {
 		# if result.target_result_validated eq 'NTC above threshold' then yes; otherwise no

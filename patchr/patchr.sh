@@ -25,8 +25,8 @@ done
 
 if [ -z "$indir" ]; then
 	echo "WARN : no input directory provided (-i). Using the default directory:"
-	echo "WARN : /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My\ Drive/DRISCOLL_LAB/2\ PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
-	indir="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My\ Drive/DRISCOLL_LAB/2\ PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
+	echo "WARN : /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
+	indir="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/"
 fi
 
 if [ -z "$DBDIR" ]; then

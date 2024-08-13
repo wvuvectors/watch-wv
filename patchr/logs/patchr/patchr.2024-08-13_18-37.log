@@ -1,0 +1,144 @@
+#############################################
+Initiated patchr.sh
+2024-08-13_18-37
+
+See logs/patchr/patchr.2024-08-13_18-37.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/
+Output data dir: data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR/.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder data/updates/2024-08-13_18-37/ to hold the results.
+Recording batch files to process in data/updates/2024-08-13_18-37//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory data/updates/2024-08-13_18-37/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB73.xlsx to batches/CB73.xlsx.
+Repairing known issues in CB73.xlsx.
+Copying file CB74.xlsx to batches/CB74.xlsx.
+Repairing known issues in CB74.xlsx.
+Copying file EB74.xlsx to batches/EB74.xlsx.
+Repairing known issues in EB74.xlsx.
+Copying file AB47.xlsx to batches/AB47.xlsx.
+Repairing known issues in AB47.xlsx.
+Copying file AB47_20240809_121222_578.ANALYZED.csv to batches/AB47_20240809_121222_578.ANALYZED.csv.
+Repairing known issues in AB47_20240809_121222_578.ANALYZED.csv.
+Done.
+File AB47_20240809_121222_578.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB47_20240809_121222_578.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+******
+Running 3_validateUpdate.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table rbatch
+Retrieving ids from WaTCH table cbatch
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table sample
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table assay
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table extraction
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/latest):
+TABLE        	WaTCH IDS    	DUPLICATES   
+ebatch       	496          	0            
+rbatch       	0            	0            
+cbatch       	719          	0            
+concentration	11449        	0            
+sample       	11587        	0            
+abatch       	276          	0            
+assay        	36761        	0            
+archive      	0            	0            
+extraction   	11642        	0            
+-------------------------------
+
+Validating ids from the update tables...
+Done.
+
+-------------------------------
+Update validation results (data/updates/2024-08-13_18-37/):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+concentration	31           	0            	0            
+cbatch       	2            	0            	0            
+rbatch       	0            	0            	0            
+ebatch       	1            	0            	0            
+extraction   	31           	0            	0            
+archive      	0            	0            	0            
+assay        	160          	0            	0            
+abatch       	1            	0            	0            
+sample       	31           	0            	0            
+-------------------------------
+
+
+
+Ok, I'm about to start modifying the watchdb files in data/latest/.
+First, let's back up data/latest/ to data/latest_bk/.
+
+Now I'll create a new watchdb folder in data/incremental/2024-08-13_18-37/.
+It will hold the latest watchdb after update with data from data/updates/2024-08-13_18-37/.
+
+
+Now I'm merging the watchdb tables from data/latest/ with the update tables in data/updates/2024-08-13_18-37/.
+These merged tables will be put in the folder that I just created, data/incremental/2024-08-13_18-37/.
+
+******
+Running 4_appendUpdate.pl data/incremental/2024-08-13_18-37 data/updates/2024-08-13_18-37/.
+******
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in data/incremental/2024-08-13_18-37.
+
+******
+Running 5_calculateResults.pl data/incremental/2024-08-13_18-37.
+******
+
+
+******
+Running 6_generateBatchList.pl data/incremental/2024-08-13_18-37 > data/incremental/2024-08-13_18-37/watchdb.completed_batches.txt.
+******
+
+
+
+******
+Everything appears to be ok, so on to the final step.
+I am now copying the watchdb tables from data/incremental/2024-08-13_18-37/ to data/latest/, overwriting the old set.
+Never fear! The previous version is still readily available in data/latest_bk/, and older sets in the data/incremental/ folder.
+******
+
+Updating the README file.
+
+File copy finished.
+The most recent version of the watchdb can be found in two places:
+    data/incremental/2024-08-13_18-37/
+    and
+    data/latest/
+data/latest_bk/ contains the data from immediately before this update was applied.
+
+All done! patchr run of 2024-08-13_18-37 will now exit.
+
