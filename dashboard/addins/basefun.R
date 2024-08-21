@@ -109,7 +109,7 @@ calcDelta <- function(df_this, mo_base) {
 	} else {
 		d_now <- mean(vec_now, na.rm = TRUE)
 		d_base <- mean(vec_all, na.rm = TRUE)
-		delta <- 100 * (d_now - d_base)/d_base
+		delta <- 100 * d_now/d_base
 		delta <- formatC(as.numeric(delta), format="d")
 	}
 	

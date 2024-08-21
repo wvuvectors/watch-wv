@@ -50,6 +50,7 @@ resources <- excel2df(RES_ALL)
 df_active_loc <- resources$location %>% filter(tolower(location_status) == "active")
 df_active_wwtp <- resources$wwtp %>% filter(wwtp_id %in% df_active_loc$location_primary_wwtp_id)
 df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$location_counties_served)
+df_active_loci <- resources$loci %>% filter(target_id %in% TARGETS_RS)
 
 
 
@@ -152,11 +153,18 @@ df_rs <- df_result %>% filter(tolower(event_type) == "routine surveillance" & !i
 df_rs$date_to_plot <- df_rs$week_ending
 df_seqr$date_to_plot <- df_seqr$week_ending
 
+
 dflist_rs <- list()
 for (i in 1:length(TARGETS_RS)) {
-	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
+#	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
+	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS_RS[i])
 }
 
+# Establish dataframes for each target, to speed up load/change
+#df_t1 <- df_rs %>% filter(target == "Influenza Virus A (FluA)")
+#df_t2 <- df_rs %>% filter(target == "Influenza Virus B (FluB)")
+#df_t3 <- df_rs %>% filter(target == "SARS-CoV-2")
+#df_t4 <- df_rs %>% filter(target == "Respiratory Syncitial Virus, Human (RSV)")
 
 df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>% 
 	select(location_common_name, location_group, location_counties_served, location_population_served, location_primary_lab) %>% 
@@ -181,7 +189,7 @@ for (county in df_active_county$county_id) {
 		this_disease <- DISEASE_RS[[i]]
 		df_this <- dflist_rs[[i]] %>% filter(location_id %in% locations)
 		#print(df_this)
-		delta <- calcDelta(df_this, 12)
+		delta <- calcDelta(df_this, VIEW_RANGE_PRIMARY)
 		fresh <- calcFresh(df_this)
 		this_rowc <- append(this_rowc, list(this_disease = c(delta)))
 		this_rowf <- append(this_rowf, list(this_disease = c(fresh)))
@@ -196,7 +204,7 @@ for (county in df_active_county$county_id) {
 			this_disease <- DISEASE_RS[[i]]
 			df_this <- dflist_rs[[i]] %>% filter(location_id == loc_id)
 			#print(df_this)
-			delta <- calcDelta(df_this, 12)
+			delta <- calcDelta(df_this, VIEW_RANGE_PRIMARY)
 			fresh <- calcFresh(df_this)
 			this_rowl <- append(this_rowl, list(this_disease = c(delta)))
 			this_rowg <- append(this_rowg, list(this_disease = c(fresh)))
@@ -215,7 +223,8 @@ for (colname in colnames(df_regions)) {
 	}
 }
 df_regions$avg <- rowMeans(df_regions[,DISEASE_RS], na.rm = TRUE)
-df_regions <- df_regions %>% arrange(desc(avg))
+#df_regions <- df_regions %>% arrange(desc(avg))
+df_regions <- df_regions %>% arrange(region_name)
 
 
 df_regions$region_lab <- case_when(

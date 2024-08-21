@@ -48,10 +48,10 @@ shinyServer(function(input, output, session) {
 	# Generate a dataframe for a basic RS plot.
 	#
 	getDataRS <- function(index, loc_name, date_win) {
-		print("getDataRS called!")
-		print(index)
-		print(loc_name)
-		print(date_win)
+		#print("getDataRS called!")
+		#print(index)
+		#print(loc_name)
+		#print(date_win)
 	
 		#df_targ <- df_rs %>% filter(target == inputTarget & target_genetic_locus == inputLocus)
 		if (loc_name == "WV") {
@@ -78,14 +78,14 @@ shinyServer(function(input, output, session) {
 	
 		# Calculate the mean signal for each target over the last month and last year.
 	#		if (controlRV$trendLines[1] == TRUE) {
-			trendline_mo <- calcTrend(df_this, 1)
+			trendline_short <- calcTrend(df_this, 1)
 	#		} else {
-	#			trendline_mo <- 0
+	#			trendline_short <- 0
 	#		}
 	#		if (controlRV$trendLines[2] == TRUE) {
-			trendline_yr <- calcTrend(df_this, 12)
+			trendline_long <- calcTrend(df_this, VIEW_RANGE_PRIMARY)
 	#		} else {
-	#			trendline_yr <- 0
+	#			trendline_long <- 0
 	#		}
 
 		end_date <- max(df_this$date_to_plot, na.rm=TRUE)
@@ -96,7 +96,7 @@ shinyServer(function(input, output, session) {
 		if (length(df_return$date_to_plot) == 0) {
 			return(list())
 		} else {
-			return(list(df_return, trendline_mo, trendline_yr))
+			return(list(df_return, trendline_short, trendline_long))
 		}
 	}
 
@@ -164,14 +164,14 @@ shinyServer(function(input, output, session) {
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
 											scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
-											#scale_color_manual(name = "Target", values = TARGET_COLORS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											plot_theme() + 
 											labs(x = NULL, y = NULL, color = NULL) + 
 											geom_hline(aes(yintercept=tl_mo), color=TRENDL_MO_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
 											geom_hline(aes(yintercept=tl_yr), color=TRENDL_YR_COLOR, linetype="solid", alpha=0.8, linewidth=1) + 
-											geom_point(aes(x = date_to_plot, y = val, text=paste0(date_to_plot, ": ", prettyNum(val, digits=1, big.mark=","), sep="")), shape = 1, size = 2, alpha=0.9) + 
-											geom_line(aes(x = date_to_plot, y = val, text=""), alpha=0.4, na.rm = TRUE)
+											geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
+#											geom_point(aes(x = date_to_plot, y = val, color = target_genetic_locus, text=paste0(date_to_plot, ": ", prettyNum(val, digits=1, big.mark=","), sep="")), shape = 1, size = 2, alpha=0.9) + 
+											geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
 
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}

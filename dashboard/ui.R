@@ -69,7 +69,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								style = "display: inline-block;margin-top: 25px;",
-								actionBttn(inputId="center_map_rs", label="Recenter Map", style="pill", size="xs", color="success")
+								actionBttn(inputId="center_map_rs", label="Reset Map", style="pill", size="xs", color="success")
 							),
 							div(
 								class = "logo",
@@ -110,7 +110,7 @@ shinyUI(fluidPage(
 								column(4,
 									style = "text-align: right;font-size: 13px;font-weight: 800;padding: 3px;",
 									div(id = "rs_CSL_label", "Alert Color Level: ", style = "padding: 2px;height: 25px;"),
-									div(id = "rs_delta_label", "From Yearly Mean:", style = "padding: 2px;height: 25px;"),
+									div(id = "rs_delta_label", paste0("% of ", VIEW_RANGE_PRIMARY, " Mo. Mean:"), style = "padding: 2px;height: 25px;"),
 									div(id = "rs_fresh_label", "Data Age (days):", style = "padding: 2px;height: 25px;")
 								),
 								column(2,
@@ -169,7 +169,7 @@ shinyUI(fluidPage(
 									# title
 									style = "padding: 3px 0px 0px 0px;text-align: center;font-size: 13px;font-weight: 800;",
 									div(
-										"Percent Change from Yearly Mean (All Counties)", 
+										paste0("Percent of ", VIEW_RANGE_PRIMARY, " Month Mean as of ", today, " (By County)"), 
 										style = "background-color: #000000;color: #FFFFFF;"
 									)
 								) # column
@@ -219,7 +219,7 @@ shinyUI(fluidPage(
 								) # column
 							) # fluidRow (table)
 						)
-					),
+					), # fluidRow (info)
 					fluidRow(
 						style = "margin-top: 5px;",
 						column(6,
@@ -244,7 +244,7 @@ shinyUI(fluidPage(
 							plotlyOutput("plot3_rs", height="210px")
 						),
 						column(6,
-							# target 4 plot (COVID)
+							# target 4 plot (RSV)
 							style = "padding: 3px;",
 							div(textOutput("plot4_rs_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"),
 							plotlyOutput("plot4_rs", height="210px")
@@ -267,9 +267,9 @@ shinyUI(fluidPage(
 								style = "padding: 2px;text-align: left;",
 								span("The "),
 								span(style="color: #EAAA00;", "solid gold line"),
-								span("on each plot represents the annual mean level of each target, used to generate the percent change. The "),
+								span(paste0("on each plot represents the ", VIEW_RANGE_PRIMARY, " month average level of each target, used to generate the percent change. The ")),
 								span(style="color: #00B140;", "green dashed line"),
-								span("represents the mean over the most recent month.")
+								span("represents the average over the most recent month.")
 							)
 						)
 					) # fluidRow (footnotes)
@@ -286,25 +286,25 @@ shinyUI(fluidPage(
 						class = "alertinfo",
 						id = "level_1",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #3288BD; background-color: #3288BD; border: 1px solid black; border-radius: 3px;"),
-						span("CODE BLUE. The latest amount of this disease agent is less than 50% of the yearly average. Community transmission is estimated to be low.", style="font-size: 13px;")
+						span(paste0("CODE BLUE. The latest amount of this disease agent is less than 50% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be low."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_2",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #E6F598; background-color: #E6F598; border: 1px solid black; border-radius: 3px;"),
-						span("CODE YELLOW. The latest amount of this disease agent is between 50% and 100% of the yearly average. Community transmission is estimated to be moderate.", style="font-size: 13px;")
+						span(paste0("CODE YELLOW. The latest amount of this disease agent is between 50% and 100% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be moderate."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_3",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #FDAE61; background-color: #FDAE61; border: 1px solid black; border-radius: 3px;"),
-						span("CODE ORANGE. The latest amount of this disease agent is between 100% and 150% of the yearly average. Community transmission is estimated to be high.", style="font-size: 13px;")
+						span(paste0("CODE ORANGE. The latest amount of this disease agent is between 100% and 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be high."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_4",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #D53E4F; background-color: #D53E4F; border: 1px solid black; border-radius: 3px;"),
-						span("CODE RED. The latest amount of this disease agent is greater than 150% of the yearly average. Community transmission is estimated to be very high.", style="font-size: 13px;")
+						span(paste0("CODE RED. The latest amount of this disease agent is greater than 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be very high."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",

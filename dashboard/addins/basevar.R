@@ -6,8 +6,10 @@ GEOLEVELS_DEFAULT <- "County"
 #DISEASE_RS <- c("FLUA", "COVID", "COVID", "RSV")
 
 TARGETS_RS <- c("Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "SARS-CoV-2", "Respiratory Syncitial Virus, Human (RSV)")
-GENLOCI_RS <- c("M", "NEP/NS1", "SC2", "G")
 DISEASE_RS <- c("FLUA", "FLUB", "COVID", "RSV")
+
+# Do we need this?
+GENLOCI_RS <- c("M", "NEP/NS1", "N2", "SC2", "G")
 
 # TARGETS_RS <- c("Influenza Virus A (FluA)", "Human Norovirus GII (HuNoV-GII)", "SARS-CoV-2", "Respiratory Syncitial Virus, Human (RSV)")
 # GENLOCI_RS <- c("M", "ORF1_2", "N2:SARS", "G")
@@ -26,7 +28,7 @@ VIEW_RANGE_PRIMARY <- 6
 
 MAP_CENTER <- list2env(list(lat = 38.95, lng = -80.2, zoom = 7))
 
-STALE_DATA_THRESHOLDS <- c(10, 14, 21)
+STALE_DATA_THRESHOLDS <- c(14, 21, 30)
 STALE_DATA_COLORS <- c("#000000", "#444444", "#808080", "#d0d0d0")
 
 ALERT_LEVEL_THRESHOLDS <- c(50, 100, 150)
