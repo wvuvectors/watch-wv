@@ -1,28 +1,60 @@
 #!/usr/bin/perl -w
 use strict;
 use Data::Dumper;
+use strict;
+use Data::Dumper;
+use Spreadsheet::Read qw(ReadData);
+use Spreadsheet::ParseXLSX; 
+use DateTime::Format::Excel;
 
 #declare yo variables
 
 # GOALS:
 # Write out .txt files with info for use later on! 
-#Input: samples_date.txt on stdin
+#Input: build_info_files.pl <samples_date.txt
+
+
+#Pull in RUNID from excel
+my $sample_file = glob 'Samples*';
+
+
+# READ IN EXCEL SAMPLE FILE
+my $sample_data = ReadData($sample_file, dtfmt => "mm/dd/yy");
+
+#Save runinfo for later data on page 1 (pages start with 1), row 16 (rows start with 1), column 1 (columns start with 0)	
+my @sheet  = Spreadsheet::Read::rows($sample_data->[1]);
+my @row_1 = Spreadsheet::Read::row($sample_data->[1], 1);
+my $RUNID  = $row_1[1];
+my @row_2 = Spreadsheet::Read::row($sample_data->[1], 2);
+my $FLOWCELL  = $row_2[1];
+my @row_3 = Spreadsheet::Read::row($sample_data->[1], 3);
+my $PRIMERS  = $row_3[1];
+my @row_4 = Spreadsheet::Read::row($sample_data->[1], 4);
+my $INSTRUMENT  = $row_4[1];
+
+
+ print Dumper ($RUNID);
+ print Dumper ($FLOWCELL);
+ print Dumper ($PRIMERS);
+ print Dumper ($INSTRUMENT);
+ 
 
 
 # First build the map of barcode-to-asset.
 my %barcode2assetid = ();
 my $line ;
-my $RUNID = "SARS_20240516";
 my %assetid2file = ();
 
 
-# For short lines, I do this:
+my @rows = Spreadsheet::Read::rows ($sample_data->[1]);
+print Dumper @rows; 
 
-while (my $line = (<>)) {
-	chomp $line;
-	#my @a = split(/\t/, "$line", -1);
-	my ($num, $asset_id, $conc, $barcode) = split(/\t/, "$line", -1);
-
+for my $rowref (@rows) {
+	my $num = $rowref->[0];
+	my $asset_id = $rowref->[1];
+	my $conc = $rowref->[2];
+	my $barcode = $rowref->[3];
+	
 	$barcode2assetid{$barcode} = $asset_id;
 	
 	}
@@ -76,7 +108,7 @@ foreach my $f (@demix) {
 		$demixfile_bc =~ s/^0//;
 		#print  "$barcode2assetid{$demixfile_bc} \n";
 		
-		my $outputname = "SARS_20240516_".$demixfile_bc."_".$barcode2assetid{$demixfile_bc}.".txt";
+		my $outputname = "SARS_20240813_".$demixfile_bc."_".$barcode2assetid{$demixfile_bc}.".txt";
 		print "$outputname \n"; 
 		
 
