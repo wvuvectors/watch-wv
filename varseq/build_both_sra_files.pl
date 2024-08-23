@@ -169,7 +169,9 @@ foreach my $demixfiles (@demix) {
 		$demixfile_bc =~ s/^0//;
 
 
-my $watchdb = "watchdb.sample.txt";
+#my $watchdb = "watchdb.sample.txt";
+my $watchdb = "/Users/viv0001/github/watch-wv/dashboard/data/watchdb.sample.txt";
+
 		open(my $WatchFH, "<", $watchdb);
 		
 		#open SRA file for biosamples out file
@@ -185,7 +187,7 @@ my $watchdb = "watchdb.sample.txt";
 		while (my $line = <$WatchFH>) {
 		#print "my asset ID is $barcode2assetid{$demixfile_bc} \n";
 		chomp $line;	
-			
+				
 			my $index = index($line, $barcode2assetid{$demixfile_bc});
 			
 			if ($index >= 0) {
