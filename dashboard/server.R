@@ -102,13 +102,14 @@ shinyServer(function(input, output, session) {
 
 
 	getSeqrDF <- function(inputTarget, loc_name, date_win) {
-		#print("getBasicDF called!")
+		#print("getSeqrDF called!")
 	
 		if (loc_name == "WV") {
-			df_this <- df_seqr %>% 
-								 group_by(date_to_plot, color_group) %>% 
-								 summarize(val := mean(percent, na.rm = TRUE)) %>% 
-								 arrange(date_to_plot, color_group)
+# 			df_this <- df_seqr %>% 
+# 								 group_by(date_to_plot, variant) %>% 
+# 								 summarize(val := mean(percent, na.rm = TRUE)) %>% 
+# 								 arrange(date_to_plot, variant)
+			df_trans <- df_seqr
 		} else {
 	
 			if (controlRV$activeGeoLevel[1] == "County") {
@@ -116,13 +117,22 @@ shinyServer(function(input, output, session) {
 			} else {
 				loc_ids <- (df_active_loc %>% filter(location_common_name == loc_name))$location_id
 			}
-
-			df_this <- df_seqr %>% 
-								 filter(location %in% loc_ids) %>%
-								 group_by(date_to_plot, color_group) %>% 
-								 summarize(val := sum(percent, na.rm = TRUE)) %>% 
-								 arrange(date_to_plot, color_group)
+			
+			df_trans <- df_seqr %>% filter(location %in% loc_ids)
+# 			df_this <- df_seqr %>% 
+# 								 filter(location %in% loc_ids) %>%
+# 								 group_by(date_to_plot, color_group) %>% 
+# 								 summarize(val := sum(percent, na.rm = TRUE)) %>% 
+# 								 arrange(date_to_plot, color_group)
 		}
+
+		t1 <- df_trans %>% group_by(date_to_plot, variant) %>% tally(variant_proportion)	# n = sum of variant prop across all samples in a date
+		t2 <- df_trans %>% group_by(date_to_plot) %>% mutate(location_count = n_distinct(location, na.rm = TRUE)) %>% select(date_to_plot, location_count) %>% distinct()
+		t3 <- df_trans %>% group_by(date_to_plot) %>% mutate(collection_count = n_distinct(sample_collection_end_datetime, na.rm = TRUE)) %>% select(date_to_plot, collection_count) %>% distinct()
+		t23 <- merge(t2, t3, by = "date_to_plot")
+		df_this <- merge(t1, t23, by = "date_to_plot")
+		df_this$total_prop <- (df_this$n / df_this$location_count) / df_this$collection_count
+
 		#View(df_plot)
 
 		end_date <- max(df_this$date_to_plot, na.rm=TRUE)
@@ -201,9 +211,9 @@ shinyServer(function(input, output, session) {
 		
 		end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
 
-		gplot <- ggplot(df_plot, aes(fill=lineage_group, y=val, x=date_to_plot)) + labs(y = "", x = "") + 
-							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
-							scale_fill_brewer(type="qual", palette = "Dark2") + 
+		gplot <- ggplot(df_plot, aes(fill=variant, y=total_prop, x=date_to_plot)) + labs(y = "", x = "") + 
+							geom_bar(position="stack", stat="identity", aes(fill=factor(variant))) + 
+							#scale_fill_brewer(type="qual", palette = "Dark2") + 
 							labs(x="", y="") + 
 							scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
 							plot_theme() +

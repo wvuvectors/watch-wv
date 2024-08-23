@@ -85,6 +85,7 @@ df_result <- df_result %>% filter(tolower(sample_qc) == "pass")
 df_result <- df_result %>% filter(tolower(target_result_validated) != "ntc above threshold")
 #df_result <- df_result %>% filter(location_id != "CheatLakeWWTP-01")
 
+df_seqr <- df_seqr %>% filter(tolower(sample_id) != "ntc")
 
 # Convert date strings into Date objects.
 #
@@ -121,20 +122,20 @@ df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 1
 
 # Assign overarching lineage groups to our seqr data.
 #
-df_seqr$percent <- as.numeric(df_seqr$variant_proportion) * 100
+#df_seqr$percent <- as.numeric(df_seqr$variant_proportion) * 100
 
-df_seqr <- df_seqr %>% mutate(
-	color_group = case_when(
-		str_detect(lineage_group, "^B\\.") ~ "B*",
-		str_detect(lineage_group, "^BA") ~ "BA*",
-		str_detect(lineage_group, "^BA\\.2\\.86") ~ "BA.2.86",
-		str_detect(lineage_group, "^XBB") ~ "XBB*",
-		str_detect(lineage_group, "^EG") ~ "EG*",
-		str_detect(lineage_group, "^HV") ~ "HV*",
-		str_detect(lineage_group, "^JN") ~ "JN*"
-	)
-)
-df_seqr$color_group <- replace_na(df_seqr$color_group, "Other")
+# df_seqr <- df_seqr %>% mutate(
+# 	color_group = case_when(
+# 		str_detect(lineage_group, "^B\\.") ~ "B*",
+# 		str_detect(lineage_group, "^BA") ~ "BA*",
+# 		str_detect(lineage_group, "^BA\\.2\\.86") ~ "BA.2.86",
+# 		str_detect(lineage_group, "^XBB") ~ "XBB*",
+# 		str_detect(lineage_group, "^EG") ~ "EG*",
+# 		str_detect(lineage_group, "^HV") ~ "HV*",
+# 		str_detect(lineage_group, "^JN") ~ "JN*"
+# 	)
+# )
+# df_seqr$color_group <- replace_na(df_seqr$color_group, "Other")
 
 
 
@@ -152,6 +153,9 @@ df_rs <- df_result %>% filter(tolower(event_type) == "routine surveillance" & !i
 #
 df_rs$date_to_plot <- df_rs$week_ending
 df_seqr$date_to_plot <- df_seqr$week_ending
+#df_seqr$date_to_plot <- df_seqr$date_primary
+
+# https://covid.cdc.gov/covid-data-tracker/#variant-summary
 
 
 dflist_rs <- list()
