@@ -124,18 +124,20 @@ df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 1
 #
 #df_seqr$percent <- as.numeric(df_seqr$variant_proportion) * 100
 
-# df_seqr <- df_seqr %>% mutate(
-# 	color_group = case_when(
-# 		str_detect(lineage_group, "^B\\.") ~ "B*",
-# 		str_detect(lineage_group, "^BA") ~ "BA*",
-# 		str_detect(lineage_group, "^BA\\.2\\.86") ~ "BA.2.86",
-# 		str_detect(lineage_group, "^XBB") ~ "XBB*",
-# 		str_detect(lineage_group, "^EG") ~ "EG*",
-# 		str_detect(lineage_group, "^HV") ~ "HV*",
-# 		str_detect(lineage_group, "^JN") ~ "JN*"
-# 	)
-# )
-# df_seqr$color_group <- replace_na(df_seqr$color_group, "Other")
+df_seqr <- df_seqr %>% mutate(
+	color_group = case_when(
+		str_detect(variant, "^B\\.") ~ "Alpha-Kappa B*",
+		str_detect(variant, "^B\\.1\\.1\\.529") ~ "Omicron B*",
+		str_detect(variant, "^BA\\.2\\.86") ~ "Pirola BA.2.86",
+		str_detect(variant, "^BA") ~ "Omicron BA*",
+		str_detect(variant, "^XBB") ~ "Omicron XBB",
+		str_detect(variant, "^EG") ~ "Eris EG*",
+		str_detect(variant, "^KP\\.") ~ "Pirola KP*",
+		str_detect(variant, "^LB\\.") ~ "Pirola LB*",
+		str_detect(variant, "^JN\\.") ~ "Pirola JN*"
+	)
+)
+df_seqr$color_group <- replace_na(df_seqr$color_group, "Other Omicron")
 
 
 

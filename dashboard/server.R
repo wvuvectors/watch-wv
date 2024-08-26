@@ -126,19 +126,20 @@ shinyServer(function(input, output, session) {
 # 								 arrange(date_to_plot, color_group)
 		}
 
-		t1 <- df_trans %>% group_by(date_to_plot, variant) %>% tally(variant_proportion)	# n = sum of variant prop across all samples in a date
+		t1 <- df_trans %>% group_by(date_to_plot, color_group) %>% tally(variant_proportion)	# n = sum of variant prop across all samples in a date
 		t2 <- df_trans %>% group_by(date_to_plot) %>% mutate(location_count = n_distinct(location, na.rm = TRUE)) %>% select(date_to_plot, location_count) %>% distinct()
 		t3 <- df_trans %>% group_by(date_to_plot) %>% mutate(collection_count = n_distinct(sample_collection_end_datetime, na.rm = TRUE)) %>% select(date_to_plot, collection_count) %>% distinct()
 		t23 <- merge(t2, t3, by = "date_to_plot")
 		df_this <- merge(t1, t23, by = "date_to_plot")
 		df_this$total_prop <- (df_this$n / df_this$location_count) / df_this$collection_count
-
-		#View(df_plot)
+		df_this$total_pct <- as.numeric(formatC(100*df_this$total_prop, format="f", digits=2))
 
 		end_date <- max(df_this$date_to_plot, na.rm=TRUE)
 		dates <- c(end_date %m-% months(date_win), end_date)
 	
 		df_return <- df_this %>% filter(date_to_plot >= dates[1] & date_to_plot <= dates[2])
+
+		#View(df_return)
 
 		return(df_return)
 	}
@@ -211,11 +212,12 @@ shinyServer(function(input, output, session) {
 		
 		end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
 
-		gplot <- ggplot(df_plot, aes(fill=variant, y=total_prop, x=date_to_plot)) + labs(y = "", x = "") + 
-							geom_bar(position="stack", stat="identity", aes(fill=factor(variant))) + 
-							#scale_fill_brewer(type="qual", palette = "Dark2") + 
+		gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
+							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
+							scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
 							labs(x="", y="") + 
 							scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
+#							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
 							plot_theme() +
 							theme(legend.position = "right", legend.title=element_blank())
 
