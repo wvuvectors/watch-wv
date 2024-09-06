@@ -111,6 +111,7 @@ die "FATAL: $progname requires at least one txt file with freyja proportions in 
 #die;
 
 foreach my $f (@files) {
+	next if "$f" =~ /_NTC.txt/i;
 	open my $fh, "<", "$f" or die "Unable to open $f: $!\n";
 	while (my $line = <$fh>) {
 		chomp $line;
