@@ -134,7 +134,8 @@ df_seqr <- df_seqr %>% mutate(
 		str_detect(variant, "^EG") ~ "Eris EG*",
 		str_detect(variant, "^KP\\.") ~ "Pirola KP*",
 		str_detect(variant, "^LB\\.") ~ "Pirola LB*",
-		str_detect(variant, "^JN\\.") ~ "Pirola JN*"
+		str_detect(variant, "^JN\\.") ~ "Pirola JN*",
+		str_detect(variant, "^XEC") ~ "Pirola XEC"
 	)
 )
 df_seqr$color_group <- replace_na(df_seqr$color_group, "Other Omicron")
