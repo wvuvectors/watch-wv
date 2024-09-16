@@ -96,7 +96,7 @@ foreach my $uid (keys %data) {
 		}
 		# kludge
 		if ("$hdr" eq "major_lab_desc" and "$val" eq "") {
-			$val = "The WV jurisdiction consisting of WVBPH and academic labs uses very similar lab methods including Ceres nanotrap virus concentration of raw influent WW and final analysis with BioRad ddPCR instrumentation and mostly BioRad designed assays.";
+			$val = "Nanotrap concentration of raw influent and quantification by ddPCR";
 		}
 		print "," unless $start == 0;
 		print "\"" . "$val" . "\"";

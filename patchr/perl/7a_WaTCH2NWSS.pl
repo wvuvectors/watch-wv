@@ -420,9 +420,9 @@ sub calcExtref {
 		# Test abatch.assay_quantification_method
 		my $abid = $tables{"assay"}->{"$aid"}->{"assay_batch_id"};
 		if (lc "$tables{abatch}->{$abid}->{assay_quantification_method}" eq "ddpcr") {
-			$val = "Untreated influent is collected, concentrated with Ceres Nanotrap A, total nucleic acids extracted, and targets assayed by droplet digital PCR (Bio-Rad QX system).";
+			$val = "Nanotrap concentration of raw influent and quantification by ddPCR";
 		} else {
-			$val = "Untreated influent is collected, concentrated with Ceres Nanotrap A, total nucleic acids extracted, and targets assayed by real-time qPCR.";
+			$val = "Nanotrap concentration of raw influent and quantification by real-time PCR";
 		}
 	} elsif ("$extref_field" eq "ntc_amplify") {
 		# if result.target_result_validated eq 'NTC above threshold' then yes; otherwise no
