@@ -105,6 +105,7 @@ my $sequence_submitter_contact_email = 'timothy.driscoll@mail.wvu.edu';
 my $raw_sequence_data_processing_method  = "Raw reads basecalled and barcodes removed by Dorado";
 
 
+
 # READ IN EXCEL SAMPLE FILE
 my $sample_data = ReadData($sample_file, dtfmt => "mm/dd/yy");
 
@@ -124,6 +125,96 @@ my $INSTRUMENT  = $row_4[1];
  print Dumper ($FLOWCELL);
  print Dumper ($PRIMERS);
  print Dumper ($INSTRUMENT);
+
+#OPEN OUTPUT FILES AND ADD HEADINGS
+
+#open SRA file for biosamples out file and print headings
+my $SRA = "SRA_BIOSAMPLES_".$RUNID.".txt";
+open(my $SRAFH, ">>", $SRA);
+    print $SRAFH "sample_name";
+    print $SRAFH "\t";
+    print $SRAFH "bioproject_accession";
+    print $SRAFH "\t";
+    print $SRAFH "organism";
+    print $SRAFH "\t";
+    print $SRAFH "collection_date";
+    print $SRAFH "\t";
+    print $SRAFH "geo_loc_name";
+    print $SRAFH "\t";
+    print $SRAFH "isolation_source";
+    print $SRAFH "\t";
+    print $SRAFH "collection_site_id";
+    print $SRAFH "\t";
+    print $SRAFH "project_name";
+    print $SRAFH "\t";
+    print $SRAFH "collected_by";
+    print $SRAFH "\t";
+    print $SRAFH "purpose_of_ww_sampling";
+    print $SRAFH "\t";
+    print $SRAFH "ww_sample_site";
+    print $SRAFH "\t";
+    print $SRAFH "ww_population";
+    print $SRAFH "\t";
+    print $SRAFH "ww_sample_matrix";
+    print $SRAFH "\t";
+    print $SRAFH "ww_sample_type";
+    print $SRAFH "\t";
+    print $SRAFH "ww_sample_duration";
+    print $SRAFH "\t";
+    print $SRAFH "concentration_method";
+    print $SRAFH "\t";
+    print $SRAFH "extraction_method";
+    print $SRAFH "\t";
+    print $SRAFH "extraction_control";
+    print $SRAFH "\t";
+    print $SRAFH "ww_surv_target_1";
+    print $SRAFH "\t";
+    print $SRAFH "ww_surv_target_1_known_present";
+    print $SRAFH "\n";
+    
+#open SRA file for metadata out file and print headings
+my $META = "SRA_METADATA_".$RUNID.".txt";
+open(my $METAFH, ">>", $META);
+    print $METAFH "sample_name";
+    print $METAFH "\t";
+    print $METAFH "library_ID";
+    print $METAFH "\t";
+    print $METAFH "title";
+    print $METAFH "\t";
+    print $METAFH "library_strategy";
+    print $METAFH "\t";
+    print $METAFH "library_source";
+    print $METAFH "\t";
+    print $METAFH "library_selection";
+    print $METAFH "\t";
+    print $METAFH "library_layout";
+    print $METAFH "\t";
+    print $METAFH "platform";
+    print $METAFH "\t";
+    print $METAFH "instrument_model";
+    print $METAFH "\t";
+    print $METAFH "design_description";
+    print $METAFH "\t";
+    print $METAFH "filetype";
+    print $METAFH "\t";
+    print $METAFH "filename";
+    print $METAFH "\t";
+    print $METAFH "enrichment_kit";
+    print $METAFH "\t";
+    print $METAFH "amplicon_PCR_primer_scheme";
+    print $METAFH "\t";
+    print $METAFH "library_preparation_kit";
+    print $METAFH "\t";
+    print $METAFH "amplicon_size";
+    print $METAFH "\t";
+    print $METAFH "quality_control_determination";
+    print $METAFH "\t";
+    print $METAFH "sequence_submitter_contact_email";
+    print $METAFH "\t";
+    print $METAFH "raw_sequence_data_processing_method";
+    print $METAFH "\n";
+
+
  
 #THIS FOR LOOP WORKS, but isnt perfect. Could be a foreach loop with a counter. 
 
@@ -172,94 +263,8 @@ foreach my $demixfiles (@demix) {
 #my $watchdb = "watchdb.sample.txt";
 my $watchdb = "/Users/viv0001/github/watch-wv/dashboard/data/watchdb.sample.txt";
 
-		open(my $WatchFH, "<", $watchdb);
-		
-		#open SRA file for biosamples out file and print headings
-		my $SRA = "SRA_BIOSAMPLES_".$RUNID.".txt";
-		open(my $SRAFH, ">>", $SRA); 
-            print $SRAFH "sample_name";
-            print $SRAFH "\t";
-            print $SRAFH "bioproject_accession";
-            print $SRAFH "\t";
-            print $SRAFH "organism";
-            print $SRAFH "\t";
-            print $SRAFH "collection_date";
-            print $SRAFH "\t";
-            print $SRAFH "geo_loc_name";
-            print $SRAFH "\t";
-            print $SRAFH "isolation_source";
-            print $SRAFH "\t";
-            print $SRAFH "collection_site_id";
-            print $SRAFH "\t";
-            print $SRAFH "project_name";
-            print $SRAFH "\t";
-            print $SRAFH "collected_by";
-            print $SRAFH "\t";
-            print $SRAFH "purpose_of_ww_sampling";
-            print $SRAFH "\t";
-            print $SRAFH "ww_sample_site";
-            print $SRAFH "\t";
-            print $SRAFH "ww_population";
-            print $SRAFH "\t";
-            print $SRAFH "ww_sample_matrix";
-            print $SRAFH "\t";
-            print $SRAFH "ww_sample_type";
-            print $SRAFH "\t";
-            print $SRAFH "ww_sample_duration";
-            print $SRAFH "\t";
-            print $SRAFH "concentration_method";
-            print $SRAFH "\t";
-            print $SRAFH "extraction_method";
-            print $SRAFH "\t";
-            print $SRAFH "extraction_control";
-            print $SRAFH "\t";
-            print $SRAFH "ww_surv_target_1";
-            print $SRAFH "\t";
-            print $SRAFH "ww_surv_target_1_known_present";
-            print $SRAFH "\t";
-            
-		#open SRA file for metadata out file and print headings
-		my $META = "SRA_METADATA_".$RUNID.".txt";
-		open(my $METAFH, ">>", $META); 
-            print $METAFH "sample_name";
-            print $METAFH "\t";
-            print $METAFH "library_ID";
-            print $METAFH "\t";
-            print $METAFH "title";
-            print $METAFH "\t";
-            print $METAFH "library_strategy";
-            print $METAFH "\t";
-            print $METAFH "library_source";
-            print $METAFH "\t";
-            print $METAFH "library_selection";
-            print $METAFH "\t";
-            print $METAFH "library_layout";
-            print $METAFH "\t";
-            print $METAFH "platform";
-            print $METAFH "\t";
-            print $METAFH "instrument_model";
-            print $METAFH "\t";
-            print $METAFH "design_description";
-            print $METAFH "\t";
-            print $METAFH "filetype";
-            print $METAFH "\t";
-            print $METAFH "filename";
-            print $METAFH "\t";
-            print $METAFH "enrichment_kit";
-            print $METAFH "\t";
-            print $METAFH "amplicon_PCR_primer_scheme";
-            print $METAFH "\t";
-            print $METAFH "library_preparation_kit";
-            print $METAFH "\t";
-            print $METAFH "amplicon_size";
-            print $METAFH "\t";
-            print $METAFH "quality_control_determination";
-            print $METAFH "\t";
-            print $METAFH "sequence_submitter_contact_email";
-            print $METAFH "\t";
-            print $METAFH "raw_sequence_data_processing_method";
-            print $METAFH "\t";
-            
+open(my $WatchFH, "<", $watchdb);
+
 		#READ IN EACH LINE of WATCHDB SAMPLE SHEET AND IF THE CURRENT ASSETID SAVE THE INFO
 		
 		while (my $line = <$WatchFH>) {
