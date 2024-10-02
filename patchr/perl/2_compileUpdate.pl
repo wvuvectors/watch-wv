@@ -642,6 +642,7 @@ sub procBatchSamples {
 					my $lead = substr $btype, 0, 1;
 					$sample2idRef->{"$sample_id"} = {} unless defined $sample2idRef->{"$sample_id"};
 					my $num = 1;
+					#$num = "$backref_rows[$i][$j]" if defined "$backref_rows[$i][$j]" and "$backref_rows[$i][$j]" ne "";
 					my $uid = "$sample_id.${lead}${num}";
 					$sample2idRef->{"$sample_id"}->{"${btype}_id"} = "$uid";
 
