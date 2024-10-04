@@ -226,6 +226,12 @@ shinyServer(function(input, output, session) {
 
 
   updatePlotsRS <- function() {
+
+# Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in dplyr 1.1.0.
+# Please use `reframe()` instead.
+# When switching from `summarise()` to `reframe()`, remember that `reframe()` always returns an ungrouped data
+#  frame and adjust accordingly.
+
     list1 <- getDataRS(1, controlRV$mapClick[1], controlRV$viewMonths[1])    
 		if (length(list1) > 0) {
 			output$plot1_rs <- renderPlotly({
@@ -282,15 +288,17 @@ shinyServer(function(input, output, session) {
 	#
 	# Update the alert level data (reaction to map click or site selection).
 	#
-	updateAlertLevelRS <- function(geolevel, loc_name) {
+	updateAlertLevelRS <- function(geolevel, loc_id) {
+	  print("##### updateAlertLevelRS reached!")
+	  
+		if (missing(geolevel)) { geolevel = controlRV$activeGeoLevel[1] }
+		if (missing(loc_id)) { loc_id = controlRV$mapClick[1] }
 		
-		if (missing(geolevel)) { layer = controlRV$activeGeoLevel[1] }
-		if (missing(loc_name)) { loc_name = controlRV$mapClick[1] }
+		print("2")
 		
-		#print(loc_name)
-		
-		if (loc_name == "WV") {
+		if (loc_id == "WV") {
 			
+		print("3")
 			#loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
 			#df_this_site <- df_rs
 			title_text <- "State of West Virginia"
@@ -299,22 +307,25 @@ shinyServer(function(input, output, session) {
 		
 			if (geolevel == "Facility") {
 			
-				#loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_id)
-				#this_region_id <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_primary_wwtp_id)
+		print("4")
+				#loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_id))$location_id)
+				#this_region_id <- unique((df_active_loc %>% filter(location_common_name == loc_id))$location_primary_wwtp_id)
 			
 				#df_this_site <- df_rs %>% filter(location_id == loc_ids)
-				title_text <- loc_name
+				title_text <- loc_id
 
 			} else {
 				# county click!
-				#loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
+				#loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 				#df_this_site <- df_rs %>% filter(location_id %in% loc_ids)
-				title_text <- paste0(loc_name, " county, WV", sep="")
+				title_text <- paste0(loc_id, " county, WV", sep="")
 			}
 		}
 					
 		# Print the title
 		output$site_rs_title <- renderText(title_text)
+
+		print("5")
 
 		for (i in 1:length(TARGETS_RS)) {
 			eval(parse(text = paste0("output$rs_CSL_", i, " <- renderText(DISEASE_RS[", i, "])")))
@@ -322,27 +333,34 @@ shinyServer(function(input, output, session) {
 			#df_this <- df_this_site %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
 			#df_this_d <- df_regions %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
 			
-			if (loc_name == "WV") {
-				delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
+		print("6")
+			if (loc_id == "WV") {
+			  print("7A")
+			  delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
 				fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
 			} else {
-				delta <- (df_regions %>% filter(region_name == loc_name))[[DISEASE_RS[i]]]
-				fresh <- (df_fresh %>% filter(region_name == loc_name))[[DISEASE_RS[i]]]
+			  print("7B")
+			  delta <- (df_regions %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
+				fresh <- (df_fresh %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
 			}
 #			delta <- calcDelta(df_this, 12)
 #			fresh <- calcFresh(df_this)
 					
 			if (is.na(fresh)) {
-				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('-')")))
+			  print("8A")
+			  eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('-')")))
 			} else {
-				fresh <- formatC(as.numeric(fresh), format="d")
+			  print("8B")
+			  fresh <- formatC(as.numeric(fresh), format="d")
 				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('", fresh, "')")))
 			}
 			
 			if (is.na(delta)) {
-				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('-')")))
+			  print("9A")
+			  eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('-')")))
 			} else {
-				delta <- formatC(as.numeric(delta), format="d")
+			  print("9B")
+			  delta <- formatC(as.numeric(delta), format="d")
 				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('", delta, " %')")))
 			}
 
@@ -358,21 +376,21 @@ shinyServer(function(input, output, session) {
 			runjs(arunner)
 		}
 	
+		print("10")
 	}
 	
 	
 	#
 	# Write the site info block (reaction to map click or site selection).
 	#
-	updateSiteInfoRS <- function(geolevel, loc_name, date_win) {
-		
-		if (missing(geolevel)) { layer = controlRV$activeGeoLevel[1] }
-		if (missing(loc_name)) { loc_name = controlRV$mapClick[1] }
+	updateSiteInfoRS <- function(geolevel, loc_id, date_win) {
+	  print("##### updateSiteInfoRS reached!")
+	  
+		if (missing(geolevel)) { geolevel = controlRV$activeGeoLevel[1] }
+		if (missing(loc_id)) { loc_id = controlRV$mapClick[1] }
 		if (missing(date_win)) { date_win = controlRV$viewMonths[1] }
 		
-		#print(loc_name)
-
-		if (loc_name == "WV") {
+		if (loc_id == "WV") {
 			
 			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
 			df_this <- df_rs
@@ -397,14 +415,15 @@ shinyServer(function(input, output, session) {
 
 		} else {
 			
-			if (geolevel == "Facility") {
+		  if (geolevel == "Facility") {
 			
-				loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_id)
-				this_wwtp_id <- unique((df_active_loc %>% filter(location_common_name == loc_name))$location_primary_wwtp_id)
+				loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
+				this_wwtp_id <- unique((df_active_loc %>% filter(location_id == loc_id))$location_primary_wwtp_id)
 			
 				df_this <- df_rs %>% filter(location_id == loc_ids)
 
-				title_text <- loc_name
+				title_text <- loc_id
+				print("5")
 				total_popserved <- sum(distinct(df_active_loc %>% filter(location_id == loc_ids), location_id, location_population_served)$location_population_served)
 				if (total_popserved == -1) {
 					total_popserved = "Unknown"
@@ -417,7 +436,7 @@ shinyServer(function(input, output, session) {
 				# Print the info
 				#
 				output$site_rs_info <- renderText(
-					paste0("The ", loc_name, " facility serves ", 
+					paste0("The ", loc_id, " facility serves ", 
 								 prettyNum(total_popserved, big.mark=","), " residents in ", 
 								 this_county, " county, WV.",
 								 sep="")
@@ -425,7 +444,7 @@ shinyServer(function(input, output, session) {
 			} else {
 				# county click!
 				
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
+				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 				num_facilities <- n_distinct(loc_ids)
 				facility_post <- "facilities"
 				if (num_facilities == 1) {
@@ -434,16 +453,16 @@ shinyServer(function(input, output, session) {
 				
 				df_this <- df_rs %>% filter(location_id %in% loc_ids)
 				
-				title_text <- paste0(loc_name, " county, WV", sep="")
+				title_text <- paste0(loc_id, " county, WV", sep="")
 
 				total_cap <- sum(distinct(df_active_wwtp %>% filter(wwtp_id %in% df_this), wwtp_id, wwtp_capacity_mgd)$wwtp_capacity_mgd)+1
 				total_popserved <- sum(distinct(df_active_loc %>% filter(location_id %in% loc_ids), location_id, location_population_served)$location_population_served)
-				pct_served <- 100 * total_popserved / (resources$county %>% filter(county_id == loc_name))$county_population
+				pct_served <- 100 * total_popserved / (resources$county %>% filter(county_id == loc_id))$county_population
 
 				# Print the info
 				#
 				output$site_rs_info <- renderText(
-					paste0(loc_name, " county in WV supports ", 
+					paste0(loc_id, " county in WV supports ", 
 								 num_facilities, " WaTCH ", facility_post, ", serving a total of ", 
 								 prettyNum(total_popserved, big.mark=","), " residents (", 
 								 prettyNum(pct_served, digits=1), "% of the county).",
@@ -489,7 +508,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-												 layerId = ~location_common_name, 
+												 layerId = ~location_id, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
 												 radius = ~dotsize, 
@@ -503,7 +522,7 @@ shinyServer(function(input, output, session) {
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 fillColor = ~colorby,
 												 group = "facility", 
-												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+												 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
@@ -530,7 +549,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-												 layerId = ~location_common_name, 
+												 layerId = ~location_id, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
 												 radius = ~dotsize, 
@@ -544,7 +563,7 @@ shinyServer(function(input, output, session) {
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 fillColor = ~colorby,
 												 group = "facility", 
-												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+												 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
@@ -571,7 +590,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-												 layerId = ~location_common_name, 
+												 layerId = ~location_id, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
 												 radius = ~dotsize, 
@@ -585,7 +604,7 @@ shinyServer(function(input, output, session) {
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 fillColor = ~colorby,
 												 group = "facility", 
-												 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+												 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
 				data = county_spdf, 
@@ -618,16 +637,18 @@ shinyServer(function(input, output, session) {
 	# React to map marker click
 	#
   observeEvent(input$map_rs_marker_click, { 
-		#print("Map MARKER click top")
-		
- 		if (length(input$map_rs_marker_click) == 0) {
+    print("##### Map MARKER click top")
+    
+    if (length(input$map_rs_marker_click) == 0) {
 			clickedLocation <- "WV"
 		} else {
     	clickedLocation <- input$map_rs_marker_click$id
     }
 		
 		loc_id <- unique((df_active_loc %>% filter(location_common_name == clickedLocation))$location_id)
-
+    
+		#print(loc_id)
+		
 		if (loc_id %in% df_rs$location_id | clickedLocation == "WV") {
 		
 			# Update the reactive element
@@ -649,8 +670,9 @@ shinyServer(function(input, output, session) {
 	# React to map shape click
 	#
   observeEvent(input$map_rs_shape_click, {
-  	#print(input$map_rs_shape_click$id)
-  	
+    print("##### Map Shape Click!")
+    print(input$map_rs_shape_click$id)
+    
 		if (length(input$map_rs_shape_click) == 0) {
 			clickedLocation <- "WV"
 		} else {
@@ -658,7 +680,8 @@ shinyServer(function(input, output, session) {
 			controlRV$mapClickLat[1] <- input$map_rs_shape_click$lat
 			controlRV$mapClickLng[1] <- input$map_rs_shape_click$lng
     }
-		
+
+    
 		if (clickedLocation %in% df_active_loc$location_common_name | clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
 			controlRV$mapClick[1] <- clickedLocation
 		} else {
@@ -666,9 +689,9 @@ shinyServer(function(input, output, session) {
 			controlRV$mapClick[1] <- clickedLocation
 		}
 		
-		updatePlotsRS()
+    updatePlotsRS()
 
-		# Update the site info panel
+    # Update the site info panel
 		updateSiteInfoRS(controlRV$activeGeoLevel[1], clickedLocation, controlRV$viewMonths[1])
 		updateAlertLevelRS(controlRV$activeGeoLevel[1], clickedLocation)
 
@@ -677,11 +700,10 @@ shinyServer(function(input, output, session) {
 	# 
 	# React to map click (off-marker). This is fired even if a marker or shape has been clicked.
 	# In this case, the marker/shape listener fires first.
-	# We can tell 
 	#
   observeEvent(input$map_rs_click, { 
-		#print("Map click top")
-		
+		print("##### Map click top")
+    
 		# only respond if this click is in a new position on the map
 		if (input$map_rs_click$lat != controlRV$mapClickLat[1] | input$map_rs_click$lng != controlRV$mapClickLng[1]) {
 			controlRV$mapClickLat[1] <- 0
@@ -725,7 +747,7 @@ shinyServer(function(input, output, session) {
 					clearMarkers() %>% 
 					clearShapes() %>% 
 					addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-										 layerId = ~location_common_name, 
+										 layerId = ~location_id, 
 										 lat = ~location_lat, 
 										 lng = ~location_lng, 
 										 radius = ~dotsize, 
@@ -738,7 +760,7 @@ shinyServer(function(input, output, session) {
 #										 fillColor = ~alertPal(current_fold_change_smoothed), 
 										 fillColor = ~colorby,
 										 group = "facility", 
-										 #label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+										 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
 										 fillOpacity = 0.6) %>%
 					addPolygons( 
 						data = county_spdf, 
@@ -772,7 +794,7 @@ shinyServer(function(input, output, session) {
 							group="county"
 						) %>% 
 						addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-											 layerId = ~location_common_name, 
+											 layerId = ~location_id, 
 											 lat = ~location_lat, 
 											 lng = ~location_lng, 
 											 radius = ~dotsize, 
