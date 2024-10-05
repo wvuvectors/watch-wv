@@ -180,8 +180,9 @@ shinyServer(function(input, output, session) {
 											labs(x = NULL, y = NULL, color = NULL) + 
 											geom_hline(aes(yintercept=tl_mo), color=TRENDL_MO_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
 											geom_hline(aes(yintercept=tl_yr), color=TRENDL_YR_COLOR, linetype="solid", alpha=0.8, linewidth=1) + 
-											geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
+#											geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
 #											geom_point(aes(x = date_to_plot, y = val, color = target_genetic_locus, text=paste0(date_to_plot, ": ", prettyNum(val, digits=1, big.mark=","), sep="")), shape = 1, size = 2, alpha=0.9) + 
+											geom_point(aes(x = date_to_plot, y = val, text=date_to_plot), shape = 1, size = 2, alpha=0.9) + 
 											geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
 
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
