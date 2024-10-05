@@ -47,14 +47,14 @@ shinyServer(function(input, output, session) {
 	
 	# Generate a dataframe for a basic RS plot.
 	#
-	getDataRS <- function(index, loc_name, date_win) {
+	getDataRS <- function(index, loc_id, date_win) {
 		#print("getDataRS called!")
 		#print(index)
 		#print(loc_name)
 		#print(date_win)
 	
 		#df_targ <- df_rs %>% filter(target == inputTarget & target_genetic_locus == inputLocus)
-		if (loc_name == "WV") {
+		if (loc_id == "WV") {
 			df_this <- dflist_rs[[index]] %>% 
 								 group_by(date_to_plot) %>% 
 								 arrange(date_to_plot) %>%
@@ -63,9 +63,9 @@ shinyServer(function(input, output, session) {
 		} else {
 			#print(loc_name)
 			if (controlRV$activeGeoLevel[1] == "County") {
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
+				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 			} else {
-				loc_ids <- (df_active_loc %>% filter(location_common_name == loc_name))$location_id
+				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
 			}
 	
 			df_this <- dflist_rs[[index]] %>% 
@@ -101,10 +101,10 @@ shinyServer(function(input, output, session) {
 	}
 
 
-	getSeqrDF <- function(inputTarget, loc_name, date_win) {
+	getSeqrDF <- function(inputTarget, loc_id, date_win) {
 		#print("getSeqrDF called!")
 	
-		if (loc_name == "WV") {
+		if (loc_id == "WV") {
 # 			df_this <- df_seqr %>% 
 # 								 group_by(date_to_plot, variant) %>% 
 # 								 summarize(val := mean(percent, na.rm = TRUE)) %>% 
@@ -113,9 +113,9 @@ shinyServer(function(input, output, session) {
 		} else {
 	
 			if (controlRV$activeGeoLevel[1] == "County") {
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_name & location_category == "wwtp"))$location_id
+				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 			} else {
-				loc_ids <- (df_active_loc %>% filter(location_common_name == loc_name))$location_id
+				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
 			}
 			
 			df_trans <- df_seqr %>% filter(location %in% loc_ids)
@@ -289,16 +289,13 @@ shinyServer(function(input, output, session) {
 	# Update the alert level data (reaction to map click or site selection).
 	#
 	updateAlertLevelRS <- function(geolevel, loc_id) {
-	  print("##### updateAlertLevelRS reached!")
+	  #print("##### updateAlertLevelRS reached!")
 	  
 		if (missing(geolevel)) { geolevel = controlRV$activeGeoLevel[1] }
 		if (missing(loc_id)) { loc_id = controlRV$mapClick[1] }
-		
-		print("2")
-		
+				
 		if (loc_id == "WV") {
 			
-		print("3")
 			#loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
 			#df_this_site <- df_rs
 			title_text <- "State of West Virginia"
@@ -307,12 +304,8 @@ shinyServer(function(input, output, session) {
 		
 			if (geolevel == "Facility") {
 			
-		print("4")
-				#loc_ids <- unique((df_active_loc %>% filter(location_common_name == loc_id))$location_id)
-				#this_region_id <- unique((df_active_loc %>% filter(location_common_name == loc_id))$location_primary_wwtp_id)
-			
-				#df_this_site <- df_rs %>% filter(location_id == loc_ids)
-				title_text <- loc_id
+				loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
+				title_text <- paste0(loc_name, " Facility", sep="")
 
 			} else {
 				# county click!
@@ -325,7 +318,6 @@ shinyServer(function(input, output, session) {
 		# Print the title
 		output$site_rs_title <- renderText(title_text)
 
-		print("5")
 
 		for (i in 1:length(TARGETS_RS)) {
 			eval(parse(text = paste0("output$rs_CSL_", i, " <- renderText(DISEASE_RS[", i, "])")))
@@ -333,13 +325,10 @@ shinyServer(function(input, output, session) {
 			#df_this <- df_this_site %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
 			#df_this_d <- df_regions %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
 			
-		print("6")
 			if (loc_id == "WV") {
-			  print("7A")
 			  delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
 				fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
 			} else {
-			  print("7B")
 			  delta <- (df_regions %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
 				fresh <- (df_fresh %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
 			}
@@ -347,19 +336,15 @@ shinyServer(function(input, output, session) {
 #			fresh <- calcFresh(df_this)
 					
 			if (is.na(fresh)) {
-			  print("8A")
 			  eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('-')")))
 			} else {
-			  print("8B")
 			  fresh <- formatC(as.numeric(fresh), format="d")
 				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('", fresh, "')")))
 			}
 			
 			if (is.na(delta)) {
-			  print("9A")
 			  eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('-')")))
 			} else {
-			  print("9B")
 			  delta <- formatC(as.numeric(delta), format="d")
 				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('", delta, " %')")))
 			}
@@ -376,7 +361,6 @@ shinyServer(function(input, output, session) {
 			runjs(arunner)
 		}
 	
-		print("10")
 	}
 	
 	
@@ -384,7 +368,7 @@ shinyServer(function(input, output, session) {
 	# Write the site info block (reaction to map click or site selection).
 	#
 	updateSiteInfoRS <- function(geolevel, loc_id, date_win) {
-	  print("##### updateSiteInfoRS reached!")
+	  #print("##### updateSiteInfoRS reached!")
 	  
 		if (missing(geolevel)) { geolevel = controlRV$activeGeoLevel[1] }
 		if (missing(loc_id)) { loc_id = controlRV$mapClick[1] }
@@ -416,14 +400,15 @@ shinyServer(function(input, output, session) {
 		} else {
 			
 		  if (geolevel == "Facility") {
-			
+				
 				loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
 				this_wwtp_id <- unique((df_active_loc %>% filter(location_id == loc_id))$location_primary_wwtp_id)
-			
+				loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
+				
+				
 				df_this <- df_rs %>% filter(location_id == loc_ids)
 
-				title_text <- loc_id
-				print("5")
+				title_text <- loc_name
 				total_popserved <- sum(distinct(df_active_loc %>% filter(location_id == loc_ids), location_id, location_population_served)$location_population_served)
 				if (total_popserved == -1) {
 					total_popserved = "Unknown"
@@ -436,7 +421,7 @@ shinyServer(function(input, output, session) {
 				# Print the info
 				#
 				output$site_rs_info <- renderText(
-					paste0("The ", loc_id, " facility serves ", 
+					paste0("The ", loc_name, " facility serves ", 
 								 prettyNum(total_popserved, big.mark=","), " residents in ", 
 								 this_county, " county, WV.",
 								 sep="")
@@ -637,7 +622,7 @@ shinyServer(function(input, output, session) {
 	# React to map marker click
 	#
   observeEvent(input$map_rs_marker_click, { 
-    print("##### Map MARKER click top")
+    #print("##### Map MARKER click top")
     
     if (length(input$map_rs_marker_click) == 0) {
 			clickedLocation <- "WV"
@@ -670,8 +655,8 @@ shinyServer(function(input, output, session) {
 	# React to map shape click
 	#
   observeEvent(input$map_rs_shape_click, {
-    print("##### Map Shape Click!")
-    print(input$map_rs_shape_click$id)
+    #print("##### Map Shape Click!")
+    #print(input$map_rs_shape_click$id)
     
 		if (length(input$map_rs_shape_click) == 0) {
 			clickedLocation <- "WV"
@@ -682,7 +667,7 @@ shinyServer(function(input, output, session) {
     }
 
     
-		if (clickedLocation %in% df_active_loc$location_common_name | clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
+		if (clickedLocation %in% df_active_loc$location_id | clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
 			controlRV$mapClick[1] <- clickedLocation
 		} else {
 			clickedLocation <- "WV"
@@ -702,10 +687,11 @@ shinyServer(function(input, output, session) {
 	# In this case, the marker/shape listener fires first.
 	#
   observeEvent(input$map_rs_click, { 
-		print("##### Map click top")
+		#print("##### Map click top")
     
 		# only respond if this click is in a new position on the map
 		if (input$map_rs_click$lat != controlRV$mapClickLat[1] | input$map_rs_click$lng != controlRV$mapClickLng[1]) {
+			#print("New position detected!")
 			controlRV$mapClickLat[1] <- 0
 			controlRV$mapClickLng[1] <- 0
 
@@ -787,28 +773,33 @@ shinyServer(function(input, output, session) {
 							data = county_spdf, 
 							layerId = ~NAME, 
 							#fillColor = ~mypalette(colorby), 
-							stroke=TRUE, 
+							stroke=TRUE,
 							fillOpacity = 0, 
-							color="black", 
-							weight=1.0, 
+							color="#666666", 
+							weight=1, 
 							group="county"
 						) %>% 
 						addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-											 layerId = ~location_id, 
-											 lat = ~location_lat, 
-											 lng = ~location_lng, 
-											 radius = ~dotsize, 
-	#										 radius = 5, 
-											 stroke = FALSE,
-											 weight = 4, 
-											 opacity = 0.9,
-	#										 color = ~alertPal(current_fold_change_smoothed), 
-											 fill = TRUE,
-	#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-											 fillColor = ~colorby,
-											 group = "facility", 
-											 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
-											 fillOpacity = 0.6)
+											layerId = ~location_id, 
+											lat = ~location_lat, 
+											lng = ~location_lng, 
+											radius = ~dotsize, 
+	#										radius = 5, 
+											stroke = TRUE,
+											weight = 2, 
+											opacity = 0.9,
+											color = "#000000", 
+											fill = TRUE,
+	#										fillColor = ~alertPal(current_fold_change_smoothed), 
+											fillColor = ~colorby,
+											group = "facility", 
+											label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+											highlightOptions = highlightOptions(
+												weight = 3,
+												color = "#fff",
+												fillOpacity = 0.9,
+												bringToFront = TRUE),
+										 	fillOpacity = 0.6)
 			}
 		}
 		
