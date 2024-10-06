@@ -8,7 +8,7 @@ use DateTime::Format::Excel;
 
 # GOALS:
 # Write out biosample and metadata files for SRAFH upload 
-#Input: sample sheet from Amy, and....
+#Input: run build_both_sra_files.pl on command line. Needs demix, bam file, and sample sheet to run properly. 
 
 my %locationid2NWSSid = ( 
 	"AlpineLakeWWTP-01"    => "54077-001-01-00-00",
@@ -95,14 +95,14 @@ my $library_strategy = "AMPLICON";
 my $library_source = "METAGENOMIC";
 my $library_selection = "PCR"; 
 my $library_layout = "single";
-my $platform = "OXFORD_NANPOPORE";
+my $platform = "OXFORD_NANOPORE";
 my $design_description = "Methods included in custom attributes";
 my $filetype = "fastq";
 my $enrichment_kit = "NEBNext ARTIC SARS-CoV-2 RT-PCR Module";
 my $library_preparation_kit = "NEBNext ARTIC SARS-CoV-2 Companion Kit";
 my $quality_control_determination = "no quality control issues identified";
 my $sequence_submitter_contact_email = 'timothy.driscoll@mail.wvu.edu';
-my $raw_sequence_data_processing_method  = "Raw reads basecalled and barcodes removed by Dorado";
+my $raw_sequence_data_processing_method  = "Raw reads basecalled and barcodes removed";
 
 
 
