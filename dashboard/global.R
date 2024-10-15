@@ -154,8 +154,10 @@ df_rs <- df_result %>% filter(tolower(event_type) == "routine surveillance" & !i
 
 # Assign a default date column for plotting data.
 #
-df_rs$date_to_plot <- df_rs$week_ending
-df_seqr$date_to_plot <- df_seqr$week_ending
+df_rs$date_to_plot <- df_rs$week_starting
+df_seqr$date_to_plot <- df_seqr$week_starting
+#df_rs$date_to_plot <- df_rs$week_ending
+#df_seqr$date_to_plot <- df_seqr$week_ending
 #df_seqr$date_to_plot <- df_seqr$date_primary
 
 # https://covid.cdc.gov/covid-data-tracker/#variant-summary
