@@ -194,7 +194,7 @@ shinyServer(function(input, output, session) {
 	plotSeqr <- function(df_plot, date_win) {
 		#print("plotSeqr called!")
     #View(df_plot)
-    
+
 		dlab <- case_when(
 			controlRV$viewMonths[1] == 1 ~ DATE_LABELS[1],
 			controlRV$viewMonths[1] == 3 ~ DATE_LABELS[2],
@@ -212,12 +212,14 @@ shinyServer(function(input, output, session) {
 		)
 		
 		end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
-
+    #print(end_date)
+    
 		gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
 							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
 							scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
 							labs(x="", y="") + 
-							scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
+		          scale_x_date(date_breaks = dbrk, date_labels = dlab) + 
+		          #scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = c(end_date %m-% months(date_win), end_date)) + 
 #							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
 							plot_theme() +
 							theme(legend.position = "right", legend.title=element_blank())
