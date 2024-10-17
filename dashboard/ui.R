@@ -10,12 +10,12 @@ shinyUI(fluidPage(
 	navbarPage(
 		theme = shinytheme("flatly"), 
 		id="nav",
-		HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">Wastewater Testing for Community Health in WV (WaTCH)</a>'), 
+		HTML('<a style="text-decoration:none;cursor:default;color:#FFFFFF;" class="active" href="#">Wastewater Testing for Community Health in WV (WaTCH-WV)</a>'), 
 		windowTitle = "WaTCH-WV",
 		collapsible = FALSE,
 
 		tabPanel(
-			"Routine Surveillance",
+			"OLD",
 			fluidRow(
 				column(5, 
 					style = "margin-top: 5px;padding: 3px;",
@@ -219,7 +219,7 @@ shinyUI(fluidPage(
 								) # column
 							) # fluidRow (table)
 						)
-					), # fluidRow (info)
+					), # fluidRow (selection info)
 					fluidRow(
 						style = "margin-top: 5px;",
 						column(6,
@@ -322,124 +322,241 @@ shinyUI(fluidPage(
 		), # tabPanel (routine surveillance)
 
 		tabPanel(
-			"Mass Gatherings",
-			div(
-				class="outer",
-				leafletOutput("map_mg", width=645, height=457),
-
-				absolutePanel(
-					class = "logo", 
-					top = 380, left = 535, width = 80, 
-					fixed = TRUE, draggable = FALSE, 
-					height = "auto",
-					tags$a(href='https://www.watch-wv.com/', 
-					tags$img(src='WaTCH-WV_logo.png',height='80',width='80'))
-				), # absolutePanel
-				
-				absolutePanel(
-					class = "map-recenter", 
-					top = 460, left = 530, width = 125, 
-					fixed = TRUE, draggable = FALSE, 
-					height = "auto",
-					actionBttn(inputId="center_map_mg", label="Recenter Map", style="pill", size="xs", color="default")
-				), # absolutePanel
-				
-				absolutePanel(
-					#class = "panel panel-default",
-					class = "controls",
-					top = 70, left = 260, height = 160, width = 450,
-					fixed=TRUE, draggable=FALSE,
-					div(
-						class = "map_embed",
-						selectInput(
-							"geo_level_mg",
-							label = NULL,
-							#width = "200px",
-							choices = GEOLEVELS, 
-							selected = GEOLEVELS_DEFAULT
-						),
-						selectInput(
-							"view_range_mg",
-							label = NULL,
-							#width = "60px",
-							choices = VIEW_RANGES, 
-							selected = VIEW_RANGE_PRIMARY
+			"COVID",
+			fluidRow(
+				column(5, 
+					style = "margin-top: 5px;padding: 3px;",
+					fluidRow(
+						column(12,
+							leafletOutput("map_covid", width = "100%", height = "443px")
 						)
-					)
-				), # absolutePanel
-
-				# SARS seqr data
-				absolutePanel(
-					class = "panel panel-default",
-					fixed=TRUE, draggable = FALSE,
-					top = 520, left = 5, width = 637, height = 300, 
-					"SEQR PLOTS",
-#					div(textOutput("plot1_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot1", height="290px", width="100%")
-				), # absolutePanel
+					), # fluidRow (map)
+					fluidRow(
+						column(12,
+							div("MAP & PLOT CONTROLS", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+						)
+					), # fluidRow (controls title)
+					fluidRow(
+						column(8,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center;width:105px;",
+								"Map View",
+								selectInput(
+									"geo_level",
+									label = NULL,
+									choices = GEOLEVELS, 
+									selected = GEOLEVELS_DEFAULT
+								)
+							),
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center;width:105px;",
+								"Map Color",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("Lab" = "lab"),
+			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
+									selected = "lab"
+								)
+							),
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center;width:120px;",
+								"Plot View",
+								selectInput(
+									"view_range",
+									label = NULL,
+									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
+									selected = VIEW_RANGE_PRIMARY
+								)
+							)
+						),
+						column(4,
+							div(
+								style = "display: inline-block;margin-top: 25px;",
+								actionBttn(inputId="center_map_rs", label="Reset Map", style="pill", size="xs", color="success")
+							),
+							div(
+								class = "logo",
+								style = "display: inline-block;margin-left: 15px;",
+								tags$a(href='https://www.watch-wv.com/', 
+								tags$img(src='WaTCH-WV_logo.png',height='50',width='50'))
+							)
+						)
+					), # fluidRow (controls)
+					fluidRow(
+						#style = "border: 2px solid #941100;",
+						column(12,
+							# title
+							style = "text-align: center;font-size: 18px;font-weight: 800;padding: 3px;",
+							div(
+								textOutput("site_title"), 
+								style="padding: 4px;color: #ffffff;background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (selection title)
+					fluidRow(
+						# alert key & site info
+						style = "background-color: #000000;color: #ffffff;text-align: center;margin-top: 10px;padding: 5px;",
+						column(5,
+							div(
+								id = "alert_scale", 
+								#class = "panel panel-default",
+								style = "margin 5px;text-align: center;",
+								div("Alert Level Key", style="font-size: 13px;font-weight: 800;text-align: center;padding: 2px;width:125px;"),
+								div("LOW", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:125px;color: #000000;background-color: #3288BD;"),
+								div("MODERATE", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:125px;color: #000000;background-color: #E6F598;"),
+								div("HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:125px;color: #000000;background-color: #FDAE61;"),
+								div("VERY HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:125px;color: #000000;background-color: #D53E4F;"),
+								div("UNKNOWN", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:125px;color: #000000;background-color: #EEEEEE;")
+							)
+						),
+						column(7,
+							style = "padding: 3px;text-align: center;font-size: 13px; font-weight: 400;",
+							div(
+								div(textOutput("site_info"), style="padding: 8px 0px;"),
+								div(textOutput("site_flow"), style="padding: 2px 0px;")
+							)
+						)	# column
+					), # fluidRow (color key & selection info)
+					fluidRow(
+						style = "background-color: #000000;color: #ffffff;",
+						column(7,
+							# explanation of plots
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+								style = "padding: 2px 20px 2px 2px;text-align: left;",
+								"Plot values are reported as the copies of viral particles per person after correction for daily flow, averaged across all selected sites. SARS-CoV-2 variant proportions are shown as the percent of total identified variants, averaged across all selected sites."
+							)
+						),
+						column(5,
+							# explanation of trend lines
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+								style = "padding: 2px;text-align: left;",
+								span("The "),
+								span(style="color: #EAAA00;", "solid gold line"),
+								span(paste0("on each plot represents the ", VIEW_RANGE_PRIMARY, " month average level of each target, used to generate the percent change. The ")),
+								span(style="color: #00B140;", "green dashed line"),
+								span("represents the average over the most recent month.")
+							)
+						)
+					) # fluidRow (footnotes)
+				),
+				column(5,
+					style = "margin-top: 5px;padding: 3px;",
+					fluidRow(
+						# alert blocks
+						column(3,
+							fluidRow(
+								column(12,
+									div("TREND", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+								)
+							) # fluidRow (trend title)
+						),
+						column(3,
+							fluidRow(
+								column(12,
+									div("LEVEL", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+								)
+							) # fluidRow (level title)
+						),
+						column(1,
+							fluidRow(
+								column(12,
+									div("FRESH", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+								)
+							) # fluidRow (freshness title)
+						),
+						column(4,
+							fluidRow(
+								column(12,
+									div("VARIANT", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+								)
+							) # fluidRow (variant title)
+						),
+						column(1,
+							fluidRow(
+								column(12,
+									div("FRESH", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+								)
+							) # fluidRow (sequence freshness title)
+						),
+					), # fluidRow (alert blocks)
+					fluidRow(
+						style = "margin-top: 5px;",
+						column(12,
+							# Plot of COVID change over time
+							style = "padding: 3px;",
+							div("SARS-CoV-2 in Wastewater", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"),
+							plotlyOutput("plot_covid", height="210px")
+						)
+					), # fluidRow (COVID plot)
+					fluidRow(
+						column(12,
+							style = "margin-top: 5px;",
+							# SARS seqr data
+							div(textOutput("plotsq_covid_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"),
+							plotlyOutput("plotsq_covid", height="325px", width="100%")
+						)
+					) # fluidRow (variant plot)
+				),
+				column(2,
+					style = "margin-top: 5px;padding: 3px;",
+							fluidRow(
+								column(12,
+									# title
+									style = "padding: 3px 0px 0px 0px;text-align: center;font-size: 13px;font-weight: 800;",
+									div(
+										paste0("Percent of ", VIEW_RANGE_PRIMARY, " Month Mean as of ", today, " (By County)"), 
+										style = "background-color: #000000;color: #FFFFFF;"
+									)
+								) # column
+							), # fluidRow (county table title)
+							fluidRow(
+								column(6,
+									style = "background-color: #000000;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
+									div("County", style = "padding: 2px;")
+								),
+								column(2,
+									style = "background-color: #000000;color: #FFFFFF;text-align: right;font-size: 15px;font-weight: 800;padding: 3px;",
+									div("Level", style = "padding: 2px;"),
+								),
+								column(2,
+									style = "background-color: #000000;color: #FFFFFF;text-align: center;font-size: 15px;font-weight: 800;padding: 3px;",
+									div("Trend", style = "padding: 2px;"),
+								),
+								column(2,
+									style = "background-color: #000000;color: #FFFFFF;text-align: center;font-size: 15px;font-weight: 800;padding: 3px;",
+									div("Freshness", style = "padding: 2px;"),
+								)
+							), # fluidRow (table header)
+							fluidRow(
+								column(12,
+									style = "overflow: auto; padding: 3px;height: 236px;",
+									tableHTML(
+										df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASE_RS)) %>% rename(County = region_name), 
+										#collapse = "separate_shiny", 
+										#spacing = "5px 2px", 
+										rownames = FALSE, 
+										border = 0
+										#widths = c(96, 60, 60, 65, 60)
+									) %>% 
+									add_css_thead(css = list("background-color", "#000000")) %>% 
+									add_css_thead(css = list("color", "#000000")) %>% 
+									add_css_thead(css = list("font-size", "1px")) %>% 
+									add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:5])) %>% 
+									add_css_table(css = list("width", "100%")) %>% 
+									add_css_table(css = list("background-color", "#ffffff")) %>% 
+									add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
+									add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1))
+								) # column
+							) # fluidRow (table)
+				)
 				
-				# Top left
-				absolutePanel(
-					class = "panel panel-default",
-					fixed = TRUE, draggable = FALSE, 
-					top = 63, left = 648, width = 425, height = 225, 
-					"SITE SPECIFIC INFO",
-#					div(textOutput("plot2_rs_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot2_rs", height="210px", width="100%")
-				), # absolutePanel
-
-				# Top right
-				absolutePanel(
-					class = "panel panel-default",
-					fixed = TRUE, draggable = FALSE, 
-					top = 63, left = 1075, width = 425, height = 225, 
-					"PLOT TARGET 1",
-#					div(textOutput("plot1_mg_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot1_mg", height="210px", width="100%")
-				), # absolutePanel
-
-				# Middle left
-				absolutePanel(
-					class = "panel panel-default",
-					fixed = TRUE, draggable = FALSE, 
-					top = 290, left = 648, width = 425, height = 225, 
-					"PLOT TARGET 2",
-#					div(textOutput("plot2_mg_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot2_mg", height="210px", width="100%")
-				), # absolutePanel
-
-				# Middle right
-				absolutePanel(
-					class = "panel panel-default",
-					fixed = TRUE, draggable = FALSE, 
-					top = 290, left = 1075, width = 425, height = 225, 
-					"PLOT TARGET 3",
-#					div(textOutput("plot3_mg_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot3_mg", height="210px", width="100%")
-				), # absolutePanel
-
-				# Bottom left
-				absolutePanel(
-					class = "panel panel-default",
-					fixed=TRUE, draggable = FALSE,
-					top = 520, left = 648, width = 425, height = 300, 
-					"PLOT TARGET 4",
-#					div(textOutput("plot4_mg_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot4_mg", height="290px", width="100%")
-				), # absolutePanel
-
-				# Bottom right
-				absolutePanel(
-					class = "panel panel-default",
-					fixed=TRUE, draggable = FALSE,
-					top = 520, left = 1075, width = 425, height = 300, 
-					"PLOT TARGET 5",
-#					div(textOutput("plot5_mg_title"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;background-color: #f3f3e1;"),
-#					plotlyOutput("plot5_mg", height="290px", width="100%")
-				), # absolutePanel
-
-			) # tabPanel div
-		), # tabPanel (mass gatherings)
+		), # tabPanel (COVID)
 
 		tabPanel(
 			"Outbreaks",
