@@ -175,14 +175,16 @@ h4 { font-weight: 800; }
   background-color: transparent;
   cursor: move;
   /* Fade out while not hovering */
-  opacity: 0.7;
+  opacity: 1.0;
   zoom: 1.0;
   transition: opacity 100ms 100ms;
 }
 
 .logo:hover {
   /* Fade in while hovering */
-  opacity: 0.95;
+  border: 1px solid #000000;
+  border-radius: 3px;
+  opacity: 1.0;
   transition-delay: 0;
 }
 

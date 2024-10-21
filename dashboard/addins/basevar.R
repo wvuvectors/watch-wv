@@ -1,19 +1,11 @@
 GEOLEVELS <- c("Facility", "County")
 GEOLEVELS_DEFAULT <- "County"
 
-#TARGETS_RS <- c("Influenza Virus A (FluA)", "SARS-CoV-2", "SARS-CoV-2", "Respiratory Syncitial Virus, Human (RSV)")
-#GENLOCI_RS <- c("M", "N2", "SC2", "G")
-#DISEASE_RS <- c("FLUA", "COVID", "COVID", "RSV")
-
-TARGETS_RS <- c("Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "SARS-CoV-2", "Respiratory Syncitial Virus, Human (RSV)")
-DISEASE_RS <- c("FLUA", "FLUB", "COVID", "RSV")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+DISEASES <- c("COVID", "FLUA", "FLUB", "RSV")
 
 # Do we need this?
-GENLOCI_RS <- c("M", "NEP/NS1", "N2", "SC2", "G")
-
-# TARGETS_RS <- c("Influenza Virus A (FluA)", "Human Norovirus GII (HuNoV-GII)", "SARS-CoV-2", "Respiratory Syncitial Virus, Human (RSV)")
-# GENLOCI_RS <- c("M", "ORF1_2", "N2:SARS", "G")
-# DISEASE_RS <- c("FLUA", "NoV", "COVID", "RSV")
+GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "G")
 
 TRENDL_MO_COLOR <- "#00B140"	# MU Green
 TRENDL_YR_COLOR <- "#EAAA00"	# WVU Gold
