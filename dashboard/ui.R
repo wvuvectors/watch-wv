@@ -122,7 +122,7 @@ shinyUI(fluidPage(
 								class = "logo",
 								style = "display: inline-block;",
 								tags$a(href='https://www.watch-wv.com/', 
-								tags$img(src='WaTCH-WV_logo.png',height='50',width='50'))
+								tags$img(src='WaTCH-WV_logo.png',height='75',width='75'))
 							)
 						),
 						column(10,
@@ -146,19 +146,29 @@ shinyUI(fluidPage(
 						style = "margin-top: 5px;", 
 						# alert blocks
 						column(3,
-							div("TREND", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+							div(
+								textOutput("trend_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(3,
-							div("LEVEL", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+							div(
+								textOutput("level_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(1,
-							div("FRESH", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+							div(
+								textOutput("fresh_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(4,
-							div("VARIANT", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+							div(
+								textOutput("variant_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(1,
-							div("FRESH", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+							div(
+								textOutput("variant_fresh_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						)
 					), # fluidRow (alert blocks)
 					fluidRow(

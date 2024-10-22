@@ -60,28 +60,24 @@ shinyServer(function(input, output, session) {
 	
 	# Generate a dataframe for plotting target data.
 	#
-	getPlotData <- function(index, loc_id, date_win) {
-		#print("getPlotData called!")
-		#print(index)
-		#print(loc_name)
-		#print(date_win)
+	getPlotData <- function(mapIndex, loc_id, date_win) {
+#	  print("##### getPlotData called!")
 	
-		#df_targ <- df_rs %>% filter(target == inputTarget & target_genetic_locus == inputLocus)
 		if (loc_id == "WV") {
-			df_this <- dflist_rs[[index]] %>% 
+			df_this <- dflist_rs[[mapIndex]] %>% 
 								 group_by(date_to_plot) %>% 
 								 arrange(date_to_plot) %>%
 								 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
 								 					date_primary := date_primary)
 		} else {
 			#print(loc_name)
-			if (controlRV$activeGeoLevel == "County") {
+			if (controlRV$activeGeoLevel[mapIndex] == "County") {
 				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 			} else {
 				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
 			}
 	
-			df_this <- dflist_rs[[index]] %>% 
+			df_this <- dflist_rs[[mapIndex]] %>% 
 								 filter(location_id %in% loc_ids) %>%
 								 group_by(date_to_plot) %>% 
 								 arrange(date_to_plot) %>%
@@ -114,8 +110,8 @@ shinyServer(function(input, output, session) {
 	}
 
 
-	getSeqrDF <- function(inputTarget, loc_id, date_win) {
-		#print("getSeqrDF called!")
+	getSeqrData <- function(mapIndex, loc_id, date_win) {
+#	  print("##### getSeqrData called!")
 	
 		if (loc_id == "WV") {
 # 			df_this <- df_seqr %>% 
@@ -125,7 +121,7 @@ shinyServer(function(input, output, session) {
 			df_trans <- df_seqr
 		} else {
 	
-			if (controlRV$activeGeoLevel[1] == "County") {
+			if (controlRV$activeGeoLevel[mapIndex] == "County") {
 				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
 			} else {
 				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
@@ -154,14 +150,19 @@ shinyServer(function(input, output, session) {
 
 		#View(df_return)
 
-		return(df_return)
+		if (length(df_return$date_to_plot) == 0) {
+			return(list())
+		} else {
+			return(list(df_return, -1, -1))
+		}
 	}
 
 
 	# Generate an abundance plot on the given data frame.
 	#
 	plotAbundance <- function(data_in, date_win) {
-		#print("plotBasic called!")
+#	  print("##### plotAbundance called!")
+
     df_plot <- as.data.frame(data_in[1])
     tl_mo <- as.numeric(data_in[2])
     tl_yr <- as.numeric(data_in[3])
@@ -204,9 +205,12 @@ shinyServer(function(input, output, session) {
 
 	# Generate a seqr plot on the given data frame.
 	#
-	plotSeqr <- function(df_plot, date_win) {
-		print("plotSeqr called!")
-    #View(df_plot)
+	plotSeqr <- function(data_in, date_win) {
+#		print("##### plotSeqr called!")
+
+    df_plot <- as.data.frame(data_in[1])
+    #tl_mo <- as.numeric(data_in[2])
+    #tl_yr <- as.numeric(data_in[3])
 
 		dlab <- case_when(
 			date_win == 1 ~ DATE_LABELS[1],
@@ -243,6 +247,7 @@ shinyServer(function(input, output, session) {
 
 
   updateAllPlots <- function(mapIndex) {
+#	  print("##### updateAllPlots called!")
 
 # Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in dplyr 1.1.0.
 # Please use `reframe()` instead.
@@ -258,21 +263,19 @@ shinyServer(function(input, output, session) {
 				})
 			} else {
 				output$plot_covid <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-				print(paste0("Empty data frame for SARS-CoV-2!"))
+				print(paste0("No data for ", TARGETS[mapIndex], "!"))
 			}
-	
-	
-			output$plotsq_covid <- renderPlotly({
-				df_plot <- getSeqrDF("SARS-CoV-2", controlRV$mapClick[mapIndex], controlRV$viewMonths[mapIndex])
-				plotSeqr(df_plot, controlRV$viewMonths[mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-			})	
-	
-			# Update the plot titles
-			#output$plot_title_covid <- renderText(paste0("SARS-CoV-2 Abundance for ", controlRV$mapClick[1], sep=""))
-			output$plotsq_title_covid <- renderText(paste0("SARS-CoV-2 Variant Proportions", sep=""))
-# 		for (i in 1:length(TARGETS_RS)) {
-# 			eval(parse(text = paste0("output$plot", i, "_rs_title <- renderText(TARGETS_RS[", i, "])")))
-# 		}
+
+	    sdlist <- getSeqrData(mapIndex, controlRV$mapClick[mapIndex], controlRV$viewMonths[mapIndex])    
+			if (length(sdlist) > 0) {
+				output$plotsq_covid <- renderPlotly({
+					plotSeqr(sdlist, controlRV$viewMonths[mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
+			} else {
+				output$plotsq_covid <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
+				print(paste0("No variant data for ", TARGETS[mapIndex], "!"))
+			}
+
 		}
 		
   }
@@ -281,11 +284,11 @@ shinyServer(function(input, output, session) {
 	#
 	# Update the alert level data (reaction to map click or site selection).
 	#
-	updateAlertLevel <- function(geolevel, loc_id) {
-	  #print("##### updateAlertLevelRS reached!")
+	updateAlertLevel <- function(mapIndex) {
+#	  print("##### updateAlertLevel called!")
 	  
-		if (missing(geolevel)) { geolevel = controlRV$activeGeoLevel }
-		if (missing(loc_id)) { loc_id = controlRV$mapClick }
+		geolevel <- controlRV$activeGeoLevel[mapIndex]
+		loc_id <- controlRV$mapClick[mapIndex]
 				
 		if (loc_id == "WV") {
 			
@@ -307,53 +310,43 @@ shinyServer(function(input, output, session) {
 				title_text <- paste0(loc_id, " county, WV", sep="")
 			}
 		}
-					
-		# Print the title
-		output$site_rs_title <- renderText(title_text)
-
-
-		for (i in 1:length(TARGETS_RS)) {
-			eval(parse(text = paste0("output$rs_CSL_", i, " <- renderText(DISEASE_RS[", i, "])")))
-			
-			#df_this <- df_this_site %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
-			#df_this_d <- df_regions %>% filter(target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
-			
-			if (loc_id == "WV") {
-			  delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
-				fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASE_RS[i]]], na.rm = TRUE)
-			} else {
-			  delta <- (df_regions %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
-				fresh <- (df_fresh %>% filter(region_name == loc_id))[[DISEASE_RS[i]]]
-			}
+		
+		if (loc_id == "WV") {
+			delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASES[mapIndex]]], na.rm = TRUE)
+			fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASES[mapIndex]]], na.rm = TRUE)
+		} else {
+			delta <- (df_regions %>% filter(region_name == loc_id))[[DISEASES[mapIndex]]]
+			fresh <- (df_fresh %>% filter(region_name == loc_id))[[DISEASES[mapIndex]]]
+		}
 #			delta <- calcDelta(df_this, 12)
 #			fresh <- calcFresh(df_this)
-					
-			if (is.na(fresh)) {
-			  eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('-')")))
-			} else {
-			  fresh <- formatC(as.numeric(fresh), format="d")
-				eval(parse(text = paste0("output$rs_fresh_", i, " <- renderText('", fresh, "')")))
-			}
 			
-			if (is.na(delta)) {
-			  eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('-')")))
-			} else {
-			  delta <- formatC(as.numeric(delta), format="d")
-				eval(parse(text = paste0("output$rs_delta_", i, " <- renderText('", delta, " %')")))
-			}
-
-			color <- getFreshnessColor(fresh)
-			frunner <- paste0("document.getElementById('rs_fresh_", i, "').style.color = '", color, "';")
-			runjs(frunner)
-		
-			drunner <- paste0("document.getElementById('rs_delta_", i, "').style.color = '", color, "';")
-			runjs(drunner)
-
-			bgcolor <- getAlertColor(fresh, delta)
-			arunner <- paste0("document.getElementById('rs_CSL_", i, "').style.backgroundColor = '", bgcolor, "';")
-			runjs(arunner)
+		if (is.na(fresh)) {
+			output$fresh_covid <- renderText("-")
+		} else {
+			fresh <- formatC(as.numeric(fresh), format="d")
+			output$fresh_covid <- renderText(fresh)
 		}
+		color <- getFreshnessColor(fresh)
+#			frunner <- paste0("document.getElementById('rs_fresh_", i, "').style.color = '", color, "';")
+		frunner <- paste0("document.getElementById('fresh_covid').style.color = '", color, "';")
+		runjs(frunner)
 	
+		if (is.na(delta)) {
+			output$level_covid <- renderText("-")
+		} else {
+			delta <- formatC(as.numeric(delta), format="d")
+			output$level_covid <- renderText(paste0(delta, "%"))
+		}
+
+#			drunner <- paste0("document.getElementById('rs_delta_", i, "').style.color = '", color, "';")
+#			drunner <- paste0("document.getElementById('delta_covid').style.color = '", color, "';")
+#			runjs(drunner)
+
+#			bgcolor <- getAlertColor(fresh, delta)
+#			arunner <- paste0("document.getElementById('rs_CSL_", i, "').style.backgroundColor = '", bgcolor, "';")
+#			arunner <- paste0("document.getElementById('rs_CSL_", i, "').style.backgroundColor = '", bgcolor, "';")
+#			runjs(arunner)	
 	}
 	
 	
@@ -361,7 +354,7 @@ shinyServer(function(input, output, session) {
 	# Write the selection info block (reaction to map click or site selection).
 	#
 	updateSelectionInfo <- function(mapIndex) {
-	  #print("##### updateSelectionInfo reached!")
+#	  print("##### updateSelectionInfo called!")
 	  
 		geolevel = controlRV$activeGeoLevel[mapIndex]
 		loc_id = controlRV$mapClick[mapIndex]
@@ -557,7 +550,7 @@ shinyServer(function(input, output, session) {
 		# Update some reactive elements
 		controlRV$activeGeoLevel[mapIndex] <- clicked
 		
-		if (clicked == "county") {
+		if (clicked == "County") {
 			mapProxy %>% 
 					clearMarkers() %>% 
 					clearShapes() %>% 
@@ -594,7 +587,7 @@ shinyServer(function(input, output, session) {
 							bringToFront = TRUE)
 					)
 		} else {
-			if (clicked == "facility") {
+			if (clicked == "Facility") {
 				mapProxy %>% 
 						clearMarkers() %>% 
 						clearShapes() %>% 
@@ -635,9 +628,9 @@ shinyServer(function(input, output, session) {
 		# Update the plots only if necessary
 		if (controlRV$mapClick[mapIndex] != "WV") {
 			controlRV$mapClick[mapIndex] <- "WV"
-			updateAllPlots()
+			updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(controlRV$activeGeoLevel[mapIndex], controlRV$mapClick[mapIndex])
+			updateAlertLevel(mapIndex)
 		}
 		
 
@@ -664,7 +657,7 @@ shinyServer(function(input, output, session) {
 		
 		  updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(controlRV$activeGeoLevel[mapIndex], controlRV$mapClick[mapIndex])
+			updateAlertLevel(mapIndex)
 
 		} else {
 			print(paste0("No data for ", clickedLocation))
@@ -676,12 +669,13 @@ shinyServer(function(input, output, session) {
 	# Click on a map shape
 	#
 	clickMapShape <- function(clicked, mapIndex) {
-		if (length(input$map_covid_shape_click) == 0) {
+#    print("##### clickMapShape called!")
+		if (length(clicked) == 0) {
 			clickedLocation <- "WV"
 		} else {
-    	clickedLocation <- input$map_covid_shape_click$id
-			controlRV$mapClickLat[mapIndex] <- input$map_covid_shape_click$lat
-			controlRV$mapClickLng[mapIndex] <- input$map_covid_shape_click$lng
+    	clickedLocation <- clicked$id
+			controlRV$mapClickLat[mapIndex] <- clicked$lat
+			controlRV$mapClickLng[mapIndex] <- clicked$lng
     }
 
     
@@ -694,7 +688,7 @@ shinyServer(function(input, output, session) {
 		
     updateAllPlots(mapIndex)
 		updateSelectionInfo(mapIndex)
-		updateAlertLevel(controlRV$activeGeoLevel[mapIndex], controlRV$mapClick[mapIndex])
+		updateAlertLevel(mapIndex)
 
 	}
 	
@@ -702,6 +696,7 @@ shinyServer(function(input, output, session) {
 	# Off-target click on a map
 	#
 	clickMapOffMarker <- function(clicked, mapIndex) {
+#    print("##### clickMapOffMarker called!")
 		# only respond if this click is in a new position on the map
 		if (clicked$lat != controlRV$mapClickLat[mapIndex] | clicked$lng != controlRV$mapClickLng[mapIndex]) {
 			#print("New position detected!")
@@ -713,7 +708,7 @@ shinyServer(function(input, output, session) {
 		
 			updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(controlRV$activeGeoLevel[mapIndex], controlRV$mapClick[mapIndex])
+			updateAlertLevel(mapIndex)
 		}
 	}
 	
@@ -728,7 +723,7 @@ shinyServer(function(input, output, session) {
 	# React to map marker click
 	#
   observeEvent(input$map_covid_marker_click, { 
-    #print("##### Map MARKER click top")
+#    print("##### Map MARKER click top")
     clickMapMarker(input$map_covid_marker_click, 1)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
@@ -736,7 +731,7 @@ shinyServer(function(input, output, session) {
 	# React to map shape click
 	#
   observeEvent(input$map_covid_shape_click, {
-    #print("##### Map Shape Click!")
+#    print("##### Map Shape Click!")
     clickMapShape(input$map_covid_shape_click, 1)
   }, ignoreNULL = FALSE, ignoreInit = FALSE)
 
@@ -745,7 +740,7 @@ shinyServer(function(input, output, session) {
 	# In this case, the marker/shape listener fires first.
 	#
   observeEvent(input$map_covid_click, { 
-		#print("##### Map off-target click top")
+#		print("##### Map off-target click top")
     clickMapOffMarker(input$map_covid_click, 1)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
@@ -760,7 +755,7 @@ shinyServer(function(input, output, session) {
 	# Change the map active geolayer
 	#
   observeEvent(input$geo_level_covid, {
-		changeGeolevel(tolower(input$geo_level_covid), 1)
+		changeGeolevel(input$geo_level_covid, 1)
 	}, ignoreInit = TRUE)
 
 	#
@@ -769,10 +764,10 @@ shinyServer(function(input, output, session) {
   observeEvent(input$view_range_covid, {
 
 		# Update some reactive elements
-		controlRV$viewMonths <- as.numeric(input$view_range_covid)
+		controlRV$viewMonths[1] <- as.numeric(input$view_range_covid)
 		
 		# Update the plots
-    updateAllPlots()
+    updateAllPlots(1)
 
 	}, ignoreInit = TRUE)
 
