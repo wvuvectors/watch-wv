@@ -1,3 +1,40 @@
+	#
+	# Respond to 1 month trend line checkbox click.
+	#
+  observeEvent(input$trendline_1mo_rs, {
+
+		# Update some reactive elements
+		if (controlRV$trendLines[1] == FALSE) {
+			controlRV$trendLines[1] <- TRUE
+		} else {
+			controlRV$trendLines[1] <- FALSE
+		}
+		
+		# Update the plots
+    updateAllPlots()
+
+	}, ignoreInit = TRUE)
+
+	#
+	# Respond to 1 year trend line checkbox click.
+	#
+  observeEvent(input$trendline_1yr_rs, {
+
+		# Update some reactive elements
+		if (controlRV$trendLines[2] == FALSE) {
+			controlRV$trendLines[2] <- TRUE
+		} else {
+			controlRV$trendLines[2] <- FALSE
+		}
+		
+		# Update the plots
+    updateAllPlots()
+
+	}, ignoreInit = TRUE)
+
+
+
+
 shinyUI(fluidPage(
 	useShinyjs(),
 	

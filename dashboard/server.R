@@ -256,7 +256,26 @@ shinyServer(function(input, output, session) {
 
     pdlist <- getPlotData(mapIndex, controlRV$mapClick[mapIndex], controlRV$viewMonths[mapIndex])    
 		
+		loc_id <- controlRV$mapClick[mapIndex]
+		
+		if (loc_id == "WV") {
+			plot_location <- "West Virginia"
+		} else {
+			if (controlRV$activeGeoLevel[mapIndex] == "County") {
+				#this_county <- (df_active_loc %>% filter(location_id == loc_id))$location_counties_served
+				this_state <- "WV"
+				plot_location <- paste0(loc_id, " county, ", this_state, sep="")
+			} else {
+				if (controlRV$activeGeoLevel[mapIndex] == "Facility") {
+					plot_location <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
+				}
+			}
+		}
+		
 		if (mapIndex == 1) {
+			output$plot_title_covid <- renderText(paste0(TARGETS[mapIndex], " abundance in ", plot_location, " wastewater"))
+			output$plotsq_title_covid <- renderText(paste0(TARGETS[mapIndex], " variants in ", plot_location, " wastewater"))
+
 			if (length(pdlist) > 0) {
 				output$plot_covid <- renderPlotly({
 					plotAbundance(pdlist, controlRV$viewMonths[mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
@@ -275,18 +294,30 @@ shinyServer(function(input, output, session) {
 				output$plotsq_covid <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
 				print(paste0("No variant data for ", TARGETS[mapIndex], "!"))
 			}
-
+		} else {
+			if (mapIndex == 2) {
+				output$plot_title_flu <- renderText(paste0(TARGETS[mapIndex], " Abundance in ", plot_location))
+				#output$plotsq_title_flu <- renderText(paste0(TARGETS[mapIndex], " Variant Proportions"))
+			} else {
+				if (mapIndex == 3) {
+					output$plot_title_rsv <- renderText(paste0(TARGETS[mapIndex], " Abundance in ", plot_location))
+					#output$plotsq_title_rsv <- renderText(paste0(TARGETS[mapIndex], " Variant Proportions"))
+				}
+			}
 		}
 		
   }
 
   
 	#
-	# Update the alert level data (reaction to map click or site selection).
+	# Update the status row (on reaction to map click or site selection).
 	#
-	updateAlertLevel <- function(mapIndex) {
-#	  print("##### updateAlertLevel called!")
+	updateStatus <- function(mapIndex) {
+#	  print("##### updateStatus called!")
 	  
+	  # Generate trend text
+	  # Generate abundance level
+	  # Generate data age
 		geolevel <- controlRV$activeGeoLevel[mapIndex]
 		loc_id <- controlRV$mapClick[mapIndex]
 				
@@ -351,7 +382,7 @@ shinyServer(function(input, output, session) {
 	
 	
 	#
-	# Write the selection info block (reaction to map click or site selection).
+	# Write the selection info block (on reaction to map click or site selection).
 	#
 	updateSelectionInfo <- function(mapIndex) {
 #	  print("##### updateSelectionInfo called!")
@@ -374,12 +405,13 @@ shinyServer(function(input, output, session) {
 			num_facilities <- n_distinct(df_this$location_id)
 			num_counties <- n_distinct((df_active_loc %>% filter(location_category == "wwtp"))$location_counties_served)
 			
+			selection_text <- "West Virginia"
+			risk_level_text <- "TBD"
 			title_text <- "State of West Virginia"
-			selection_text <- paste0(
+			selection_details_text <- paste0(
 					"The State of West Virginia represents ", num_facilities, " active treatment facilities serving ", 
 					prettyNum(total_popserved, big.mark=","), " residents across ", 
 					num_counties, " counties.", sep="")
-			plot_title <- "West Virginia Wastewater"
 		} else {
 			
 		  if (geolevel == "Facility") {
@@ -387,7 +419,6 @@ shinyServer(function(input, output, session) {
 				loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
 				this_wwtp_id <- unique((df_active_loc %>% filter(location_id == loc_id))$location_primary_wwtp_id)
 				loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
-				
 				
 				df_this <- df_rs %>% filter(location_id == loc_ids)
 
@@ -400,12 +431,13 @@ shinyServer(function(input, output, session) {
 				num_facilities <- 1
 				this_county <- (df_active_loc %>% filter(location_id == loc_ids))$location_counties_served
 			
+				selection_text <- loc_name
+				risk_level_text <- "TBD"
 				title_text <- loc_name
-				selection_text <- paste0("The ", loc_name, " facility serves ", 
+				selection_details_text <- paste0("The ", loc_name, " facility serves ", 
 					 prettyNum(total_popserved, big.mark=","), " residents in ", 
 					 this_county, " county, WV.",
 					 sep="")
-				plot_title <- title_text
 
 			} else {
 				# County click!
@@ -423,13 +455,14 @@ shinyServer(function(input, output, session) {
 				total_popserved <- sum(distinct(df_active_loc %>% filter(location_id %in% loc_ids), location_id, location_population_served)$location_population_served)
 				pct_served <- 100 * total_popserved / (resources$county %>% filter(county_id == loc_id))$county_population
 
+				selection_text <- paste0(loc_id, " county")
+				risk_level_text <- "TBD"
 				title_text <- paste0(loc_id, " county, WV", sep="")
-				selection_text <- paste0(loc_id, " county in WV supports ", 
+				selection_details_text <- paste0(loc_id, " county in WV supports ", 
 					 num_facilities, " WaTCH ", facility_post, ", serving a total of ", 
 					 prettyNum(total_popserved, big.mark=","), " residents (", 
 					 prettyNum(pct_served, digits=1), "% of the county).",
 					 sep="")
-				plot_title <- title_text
 			}
 			
 		}
@@ -446,25 +479,25 @@ shinyServer(function(input, output, session) {
 
 		# Print the title, selection, and flow strings to the UI
 		if (mapIndex == 1) {
-			output$selection_title_covid <- renderText(title_text)
 			output$selection_covid <- renderText(selection_text)
+			output$risk_level_covid <- renderText(risk_level_text)
+			output$selection_details_covid <- renderText(selection_details_text)
+			output$selection_title_covid <- renderText(title_text)
 			output$selection_flow_covid <- renderText(flow_text)
-			output$plot_title_covid <- renderText(paste0(TARGETS[mapIndex], " in ", plot_title))
-			output$plotsq_title_covid <- renderText(paste0(TARGETS[mapIndex], " Variant Proportions"))
 		} else {
 			if (mapIndex == 2) {
-				output$selection_title_flu <- renderText(title_text)
 				output$selection_flu <- renderText(selection_text)
+				output$risk_level_flu <- renderText(risk_level_text)
+				output$selection_details_flu <- renderText(selection_details_text)
+				output$selection_title_flu <- renderText(title_text)
 				output$selection_flow_flu <- renderText(flow_text)
-				output$plot_title_flu <- renderText(title_text)
-				output$plot_title_flu <- renderText(paste0(TARGETS[mapIndex], " in ", plot_title))
 			} else {
 				if (mapIndex == 3) {
-					output$selection_title_rsv <- renderText(title_text)
 					output$selection_rsv <- renderText(selection_text)
+					output$risk_level_rsv <- renderText(risk_level_text)
+					output$selection_title_rsv <- renderText(title_text)
+					output$selection_details_rsv <- renderText(selection_details_text)
 					output$selection_flow_rsv <- renderText(flow_text)
-					output$plot_title_rsv <- renderText(title_text)
-					output$plot_title_rsv <- renderText(paste0(TARGETS[mapIndex], " in ", plot_title))
 				}
 			}
 		}
@@ -487,50 +520,6 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Render the maps
-	#
-	output$map_covid <- renderLeaflet({
-		leaflet() %>% 
-				addTiles() %>% 
-				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
-												 layerId = ~location_id, 
-												 lat = ~location_lat, 
-												 lng = ~location_lng, 
-												 radius = ~dotsize, 
-		#										 radius = 5, 
-												 stroke = FALSE,
-												 weight = 4, 
-												 opacity = 0.5,
-		#										 color = ~alertPal(current_fold_change_smoothed), 
-												 color = "#000000",
-												 fill = TRUE,
-		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
-												 fillColor = ~colorby,
-												 group = "facility", 
-												 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
-												 fillOpacity = 0.6) %>%
-			addPolygons( 
-				data = county_spdf, 
-				layerId = ~NAME, 
-				fillColor = ~colorby, 
-				stroke=TRUE, 
-				fillOpacity = 0.7, 
-				color="#000000", 
-				weight=0.5, 
-				group="county",
-				label = ~NAME, 
-				highlightOptions = highlightOptions(
-					weight = 1,
-					color = "#000000",
-					#dashArray = "",
-					fillOpacity = 0.9,
-					bringToFront = TRUE)
-			)		
-	})
-
-
-	#
 	#	Reset a map
 	#
 	resetMap <- function(mapIndex) {
@@ -539,7 +528,6 @@ shinyServer(function(input, output, session) {
 		mapProxy %>% setView(MAP_CENTER$lng, MAP_CENTER$lat, zoom = MAP_CENTER$zoom)
 	}
 	
-
 	#
 	# Change the geolevel
 	#
@@ -630,7 +618,7 @@ shinyServer(function(input, output, session) {
 			controlRV$mapClick[mapIndex] <- "WV"
 			updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(mapIndex)
+			updateStatus(mapIndex)
 		}
 		
 
@@ -657,13 +645,12 @@ shinyServer(function(input, output, session) {
 		
 		  updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(mapIndex)
+			updateStatus(mapIndex)
 
 		} else {
 			print(paste0("No data for ", clickedLocation))
 		}
 	}
-
 
 	#
 	# Click on a map shape
@@ -688,7 +675,7 @@ shinyServer(function(input, output, session) {
 		
     updateAllPlots(mapIndex)
 		updateSelectionInfo(mapIndex)
-		updateAlertLevel(mapIndex)
+		updateStatus(mapIndex)
 
 	}
 	
@@ -708,14 +695,59 @@ shinyServer(function(input, output, session) {
 		
 			updateAllPlots(mapIndex)
 			updateSelectionInfo(mapIndex)
-			updateAlertLevel(mapIndex)
+			updateStatus(mapIndex)
 		}
 	}
 	
+	#
+	# Render the map
+	#
+	output$map_covid <- renderLeaflet({
+		leaflet() %>% 
+				addTiles() %>% 
+				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
+				addCircles(data = df_active_loc %>% filter(location_category == "wwtp"),
+												 layerId = ~location_id, 
+												 lat = ~location_lat, 
+												 lng = ~location_lng, 
+												 radius = ~dotsize, 
+		#										 radius = 5, 
+												 stroke = FALSE,
+												 weight = 4, 
+												 opacity = 0.5,
+		#										 color = ~alertPal(current_fold_change_smoothed), 
+												 color = "#000000",
+												 fill = TRUE,
+		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
+												 fillColor = ~colorby,
+												 group = "facility", 
+												 label = ~as.character(paste0(location_common_name, " (" , location_population_served, ")")), 
+												 fillOpacity = 0.6) %>%
+			addPolygons( 
+				data = county_spdf, 
+				layerId = ~NAME, 
+				fillColor = ~colorby, 
+				stroke=TRUE, 
+				fillOpacity = 0.7, 
+				color="#000000", 
+				weight=0.5, 
+				group="county",
+				label = ~NAME, 
+				highlightOptions = highlightOptions(
+					weight = 1,
+					color = "#000000",
+					#dashArray = "",
+					fillOpacity = 0.9,
+					bringToFront = TRUE)
+			)		
+	})
 
+
+	
+	
 	###########################
 	#
-	# OBSERVER FUNCTIONS
+	# OBSERVER FUNCTIONS - COVID TAB
 	#
 	###########################
 
@@ -771,41 +803,18 @@ shinyServer(function(input, output, session) {
 
 	}, ignoreInit = TRUE)
 
+	#
+	# Open the color key popup
+	#
+	onevent("click", "risk_level_key_popup_covid", togglePanels(on=c("risk_level_key_popup_covid")))
 
 	#
-	# Respond to 1 month trend line checkbox click.
+	# Close the color key popup
 	#
-  observeEvent(input$trendline_1mo_rs, {
-
-		# Update some reactive elements
-		if (controlRV$trendLines[1] == FALSE) {
-			controlRV$trendLines[1] <- TRUE
-		} else {
-			controlRV$trendLines[1] <- FALSE
-		}
-		
-		# Update the plots
-    updateAllPlots()
-
+	observeEvent(input$risk_level_key_popup_close_covid,{
+    togglePanels(off=c("risk_level_key_popup_covid"))
 	}, ignoreInit = TRUE)
-
-	#
-	# Respond to 1 year trend line checkbox click.
-	#
-  observeEvent(input$trendline_1yr_rs, {
-
-		# Update some reactive elements
-		if (controlRV$trendLines[2] == FALSE) {
-			controlRV$trendLines[2] <- TRUE
-		} else {
-			controlRV$trendLines[2] <- FALSE
-		}
-		
-		# Update the plots
-    updateAllPlots()
-
-	}, ignoreInit = TRUE)
-
+	
 
 	# 
 	# React to plot click
@@ -816,17 +825,6 @@ shinyServer(function(input, output, session) {
 		
 #	}, ignoreInit = TRUE)
 
-
-	onevent("click", "alert_scale", togglePanels(on=c("alert_scale_info")))
-
-	
-	#
-	# React to click on the site focus panel close button
-	#
-	observeEvent(input$alert_scale_info_close,{
-    togglePanels(off=c("alert_scale_info"))
-	}, ignoreInit = TRUE)
-	
 
 })
 

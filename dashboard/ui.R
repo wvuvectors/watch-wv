@@ -90,10 +90,10 @@ shinyUI(fluidPage(
 						style = "padding-top: 4px;padding-bottom: 4px;margin-left: 0px; margin-right: 0px;background-color: #000000;color: #ffffff;",
 						column(3,
 							div(
-								id = "alert_scale", 
+								id = "risk_level_key_covid", 
 								#class = "panel panel-default",
 								style = "margin 5px;padding: 3px;text-align: center;",
-								div("Alert Level Key", style="font-size: 13px;font-weight: 800;text-align: center;padding: 2px;width:100px;"),
+								div("Risk Level Key", style="font-size: 13px;font-weight: 800;text-align: center;padding: 2px;width:100px;"),
 								div("VERY HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #D53E4F;"),
 								div("HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #FDAE61;"),
 								div("MODERATE", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #E6F598;"),
@@ -102,17 +102,35 @@ shinyUI(fluidPage(
 							)
 						),
 						column(9,
-							style = "text-align: center;font-size: 14px; font-weight: 400;",
-							div(
-								div(
-									textOutput("selection_covid"), 
-									style="padding: 8px 0px;"
-								),
-								div(
-									textOutput("selection_flow_covid"), 
-									style="padding: 2px 0px;"
+							fluidRow(
+								style = "margin-top: 5px; margin-bottom: 10px; text-align: center;",
+								column(12,
+									span(
+										style="display: inline-block;color: #EAAA00;font-size: 18px; font-weight: 400;", 
+										paste0("The ", DISEASES[1], " risk is ")
+									),
+									span(
+										style="display: inline-block;color: #red;font-size: 32px; font-weight: 800; padding-top: 5px;", 
+										textOutput("risk_level_covid")
+									)
 								)
-							)
+							), # fluidRow (risk level)
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selection_details_covid"), 
+										style="text-align: center;padding-bottom: 5px;"
+									)
+								)
+							), # fluidRow (selection details)
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selection_flow_covid"), 
+										style="text-align: center;padding-bottom: 2px;"
+									)
+								)
+							) # fluidRow (flow info)
 						)	# column
 					), # fluidRow (color key & selection info)
 					fluidRow(
@@ -134,25 +152,15 @@ shinyUI(fluidPage(
 				column(5,
 					style = "margin-top: 5px;padding: 3px;",
 					fluidRow(
-						#style = "margin-left: 0px; margin-right: 0px;", 
-						column(12,
-							div(
-								textOutput("plot_title_covid"), 
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
-							)
-						)
-					), # fluidRow (COVID plot)
-					fluidRow(
-						style = "margin-top: 5px;", 
 						# alert blocks
 						column(3,
 							div(
-								textOutput("trend_covid"),
+								textOutput("level_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(3,
 							div(
-								textOutput("level_covid"),
+								textOutput("trend_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						),
 						column(1,
@@ -171,6 +179,16 @@ shinyUI(fluidPage(
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
 						)
 					), # fluidRow (alert blocks)
+					fluidRow(
+						#style = "margin-left: 0px; margin-right: 0px;", 
+						style = "margin-top: 5px;", 
+						column(12,
+							div(
+								textOutput("plot_title_covid"), 
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (COVID plot title)
 					fluidRow(
 						column(12,
 							# Plot of COVID change over time
@@ -210,7 +228,7 @@ shinyUI(fluidPage(
 						column(12,
 							style = "overflow: auto; padding: 3px;",
 							tableHTML(
-								df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASE_RS)) %>% rename(County = region_name), 
+								df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASES[1])) %>% rename(County = region_name), 
 								#collapse = "separate_shiny", 
 								#spacing = "5px 2px", 
 								rownames = FALSE, 
@@ -269,10 +287,10 @@ shinyUI(fluidPage(
 
 			hidden(
 				absolutePanel(
-					id = "alert_popup_covid",
+					id = "risk_level_key_popup_covid",
 					class = "mdinfo",
 					top = 365, left = 610, width = 580, height = 350,
-					div("Alert Color Explanations", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
+					div("Risk Level Color Key", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
 					div(
 						class = "alertinfo",
 						id = "level_1",
@@ -305,10 +323,10 @@ shinyUI(fluidPage(
 					),
 					div(
 						style="padding-top: 15px; padding-right: 5px; float: right;",
-						actionBttn(inputId="alert_scale_info_close", label="Close", style="pill", size="xs", color="success")
+						actionBttn(inputId="risk_level_key_popup_close_covid", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (alert level info)
+			) # hidden (risk level color key popup)
 
 		) # tabPanel (COVID)
 

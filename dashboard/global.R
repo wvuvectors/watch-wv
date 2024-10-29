@@ -219,7 +219,7 @@ for (colname in colnames(df_regions)) {
 		#df_regions[[colname]] <- replace_na(df_regions[[colname]], "-")
 	}
 }
-df_regions$avg <- rowMeans(df_regions[,DISEASE_RS], na.rm = TRUE)
+df_regions$avg <- rowMeans(df_regions[,DISEASES], na.rm = TRUE)
 #df_regions <- df_regions %>% arrange(desc(avg))
 df_regions <- df_regions %>% arrange(region_name)
 
