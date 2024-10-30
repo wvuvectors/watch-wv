@@ -1,0 +1,704 @@
+#
+# Summary of WaTCH-WV seqr database.
+# Generated on 10/29/2024.
+#
+# NOTE: WaTCH level runs from 1 (most concerning) to 5 (least concerning).
+# NOTE: It indicates the importance of a variant specifically for WV wastewater testing.
+# NOTE: It is informed by CDC variant classification levels (VOI, VOC, etc.).
+#
+
+
+############################################################
+Overview:
+############################################################
+
+Total samples sequenced     : 514.
+Date last sample collected  : 10/09/2024.
+Date of last sequencing run : 10/14/2024.
+Total variants identified   : 1669.
+
+
+
+############################################################
+WaTCH LEVEL 1 (highest concern) variants
+############################################################
+
+KP.3* (Omicron/Pirola) detected in 174 samples
+------------------------------------------------------------
+09/08/2022 in Monongalia county (StarCityWWTP-01): 1.3% of sample A01-0353, batch SARS_20240708
+09/10/2022 in Monongalia county (StarCityWWTP-01): 47.4% of sample A01-0354, batch SARS_20240708
+0/0/200 in  county (): 2.2% of sample A01-0852, batch SARS_20240930
+04/14/2024 in Monongalia county (StarCityWWTP-01): 1.6% of sample A01-0855, batch SARS_20240930
+04/15/2024 in Monongalia county (StarCityWWTP-01): 49.4% of sample A01-0856, batch SARS_20240930
+06/05/2024 in Monongalia county (StarCityWWTP-01): 1.0% of sample A01-0907, batch SARS_20240813
+06/06/2024 in Monongalia county (StarCityWWTP-01): 0.5% of sample A01-0908, batch SARS_20240813
+06/08/2024 in Monongalia county (StarCityWWTP-01): 12.1% of sample A01-0909, batch SARS_20240813
+06/09/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0910, batch SARS_20240813
+06/10/2024 in Monongalia county (StarCityWWTP-01): 1.1% of sample A01-0911, batch SARS_20240813
+06/11/2024 in Monongalia county (StarCityWWTP-01): 43.5% of sample A01-0912, batch SARS_20240813
+06/12/2024 in Monongalia county (StarCityWWTP-01): 9.1% of sample A01-0913, batch SARS_20240730
+06/13/2024 in Monongalia county (StarCityWWTP-01): 10.1% of sample A01-0914, batch SARS_20240730
+06/15/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0915, batch SARS_20240730
+06/17/2024 in Monongalia county (StarCityWWTP-01): 7.5% of sample A01-0917, batch SARS_20240730
+06/19/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0919, batch SARS_20240730
+06/21/2024 in Monongalia county (StarCityWWTP-01): 7.5% of sample A01-0920, batch SARS_20240730
+06/24/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0922, batch SARS_20240730
+06/24/2024 in Monongalia county (StarCityWWTP-01): 15.7% of sample A01-0923, batch SARS_20240730
+06/25/2024 in Monongalia county (StarCityWWTP-01): 1.4% of sample A01-0924, batch SARS_20240730
+06/26/2024 in Monongalia county (StarCityWWTP-01): 35.7% of sample A01-0925, batch SARS_20240718
+06/27/2024 in Monongalia county (StarCityWWTP-01): 20.4% of sample A01-0926, batch SARS_20240718
+06/29/2024 in Monongalia county (StarCityWWTP-01): 96.7% of sample A01-0927, batch SARS_20240718
+06/30/2024 in Monongalia county (StarCityWWTP-01): 42.5% of sample A01-0928, batch SARS_20240718
+07/01/2024 in Monongalia county (StarCityWWTP-01): 45.3% of sample A01-0929, batch SARS_20240718
+07/02/2024 in Monongalia county (StarCityWWTP-01): 24.8% of sample A01-0930, batch SARS_20240718
+07/03/2024 in Monongalia county (StarCityWWTP-01): 59.5% of sample A01-0931, batch SARS_20240718
+07/04/2024 in Monongalia county (StarCityWWTP-01): 26.0% of sample A01-0932, batch SARS_20240718
+07/06/2024 in Monongalia county (StarCityWWTP-01): 24.7% of sample A01-0933, batch SARS_20240718
+07/07/2024 in Monongalia county (StarCityWWTP-01): 54.5% of sample A01-0934, batch SARS_20240718
+07/08/2024 in Monongalia county (StarCityWWTP-01): 63.5% of sample A01-0935, batch SARS_20240718
+07/09/2024 in Monongalia county (StarCityWWTP-01): 91.1% of sample A01-0936, batch SARS_20240718
+07/17/2024 in Monongalia county (StarCityWWTP-01): 82.9% of sample A01-0943, batch SARS_20240805
+07/18/2024 in Monongalia county (StarCityWWTP-01): 49.9% of sample A01-0944, batch SARS_20240805
+07/20/2024 in Monongalia county (StarCityWWTP-01): 7.2% of sample A01-0945, batch SARS_20240805
+07/21/2024 in Monongalia county (StarCityWWTP-01): 63.3% of sample A01-0946, batch SARS_20240805
+07/22/2024 in Monongalia county (StarCityWWTP-01): 73.0% of sample A01-0947, batch SARS_20240805
+07/23/2024 in Monongalia county (StarCityWWTP-01): 74.0% of sample A01-0948, batch SARS_20240805
+07/24/2024 in Monongalia county (StarCityWWTP-01): 35.4% of sample A01-0949, batch SARS_20240805
+07/25/2024 in Monongalia county (StarCityWWTP-01): 39.7% of sample A01-0950, batch SARS_20240805
+07/27/2024 in Monongalia county (StarCityWWTP-01): 35.2% of sample A01-0951, batch SARS_20240805
+07/28/2024 in Monongalia county (StarCityWWTP-01): 44.2% of sample A01-0952, batch SARS_20240805
+07/29/2024 in Monongalia county (StarCityWWTP-01): 35.2% of sample A01-0953, batch SARS_20240805
+07/30/2024 in Monongalia county (StarCityWWTP-01): 30.9% of sample A01-0954, batch SARS_20240805
+07/31/2024 in Monongalia county (StarCityWWTP-01): 42.3% of sample A01-0955, batch SARS_20240813
+08/01/2024 in Monongalia county (StarCityWWTP-01): 49.1% of sample A01-0956, batch SARS_20240813
+08/03/2024 in Monongalia county (StarCityWWTP-01): 21.5% of sample A01-0957, batch SARS_20240813
+08/04/2024 in Monongalia county (StarCityWWTP-01): 48.6% of sample A01-0958, batch SARS_20240813
+08/05/2024 in Monongalia county (StarCityWWTP-01): 59.3% of sample A01-0959, batch SARS_20240813
+08/06/2024 in Monongalia county (StarCityWWTP-01): 54.3% of sample A01-0960, batch SARS_20240813
+08/08/2024 in Monongalia county (StarCityWWTP-01): 53.1% of sample A01-0962, batch SARS_20240826
+08/11/2024 in Monongalia county (StarCityWWTP-01): 55.2% of sample A01-0964, batch SARS_20240826
+08/12/2024 in Monongalia county (StarCityWWTP-01): 32.9% of sample A01-0965, batch SARS_20240826
+08/13/2024 in Monongalia county (StarCityWWTP-01): 45.4% of sample A01-0966, batch SARS_20240826
+08/14/2024 in Monongalia county (StarCityWWTP-01): 46.8% of sample A01-0967, batch SARS_20240826
+08/15/2024 in Monongalia county (StarCityWWTP-01): 59.7% of sample A01-0968, batch SARS_20240826
+08/17/2024 in Monongalia county (StarCityWWTP-01): 20.1% of sample A01-0969, batch SARS_20240826
+08/18/2024 in Monongalia county (StarCityWWTP-01): 34.4% of sample A01-0970, batch SARS_20240826
+08/19/2024 in Monongalia county (StarCityWWTP-01): 44.5% of sample A01-0971, batch SARS_20240826
+08/20/2024 in Monongalia county (StarCityWWTP-01): 32.1% of sample A01-0972, batch SARS_20240826
+08/24/2024 in Monongalia county (StarCityWWTP-01): 33.4% of sample A01-0975, batch SARS_20240909
+08/25/2024 in Monongalia county (StarCityWWTP-01): 32.2% of sample A01-0976, batch SARS_20240909
+08/26/2024 in Monongalia county (StarCityWWTP-01): 46.0% of sample A01-0977, batch SARS_20240909
+08/27/2024 in Monongalia county (StarCityWWTP-01): 27.1% of sample A01-0978, batch SARS_20240909
+08/28/2024 in Monongalia county (StarCityWWTP-01): 33.4% of sample A01-0979, batch SARS_20240909
+08/29/2024 in Monongalia county (StarCityWWTP-01): 14.9% of sample A01-0980, batch SARS_20240909
+09/01/2024 in Monongalia county (StarCityWWTP-01): 15.3% of sample A01-0981, batch SARS_20240909
+09/02/2024 in Monongalia county (StarCityWWTP-01): 34.5% of sample A01-0982, batch SARS_20240909
+09/03/2024 in Monongalia county (StarCityWWTP-01): 33.5% of sample A01-0983, batch SARS_20240909
+09/09/2024 in Monongalia county (StarCityWWTP-01): 47.7% of sample A01-1040, batch SARS_20240930
+09/10/2024 in Monongalia county (StarCityWWTP-01): 65.2% of sample A01-1041, batch SARS_20240930
+09/11/2024 in Monongalia county (StarCityWWTP-01): 28.9% of sample A01-1042, batch SARS_20240930
+09/12/2024 in Monongalia county (StarCityWWTP-01): 48.2% of sample A01-1043, batch SARS_20240930
+09/14/2024 in Monongalia county (StarCityWWTP-01): 70.9% of sample A01-1044, batch SARS_20240930
+09/15/2024 in Monongalia county (StarCityWWTP-01): 52.7% of sample A01-1045, batch SARS_20240930
+09/16/2024 in Monongalia county (StarCityWWTP-01): 67.6% of sample A01-1046, batch SARS_20240930
+09/17/2024 in Monongalia county (StarCityWWTP-01): 96.2% of sample A01-1047, batch SARS_20241007
+09/18/2024 in Monongalia county (StarCityWWTP-01): 11.8% of sample A01-1048, batch SARS_20241007
+09/19/2024 in Monongalia county (StarCityWWTP-01): 6.4% of sample A01-1049, batch SARS_20241007
+09/23/2024 in Monongalia county (StarCityWWTP-01): 65.1% of sample A01-1051, batch SARS_20241007
+09/24/2024 in Monongalia county (StarCityWWTP-01): 78.8% of sample A01-1052, batch SARS_20241007
+09/25/2024 in Monongalia county (StarCityWWTP-01): 13.2% of sample A01-1053, batch SARS_20241007
+09/26/2024 in Monongalia county (StarCityWWTP-01): 72.8% of sample A01-1054, batch SARS_20241008
+09/28/2024 in Monongalia county (StarCityWWTP-01): 73.6% of sample A01-1055, batch SARS_20241008
+09/29/2024 in Monongalia county (StarCityWWTP-01): 70.0% of sample A01-1056, batch SARS_20241008
+09/30/2024 in Monongalia county (StarCityWWTP-01): 46.1% of sample A01-1057, batch SARS_20241008
+10/01/2024 in Monongalia county (StarCityWWTP-01): 58.9% of sample A01-1058, batch SARS_20241014
+10/02/2024 in Monongalia county (StarCityWWTP-01): 79.3% of sample A01-1059, batch SARS_20241014
+10/03/2024 in Monongalia county (StarCityWWTP-01): 11.4% of sample A01-1060, batch SARS_20241014
+10/05/2024 in Monongalia county (StarCityWWTP-01): 29.6% of sample A01-1061, batch SARS_20241014
+10/06/2024 in Monongalia county (StarCityWWTP-01): 95.5% of sample A01-1062, batch SARS_20241014
+10/07/2024 in Monongalia county (StarCityWWTP-01): 91.0% of sample A01-1063, batch SARS_20241014
+10/08/2024 in Monongalia county (StarCityWWTP-01): 41.2% of sample A01-1064, batch SARS_20241014
+08/31/2024 in Monongalia county (StadiumNE-01): 29.1% of sample A02-1342, batch SARS_20240909
+09/21/2024 in Monongalia county (StadiumSE-01): 56.6% of sample A02-1351, batch SARS_20241007
+04/09/2024 in Ohio county (WheelingWWTP-01): 43.5% of sample C01-0641, batch SARS_20240930
+04/11/2024 in Ohio county (WheelingWWTP-01): 45.4% of sample C01-0643, batch SARS_20240930
+06/06/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0663, batch SARS_20240813
+06/11/2024 in Ohio county (WheelingWWTP-01): 6.7% of sample C01-0666, batch SARS_20240730
+06/12/2024 in Ohio county (WheelingWWTP-01): 5.3% of sample C01-0667, batch SARS_20240730
+06/13/2024 in Ohio county (WheelingWWTP-01): 2.2% of sample C01-0668, batch SARS_20240730
+06/17/2024 in Ohio county (WheelingWWTP-01): 8.9% of sample C01-0670, batch SARS_20240730
+06/18/2024 in Ohio county (WheelingWWTP-01): 12.2% of sample C01-0671, batch SARS_20240730
+06/25/2024 in Ohio county (WheelingWWTP-01): 24.9% of sample C01-0676, batch SARS_20240718
+06/27/2024 in Ohio county (WheelingWWTP-01): 38.8% of sample C01-0678, batch SARS_20240718
+06/28/2024 in Ohio county (WheelingWWTP-01): 1.9% of sample C01-0679, batch SARS_20240718
+07/02/2024 in Ohio county (WheelingWWTP-01): 40.5% of sample C01-0681, batch SARS_20240718
+07/03/2024 in Ohio county (WheelingWWTP-01): 32.7% of sample C01-0682, batch SARS_20240718
+07/04/2024 in Ohio county (WheelingWWTP-01): 48.8% of sample C01-0683, batch SARS_20240718
+07/08/2024 in Ohio county (WheelingWWTP-01): 30.0% of sample C01-0685, batch SARS_20240718
+07/18/2024 in Ohio county (WheelingWWTP-01): 1.6% of sample C01-0693, batch SARS_20240805
+07/23/2024 in Ohio county (WheelingWWTP-01): 54.7% of sample C01-0696, batch SARS_20240805
+07/24/2024 in Ohio county (WheelingWWTP-01): 48.0% of sample C01-0697, batch SARS_20240805
+07/25/2024 in Ohio county (WheelingWWTP-01): 42.3% of sample C01-0698, batch SARS_20240805
+07/26/2024 in Ohio county (WheelingWWTP-01): 45.2% of sample C01-0699, batch SARS_20240805
+07/29/2024 in Ohio county (WheelingWWTP-01): 81.7% of sample C01-0700, batch SARS_20240805
+07/30/2024 in Ohio county (WheelingWWTP-01): 9.2% of sample C01-0701, batch SARS_20240813
+07/31/2024 in Ohio county (WheelingWWTP-01): 41.5% of sample C01-0702, batch SARS_20240813
+08/01/2024 in Ohio county (WheelingWWTP-01): 69.8% of sample C01-0703, batch SARS_20240813
+08/02/2024 in Ohio county (WheelingWWTP-01): 41.0% of sample C01-0704, batch SARS_20240813
+08/05/2024 in Ohio county (WheelingWWTP-01): 6.9% of sample C01-0705, batch SARS_20240813
+08/12/2024 in Ohio county (WheelingWWTP-01): 44.5% of sample C01-0706, batch SARS_20240826
+08/09/2024 in Ohio county (WheelingWWTP-01): 46.9% of sample C01-0707, batch SARS_20240826
+08/08/2024 in Ohio county (WheelingWWTP-01): 49.7% of sample C01-0708, batch SARS_20240826
+08/13/2024 in Ohio county (WheelingWWTP-01): 38.6% of sample C01-0711, batch SARS_20240826
+08/14/2024 in Ohio county (WheelingWWTP-01): 4.9% of sample C01-0712, batch SARS_20240826
+08/15/2024 in Ohio county (WheelingWWTP-01): 92.3% of sample C01-0713, batch SARS_20240826
+08/16/2024 in Ohio county (WheelingWWTP-01): 58.6% of sample C01-0714, batch SARS_20240826
+08/19/2024 in Ohio county (WheelingWWTP-01): 43.8% of sample C01-0715, batch SARS_20240826
+08/20/2024 in Ohio county (WheelingWWTP-01): 29.1% of sample C01-0716, batch SARS_20240909
+08/21/2024 in Ohio county (WheelingWWTP-01): 82.4% of sample C01-0717, batch SARS_20240909
+08/26/2024 in Ohio county (WheelingWWTP-01): 43.5% of sample C01-0720, batch SARS_20240909
+08/27/2024 in Ohio county (WheelingWWTP-01): 44.2% of sample C01-0721, batch SARS_20240909
+08/28/2024 in Ohio county (WheelingWWTP-01): 51.9% of sample C01-0722, batch SARS_20240909
+08/29/2024 in Ohio county (WheelingWWTP-01): 64.9% of sample C01-0723, batch SARS_20240909
+08/30/2024 in Ohio county (WheelingWWTP-01): 72.7% of sample C01-0724, batch SARS_20240909
+09/01/2024 in Ohio county (WheelingWWTP-01): 76.2% of sample C01-0725, batch SARS_20240909
+09/10/2024 in Ohio county (WheelingWWTP-01): 48.2% of sample C01-0731, batch SARS_20240930
+09/11/2024 in Ohio county (WheelingWWTP-01): 28.0% of sample C01-0732, batch SARS_20240930
+09/12/2024 in Ohio county (WheelingWWTP-01): 95.4% of sample C01-0733, batch SARS_20240930
+09/13/2024 in Ohio county (WheelingWWTP-01): 97.9% of sample C01-0734, batch SARS_20240930
+09/17/2024 in Ohio county (WheelingWWTP-01): 69.8% of sample C01-0736, batch SARS_20241007
+09/19/2024 in Ohio county (WheelingWWTP-01): 94.2% of sample C01-0738, batch SARS_20241007
+09/20/2024 in Ohio county (WheelingWWTP-01): 97.9% of sample C01-0739, batch SARS_20241007
+09/23/2024 in Ohio county (WheelingWWTP-01): 62.2% of sample C01-0740, batch SARS_20241007
+09/24/2024 in Ohio county (WheelingWWTP-01): 82.0% of sample C01-0741, batch SARS_20241008
+09/25/2024 in Ohio county (WheelingWWTP-01): 50.8% of sample C01-0742, batch SARS_20241008
+09/26/2024 in Ohio county (WheelingWWTP-01): 57.8% of sample C01-0743, batch SARS_20241008
+09/27/2024 in Ohio county (WheelingWWTP-01): 64.7% of sample C01-0744, batch SARS_20241008
+09/30/2024 in Ohio county (WheelingWWTP-01): 96.3% of sample C01-0745, batch SARS_20241008
+10/01/2024 in Ohio county (WheelingWWTP-01): 2.8% of sample C01-0746, batch SARS_20241014
+10/03/2024 in Ohio county (WheelingWWTP-01): 81.2% of sample C01-0748, batch SARS_20241014
+10/04/2024 in Ohio county (WheelingWWTP-01): 44.4% of sample C01-0749, batch SARS_20241014
+10/07/2024 in Ohio county (WheelingWWTP-01): 86.9% of sample C01-0750, batch SARS_20241014
+09/25/2024 in Mercer county (PrincetonWWTP-01): 73.4% of sample E01-0307, batch SARS_20241008
+09/25/2024 in Mercer county (PrincetonWWTP-01): 39.3% of sample E01-0308, batch SARS_20241008
+09/17/2024 in Mercer county (PrincetonWWTP-01): 29.8% of sample E01-0312, batch SARS_20241007
+09/18/2024 in Mercer county (PrincetonWWTP-01): 8.2% of sample E01-0313, batch SARS_20241007
+08/02/2024 in Mercer county (PrincetonWWTP-01): 48.8% of sample E01-0322, batch SARS_20240826
+08/14/2024 in Mercer county (PrincetonWWTP-01): 50.4% of sample E01-0324, batch SARS_20240826
+04/10/2024 in Mercer county (PrincetonWWTP-01): 52.5% of sample E01-0432, batch SARS_20240930
+06/18/2024 in Mercer county (PrincetonWWTP-01): 0.1% of sample E01-0540, batch SARS_20240730
+06/19/2024 in Mercer county (PrincetonWWTP-01): 0.2% of sample E01-0541, batch SARS_20240730
+06/25/2024 in Mercer county (PrincetonWWTP-01): 8.9% of sample E01-0542, batch SARS_20240730
+07/18/2024 in Mercer county (PrincetonWWTP-01): 48.2% of sample E01-0543, batch SARS_20240805
+07/19/2024 in Mercer county (PrincetonWWTP-01): 25.3% of sample E01-0544, batch SARS_20240805
+07/23/2024 in Mercer county (PrincetonWWTP-01): 21.1% of sample E01-0545, batch SARS_20240805
+07/25/2024 in Mercer county (PrincetonWWTP-01): 96.9% of sample E01-0547, batch SARS_20240813
+07/26/2024 in Mercer county (PrincetonWWTP-01): 58.0% of sample E01-0548, batch SARS_20240813
+07/30/2024 in Mercer county (PrincetonWWTP-01): 71.9% of sample E01-0549, batch SARS_20240813
+09/26/2024 in Mercer county (PrincetonWWTP-01): 95.2% of sample E01-0651, batch SARS_20241014
+10/02/2024 in Mercer county (PrincetonWWTP-01): 53.2% of sample E01-0654, batch SARS_20241014
+10/03/2024 in Mercer county (PrincetonWWTP-01): 6.3% of sample E01-0655, batch SARS_20241014
+10/04/2024 in Mercer county (PrincetonWWTP-01): 0.5% of sample E01-0656, batch SARS_20241014
+
+
+XEC* (Omicron/Pirola) detected in 17 samples
+------------------------------------------------------------
+06/05/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0907, batch SARS_20240813
+07/21/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0946, batch SARS_20240805
+08/03/2024 in Monongalia county (StarCityWWTP-01): 24.1% of sample A01-0957, batch SARS_20240813
+08/08/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0962, batch SARS_20240826
+08/19/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0971, batch SARS_20240826
+08/20/2024 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0972, batch SARS_20240826
+09/09/2024 in Monongalia county (StarCityWWTP-01): 0.4% of sample A01-1040, batch SARS_20240930
+09/12/2024 in Monongalia county (StarCityWWTP-01): 6.4% of sample A01-1043, batch SARS_20240930
+09/18/2024 in Monongalia county (StarCityWWTP-01): 1.0% of sample A01-1048, batch SARS_20241007
+10/06/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-1062, batch SARS_20241014
+08/19/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0715, batch SARS_20240826
+08/21/2024 in Ohio county (WheelingWWTP-01): 0.4% of sample C01-0717, batch SARS_20240909
+09/11/2024 in Ohio county (WheelingWWTP-01): 0.8% of sample C01-0732, batch SARS_20240930
+09/19/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0738, batch SARS_20241007
+09/23/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0740, batch SARS_20241007
+10/03/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0748, batch SARS_20241014
+07/25/2024 in Mercer county (PrincetonWWTP-01): 0.4% of sample E01-0547, batch SARS_20240813
+
+
+JN.1* (Omicron/Pirola) detected in 271 samples
+------------------------------------------------------------
+09/07/2022 in Monongalia county (StarCityWWTP-01): 191.9% of sample A01-0352, batch SARS_20240930
+09/08/2022 in Monongalia county (StarCityWWTP-01): 193.0% of sample A01-0353, batch SARS_20240708
+09/10/2022 in Monongalia county (StarCityWWTP-01): 126.6% of sample A01-0354, batch SARS_20240708
+11/05/2023 in Monongalia county (StarCityWWTP-01): 3.5% of sample A01-0714, batch SARS_20231129_B
+11/13/2023 in Monongalia county (StarCityWWTP-01): 0.4% of sample A01-0721, batch SARS_20240104
+11/19/2023 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0727, batch SARS_20240227
+11/21/2023 in Monongalia county (StarCityWWTP-01): 1.5% of sample A01-0729, batch SARS_20240130_A
+11/26/2023 in Monongalia county (StarCityWWTP-01): 3.4% of sample A01-0733, batch SARS_20240130_A
+11/27/2023 in Monongalia county (StarCityWWTP-01): 7.3% of sample A01-0734, batch SARS_20240130_A
+11/28/2023 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0735, batch SARS_20240130_A
+01/31/2024 in Monongalia county (StarCityWWTP-01): 83.5% of sample A01-0738, batch SARS_20240214
+02/01/2024 in Monongalia county (StarCityWWTP-01): 88.6% of sample A01-0739, batch SARS_20240214
+11/29/2023 in Monongalia county (StarCityWWTP-01): 11.4% of sample A01-0740, batch SARS_20240130_A
+11/30/2023 in Monongalia county (StarCityWWTP-01): 3.7% of sample A01-0741, batch SARS_20240130_A
+12/13/2023 in Monongalia county (StarCityWWTP-01): 0.7% of sample A01-0752, batch SARS_20240123_C
+12/14/2023 in Monongalia county (StarCityWWTP-01): 12.4% of sample A01-0753, batch SARS_20240123_C
+12/17/2023 in Monongalia county (StarCityWWTP-01): 47.0% of sample A01-0754, batch SARS_20240123_C
+12/18/2023 in Monongalia county (StarCityWWTP-01): 17.9% of sample A01-0755, batch SARS_20240123_C
+12/21/2023 in Monongalia county (StarCityWWTP-01): 20.4% of sample A01-0757, batch SARS_20240123_C
+12/24/2023 in Monongalia county (StarCityWWTP-01): 20.3% of sample A01-0758, batch SARS_20240123_C
+12/20/2023 in Monongalia county (StarCityWWTP-01): 21.2% of sample A01-0759, batch SARS_20240123_C
+12/25/2023 in Monongalia county (StarCityWWTP-01): 2.8% of sample A01-0760, batch SARS_20240123_C
+01/10/2024 in Monongalia county (StarCityWWTP-01): 38.4% of sample A01-0774, batch SARS_20240226
+01/11/2024 in Monongalia county (StarCityWWTP-01): 65.3% of sample A01-0775, batch SARS_20240214
+01/13/2024 in Monongalia county (StarCityWWTP-01): 76.3% of sample A01-0776, batch SARS_20240214
+01/14/2024 in Monongalia county (StarCityWWTP-01): 55.3% of sample A01-0777, batch SARS_20240214
+01/15/2024 in Monongalia county (StarCityWWTP-01): 49.8% of sample A01-0778, batch SARS_20240214
+01/16/2024 in Monongalia county (StarCityWWTP-01): 74.6% of sample A01-0779, batch SARS_20240214
+01/17/2024 in Monongalia county (StarCityWWTP-01): 54.5% of sample A01-0780, batch SARS_20240226
+01/18/2024 in Monongalia county (StarCityWWTP-01): 25.8% of sample A01-0781, batch SARS_20240214
+01/20/2024 in Monongalia county (StarCityWWTP-01): 74.9% of sample A01-0782, batch SARS_20240214
+01/21/2024 in Monongalia county (StarCityWWTP-01): 67.3% of sample A01-0783, batch SARS_20240214
+01/22/2024 in Monongalia county (StarCityWWTP-01): 70.3% of sample A01-0784, batch SARS_20240219
+01/23/2024 in Monongalia county (StarCityWWTP-01): 79.3% of sample A01-0785, batch SARS_20240219
+01/24/2024 in Monongalia county (StarCityWWTP-01): 87.5% of sample A01-0786, batch SARS_20240219
+01/27/2024 in Monongalia county (StarCityWWTP-01): 77.8% of sample A01-0788, batch SARS_20240219
+01/28/2024 in Monongalia county (StarCityWWTP-01): 74.6% of sample A01-0789, batch SARS_20240219
+02/05/2024 in Monongalia county (StarCityWWTP-01): 89.6% of sample A01-0790, batch SARS_20240219
+02/06/2024 in Monongalia county (StarCityWWTP-01): 92.2% of sample A01-0791, batch SARS_20240219
+02/08/2024 in Monongalia county (StarCityWWTP-01): 96.4% of sample A01-0792, batch SARS_20240226
+02/07/2024 in Monongalia county (StarCityWWTP-01): 93.1% of sample A01-0793, batch SARS_20240226
+02/10/2024 in Monongalia county (StarCityWWTP-01): 90.5% of sample A01-0794, batch SARS_20240226
+02/11/2024 in Monongalia county (StarCityWWTP-01): 89.0% of sample A01-0795, batch SARS_20240226
+01/29/2024 in Monongalia county (StarCityWWTP-01): 98.6% of sample A01-0796, batch SARS_20240219
+01/30/2024 in Monongalia county (StarCityWWTP-01): 86.5% of sample A01-0797, batch SARS_20240219
+02/03/2024 in Monongalia county (StarCityWWTP-01): 82.8% of sample A01-0798, batch SARS_20240219
+02/04/2024 in Monongalia county (StarCityWWTP-01): 88.8% of sample A01-0799, batch SARS_20240219
+02/12/2024 in Monongalia county (StarCityWWTP-01): 97.5% of sample A01-0800, batch SARS_20240226
+02/13/2024 in Monongalia county (StarCityWWTP-01): 94.5% of sample A01-0801, batch SARS_20240226
+02/14/2024 in Monongalia county (StarCityWWTP-01): 93.7% of sample A01-0802, batch SARS_20240226
+02/15/2024 in Monongalia county (StarCityWWTP-01): 64.2% of sample A01-0803, batch SARS_20240226
+02/17/2024 in Monongalia county (StarCityWWTP-01): 87.7% of sample A01-0804, batch SARS_20240226
+02/18/2024 in Monongalia county (StarCityWWTP-01): 73.1% of sample A01-0805, batch SARS_20240226
+02/20/2024 in Monongalia county (StarCityWWTP-01): 95.0% of sample A01-0807, batch SARS_20240226
+02/21/2024 in Monongalia county (StarCityWWTP-01): 89.3% of sample A01-0808, batch SARS_20240229_B
+02/22/2024 in Monongalia county (StarCityWWTP-01): 98.4% of sample A01-0809, batch SARS_20240229_B
+02/24/2024 in Monongalia county (StarCityWWTP-01): 86.9% of sample A01-0810, batch SARS_20240229_B
+02/25/2024 in Monongalia county (StarCityWWTP-01): 53.5% of sample A01-0811, batch SARS_20240229_B
+02/27/2024 in Monongalia county (StarCityWWTP-01): 89.1% of sample A01-0812, batch SARS_20240229_B
+02/26/2024 in Monongalia county (StarCityWWTP-01): 53.5% of sample A01-0813, batch SARS_20240229_B
+03/02/2024 in Monongalia county (StarCityWWTP-01): 75.5% of sample A01-0814, batch SARS_20240326
+03/04/2024 in Monongalia county (StarCityWWTP-01): 92.5% of sample A01-0816, batch SARS_20240326
+03/05/2024 in Monongalia county (StarCityWWTP-01): 96.4% of sample A01-0817, batch SARS_20240326
+03/06/2024 in Monongalia county (StarCityWWTP-01): 79.0% of sample A01-0818, batch SARS_20240326
+03/07/2024 in Monongalia county (StarCityWWTP-01): 79.8% of sample A01-0819, batch SARS_20240326
+03/09/2024 in Monongalia county (StarCityWWTP-01): 97.9% of sample A01-0820, batch SARS_20240326
+03/10/2024 in Monongalia county (StarCityWWTP-01): 97.2% of sample A01-0821, batch SARS_20240326
+03/11/2024 in Monongalia county (StarCityWWTP-01): 88.8% of sample A01-0822, batch SARS_20240326
+03/12/2024 in Monongalia county (StarCityWWTP-01): 50.8% of sample A01-0823, batch SARS_20240326
+0/0/200 in  county (): 1.9% of sample A01-0852, batch SARS_20240930
+04/14/2024 in Monongalia county (StarCityWWTP-01): 194.7% of sample A01-0855, batch SARS_20240930
+04/15/2024 in Monongalia county (StarCityWWTP-01): 30.8% of sample A01-0856, batch SARS_20240930
+06/05/2024 in Monongalia county (StarCityWWTP-01): 0.7% of sample A01-0907, batch SARS_20240813
+06/06/2024 in Monongalia county (StarCityWWTP-01): 2.0% of sample A01-0908, batch SARS_20240813
+06/08/2024 in Monongalia county (StarCityWWTP-01): 81.8% of sample A01-0909, batch SARS_20240813
+06/10/2024 in Monongalia county (StarCityWWTP-01): 94.1% of sample A01-0911, batch SARS_20240813
+06/11/2024 in Monongalia county (StarCityWWTP-01): 12.0% of sample A01-0912, batch SARS_20240813
+06/12/2024 in Monongalia county (StarCityWWTP-01): 59.2% of sample A01-0913, batch SARS_20240730
+06/13/2024 in Monongalia county (StarCityWWTP-01): 45.0% of sample A01-0914, batch SARS_20240730
+06/15/2024 in Monongalia county (StarCityWWTP-01): 70.1% of sample A01-0915, batch SARS_20240730
+06/16/2024 in Monongalia county (StarCityWWTP-01): 60.0% of sample A01-0916, batch SARS_20240730
+06/17/2024 in Monongalia county (StarCityWWTP-01): 35.8% of sample A01-0917, batch SARS_20240730
+06/18/2024 in Monongalia county (StarCityWWTP-01): 26.0% of sample A01-0918, batch SARS_20240730
+06/19/2024 in Monongalia county (StarCityWWTP-01): 32.1% of sample A01-0919, batch SARS_20240730
+06/21/2024 in Monongalia county (StarCityWWTP-01): 28.1% of sample A01-0920, batch SARS_20240730
+06/23/2024 in Monongalia county (StarCityWWTP-01): 0.6% of sample A01-0921, batch SARS_20240730
+06/24/2024 in Monongalia county (StarCityWWTP-01): 90.5% of sample A01-0922, batch SARS_20240730
+06/24/2024 in Monongalia county (StarCityWWTP-01): 39.2% of sample A01-0923, batch SARS_20240730
+06/25/2024 in Monongalia county (StarCityWWTP-01): 29.2% of sample A01-0924, batch SARS_20240730
+06/26/2024 in Monongalia county (StarCityWWTP-01): 15.5% of sample A01-0925, batch SARS_20240718
+06/27/2024 in Monongalia county (StarCityWWTP-01): 20.9% of sample A01-0926, batch SARS_20240718
+06/30/2024 in Monongalia county (StarCityWWTP-01): 39.5% of sample A01-0928, batch SARS_20240718
+07/01/2024 in Monongalia county (StarCityWWTP-01): 7.4% of sample A01-0929, batch SARS_20240718
+07/02/2024 in Monongalia county (StarCityWWTP-01): 1.8% of sample A01-0930, batch SARS_20240718
+07/03/2024 in Monongalia county (StarCityWWTP-01): 9.3% of sample A01-0931, batch SARS_20240718
+07/04/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0932, batch SARS_20240718
+07/06/2024 in Monongalia county (StarCityWWTP-01): 50.3% of sample A01-0933, batch SARS_20240718
+07/07/2024 in Monongalia county (StarCityWWTP-01): 38.3% of sample A01-0934, batch SARS_20240718
+07/08/2024 in Monongalia county (StarCityWWTP-01): 26.3% of sample A01-0935, batch SARS_20240718
+07/09/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0936, batch SARS_20240718
+07/18/2024 in Monongalia county (StarCityWWTP-01): 8.8% of sample A01-0944, batch SARS_20240805
+07/20/2024 in Monongalia county (StarCityWWTP-01): 2.7% of sample A01-0945, batch SARS_20240805
+07/21/2024 in Monongalia county (StarCityWWTP-01): 23.2% of sample A01-0946, batch SARS_20240805
+07/23/2024 in Monongalia county (StarCityWWTP-01): 4.9% of sample A01-0948, batch SARS_20240805
+07/25/2024 in Monongalia county (StarCityWWTP-01): 9.6% of sample A01-0950, batch SARS_20240805
+07/27/2024 in Monongalia county (StarCityWWTP-01): 27.0% of sample A01-0951, batch SARS_20240805
+07/28/2024 in Monongalia county (StarCityWWTP-01): 2.2% of sample A01-0952, batch SARS_20240805
+07/29/2024 in Monongalia county (StarCityWWTP-01): 6.0% of sample A01-0953, batch SARS_20240805
+07/30/2024 in Monongalia county (StarCityWWTP-01): 15.1% of sample A01-0954, batch SARS_20240805
+08/04/2024 in Monongalia county (StarCityWWTP-01): 16.9% of sample A01-0958, batch SARS_20240813
+08/06/2024 in Monongalia county (StarCityWWTP-01): 3.7% of sample A01-0960, batch SARS_20240813
+08/08/2024 in Monongalia county (StarCityWWTP-01): 6.6% of sample A01-0962, batch SARS_20240826
+08/11/2024 in Monongalia county (StarCityWWTP-01): 7.8% of sample A01-0964, batch SARS_20240826
+08/12/2024 in Monongalia county (StarCityWWTP-01): 16.7% of sample A01-0965, batch SARS_20240826
+08/13/2024 in Monongalia county (StarCityWWTP-01): 14.9% of sample A01-0966, batch SARS_20240826
+08/14/2024 in Monongalia county (StarCityWWTP-01): 21.6% of sample A01-0967, batch SARS_20240826
+08/15/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0968, batch SARS_20240826
+08/17/2024 in Monongalia county (StarCityWWTP-01): 14.0% of sample A01-0969, batch SARS_20240826
+08/18/2024 in Monongalia county (StarCityWWTP-01): 20.3% of sample A01-0970, batch SARS_20240826
+08/19/2024 in Monongalia county (StarCityWWTP-01): 7.5% of sample A01-0971, batch SARS_20240826
+08/20/2024 in Monongalia county (StarCityWWTP-01): 10.8% of sample A01-0972, batch SARS_20240826
+08/24/2024 in Monongalia county (StarCityWWTP-01): 13.8% of sample A01-0975, batch SARS_20240909
+08/25/2024 in Monongalia county (StarCityWWTP-01): 6.8% of sample A01-0976, batch SARS_20240909
+08/26/2024 in Monongalia county (StarCityWWTP-01): 0.5% of sample A01-0977, batch SARS_20240909
+08/27/2024 in Monongalia county (StarCityWWTP-01): 15.9% of sample A01-0978, batch SARS_20240909
+08/28/2024 in Monongalia county (StarCityWWTP-01): 5.2% of sample A01-0979, batch SARS_20240909
+08/29/2024 in Monongalia county (StarCityWWTP-01): 0.4% of sample A01-0980, batch SARS_20240909
+09/01/2024 in Monongalia county (StarCityWWTP-01): 19.3% of sample A01-0981, batch SARS_20240909
+09/02/2024 in Monongalia county (StarCityWWTP-01): 5.6% of sample A01-0982, batch SARS_20240909
+09/03/2024 in Monongalia county (StarCityWWTP-01): 6.4% of sample A01-0983, batch SARS_20240909
+09/09/2024 in Monongalia county (StarCityWWTP-01): 41.3% of sample A01-1040, batch SARS_20240930
+09/10/2024 in Monongalia county (StarCityWWTP-01): 20.2% of sample A01-1041, batch SARS_20240930
+09/11/2024 in Monongalia county (StarCityWWTP-01): 34.6% of sample A01-1042, batch SARS_20240930
+09/14/2024 in Monongalia county (StarCityWWTP-01): 1.0% of sample A01-1044, batch SARS_20240930
+09/18/2024 in Monongalia county (StarCityWWTP-01): 33.6% of sample A01-1048, batch SARS_20241007
+09/19/2024 in Monongalia county (StarCityWWTP-01): 0.7% of sample A01-1049, batch SARS_20241007
+09/25/2024 in Monongalia county (StarCityWWTP-01): 17.4% of sample A01-1053, batch SARS_20241007
+09/26/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-1054, batch SARS_20241008
+09/28/2024 in Monongalia county (StarCityWWTP-01): 2.3% of sample A01-1055, batch SARS_20241008
+09/29/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-1056, batch SARS_20241008
+09/30/2024 in Monongalia county (StarCityWWTP-01): 23.8% of sample A01-1057, batch SARS_20241008
+10/03/2024 in Monongalia county (StarCityWWTP-01): 35.5% of sample A01-1060, batch SARS_20241014
+10/08/2024 in Monongalia county (StarCityWWTP-01): 54.6% of sample A01-1064, batch SARS_20241014
+08/31/2024 in Monongalia county (StadiumNE-01): 7.8% of sample A02-1342, batch SARS_20240909
+09/21/2024 in Monongalia county (StadiumSE-01): 1.8% of sample A02-1351, batch SARS_20241007
+11/14/2023 in Ohio county (WheelingWWTP-01): 6.7% of sample C01-0536, batch SARS_20240227
+11/15/2023 in Ohio county (WheelingWWTP-01): 4.1% of sample C01-0537, batch SARS_20240227
+11/16/2023 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0538, batch SARS_20240227
+11/17/2023 in Ohio county (WheelingWWTP-01): 0.8% of sample C01-0539, batch SARS_20240227
+11/23/2023 in Ohio county (WheelingWWTP-01): 1.8% of sample C01-0544, batch SARS_20240123_A
+11/27/2023 in Ohio county (WheelingWWTP-01): 8.6% of sample C01-0545, batch SARS_20240123_A
+11/28/2023 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0546, batch SARS_20240123_A
+12/04/2023 in Ohio county (WheelingWWTP-01): 89.2% of sample C01-0550, batch SARS_20240123_A
+12/05/2023 in Ohio county (WheelingWWTP-01): 32.0% of sample C01-0551, batch SARS_20240123_B
+12/07/2023 in Ohio county (WheelingWWTP-01): 9.2% of sample C01-0553, batch SARS_20240123_B
+12/08/2023 in Ohio county (WheelingWWTP-01): 1.4% of sample C01-0554, batch SARS_20240123_B
+12/11/2023 in Ohio county (WheelingWWTP-01): 15.5% of sample C01-0555, batch SARS_20240123_B
+12/12/2023 in Ohio county (WheelingWWTP-01): 13.5% of sample C01-0556, batch SARS_20240123_B
+12/13/2023 in Ohio county (WheelingWWTP-01): 16.3% of sample C01-0557, batch SARS_20240123_B
+12/14/2023 in Ohio county (WheelingWWTP-01): 21.3% of sample C01-0558, batch SARS_20240123_B
+12/21/2023 in Ohio county (WheelingWWTP-01): 26.1% of sample C01-0563, batch SARS_20240219
+12/22/2023 in Ohio county (WheelingWWTP-01): 51.3% of sample C01-0564, batch SARS_20240219
+12/25/2023 in Ohio county (WheelingWWTP-01): 35.1% of sample C01-0565, batch SARS_20240219
+12/29/2023 in Ohio county (WheelingWWTP-01): 20.1% of sample C01-0569, batch SARS_20240219
+01/01/2024 in Ohio county (WheelingWWTP-01): 40.8% of sample C01-0570, batch SARS_20240219
+01/02/2024 in Ohio county (WheelingWWTP-01): 85.8% of sample C01-0571, batch SARS_20240219
+01/03/2024 in Ohio county (WheelingWWTP-01): 48.5% of sample C01-0572, batch SARS_20240226
+01/04/2024 in Ohio county (WheelingWWTP-01): 59.0% of sample C01-0573, batch SARS_20240227
+01/05/2024 in Ohio county (WheelingWWTP-01): 90.0% of sample C01-0574, batch SARS_20240227
+01/08/2024 in Ohio county (WheelingWWTP-01): 74.5% of sample C01-0575, batch SARS_20240227
+01/11/2024 in Ohio county (WheelingWWTP-01): 68.1% of sample C01-0578, batch SARS_20240227
+01/12/2024 in Ohio county (WheelingWWTP-01): 72.3% of sample C01-0579, batch SARS_20240227
+01/15/2024 in Ohio county (WheelingWWTP-01): 60.4% of sample C01-0580, batch SARS_20240227
+01/16/2024 in Ohio county (WheelingWWTP-01): 71.7% of sample C01-0581, batch SARS_20240227
+01/17/2024 in Ohio county (WheelingWWTP-01): 93.6% of sample C01-0582, batch SARS_20240227
+01/18/2024 in Ohio county (WheelingWWTP-01): 29.2% of sample C01-0583, batch SARS_20240227
+01/19/2024 in Ohio county (WheelingWWTP-01): 81.3% of sample C01-0584, batch SARS_20240227
+02/08/2024 in Ohio county (WheelingWWTP-01): 78.5% of sample C01-0598, batch SARS_20240226
+02/09/2024 in Ohio county (WheelingWWTP-01): 69.9% of sample C01-0599, batch SARS_20240226
+02/12/2024 in Ohio county (WheelingWWTP-01): 70.7% of sample C01-0600, batch SARS_20240226
+02/21/2024 in Ohio county (WheelingWWTP-01): 98.9% of sample C01-0607, batch SARS_20240229_B
+02/23/2024 in Ohio county (WheelingWWTP-01): 98.8% of sample C01-0609, batch SARS_20240229_B
+02/26/2024 in Ohio county (WheelingWWTP-01): 98.7% of sample C01-0610, batch SARS_20240229_B
+02/28/2024 in Ohio county (WheelingWWTP-01): 83.4% of sample C01-0612, batch SARS_20240326
+03/05/2024 in Ohio county (WheelingWWTP-01): 67.3% of sample C01-0616, batch SARS_20240326
+03/06/2024 in Ohio county (WheelingWWTP-01): 97.1% of sample C01-0617, batch SARS_20240326
+03/11/2024 in Ohio county (WheelingWWTP-01): 77.4% of sample C01-0620, batch SARS_20240326
+04/09/2024 in Ohio county (WheelingWWTP-01): 32.8% of sample C01-0641, batch SARS_20240930
+04/11/2024 in Ohio county (WheelingWWTP-01): 36.0% of sample C01-0643, batch SARS_20240930
+06/06/2024 in Ohio county (WheelingWWTP-01): 40.3% of sample C01-0663, batch SARS_20240813
+06/11/2024 in Ohio county (WheelingWWTP-01): 41.7% of sample C01-0666, batch SARS_20240730
+06/12/2024 in Ohio county (WheelingWWTP-01): 56.9% of sample C01-0667, batch SARS_20240730
+06/13/2024 in Ohio county (WheelingWWTP-01): 50.1% of sample C01-0668, batch SARS_20240730
+06/17/2024 in Ohio county (WheelingWWTP-01): 47.7% of sample C01-0670, batch SARS_20240730
+06/18/2024 in Ohio county (WheelingWWTP-01): 51.5% of sample C01-0671, batch SARS_20240730
+06/27/2024 in Ohio county (WheelingWWTP-01): 4.9% of sample C01-0678, batch SARS_20240718
+06/28/2024 in Ohio county (WheelingWWTP-01): 37.4% of sample C01-0679, batch SARS_20240718
+07/02/2024 in Ohio county (WheelingWWTP-01): 7.6% of sample C01-0681, batch SARS_20240718
+07/03/2024 in Ohio county (WheelingWWTP-01): 4.3% of sample C01-0682, batch SARS_20240718
+07/04/2024 in Ohio county (WheelingWWTP-01): 23.7% of sample C01-0683, batch SARS_20240718
+07/08/2024 in Ohio county (WheelingWWTP-01): 10.1% of sample C01-0685, batch SARS_20240718
+07/18/2024 in Ohio county (WheelingWWTP-01): 31.4% of sample C01-0693, batch SARS_20240805
+07/23/2024 in Ohio county (WheelingWWTP-01): 39.6% of sample C01-0696, batch SARS_20240805
+07/24/2024 in Ohio county (WheelingWWTP-01): 19.5% of sample C01-0697, batch SARS_20240805
+07/25/2024 in Ohio county (WheelingWWTP-01): 10.4% of sample C01-0698, batch SARS_20240805
+07/26/2024 in Ohio county (WheelingWWTP-01): 22.0% of sample C01-0699, batch SARS_20240805
+07/29/2024 in Ohio county (WheelingWWTP-01): 14.7% of sample C01-0700, batch SARS_20240805
+07/30/2024 in Ohio county (WheelingWWTP-01): 56.8% of sample C01-0701, batch SARS_20240813
+07/31/2024 in Ohio county (WheelingWWTP-01): 54.3% of sample C01-0702, batch SARS_20240813
+08/02/2024 in Ohio county (WheelingWWTP-01): 39.8% of sample C01-0704, batch SARS_20240813
+08/05/2024 in Ohio county (WheelingWWTP-01): 18.9% of sample C01-0705, batch SARS_20240813
+08/12/2024 in Ohio county (WheelingWWTP-01): 15.2% of sample C01-0706, batch SARS_20240826
+08/09/2024 in Ohio county (WheelingWWTP-01): 35.9% of sample C01-0707, batch SARS_20240826
+08/13/2024 in Ohio county (WheelingWWTP-01): 16.8% of sample C01-0711, batch SARS_20240826
+08/14/2024 in Ohio county (WheelingWWTP-01): 48.6% of sample C01-0712, batch SARS_20240826
+08/16/2024 in Ohio county (WheelingWWTP-01): 32.9% of sample C01-0714, batch SARS_20240826
+08/19/2024 in Ohio county (WheelingWWTP-01): 6.5% of sample C01-0715, batch SARS_20240826
+08/20/2024 in Ohio county (WheelingWWTP-01): 9.7% of sample C01-0716, batch SARS_20240909
+08/21/2024 in Ohio county (WheelingWWTP-01): 4.9% of sample C01-0717, batch SARS_20240909
+08/26/2024 in Ohio county (WheelingWWTP-01): 6.7% of sample C01-0720, batch SARS_20240909
+08/27/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0721, batch SARS_20240909
+08/28/2024 in Ohio county (WheelingWWTP-01): 0.6% of sample C01-0722, batch SARS_20240909
+08/30/2024 in Ohio county (WheelingWWTP-01): 19.0% of sample C01-0724, batch SARS_20240909
+09/10/2024 in Ohio county (WheelingWWTP-01): 29.8% of sample C01-0731, batch SARS_20240930
+09/11/2024 in Ohio county (WheelingWWTP-01): 48.9% of sample C01-0732, batch SARS_20240930
+09/17/2024 in Ohio county (WheelingWWTP-01): 1.1% of sample C01-0736, batch SARS_20241007
+09/19/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0738, batch SARS_20241007
+09/23/2024 in Ohio county (WheelingWWTP-01): 0.6% of sample C01-0740, batch SARS_20241007
+09/26/2024 in Ohio county (WheelingWWTP-01): 7.8% of sample C01-0743, batch SARS_20241008
+09/27/2024 in Ohio county (WheelingWWTP-01): 7.0% of sample C01-0744, batch SARS_20241008
+10/01/2024 in Ohio county (WheelingWWTP-01): 56.0% of sample C01-0746, batch SARS_20241014
+10/07/2024 in Ohio county (WheelingWWTP-01): 1.4% of sample C01-0750, batch SARS_20241014
+09/25/2024 in Mercer county (PrincetonWWTP-01): 8.1% of sample E01-0307, batch SARS_20241008
+09/25/2024 in Mercer county (PrincetonWWTP-01): 0.1% of sample E01-0308, batch SARS_20241008
+09/18/2024 in Mercer county (PrincetonWWTP-01): 6.4% of sample E01-0313, batch SARS_20241007
+08/02/2024 in Mercer county (PrincetonWWTP-01): 11.0% of sample E01-0322, batch SARS_20240826
+08/14/2024 in Mercer county (PrincetonWWTP-01): 26.9% of sample E01-0324, batch SARS_20240826
+11/14/2023 in Mercer county (PrincetonWWTP-01): 0.1% of sample E01-0382, batch SARS_20240227
+11/30/2023 in Mercer county (PrincetonWWTP-01): 6.4% of sample E01-0388, batch SARS_20240118_A
+12/05/2023 in Mercer county (PrincetonWWTP-01): 10.1% of sample E01-0390, batch SARS_20240118_A
+12/07/2023 in Mercer county (PrincetonWWTP-01): 9.0% of sample E01-0391, batch SARS_20240118_A
+12/08/2023 in Mercer county (PrincetonWWTP-01): 0.2% of sample E01-0392, batch SARS_20240118_A
+12/12/2023 in Mercer county (PrincetonWWTP-01): 8.6% of sample E01-0393, batch SARS_20240118_A
+02/01/2024 in Mercer county (PrincetonWWTP-01): 82.5% of sample E01-0395, batch SARS_20240229_B
+02/02/2024 in Mercer county (PrincetonWWTP-01): 85.9% of sample E01-0396, batch SARS_20240229_B
+02/07/2024 in Mercer county (PrincetonWWTP-01): 85.8% of sample E01-0398, batch SARS_20240229_B
+02/08/2024 in Mercer county (PrincetonWWTP-01): 77.4% of sample E01-0399, batch SARS_20240229_B
+02/13/2024 in Mercer county (PrincetonWWTP-01): 94.3% of sample E01-0401, batch SARS_20240229_B
+02/14/2024 in Mercer county (PrincetonWWTP-01): 96.3% of sample E01-0402, batch SARS_20240229_B
+02/15/2024 in Mercer county (PrincetonWWTP-01): 98.3% of sample E01-0403, batch SARS_20240229_B
+02/20/2024 in Mercer county (PrincetonWWTP-01): 98.0% of sample E01-0405, batch SARS_20240229_B
+02/21/2024 in Mercer county (PrincetonWWTP-01): 85.2% of sample E01-0406, batch SARS_20240229_B
+02/22/2024 in Mercer county (PrincetonWWTP-01): 95.4% of sample E01-0407, batch SARS_20240326
+02/28/2024 in Mercer county (PrincetonWWTP-01): 95.6% of sample E01-0410, batch SARS_20240326
+02/29/2024 in Mercer county (PrincetonWWTP-01): 95.7% of sample E01-0411, batch SARS_20240326
+03/01/2024 in Mercer county (PrincetonWWTP-01): 98.4% of sample E01-0412, batch SARS_20240326
+03/06/2024 in Mercer county (PrincetonWWTP-01): 90.5% of sample E01-0413, batch SARS_20240326
+04/04/2024 in Mercer county (PrincetonWWTP-01): 96.5% of sample E01-0429, batch SARS_20240708
+04/09/2024 in Mercer county (PrincetonWWTP-01): 98.2% of sample E01-0431, batch SARS_20240708
+04/10/2024 in Mercer county (PrincetonWWTP-01): 18.7% of sample E01-0432, batch SARS_20240930
+06/18/2024 in Mercer county (PrincetonWWTP-01): 16.6% of sample E01-0540, batch SARS_20240730
+06/19/2024 in Mercer county (PrincetonWWTP-01): 3.1% of sample E01-0541, batch SARS_20240730
+06/25/2024 in Mercer county (PrincetonWWTP-01): 30.0% of sample E01-0542, batch SARS_20240730
+07/18/2024 in Mercer county (PrincetonWWTP-01): 15.2% of sample E01-0543, batch SARS_20240805
+07/19/2024 in Mercer county (PrincetonWWTP-01): 36.1% of sample E01-0544, batch SARS_20240805
+07/23/2024 in Mercer county (PrincetonWWTP-01): 15.5% of sample E01-0545, batch SARS_20240805
+07/25/2024 in Mercer county (PrincetonWWTP-01): 0.3% of sample E01-0547, batch SARS_20240813
+07/26/2024 in Mercer county (PrincetonWWTP-01): 0.2% of sample E01-0548, batch SARS_20240813
+10/02/2024 in Mercer county (PrincetonWWTP-01): 42.0% of sample E01-0654, batch SARS_20241014
+10/03/2024 in Mercer county (PrincetonWWTP-01): 3.8% of sample E01-0655, batch SARS_20241014
+10/09/2024 in Mercer county (PrincetonWWTP-01): 0.6% of sample E01-0658, batch SARS_20241014
+
+
+LB.1* (Omicron/Pirola) detected in 118 samples
+------------------------------------------------------------
+09/10/2022 in Monongalia county (StarCityWWTP-01): 6.5% of sample A01-0354, batch SARS_20240708
+03/02/2024 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0814, batch SARS_20240326
+03/04/2024 in Monongalia county (StarCityWWTP-01): 3.4% of sample A01-0816, batch SARS_20240326
+03/05/2024 in Monongalia county (StarCityWWTP-01): 0.5% of sample A01-0817, batch SARS_20240326
+03/06/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0818, batch SARS_20240326
+03/11/2024 in Monongalia county (StarCityWWTP-01): 6.6% of sample A01-0822, batch SARS_20240326
+03/12/2024 in Monongalia county (StarCityWWTP-01): 0.4% of sample A01-0823, batch SARS_20240326
+04/15/2024 in Monongalia county (StarCityWWTP-01): 4.4% of sample A01-0856, batch SARS_20240930
+06/05/2024 in Monongalia county (StarCityWWTP-01): 0.8% of sample A01-0907, batch SARS_20240813
+06/08/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0909, batch SARS_20240813
+06/09/2024 in Monongalia county (StarCityWWTP-01): 87.3% of sample A01-0910, batch SARS_20240813
+06/10/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0911, batch SARS_20240813
+06/11/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0912, batch SARS_20240813
+06/18/2024 in Monongalia county (StarCityWWTP-01): 38.7% of sample A01-0918, batch SARS_20240730
+06/19/2024 in Monongalia county (StarCityWWTP-01): 47.0% of sample A01-0919, batch SARS_20240730
+06/25/2024 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0924, batch SARS_20240730
+06/27/2024 in Monongalia county (StarCityWWTP-01): 42.0% of sample A01-0926, batch SARS_20240718
+07/01/2024 in Monongalia county (StarCityWWTP-01): 3.2% of sample A01-0929, batch SARS_20240718
+07/02/2024 in Monongalia county (StarCityWWTP-01): 23.1% of sample A01-0930, batch SARS_20240718
+07/03/2024 in Monongalia county (StarCityWWTP-01): 2.3% of sample A01-0931, batch SARS_20240718
+07/04/2024 in Monongalia county (StarCityWWTP-01): 1.9% of sample A01-0932, batch SARS_20240718
+07/06/2024 in Monongalia county (StarCityWWTP-01): 1.2% of sample A01-0933, batch SARS_20240718
+07/07/2024 in Monongalia county (StarCityWWTP-01): 1.3% of sample A01-0934, batch SARS_20240718
+07/08/2024 in Monongalia county (StarCityWWTP-01): 1.2% of sample A01-0935, batch SARS_20240718
+07/17/2024 in Monongalia county (StarCityWWTP-01): 6.5% of sample A01-0943, batch SARS_20240805
+07/18/2024 in Monongalia county (StarCityWWTP-01): 6.7% of sample A01-0944, batch SARS_20240805
+07/20/2024 in Monongalia county (StarCityWWTP-01): 34.2% of sample A01-0945, batch SARS_20240805
+07/21/2024 in Monongalia county (StarCityWWTP-01): 10.2% of sample A01-0946, batch SARS_20240805
+07/22/2024 in Monongalia county (StarCityWWTP-01): 0.8% of sample A01-0947, batch SARS_20240805
+07/23/2024 in Monongalia county (StarCityWWTP-01): 0.9% of sample A01-0948, batch SARS_20240805
+07/25/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0950, batch SARS_20240805
+07/27/2024 in Monongalia county (StarCityWWTP-01): 7.1% of sample A01-0951, batch SARS_20240805
+07/28/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0952, batch SARS_20240805
+07/29/2024 in Monongalia county (StarCityWWTP-01): 4.3% of sample A01-0953, batch SARS_20240805
+07/30/2024 in Monongalia county (StarCityWWTP-01): 1.6% of sample A01-0954, batch SARS_20240805
+07/31/2024 in Monongalia county (StarCityWWTP-01): 6.3% of sample A01-0955, batch SARS_20240813
+08/01/2024 in Monongalia county (StarCityWWTP-01): 11.4% of sample A01-0956, batch SARS_20240813
+08/03/2024 in Monongalia county (StarCityWWTP-01): 5.3% of sample A01-0957, batch SARS_20240813
+08/04/2024 in Monongalia county (StarCityWWTP-01): 12.8% of sample A01-0958, batch SARS_20240813
+08/05/2024 in Monongalia county (StarCityWWTP-01): 3.6% of sample A01-0959, batch SARS_20240813
+08/06/2024 in Monongalia county (StarCityWWTP-01): 3.1% of sample A01-0960, batch SARS_20240813
+08/08/2024 in Monongalia county (StarCityWWTP-01): 5.9% of sample A01-0962, batch SARS_20240826
+08/11/2024 in Monongalia county (StarCityWWTP-01): 5.7% of sample A01-0964, batch SARS_20240826
+08/12/2024 in Monongalia county (StarCityWWTP-01): 7.0% of sample A01-0965, batch SARS_20240826
+08/13/2024 in Monongalia county (StarCityWWTP-01): 11.9% of sample A01-0966, batch SARS_20240826
+08/17/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0969, batch SARS_20240826
+08/18/2024 in Monongalia county (StarCityWWTP-01): 15.6% of sample A01-0970, batch SARS_20240826
+08/19/2024 in Monongalia county (StarCityWWTP-01): 15.0% of sample A01-0971, batch SARS_20240826
+08/20/2024 in Monongalia county (StarCityWWTP-01): 14.6% of sample A01-0972, batch SARS_20240826
+08/24/2024 in Monongalia county (StarCityWWTP-01): 5.8% of sample A01-0975, batch SARS_20240909
+08/25/2024 in Monongalia county (StarCityWWTP-01): 10.2% of sample A01-0976, batch SARS_20240909
+08/26/2024 in Monongalia county (StarCityWWTP-01): 7.6% of sample A01-0977, batch SARS_20240909
+08/27/2024 in Monongalia county (StarCityWWTP-01): 12.1% of sample A01-0978, batch SARS_20240909
+08/28/2024 in Monongalia county (StarCityWWTP-01): 22.1% of sample A01-0979, batch SARS_20240909
+08/29/2024 in Monongalia county (StarCityWWTP-01): 16.3% of sample A01-0980, batch SARS_20240909
+09/01/2024 in Monongalia county (StarCityWWTP-01): 7.7% of sample A01-0981, batch SARS_20240909
+09/02/2024 in Monongalia county (StarCityWWTP-01): 10.0% of sample A01-0982, batch SARS_20240909
+09/03/2024 in Monongalia county (StarCityWWTP-01): 11.1% of sample A01-0983, batch SARS_20240909
+09/09/2024 in Monongalia county (StarCityWWTP-01): 6.7% of sample A01-1040, batch SARS_20240930
+09/10/2024 in Monongalia county (StarCityWWTP-01): 7.7% of sample A01-1041, batch SARS_20240930
+09/14/2024 in Monongalia county (StarCityWWTP-01): 14.1% of sample A01-1044, batch SARS_20240930
+09/15/2024 in Monongalia county (StarCityWWTP-01): 27.6% of sample A01-1045, batch SARS_20240930
+09/23/2024 in Monongalia county (StarCityWWTP-01): 1.3% of sample A01-1051, batch SARS_20241007
+09/28/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-1055, batch SARS_20241008
+09/29/2024 in Monongalia county (StarCityWWTP-01): 1.6% of sample A01-1056, batch SARS_20241008
+09/30/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-1057, batch SARS_20241008
+10/03/2024 in Monongalia county (StarCityWWTP-01): 0.5% of sample A01-1060, batch SARS_20241014
+10/05/2024 in Monongalia county (StarCityWWTP-01): 1.0% of sample A01-1061, batch SARS_20241014
+10/06/2024 in Monongalia county (StarCityWWTP-01): 2.0% of sample A01-1062, batch SARS_20241014
+10/08/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-1064, batch SARS_20241014
+08/31/2024 in Monongalia county (StadiumNE-01): 10.3% of sample A02-1342, batch SARS_20240909
+02/28/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0612, batch SARS_20240326
+03/11/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0620, batch SARS_20240326
+04/09/2024 in Ohio county (WheelingWWTP-01): 8.8% of sample C01-0641, batch SARS_20240930
+04/11/2024 in Ohio county (WheelingWWTP-01): 2.6% of sample C01-0643, batch SARS_20240930
+06/06/2024 in Ohio county (WheelingWWTP-01): 2.2% of sample C01-0663, batch SARS_20240813
+06/17/2024 in Ohio county (WheelingWWTP-01): 7.9% of sample C01-0670, batch SARS_20240730
+06/27/2024 in Ohio county (WheelingWWTP-01): 0.4% of sample C01-0678, batch SARS_20240718
+06/28/2024 in Ohio county (WheelingWWTP-01): 0.6% of sample C01-0679, batch SARS_20240718
+07/18/2024 in Ohio county (WheelingWWTP-01): 6.2% of sample C01-0693, batch SARS_20240805
+07/24/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0697, batch SARS_20240805
+07/26/2024 in Ohio county (WheelingWWTP-01): 0.5% of sample C01-0699, batch SARS_20240805
+07/30/2024 in Ohio county (WheelingWWTP-01): 6.1% of sample C01-0701, batch SARS_20240813
+08/01/2024 in Ohio county (WheelingWWTP-01): 26.0% of sample C01-0703, batch SARS_20240813
+08/02/2024 in Ohio county (WheelingWWTP-01): 12.4% of sample C01-0704, batch SARS_20240813
+08/05/2024 in Ohio county (WheelingWWTP-01): 1.0% of sample C01-0705, batch SARS_20240813
+08/13/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0711, batch SARS_20240826
+08/14/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0712, batch SARS_20240826
+08/15/2024 in Ohio county (WheelingWWTP-01): 1.6% of sample C01-0713, batch SARS_20240826
+08/19/2024 in Ohio county (WheelingWWTP-01): 3.9% of sample C01-0715, batch SARS_20240826
+08/20/2024 in Ohio county (WheelingWWTP-01): 1.6% of sample C01-0716, batch SARS_20240909
+08/21/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0717, batch SARS_20240909
+08/26/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0720, batch SARS_20240909
+08/27/2024 in Ohio county (WheelingWWTP-01): 3.6% of sample C01-0721, batch SARS_20240909
+08/28/2024 in Ohio county (WheelingWWTP-01): 6.6% of sample C01-0722, batch SARS_20240909
+08/29/2024 in Ohio county (WheelingWWTP-01): 3.2% of sample C01-0723, batch SARS_20240909
+08/30/2024 in Ohio county (WheelingWWTP-01): 4.0% of sample C01-0724, batch SARS_20240909
+09/10/2024 in Ohio county (WheelingWWTP-01): 10.6% of sample C01-0731, batch SARS_20240930
+09/11/2024 in Ohio county (WheelingWWTP-01): 3.5% of sample C01-0732, batch SARS_20240930
+09/12/2024 in Ohio county (WheelingWWTP-01): 1.1% of sample C01-0733, batch SARS_20240930
+09/19/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0738, batch SARS_20241007
+09/24/2024 in Ohio county (WheelingWWTP-01): 0.7% of sample C01-0741, batch SARS_20241008
+09/26/2024 in Ohio county (WheelingWWTP-01): 0.7% of sample C01-0743, batch SARS_20241008
+10/01/2024 in Ohio county (WheelingWWTP-01): 9.7% of sample C01-0746, batch SARS_20241014
+10/07/2024 in Ohio county (WheelingWWTP-01): 0.3% of sample C01-0750, batch SARS_20241014
+09/25/2024 in Mercer county (PrincetonWWTP-01): 0.2% of sample E01-0307, batch SARS_20241008
+09/17/2024 in Mercer county (PrincetonWWTP-01): 24.0% of sample E01-0312, batch SARS_20241007
+08/02/2024 in Mercer county (PrincetonWWTP-01): 4.2% of sample E01-0322, batch SARS_20240826
+08/14/2024 in Mercer county (PrincetonWWTP-01): 3.3% of sample E01-0324, batch SARS_20240826
+02/22/2024 in Mercer county (PrincetonWWTP-01): 0.1% of sample E01-0407, batch SARS_20240326
+03/06/2024 in Mercer county (PrincetonWWTP-01): 0.2% of sample E01-0413, batch SARS_20240326
+04/10/2024 in Mercer county (PrincetonWWTP-01): 0.9% of sample E01-0432, batch SARS_20240930
+06/25/2024 in Mercer county (PrincetonWWTP-01): 2.7% of sample E01-0542, batch SARS_20240730
+07/18/2024 in Mercer county (PrincetonWWTP-01): 2.1% of sample E01-0543, batch SARS_20240805
+07/19/2024 in Mercer county (PrincetonWWTP-01): 4.9% of sample E01-0544, batch SARS_20240805
+07/23/2024 in Mercer county (PrincetonWWTP-01): 0.4% of sample E01-0545, batch SARS_20240805
+07/25/2024 in Mercer county (PrincetonWWTP-01): 0.3% of sample E01-0547, batch SARS_20240813
+07/30/2024 in Mercer county (PrincetonWWTP-01): 24.8% of sample E01-0549, batch SARS_20240813
+
+
+BA.2.86* (Omicron/Pirola) detected in 44 samples
+------------------------------------------------------------
+11/06/2023 in Monongalia county (StarCityWWTP-01): 0.9% of sample A01-0715, batch SARS_20240104
+11/26/2023 in Monongalia county (StarCityWWTP-01): 2.5% of sample A01-0733, batch SARS_20240130_A
+11/28/2023 in Monongalia county (StarCityWWTP-01): 1.4% of sample A01-0735, batch SARS_20240130_A
+11/30/2023 in Monongalia county (StarCityWWTP-01): 1.9% of sample A01-0741, batch SARS_20240130_A
+01/10/2024 in Monongalia county (StarCityWWTP-01): 11.7% of sample A01-0774, batch SARS_20240226
+01/15/2024 in Monongalia county (StarCityWWTP-01): 14.6% of sample A01-0778, batch SARS_20240214
+01/22/2024 in Monongalia county (StarCityWWTP-01): 4.7% of sample A01-0784, batch SARS_20240219
+02/05/2024 in Monongalia county (StarCityWWTP-01): 1.9% of sample A01-0790, batch SARS_20240219
+02/03/2024 in Monongalia county (StarCityWWTP-01): 1.0% of sample A01-0798, batch SARS_20240219
+02/13/2024 in Monongalia county (StarCityWWTP-01): 3.6% of sample A01-0801, batch SARS_20240226
+02/25/2024 in Monongalia county (StarCityWWTP-01): 0.7% of sample A01-0811, batch SARS_20240229_B
+02/27/2024 in Monongalia county (StarCityWWTP-01): 0.6% of sample A01-0812, batch SARS_20240229_B
+03/02/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0814, batch SARS_20240326
+03/05/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0817, batch SARS_20240326
+06/18/2024 in Monongalia county (StarCityWWTP-01): 0.1% of sample A01-0918, batch SARS_20240730
+08/18/2024 in Monongalia county (StarCityWWTP-01): 0.3% of sample A01-0970, batch SARS_20240826
+08/19/2024 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0971, batch SARS_20240826
+09/01/2024 in Monongalia county (StarCityWWTP-01): 0.2% of sample A01-0981, batch SARS_20240909
+09/23/2023 in Monongalia county (StadiumSW-01): 98.0% of sample A02-1305, batch SARS_20231002
+01/02/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0571, batch SARS_20240219
+01/15/2024 in Ohio county (WheelingWWTP-01): 1.7% of sample C01-0580, batch SARS_20240227
+01/16/2024 in Ohio county (WheelingWWTP-01): 9.1% of sample C01-0581, batch SARS_20240227
+01/17/2024 in Ohio county (WheelingWWTP-01): 1.7% of sample C01-0582, batch SARS_20240227
+01/19/2024 in Ohio county (WheelingWWTP-01): 0.1% of sample C01-0584, batch SARS_20240227
+02/23/2024 in Ohio county (WheelingWWTP-01): 0.6% of sample C01-0609, batch SARS_20240229_B
+03/05/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0616, batch SARS_20240326
+07/18/2024 in Ohio county (WheelingWWTP-01): 0.4% of sample C01-0693, batch SARS_20240805
+07/23/2024 in Ohio county (WheelingWWTP-01): 0.2% of sample C01-0696, batch SARS_20240805
+08/08/2024 in Ohio county (WheelingWWTP-01): 3.3% of sample C01-0708, batch SARS_20240826
+08/13/2024 in Ohio county (WheelingWWTP-01): 4.1% of sample C01-0711, batch SARS_20240826
+08/16/2024 in Ohio county (WheelingWWTP-01): 5.5% of sample C01-0714, batch SARS_20240826
+08/20/2024 in Ohio county (WheelingWWTP-01): 0.4% of sample C01-0716, batch SARS_20240909
+08/02/2024 in Mercer county (PrincetonWWTP-01): 0.3% of sample E01-0322, batch SARS_20240826
+11/01/2023 in Mercer county (PrincetonWWTP-01): 1.9% of sample E01-0377, batch SARS_20231129_B
+02/01/2024 in Mercer county (PrincetonWWTP-01): 0.8% of sample E01-0395, batch SARS_20240229_B
+02/02/2024 in Mercer county (PrincetonWWTP-01): 0.6% of sample E01-0396, batch SARS_20240229_B
+02/08/2024 in Mercer county (PrincetonWWTP-01): 12.0% of sample E01-0399, batch SARS_20240229_B
+02/13/2024 in Mercer county (PrincetonWWTP-01): 1.1% of sample E01-0401, batch SARS_20240229_B
+02/14/2024 in Mercer county (PrincetonWWTP-01): 2.7% of sample E01-0402, batch SARS_20240229_B
+02/20/2024 in Mercer county (PrincetonWWTP-01): 0.7% of sample E01-0405, batch SARS_20240229_B
+02/21/2024 in Mercer county (PrincetonWWTP-01): 0.3% of sample E01-0406, batch SARS_20240229_B
+02/29/2024 in Mercer county (PrincetonWWTP-01): 0.5% of sample E01-0411, batch SARS_20240326
+10/09/2024 in Mercer county (PrincetonWWTP-01): 0.1% of sample E01-0658, batch SARS_20241014
+10/16/2023 in Preston county (AlpineLakeWWTP-01): 64.6% of sample J01-0379, batch SARS_20231102
+
+
+
+
+############################################################
+WaTCH LEVEL 2 (high concern) variants
+############################################################
+
+
+
+############################################################
+Top 20 most abundant variants (any WaTCH level)
+############################################################
+
+131 samples: KP.3.1.1
+89 samples: HK.18
+89 samples: JN.1.18
+86 samples: KP.2.3
+85 samples: KP.3.2.3
+82 samples: XBB.1.5.34
+82 samples: EG.5.1.6
+80 samples: EG.5.1.13
+78 samples: HV.1
+76 samples: JF.1
+68 samples: KP.3.3
+67 samples: KP.3
+64 samples: EG.5.1.4
+64 samples: HV.1.3
+61 samples: B.10
+61 samples: XBB.1.5.8
+61 samples: KP.2
+60 samples: MC.1
+59 samples: KP.3.3.4
+59 samples: XBB.1.10
+
+
+# EOF.

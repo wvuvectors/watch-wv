@@ -1,4 +1,4 @@
-October 15, 2024 at 17:02:16
+October 29, 2024 at 12:51:47
 
 #
 This folder contains the most recent seqrdb tables.

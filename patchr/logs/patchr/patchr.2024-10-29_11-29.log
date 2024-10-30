@@ -1,0 +1,111 @@
+#############################################
+Initiated patchr.sh
+2024-10-29_11-29
+
+See logs/patchr/patchr.2024-10-29_11-29.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29/ to hold the results.
+Recording batch files to process in /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB94.xlsx to batches/CB94.xlsx.
+Repairing known issues in CB94.xlsx.
+Copying file CB95.xlsx to batches/CB95.xlsx.
+Repairing known issues in CB95.xlsx.
+Copying file CB93.xlsx to batches/CB93.xlsx.
+Repairing known issues in CB93.xlsx.
+Copying file EB95.xlsx to batches/EB95.xlsx.
+Repairing known issues in EB95.xlsx.
+Copying file EB94.xlsx to batches/EB94.xlsx.
+Repairing known issues in EB94.xlsx.
+Copying file AB58.xlsx to batches/AB58.xlsx.
+Repairing known issues in AB58.xlsx.
+Copying file AB58_20241025_154948_582.ANALYZED.csv to batches/AB58_20241025_154948_582.ANALYZED.csv.
+Repairing known issues in AB58_20241025_154948_582.ANALYZED.csv.
+Done.
+File AB58_20241025_154948_582.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB58_20241025_154948_582.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+******
+Running 3_validateUpdate.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table sample
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table assay
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table cbatch
+Retrieving ids from WaTCH table extraction
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table rbatch
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/latest):
+TABLE        	WaTCH IDS    	DUPLICATES   
+concentration	11761        	0            
+sample       	11899        	0            
+archive      	0            	0            
+assay        	38473        	0            
+ebatch       	507          	0            
+cbatch       	738          	0            
+extraction   	11954        	0            
+abatch       	287          	0            
+rbatch       	0            	0            
+-------------------------------
+
+Validating ids from the update tables...
+Done.
+
+-------------------------------
+Update validation results (/Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29/):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+rbatch       	0            	0            	0            
+abatch       	1            	0            	0            
+extraction   	28           	4            	0            
+cbatch       	3            	0            	0            
+ebatch       	2            	0            	0            
+assay        	160          	0            	0            
+sample       	28           	0            	0            
+concentration	28           	5            	0            
+archive      	0            	0            	0            
+-------------------------------
+
+
+3_validateUpdate.pl exited with error code 9 and caused patchr to abort.
+Most likely this script identifed duplicate IDs or collisions (IDs present in both the existing db and the update). Check the following files for more info:
+    /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29//_collisions.txt
+    /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29//_rundups.txt
+    /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29//_watchdups.txt
+!!!!!!!!
+patchr aborted during phase 3 (update validation).
+Delete the folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2024-10-29_11-29/. 
+Then fix the error(s) and run patchr again.
+!!!!!!!!
