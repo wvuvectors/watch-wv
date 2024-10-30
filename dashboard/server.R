@@ -467,37 +467,62 @@ shinyServer(function(input, output, session) {
 			
 		}
 		
-		# Calculate the mean flow.
+		# Calculate the freshness of abundance data.
 		#		
-		end_date <- max(df_this$date_primary, na.rm=TRUE)
-		dates <- c(end_date %m-% months(VIEW_RANGE_PRIMARY), end_date)
-		mean_flow <- mean((df_this %>% filter(date_primary >= dates[1] & date_primary <= dates[2]))$sample_flow)
-		
-		flow_text <- paste0("Mean flow for this time period is ", prettyNum(mean_flow, digits = 2), 
-				" MGD with a total reported capacity of ", prettyNum(total_cap, digits = 2),
-				" MGD.", sep="")
+		most_recent_sample_date <- max(df_this$date_to_plot, na.rm=TRUE)
+		most_recent_contributors <- df_this %>% filter(date_to_plot == most_recent_sample_date)
+		most_recent_contributor_count <- length(unique(most_recent_contributors$location_id))
+		if (most_recent_contributor_count > 1) {
+			site_text <- "sites"
+		} else {
+			site_text <- "site"
+		}
+		sample_date_text <- paste0(
+			"Most recent data is from the week of ", printy_dates(most_recent_sample_date), " and includes ", 
+			most_recent_contributor_count, " reporting ", site_text, " (", 
+			prettyNum(100*(most_recent_contributor_count/num_facilities), digits=1), "%).", 
+			sep="")
 
-		# Print the title, selection, and flow strings to the UI
+
+		# Calculate the freshness of variant data (if COVID).
+		#	
+# 		most_recent_sample_date_sq <- max(df_this$date_to_plot, na.rm=TRUE)
+# 		most_recent_contributors <- df_this %>% filter(date_to_plot == most_recent_sample_date)
+# 		most_recent_contributor_count <- length(unique(most_recent_contributors$location_id))
+# 		if (most_recent_contributor_count > 1) {
+# 			site_text <- "sites"
+# 		} else {
+# 			site_text <- "site"
+# 		}
+# 		sample_date_text_sq <- paste0(
+# 			"Most recent data is from the week of ", printy_dates(most_recent_sample_date), " and includes ", 
+# 			most_recent_contributor_count, " reporting ", site_text, " (", 
+# 			prettyNum(100*(most_recent_contributor_count/num_facilities), digits=1), "%).", 
+# 			sep="")
+
+
+		# Print the title, selection, and last_sample strings to the UI
 		if (mapIndex == 1) {
 			output$selection_covid <- renderText(selection_text)
 			output$risk_level_covid <- renderText(risk_level_text)
 			output$selection_details_covid <- renderText(selection_details_text)
 			output$selection_title_covid <- renderText(title_text)
-			output$selection_flow_covid <- renderText(flow_text)
+			output$selection_samples_covid <- renderText(sample_date_text)
+#			output$selectionsq_samples_covid <- renderText(sample_date_text_sq)
 		} else {
 			if (mapIndex == 2) {
 				output$selection_flu <- renderText(selection_text)
 				output$risk_level_flu <- renderText(risk_level_text)
 				output$selection_details_flu <- renderText(selection_details_text)
 				output$selection_title_flu <- renderText(title_text)
-				output$selection_flow_flu <- renderText(flow_text)
+				output$selection_samples_flu <- renderText(sample_date_text)
 			} else {
 				if (mapIndex == 3) {
 					output$selection_rsv <- renderText(selection_text)
 					output$risk_level_rsv <- renderText(risk_level_text)
 					output$selection_title_rsv <- renderText(title_text)
 					output$selection_details_rsv <- renderText(selection_details_text)
-					output$selection_flow_rsv <- renderText(flow_text)
+					output$selection_samples_rsv <- renderText(sample_date_text)
 				}
 			}
 		}

@@ -122,15 +122,7 @@ shinyUI(fluidPage(
 										style="text-align: center;padding-bottom: 5px;"
 									)
 								)
-							), # fluidRow (selection details)
-							fluidRow(
-								column(12,
-									div(
-										textOutput("selection_flow_covid"), 
-										style="text-align: center;padding-bottom: 2px;"
-									)
-								)
-							) # fluidRow (flow info)
+							) # fluidRow (selection details)
 						)	# column
 					), # fluidRow (color key & selection info)
 					fluidRow(
@@ -191,15 +183,40 @@ shinyUI(fluidPage(
 					), # fluidRow (COVID plot title)
 					fluidRow(
 						column(12,
+							div(
+								textOutput("selection_samples_covid"), 
+								style="font-size: 12px;padding: 2px;font-weight: 800;text-align: center;color: #000000; background-color: #f3f3e1;"
+							)
+						)
+					), # fluidRow (abundance data freshness)
+					fluidRow(
+						column(12,
 							# Plot of COVID change over time
-							plotlyOutput("plot_covid", height="380px", width="100%")
+							plotlyOutput("plot_covid", height="358px", width="100%")
 						)
 					), # fluidRow (COVID plot)
+					fluidRow(
+						#style = "margin-left: 0px; margin-right: 0px;", 
+						style = "margin-top: 5px;", 
+						column(12,
+							div(
+								textOutput("plotsq_title_covid"), 
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (COVID variant plot title)
+					fluidRow(
+						column(12,
+							div(
+								textOutput("selectionsq_samples_covid"), 
+								style="font-size: 12px;padding: 2px;font-weight: 800;text-align: center;color: #000000; background-color: #f3f3e1;"
+							)
+						)
+					), # fluidRow (variant data freshness)
 					fluidRow(
 						style = "margin-top: 5px;",
 						column(12,
 							# Plot of COVID variant proportions over time
-							div(textOutput("plotsq_title_covid"), style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"),
 							plotlyOutput("plotsq_covid", height="325px", width="100%")
 						)
 					) # fluidRow (variant plot)

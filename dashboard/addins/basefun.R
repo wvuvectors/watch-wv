@@ -58,6 +58,14 @@ format_dates <- function(x) {
 }
 
 
+printy_dates <- function(x) {
+	month <- strftime(x, format = "%b")           		# Abbreviated name of the month.
+	day <- strftime(x, format = "%d")           			# Abbreviated name of the day.
+	years <- lubridate::year(x)                       # Year as a 4-digit number.
+	paste(month, ". ", day, ", ", years, sep = "")
+}
+
+
 excel2df <- function(fname) { 
 
 	# getting info about all excel sheets
