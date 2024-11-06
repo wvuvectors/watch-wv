@@ -90,6 +90,7 @@ shinyUI(fluidPage(
 						style = "padding-top: 4px;padding-bottom: 4px;margin-left: 0px; margin-right: 0px;background-color: #000000;color: #ffffff;",
 						column(3,
 							div(
+								class = "logo",
 								id = "risk_level_key_covid", 
 								#class = "panel panel-default",
 								style = "margin 5px;padding: 3px;text-align: center;",
@@ -99,47 +100,48 @@ shinyUI(fluidPage(
 								div("MODERATE", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #E6F598;"),
 								div("LOW", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #3288BD;"),
 								div("UNKNOWN", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #EEEEEE;")
-							)
-						),
-						column(9,
-							fluidRow(
-								style = "margin-top: 5px; margin-bottom: 10px; text-align: center;",
-								column(12,
-									span(
-										style="display: inline-block;color: #EAAA00;font-size: 18px; font-weight: 400;", 
-										paste0("The ", DISEASES[1], " risk is ")
-									),
-									span(
-										style="display: inline-block;color: #red;font-size: 32px; font-weight: 800; padding-top: 5px;", 
-										textOutput("risk_level_covid")
-									)
-								)
-							), # fluidRow (risk level)
-							fluidRow(
-								column(12,
-									div(
-										textOutput("selection_details_covid"), 
-										style="text-align: center;padding-bottom: 5px;"
-									)
-								)
-							) # fluidRow (selection details)
-						)	# column
-					), # fluidRow (color key & selection info)
-					fluidRow(
-						style = "margin-top: 4px; margin-left: 0px; margin-right: 0px;background-color: #ffffff; color: #000000;",
-						column(2,
+							),
 							div(
 								class = "logo",
-								style = "display: inline-block;",
+								style = "padding-top: 10px;text-align: center;",
 								tags$a(href='https://www.watch-wv.com/', 
 								tags$img(src='WaTCH-WV_logo.png',height='75',width='75'))
 							)
 						),
-						column(10,
-							style = "font-size: 13px;font-weight: 400;",
-							div("WaTCH-WV is supported by CDC-sponsored grants from the WV Department of Health to West Virginia University and Marshall University.")
-						)
-					) # fluidRow (logo and sponsors)
+						column(9,
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selection_details_covid"), 
+										style="font-size: 14px;font-weight: 800;text-align: center;padding-bottom: 5px;"
+									)
+								)
+							), # fluidRow (selection details)
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selection_samples_covid"), 
+										style="font-size: 16px;padding: 10px 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									)
+								)
+							), # fluidRow (abundance data freshness)
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selectionsq_samples_covid"), 
+										style="font-size: 16px;padding: 10px 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									)
+								)
+							), # fluidRow (variant data freshness)
+							fluidRow(
+								style = "margin-left: 0px; margin-right: 0px;background-color: #000000; color: #ffffff;",
+								column(12,
+									style = "font-size: 13px;padding: 15px 0px;font-weight: 400;text-align: center;",
+									div("WaTCH-WV is supported by CDC-sponsored grants from the West Virginia Department of Health, to West Virginia University and Marshall University.")
+								)
+							) # fluidRow (logo and sponsors)
+						)	# column
+					), # fluidRow (color key & selection info)
 				),
 				column(5,
 					style = "margin-top: 5px;padding: 3px;",
@@ -147,30 +149,37 @@ shinyUI(fluidPage(
 						# alert blocks
 						column(3,
 							div(
-								textOutput("level_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+								"Risk Level",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								textOutput("risk_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
 						column(3,
 							div(
-								textOutput("trend_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
-						),
-						column(1,
+								"Abundance",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
-								textOutput("fresh_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+								textOutput("abundance_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
-						column(4,
+						column(3,
+							div(
+								"Trend",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								textOutput("trend_covid"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						),
+						column(3,
+							div(
+								"Variant",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								textOutput("variant_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
-						),
-						column(1,
-							div(
-								textOutput("variant_fresh_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;")
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						)
-					), # fluidRow (alert blocks)
+					), # fluidRow (status blocks)
 					fluidRow(
 						#style = "margin-left: 0px; margin-right: 0px;", 
 						style = "margin-top: 5px;", 
@@ -181,14 +190,6 @@ shinyUI(fluidPage(
 							)
 						)
 					), # fluidRow (COVID plot title)
-					fluidRow(
-						column(12,
-							div(
-								textOutput("selection_samples_covid"), 
-								style="font-size: 12px;padding: 2px;font-weight: 800;text-align: center;color: #000000; background-color: #f3f3e1;"
-							)
-						)
-					), # fluidRow (abundance data freshness)
 					fluidRow(
 						column(12,
 							# Plot of COVID change over time
@@ -205,14 +206,6 @@ shinyUI(fluidPage(
 							)
 						)
 					), # fluidRow (COVID variant plot title)
-					fluidRow(
-						column(12,
-							div(
-								textOutput("selectionsq_samples_covid"), 
-								style="font-size: 12px;padding: 2px;font-weight: 800;text-align: center;color: #000000; background-color: #f3f3e1;"
-							)
-						)
-					), # fluidRow (variant data freshness)
 					fluidRow(
 						style = "margin-top: 5px;",
 						column(12,
@@ -304,7 +297,7 @@ shinyUI(fluidPage(
 
 			hidden(
 				absolutePanel(
-					id = "risk_level_key_popup_covid",
+					id = "risk_level_key_popup",
 					class = "mdinfo",
 					top = 365, left = 610, width = 580, height = 350,
 					div("Risk Level Color Key", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
@@ -312,38 +305,38 @@ shinyUI(fluidPage(
 						class = "alertinfo",
 						id = "level_1",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #3288BD; background-color: #3288BD; border: 1px solid black; border-radius: 3px;"),
-						span(paste0("CODE BLUE. The latest amount of this disease agent is less than 50% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be low."), style="font-size: 13px;")
+						span(paste0("LOW. The latest amount of this disease agent is less than 50% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be low."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_2",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #E6F598; background-color: #E6F598; border: 1px solid black; border-radius: 3px;"),
-						span(paste0("CODE YELLOW. The latest amount of this disease agent is between 50% and 100% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be moderate."), style="font-size: 13px;")
+						span(paste0("MODERATE. The latest amount of this disease agent is between 50% and 100% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be moderate."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_3",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #FDAE61; background-color: #FDAE61; border: 1px solid black; border-radius: 3px;"),
-						span(paste0("CODE ORANGE. The latest amount of this disease agent is between 100% and 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be high."), style="font-size: 13px;")
+						span(paste0("HIGH. The latest amount of this disease agent is between 100% and 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be high."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_4",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #D53E4F; background-color: #D53E4F; border: 1px solid black; border-radius: 3px;"),
-						span(paste0("CODE RED. The latest amount of this disease agent is greater than 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be very high."), style="font-size: 13px;")
+						span(paste0("VERY HIGH. The latest amount of this disease agent is greater than 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be very high."), style="font-size: 13px;")
 					),
 					div(
 						class = "alertinfo",
 						id = "level_5",
 						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #EEEEEE; background-color: #EEEEEE; border: 1px solid black; border-radius: 3px;"),
-						span("The data for this disease agent is either missing or too old to make an accurate determination.", style="font-size: 13px;")
+						span("UNKNOWN. The data for this disease agent is either missing or too old to make an accurate determination.", style="font-size: 13px;")
 					),
 					div(
 						style="padding-top: 15px; padding-right: 5px; float: right;",
-						actionBttn(inputId="risk_level_key_popup_close_covid", label="Close", style="pill", size="xs", color="success")
+						actionBttn(inputId="risk_level_key_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (risk level color key popup)
+			) # hidden (risk level key popup)
 
 		) # tabPanel (COVID)
 

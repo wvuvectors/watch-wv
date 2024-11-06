@@ -81,6 +81,44 @@ excel2df <- function(fname) {
 } 
   
 
+getRiskLevel <- function(df_in) {
+	risk_level <- "Unk"
+	
+	# do stuff in here!
+
+	return(risk_level)
+}
+
+
+getAbundanceText <- function(df_in) {
+	abundance <- "Unk"
+	
+	# do stuff in here!
+
+	return(abundance)
+}
+
+
+getTrendText <- function(df_in) {
+	trend <- "Unk"
+	
+	# do stuff in here!
+
+	return(trend)
+}
+
+
+getDominantVariant <- function(df_in) {
+	variant <- "Unk"
+	
+	# do stuff in here!
+
+	return(variant)
+}
+
+
+
+
 calcTrend <- function(df_this, mo_base) {
 	
 	if (length(df_this$date_primary) == 0) {

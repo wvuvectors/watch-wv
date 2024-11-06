@@ -38,6 +38,8 @@ df_s_mu <- as.data.frame(read.table(DB_SAMPLES_MU, sep="\t", header=TRUE, check.
 df_sample <- rbind(df_s_wvu, df_s_mu)
 
 df_seqr <- as.data.frame(read.table(DB_SEQR, sep="\t", header=TRUE, check.names=FALSE))
+df_seqr <- df_seqr %>% rename(location_id = location)
+
 
 resources <- excel2df(RES_ALL)
 df_active_loc <- resources$location %>% filter(tolower(location_status) == "active")
@@ -152,6 +154,8 @@ df_seqr$date_to_plot <- df_seqr$week_starting
 #df_rs$date_to_plot <- df_rs$week_ending
 #df_seqr$date_to_plot <- df_seqr$week_ending
 #df_seqr$date_to_plot <- df_seqr$date_primary
+
+this_week <- floor_date(today, "week", week_start = 1)
 
 # https://covid.cdc.gov/covid-data-tracker/#variant-summary
 

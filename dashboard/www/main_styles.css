@@ -182,8 +182,8 @@ h4 { font-weight: 800; }
 
 .logo:hover {
   /* Fade in while hovering */
-  border: 1px solid #000000;
-  border-radius: 3px;
+  border: 1px solid #FFFC79;
+  border-radius: 2px;
   opacity: 1.0;
   transition-delay: 0;
 }
