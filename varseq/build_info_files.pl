@@ -108,7 +108,7 @@ foreach my $f (@demix) {
 		$demixfile_bc =~ s/^0//;
 		#print  "$barcode2assetid{$demixfile_bc} \n";
 		
-		my $outputname = "SARS_20240813_".$demixfile_bc."_".$barcode2assetid{$demixfile_bc}.".txt";
+		my $outputname = $RUNID."_".$demixfile_bc."_".$barcode2assetid{$demixfile_bc}.".txt";
 		print "$outputname \n"; 
 		
 

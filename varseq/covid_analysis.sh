@@ -3,11 +3,12 @@ source /shared/software/conda/etc/profile.d/conda.sh
 
 #Part 2: This file runs the freyja analysis: takes basecalled data in bam format and assigns variant info. 
 
-#example commandline usage : ./analysis_script_testing.sh RUNID path/to/rawdata 
+#example commandline usage : ./analysis_script_testing.sh RUNID path/to/rawdata barcode_file
 
 
 RUNID=$1
-RAWDATA=$2 
+RAWDATA=$2
+FREYJABARCODES=$3
 
 
 for BAMFILE in $RAWDATA/*.bam
@@ -27,8 +28,7 @@ for BAMFILE in $RAWDATA/*.bam
 		WORKINGDIR=$SCRATCH/COVID_ANALYSIS/${RUNID}
 		CATDATA=${WORKINGDIR}/${RUNID}_${BARCODE}.fastq.gz
 		REF=$SCRATCH/COVID_ANALYSIS/SCRIPTS/NC_045512_Hu-1.fasta
-		BARCODE_FILE=$SCRATCH/COVID_ANALYSIS/SCRIPTS/usher_barcodes04_08_2024-00-49.csv
-
+		BARCODE_FILE=$SCRATCH/COVID_ANALYSIS/SCRIPTS/$FREYJABARCODES
 		
 		mkdir ${WORKINGDIR}
 		cd ${WORKINGDIR}
@@ -87,7 +87,7 @@ for BAMFILE in $RAWDATA/*.bam
 		
 		#run freyja to identify covid variants in run sample. 
 		
-		conda activate /scratch/viv0001/freyja_env_scratch
+		conda activate /scratch/viv0001/freyja_env_20240718
 		
 		cd ${WORKINGDIR}
 		
