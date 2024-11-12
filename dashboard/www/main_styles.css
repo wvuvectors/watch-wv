@@ -173,6 +173,7 @@ h4 { font-weight: 800; }
 .logo {
   /* Appearance */
   background-color: transparent;
+  border: 1px solid #000000;
   cursor: move;
   /* Fade out while not hovering */
   opacity: 1.0;

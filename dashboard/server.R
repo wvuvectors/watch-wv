@@ -44,6 +44,10 @@ shinyServer(function(input, output, session) {
 	)
 	
 	
+	# Generic function to toggle state of shiny panels using shinyjs.
+	#
+	# Accepts a vector of panels to turn on and a vector of panels to turn off.
+	#
 	togglePanels <- function(on, off) {
 		if (!missing(on)) {
 			for (targ in on) {
@@ -95,6 +99,10 @@ shinyServer(function(input, output, session) {
 	}
 
 
+	# Accepts a map (target) index and location id.
+	#
+	# Returns a dataframe of variant data for the given target at the given location.
+	#
 	getVariantData <- function(mapIndex, loc_id) {
 	  #print("##### getVariantData called!")
 	
@@ -150,30 +158,35 @@ shinyServer(function(input, output, session) {
 			months_to_plot == 24 ~ DATE_BREAKS[5],
 		)
 		
-		#end_date <- max(df_plot$date_to_plot, na.rm=TRUE)
 		end_date <- this_week
 		date_limits <- c(end_date %m-% months(months_to_plot), end_date)
-		tent_start <- as.Date(end_date - 10)
-		print(tent_start)
+
+		most_recent_sample_date <- max(df_abundance$date_to_plot, na.rm=TRUE)
+		gos_dates <- c(most_recent_sample_date-12, most_recent_sample_date+3)
+		
 		df_plot <- df_abundance %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
+		largest_val <- max(df_plot$val+10, na.rm=TRUE)
 		
 		# Calculate the mean signal for each target over the last month and last year.
 		trend_short <- calcTrend(df_abundance, 1)
 		trend_long <- calcTrend(df_abundance, VIEW_RANGE_PRIMARY)
 
+#		geompt_msg <- paste0(date_to_plot, sep="")
+		
 		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
 											scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
 											scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
 											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											plot_theme() + 
 											labs(x = NULL, y = NULL, color = NULL) + 
-											geom_hline(aes(yintercept=trend_short), color=TRENDL_MO_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
-											geom_hline(aes(yintercept=trend_long), color=TRENDL_YR_COLOR, linetype="solid", alpha=0.8, linewidth=1) + 
-											geom_vline(aes(xintercept=as.Date(tent_start)), color="#ff0000", linetype="solid", alpha=0.5, linewidth=2) + 
-#											geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
-#											geom_point(aes(x = date_to_plot, y = val, color = target_genetic_locus, text=paste0(date_to_plot, ": ", prettyNum(val, digits=1, big.mark=","), sep="")), shape = 1, size = 2, alpha=0.9) + 
-											geom_point(aes(x = date_to_plot, y = val, text=date_to_plot), shape = 1, size = 2, alpha=0.9) + 
+											annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#cdabab") + 
+											annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#A88E8E", size = 2.5, family = "Arial", label = "Data subject to change.") + 
+											geom_hline(aes(yintercept=trend_short, text=paste0("1 month average", sep="")), color=TRENDL_MO_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
+											geom_hline(aes(yintercept=trend_long, text=paste0(VIEW_RANGE_PRIMARY, " month average", sep="")), color=TRENDL_YR_COLOR, linetype="solid", alpha=0.8, linewidth=1) + 
+											geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot), "\nMean abundance: ", prettyNum(val, big.mark=",", digits=1), " virions per capita.", sep="")), shape = 1, size = 2, alpha=0.9) + 
 											geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
+		
+		#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
 
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
@@ -208,15 +221,15 @@ shinyServer(function(input, output, session) {
 		df_plot <- df_variants %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
     
 		gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
-							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group))) + 
+							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week of ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
 							scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
-							labs(x="", y="") + 
+							labs(x="", y="", fill=NULL) + 
 		          scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
 #							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
-							plot_theme() +
+							plot_theme() + 
 							theme(legend.position = "right", legend.title=element_blank())
 
-		ggplotly(gplot) %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
+		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
 
 
@@ -280,8 +293,10 @@ shinyServer(function(input, output, session) {
   }
 
   
+	# Accepts a map (target) index.
 	#
-	# Update the status row (on reaction to map click or site selection).
+	# Updates the alert status elements (usually on reaction to map click or site 
+	# selection).
 	#
 	updateStatus <- function(mapIndex) {
 	  #print("##### updateStatus called!")
@@ -293,69 +308,42 @@ shinyServer(function(input, output, session) {
 		
 		status_df <- getAbundanceData(mapIndex, loc_id)
 
-		risk_text <- getRiskLevel(status_df)
-		abundance_text <- getAbundanceText(status_df)
-		trend_text <- getTrendText(status_df)
+		vec_risk <- getRiskLevel(status_df)
+		vec_abundance <- getAbundance(status_df)
+		vec_trend <- getTrend(status_df)
 
 		if (mapIndex == 1) {
 			df_variants <- getVariantData(mapIndex, loc_id)
-			variant_text <- getDominantVariant(status_sq_df)
+			vec_variant <- getDominantVariant(status_sq_df)
 		}
 		
-#		if (loc_id == "WV") {
-			#delta <- mean((df_regions %>% filter(region_geolevel == "county"))[[DISEASES[mapIndex]]], na.rm = TRUE)
-			#fresh <- mean((df_fresh %>% filter(region_geolevel == "county"))[[DISEASES[mapIndex]]], na.rm = TRUE)
-#		} else {
-			#delta <- (df_regions %>% filter(region_name == loc_id))[[DISEASES[mapIndex]]]
-			#fresh <- (df_fresh %>% filter(region_name == loc_id))[[DISEASES[mapIndex]]]
-#		}
-#			delta <- calcDelta(df_this, 12)
-#			fresh <- calcFresh(df_this)
-			
-# 		if (is.na(fresh)) {
-# 			output$fresh_covid <- renderText("-")
-# 		} else {
-# 			fresh <- formatC(as.numeric(fresh), format="d")
-# 			output$fresh_covid <- renderText(fresh)
-# 		}
-# 		color <- getFreshnessColor(fresh)
-##			frunner <- paste0("document.getElementById('rs_fresh_", i, "').style.color = '", color, "';")
-#		frunner <- paste0("document.getElementById('fresh_covid').style.color = '", color, "';")
-#		runjs(frunner)
-# 	
-# 		if (is.na(delta)) {
-# 			output$level_covid <- renderText("-")
-# 		} else {
-# 			delta <- formatC(as.numeric(delta), format="d")
-# 			output$level_covid <- renderText(paste0(delta, "%"))
-# 		}
-#
-#			drunner <- paste0("document.getElementById('rs_delta_", i, "').style.color = '", color, "';")
-#			drunner <- paste0("document.getElementById('delta_covid').style.color = '", color, "';")
-#			runjs(drunner)
-#
-#			bgcolor <- getAlertColor(fresh, delta)
-#			arunner <- paste0("document.getElementById('rs_CSL_", i, "').style.backgroundColor = '", bgcolor, "';")
-#			arunner <- paste0("document.getElementById('rs_CSL_", i, "').style.backgroundColor = '", bgcolor, "';")
-#			runjs(arunner)	
-
 		# Print the title, selection, and last_sample strings to the UI
 		if (mapIndex == 1) {
-			output$risk_covid <- renderText(risk_text)
-			output$abundance_covid <- renderText(abundance_text)
-			output$trend_covid <- renderText(trend_text)
-			output$variant_covid <- renderText(variant_text)
+			output$risk_covid <- renderText(vec_risk[1])
+			output$abundance_covid <- renderText(vec_abundance[1])
+			output$trend_covid <- renderText(vec_trend[1])
+			output$variant_covid <- renderText(vec_variant[1])
+			frunner <- paste0(
+#				"document.getElementById('risk_level_title_covid').style.backgroundColor = '", vec_risk[2], "';",
+				"document.getElementById('risk_level_text_covid').style.backgroundColor = '", vec_risk[2], "';",
+#				"document.getElementById('abundance_title_covid').style.backgroundColor = '", vec_abundance[2], "';",
+				"document.getElementById('abundance_text_covid').style.backgroundColor = '", vec_abundance[2], "';",
+#				"document.getElementById('trend_title_covid').style.backgroundColor = '", vec_trend[2], "';",
+				"document.getElementById('trend_text_covid').style.backgroundColor = '", vec_trend[2], "';",
+#				"document.getElementById('variant_title_covid').style.backgroundColor = '", vec_variant[2], "';",
+				"document.getElementById('variant_text_covid').style.backgroundColor = '", vec_variant[2], "';", sep="")
+			runjs(frunner)
 		} else {
 			if (mapIndex == 2) {
-				output$risk_flu <- renderText(risk_text)
-				output$abundance_flu <- renderText(abundance_text)
-				output$trend_flu <- renderText(trend_text)
+				output$risk_flu <- renderText(vec_risk[1])
+				output$abundance_flu <- renderText(vec_abundance[1])
+				output$trend_flu <- renderText(vec_trend[1])
 				#output$variant_flu <- renderText(variant_text)
 			} else {
 				if (mapIndex == 3) {
-					output$risk_rsv <- renderText(risk_text)
-					output$abundance_rsv <- renderText(abundance_text)
-					output$trend_rsv <- renderText(trend_text)
+					output$risk_rsv <- renderText(vec_risk[1])
+					output$abundance_rsv <- renderText(vec_abundance[1])
+					output$trend_rsv <- renderText(vec_trend[1])
 					#output$variant_rsv <- renderText(variant_text)
 				}
 			}
@@ -364,8 +352,10 @@ shinyServer(function(input, output, session) {
 	}
 	
 	
+	# Accepts a map (target) index.
 	#
-	# Write the selection info block (on reaction to map click or site selection).
+	# Updates content in the selection info block (usually on reaction to map click or 
+	# site selection).
 	#
 	updateSelectionInfo <- function(mapIndex) {
 #	  print("##### updateSelectionInfo called!")
@@ -445,48 +435,65 @@ shinyServer(function(input, output, session) {
 		# Calculate the freshness of the abundance data.
 		#		
 		most_recent_sample_date <- max(df_this$date_to_plot, na.rm=TRUE)
-		most_recent_contributors <- df_this %>% filter(date_to_plot == most_recent_sample_date)
-		most_recent_contributor_count <- length(unique(most_recent_contributors$location_id))
-		if (most_recent_contributor_count > 1) {
-			site_text <- "sites"
-		} else {
-			site_text <- "site"
-		}
-		sample_date_text <- paste0(
-			"Most recent abundance data is for the week of ", printy_dates(most_recent_sample_date), " from ", 
-			most_recent_contributor_count, " reporting ", site_text, " (", 
-			prettyNum(100*(most_recent_contributor_count/num_facilities), digits=1), "%).", 
+		most_recent_sample_win <- c(most_recent_sample_date, most_recent_sample_date+7)
+
+		sample_freshness_text <- paste0(
+			printy_dates(most_recent_sample_win[1]), 
+			" - ", printy_dates(most_recent_sample_win[2]), 
 			sep="")
 
 
-		# Print the title, selection, and last_sample strings to the UI
+		# Calculate the completeness of the abundance data.
+		#		
+		most_recent_contributors <- df_this %>% filter(date_to_plot == most_recent_sample_date)
+		most_recent_contributor_count <- length(unique(most_recent_contributors$location_id))
+
+		if (most_recent_contributor_count > 1) {
+			site_suffix <- "sites"
+		} else {
+			site_suffix <- "site"
+		}
+
+		sample_completeness_text <- paste0(
+			"and includes ", 
+			most_recent_contributor_count, " reporting ", site_suffix, " (", 
+			prettyNum(100*(most_recent_contributor_count/num_facilities), digits=1), "%).", 
+			sep="")
+
+		# Calculate the freshness of the variant data.
 		if (mapIndex == 1) {
 			if (nrow(df_this_sq) > 0) {
 				most_recent_sample_date_sq <- max(df_this_sq$date_to_plot, na.rm=TRUE)
-				sample_date_text_sq <- paste0(
-					"Most recent variant data is for the week of ", 
-					printy_dates(most_recent_sample_date_sq), ".", sep="")
+				most_recent_sample_win_sq <- c(most_recent_sample_date_sq, most_recent_sample_date_sq+7)
+				sample_freshness_text_sq <- paste0(
+					printy_dates(most_recent_sample_win_sq[1]), " - ", 
+					printy_dates(most_recent_sample_win_sq[2]), ".", sep="")
 			} else {
-				sample_date_text_sq <- paste0(
-					"Variant infomation for this site is not determined.", sep="")
+				sample_freshness_text_sq <- paste0("not reported for this region.", sep="")
 			}
+		}
+
+		# Print the title, selection, and last_sample strings to the UI
+		if (mapIndex == 1) {
 			output$selection_covid <- renderText(selection_text)
 			output$selection_details_covid <- renderText(selection_details_text)
 			output$selection_title_covid <- renderText(title_text)
-			output$selection_samples_covid <- renderText(sample_date_text)
-			output$selectionsq_samples_covid <- renderText(sample_date_text_sq)
+			output$selection_freshness_covid <- renderText(sample_freshness_text)
+			output$selection_completeness_covid <- renderText(sample_completeness_text)
+			output$selectionsq_freshness_covid <- renderText(sample_freshness_text_sq)
 		} else {
 			if (mapIndex == 2) {
 				output$selection_flu <- renderText(selection_text)
 				output$selection_details_flu <- renderText(selection_details_text)
 				output$selection_title_flu <- renderText(title_text)
-				output$selection_samples_flu <- renderText(sample_date_text)
+				output$selection_freshness_flu <- renderText(sample_freshness_text)
+				output$selection_completeness_flu <- renderText(sample_completeness_text)
 			} else {
 				if (mapIndex == 3) {
 					output$selection_rsv <- renderText(selection_text)
 					output$selection_title_rsv <- renderText(title_text)
-					output$selection_details_rsv <- renderText(selection_details_text)
-					output$selection_samples_rsv <- renderText(sample_date_text)
+					output$selection_freshness_rsv <- renderText(sample_freshness_text)
+					output$selection_completeness_rsv <- renderText(sample_completeness_text)
 				}
 			}
 		}
@@ -507,8 +514,9 @@ shinyServer(function(input, output, session) {
 	)
 
 
+	# Accepts a map (target) index.
 	#
-	#	Reset a map
+	#	Resets the zoom and position of the given map.
 	#
 	resetMap <- function(mapIndex) {
 		#print("resetMap called!")
@@ -516,8 +524,10 @@ shinyServer(function(input, output, session) {
 		mapProxy %>% setView(MAP_CENTER$lng, MAP_CENTER$lat, zoom = MAP_CENTER$zoom)
 	}
 	
+
+	# Accepts a menu option and a map (target) index.
 	#
-	# Change the geolevel
+	# Changes the geolevel to the given option in the given map.
 	#
 	changeGeolevel <- function(clicked, mapIndex) {
 
@@ -620,8 +630,10 @@ shinyServer(function(input, output, session) {
 
 	}
 
+
+	# Accepts a map marker and a map (target) index.
 	#
-	# Click on a map marker
+	# Responds to a click on the given map marker in the given map.
 	#
 	clickMapMarker <- function(clicked, mapIndex) {
     if (length(clicked) == 0) {
@@ -648,8 +660,10 @@ shinyServer(function(input, output, session) {
 		}
 	}
 
+
+	# Accepts a map shape and a map (target) index.
 	#
-	# Click on a map shape
+	# Responds to a click on the given map shape in the given map.
 	#
 	clickMapShape <- function(clicked, mapIndex) {
 #    print("##### clickMapShape called!")
@@ -675,8 +689,10 @@ shinyServer(function(input, output, session) {
 
 	}
 	
+
+	# Accepts a map click and a map (target) index.
 	#
-	# Off-target click on a map
+	# Responds to a generic off-marker click in the given map.
 	#
 	clickMapOffMarker <- function(clicked, mapIndex) {
 #    print("##### clickMapOffMarker called!")
@@ -698,7 +714,7 @@ shinyServer(function(input, output, session) {
 	
 	
 	#
-	# Render the maps
+	# Renders the maps.
 	#
 	output$map_covid <- renderLeaflet({
 		leaflet() %>% 

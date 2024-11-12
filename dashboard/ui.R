@@ -31,7 +31,14 @@ shinyUI(fluidPage(
 						)
 					), # fluidRow (controls title)
 					fluidRow(
-						column(8,
+						column(2,
+							style = "text-align: left;",
+							div(
+								style = "display: inline-block;margin-top: 15px;",
+								actionBttn(inputId="map_reset_covid", label="Reset Zoom", style="pill", size="xs", color="success")
+							)
+						), 
+						column(5,
 							div(
 								class = "map_embed",
 								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:105px;",
@@ -54,10 +61,12 @@ shinyUI(fluidPage(
 			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
 									selected = "lab"
 								)
-							),
+							)
+						), 
+						column(5,
 							div(
 								class = "map_embed",
-								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:120px;",
+								style = "margin-left: 20px; display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:120px;",
 								"Plot View",
 								selectInput(
 									"view_range_covid",
@@ -65,13 +74,6 @@ shinyUI(fluidPage(
 									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
 									selected = VIEW_RANGE_PRIMARY
 								)
-							)
-						),
-						column(4,
-							style = "text-align: right;",
-							div(
-								style = "display: inline-block;margin-top: 25px;",
-								actionBttn(inputId="map_reset_covid", label="Reset Map", style="pill", size="xs", color="success")
 							)
 						)
 					), # fluidRow (controls)
@@ -120,28 +122,48 @@ shinyUI(fluidPage(
 							fluidRow(
 								column(12,
 									div(
-										textOutput("selection_samples_covid"), 
-										style="font-size: 16px;padding: 10px 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									"Latest abundance data for this region is from ",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									),
+									div(
+										textOutput("selection_freshness_covid"), 
+										style="font-size: 18px;padding: 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									),
+									div(
+										textOutput("selection_completeness_covid"), 
+										style="font-size: 14px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
 									)
 								)
 							), # fluidRow (abundance data freshness)
 							fluidRow(
 								column(12,
 									div(
-										textOutput("selectionsq_samples_covid"), 
-										style="font-size: 16px;padding: 10px 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									"Latest variant data for this region is from ",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									),
+									div(
+										textOutput("selectionsq_freshness_covid"), 
+										style="font-size: 18px;padding-bottom: 10px;font-weight: 800;text-align: center;color: #FFFC79;"
 									)
 								)
 							), # fluidRow (variant data freshness)
 							fluidRow(
-								style = "margin-left: 0px; margin-right: 0px;background-color: #000000; color: #ffffff;",
 								column(12,
-									style = "font-size: 13px;padding: 15px 0px;font-weight: 400;text-align: center;",
-									div("WaTCH-WV is supported by CDC-sponsored grants from the West Virginia Department of Health, to West Virginia University and Marshall University.")
+									div(
+									"NOTE: Recent data may change as more sites report results.",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #FF85FF"
+									)
 								)
-							) # fluidRow (logo and sponsors)
+							) # fluidRow (about the data)
 						)	# column
-					), # fluidRow (color key & selection info)
+					) # fluidRow (color key & selection info)
+# 					fluidRow(
+# 						style = "margin-left: 0px; margin-right: 0px;background-color: #000000; color: #ffffff;",
+# 						column(12,
+# 							style = "font-size: 12px;padding: 15px 0px;font-weight: 400;text-align: center;",
+# 							div("WaTCH-WV is supported by CDC-sponsored grants from the West Virginia Department of Health to West Virginia University & Marshall University.")
+# 						)
+# 					) # fluidRow (logo and sponsors)
 				),
 				column(5,
 					style = "margin-top: 5px;padding: 3px;",
@@ -149,33 +171,41 @@ shinyUI(fluidPage(
 						# alert blocks
 						column(3,
 							div(
+								id = "risk_level_title_covid",
 								"Risk Level",
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
+								id = "risk_level_text_covid",
 								textOutput("risk_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
 						column(3,
 							div(
+								id = "abundance_title_covid",
 								"Abundance",
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
+								id = "abundance_text_covid",
 								textOutput("abundance_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
 						column(3,
 							div(
+								id = "trend_title_covid",
 								"Trend",
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
+								id = "trend_text_covid",
 								textOutput("trend_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
 						column(3,
 							div(
+								id = "variant_title_covid",
 								"Variant",
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
+								id = "variant_text_covid",
 								textOutput("variant_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						)
@@ -193,7 +223,7 @@ shinyUI(fluidPage(
 					fluidRow(
 						column(12,
 							# Plot of COVID change over time
-							plotlyOutput("plot_covid", height="358px", width="100%")
+							plotlyOutput("plot_covid", height="350px", width="100%")
 						)
 					), # fluidRow (COVID plot)
 					fluidRow(
@@ -210,7 +240,7 @@ shinyUI(fluidPage(
 						style = "margin-top: 5px;",
 						column(12,
 							# Plot of COVID variant proportions over time
-							plotlyOutput("plotsq_covid", height="325px", width="100%")
+							plotlyOutput("plotsq_covid", height="350px", width="100%")
 						)
 					) # fluidRow (variant plot)
 				),
@@ -221,17 +251,13 @@ shinyUI(fluidPage(
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
 							div("County", style = "padding: 2px;")
 						),
-						column(2,
+						column(5,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Level", style = "padding: 2px;")
+							div("Risk", style = "padding: 2px;")
 						),
 						column(3,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Trend", style = "padding: 2px;")
-						),
-						column(3,
-							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Age (d)", style = "padding: 2px;")
+							div("Variant", style = "padding: 2px;")
 						)
 					), # fluidRow (table header)
 					fluidRow(

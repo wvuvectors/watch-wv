@@ -82,38 +82,42 @@ excel2df <- function(fname) {
   
 
 getRiskLevel <- function(df_in) {
-	risk_level <- "Unk"
-	
+	i <- 1
+	txt <- ALERT_LEVEL_STRINGS[i]
+	color <- ALERT_LEVEL_COLORS[i]
 	# do stuff in here!
 
-	return(risk_level)
+	return(c(txt, color))
 }
 
 
-getAbundanceText <- function(df_in) {
-	abundance <- "Unk"
-	
+getAbundance <- function(df_in) {
+	i <- 2
+	txt <- ALERT_LEVEL_STRINGS[i]
+	color <- ALERT_LEVEL_COLORS[i]
 	# do stuff in here!
 
-	return(abundance)
+	return(c(txt, color))
 }
 
 
-getTrendText <- function(df_in) {
-	trend <- "Unk"
-	
+getTrend <- function(df_in) {
+	i <- 3
+	txt <- ALERT_LEVEL_STRINGS[i]
+	color <- ALERT_LEVEL_COLORS[i]
 	# do stuff in here!
 
-	return(trend)
+	return(c(txt, color))
 }
 
 
 getDominantVariant <- function(df_in) {
-	variant <- "Unk"
-	
+	i <- 4
+	txt <- ALERT_LEVEL_STRINGS[i]
+	color <- ALERT_LEVEL_COLORS[i]
 	# do stuff in here!
 
-	return(variant)
+	return(c(txt, color))
 }
 
 

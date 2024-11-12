@@ -107,27 +107,28 @@ else
 fi
 
 
-# Pausing (probably abandoning) the dashboard optimization of delta and freshness calculations.
-# These will change every day so need to be calculated on the fly. Sad face.
+# Creating a dashboard-specific table to hold most recent risk, abundance, and trend data
+# by region (state, county, or facility). Must be pre-calculated because too computationally
+# expensive to do them all when the dashboard initializes.
 #
-# echo "******" | tee -a "$logf"
-# echo "Running 8b_OptimizeWVDash.pl." | tee -a "$logf"
-# echo "******" | tee -a "$logf"
-# 
-# ./perl/8b_OptimizeWVDash.pl | tee -a "$logf"
-# status="${PIPESTATUS[0]}"
-# echo "" | tee -a "$logf"
-# 
-# if [[ "$status" != "0" ]]
-# then
-# 	echo "8b_OptimizeWVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
-# 	echo "!!!!!!!!" | tee -a "$logf"
-# 	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
-# 	echo "Delete the file dashboard.precalc.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
-# 	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
-# 	echo "!!!!!!!!" | tee -a "$logf"
-# 	exit 1
-# fi
+echo "******" | tee -a "$logf"
+echo "Running 9_buildAlertTable.pl." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+./perl/9_buildAlertTable.pl > "../dashboard/data/wvdash.alerts.txt" | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
+if [[ "$status" != "0" ]]
+then
+	echo "9_buildAlertTable.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
+	echo "Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
+	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
 
 
 

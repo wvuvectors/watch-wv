@@ -116,6 +116,7 @@ df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 1
 
 
 # Assign overarching lineage groups to our seqr data.
+# https://covid.cdc.gov/covid-data-tracker/#variant-summary
 #
 #df_seqr$percent <- as.numeric(df_seqr$variant_proportion) * 100
 
@@ -157,8 +158,6 @@ df_seqr$date_to_plot <- df_seqr$week_starting
 
 this_week <- floor_date(today, "week", week_start = 1)
 
-# https://covid.cdc.gov/covid-data-tracker/#variant-summary
-
 
 dflist_rs <- list()
 for (i in 1:length(TARGETS)) {
@@ -172,12 +171,8 @@ df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>%
 	rename(Site = location_common_name, Group = location_group, County = location_counties_served, Pop = location_population_served, Lab = location_primary_lab)
 
 
-# Pre-calculate freshness & deltas for each county.
-# Add this info to df_active_county.
-#
-anames <- c("region_name", "region_geolevel", DISEASES)
-df_regions <- data.frame(matrix(ncol=6,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
-df_fresh <- data.frame(matrix(ncol=6,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
+anames <- c("region_name", "region_geolevel")
+df_regions <- data.frame(matrix(ncol=2,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
 
 for (county in df_active_county$county_id) {
 	#print(county)
@@ -186,47 +181,14 @@ for (county in df_active_county$county_id) {
 	
 	locations <- (df_active_loc %>% filter(tolower(location_category) == "wwtp" & location_counties_served == county))$location_id
 	
-	for (i in 1:length(TARGETS)) {
-		this_disease <- DISEASES[[i]]
-		df_this <- dflist_rs[[i]] %>% filter(location_id %in% locations)
-		#print(df_this)
-		delta <- calcDelta(df_this, VIEW_RANGE_PRIMARY)
-		fresh <- calcFresh(df_this)
-		this_rowc <- append(this_rowc, list(this_disease = c(delta)))
-		this_rowf <- append(this_rowf, list(this_disease = c(fresh)))
-	}
-	df_regions <- rbind(df_regions, as.data.frame(this_rowc))
-	df_fresh <- rbind(df_fresh, as.data.frame(this_rowf))
-
 	for (loc_id in locations) {
 		this_rowl <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
-		this_rowg <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
-		for (i in 1:length(TARGETS)) {
-			this_disease <- DISEASES[[i]]
-			df_this <- dflist_rs[[i]] %>% filter(location_id == loc_id)
-			#print(df_this)
-			delta <- calcDelta(df_this, VIEW_RANGE_PRIMARY)
-			fresh <- calcFresh(df_this)
-			this_rowl <- append(this_rowl, list(this_disease = c(delta)))
-			this_rowg <- append(this_rowg, list(this_disease = c(fresh)))
-		}
 		df_regions <- rbind(df_regions, as.data.frame(this_rowl))
-		df_fresh <- rbind(df_fresh, as.data.frame(this_rowg))
 	}
 	
 }
 colnames(df_regions) <- anames
-
-for (colname in colnames(df_regions)) {
-	if (colname != "region_name" & colname != "region_geolevel") {
-		df_regions[[colname]] <- as.numeric(df_regions[[colname]])
-		#df_regions[[colname]] <- replace_na(df_regions[[colname]], "-")
-	}
-}
-df_regions$avg <- rowMeans(df_regions[,DISEASES], na.rm = TRUE)
-#df_regions <- df_regions %>% arrange(desc(avg))
 df_regions <- df_regions %>% arrange(region_name)
-
 
 df_regions$region_lab <- case_when(
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_id ~ "zoowvu", 
@@ -234,58 +196,57 @@ df_regions$region_lab <- case_when(
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "zoowvu", 
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "muidsl", 
   .default = "Other")
-
 df_regions$region_lab <- replace_na(df_regions$region_lab, "Other")
 
 
-colnames(df_fresh) <- anames
 
-for (colname in colnames(df_fresh)) {
-	if (colname != "region_name" & colname != "region_geolevel") {
-		df_fresh[[colname]] <- as.numeric(df_fresh[[colname]])
+# Pre-calculate risk, abundance, trend, and variant for latest week (all regions).
+# Enables map coloring and informs the county table.
+#
+# This info appears in dflist_alerts.
+#
+
+dflist_alerts <- list()
+for (i in 1:length(TARGETS)) {
+#	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
+	dflist_alerts[[i]] <- df_regions
+	latest_date <- max(dflist_rs[[i]]$date_to_plot)
+	df_latest <- dflist_rs[[i]] %>% 
+		filter(date_to_plot >= latest_date-31) %>% 
+		select("date_to_plot", "target_copies_fn_per_cap", "location_id")
+	
+	for (this_region in df_regions$region_name) {
+		if ((df_regions %>% filter(region_name == this_region))$region_geolevel == "county") {
+			# roll up county active facilities
+			loc_ids <- (df_active_loc %>% filter(location_counties_served == this_region & location_category == "wwtp"))$location_id
+#		} else {
+			# just the single facility, but need it as a vector
+#			loc_ids <- (df_active_loc %>% filter(location_id == this_region))$location_id
+#		}
+		
+		suppressMessages(
+		status_df <- df_latest %>% 
+								 filter(location_id %in% loc_ids) %>%
+								 group_by(date_to_plot) %>% 
+								 arrange(date_to_plot) %>%
+								 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
+													 date_to_plot := date_to_plot)
+		)
+	
+		vec_risk <- getRiskLevel(status_df)
+		dflist_alerts[[i]]$risk_text <- vec_risk[1]
+		dflist_alerts[[i]]$risk_color <- vec_risk[2]
+
+		vec_abundance <- getAbundance(status_df)
+		dflist_alerts[[i]]$abundance_text <- vec_abundance[1]
+		dflist_alerts[[i]]$abundance_color <- vec_abundance[2]
+
+		vec_trend <- getTrend(status_df)
+		vec_variant <- getDominantVariant(status_df)
+		dflist_alerts[[i]]$variant_text <- vec_variant[1]
+		dflist_alerts[[i]]$variant_color <- vec_variant[2]
+		} else {
+		}
 	}
 }
 
-
-# getColorPal <- function(basis) {
-# 	pal <- case_when(
-# 		basis == "lab" ~ labPal()
-# 	)
-# 	return(pal)
-# }
-# 
-# labPal <- colorFactor(
-# 	palette = c("#EAAA00", "#00B140", "#EEEEEE"),
-# 	domain = df_regions$lab
-# )
-# 
-# alertPal <- colorFactor(
-# 	palette = c("#EAAA00", "#00B140", "#EEEEEE"),
-# 	domain = df_regions$lab
-# )
-
-
-
-# for (i in 1:length(TARGETS)) {
-# 	col_f <- paste0("freshness_", i, sep="")
-# 	col_d <- paste0("delta_", i, sep="")
-# 	#df_active_loc <- df_active_county %>% add_column(!!col_f)
-# 	#df_active_loc <- df_active_county %>% add_column(!!col_d)
-# 	for (loc in df_active_loc$location_id) {
-# 		df_this <- df_rs %>% filter(location_id == loc & target == TARGETS_RS[i] & target_genetic_locus == GENLOCI_RS[i])
-# 		if (length(df_this$date_to_plot) == 0) {
-# 			freshness <- "NA"
-# 			delta <- "NA"
-# 		} else {
-# 			last_date <- max(df_this$date_to_plot, na.rm = TRUE)
-# 			freshness <- ymd(today)-ymd(last_date)
-# 			delta <- 100 * 
-# 				mean((df_this %>% filter(ymd(date_to_plot) == ymd(last_date)))$target_copies_fn_per_cap, na.rm = TRUE) / 
-# 				mean((df_this %>% filter(date_to_plot > (today %m-% months(12))))$target_copies_fn_per_cap, na.rm = TRUE)
-# 		}
-# 		df_active_loc[[col_f]] <- freshness
-# 		df_active_loc[[col_d]] <- delta
-# 	}
-# }
-# 
-# 
