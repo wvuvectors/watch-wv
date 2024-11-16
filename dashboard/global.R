@@ -40,6 +40,8 @@ df_sample <- rbind(df_s_wvu, df_s_mu)
 df_seqr <- as.data.frame(read.table(DB_SEQR, sep="\t", header=TRUE, check.names=FALSE))
 df_seqr <- df_seqr %>% rename(location_id = location)
 
+df_alerts <- as.data.frame(read.table(DB_ALERTS, sep="\t", header=TRUE, check.names=FALSE))
+
 
 resources <- excel2df(RES_ALL)
 df_active_loc <- resources$location %>% filter(tolower(location_status) == "active")
@@ -140,8 +142,6 @@ df_seqr$color_group <- replace_na(df_seqr$color_group, "Other Omicron")
 
 #################################################
 
-# Split the full data set for use in the different environments (tabs).
-#
 df_pcr$target_copies_fn_per_cap <- df_pcr$target_copies_fn_per_cap/df_pcr$target_per_capita_basis
 df_pcr$target_copies_per_ldcap <- df_pcr$target_copies_per_ldcap/df_pcr$target_per_capita_basis
 df_pcr$target_per_capita_basis <- 1
@@ -152,17 +152,23 @@ df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.n
 #
 df_rs$date_to_plot <- df_rs$week_starting
 df_seqr$date_to_plot <- df_seqr$week_starting
-#df_rs$date_to_plot <- df_rs$week_ending
-#df_seqr$date_to_plot <- df_seqr$week_ending
+#df_rs$date_to_plot <- df_rs$date_primary
 #df_seqr$date_to_plot <- df_seqr$date_primary
 
 this_week <- floor_date(today, "week", week_start = 1)
 
 
+# Split the full data set for use in the different environments (tabs).
+#
 dflist_rs <- list()
 for (i in 1:length(TARGETS)) {
 #	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
 	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i])
+}
+
+dflist_alerts <- list()
+for (i in 1:length(TARGETS)) {
+	dflist_alerts[[i]] <- df_alerts %>% filter(target == TARGETS[i])
 }
 
 
@@ -177,7 +183,8 @@ df_regions <- data.frame(matrix(ncol=2,nrow=0, dimnames=list(NULL, anames)), str
 for (county in df_active_county$county_id) {
 	#print(county)
 	this_rowc <- list("region_name" = c(county), "region_geolevel" = c("county"))
-	this_rowf <- list("region_name" = c(county), "region_geolevel" = c("county"))
+	#this_rowf <- list("region_name" = c(county), "region_geolevel" = c("county"))
+	df_regions <- rbind(df_regions, as.data.frame(this_rowc))
 	
 	locations <- (df_active_loc %>% filter(tolower(location_category) == "wwtp" & location_counties_served == county))$location_id
 	
@@ -195,8 +202,8 @@ df_regions$region_lab <- case_when(
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_id ~ "muidsl", 
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "zoowvu", 
   df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "muidsl", 
-  .default = "Other")
-df_regions$region_lab <- replace_na(df_regions$region_lab, "Other")
+  .default = "other")
+df_regions$region_lab <- replace_na(df_regions$region_lab, "other")
 
 
 
@@ -206,47 +213,47 @@ df_regions$region_lab <- replace_na(df_regions$region_lab, "Other")
 # This info appears in dflist_alerts.
 #
 
-dflist_alerts <- list()
-for (i in 1:length(TARGETS)) {
-#	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
-	dflist_alerts[[i]] <- df_regions
-	latest_date <- max(dflist_rs[[i]]$date_to_plot)
-	df_latest <- dflist_rs[[i]] %>% 
-		filter(date_to_plot >= latest_date-31) %>% 
-		select("date_to_plot", "target_copies_fn_per_cap", "location_id")
-	
-	for (this_region in df_regions$region_name) {
-		if ((df_regions %>% filter(region_name == this_region))$region_geolevel == "county") {
-			# roll up county active facilities
-			loc_ids <- (df_active_loc %>% filter(location_counties_served == this_region & location_category == "wwtp"))$location_id
-#		} else {
-			# just the single facility, but need it as a vector
-#			loc_ids <- (df_active_loc %>% filter(location_id == this_region))$location_id
-#		}
-		
-		suppressMessages(
-		status_df <- df_latest %>% 
-								 filter(location_id %in% loc_ids) %>%
-								 group_by(date_to_plot) %>% 
-								 arrange(date_to_plot) %>%
-								 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
-													 date_to_plot := date_to_plot)
-		)
-	
-		vec_risk <- getRiskLevel(status_df)
-		dflist_alerts[[i]]$risk_text <- vec_risk[1]
-		dflist_alerts[[i]]$risk_color <- vec_risk[2]
-
-		vec_abundance <- getAbundance(status_df)
-		dflist_alerts[[i]]$abundance_text <- vec_abundance[1]
-		dflist_alerts[[i]]$abundance_color <- vec_abundance[2]
-
-		vec_trend <- getTrend(status_df)
-		vec_variant <- getDominantVariant(status_df)
-		dflist_alerts[[i]]$variant_text <- vec_variant[1]
-		dflist_alerts[[i]]$variant_color <- vec_variant[2]
-		} else {
-		}
-	}
-}
+# dflist_alerts <- list()
+# for (i in 1:length(TARGETS)) {
+# #	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
+# 	dflist_alerts[[i]] <- df_regions
+# 	latest_date <- max(dflist_rs[[i]]$date_to_plot)
+# 	df_latest <- dflist_rs[[i]] %>% 
+# 		filter(date_to_plot >= latest_date-31) %>% 
+# 		select("date_to_plot", "target_copies_fn_per_cap", "location_id")
+# 	
+# 	for (this_region in df_regions$region_name) {
+# 		if ((df_regions %>% filter(region_name == this_region))$region_geolevel == "county") {
+# 			# roll up county active facilities
+# 			loc_ids <- (df_active_loc %>% filter(location_counties_served == this_region & location_category == "wwtp"))$location_id
+# #		} else {
+# 			# just the single facility, but need it as a vector
+# #			loc_ids <- (df_active_loc %>% filter(location_id == this_region))$location_id
+# #		}
+# 		
+# 		suppressMessages(
+# 		status_df <- df_latest %>% 
+# 								 filter(location_id %in% loc_ids) %>%
+# 								 group_by(date_to_plot) %>% 
+# 								 arrange(date_to_plot) %>%
+# 								 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
+# 													 date_to_plot := date_to_plot)
+# 		)
+# 	
+# 		vec_risk <- getRiskLevel(status_df)
+# 		dflist_alerts[[i]]$risk_text <- vec_risk[1]
+# 		dflist_alerts[[i]]$risk_color <- vec_risk[2]
+# 
+# 		vec_abundance <- getAbundance(status_df)
+# 		dflist_alerts[[i]]$abundance_text <- vec_abundance[1]
+# 		dflist_alerts[[i]]$abundance_color <- vec_abundance[2]
+# 
+# 		vec_trend <- getTrend(status_df)
+# 		vec_variant <- getDominantVariant(status_df)
+# 		dflist_alerts[[i]]$variant_text <- vec_variant[1]
+# 		dflist_alerts[[i]]$variant_color <- vec_variant[2]
+# 		} else {
+# 		}
+# 	}
+# }
 

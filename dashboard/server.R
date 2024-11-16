@@ -168,8 +168,9 @@ shinyServer(function(input, output, session) {
 		largest_val <- max(df_plot$val+10, na.rm=TRUE)
 		
 		# Calculate the mean signal for each target over the last month and last year.
-		trend_short <- calcTrend(df_abundance, 1)
-		trend_long <- calcTrend(df_abundance, VIEW_RANGE_PRIMARY)
+		trend01 <- calcTrend(df_abundance, 1)
+		trend06 <- calcTrend(df_abundance, 6)
+		trend12 <- calcTrend(df_abundance, 12)
 
 #		geompt_msg <- paste0(date_to_plot, sep="")
 		
@@ -179,11 +180,12 @@ shinyServer(function(input, output, session) {
 											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
 											plot_theme() + 
 											labs(x = NULL, y = NULL, color = NULL) + 
-											annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#cdabab") + 
-											annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#A88E8E", size = 2.5, family = "Arial", label = "Data subject to change.") + 
-											geom_hline(aes(yintercept=trend_short, text=paste0("1 month average", sep="")), color=TRENDL_MO_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
-											geom_hline(aes(yintercept=trend_long, text=paste0(VIEW_RANGE_PRIMARY, " month average", sep="")), color=TRENDL_YR_COLOR, linetype="solid", alpha=0.8, linewidth=1) + 
-											geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot), "\nMean abundance: ", prettyNum(val, big.mark=",", digits=1), " virions per capita.", sep="")), shape = 1, size = 2, alpha=0.9) + 
+											annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#bfbfbf") + 
+											annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
+											geom_hline(aes(yintercept=trend01, text=paste0("Most recent month: ", prettyNum(trend01, big.mark=",", digits=1), " virus/person", sep="")), color=TRENDL_01_COLOR, linetype="dotted", alpha=1.0, linewidth=0.5) + 
+											geom_hline(aes(yintercept=trend06, text=paste0("Most recent 6 months:", prettyNum(trend06, big.mark=",", digits=1), " virus/person", sep="")), color=TRENDL_06_COLOR, linetype="dotted", alpha=0.8, linewidth=0.5) + 
+											geom_hline(aes(yintercept=trend12, text=paste0("Most recent year:", prettyNum(trend12, big.mark=",", digits=1), " virus/person", sep="")), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
+											geom_point(aes(x = date_to_plot, y = val, text=paste0("Week that starts ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " virus/person (on average).", sep="")), shape = 1, size = 2, alpha=0.9) + 
 											geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
 		
 		#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
@@ -221,7 +223,7 @@ shinyServer(function(input, output, session) {
 		df_plot <- df_variants %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
     
 		gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
-							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week of ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
+							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week that starts ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
 							scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
 							labs(x="", y="", fill=NULL) + 
 		          scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
@@ -308,24 +310,24 @@ shinyServer(function(input, output, session) {
 		
 		status_df <- getAbundanceData(mapIndex, loc_id)
 
-		vec_risk <- getRiskLevel(status_df)
-		vec_abundance <- getAbundance(status_df)
-		vec_trend <- getTrend(status_df)
+#		vec_risk <- getRiskLevel(status_df)
+		vec_abundance <- getAbundance(mapIndex, loc_id)
+		vec_trend <- getTrend(mapIndex, loc_id)
 
 		if (mapIndex == 1) {
 			df_variants <- getVariantData(mapIndex, loc_id)
-			vec_variant <- getDominantVariant(status_sq_df)
+			vec_variant <- getDominantVariant(mapIndex, loc_id)
 		}
 		
 		# Print the title, selection, and last_sample strings to the UI
 		if (mapIndex == 1) {
-			output$risk_covid <- renderText(vec_risk[1])
+#			output$risk_covid <- renderText(vec_risk[1])
 			output$abundance_covid <- renderText(vec_abundance[1])
 			output$trend_covid <- renderText(vec_trend[1])
 			output$variant_covid <- renderText(vec_variant[1])
 			frunner <- paste0(
 #				"document.getElementById('risk_level_title_covid').style.backgroundColor = '", vec_risk[2], "';",
-				"document.getElementById('risk_level_text_covid').style.backgroundColor = '", vec_risk[2], "';",
+#				"document.getElementById('risk_level_text_covid').style.backgroundColor = '", vec_risk[2], "';",
 #				"document.getElementById('abundance_title_covid').style.backgroundColor = '", vec_abundance[2], "';",
 				"document.getElementById('abundance_text_covid').style.backgroundColor = '", vec_abundance[2], "';",
 #				"document.getElementById('trend_title_covid').style.backgroundColor = '", vec_trend[2], "';",
@@ -335,13 +337,13 @@ shinyServer(function(input, output, session) {
 			runjs(frunner)
 		} else {
 			if (mapIndex == 2) {
-				output$risk_flu <- renderText(vec_risk[1])
+#				output$risk_flu <- renderText(vec_risk[1])
 				output$abundance_flu <- renderText(vec_abundance[1])
 				output$trend_flu <- renderText(vec_trend[1])
 				#output$variant_flu <- renderText(variant_text)
 			} else {
 				if (mapIndex == 3) {
-					output$risk_rsv <- renderText(vec_risk[1])
+#					output$risk_rsv <- renderText(vec_risk[1])
 					output$abundance_rsv <- renderText(vec_abundance[1])
 					output$trend_rsv <- renderText(vec_trend[1])
 					#output$variant_rsv <- renderText(variant_text)
@@ -536,14 +538,6 @@ shinyServer(function(input, output, session) {
 		# Update some reactive elements
 		controlRV$activeGeoLevel[mapIndex] <- clicked
 		
-		rollover <- as.character(
-			paste0(
-				location_common_name, " (" , 
-				prettyNum(location_population_served, big.mark=","), 
-				")"
-			)
-		)
-
 		if (clicked == "County") {
 			mapProxy %>% 
 					clearMarkers() %>% 
@@ -562,7 +556,7 @@ shinyServer(function(input, output, session) {
 #										 fillColor = ~alertPal(current_fold_change_smoothed), 
 										 fillColor = ~colorby,
 										 group = "facility", 
-										 label = ~rollover, 
+										 label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), 
 										 fillOpacity = 0.6) %>%
 					addPolygons( 
 						data = county_spdf, 
@@ -609,7 +603,7 @@ shinyServer(function(input, output, session) {
 	#										fillColor = ~alertPal(current_fold_change_smoothed), 
 											fillColor = ~colorby,
 											group = "facility", 
-											label = ~rollover, 
+											label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), , 
 											highlightOptions = highlightOptions(
 												weight = 3,
 												color = "#fff",

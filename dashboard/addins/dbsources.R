@@ -5,6 +5,8 @@ DB_SAMPLES_WVU <- paste(DB_BASE, "/watchdb.sample.txt", sep="")
 DB_RESULTS_MU <- paste(DB_BASE, "/mu.result.txt", sep="")
 DB_SAMPLES_MU <- paste(DB_BASE, "/mu.sample.txt", sep="")
 
+DB_ALERTS <- paste(DB_BASE, "/wvdash.alerts.txt", sep="")
+
 RES_BASE <- "data"
 RES_ALL <- paste(RES_BASE, "/watchdb.all_tables.xlsx", sep="")
 

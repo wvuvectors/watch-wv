@@ -169,17 +169,17 @@ shinyUI(fluidPage(
 					style = "margin-top: 5px;padding: 3px;",
 					fluidRow(
 						# alert blocks
-						column(3,
-							div(
-								id = "risk_level_title_covid",
-								"Risk Level",
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
-							div(
-								id = "risk_level_text_covid",
-								textOutput("risk_covid"),
-								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
-						),
-						column(3,
+# 						column(3,
+# 							div(
+# 								id = "risk_level_title_covid",
+# 								"Risk Level",
+# 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+# 							div(
+# 								id = "risk_level_text_covid",
+# 								textOutput("risk_covid"),
+# 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+# 						),
+						column(4,
 							div(
 								id = "abundance_title_covid",
 								"Abundance",
@@ -189,7 +189,7 @@ shinyUI(fluidPage(
 								textOutput("abundance_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
-						column(3,
+						column(4,
 							div(
 								id = "trend_title_covid",
 								"Trend",
@@ -199,7 +199,7 @@ shinyUI(fluidPage(
 								textOutput("trend_covid"),
 								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
-						column(3,
+						column(4,
 							div(
 								id = "variant_title_covid",
 								"Variant",
@@ -253,7 +253,7 @@ shinyUI(fluidPage(
 						),
 						column(5,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Risk", style = "padding: 2px;")
+							div("Trend", style = "padding: 2px;")
 						),
 						column(3,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
@@ -274,7 +274,7 @@ shinyUI(fluidPage(
 							add_css_thead(css = list("background-color", "#000000")) %>% 
 							add_css_thead(css = list("color", "#000000")) %>% 
 							add_css_thead(css = list("font-size", "1px")) %>% 
-							add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:5])) %>% 
+							add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:3])) %>% 
 							add_css_table(css = list("width", "100%")) %>% 
 							add_css_table(css = list("background-color", "#ffffff")) %>% 
 							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
@@ -311,10 +311,12 @@ shinyUI(fluidPage(
 							div(
 #								style = "padding: 2px;text-align: left;",
 								span("The "),
-								span(style="color: #EAAA00;", "solid gold line"),
-								span(paste0("on each plot represents the ", VIEW_RANGE_PRIMARY, " month average abundance. The ")),
-								span(style="color: #00B140;", "green dashed line"),
-								span("represents the average abundance over the most recent month.")
+								span(style="color: #00B140;", "green line"),
+								span("represents the average abundance over the most recent month. The"),
+								span(style="color: #EAAA00;", "gold line"),
+								span(paste0("on each plot represents the 6 month average abundance. The ")),
+								span(style="color: #010101;", "gray line"),
+								span(paste0("on each plot represents the annual average abundance."))
 							)
 						)
 					) # fluidRow (trend line descriptions)

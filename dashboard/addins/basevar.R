@@ -7,8 +7,9 @@ DISEASES <- c("COVID", "FLUA", "FLUB", "RSV")
 # Do we need this?
 GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "G")
 
-TRENDL_MO_COLOR <- "#00B140"	# MU Green
-TRENDL_YR_COLOR <- "#EAAA00"	# WVU Gold
+TRENDL_01_COLOR <- "#00B140"	# MU Green
+TRENDL_06_COLOR <- "#EAAA00"	# WVU Gold
+TRENDL_12_COLOR <- "#002855"	# WVU Blue
 
 #002855	# WVU Blue
 
