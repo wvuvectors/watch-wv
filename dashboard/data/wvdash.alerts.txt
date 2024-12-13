@@ -1,229 +1,138 @@
 region_name	target	normalization	latest_abundance	recent_trend
-PUT	SARS-CoV-2	time, flow, population	3.9577220690336	DECREASING
-PrincetonWWTP-01	Influenza Virus B (FluB)	time, flow, population	1.48338302986513	VARIABLE
-PrincetonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.443396008928889	STABLE
-PrincetonWWTP-01	SARS-CoV-2	time, flow, population	42.7136190796949	VARIABLE
-PrincetonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.404014285693333	STABLE
-PrincetonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1033.38358730214	VARIABLE
-SalemWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.771723867822968	VARIABLE
-SalemWWTP-01	SARS-CoV-2	time, flow, population	7.76819148008492	VARIABLE
-SalemWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.606384905528484	VARIABLE
-SalemWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	132.746925624415	DECREASING
-ClarksburgWWTP-01	Influenza Virus B (FluB)	time, flow, population	71.6720174539429	NA
-ClarksburgWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.67901176267643	VARIABLE
-ClarksburgWWTP-01	SARS-CoV-2	time, flow, population	17.4498635368219	VARIABLE
-ClarksburgWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	3571.74714691942	DECREASING
-ClarksburgWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.14631037613858	STABLE
-WheelingWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.22885074696	STABLE
-WheelingWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1298.94755925895	VARIABLE
-WheelingWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.518728359776	VARIABLE
-WheelingWWTP-01	Influenza Virus B (FluB)	time, flow, population	20.5263260197651	VARIABLE
-WheelingWWTP-01	SARS-CoV-2	time, flow, population	26.3766410192289	VARIABLE
-ManningtonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	2662.17573756986	VARIABLE
-ManningtonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.288711242988084	VARIABLE
-ManningtonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.44573516771769	VARIABLE
-ManningtonWWTP-01	Influenza Virus B (FluB)	time, flow, population	12.2504304568226	NA
-ManningtonWWTP-01	SARS-CoV-2	time, flow, population	3.37743838979688	VARIABLE
-FarmingtonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.368270748278689	VARIABLE
-FarmingtonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	435.416681814719	DECREASING
-FarmingtonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.02010593909836	VARIABLE
-FarmingtonWWTP-01	Influenza Virus B (FluB)	time, flow, population	6.41574327661448	NA
-FarmingtonWWTP-01	SARS-CoV-2	time, flow, population	0.350522760409836	DECREASING
-WestUnionWWTP-01	Human Norovirus GII (HuNoV-GII)	time	291633.448004723	VARIABLE
-WestUnionWWTP-01	Influenza Virus A (FluA)	time	740	SPIKING
-WestUnionWWTP-01	SARS-CoV-2	time	881129.561662675	INCREASING
-WestUnionWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time	1436	VARIABLE
-WestUnionWWTP-01	Influenza Virus B (FluB)	time, flow, population	53.5911976297431	NA
-KeyserWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.408479477717924	VARIABLE
-KeyserWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	232.115042129519	VARIABLE
-KeyserWWTP-01	SARS-CoV-2	time, flow, population	30.3258130216504	VARIABLE
-KeyserWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.340700803317826	VARIABLE
-MadisonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.487582415170143	VARIABLE
-MadisonWWTP-01	Influenza Virus B (FluB)	time, flow, population	10.6670443989317	NA
-MadisonWWTP-01	SARS-CoV-2	time, flow, population	1.00948703811405	VARIABLE
-MadisonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1419.87928158397	VARIABLE
-MadisonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.569970554924259	STABLE
-CharlesTownWWTP-01	SARS-CoV-2	time, flow, population	12.0914216330318	VARIABLE
-CharlesTownWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.0675228075529412	STABLE
-CharlesTownWWTP-01	Influenza Virus B (FluB)	time, flow, population	18.6455126550321	NA
+CharlesTownWWTP-01	SARS-CoV-2	time, flow, population	37.5705007563724	SPIKING
+CharlesTownWWTP-01	Influenza Virus A (FluA)	time, flow, population	2.89375385977686	INCREASING
+CharlesTownWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	3.26216356404477	INCREASING
 CharlesTownWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	335.085298826871	DECREASING
-CharlesTownWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.201553042094118	VARIABLE
-SRCM	SARS-CoV-2	time, flow, population	27.2841972434713	VARIABLE
-PRPSD	Influenza Virus A (FluA)	time, flow, population	8.73708589395	VARIABLE
-PRPSD	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0	STABLE
-PRPSD	Influenza Virus B (FluB)	time, flow, population	4.19044887	VARIABLE
-PRPSD	SARS-CoV-2	time, flow, population	38.3030870100278	VARIABLE
-SRO	SARS-CoV-2	time, flow, population	6.37586176953972	VARIABLE
-PointPleasantWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	246.087914653405	DECREASING
-PointPleasantWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.0818444765911151	STABLE
-PointPleasantWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.502747432769623	NA
-PointPleasantWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.150702560217588	VARIABLE
-PointPleasantWWTP-01	SARS-CoV-2	time, flow, population	14.0016910629282	VARIABLE
-GraftonWWTP-01	Influenza Virus B (FluB)	time, flow, population	8.86589581191138	NA
-GraftonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.393754968703673	VARIABLE
-GraftonWWTP-01	SARS-CoV-2	time, flow, population	20.0648029128546	VARIABLE
-GraftonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	2584.86413144572	VARIABLE
-GraftonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.780651181024543	VARIABLE
-StadiumSW-01	SARS-CoV-2	time	36280.7998806238	VARIABLE
-StadiumSW-01	Respiratory Syncitial Virus, Human (RSV)	time	2668	VARIABLE
-StadiumSW-01	Influenza Virus A (FluA)	time	3818	INCREASING
-StarCityWWTP-01	SARS-CoV-2	time, flow, population	75.4189804466369	VARIABLE
-StarCityWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.156560948270154	VARIABLE
-StarCityWWTP-01	Influenza Virus B (FluB)	time, flow, population	13.7172272726568	VARIABLE
-StarCityWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8015.04006727426	VARIABLE
-StarCityWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.09711721544446	VARIABLE
-StadiumNE-01	Influenza Virus A (FluA)	time	1680	DECREASING
-StadiumNE-01	Respiratory Syncitial Virus, Human (RSV)	time	4580	INCREASING
-StadiumNE-01	SARS-CoV-2	time	45019.019767642	VARIABLE
-Coliseum-01	SARS-CoV-2	time	13493.999009952	VARIABLE
-Coliseum-01	Respiratory Syncitial Virus, Human (RSV)	time	4431	VARIABLE
-Coliseum-01	Influenza Virus A (FluA)	time	13143.0764682591	VARIABLE
-StadiumNW-01	Influenza Virus A (FluA)	time	2506	VARIABLE
-StadiumNW-01	Influenza Virus B (FluB)	time	8466.54798835518	NA
-StadiumNW-01	Respiratory Syncitial Virus, Human (RSV)	time	2914	VARIABLE
-StadiumNW-01	SARS-CoV-2	time	21167.8701639176	VARIABLE
-StadiumSE-01	Respiratory Syncitial Virus, Human (RSV)	time	2172	STABLE
-StadiumSE-01	Influenza Virus B (FluB)	time	75029.424726963	SPIKING
-StadiumSE-01	SARS-CoV-2	time	12500.5426257849	DECREASING
-StadiumSE-01	Influenza Virus A (FluA)	time	550	VARIABLE
-CheatLakeWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.12862756232	VARIABLE
-CheatLakeWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	24596.5488873396	VARIABLE
-CheatLakeWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.75602520113	VARIABLE
-CheatLakeWWTP-01	Influenza Virus B (FluB)	time, flow, population	72.5653165994051	NA
-CheatLakeWWTP-01	SARS-CoV-2	time, flow, population	31.2396635756402	DECREASING
-MoundsvilleWWTP-01	Influenza Virus B (FluB)	time, flow, population	14.5259902750122	NA
-MoundsvilleWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.954238770833333	VARIABLE
-MoundsvilleWWTP-01	SARS-CoV-2	time, flow, population	68.7281149625847	VARIABLE
-MoundsvilleWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8410.43010107445	SPIKING
-MoundsvilleWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.630491580583333	VARIABLE
-AlpineLakeWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	97.4846422785678	VARIABLE
-AlpineLakeWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.275718448942857	STABLE
-AlpineLakeWWTP-01	SARS-CoV-2	time, flow, population	15.9588022964224	VARIABLE
-AlpineLakeWWTP-01	Influenza Virus B (FluB)	time, flow, population	4.98860807376885	NA
-AlpineLakeWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.295326872742857	STABLE
-ParkersburgWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	9605.7214317759	STABLE
-ParkersburgWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.654112466767742	VARIABLE
-ParkersburgWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.202719459058064	VARIABLE
-ParkersburgWWTP-01	Influenza Virus B (FluB)	time, flow, population	25.8072775697071	NA
-ParkersburgWWTP-01	SARS-CoV-2	time, flow, population	52.3169960852181	VARIABLE
-CSB	Influenza Virus A (FluA)	time, flow, population	0	DECREASING
-CSB	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	8.74146760161616	INCREASING
+CharlesTownWWTP-01	Influenza Virus B (FluB)	time, flow, population	1.68569001236626	DECREASING
+CSB	Influenza Virus A (FluA)	time, flow, population	10.5771256312368	STABLE
+CSB	SARS-CoV-2	time, flow, population	100.859722846604	INCREASING
 CSB	Influenza Virus B (FluB)	time, flow, population	0	STABLE
-CSB	SARS-CoV-2	time, flow, population	0	DECREASING
+CSB	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	2.28994296162158	INCREASING
+DUN	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0	INCREASING
 DUN	Influenza Virus B (FluB)	time, flow, population	0	STABLE
-DUN	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0	VARIABLE
-DUN	SARS-CoV-2	time, flow, population	49.1873317802403	VARIABLE
-DUN	Influenza Virus A (FluA)	time, flow, population	170.560771700375	VARIABLE
-WhiteOakWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.175068725696877	VARIABLE
-WhiteOakWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	656.731312539768	DECREASING
-WhiteOakWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.204475566519421	STABLE
-WhiteOakWWTP-01	SARS-CoV-2	time, flow, population	6.48673212067883	VARIABLE
-ElkinsWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.786252330328367	VARIABLE
-ElkinsWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8804.94729913994	SPIKING
-ElkinsWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.127079977242323	DECREASING
-ElkinsWWTP-01	Influenza Virus B (FluB)	time, flow, population	5.02025104669756	NA
-ElkinsWWTP-01	SARS-CoV-2	time, flow, population	34.4683593680478	SPIKING
-HuttonsvilleWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.154345993841028	STABLE
-HuttonsvilleWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	141.314496907065	DECREASING
+DUN	SARS-CoV-2	time, flow, population	42.9614487977198	VARIABLE
+DUN	Influenza Virus A (FluA)	time, flow, population	170.560771700375	INCREASING
+MoundsvilleWWTP-01	SARS-CoV-2	time, flow, population	34.7661245793918	SPIKING
+MoundsvilleWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.219806140666667	STABLE
+MoundsvilleWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.26204500725	VARIABLE
+MoundsvilleWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8410.43010107445	SPIKING
+MoundsvilleWWTP-01	Influenza Virus B (FluB)	time, flow, population	10.335973744142	DECREASING
+SRCM	SARS-CoV-2	time, flow, population	355.059608016892	INCREASING
+PRPSD	Influenza Virus B (FluB)	time, flow, population	0	STABLE
+PRPSD	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0	INCREASING
+PRPSD	Influenza Virus A (FluA)	time, flow, population	73.9091188035896	INCREASING
+PRPSD	SARS-CoV-2	time, flow, population	610.20831136451	SPIKING
+SRO	SARS-CoV-2	time, flow, population	10.462785698141	INCREASING
+GraftonWWTP-01	SARS-CoV-2	time, flow, population	59.7738966878803	INCREASING
+GraftonWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.01323784519848	INCREASING
+GraftonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	2584.86413144572	INCREASING
+GraftonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.08784864417724	INCREASING
+GraftonWWTP-01	Influenza Virus B (FluB)	time, flow, population	8.86589581191138	NA
+WheelingWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.398104755962	INCREASING
+WheelingWWTP-01	SARS-CoV-2	time, flow, population	32.8765856148727	SPIKING
+WheelingWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1298.94755925895	INCREASING
+WheelingWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.9895972904797	INCREASING
+WheelingWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.53580207304	INCREASING
+WestUnionWWTP-01	Influenza Virus B (FluB)	time, flow, population	9.34514241171317	DECREASING
+WestUnionWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	5.58264078501773	INCREASING
+WestUnionWWTP-01	Human Norovirus GII (HuNoV-GII)	time	291633.448004723	INCREASING
+WestUnionWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.115105995567376	DECREASING
+WestUnionWWTP-01	SARS-CoV-2	time, flow, population	1767.1850238375	SPIKING
+KeyserWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.270688329187071	NA
+KeyserWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.067948294877571	DECREASING
+KeyserWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	232.115042129519	DECREASING
+KeyserWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.711799820729677	STABLE
+KeyserWWTP-01	SARS-CoV-2	time, flow, population	11.0427331890508	DECREASING
+MadisonWWTP-01	SARS-CoV-2	time, flow, population	0.160990038463227	DECREASING
+MadisonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.0124307711920966	DECREASING
+MadisonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1419.87928158397	DECREASING
+MadisonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.208454342906696	STABLE
+MadisonWWTP-01	Influenza Virus B (FluB)	time, flow, population	10.6670443989317	NA
 HuttonsvilleWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.246880440385531	STABLE
-HuttonsvilleWWTP-01	SARS-CoV-2	time, flow, population	253.910160421794	VARIABLE
-HSB	Influenza Virus A (FluA)	time, flow, population	0	VARIABLE
-HSB	Influenza Virus B (FluB)	time, flow, population	0	VARIABLE
-HSB	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	5.41989596071429	VARIABLE
-HSB	SARS-CoV-2	time, flow, population	84.463387198398	INCREASING
-Wayne	Influenza Virus A (FluA)	NA	0	DECREASING
-Wayne	Respiratory Syncitial Virus, Human (RSV)	NA	5.41989596071429	VARIABLE
-Wayne	Influenza Virus B (FluB)	NA	0	DECREASING
-Wayne	SARS-CoV-2	NA	47.2180426688728	INCREASING
-Randolph	SARS-CoV-2	NA	253.910160421794	VARIABLE
-Randolph	Influenza Virus B (FluB)	NA	5.02025104669756	INCREASING
-Randolph	Respiratory Syncitial Virus, Human (RSV)	NA	0.246880440385531	STABLE
-Randolph	Influenza Virus A (FluA)	NA	0.154345993841028	STABLE
-Randolph	Human Norovirus GII (HuNoV-GII)	NA	3151.48780033564	INCREASING
-Kanawha	SARS-CoV-2	NA	49.1873317802403	VARIABLE
-Kanawha	Influenza Virus B (FluB)	NA	0	STABLE
-Kanawha	Respiratory Syncitial Virus, Human (RSV)	NA	0	VARIABLE
-Kanawha	Influenza Virus A (FluA)	NA	170.560771700375	VARIABLE
-Wood	Influenza Virus B (FluB)	NA	25.8072775697071	INCREASING
-Wood	Respiratory Syncitial Virus, Human (RSV)	NA	0.202719459058064	VARIABLE
-Wood	SARS-CoV-2	NA	52.3169960852181	VARIABLE
-Wood	Human Norovirus GII (HuNoV-GII)	NA	9605.7214317759	STABLE
-Wood	Influenza Virus A (FluA)	NA	0.654112466767742	VARIABLE
-Fayette	SARS-CoV-2	NA	6.48673212067883	VARIABLE
-Fayette	Respiratory Syncitial Virus, Human (RSV)	NA	0.204475566519421	STABLE
-Fayette	Influenza Virus A (FluA)	NA	0.175068725696877	VARIABLE
-Fayette	Human Norovirus GII (HuNoV-GII)	NA	656.731312539768	DECREASING
-Monongalia	Influenza Virus B (FluB)	NA	72.5653165994051	INCREASING
-Monongalia	Respiratory Syncitial Virus, Human (RSV)	NA	1.75602520113	VARIABLE
-Monongalia	SARS-CoV-2	NA	31.2396635756402	DECREASING
-Monongalia	Human Norovirus GII (HuNoV-GII)	NA	24596.5488873396	VARIABLE
-Monongalia	Influenza Virus A (FluA)	NA	1.12862756232	VARIABLE
-Taylor	Respiratory Syncitial Virus, Human (RSV)	NA	0.393754968703673	VARIABLE
-Taylor	Influenza Virus B (FluB)	NA	8.86589581191138	INCREASING
-Taylor	SARS-CoV-2	NA	20.0648029128546	VARIABLE
-Taylor	Human Norovirus GII (HuNoV-GII)	NA	2584.86413144572	VARIABLE
-Taylor	Influenza Virus A (FluA)	NA	0.780651181024543	VARIABLE
-Preston	Human Norovirus GII (HuNoV-GII)	NA	97.4846422785678	VARIABLE
-Preston	Influenza Virus A (FluA)	NA	0.275718448942857	STABLE
-Preston	SARS-CoV-2	NA	15.9588022964224	VARIABLE
-Preston	Influenza Virus B (FluB)	NA	4.98860807376885	INCREASING
-Preston	Respiratory Syncitial Virus, Human (RSV)	NA	0.295326872742857	STABLE
-Marshall	Human Norovirus GII (HuNoV-GII)	NA	8410.43010107445	VARIABLE
-Marshall	Influenza Virus A (FluA)	NA	0.630491580583333	VARIABLE
-Marshall	SARS-CoV-2	NA	68.7281149625847	VARIABLE
-Marshall	Influenza Virus B (FluB)	NA	14.5259902750122	INCREASING
-Marshall	Respiratory Syncitial Virus, Human (RSV)	NA	0.954238770833333	VARIABLE
-Mason	SARS-CoV-2	NA	14.0016910629282	VARIABLE
-Mason	Influenza Virus B (FluB)	NA	0.502747432769623	INCREASING
-Mason	Respiratory Syncitial Virus, Human (RSV)	NA	0.150702560217588	VARIABLE
-Mason	Influenza Virus A (FluA)	NA	0.0818444765911151	STABLE
-Mason	Human Norovirus GII (HuNoV-GII)	NA	246.087914653405	DECREASING
-Cabell	Influenza Virus A (FluA)	NA	8.73708589395	DECREASING
-Cabell	SARS-CoV-2	NA	6.37586176953972	DECREASING
-Cabell	Influenza Virus B (FluB)	NA	4.19044887	INCREASING
-Cabell	Respiratory Syncitial Virus, Human (RSV)	NA	0	VARIABLE
-Boone	Influenza Virus A (FluA)	NA	0.569970554924259	STABLE
-Boone	Human Norovirus GII (HuNoV-GII)	NA	5323.32526470347	VARIABLE
-Boone	SARS-CoV-2	NA	1.00948703811405	VARIABLE
-Boone	Respiratory Syncitial Virus, Human (RSV)	NA	0.487582415170143	VARIABLE
-Boone	Influenza Virus B (FluB)	NA	10.6670443989317	INCREASING
-Jefferson	Human Norovirus GII (HuNoV-GII)	NA	335.085298826871	DECREASING
-Jefferson	Influenza Virus A (FluA)	NA	0.201553042094118	VARIABLE
-Jefferson	SARS-CoV-2	NA	12.0914216330318	VARIABLE
-Jefferson	Influenza Virus B (FluB)	NA	18.6455126550321	INCREASING
-Jefferson	Respiratory Syncitial Virus, Human (RSV)	NA	0.0675228075529412	STABLE
-Doddridge	Influenza Virus A (FluA)	NA	740	VARIABLE
-Doddridge	Human Norovirus GII (HuNoV-GII)	NA	33128.4473463893	DECREASING
-Doddridge	Respiratory Syncitial Virus, Human (RSV)	NA	1436	VARIABLE
-Doddridge	Influenza Virus B (FluB)	NA	53.5911976297431	INCREASING
-Doddridge	SARS-CoV-2	NA	881129.561662675	INCREASING
-Marion	Influenza Virus B (FluB)	NA	6.41574327661448	INCREASING
-Marion	Respiratory Syncitial Virus, Human (RSV)	NA	1.02010593909836	VARIABLE
-Marion	SARS-CoV-2	NA	0.350522760409836	DECREASING
-Marion	Influenza Virus A (FluA)	NA	0.368270748278689	VARIABLE
-Marion	Human Norovirus GII (HuNoV-GII)	NA	25968.4044926342	VARIABLE
-Mineral	SARS-CoV-2	NA	30.3258130216504	VARIABLE
-Mineral	Respiratory Syncitial Virus, Human (RSV)	NA	0.340700803317826	VARIABLE
-Mineral	Influenza Virus A (FluA)	NA	0.408479477717924	VARIABLE
-Mineral	Human Norovirus GII (HuNoV-GII)	NA	232.115042129519	VARIABLE
-Harrison	Influenza Virus A (FluA)	NA	1.14631037613858	STABLE
-Harrison	Human Norovirus GII (HuNoV-GII)	NA	3571.74714691942	DECREASING
-Harrison	SARS-CoV-2	NA	17.4498635368219	VARIABLE
-Harrison	Influenza Virus B (FluB)	NA	71.6720174539429	INCREASING
-Harrison	Respiratory Syncitial Virus, Human (RSV)	NA	1.67901176267643	VARIABLE
-Ohio	SARS-CoV-2	NA	26.3766410192289	STABLE
-Ohio	Influenza Virus B (FluB)	NA	20.5263260197651	INCREASING
-Ohio	Respiratory Syncitial Virus, Human (RSV)	NA	0.518728359776	STABLE
-Ohio	Influenza Virus A (FluA)	NA	0.22885074696	VARIABLE
-Ohio	Human Norovirus GII (HuNoV-GII)	NA	618.154261212713	VARIABLE
-Mercer	Respiratory Syncitial Virus, Human (RSV)	NA	0.324729767020695	VARIABLE
-Mercer	Influenza Virus B (FluB)	NA	1.18869099307714	DECREASING
-Mercer	SARS-CoV-2	NA	44.7154446620595	VARIABLE
-Mercer	Human Norovirus GII (HuNoV-GII)	NA	1601.91586239251	VARIABLE
-Mercer	Influenza Virus A (FluA)	NA	0.326573156540417	VARIABLE
-Putnam	SARS-CoV-2	NA	3.9577220690336	DECREASING
-WV	Influenza Virus B (FluB)	NA	1.39681629	VARIABLE
-WV	Respiratory Syncitial Virus, Human (RSV)	NA	0.595836186200151	DECREASING
-WV	SARS-CoV-2	NA	37.6117276085747	DECREASING
-WV	Influenza Virus A (FluA)	NA	0.648144427490578	DECREASING
-WV	Human Norovirus GII (HuNoV-GII)	NA	3212.24664843343	VARIABLE
+HuttonsvilleWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	141.314496907065	DECREASING
+HuttonsvilleWWTP-01	SARS-CoV-2	time, flow, population	253.910160421794	INCREASING
+HuttonsvilleWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.154345993841028	STABLE
+ElkinsWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8804.94729913994	SPIKING
+ElkinsWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	2.66435490120857	INCREASING
+ElkinsWWTP-01	Influenza Virus B (FluB)	time, flow, population	5.02025104669756	NA
+ElkinsWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.75432864113712	STABLE
+ElkinsWWTP-01	SARS-CoV-2	time, flow, population	0.390251716555184	DECREASING
+ManningtonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.43384113886343	STABLE
+ManningtonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	2662.17573756986	INCREASING
+ManningtonWWTP-01	Influenza Virus B (FluB)	time, flow, population	1.39725346842346	DECREASING
+ManningtonWWTP-01	SARS-CoV-2	time, flow, population	2.22591476109074	STABLE
+ManningtonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.199748903483043	INCREASING
+FarmingtonWWTP-01	SARS-CoV-2	time, flow, population	0.613701839262295	STABLE
+FarmingtonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.697415250573771	VARIABLE
+FarmingtonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.514071089180328	DECREASING
+FarmingtonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	435.416681814719	DECREASING
+FarmingtonWWTP-01	Influenza Virus B (FluB)	time, flow, population	1.23229988916393	DECREASING
+PointPleasantWWTP-01	SARS-CoV-2	time, flow, population	1.7105585315011	INCREASING
+PointPleasantWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.0114626195829556	DECREASING
+PointPleasantWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	246.087914653405	DECREASING
+PointPleasantWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.990130144617667	INCREASING
+PointPleasantWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.502747432769623	NA
+ParkersburgWWTP-01	Influenza Virus B (FluB)	time, flow, population	25.8072775697071	NA
+ParkersburgWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.4971879604	INCREASING
+ParkersburgWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	9605.7214317759	DECREASING
+ParkersburgWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.88855290058913	INCREASING
+ParkersburgWWTP-01	SARS-CoV-2	time, flow, population	89.413473431604	SPIKING
+WhiteOakWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.621175563816623	NA
+WhiteOakWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	656.731312539768	DECREASING
+WhiteOakWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	0.127129809108911	VARIABLE
+WhiteOakWWTP-01	Influenza Virus A (FluA)	time, flow, population	1.65607554437303	INCREASING
+WhiteOakWWTP-01	SARS-CoV-2	time, flow, population	20.157295859774	SPIKING
+StarCityWWTP-01	SARS-CoV-2	time, flow, population	93.4382972645819	INCREASING
+StarCityWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.102217349155769	INCREASING
+StarCityWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	10.5121242573552	INCREASING
+StarCityWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	8015.04006727426	INCREASING
+StarCityWWTP-01	Influenza Virus B (FluB)	time, flow, population	2.25584681927661	INCREASING
+Coliseum-01	Respiratory Syncitial Virus, Human (RSV)	time	4431	VARIABLE
+Coliseum-01	Influenza Virus A (FluA)	time	13143.0764682591	INCREASING
+Coliseum-01	SARS-CoV-2	time	147	DECREASING
+StadiumNW-01	Respiratory Syncitial Virus, Human (RSV)	time	730	DECREASING
+StadiumNW-01	Influenza Virus B (FluB)	time	8466.54798835518	NA
+StadiumNW-01	SARS-CoV-2	time	2660	DECREASING
+StadiumNW-01	Influenza Virus A (FluA)	time	996	DECREASING
+StadiumNE-01	Respiratory Syncitial Virus, Human (RSV)	time	754	DECREASING
+StadiumNE-01	SARS-CoV-2	time	3538	INCREASING
+StadiumNE-01	Influenza Virus A (FluA)	time	4816	INCREASING
+StadiumSW-01	Respiratory Syncitial Virus, Human (RSV)	time	5306	INCREASING
+StadiumSW-01	SARS-CoV-2	time	899137.823581695	SPIKING
+StadiumSW-01	Influenza Virus A (FluA)	time	3046	INCREASING
+StadiumSE-01	Influenza Virus A (FluA)	time	4774	INCREASING
+StadiumSE-01	SARS-CoV-2	time	1366	INCREASING
+StadiumSE-01	Respiratory Syncitial Virus, Human (RSV)	time	910	INCREASING
+StadiumSE-01	Influenza Virus B (FluB)	time	75029.424726963	SPIKING
+CheatLakeWWTP-01	Influenza Virus B (FluB)	time, flow, population	18.7526096778799	DECREASING
+CheatLakeWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	18.0452453714987	SPIKING
+CheatLakeWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	24596.5488873396	INCREASING
+CheatLakeWWTP-01	SARS-CoV-2	time, flow, population	165.202063104239	INCREASING
+CheatLakeWWTP-01	Influenza Virus A (FluA)	time, flow, population	2.80759695749	INCREASING
+AlpineLakeWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.215963048228571	DECREASING
+AlpineLakeWWTP-01	SARS-CoV-2	time, flow, population	2.28464094367143	INCREASING
+AlpineLakeWWTP-01	Influenza Virus B (FluB)	time, flow, population	4.98860807376885	NA
+AlpineLakeWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	97.4846422785678	INCREASING
+AlpineLakeWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.01910267247143	INCREASING
+SalemWWTP-01	Influenza Virus B (FluB)	time, flow, population	11.482933543169	NA
+SalemWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	1.90224268063033	INCREASING
+SalemWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	132.746925624415	DECREASING
+SalemWWTP-01	SARS-CoV-2	time, flow, population	0.568605149101457	INCREASING
+SalemWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.0351501364899083	DECREASING
+ClarksburgWWTP-01	Influenza Virus B (FluB)	time, flow, population	4.08184012753964	DECREASING
+ClarksburgWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	2.44584085771379	INCREASING
+ClarksburgWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	3571.74714691942	DECREASING
+ClarksburgWWTP-01	SARS-CoV-2	time, flow, population	12.0973312640947	INCREASING
+ClarksburgWWTP-01	Influenza Virus A (FluA)	time, flow, population	2.22494337002038	INCREASING
+PUT	SARS-CoV-2	time, flow, population	24.3477701045743	INCREASING
+PrincetonWWTP-01	Human Norovirus GII (HuNoV-GII)	time, flow, population	1033.38358730214	INCREASING
+PrincetonWWTP-01	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	2.66491421499206	INCREASING
+PrincetonWWTP-01	Influenza Virus B (FluB)	time, flow, population	0.225941449074444	DECREASING
+PrincetonWWTP-01	SARS-CoV-2	time, flow, population	88.210503644196	INCREASING
+PrincetonWWTP-01	Influenza Virus A (FluA)	time, flow, population	0.310569757438889	INCREASING
+HSB	SARS-CoV-2	time, flow, population	180.152954433002	INCREASING
+HSB	Influenza Virus A (FluA)	time, flow, population	14.9203593086778	INCREASING
+HSB	Respiratory Syncitial Virus, Human (RSV)	time, flow, population	17.3825885053934	SPIKING
+HSB	Influenza Virus B (FluB)	time, flow, population	0	STABLE
+Mason	SARS-CoV-2	NA	1.7105585315011	INCREASING
+Mason	Influenza Virus A (FluA)	NA	0.0114626195829556	DECREASING
