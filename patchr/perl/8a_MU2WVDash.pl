@@ -278,7 +278,7 @@ foreach my $uid (keys %mu_data) {
 			$t = $nwss2watch{uc("$thisd{pcr_target}")};
 		} else {
 			$status = 42;
-			warn "WARN : target $thisd{pcr_target} was not recognized in the CVM.";
+			warn "WARN : target '$thisd{pcr_target}' was not recognized in the CVM.";
 			next;
 		}
 
