@@ -91,41 +91,6 @@ excel2df <- function(fname) {
 # }
 
 
-getAbundance <- function(mapIndex, loc_id) {
-# 	i <- 2
-# 	txt <- ALERT_LEVEL_STRINGS[i]
-# 	color <- ALERT_LEVEL_COLORS[i]
-	raw_val <- (dflist_alerts[[mapIndex]] %>% filter(region_name == loc_id))$latest_abundance
-	color <- ALERT_LEVEL_COLORS[2]
-	
-	val <- prettyNum(raw_val, big.mark=",", digits=1)
-	
-	return(c(val, color))
-}
-
-
-getTrend <- function(mapIndex, loc_id) {
-# 	i <- 3
-# 	txt <- ALERT_LEVEL_STRINGS[i]
-# 	color <- ALERT_LEVEL_COLORS[i]
-	print((dflist_alerts[[mapIndex]] %>% filter(region_name == loc_id))$recent_trend)
-	
-	txt <- (dflist_alerts[[mapIndex]] %>% filter(region_name == loc_id))$recent_trend
-	color <- ALERT_LEVEL_COLORS[2]
-
-	return(c(txt, color))
-}
-
-
-getDominantVariant <- function(mapIndex, loc_id) {
-	i <- 4
-	txt <- ALERT_LEVEL_STRINGS[i]
-	color <- ALERT_LEVEL_COLORS[i]
-	# do stuff in here!
-
-	return(c("KP.1", "#ffffff"))
-}
-
 
 
 

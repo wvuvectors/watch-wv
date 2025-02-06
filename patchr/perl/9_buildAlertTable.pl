@@ -42,26 +42,10 @@ while (@ARGV) {
 	}
 }
 
-#die "A file path must be provided to $progname!\n\n$usage\n" unless defined $muf;
-#die "$muf is not a readable file!\n\n$usage\n" unless -f "$muf";
 
-# my $dur_mo = DateTime::Duration->new(
-# 	months       => 1,
-# 	end_of_month => 'wrap'
-# );
-# 
-# my $dur_yr = DateTime::Duration->new(
-# 	years				 => 1,
-# 	end_of_month => 'wrap'
-# );
-# 
-# my $today = DateTime->today(time_zone => 'local');
-# $today->set_time_zone('UTC');
-# 
-
-my $WINDOW = 3;	# Number of samples to use in trend calculations.
+my $WINDOW = 4;	# Number of weeks to use in trend calculations.
 my $SPIKE_THRESHOLD = 500; # Trigger for identifying spikes/despikes; given as percent change.
-my $TREND_THRESHOLD = 25; # Trigger for identifying consistent trend; given as percent change.
+my $TREND_THRESHOLD = 20; # Trigger for identifying consistent trend; given as percent change.
 
 
 my %targ2disease = (
@@ -75,24 +59,6 @@ my %targ2disease = (
 my %infiles = ("../dashboard/data/watchdb.result.txt" => 1,
 							 "../dashboard/data/mu.result.txt" 			=> 1);
 
-my %keepers = (
-		"sample_id" => 1, 
-		"location_id" => 1, 
-		"collection_end_datetime" => 1, 
-		"target" => 1, 
-		"target_copies_per_ld" => 1, 
-		"target_copies_fn_per_cap" => 1,
-		"target_per_capita_basis" => 1,
-		"sample_flow" => 1,  
-		"target_result_validated" => 1,
-		"sample_qc" => 1
-);
-
-my %sentinels = (
-	"PrincetonWWTP-01" => 12, 
-	"StarCityWWTP-01" => 15, 
-	"WheelingWWTP-01" => 12
-);
 
 # Read resource tables into hash
 my %resources = ();
@@ -150,7 +116,6 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 #print Dumper(\%resources);
 #die;
 
-
 my %loc2county = ();
 foreach my $locid (keys %{$resources{"location"}}) {
 	next unless $resources{"location"}->{"$locid"}->{"location_status"} eq "active";
@@ -162,6 +127,7 @@ foreach my $locid (keys %{$resources{"location"}}) {
 #print Dumper(\%resources);
 #die;
 
+my %do_not_rollup = ();
 
 # Read result tables into hash, keyed by county, location_id, target, and sample id
 my %results = ();
@@ -172,7 +138,11 @@ foreach my $f (keys %infiles) {
 	my $loc_id_col = -1;
 	my $uid_col = -1;
 	my $targ_col = -1;
-
+	my $locus_col = -1;
+	my $dt_col = -1;
+	my $val1_col = -1;
+	my $val2_col = -1;
+	my $basis_col = -1;
 	my $sample_valid_col = -1;
 	my $result_valid_col = -1;
 
@@ -189,53 +159,61 @@ foreach my $f (keys %infiles) {
 				$uid_col = $i if "$cols[$i]" eq "assay_id";
 				$loc_id_col = $i if "$cols[$i]" eq "location_id";
 				$targ_col = $i if "$cols[$i]" eq "target";
+				$locus_col = $i if "$cols[$i]" eq "target_genetic_locus";
 				$sample_valid_col = $i if "$cols[$i]" eq "sample_qc";
 				$result_valid_col = $i if "$cols[$i]" eq "target_result_validated";
+				$dt_col = $i if "$cols[$i]" eq "collection_end_datetime";
+				$val1_col = $i if "$cols[$i]" eq "target_copies_fn_per_cap";
+				$val2_col = $i if "$cols[$i]" eq "target_copies_per_ld";
+				$basis_col = $i if "$cols[$i]" eq "target_per_capita_basis";
 			}
 		} else {
 			# Extract the data for this row, keyed by the ID
-			my ($thisId, $thisLoc, $thisTarg) = ("$cols[$uid_col]", "$cols[$loc_id_col]", "$cols[$targ_col]");
+			my ($thisId, $thisLoc, $thisTarg, $thisLocus, $thisDateTime) = ("$cols[$uid_col]", "$cols[$loc_id_col]", "$cols[$targ_col]", "$cols[$locus_col]", "$cols[$dt_col]");
+			my $val = $cols["$val1_col"];
+			if ("$val" eq "NA") {
+				$val = $cols["$val2_col"];
+				$do_not_rollup{"$thisLoc"} = 1;
+			} else {
+				$val = $val / $cols["$basis_col"];
+			}
+			
 			# ignore results that are not validated (sample fail, NTC too high, etc.)
 			next unless lc("$cols[$sample_valid_col]") eq "pass";
-			next unless lc("$cols[$result_valid_col]") eq "yes";
+			next if lc("$cols[$result_valid_col]") eq "ntc above threshold";
 			next unless defined $targ2disease{"$thisTarg"};
 			next unless defined $loc2county{"$thisLoc"};
-			my $thisCounty = $loc2county{"$thisLoc"};
-			$results{"$thisCounty"} = {} unless defined $results{"$thisCounty"};
-			$results{"$thisCounty"}->{"$thisLoc"} = {} unless defined $results{"$thisCounty"}->{"$thisLoc"};
-			$results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"} = {} unless defined $results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"};
-			for (my $i=0; $i<scalar(@cols); $i++) {
-				if (!defined $colnames[$i]) {
-					print "DEBUG:: $thisId col name ($i) does not exist!\n";
-					print "$line\n";
-					print Dumper(@colnames);
-					exit -1;
-				}
-				next unless defined $keepers{"$colnames[$i]"};
-				$results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}->{"$thisId"} = {} unless defined $results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}->{"$thisId"};
+			
+			# skip any legacy SARS-CoV-2 N1 results
+			next if "$thisTarg" eq "SARS-CoV-2" and "$thisLocus" eq "N1";
+			
+			# date format hack area to make sure all times are in 24-hour format.
+			# Also calculate a collection week as year.week (eg, 2023.1) to enable roll-up to 
+			# county and state.
+			$thisDateTime =~ s/ AM$//i;
+			my ($m, $d, $y, $h, $min) = ("", "", "", "", "");
+			if ("$thisDateTime" =~ /(\d+)\/(\d+)\/(\d+) (\d+):(\d+) PM$/) {
+				($m, $d, $y, $h, $min) = ($1, $2, $3, $4, $5);
+				$h += 12;
+				$thisDateTime = "$m/$d/$y $h:$min";
+			} else {
+				my ($date, $time) = split " ", "$thisDateTime";
+				($m, $d, $y) = split "/", "$date";
+			}					
+			$y = "20$y" unless ($y =~ /^20/);
+			my $epoch = timelocal( 0, 0, 0, $d, $m - 1, $y - 1900 );
+			my $week  = strftime( "%U", @{localtime($epoch)} );
+			$week = "0$week" unless ($week =~ /^\d{2}$/);
+			my $epi_week = "$y.$week";
 
-				# date format hack area to make sure all times are in 24-hour format.
-				# Also calculate a collection week as year.week (eg, 2023.1) to enable roll-up to 
-				# county and state.
-				if ("$colnames[$i]" eq "collection_end_datetime") {
-				
-					$cols[$i] =~ s/ AM$//i;
-					my ($m, $d, $y, $h, $min) = ("", "", "", "", "");
-					if ("$cols[$i]" =~ /(\d+)\/(\d+)\/(\d+) (\d+):(\d+) PM$/) {
-						($m, $d, $y, $h, $min) = ($1, $2, $3, $4, $5);
-						$h += 12;
-						$cols[$i] = "$m/$d/$y $h:$min";
-					} else {
-						my ($date, $time) = split " ", "$cols[$i]";
-						($m, $d, $y) = split "/", "$date";
-					}					
-					my $epoch = timelocal( 0, 0, 0, $d, $m - 1, $y - 1900 );
-					my $week  = strftime( "%U", @{localtime($epoch)} );
-					$y = "20$y" unless ($y =~ /^20/);
-					$results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}->{"$thisId"}->{"collection_week"} = "$y.$week";
-				}
-				$results{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}->{"$thisId"}->{"$colnames[$i]"} = "$cols[$i]";
-			}
+			my $thisCounty = $loc2county{"$thisLoc"};
+			$results{$epi_week} = {} unless defined $results{$epi_week};
+			$results{$epi_week}->{"$thisCounty"} = {} unless defined $results{$epi_week}->{"$thisCounty"};
+			$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"} = {} unless defined $results{$epi_week}->{"$thisCounty"}->{"$thisLoc"};
+			$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"} = [] unless defined $results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"};
+			push @{$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}}, $val;
+			#push @{$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}}, "$thisId";
+			 
 		}
 		$linenum++;
 	}
@@ -244,193 +222,90 @@ foreach my $f (keys %infiles) {
 #print Dumper(\%results);
 #die;
 
-
-# Build a calculation hash keyed on county, location_id, and target.
-# for each location, include its county and the array of most recent abundance values to use in temporal order
-# 
-my %ordered_uids = ();
-foreach my $county (keys %results) {
-	$ordered_uids{"$county"} = {};
-	foreach my $locid (keys %{$results{"$county"}}) {
-		$ordered_uids{"$county"}->{"$locid"} = {};
-		foreach my $targ (keys %{$results{"$county"}->{"$locid"}}) {
-			$ordered_uids{"$county"}->{"$locid"}->{"$targ"} = [];
-			my %result = %{$results{"$county"}->{"$locid"}->{"$targ"}};
-			my @a = sort {Time::Piece->strptime($result{$b}->{"collection_end_datetime"}, '%m/%d/%Y %H:%M')->epoch <=> Time::Piece->strptime($result{$a}->{"collection_end_datetime"}, '%m/%d/%Y %H:%M')->epoch} keys %result;
-			$ordered_uids{"$county"}->{"$locid"}->{"$targ"} = \@a;
-	#			# Schwartzian transform makes this sort more efficient, but I can't get it to work.
-	#			# It is not particularly slow anyway. :-)
-	# 		my @sorted_ids = map { $_->[1] }
-	# 				sort { $a->{"collection_end_datetime"} <=> $b->{"collection_end_datetime"} }
-	# 				map {
-	# 						[ Time::Piece->strptime( $resultRef->{$_}->{"collection_end_datetime"}, '%m/%d/%Y %H:%M' )->epoch, $_ ]
-	# 				}
-	# 				keys %$resultRef;
-		}
-	}
-}
-
-#print Dumper(\%ordered_uids);
-#die;
-
-my %calc = ();
-foreach my $county (keys %results) {
-	$calc{"$county"} = {};
-	foreach my $locid (keys %{$results{"$county"}}) {
-		$calc{"$county"}->{"$locid"} = {};
-		foreach my $targ (keys %{$results{"$county"}->{"$locid"}}) {
-			$calc{"$county"}->{"$locid"}->{"$targ"} = [];
-			my $loop_count = $WINDOW;
-			if (defined $sentinels{"$locid"}) {
-				$loop_count = $sentinels{"$locid"};
-			}
-			$loop_count = scalar @{$ordered_uids{"$county"}->{"$locid"}->{"$targ"}} if $loop_count > scalar @{$ordered_uids{"$county"}->{"$locid"}->{"$targ"}};
-			for (my $i=0; $i<$loop_count; $i++) {
-				if (defined $ordered_uids{"$county"}->{"$locid"}->{"$targ"}->[$i]) {
-					my $uid = $ordered_uids{"$county"}->{"$locid"}->{"$targ"}->[$i];
-					push @{$calc{"$county"}->{"$locid"}->{"$targ"}}, $results{"$county"}->{"$locid"}->{"$targ"}->{"$uid"};
-					# Normalize to per person
-					unless ($results{"$county"}->{"$locid"}->{"$targ"}->{"$uid"}->{"target_copies_fn_per_cap"} eq "NA") {
-						$results{"$county"}->{"$locid"}->{"$targ"}->{"$uid"}->{"target_copies_fn_per_cap"} = $results{"$county"}->{"$locid"}->{"$targ"}->{"$uid"}->{"target_copies_fn_per_cap"} / $results{"$county"}->{"$locid"}->{"$targ"}->{"$uid"}->{"target_per_capita_basis"};
-					}
-
-				} else {
-					print Dumper($ordered_uids{"$county"}->{"$locid"}->{"$targ"});
-					die;
-				}
+my %ordered_means = ();
+ 
+foreach my $epiweek (sort {$b <=> $a} keys %results) {
+	$ordered_means{"WV"} = {} unless defined $ordered_means{"WV"};
+	my %state_vals = ();
+	foreach my $county (keys %{$results{$epiweek}}) {
+		$ordered_means{"$county"} = {} unless defined $ordered_means{"$county"};
+		my %county_vals = ();
+		foreach my $loc (keys %{$results{$epiweek}->{"$county"}}) {
+			$ordered_means{"$loc"} = {} unless defined $ordered_means{"$loc"};
+			foreach my $targ (keys %{$results{$epiweek}->{"$county"}->{"$loc"}}) {
+				$state_vals{"$targ"} = [] unless defined $state_vals{"$targ"};
+				$county_vals{"$targ"} = [] unless defined $county_vals{"$targ"};
+				$ordered_means{"$county"}->{"$targ"} = [] unless defined $ordered_means{"$county"}->{"$targ"};
+				$ordered_means{"$loc"}->{"$targ"} = [] unless defined $ordered_means{"$loc"}->{"$targ"};
+				my $mean = calcSimpleMean($results{$epiweek}->{"$county"}->{"$loc"}->{"$targ"});
+				push @{$ordered_means{"$loc"}->{"$targ"}}, $mean;
+				push @{$county_vals{"$targ"}}, $mean unless defined $do_not_rollup{"$loc"};
+				push @{$state_vals{"$targ"}}, $mean unless defined $do_not_rollup{"$loc"};
 			}
 		}
+		# county rollup
+		foreach my $targ (keys %county_vals) {
+			my $county_mean = calcSimpleMean($county_vals{"$targ"});
+			push @{$ordered_means{"$county"}->{"$targ"}}, $county_mean;
+		}
+	}
+	# state rollup
+	foreach my $targ (keys %state_vals) {
+		my $state_mean = calcSimpleMean($state_vals{"$targ"});
+		push @{$ordered_means{"WV"}->{"$targ"}}, $state_mean;
 	}
 }
-#print Dumper(\%calc);
+#print Dumper(\%ordered_means);
 #die;
 
-my (%county_rollup, %state_rollup) = ((), ());
 
-foreach my $targ (keys %targ2disease) {
-	$state_rollup{"$targ"} = {};
-}
-
-print "region_name\ttarget\tnormalization\tlatest_abundance\trecent_trend\n";
-
-foreach my $county (keys %calc) {
-	$county_rollup{"$county"} = {};
-	foreach my $locid (keys %{$calc{"$county"}}) {
-		foreach my $targ (keys %{$calc{"$county"}->{"$locid"}}) {
-			#next unless "$targ" eq "SARS-CoV-2";
-			
-			$county_rollup{"$county"}->{"$targ"} = {};
-			# No abundance values for this location & target.
-			if (scalar @{$calc{"$county"}->{"$locid"}->{"$targ"}} == 0) {
-				print "$locid\t$targ\tnone\tNA\tNA\n";
-#				push @{$county_rollup{"$county"}->{"$targ"}->{"abundance"}}, "NA";
-#				push @{$county_rollup{"$county"}->{"$targ"}->{"trend"}}, "NA";
-#				push @{$county_rollup{"$county"}->{"$targ"}->{"normalization"}}, "NA";
-				next;
-			}
-			
-			my $valkey = "target_copies_fn_per_cap";	# Default value is the normalized value.
-			my $norm = "time, flow, population";
-			foreach my $n (@{$calc{"$county"}->{"$locid"}->{"$targ"}}) {
-				# If any normalized values are NA, use raw data instead.
-				if ("$n->{target_copies_fn_per_cap}" eq "NA") {
-					$valkey = "target_copies_per_ld";
-					$norm = "time";
-					last;
-				}
-			}
-			
+print "region_name\ttarget\tlatest_abundance\ttrend\n";
+foreach my $region (keys %ordered_means) {
+	foreach my $targ (keys %{$ordered_means{"$region"}}) {
+		my $this_arr = $ordered_means{"$region"}->{"$targ"};
+		my $total = scalar @{$this_arr};
+		# No abundance values for this region.
+		if ($total == 0) {
+			print "$region\t$targ\tNA\tNA\n";
+		} elsif ($total == 1) {
 			# Only one abundance value for this location & target.
-			if (scalar @{$calc{"$county"}->{"$locid"}->{"$targ"}} == 1) {
-				my $abund = $calc{"$county"}->{"$locid"}->{"$targ"}->[0]->{"$valkey"};
-				my $week  = $calc{"$county"}->{"$locid"}->{"$targ"}->[0]->{"collection_week"};
-				print "$locid\t$targ\t$norm\t$abund\tNA\n";
-				if ($resources{"location"}->{"$locid"}->{"location_category"} eq "wwtp") {
-					$county_rollup{"$county"}->{"$targ"}->{$week} = [] unless defined $county_rollup{"$county"}->{"$targ"}->{$week};
-					push @{$county_rollup{"$county"}->{"$targ"}->{$week}}, $abund;
-					$state_rollup{"$targ"}->{$week} = [] unless defined $state_rollup{"$targ"}->{$week};
-					push @{$state_rollup{"$targ"}->{$week}}, $abund;
-				}
-				next;
-			}
+			print "$region\t$targ\t$this_arr->[0]\tNA\n";
+		} else {
+			# More than one abundance value, look for trend.
+			my $trend = "NA";
+			my $prnt_str = "";
 			
-			# More than one abundance value, look for spiking or despiking trend.
+			# First look for spiking or despiking trend.
 		 	# SPIKING: most recent sample is >SPIKE_THRESHOLD higher than the previous sample.
 			# DESPIKING: most recent sample is >SPIKE_THRESHOLD lower than the previous sample.
 			# Actual values less than 1 are not eligible for spiking/despiking.
 			#
-			my $ultim_abund  = $calc{"$county"}->{"$locid"}->{"$targ"}->[0]->{"$valkey"};
-			my $penult_abund = $calc{"$county"}->{"$locid"}->{"$targ"}->[1]->{"$valkey"};
-			my $spike_result = checkForSpike($ultim_abund, $penult_abund);	# returns 1 for spike, -1 for despike, 0 for neither
+			my $ultim_ab  = $this_arr->[0];
+			my $penult_ab = $this_arr->[1];
+			my $spike_result = checkForSpike($ultim_ab, $penult_ab);	# returns 1 for spike, -1 for despike, 0 for neither
 			
-			my $this_sample = $calc{"$county"}->{"$locid"}->{"$targ"}->[0];
-			my $this_abund = $this_sample->{"$valkey"};
-			my $week  = $this_sample->{"collection_week"};
-			if ($resources{"location"}->{"$locid"}->{"location_category"} eq "wwtp") {
-				$county_rollup{"$county"}->{"$targ"}->{$week} = [] unless defined $county_rollup{"$county"}->{"$targ"}->{$week};
-				push @{$county_rollup{"$county"}->{"$targ"}->{$week}}, $this_abund;
-				$state_rollup{"$targ"}->{$week} = [] unless defined $state_rollup{"$targ"}->{$week};
-				push @{$state_rollup{"$targ"}->{$week}}, $this_abund;
-			}
-
-			my @pct_diffs = ();
-			for (my $i=1; $i<scalar(@{$calc{"$county"}->{"$locid"}->{"$targ"}}); $i++) {
-				my $prev_sample = $calc{"$county"}->{"$locid"}->{"$targ"}->[$i];
-				my $prev_abund = $prev_sample->{"$valkey"};
-				my $week  = $prev_sample->{"collection_week"};
-
-				push @pct_diffs, (100 * ($this_abund - $prev_abund) / ($prev_abund+1));
-				if ($resources{"location"}->{"$locid"}->{"location_category"} eq "wwtp") {
-					$county_rollup{"$county"}->{"$targ"}->{$week} = [] unless defined $county_rollup{"$county"}->{"$targ"}->{$week};
-					push @{$county_rollup{"$county"}->{"$targ"}->{$week}}, $prev_abund;
-					$state_rollup{"$targ"}->{$week} = [] unless defined $state_rollup{"$targ"}->{$week};
-					push @{$state_rollup{"$targ"}->{$week}}, $prev_abund;
-				}
-				$this_abund = $prev_abund;
-			}
-			
-			# Reset to most recent abundance
-			$this_abund = $this_sample->{"$valkey"};
-			my $trend = "NA";
 			if ($spike_result == 1) {
 				$trend = "SPIKING";
+				$prnt_str .= "$ultim_ab,$penult_ab";
 			} elsif ($spike_result == -1) {
 				$trend = "DESPIKING";
+				$prnt_str .= "$ultim_ab,$penult_ab";
 			} else {
-				$trend = getTrend(\@pct_diffs);
-# 				if ("$locid" eq "WheelingWWTP-01") {
-# 					print Dumper(\@pct_diffs);
-# 					print "$trend\n";
-# 					die;
-# 				}
+				# Look at the pct diff between values for the trend.
+				my @abundances = ();
+				for (my $i=0; $i<$WINDOW; $i++) {
+					last if $i >= scalar(@{$this_arr});
+					push @abundances, $this_arr->[$i];
+					$prnt_str .= "$this_arr->[$i],";
+				}
+				$trend = getTrend(\@abundances);
 			}
-			
-			print "$locid\t$targ\t$norm\t$this_abund\t$trend\n";
+#			print "$region\t$targ\t$prnt_str\t$trend\n";
+			print "$region\t$targ\t$this_arr->[0]\t$trend\n";
 		}
 	}
 }
-#print Dumper(\%state_rollup);
-#die;
-#my @temp = sort {$b <=> $a} keys %{$state_rollup{"SARS-CoV-2"}};
-#print Dumper(\@temp);
-#die;
 
-
-# Print out county rollups.
-foreach my $county (keys %county_rollup) {
-	foreach my $targ (keys %{$county_rollup{"$county"}}) {
-		my $a = getMeanAbund($county_rollup{"$county"}->{"$targ"});
-		my $t = getMeanTrend($county_rollup{"$county"}->{"$targ"});
-		print "$county\t$targ\tNA\t$a\t$t\n";
-	}
-}
-
-# Print the statewide rollup.
-foreach my $targ (keys %targ2disease) {
-	my $a = getMeanAbund($state_rollup{"$targ"});
-	my $t = getMeanTrend($state_rollup{"$targ"});
-	print "WV\t$targ\tNA\t$a\t$t\n";
-}
 exit $status;
 
 
@@ -438,7 +313,7 @@ exit $status;
 sub checkForSpike {
 	my $ult = shift;
 	my $penult = shift;
-	return 0 unless $ult > 0 and $penult > 0;
+	return 0 unless $ult > 1 and $penult > 1;
 	
 	my $val  = 100 * ($ult - $penult) / ($penult+1);
 
@@ -453,184 +328,58 @@ sub checkForSpike {
 }
 
 sub getTrend {
-	# Ordered by date, first element is % diff between most recent and second most recent.
-	my $pct_diff_arr = shift;
+	# Array of abundance values, ordered chronologically, element 0 is most recent.
+	my $a = shift;
 
 # 	INCREASING: at least a TREND_THRESHOLD increase over each of the most recent WINDOW samples.
 # 	DECREASING: at least a TREND_THRESHOLD decrease over each of the most recent WINDOW samples.
 # 	VARIABLE: at least WINDOW-1 samples >TREND_THRESHOLD change in either direction.
 # 	STABLE: at most WINDOW-2 samples >TREND_THRESHOLD change in either direction.
 		
-		my $total_count = scalar @{$pct_diff_arr};
-		my $total_change = 0;
-		my ($count_incr, $count_decr) = (0, 0);
-
-		for (my $i=0; $i<scalar(@{$pct_diff_arr}); $i++) {
-			$total_change += $pct_diff_arr->[$i];
-			$count_incr++ if $pct_diff_arr->[$i] >= $TREND_THRESHOLD;
-			$count_decr++ if $pct_diff_arr->[$i] <= (-1 * $TREND_THRESHOLD);
+		my ($incr, $decr, $stable) = (0,0,0);
+		
+		for (my $i=scalar(@{$a})-1; $i>0; $i--) {
+			my ($a_now, $a_next) = ($a->[$i], $a->[$i-1]);
+			my $pct_diff = (100 * ($a_next - $a_now) / ($a_now+1));
+			if ($pct_diff >= $TREND_THRESHOLD) {
+				$incr++;
+			} elsif ($pct_diff <= (-1 * $TREND_THRESHOLD)) {
+				$decr++;
+			} else {
+				$stable++;
+			}
 		}
-		my $mean_change = $total_change / scalar(@{$pct_diff_arr});
 		
 		my $t = "INDETERMINATE";
-		if ($total_change >= $TREND_THRESHOLD) {
-			$t = "INCREASING";
-		} elsif ($total_change <= (-1 * $TREND_THRESHOLD)) {
-			$t = "DECREASING";
-		} elsif ($count_incr + $count_decr == $total_count) {
-			$t = "VARIABLE";
-		} else {
+		if ($incr == 0 and $decr == 0) {
 			$t = "STABLE";
+		} elsif ($incr - $decr > 0) {
+			$t = "INCREASING";
+		} elsif ($decr - $incr > 0) {
+			$t = "DECREASING";
+		} else {
+			$t = "VARIABLE";
 		}
 
-# 		my $t = "INDETERMINATE";
-# 		if ($count_decr == 0 and $count_incr > 0) {
-# 			$t = "INCREASING";
-# 		} elsif ($count_incr == 0 and $count_decr > 0) {
-# 			$t = "DECREASING";
-# 		} elsif ($count_incr + $count_decr == $total) {
-# 			$t = "VARIABLE";
-# 		} else {
-# 			$t = "STABLE";
-# 		}
-		
 	return "$t";
 	
 }
 
-sub getMeanAbund {
-	my $week2vals = shift;
+
+sub calcSimpleMean {
+	my $a = shift;
 	
-	return 0 if scalar keys %{$week2vals} == 0;
+	return 0 if scalar @{$a} == 0;
 	
-	my @weeks_sorted = sort {$b <=> $a} keys %{$week2vals};
-	my $ultim_week = $weeks_sorted[0];
-	return 0 if scalar @{$week2vals->{$ultim_week}} == 0;
-		
 	my $sum = 0;
-	foreach my $val (@{$week2vals->{$ultim_week}}) {
+	foreach my $val (@{$a}) {
 		$sum += $val;
 	}
-	my $mean = $sum / scalar @{$week2vals->{$ultim_week}};
+	my $mean = $sum / scalar @{$a};
 
 	return $mean;
 }
 
-sub getMeanTrend {
-	my $week2vals = shift;
-	
-	return "NA" if scalar keys %{$week2vals} == 0;
-	
-	my @weekly_means = ();
-	my @weeks_sorted = sort {$b <=> $a} keys %{$week2vals};
-
-	foreach my $week (@weeks_sorted) {
-		my $sum = 0;
-		for (my $i=0; $i < scalar(@{$week2vals->{$week}}); $i++) {
-			$sum += $week2vals->{$week}->[$i];
-		}
-		my $mean = $sum / scalar @{$week2vals->{$week}};
-		push @weekly_means, $mean;
-	}
-	
-	my @pct_diffs = ();
-	my $this_mean = $weekly_means[0];
-	
-	my $limit = $WINDOW;
-	$limit = scalar(@weekly_means) if scalar(@weekly_means) < $WINDOW;
-	
-	for (my $i=1; $i < $limit; $i++) {
-		my $prev_mean = $weekly_means[$i];
-		push @pct_diffs, (100 * ($this_mean - $prev_mean) / ($prev_mean+1));
-		$this_mean = $prev_mean;
-	}
-	
-	my $trend = getTrend(\@pct_diffs);
-	return "$trend";
-}
 
 
-sub trim {
-	my $val = shift;
-	
-	my $trimmed = $val;
-	$trimmed =~ s/ +$//;
-	$trimmed =~ s/^ +//;
-	
-	return $trimmed;
-}
-
-
-sub isEmpty {
-	my $val = shift;
-	
-	my $is_empty = 0;
-	$is_empty = 1 if "$val" eq "NaN" or "$val" eq "-" or "$val" eq "none" or "$val" eq "" or "$val" eq "TBD" or "$val" eq "NA";
-	
-	return $is_empty;
-}
-
-
-sub makeDT {
-	my $dtstr = shift;
-	
-	my $dformat1 = DateTime::Format::Strptime->new(
-		pattern   => '%Y-%m-%d %H:%M',
-		time_zone => 'local',
-		on_error  => 'croak',
-	);
-	my $dformat2 = DateTime::Format::Strptime->new(
-		pattern   => '%m/%d/%Y %H:%M',
-		time_zone => 'local',
-		on_error  => 'croak',
-	);
-	
-	#print "$dtstr\n";
-	my $dtobj;
-	if ("$dtstr" =~ /-/) {
-		$dtobj = $dformat1->parse_datetime("$dtstr");
-	} elsif ("$dtstr" =~ /\//) {
-		$dtobj = $dformat2->parse_datetime("$dtstr");
-	} else {
-		$dtobj = "";
-	}
-	
-	return $dtobj;
-}
-
-
-# sub getTrendComplicated {
-# 	# Ordered by date, first element is % diff between most recent and second most recent.
-# 	my $pct_diff_arr = shift;
-# 
-# # 	INCREASING: at least a TREND_THRESHOLD increase over each of the most recent WINDOW samples.
-# # 	DECREASING: at least a TREND_THRESHOLD decrease over each of the most recent WINDOW samples.
-# # 	VARIABLE: at least WINDOW-1 samples >TREND_THRESHOLD change in either direction.
-# # 	STABLE: at most WINDOW-2 samples >TREND_THRESHOLD change in either direction.
-# 
-# 		my ($pct_incr, $pct_decr) = (0, 0);
-# 		my $base_trigger = ceil(0.6 * scalar @{$pct_diff_arr});
-# 		
-# 		for (my $i=0; $i<scalar(@{$pct_diff_arr}); $i++) {
-# 			$pct_incr++ if $pct_diff_arr->[$i] >= $TREND_THRESHOLD;
-# 			$pct_decr++ if $pct_diff_arr->[$i] <= (-1 * $TREND_THRESHOLD);
-# 		}
-# 		my $incr_trigger = $base_trigger;		# increasing across base trigger (number of gaps)
-# 		my $decr_trigger = $base_trigger;		# decreasing across base trigger (number of gaps)
-# 		my $var_trigger  = $base_trigger-1;	# either increasing or decreasing across base trigger save 1
-# 		
-# 		my $t = "INDETERMINATE";
-# 		if ($pct_incr >= $incr_trigger) {
-# 			$t = "INCREASING";
-# 		} elsif ($pct_decr >= $decr_trigger) {
-# 			$t = "DECREASING";
-# 		} elsif ($pct_incr + $pct_decr >= $var_trigger) {
-# 			$t = "VARIABLE";
-# 		} else {
-# 			$t = "STABLE";
-# 		}
-# 		
-# 	return "$t";
-# 	
-# }
 

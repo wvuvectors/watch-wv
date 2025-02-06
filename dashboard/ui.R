@@ -35,7 +35,7 @@ shinyUI(fluidPage(
 							style = "text-align: left;",
 							div(
 								style = "display: inline-block;margin-top: 15px;",
-								actionBttn(inputId="map_reset_covid", label="Reset Zoom", style="pill", size="xs", color="success")
+								actionBttn(inputId="map_reset", label="Reset Zoom", style="pill", size="xs", color="success")
 							)
 						), 
 						column(5,
@@ -44,7 +44,7 @@ shinyUI(fluidPage(
 								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:105px;",
 								"Map View",
 								selectInput(
-									"geo_level_covid",
+									"geo_level",
 									label = NULL,
 									choices = GEOLEVELS, 
 									selected = GEOLEVELS_DEFAULT
@@ -55,7 +55,7 @@ shinyUI(fluidPage(
 								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:105px;",
 								"Map Color",
 								selectInput(
-									"map_color_covid",
+									"map_color",
 									label = NULL,
 									choices = c("Lab" = "lab"),
 			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
@@ -69,7 +69,7 @@ shinyUI(fluidPage(
 								style = "margin-left: 20px; display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:120px;",
 								"Plot View",
 								selectInput(
-									"view_range_covid",
+									"view_range",
 									label = NULL,
 									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
 									selected = VIEW_RANGE_PRIMARY
@@ -295,6 +295,22 @@ shinyUI(fluidPage(
 					fluidRow(
 						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
 						column(12,
+							# explanation of trend lines
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+#								style = "padding: 2px;text-align: left;",
+								span("The "),
+								span(style="color: #00B140;", "green, "),
+								span(style="color: #EAAA00;", "gold, "),
+								span("and "),
+								span(style="color: #dedede;", "gray "),
+								span("lines represents the average abundance over the most recent 1, 6, and 12 months respectively."),
+							)
+						)
+					), # fluidRow (trend line descriptions)
+					fluidRow(
+						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
+						column(12,
 							# explanation of plots
 							style = "font-size: 14px;padding: 3px;font-weight: 400;",
 							div(
@@ -302,24 +318,7 @@ shinyUI(fluidPage(
 								"Variant proportions are shown as the percent of total identified variants, averaged across all selected sites."
 							)
 						)
-					), # fluidRow (variant plot explanation)
-					fluidRow(
-						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
-						column(12,
-							# explanation of trend lines
-							style = "font-size: 14px;padding: 3px;font-weight: 400;",
-							div(
-#								style = "padding: 2px;text-align: left;",
-								span("The "),
-								span(style="color: #00B140;", "green line"),
-								span("represents the average abundance over the most recent month. The"),
-								span(style="color: #EAAA00;", "gold line"),
-								span(paste0("on each plot represents the 6 month average abundance. The ")),
-								span(style="color: #010101;", "gray line"),
-								span(paste0("on each plot represents the annual average abundance."))
-							)
-						)
-					) # fluidRow (trend line descriptions)
+					) # fluidRow (variant plot explanation)
 				)
 			),
 
@@ -366,7 +365,357 @@ shinyUI(fluidPage(
 				)
 			) # hidden (risk level key popup)
 
-		) # tabPanel (COVID)
+		), # tabPanel (COVID)
+
+		tabPanel(
+			"Influenza",
+			fluidRow(
+				column(5, 
+					style = "margin-top: 5px;padding: 3px;",
+					fluidRow(
+						column(12,
+							leafletOutput("map_flu", width = "100%", height = "443px")
+						)
+					), # fluidRow (map)
+					fluidRow(
+						column(12,
+							div("MAP & PLOT CONTROLS", 
+							style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+						)
+					), # fluidRow (controls title)
+					fluidRow(
+						column(2,
+							style = "text-align: left;",
+							div(
+								style = "display: inline-block;margin-top: 15px;",
+								actionBttn(inputId="map_reset", label="Reset Zoom", style="pill", size="xs", color="success")
+							)
+						), 
+						column(5,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:105px;",
+								"Map View",
+								selectInput(
+									"geo_level",
+									label = NULL,
+									choices = GEOLEVELS, 
+									selected = GEOLEVELS_DEFAULT
+								)
+							),
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:105px;",
+								"Map Color",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("Lab" = "lab"),
+			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
+									selected = "lab"
+								)
+							)
+						), 
+						column(5,
+							div(
+								class = "map_embed",
+								style = "margin-left: 20px; display: inline-block;font-size: 14px;font-weight: 800;text-align: center; width:120px;",
+								"Plot View",
+								selectInput(
+									"view_range",
+									label = NULL,
+									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
+									selected = VIEW_RANGE_PRIMARY
+								)
+							)
+						)
+					), # fluidRow (controls)
+					fluidRow(
+						#style = "border: 2px solid #941100;",
+						column(12,
+							# title
+							div(
+								textOutput("selection_title_flu"), 
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E"
+							)
+						)
+					), # fluidRow (selection title)
+					fluidRow(
+						# alert key & site info
+						style = "padding-top: 4px;padding-bottom: 4px;margin-left: 0px; margin-right: 0px;background-color: #000000;color: #ffffff;",
+						column(3,
+							div(
+								class = "logo",
+								id = "risk_level_key_flu", 
+								#class = "panel panel-default",
+								style = "margin 5px;padding: 3px;text-align: center;",
+								div("Risk Level Key", style="font-size: 13px;font-weight: 800;text-align: center;padding: 2px;width:100px;"),
+								div("VERY HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #D53E4F;"),
+								div("HIGH", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #FDAE61;"),
+								div("MODERATE", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #E6F598;"),
+								div("LOW", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #3288BD;"),
+								div("UNKNOWN", style="font-size: 12px;font-weight: 800;text-align: center;padding: 2px;margin: 3px 2px;width:100px;color: #000000;background-color: #EEEEEE;")
+							),
+							div(
+								class = "logo",
+								style = "padding-top: 10px;text-align: center;",
+								tags$a(href='https://www.watch-wv.com/', 
+								tags$img(src='WaTCH-WV_logo.png',height='75',width='75'))
+							)
+						),
+						column(9,
+							fluidRow(
+								column(12,
+									div(
+										textOutput("selection_details_flu"), 
+										style="font-size: 14px;font-weight: 800;text-align: center;padding-bottom: 5px;"
+									)
+								)
+							), # fluidRow (selection details)
+							fluidRow(
+								column(12,
+									div(
+									"Latest FluA abundance data for this region is from ",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									),
+									div(
+										textOutput("selection_freshness_flua"), 
+										style="font-size: 18px;padding: 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									),
+									div(
+										textOutput("selection_completeness_flua"), 
+										style="font-size: 14px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									)
+								)
+							), # fluidRow (fluA abundance data freshness)
+							fluidRow(
+								column(12,
+									div(
+									"Latest Flu B abundance data for this region is from ",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									),
+									div(
+										textOutput("selection_freshness_flub"), 
+										style="font-size: 18px;padding: 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									),
+									div(
+										textOutput("selection_completeness_flub"), 
+										style="font-size: 14px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
+									)
+								)
+							), # fluidRow (fluB abundance data freshness)
+							fluidRow(
+								column(12,
+									div(
+									"NOTE: Recent data may change as more sites report results.",
+										style="font-size: 14px;padding-top: 10px;font-weight: 400;text-align: center;color: #FF85FF"
+									)
+								)
+							) # fluidRow (about the data)
+						)	# column
+					) # fluidRow (color key & selection info)
+				),
+				column(5,
+					style = "margin-top: 5px;padding: 3px;",
+					fluidRow(
+						column(6,
+							div(
+								id = "abundance_title_flua",
+								"Abundance",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "abundance_text_flua",
+								textOutput("abundance_flua"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						),
+						column(6,
+							div(
+								id = "trend_title_flua",
+								"Trend",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "trend_text_flua",
+								textOutput("trend_flua"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						)
+					), # fluidRow (fluA status blocks)
+					fluidRow(
+						#style = "margin-left: 0px; margin-right: 0px;", 
+						style = "margin-top: 5px;", 
+						column(12,
+							div(
+								textOutput("plot_title_flua"), 
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (fluA plot title)
+					fluidRow(
+						column(12,
+							# Plot of fluA change over time
+							plotlyOutput("plot_flua", height="350px", width="100%")
+						)
+					), # fluidRow (fluA plot)
+					fluidRow(
+						column(6,
+							div(
+								id = "abundance_title_flub",
+								"Abundance",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "abundance_text_flub",
+								textOutput("abundance_flub"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						),
+						column(6,
+							div(
+								id = "trend_title_flub",
+								"Trend",
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "trend_text_flub",
+								textOutput("trend_flub"),
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						)
+					), # fluidRow (fluB status blocks)
+					fluidRow(
+						#style = "margin-left: 0px; margin-right: 0px;", 
+						style = "margin-top: 5px;", 
+						column(12,
+							div(
+								textOutput("plot_title_flub"), 
+								style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (fluB plot title)
+					fluidRow(
+						column(12,
+							# Plot of fluB change over time
+							plotlyOutput("plot_flub", height="350px", width="100%")
+						)
+					) # fluidRow (fluB plot)
+				),
+				column(2,
+					style = "margin-top: 8px;",
+					fluidRow(
+						column(4,
+							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
+							div("County", style = "padding: 2px;")
+						),
+						column(5,
+							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
+							div("Trend", style = "padding: 2px;")
+						),
+						column(3,
+							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
+							div("Variant", style = "padding: 2px;")
+						)
+					), # fluidRow (table header)
+					fluidRow(
+						column(12,
+							style = "overflow: auto; padding: 3px;",
+							tableHTML(
+								df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASES[2])) %>% rename(County = region_name), 
+								#collapse = "separate_shiny", 
+								#spacing = "5px 2px", 
+								rownames = FALSE, 
+								border = 0
+								#widths = c(96, 60, 60, 65, 60)
+							) %>% 
+							add_css_thead(css = list("background-color", "#000000")) %>% 
+							add_css_thead(css = list("color", "#000000")) %>% 
+							add_css_thead(css = list("font-size", "1px")) %>% 
+							add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:3])) %>% 
+							add_css_table(css = list("width", "100%")) %>% 
+							add_css_table(css = list("background-color", "#ffffff")) %>% 
+							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
+							add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1))
+						) # column
+					), # fluidRow (table)
+					fluidRow(
+						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
+						column(12,
+							# explanation of plots
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+#								style = "padding: 2px 20px 2px 2px;text-align: left;",
+								"Plot values are reported as the copies of viral particles per person after correction for daily flow, averaged across all selected sites."
+							)
+						)
+					), # fluidRow (abundance plot explanation)
+					fluidRow(
+						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
+						column(12,
+							# explanation of trend lines
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+#								style = "padding: 2px;text-align: left;",
+								span("The "),
+								span(style="color: #00B140;", "green, "),
+								span(style="color: #EAAA00;", "gold, "),
+								span("and "),
+								span(style="color: #dedede;", "gray "),
+								span("lines represents the average abundance over the most recent 1, 6, and 12 months respectively."),
+							)
+						)
+					), # fluidRow (trend line descriptions)
+					fluidRow(
+						style = "margin-top: 12px; background-color: #000000; color: #ffffff; padding: 5px;",
+						column(12,
+							# explanation of plots
+							style = "font-size: 14px;padding: 3px;font-weight: 400;",
+							div(
+#								style = "padding: 2px 20px 2px 2px;text-align: left;",
+								"Variant proportions are shown as the percent of total identified variants, averaged across all selected sites."
+							)
+						)
+					) # fluidRow (variant plot explanation)
+				)
+			),
+
+			hidden(
+				absolutePanel(
+					id = "risk_level_key_popup",
+					class = "mdinfo",
+					top = 365, left = 610, width = 580, height = 350,
+					div("Risk Level Color Key", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
+					div(
+						class = "alertinfo",
+						id = "level_1",
+						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #3288BD; background-color: #3288BD; border: 1px solid black; border-radius: 3px;"),
+						span(paste0("LOW. The latest amount of this disease agent is less than 50% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be low."), style="font-size: 13px;")
+					),
+					div(
+						class = "alertinfo",
+						id = "level_2",
+						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #E6F598; background-color: #E6F598; border: 1px solid black; border-radius: 3px;"),
+						span(paste0("MODERATE. The latest amount of this disease agent is between 50% and 100% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be moderate."), style="font-size: 13px;")
+					),
+					div(
+						class = "alertinfo",
+						id = "level_3",
+						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #FDAE61; background-color: #FDAE61; border: 1px solid black; border-radius: 3px;"),
+						span(paste0("HIGH. The latest amount of this disease agent is between 100% and 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be high."), style="font-size: 13px;")
+					),
+					div(
+						class = "alertinfo",
+						id = "level_4",
+						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #D53E4F; background-color: #D53E4F; border: 1px solid black; border-radius: 3px;"),
+						span(paste0("VERY HIGH. The latest amount of this disease agent is greater than 150% of the ", VIEW_RANGE_PRIMARY, " month average. Community transmission is estimated to be very high."), style="font-size: 13px;")
+					),
+					div(
+						class = "alertinfo",
+						id = "level_5",
+						span("XX", style="height: 40px; width: 40px; margin: 5px; color: #EEEEEE; background-color: #EEEEEE; border: 1px solid black; border-radius: 3px;"),
+						span("UNKNOWN. The data for this disease agent is either missing or too old to make an accurate determination.", style="font-size: 13px;")
+					),
+					div(
+						style="padding-top: 15px; padding-right: 5px; float: right;",
+						actionBttn(inputId="risk_level_key_popup_close", label="Close", style="pill", size="xs", color="success")
+					) # button div
+				)
+			) # hidden (risk level key popup)
+
+		) # tabPanel (FLU)
 
 	)) # navbarPage and container div
 ))

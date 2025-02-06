@@ -150,12 +150,16 @@ df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.n
 
 # Assign a default date column for plotting data.
 #
-df_rs$date_to_plot <- df_rs$week_starting
-df_seqr$date_to_plot <- df_seqr$week_starting
-#df_rs$date_to_plot <- df_rs$date_primary
-#df_seqr$date_to_plot <- df_seqr$date_primary
+df_rs$date_to_plot <- df_rs$week_ending
+df_seqr$date_to_plot <- df_seqr$week_ending
+this_week <- ceiling_date(today, "week", week_start = 1)
 
-this_week <- floor_date(today, "week", week_start = 1)
+# Use this block instead if you want to refer everything to the start of the week
+#
+#df_rs$date_to_plot <- df_rs$week_starting
+#df_seqr$date_to_plot <- df_seqr$week_starting
+#this_week <- floor_date(today, "week", week_start = 1)
+#
 
 
 # Split the full data set for use in the different environments (tabs).
