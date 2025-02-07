@@ -148,7 +148,7 @@ shinyServer(function(input, output, session) {
 	# Generate a basic plot on the given data frame.
 	#
 	plotBasic <- function(data_in, date_win) {
-		#print("plotBasic called!")
+		print("plotBasic called!")
     df_plot <- as.data.frame(data_in[1])
     tl_mo <- as.numeric(data_in[2])
     tl_yr <- as.numeric(data_in[3])
