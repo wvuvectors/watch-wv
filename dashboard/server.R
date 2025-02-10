@@ -1181,41 +1181,56 @@ shinyServer(function(input, output, session) {
 
 
 	#
-	# Open the COVID color key popup.
+	# Open the COVID color key popups.
 	#
-	onevent("click", "risk_level_key_covid", togglePanels(on=c("risk_level_key_covid_popup")))
+	onevent("click", "abundance_level_key_covid", togglePanels(on=c("abundance_level_key_covid_popup")))
+	onevent("click", "trend_key_covid", togglePanels(on=c("trend_key_covid_popup")))
 
 	#
-	# Close the COVID color key popup.
+	# Close the COVID color key popups.
 	#
-	observeEvent(input$risk_level_key_covid_popup_close,{
-    togglePanels(off=c("risk_level_key_covid_popup"))
+	observeEvent(input$abundance_level_key_covid_popup_close,{
+    togglePanels(off=c("abundance_level_key_covid_popup"))
+	}, ignoreInit = TRUE)
+
+	observeEvent(input$trend_key_covid_popup_close,{
+    togglePanels(off=c("trend_key_covid_popup"))
 	}, ignoreInit = TRUE)
 	
 
 	#
-	# Open the FLU color key popup.
+	# Open the FLU color key popups.
 	#
-	onevent("click", "risk_level_key_flu", togglePanels(on=c("risk_level_key_flu_popup")))
+	onevent("click", "abundance_level_key_flu", togglePanels(on=c("abundance_level_key_flu_popup")))
+	onevent("click", "trend_key_flu", togglePanels(on=c("trend_key_flu_popup")))
 
 	#
-	# Close the FLU color key popup.
+	# Close the FLU color key popups.
 	#
-	observeEvent(input$risk_level_key_flu_popup_close,{
-    togglePanels(off=c("risk_level_key_flu_popup"))
+	observeEvent(input$abundance_level_key_flu_popup_close,{
+    togglePanels(off=c("abundance_level_key_flu_popup"))
+	}, ignoreInit = TRUE)
+
+	observeEvent(input$trend_key_flu_popup_close,{
+    togglePanels(off=c("trend_key_flu_popup"))
 	}, ignoreInit = TRUE)
 	
 
 	#
-	# Open the RSV color key popup.
+	# Open the RSV color key popups.
 	#
-	onevent("click", "risk_level_key_rsv", togglePanels(on=c("risk_level_key_rsv_popup")))
+	onevent("click", "abundance_level_key_rsv", togglePanels(on=c("abundance_level_key_rsv_popup")))
+	onevent("click", "trend_key_rsv", togglePanels(on=c("trend_key_rsv_popup")))
 
 	#
-	# Close the RSV color key popup.
+	# Close the RSV color key popups.
 	#
-	observeEvent(input$risk_level_key_rsv_popup_close,{
-    togglePanels(off=c("risk_level_key_rsv_popup"))
+	observeEvent(input$abundance_level_key_rsv_popup_close,{
+    togglePanels(off=c("abundance_level_key_rsv_popup"))
+	}, ignoreInit = TRUE)
+
+	observeEvent(input$trend_key_rsv_popup_close,{
+    togglePanels(off=c("trend_key_rsv_popup"))
 	}, ignoreInit = TRUE)
 	
 
