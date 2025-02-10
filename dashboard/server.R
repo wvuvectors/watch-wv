@@ -68,6 +68,14 @@ shinyServer(function(input, output, session) {
 			updateAllPlots()
 			updateSelectionInfo()
 			updateStatus()
+    } else if(input$nav == "RSV"){
+      #print("tab = rsv")
+      controlRV$mapIndex <- 3
+      controlRV$targetVec <- c(4)
+
+			updateAllPlots()
+			updateSelectionInfo()
+			updateStatus()
     }
   })
 	
@@ -688,18 +696,38 @@ shinyServer(function(input, output, session) {
 	}
 
 	
-	getDownloadTableRS <- function(inputTarget, inputLocus, loc_name, date_win) {
-		return(df_rs)
+	getDownloadTableRS <- function(targetIndex) {
+		return(dflist_rs[targetIndex])
 	}
 		
 
-	output$downloadData <- downloadHandler(
-		filename = "test.csv",
+	output$download_data_covid <- downloadHandler(
+		filename = "watch-wv_COVID.csv",
 		content = function(file) {
-			write.csv(getDownloadTableRS(), file, row.names = FALSE)
+			write.csv(getDownloadTableRS(1), file, row.names = FALSE)
 		}
 	)
 
+	output$download_data_flua <- downloadHandler(
+		filename = "watch-wv_FluA.csv",
+		content = function(file) {
+			write.csv(getDownloadTableRS(2), file, row.names = FALSE)
+		}
+	)
+
+	output$download_data_flub <- downloadHandler(
+		filename = "watch-wv_FluB.csv",
+		content = function(file) {
+			write.csv(getDownloadTableRS(3), file, row.names = FALSE)
+		}
+	)
+
+	output$download_data_rsv <- downloadHandler(
+		filename = "watch-wv_RSV.csv",
+		content = function(file) {
+			write.csv(getDownloadTableRS(4), file, row.names = FALSE)
+		}
+	)
 
 	# Accepts a map (target) index.
 	#
@@ -1057,6 +1085,44 @@ shinyServer(function(input, output, session) {
 				label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
 				highlightOptions = highlightOptions(
 					weight = 1,
+					color = "#00F900",
+					#dashArray = "",
+					fillOpacity = 1.0,
+					bringToFront = TRUE)
+			)		
+	})
+
+
+	output$map_rsv <- renderLeaflet({
+		leaflet() %>% 
+				addTiles() %>% 
+				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
+				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+												 layerId = ~location_id, 
+												 lat = ~location_lat, 
+												 lng = ~location_lng, 
+												 radius = ~dotsize, 
+												 stroke = TRUE,
+												 weight = 4, 
+												 opacity = 0.5,
+												 color = ~abundance_color,
+												 fill = TRUE,
+												 fillColor = ~trend_color,
+												 group = "facility", 
+												 label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
+												 fillOpacity = 0.6) %>%
+			addPolygons( 
+				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+				layerId = ~NAME, 
+				fillColor = ~trend_color, 
+				stroke = TRUE, 
+				fillOpacity = 0.7, 
+				color = "#000000", 
+				weight = 0.5, 
+				group="county",
+				label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
+				highlightOptions = highlightOptions(
+					weight = 0.5,
 					color = "#00F900",
 					#dashArray = "",
 					fillOpacity = 1.0,
