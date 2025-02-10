@@ -6,7 +6,8 @@ source("addins/version.R")
 source("addins/dbsources.R")
 
 
-#rsconnect::deployApp('path/to/your/app')
+rsconnect::setAccountInfo(name='wvuvectors', token='8519D96607DA3643294B496C85BD3EE4', secret='e5NuUny8nt4icyERI+T3onFMf7IhYykZZvAtCXoq')
+
 
 # color palette is ggthemes$calc
 # 1 Chart 1  #004586	dark blue
@@ -48,27 +49,6 @@ df_active_loc <- resources$location %>% filter(tolower(location_status) == "acti
 df_active_wwtp <- resources$wwtp %>% filter(wwtp_id %in% df_active_loc$location_primary_wwtp_id)
 df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$location_counties_served)
 df_active_loci <- resources$loci %>% filter(target_id %in% TARGETS)
-
-
-
-# Add colors to county and location dataframes.
-#
-# KLUDGE for now; working on a dynamic color palette approach.
-#
-county_spdf$colorby <- case_when(
-  county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
-  county_spdf$NAME %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
-  .default = "#EEEEEE")
-
-df_active_county$colorby <- case_when(
-  df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "#EAAA00", 
-  df_active_county$county_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "#00B140", 
-  .default = "#EEEEEE")
-
-df_active_loc$colorby <- case_when(
-  tolower(df_active_loc$location_primary_lab) == "zoowvu" ~ "#EAAA00", 
-  tolower(df_active_loc$location_primary_lab) == "muidsl" ~ "#00B140", 
-  .default = "#CCCCCC")
 
 
 df_active_loc$dotsize <- case_when(
@@ -173,6 +153,28 @@ for (i in 1:length(TARGETS)) {
 dflist_alerts <- list()
 for (i in 1:length(TARGETS)) {
 	dflist_alerts[[i]] <- df_alerts %>% filter(target == TARGETS[i])
+	dflist_alerts[[i]]$region_geolevel <- case_when(
+		dflist_alerts[[i]]$region_name %in% df_active_county$county_id ~ "county", 
+		dflist_alerts[[i]]$region_name %in% df_active_loc$location_id ~ "facility", 
+		.default = "state")
+		
+	dflist_alerts[[i]]$abundance_color <- case_when(
+		dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_COLORS[1], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[1] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_COLORS[2], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[2] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[3], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[4], 
+		.default = ALERT_LEVEL_COLORS[5])
+
+	dflist_alerts[[i]]$trend_color <- case_when(
+		dflist_alerts[[i]]$trend == TREND_STRINGS[1] ~ ALERT_LEVEL_COLORS[1], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[2] ~ ALERT_LEVEL_COLORS[2], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[3] ~ ALERT_LEVEL_COLORS[3], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[4] ~ ALERT_LEVEL_COLORS[4], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[5] ~ ALERT_LEVEL_COLORS[5], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[6] ~ ALERT_LEVEL_COLORS[6], 
+		dflist_alerts[[i]]$trend == TREND_STRINGS[7] ~ ALERT_LEVEL_COLORS[7], 
+		.default = "#f3f3e1")
+
 }
 
 

@@ -57,9 +57,8 @@ shinyUI(fluidPage(
 								selectInput(
 									"map_color",
 									label = NULL,
-									choices = c("Lab" = "lab"),
-			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
-									selected = "lab"
+									choices = MAP_COLORS,
+									selected = MAP_COLORS_DEFAULT
 								)
 							)
 						), 
@@ -143,7 +142,11 @@ shinyUI(fluidPage(
 									),
 									div(
 										textOutput("selectionsq_freshness_covid"), 
-										style="font-size: 18px;padding-bottom: 10px;font-weight: 800;text-align: center;color: #FFFC79;"
+										style="font-size: 18px;padding-bottom: 0px;font-weight: 800;text-align: center;color: #FFFC79;"
+									),
+									div(
+										textOutput("selectionsq_completeness_covid"), 
+										style="font-size: 14px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #f3f3e1;"
 									)
 								)
 							), # fluidRow (variant data freshness)
@@ -247,24 +250,20 @@ shinyUI(fluidPage(
 				column(2,
 					style = "margin-top: 8px;",
 					fluidRow(
-						column(4,
+						column(5,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
 							div("County", style = "padding: 2px;")
 						),
-						column(5,
+						column(7,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
 							div("Trend", style = "padding: 2px;")
-						),
-						column(3,
-							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Variant", style = "padding: 2px;")
 						)
 					), # fluidRow (table header)
 					fluidRow(
 						column(12,
 							style = "overflow: auto; padding: 3px;",
 							tableHTML(
-								df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASES[1])) %>% rename(County = region_name), 
+								dflist_alerts[[1]] %>% filter(region_geolevel == "county") %>% select(region_name, trend) %>% rename(County = region_name, Trend = trend), 
 								#collapse = "separate_shiny", 
 								#spacing = "5px 2px", 
 								rownames = FALSE, 
@@ -274,11 +273,11 @@ shinyUI(fluidPage(
 							add_css_thead(css = list("background-color", "#000000")) %>% 
 							add_css_thead(css = list("color", "#000000")) %>% 
 							add_css_thead(css = list("font-size", "1px")) %>% 
-							add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:3])) %>% 
+							#add_css_column(css = list("text-align", "left"), columns=names(dflist_alerts[i][4])) %>% 
 							add_css_table(css = list("width", "100%")) %>% 
 							add_css_table(css = list("background-color", "#ffffff")) %>% 
-							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
-							add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1))
+							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((dflist_alerts[[1]] %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
+							add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((dflist_alerts[[1]] %>% filter(region_geolevel == "county"))$region_name)+1))
 						) # column
 					), # fluidRow (table)
 					fluidRow(
@@ -300,11 +299,14 @@ shinyUI(fluidPage(
 							div(
 #								style = "padding: 2px;text-align: left;",
 								span("The "),
-								span(style="color: #00B140;", "green, "),
-								span(style="color: #EAAA00;", "gold, "),
+								span(style="color: #00B140;", "green "),
 								span("and "),
-								span(style="color: #dedede;", "gray "),
-								span("lines represents the average abundance over the most recent 1, 6, and 12 months respectively."),
+								span(style="color: #EAAA00;", "gold "),
+								span("lines represents the average abundance over the most recent "),
+								span(style="color: #00B140;", "3 months "),
+								span("and "),
+								span(style="color: #EAAA00;", "12 months "),
+								span("respectively."),
 							)
 						)
 					), # fluidRow (trend line descriptions)
@@ -324,7 +326,7 @@ shinyUI(fluidPage(
 
 			hidden(
 				absolutePanel(
-					id = "risk_level_key_popup",
+					id = "risk_level_key_covid_popup",
 					class = "mdinfo",
 					top = 365, left = 610, width = 580, height = 350,
 					div("Risk Level Color Key", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
@@ -360,7 +362,7 @@ shinyUI(fluidPage(
 					),
 					div(
 						style="padding-top: 15px; padding-right: 5px; float: right;",
-						actionBttn(inputId="risk_level_key_popup_close", label="Close", style="pill", size="xs", color="success")
+						actionBttn(inputId="risk_level_key_covid_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
 			) # hidden (risk level key popup)
@@ -410,9 +412,8 @@ shinyUI(fluidPage(
 								selectInput(
 									"map_color",
 									label = NULL,
-									choices = c("Lab" = "lab"),
-			#							choices = c("Status" = "Status", "Risk" = "Risk", "Freshness" = "Freshness"),
-									selected = "lab"
+									choices = MAP_COLORS,
+									selected = MAP_COLORS_DEFAULT
 								)
 							)
 						), 
@@ -597,24 +598,20 @@ shinyUI(fluidPage(
 				column(2,
 					style = "margin-top: 8px;",
 					fluidRow(
-						column(4,
+						column(5,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
 							div("County", style = "padding: 2px;")
 						),
-						column(5,
+						column(7,
 							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
 							div("Trend", style = "padding: 2px;")
-						),
-						column(3,
-							style = "background-color: #303D4E;color: #FFFFFF;text-align: left;font-size: 15px;font-weight: 800;padding: 3px;",
-							div("Variant", style = "padding: 2px;")
 						)
 					), # fluidRow (table header)
 					fluidRow(
 						column(12,
 							style = "overflow: auto; padding: 3px;",
 							tableHTML(
-								df_regions %>% filter(region_geolevel == "county") %>% select(region_name, any_of(DISEASES[2])) %>% rename(County = region_name), 
+								dflist_alerts[[2]] %>% filter(region_geolevel == "county") %>% select(region_name, trend) %>% rename(County = region_name, Trend = trend), 
 								#collapse = "separate_shiny", 
 								#spacing = "5px 2px", 
 								rownames = FALSE, 
@@ -624,11 +621,11 @@ shinyUI(fluidPage(
 							add_css_thead(css = list("background-color", "#000000")) %>% 
 							add_css_thead(css = list("color", "#000000")) %>% 
 							add_css_thead(css = list("font-size", "1px")) %>% 
-							add_css_column(css = list("text-align", "left"), columns=names(df_regions[2:3])) %>% 
+							#add_css_column(css = list("text-align", "left"), columns=names(dflist_alerts[i][4])) %>% 
 							add_css_table(css = list("width", "100%")) %>% 
 							add_css_table(css = list("background-color", "#ffffff")) %>% 
-							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
-							add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((df_regions %>% filter(region_geolevel == "county"))$region_name)+1))
+							add_css_row(css = list("background-color", "#f2f2f2"), rows = odd(1:length((dflist_alerts[[2]] %>% filter(region_geolevel == "county"))$region_name)+1)) %>%
+							add_css_row(css = list("background-color", "#e6f0ff"), rows = even(1:length((dflist_alerts[[2]] %>% filter(region_geolevel == "county"))$region_name)+1))
 						) # column
 					), # fluidRow (table)
 					fluidRow(
@@ -648,13 +645,15 @@ shinyUI(fluidPage(
 							# explanation of trend lines
 							style = "font-size: 14px;padding: 3px;font-weight: 400;",
 							div(
-#								style = "padding: 2px;text-align: left;",
 								span("The "),
-								span(style="color: #00B140;", "green, "),
-								span(style="color: #EAAA00;", "gold, "),
+								span(style="color: #00B140;", "green "),
 								span("and "),
-								span(style="color: #dedede;", "gray "),
-								span("lines represents the average abundance over the most recent 1, 6, and 12 months respectively."),
+								span(style="color: #EAAA00;", "gold "),
+								span("lines represents the average abundance over the most recent "),
+								span(style="color: #00B140;", "3 months "),
+								span("and "),
+								span(style="color: #EAAA00;", "12 months "),
+								span("respectively."),
 							)
 						)
 					), # fluidRow (trend line descriptions)
@@ -674,7 +673,7 @@ shinyUI(fluidPage(
 
 			hidden(
 				absolutePanel(
-					id = "risk_level_key_popup",
+					id = "risk_level_key_flu_popup",
 					class = "mdinfo",
 					top = 365, left = 610, width = 580, height = 350,
 					div("Risk Level Color Key", style="font-size: 13px;padding: 4px;font-weight: 800;text-align: center;margin-bottom: 5px;color: #ffffff; background-color: #303D4E;"),
@@ -710,7 +709,7 @@ shinyUI(fluidPage(
 					),
 					div(
 						style="padding-top: 15px; padding-right: 5px; float: right;",
-						actionBttn(inputId="risk_level_key_popup_close", label="Close", style="pill", size="xs", color="success")
+						actionBttn(inputId="risk_level_key_flu_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
 			) # hidden (risk level key popup)

@@ -44,9 +44,8 @@ while (@ARGV) {
 
 
 my $WINDOW = 4;	# Number of weeks to use in trend calculations.
-my $SPIKE_THRESHOLD = 500; # Trigger for identifying spikes/despikes; given as percent change.
-my $TREND_THRESHOLD = 20; # Trigger for identifying consistent trend; given as percent change.
-
+my $SPIKE_THRESHOLD = 500; # Trigger (percent change) for identifying spikes/despikes.
+my $TREND_THRESHOLD = 20; # Trigger (percent change) for identifying consistent trend; given as percent change.
 
 my %targ2disease = (
 	"Influenza Virus A (FluA)" => "FLUA", 
@@ -116,18 +115,19 @@ foreach my $sheet_name (keys %{$resource_wkbk->[0]->{"sheet"}}) {
 #print Dumper(\%resources);
 #die;
 
+my %do_not_rollup = ();
+
 my %loc2county = ();
 foreach my $locid (keys %{$resources{"location"}}) {
 	next unless $resources{"location"}->{"$locid"}->{"location_status"} eq "active";
 	my $county = $resources{"location"}->{"$locid"}->{"location_counties_served"};
 	$loc2county{"$locid"} = "$county";
+	$do_not_rollup{"$locid"} = 1 if $resources{"location"}->{"$locid"}->{"location_category"} ne "wwtp";
 }
 
 #print Dumper(\%loc2county);
 #print Dumper(\%resources);
 #die;
-
-my %do_not_rollup = ();
 
 # Read result tables into hash, keyed by county, location_id, target, and sample id
 my %results = ();
@@ -173,7 +173,6 @@ foreach my $f (keys %infiles) {
 			my $val = $cols["$val1_col"];
 			if ("$val" eq "NA") {
 				$val = $cols["$val2_col"];
-				$do_not_rollup{"$thisLoc"} = 1;
 			} else {
 				$val = $val / $cols["$basis_col"];
 			}
@@ -259,19 +258,29 @@ foreach my $epiweek (sort {$b <=> $a} keys %results) {
 #die;
 
 
-print "region_name\ttarget\tlatest_abundance\ttrend\n";
+print "region_name\ttarget\tabundance_pct_change\ttrend\n";
 foreach my $region (keys %ordered_means) {
 	foreach my $targ (keys %{$ordered_means{"$region"}}) {
 		my $this_arr = $ordered_means{"$region"}->{"$targ"};
 		my $total = scalar @{$this_arr};
 		# No abundance values for this region.
-		if ($total == 0) {
+		if ($total <= 1) {
 			print "$region\t$targ\tNA\tNA\n";
-		} elsif ($total == 1) {
-			# Only one abundance value for this location & target.
-			print "$region\t$targ\t$this_arr->[0]\tNA\n";
 		} else {
-			# More than one abundance value, look for trend.
+			# More than one abundance value: try to calculate risk.
+			my $comp = 13;
+			$comp = scalar @{$this_arr} if scalar @{$this_arr} < 13;
+			my $pct_ch = "NA";
+			if ($comp > 3) {
+				my $sum = 0;
+				for (my $i=0; $i < $comp; $i++) {
+					$sum += $this_arr->[$i];
+				}
+				my $mean_comp = $sum / $comp;
+				$pct_ch = 100 * ($this_arr->[0] - $mean_comp)/$mean_comp;
+			}
+			
+			# More than one abundance value: look for trend.
 			my $trend = "NA";
 			my $prnt_str = "";
 			
@@ -301,7 +310,7 @@ foreach my $region (keys %ordered_means) {
 				$trend = getTrend(\@abundances);
 			}
 #			print "$region\t$targ\t$prnt_str\t$trend\n";
-			print "$region\t$targ\t$this_arr->[0]\t$trend\n";
+			print "$region\t$targ\t$pct_ch\t$trend\n";
 		}
 	}
 }
