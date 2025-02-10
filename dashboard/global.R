@@ -6,8 +6,6 @@ source("addins/version.R")
 source("addins/dbsources.R")
 
 
-rsconnect::setAccountInfo(name='wvuvectors', token='8519D96607DA3643294B496C85BD3EE4', secret='e5NuUny8nt4icyERI+T3onFMf7IhYykZZvAtCXoq')
-
 
 # color palette is ggthemes$calc
 # 1 Chart 1  #004586	dark blue
