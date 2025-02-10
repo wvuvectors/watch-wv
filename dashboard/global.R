@@ -163,6 +163,13 @@ for (i in 1:length(TARGETS)) {
 		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[4], 
 		.default = ALERT_LEVEL_COLORS[5])
 
+	dflist_alerts[[i]]$abundance_level <- case_when(
+		dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_STRINGS[1], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[1] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_STRINGS[2], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[2] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[3], 
+		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[4], 
+		.default = ALERT_LEVEL_STRINGS[5])
+
 	dflist_alerts[[i]]$trend_color <- case_when(
 		dflist_alerts[[i]]$trend == TREND_STRINGS[1] ~ ALERT_LEVEL_COLORS[1], 
 		dflist_alerts[[i]]$trend == TREND_STRINGS[2] ~ ALERT_LEVEL_COLORS[2], 

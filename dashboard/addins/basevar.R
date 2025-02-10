@@ -34,9 +34,8 @@ TREND_STRINGS <- c("DECREASING", "STABLE", "VARIABLE", "INCREASING", "INDETERMIN
 # [1] "#9E0142" "#D53E4F" "#F46D43" "#FDAE61" "#FEE08B" "#FFFFBF" "#E6F598" "#ABDDA4"
 # [9] "#66C2A5" "#3288BD" "#5E4FA2"
 
-MAP_COLORS <- c("Trend")
-#MAP_COLORS <- c("Trend", "Abundance", "Lab")
-MAP_COLORS_DEFAULT <- "Trend"
+MAP_COLORS <- c(c("COVID"), c("FLUA", "FLUB"), c("RSV"))
+MAP_COLORS_DEFAULT <- "COVID"
 
 abundance_level_colors = c("#3288BD", "#E6F598", "#FDAE61", "#D53E4F", "#EEEEEE")
 names(abundance_level_colors) <- c("LOW", "MODERATE", "HIGH", "VERY HIGH", "UNKNOWN")

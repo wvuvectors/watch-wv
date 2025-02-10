@@ -57,7 +57,7 @@ shinyUI(fluidPage(
 								selectInput(
 									"map_color",
 									label = NULL,
-									choices = MAP_COLORS,
+									choices = MAP_COLORS[1],
 									selected = MAP_COLORS_DEFAULT
 								)
 							)
@@ -412,7 +412,7 @@ shinyUI(fluidPage(
 								selectInput(
 									"map_color",
 									label = NULL,
-									choices = MAP_COLORS,
+									choices = MAP_COLORS[[2]],
 									selected = MAP_COLORS_DEFAULT
 								)
 							)

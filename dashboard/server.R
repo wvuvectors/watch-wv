@@ -559,7 +559,8 @@ shinyServer(function(input, output, session) {
 			# Facility specific elements
 			loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
 			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-
+			county_name <- county_ids[[1]]
+			
 			loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
 			
 			title_text <- loc_name
@@ -726,36 +727,35 @@ shinyServer(function(input, output, session) {
 			mapProxy %>% 
 					clearMarkers() %>% 
 					clearShapes() %>% 
-					addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name", all.x = TRUE),
+					addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
 										 layerId = ~location_id, 
 										 lat = ~location_lat, 
 										 lng = ~location_lng, 
 										 radius = ~dotsize, 
 #										 radius = 5, 
-										 stroke = FALSE,
+										 stroke = TRUE,
 										 weight = 4, 
 										 opacity = 0.5,
-#										 color = ~alertPal(current_fold_change_smoothed), 
+										 color = ~abundance_color,
 										 fill = TRUE,
-#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 										 fillColor = ~trend_color,
 										 group = "facility", 
-										 label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), 
+										 label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
 										 fillOpacity = 0.6) %>%
 					addPolygons( 
-						data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name", all.x = TRUE), 
+						data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
 						layerId = ~NAME, 
 						fillColor = ~trend_color, 
 						stroke=TRUE, 
 						fillOpacity = 0.7, 
-						color="black", 
+						color="#000000", 
 						weight=0.5, 
 						group="county",
-						label = ~NAME, 
+						label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
 						highlightOptions = highlightOptions(
 							weight = 1,
-							color = "#fff",
-							fillOpacity = 0.9,
+							color = "#00F900",
+							fillOpacity = 1.0,
 							bringToFront = TRUE)
 					)
 		} else {
@@ -764,7 +764,7 @@ shinyServer(function(input, output, session) {
 						clearMarkers() %>% 
 						clearShapes() %>% 
 						addPolygons( 
-							data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name", all.x = TRUE), 
+							data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
 							layerId = ~NAME, 
 							#fillColor = ~mypalette(colorby), 
 							stroke=TRUE,
@@ -774,24 +774,22 @@ shinyServer(function(input, output, session) {
 							group="county"
 						) %>% 
 						addCircles(
-							data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name", all.x = TRUE),
+							data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
 							layerId = ~location_id, 
 							lat = ~location_lat, 
 							lng = ~location_lng, 
 							radius = ~dotsize, 
-#										radius = 5, 
 							stroke = TRUE,
 							weight = 2, 
 							opacity = 0.9,
-							color = "#000000", 
+							color = ~abundance_color,
 							fill = TRUE,
-#										fillColor = ~alertPal(current_fold_change_smoothed), 
 							fillColor = ~trend_color,
 							group = "facility", 
-							label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), , 
+							label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), , 
 							highlightOptions = highlightOptions(
 								weight = 3,
-								color = "#fff",
+								color = "#00f900",
 								fillOpacity = 0.9,
 								bringToFront = TRUE),
 							fillOpacity = 0.6)
@@ -992,38 +990,35 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name", all.x = TRUE),
+				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
 												 layerId = ~location_id, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
 												 radius = ~dotsize, 
-		#										 radius = 5, 
-												 stroke = FALSE,
+												 stroke = TRUE,
 												 weight = 4, 
 												 opacity = 0.5,
-		#										 color = ~watchPal(current_fold_change_smoothed), 
-												 color = "#000000",
+												 color = ~abundance_color,
 												 fill = TRUE,
-		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 fillColor = ~trend_color,
 												 group = "facility", 
-												 label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), 
+												 label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
-				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name", all.x = TRUE), 
+				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
 				layerId = ~NAME, 
 				fillColor = ~trend_color, 
-				stroke=TRUE, 
+				stroke = TRUE, 
 				fillOpacity = 0.7, 
-				color="#000000", 
-				weight=0.5, 
+				color = "#000000", 
+				weight = 0.5, 
 				group="county",
-				label = ~NAME, 
+				label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
 				highlightOptions = highlightOptions(
-					weight = 1,
-					color = "#000000",
+					weight = 0.5,
+					color = "#00F900",
 					#dashArray = "",
-					fillOpacity = 0.9,
+					fillOpacity = 1.0,
 					bringToFront = TRUE)
 			)		
 	})
@@ -1033,7 +1028,7 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name", all.x = TRUE),
+				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
 												 layerId = ~location_id, 
 												 lat = ~location_lat, 
 												 lng = ~location_lng, 
@@ -1048,10 +1043,10 @@ shinyServer(function(input, output, session) {
 		#										 fillColor = ~alertPal(current_fold_change_smoothed), 
 												 fillColor = ~trend_color,
 												 group = "facility", 
-												 label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), 
+												 label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
 												 fillOpacity = 0.6) %>%
 			addPolygons( 
-				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name", all.x = TRUE), 
+				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
 				layerId = ~NAME, 
 				fillColor = ~trend_color, 
 				stroke=TRUE, 
@@ -1059,12 +1054,12 @@ shinyServer(function(input, output, session) {
 				color="#000000", 
 				weight=0.5, 
 				group="county",
-				label = ~NAME, 
+				label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
 				highlightOptions = highlightOptions(
 					weight = 1,
-					color = "#000000",
+					color = "#00F900",
 					#dashArray = "",
-					fillOpacity = 0.9,
+					fillOpacity = 1.0,
 					bringToFront = TRUE)
 			)		
 	})
@@ -1166,7 +1161,7 @@ shinyServer(function(input, output, session) {
 	#
   observeEvent(input$map_color, {
   	#print("geo level event fired")
-		changeMapColor(input$map_color)
+		#changeMapColor(input$map_color)
 	}, ignoreInit = TRUE)
 
 
