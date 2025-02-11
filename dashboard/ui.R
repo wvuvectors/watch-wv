@@ -416,7 +416,27 @@ shinyUI(fluidPage(
 						actionBttn(inputId="trend_key_covid_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (trend key popup)
+			), # hidden (trend key popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p1_popup",
+					class = "mdinfo",
+					top = 320, left = 710, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			), # hidden (missing data p1 popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p0_popup",
+					class = "mdinfo",
+					top = 650, left = 690, width = 450, height = 100,
+					div("There is no variant data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			) # hidden (missing data p0 popup)
 
 		), # tabPanel (COVID)
 
@@ -812,7 +832,27 @@ shinyUI(fluidPage(
 						actionBttn(inputId="trend_key_flu_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (trend key popup)
+			), # hidden (trend key popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p2_popup",
+					class = "mdinfo",
+					top = 320, left = 710, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			), # hidden (missing data p3 popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p3_popup",
+					class = "mdinfo",
+					top = 650, left = 690, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			) # hidden (missing data p4 popup)
 
 		), # tabPanel (FLU)
 
@@ -1150,7 +1190,17 @@ shinyUI(fluidPage(
 						actionBttn(inputId="trend_key_rsv_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (trend key popup)
+			), # hidden (trend key popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p4_popup",
+					class = "mdinfo",
+					top = 320, left = 710, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			), # hidden (missing data p4 popup)
 
 		), # tabPanel (RSV)
 
@@ -1546,7 +1596,17 @@ shinyUI(fluidPage(
 						actionBttn(inputId="trend_key_nov_popup_close", label="Close", style="pill", size="xs", color="success")
 					) # button div
 				)
-			) # hidden (trend key popup)
+			), # hidden (trend key popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p5_popup",
+					class = "mdinfo",
+					top = 320, left = 710, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			) # hidden (missing data p5 popup)
 
 		) # tabPanel (Norovirus)
 

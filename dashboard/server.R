@@ -142,6 +142,27 @@ shinyServer(function(input, output, session) {
 	}
 
 
+	# Open data warning window(s).
+	#
+	fireDataWarnings <- function(targets) {
+		#lapply(1:length(targets), function(i) {
+		for (index in targets) {
+			#target_index <- targets[[i]]
+			togglePanels(on=c(paste0("missing_data_p", index, "_popup", sep="")))
+		}
+	}
+	
+	# Close data warning window(s).
+	#
+	killDataWarnings <- function(targets) {
+		for (index in targets) {
+			#target_index <- targets[[i]]
+			togglePanels(off=c(paste0("missing_data_p", index, "_popup", sep="")))
+		}
+	}
+	
+	
+	
 	getAbundance <- function(loc_id, target_index) {
 	  print("##### getAbundance called!")
 
@@ -292,7 +313,7 @@ shinyServer(function(input, output, session) {
 	#
 	# Generate a ggplotly object of the abundance data within the date window.
 	#
-	plotAbundance <- function(df_abundance, months_to_plot) {
+	plotAbundance <- function(df_abundance, months_to_plot, target_index) {
 	  print("##### plotAbundance called!")
     #View(df_abundance)
 
@@ -346,6 +367,7 @@ shinyServer(function(input, output, session) {
 			#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
 		} else {
 			gplot <- ggplot()
+			fireDataWarnings(c(target_index))
 		}
 		
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
@@ -356,7 +378,7 @@ shinyServer(function(input, output, session) {
 	#
 	# Generate a ggplotly object of the variant data within the date window.
 	#
-	plotVariants <- function(df_variants, months_to_plot) {
+	plotVariants <- function(df_variants, months_to_plot, target_index) {
 		#print("##### plotVariants called!")
 
 		dlab <- case_when(
@@ -380,15 +402,20 @@ shinyServer(function(input, output, session) {
 		date_limits <- c(end_date %m-% months(months_to_plot), end_date)
 		df_plot <- df_variants %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
     
-		gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
-#							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week that starts ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
-							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
-							scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
-							labs(x="", y="", fill=NULL) + 
-		          scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
-#							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
-							plot_theme() + 
-							theme(legend.position = "right", legend.title=element_blank())
+    if (nrow(df_plot) > 0) {
+			gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
+	#							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week that starts ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
+								geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
+								scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
+								labs(x="", y="", fill=NULL) + 
+								scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
+	#							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
+								plot_theme() + 
+								theme(legend.position = "right", legend.title=element_blank())
+		} else {
+			gplot <- ggplot()
+			fireDataWarnings(c(0))
+		}
 
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
@@ -402,6 +429,8 @@ shinyServer(function(input, output, session) {
 # When switching from `summarise()` to `reframe()`, remember that `reframe()` always returns an ungrouped data
 #  frame and adjust accordingly.
 
+		killDataWarnings(c(0, controlRV$targetVec))
+		
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
 
 		if (loc_id == "WV") {
@@ -427,75 +456,40 @@ shinyServer(function(input, output, session) {
 			if (target_index == 1) {
 		    df_variants <- getVariantData(loc_id)
 				output$plot_title_covid <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_covid <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_covid <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", toupper(plotSuffix), "!"))
-				}
+				output$plot_covid <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 
 				output$plotsq_title_covid <- renderText(paste0(toupper(plotSuffix), " variants in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_variants) > 0) {
-					output$plotsq_covid <- renderPlotly({
-						plotVariants(df_variants, controlRV$viewMonths[target_index]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plotsq_covid <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No variant data for ", toupper(plotSuffix), "!"))
-				}
+				output$plotsq_covid <- renderPlotly({
+					plotVariants(df_variants, controlRV$viewMonths[target_index], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 
 			} else if (target_index == 2) {
 				output$plot_title_flua <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_flua <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_flua <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", toupper(plotSuffix), "!"))
-				}
+				output$plot_flua <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 			} else if (target_index == 3) {
 				output$plot_title_flub <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_flub <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_flub <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", toupper(plotSuffix), "!"))
-				}
+				output$plot_flub <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 			} else if (target_index == 4) {
 				output$plot_title_rsv <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_rsv <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_rsv <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", TARGETS[target_index], "!"))
-				}
+				output$plot_rsv <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 			} else if (target_index == 5) {
 				output$plot_title_novii <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_novii <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_novii <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", TARGETS[target_index], " within the most recent ", controlRV$viewMonths[controlRV$mapIndex], " months."))
-				}
+				output$plot_novii <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 			} else if (target_index == 6) {
 				output$plot_title_novi <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
-					output$plot_novi <- renderPlotly({
-						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-					})
-				} else {
-					output$plot_novi <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
-					print(paste0("No data for ", TARGETS[target_index], "!"))
-				}
+				output$plot_novi <- renderPlotly({
+					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+				})
 			}
 			
 		}) # end of lapply
@@ -1430,7 +1424,7 @@ shinyServer(function(input, output, session) {
 	onevent("click", "trend_key_nov", togglePanels(on=c("trend_key_nov_popup")))
 
 	#
-	# Close the NoV color key popups.
+	# Close the NoV popups.
 	#
 	observeEvent(input$abundance_level_key_nov_popup_close,{
     togglePanels(off=c("abundance_level_key_nov_popup"))
@@ -1438,6 +1432,10 @@ shinyServer(function(input, output, session) {
 
 	observeEvent(input$trend_key_nov_popup_close,{
     togglePanels(off=c("trend_key_nov_popup"))
+	}, ignoreInit = TRUE)
+	
+	observeEvent(input$missing_data_p1_nov_popup_close,{
+    togglePanels(off=c("missing_data_p1_nov_popup"))
 	}, ignoreInit = TRUE)
 	
 
