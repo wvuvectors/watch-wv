@@ -16,17 +16,18 @@ shinyServer(function(input, output, session) {
 	leafletProxyCovid <- leafletProxy(mapId="map_covid", session)
 	leafletProxyFlu <- leafletProxy(mapId="map_flu", session)
 	leafletProxyRsv <- leafletProxy(mapId="map_rsv", session)
+	leafletProxyNov <- leafletProxy(mapId="map_nov", session)
 	
 
 	getMapProxy <- function(indx) {
 		if (indx == 1) {
 			return(leafletProxyCovid)
-		}
-		if (indx == 2) {
+		} else if (indx == 2) {
 			return(leafletProxyFlu)
-		}
-		if (indx == 3) {
+		} else if (indx == 3) {
 			return(leafletProxyRsv)
+		} else if (indx == 4) {
+			return(leafletProxyNov)
 		}
 		return(leafletProxyCovid)
 	}
@@ -36,13 +37,13 @@ shinyServer(function(input, output, session) {
 	# Initialize reactive values with some defaults.
 	#
 	controlRV <- reactiveValues(
-		activeGeoLevel = c(GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT), 
-		activeMapColor = c("Trend", "Trend", "Trend"), 
-		mapClick = c("WV", "WV", "WV"), 
+		activeGeoLevel = c(GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT), 
+		activeMapColor = c("Trend", "Trend", "Trend", "Trend"), 
+		mapClick = c("WV", "WV", "WV", "WV"), 
 		trendLines = c(TRUE, TRUE),
-		viewMonths = c(VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY), 
-		mapClickLat = c(0, 0, 0),
-		mapClickLng = c(0, 0, 0),
+		viewMonths = c(VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY), 
+		mapClickLat = c(0, 0, 0, 0),
+		mapClickLng = c(0, 0, 0, 0),
 		mapIndex = 1,
 		targetVec = c(1)
 	)
@@ -51,7 +52,7 @@ shinyServer(function(input, output, session) {
 	# Watch for change of tab and update the mapIndex and plot targets
 	#
   observe({ 
-    if(input$nav == "COVID") {
+    if (input$nav == "COVID") {
       #print("tab = covid")
       controlRV$mapIndex <- 1
       controlRV$targetVec <- c(1)
@@ -60,7 +61,7 @@ shinyServer(function(input, output, session) {
 			updateSelectionInfo()
 			updateStatus()
 
-    } else if(input$nav == "Influenza"){
+    } else if (input$nav == "Influenza") {
       #print("tab = flu")
       controlRV$mapIndex <- 2
       controlRV$targetVec <- c(2,3)
@@ -68,10 +69,18 @@ shinyServer(function(input, output, session) {
 			updateAllPlots()
 			updateSelectionInfo()
 			updateStatus()
-    } else if(input$nav == "RSV"){
+    } else if (input$nav == "RSV") {
       #print("tab = rsv")
       controlRV$mapIndex <- 3
       controlRV$targetVec <- c(4)
+
+			updateAllPlots()
+			updateSelectionInfo()
+			updateStatus()
+    } else if (input$nav == "Norovirus") {
+      #print("tab = nov")
+      controlRV$mapIndex <- 4
+      controlRV$targetVec <- c(5)
 
 			updateAllPlots()
 			updateSelectionInfo()
@@ -198,6 +207,7 @@ shinyServer(function(input, output, session) {
 		return(c("KP.1", "#ffffff"))
 	}
 
+
 	# Accepts a location id and the index of the target
 	#
 	# Return a dataframe of abundance data for the current bio target at the given location.
@@ -236,7 +246,9 @@ shinyServer(function(input, output, session) {
 							 arrange(date_to_plot) %>%
 							 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
 												date_primary := date_primary)
-		#View(df_this)
+
+		#print("Content of df_this from getAbundanceData:")
+		#print(df_this)
 		return(df_this)
 	}
 
@@ -307,29 +319,35 @@ shinyServer(function(input, output, session) {
 		gos_dates <- c(most_recent_sample_date-12, most_recent_sample_date+3)
 		
 		df_plot <- df_abundance %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
-		largest_val <- max(df_plot$val+10, na.rm=TRUE)
 		
-		# Calculate the mean signal for each target over the last 3 months and last year.
-		trend03 <- calcTrend(df_abundance, 3)
-		trend12 <- calcTrend(df_abundance, 12)
-
-#		geompt_msg <- paste0(date_to_plot, sep="")
+		if (nrow(df_plot) > 0) {
+			
+			largest_val <- max(df_plot$val+10, na.rm=TRUE)
+			
+			# Calculate the mean signal for each target over the last 3 months and last year.
+			trend03 <- calcTrend(df_abundance, 3)
+			trend12 <- calcTrend(df_abundance, 12)
+	
+	#		geompt_msg <- paste0(date_to_plot, sep="")
+			
+			gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
+												scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
+												scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
+												#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
+												plot_theme() + 
+												labs(x = NULL, y = NULL, color = NULL) + 
+												annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#bfbfbf") + 
+												annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
+												geom_hline(aes(yintercept=trend03, text=paste0("Most recent 3 months: ", prettyNum(trend03, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.5) + 
+												geom_hline(aes(yintercept=trend12, text=paste0("Most recent year:", prettyNum(trend12, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
+												geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles/person (on average).", sep="")), shape = 1, size = 2, alpha=0.9) + 
+												geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
+			
+			#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
+		} else {
+			gplot <- ggplot()
+		}
 		
-		gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
-											scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
-											scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
-											#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
-											plot_theme() + 
-											labs(x = NULL, y = NULL, color = NULL) + 
-											annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#bfbfbf") + 
-											annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
-											geom_hline(aes(yintercept=trend03, text=paste0("Most recent 3 months: ", prettyNum(trend03, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.5) + 
-											geom_hline(aes(yintercept=trend12, text=paste0("Most recent year:", prettyNum(trend12, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
-											geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles/person (on average).", sep="")), shape = 1, size = 2, alpha=0.9) + 
-											geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
-		
-		#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
-
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
 	
@@ -409,7 +427,7 @@ shinyServer(function(input, output, session) {
 			if (target_index == 1) {
 		    df_variants <- getVariantData(loc_id)
 				output$plot_title_covid <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (nrow(df_abundance) > 0) {
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
 					output$plot_covid <- renderPlotly({
 						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 					})
@@ -419,7 +437,7 @@ shinyServer(function(input, output, session) {
 				}
 
 				output$plotsq_title_covid <- renderText(paste0(toupper(plotSuffix), " variants in ", plot_location, " wastewater"))
-				if (nrow(df_variants) > 0) {
+				if (mode(df_abundance) == "list" & nrow(df_variants) > 0) {
 					output$plotsq_covid <- renderPlotly({
 						plotVariants(df_variants, controlRV$viewMonths[target_index]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 					})
@@ -430,7 +448,7 @@ shinyServer(function(input, output, session) {
 
 			} else if (target_index == 2) {
 				output$plot_title_flua <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (nrow(df_abundance) > 0) {
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
 					output$plot_flua <- renderPlotly({
 						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 					})
@@ -440,7 +458,7 @@ shinyServer(function(input, output, session) {
 				}
 			} else if (target_index == 3) {
 				output$plot_title_flub <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (nrow(df_abundance) > 0) {
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
 					output$plot_flub <- renderPlotly({
 						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 					})
@@ -450,12 +468,32 @@ shinyServer(function(input, output, session) {
 				}
 			} else if (target_index == 4) {
 				output$plot_title_rsv <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				if (nrow(df_abundance) > 0) {
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
 					output$plot_rsv <- renderPlotly({
 						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
 					})
 				} else {
 					output$plot_rsv <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
+					print(paste0("No data for ", TARGETS[target_index], "!"))
+				}
+			} else if (target_index == 5) {
+				output$plot_title_novii <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
+					output$plot_novii <- renderPlotly({
+						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+					})
+				} else {
+					output$plot_novii <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
+					print(paste0("No data for ", TARGETS[target_index], " within the most recent ", controlRV$viewMonths[controlRV$mapIndex], " months."))
+				}
+			} else if (target_index == 6) {
+				output$plot_title_novi <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
+				if (mode(df_abundance) == "list" & nrow(df_abundance) > 0) {
+					output$plot_novi <- renderPlotly({
+						plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex]) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
+					})
+				} else {
+					output$plot_novi <- renderPlotly({ggplotly(ggplot()) %>% config(displayModeBar = FALSE)})
 					print(paste0("No data for ", TARGETS[target_index], "!"))
 				}
 			}
@@ -524,6 +562,13 @@ shinyServer(function(input, output, session) {
 				output$abundance_rsv <- renderText(vec_abundance[1])
 				output$trend_rsv <- renderText(vec_trend[1])
 			
+			} else if (target_index == 5) {
+				output$abundance_novii <- renderText(vec_abundance[1])
+				output$trend_novii <- renderText(vec_trend[1])
+
+			} else if (target_index == 6) {
+				output$abundance_novi <- renderText(vec_abundance[1])
+				output$trend_novi <- renderText(vec_trend[1])
 			}
 		}) # end lapply
 		
@@ -689,6 +734,16 @@ shinyServer(function(input, output, session) {
 				output$selection_details_rsv <- renderText(selection_details_text)
 				output$selection_freshness_rsv <- renderText(sample_freshness_text)
 				output$selection_completeness_rsv <- renderText(sample_completeness_text)
+			} else if (target_index == 5) {
+				output$selection_title_novii <- renderText(title_text)
+				output$selection_details_novii <- renderText(selection_details_text)
+				output$selection_freshness_novii <- renderText(sample_freshness_text)
+				output$selection_completeness_novii <- renderText(sample_completeness_text)
+			} else if (target_index == 6) {
+				output$selection_title_novi <- renderText(title_text)
+				output$selection_details_novi <- renderText(selection_details_text)
+				output$selection_freshness_novi <- renderText(sample_freshness_text)
+				output$selection_completeness_novi <- renderText(sample_completeness_text)
 			}
 			
 		}) # end lapply
@@ -728,6 +783,21 @@ shinyServer(function(input, output, session) {
 			write.csv(getDownloadTableRS(4), file, row.names = FALSE)
 		}
 	)
+
+	output$download_data_novii <- downloadHandler(
+		filename = "watch-wv_HuNoV-GII.csv",
+		content = function(file) {
+			write.csv(getDownloadTableRS(5), file, row.names = FALSE)
+		}
+	)
+
+# 	output$download_data_novi <- downloadHandler(
+# 		filename = "watch-wv_HuNoV-GI.csv",
+# 		content = function(file) {
+# 			write.csv(getDownloadTableRS(6), file, row.names = FALSE)
+# 		}
+# 	)
+
 
 	# Accepts a map (target) index.
 	#
@@ -1131,6 +1201,44 @@ shinyServer(function(input, output, session) {
 	})
 
 
+	output$map_nov <- renderLeaflet({
+		leaflet() %>% 
+				addTiles() %>% 
+				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
+				addCircles(data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+												 layerId = ~location_id, 
+												 lat = ~location_lat, 
+												 lng = ~location_lng, 
+												 radius = ~dotsize, 
+												 stroke = TRUE,
+												 weight = 4, 
+												 opacity = 0.5,
+												 color = ~abundance_color,
+												 fill = TRUE,
+												 fillColor = ~trend_color,
+												 group = "facility", 
+												 label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
+												 fillOpacity = 0.6) %>%
+			addPolygons( 
+				data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+				layerId = ~NAME, 
+				fillColor = ~trend_color, 
+				stroke = TRUE, 
+				fillOpacity = 0.7, 
+				color = "#000000", 
+				weight = 0.5, 
+				group="county",
+				label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
+				highlightOptions = highlightOptions(
+					weight = 0.5,
+					color = "#00F900",
+					#dashArray = "",
+					fillOpacity = 1.0,
+					bringToFront = TRUE)
+			)		
+	})
+
+
 
 	
 	###########################
@@ -1158,6 +1266,11 @@ shinyServer(function(input, output, session) {
     clickMapMarker(input$map_rsv_marker_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
+  observeEvent(input$map_nov_marker_click, { 
+    #print("##### Map MARKER click top")
+    clickMapMarker(input$map_nov_marker_click)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
 
 	# 
 	# React to map shape click
@@ -1175,6 +1288,11 @@ shinyServer(function(input, output, session) {
   observeEvent(input$map_rsv_shape_click, {
 #    print("##### Map Shape Click!")
     clickMapShape(input$map_rsv_shape_click)
+  }, ignoreNULL = FALSE, ignoreInit = FALSE)
+
+  observeEvent(input$map_nov_shape_click, {
+    print("##### Map Shape Click!")
+    clickMapShape(input$map_nov_shape_click)
   }, ignoreNULL = FALSE, ignoreInit = FALSE)
 
 
@@ -1195,6 +1313,11 @@ shinyServer(function(input, output, session) {
   observeEvent(input$map_rsv_click, { 
 #		print("##### Map off-target click top")
     clickMapOffMarker(input$map_rsv_click)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
+  observeEvent(input$map_nov_click, { 
+#		print("##### Map off-target click top")
+    clickMapOffMarker(input$map_nov_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
@@ -1297,6 +1420,24 @@ shinyServer(function(input, output, session) {
 
 	observeEvent(input$trend_key_rsv_popup_close,{
     togglePanels(off=c("trend_key_rsv_popup"))
+	}, ignoreInit = TRUE)
+
+
+	#
+	# Open the NoV color key popups.
+	#
+	onevent("click", "abundance_level_key_nov", togglePanels(on=c("abundance_level_key_nov_popup")))
+	onevent("click", "trend_key_nov", togglePanels(on=c("trend_key_nov_popup")))
+
+	#
+	# Close the NoV color key popups.
+	#
+	observeEvent(input$abundance_level_key_nov_popup_close,{
+    togglePanels(off=c("abundance_level_key_nov_popup"))
+	}, ignoreInit = TRUE)
+
+	observeEvent(input$trend_key_nov_popup_close,{
+    togglePanels(off=c("trend_key_nov_popup"))
 	}, ignoreInit = TRUE)
 	
 
