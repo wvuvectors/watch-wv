@@ -57,28 +57,29 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Regions Shown:",
-								selectInput(
-									"geo_level",
-									label = NULL,
-									choices = GEOLEVELS, 
-									selected = GEOLEVELS_DEFAULT
-								)
-							),
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Color By Trend in:",
-								selectInput(
-									"map_color",
-									label = NULL,
-									choices = c("COVID"),
-									selected = "COVID"
-								)
-							)
+								div()
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Regions Shown:",
+# 								selectInput(
+# 									"geo_level",
+# 									label = NULL,
+# 									choices = GEOLEVELS, 
+# 									selected = GEOLEVELS_DEFAULT
+# 								)
+# 							),
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Color By Trend in:",
+# 								selectInput(
+# 									"map_color",
+# 									label = NULL,
+# 									choices = c("COVID"),
+# 									selected = "COVID"
+# 								)
+# 							)
 						), 
 						column(3,
 							div(
@@ -276,7 +277,7 @@ shinyUI(fluidPage(
 								span(style="color: #00B140;", "green "),
 								span("and "),
 								span(style="color: #EAAA00;", "gold "),
-								span("lines represents the average abundance over the most recent "),
+								span("lines represent the average abundance over the most recent "),
 								span(style="color: #00B140;", "3 months "),
 								span("and "),
 								span(style="color: #EAAA00;", "12 months "),
@@ -483,28 +484,29 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Regions Shown:",
-								selectInput(
-									"geo_level",
-									label = NULL,
-									choices = GEOLEVELS, 
-									selected = GEOLEVELS_DEFAULT
-								)
-							),
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Color By Trend in:",
-								selectInput(
-									"map_color",
-									label = NULL,
-									choices = c("FLUA"),
-									selected = "FLUA"
-								)
-							)
+							div()
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Regions Shown:",
+# 								selectInput(
+# 									"geo_level",
+# 									label = NULL,
+# 									choices = GEOLEVELS, 
+# 									selected = GEOLEVELS_DEFAULT
+# 								)
+# 							),
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Color By Trend in:",
+# 								selectInput(
+# 									"map_color",
+# 									label = NULL,
+# 									choices = c("FLUA"),
+# 									selected = "FLUA"
+# 								)
+# 							)
 						), 
 						column(3,
 							div(
@@ -710,7 +712,7 @@ shinyUI(fluidPage(
 								span(style="color: #00B140;", "green "),
 								span("and "),
 								span(style="color: #EAAA00;", "gold "),
-								span("lines represents the average abundance over the most recent "),
+								span("lines represent the average abundance over the most recent "),
 								span(style="color: #00B140;", "3 months "),
 								span("and "),
 								span(style="color: #EAAA00;", "12 months "),
@@ -899,29 +901,30 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Regions Shown:",
-								selectInput(
-									"geo_level",
-									label = NULL,
-									choices = GEOLEVELS, 
-									selected = GEOLEVELS_DEFAULT
-								)
-							),
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Color By Trend in:",
-								selectInput(
-									"map_color",
-									label = NULL,
-									choices = c("FLUA"),
-									selected = "FLUA"
-								)
-							)
-						), 
+							div()
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Regions Shown:",
+# 								selectInput(
+# 									"geo_level",
+# 									label = NULL,
+# 									choices = GEOLEVELS, 
+# 									selected = GEOLEVELS_DEFAULT
+# 								)
+# 							),
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Color By Trend in:",
+# 								selectInput(
+# 									"map_color",
+# 									label = NULL,
+# 									choices = c("FLUA"),
+# 									selected = "FLUA"
+# 								)
+# 							)
+ 						), 
 						column(3,
 							div(
 								class = "map_embed",
@@ -1072,7 +1075,7 @@ shinyUI(fluidPage(
 								span(style="color: #00B140;", "green "),
 								span("and "),
 								span(style="color: #EAAA00;", "gold "),
-								span("lines represents the average abundance over the most recent "),
+								span("lines represent the average abundance over the most recent "),
 								span(style="color: #00B140;", "3 months "),
 								span("and "),
 								span(style="color: #EAAA00;", "12 months "),
@@ -1247,28 +1250,29 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Regions Shown:",
-								selectInput(
-									"geo_level",
-									label = NULL,
-									choices = GEOLEVELS, 
-									selected = GEOLEVELS_DEFAULT
-								)
-							),
-							div(
-								class = "map_embed",
-								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-								"Color By Trend in:",
-								selectInput(
-									"map_color",
-									label = NULL,
-									choices = c("FLUA"),
-									selected = "FLUA"
-								)
-							)
+							div()
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Regions Shown:",
+# 								selectInput(
+# 									"geo_level",
+# 									label = NULL,
+# 									choices = GEOLEVELS, 
+# 									selected = GEOLEVELS_DEFAULT
+# 								)
+# 							),
+# 							div(
+# 								class = "map_embed",
+# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+# 								"Color By Trend in:",
+# 								selectInput(
+# 									"map_color",
+# 									label = NULL,
+# 									choices = c("FLUA"),
+# 									selected = "FLUA"
+# 								)
+# 							)
 						), 
 						column(3,
 							div(
@@ -1474,7 +1478,7 @@ shinyUI(fluidPage(
 								span(style="color: #00B140;", "green "),
 								span("and "),
 								span(style="color: #EAAA00;", "gold "),
-								span("lines represents the average abundance over the most recent "),
+								span("lines represent the average abundance over the most recent "),
 								span(style="color: #00B140;", "3 months "),
 								span("and "),
 								span(style="color: #EAAA00;", "12 months "),
