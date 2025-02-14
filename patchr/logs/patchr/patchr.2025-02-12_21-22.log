@@ -1,0 +1,142 @@
+#############################################
+Initiated patchr.sh
+2025-02-12_21-22
+
+See logs/patchr/patchr.2025-02-12_21-22.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/ to hold the results.
+Recording batch files to process in /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file AB74.xlsx to batches/AB74.xlsx.
+Repairing known issues in AB74.xlsx.
+Copying file AB74_20250211_193314_484.ANALYZED.csv to batches/AB74_20250211_193314_484.ANALYZED.csv.
+Repairing known issues in AB74_20250211_193314_484.ANALYZED.csv.
+Done.
+File AB74_20250211_193314_484.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB74_20250211_193314_484.ANALYZED.csv.
+Done.
+Copying file AB73.xlsx to batches/AB73.xlsx.
+Repairing known issues in AB73.xlsx.
+Copying file AB73_20250201_180031_101.ANALYZED.csv to batches/AB73_20250201_180031_101.ANALYZED.csv.
+Repairing known issues in AB73_20250201_180031_101.ANALYZED.csv.
+Done.
+File AB73_20250201_180031_101.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB73_20250201_180031_101.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+******
+Running 3_validateUpdate.pl.
+******
+Validating ids from existing WaTCH database tables...
+Retrieving ids from WaTCH table rbatch
+Retrieving ids from WaTCH table archive
+Retrieving ids from WaTCH table cbatch
+Retrieving ids from WaTCH table concentration
+Retrieving ids from WaTCH table ebatch
+Retrieving ids from WaTCH table extraction
+Retrieving ids from WaTCH table sample
+Retrieving ids from WaTCH table abatch
+Retrieving ids from WaTCH table assay
+Done.
+
+-------------------------------
+WaTCH internal validation results (data/latest):
+TABLE        	WaTCH IDS    	DUPLICATES   
+rbatch       	0            	0            
+archive      	0            	0            
+cbatch       	766          	0            
+concentration	12193        	0            
+ebatch       	522          	0            
+extraction   	12386        	0            
+sample       	12305        	0            
+abatch       	298          	0            
+assay        	40259        	0            
+-------------------------------
+
+Validating ids from the update tables...
+Done.
+
+-------------------------------
+Update validation results (/Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/):
+TABLE        	UPDATE IDS   	DUPLICATES   	COLLISIONS   
+concentration	0            	0            	0            
+ebatch       	0            	0            	0            
+extraction   	0            	0            	0            
+sample       	52           	0            	0            
+cbatch       	0            	0            	0            
+rbatch       	0            	0            	0            
+archive      	0            	0            	0            
+abatch       	2            	0            	0            
+assay        	291          	0            	5            
+-------------------------------
+
+Resolving 5 collisons between update and watchdb...
+
+
+Ok, I'm about to start modifying the watchdb files in /Users/tpd0001/github/watch-wv/patchr/data/latest/.
+First, let's back up /Users/tpd0001/github/watch-wv/patchr/data/latest/ to /Users/tpd0001/github/watch-wv/patchr/data/latest_bk/.
+
+Now I'll create a new watchdb folder in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22/.
+It will hold the latest watchdb after update with data from /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/.
+
+
+Now I'm merging the watchdb tables from /Users/tpd0001/github/watch-wv/patchr/data/latest/ with the update tables in /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/.
+These merged tables will be put in the folder that I just created, /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22/.
+
+******
+Running 4_appendUpdate.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22 /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/.
+******
+INFO : assay id L01-0572.a6 already exists in either the update or the main watchdb (before update).
+INFO : L01-0572.a6 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+INFO : assay id L01-0572.a6 already exists in either the update or the main watchdb (before update).
+INFO : L01-0572.a6 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+INFO : assay id L01-0572.a6 already exists in either the update or the main watchdb (before update).
+INFO : L01-0572.a6 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+INFO : assay id L01-0572.a6 already exists in either the update or the main watchdb (before update).
+INFO : L01-0572.a6 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22.
+
+******
+Running 5_calculateResults.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22.
+******
+
+5_calculateResults.pl exited with error code 5 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 5 (calculating results).
+Check the file /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22/_result.rejections.txt for details.
+I STRONGLY recommend deleting /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-02-12_21-22/ after exploring this error.
+Then delete the folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-02-12_21-22/, fix the error(s), and run patchr again. 
+!!!!!!!!

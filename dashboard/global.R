@@ -183,6 +183,30 @@ for (i in 1:length(TARGETS)) {
 }
 
 
+dflist_map_f <- list()
+dflist_map_c <- list()
+df_mappable_c <- county_spdf %>% 
+	filter(NAME %in% df_active_loc$location_counties_served) %>%
+	select(NAME,OBJECTID,AREA_,PERIMETER,DEP_24K_,DEP_24K_ID,STATE,FIPS,Shape_Leng,County,SHAPE_Le_1,SHAPE_Area,geometry)
+
+for (i in 1:length(TARGETS)) {
+	dflist_map_f[[i]] <- merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[i]], by.x="location_id", by.y="region_name", all.x = TRUE)
+
+	dflist_map_f[[i]]$abundance_color <- replace_na(dflist_map_f[[i]]$abundance_color, ALERT_LEVEL_COLORS[5])
+	dflist_map_f[[i]]$abundance_level <- replace_na(dflist_map_f[[i]]$abundance_level, ALERT_LEVEL_STRINGS[5])
+	dflist_map_f[[i]]$trend_color <- replace_na(dflist_map_f[[i]]$trend_color, ALERT_LEVEL_COLORS[5])
+	dflist_map_f[[i]]$trend <- replace_na(dflist_map_f[[i]]$trend, TREND_STRINGS[5])
+
+
+	dflist_map_c[[i]] <- merge(df_mappable_c, dflist_alerts[[i]], by.x="NAME", by.y="region_name", all.x = TRUE)
+
+	dflist_map_c[[i]]$abundance_color <- replace_na(dflist_map_c[[i]]$abundance_color, ALERT_LEVEL_COLORS[5])
+	dflist_map_c[[i]]$abundance_level <- replace_na(dflist_map_c[[i]]$abundance_level, ALERT_LEVEL_STRINGS[5])
+	dflist_map_c[[i]]$trend_color <- replace_na(dflist_map_c[[i]]$trend_color, ALERT_LEVEL_COLORS[5])
+	dflist_map_c[[i]]$trend <- replace_na(dflist_map_c[[i]]$trend, TREND_STRINGS[5])
+}
+
+
 df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>% 
 	select(location_common_name, location_group, location_counties_served, location_population_served, location_primary_lab) %>% 
 	rename(Site = location_common_name, Group = location_group, County = location_counties_served, Pop = location_population_served, Lab = location_primary_lab)

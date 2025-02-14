@@ -626,7 +626,7 @@ shinyServer(function(input, output, session) {
 			loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
 			
 			title_text <- loc_name
-			selection_text <- paste0("The ", loc_name, " facility ", sep="")
+			selection_text <- loc_name
 
 		}
 
@@ -754,13 +754,13 @@ shinyServer(function(input, output, session) {
 				output$selection_freshness_rsv <- renderText(sample_freshness_text)
 				output$selection_completeness_rsv <- renderText(sample_completeness_text)
 			} else if (target_index == 5) {
-				output$selection_title_novii <- renderText(title_text)
-				output$selection_details_novii <- renderText(selection_details_text)
+				output$selection_title_nov <- renderText(title_text)
+				output$selection_details_nov <- renderText(selection_details_text)
 				output$selection_freshness_novii <- renderText(sample_freshness_text)
 				output$selection_completeness_novii <- renderText(sample_completeness_text)
 			} else if (target_index == 6) {
-				output$selection_title_novi <- renderText(title_text)
-				output$selection_details_novi <- renderText(selection_details_text)
+				output$selection_title_nov <- renderText(title_text)
+				output$selection_details_nov <- renderText(selection_details_text)
 				output$selection_freshness_novi <- renderText(sample_freshness_text)
 				output$selection_completeness_novi <- renderText(sample_completeness_text)
 			}
@@ -771,7 +771,18 @@ shinyServer(function(input, output, session) {
 
 	
 	getDownloadTableRS <- function(targetIndex) {
-		return(dflist_rs[targetIndex])
+		df_this <- dflist_rs[[targetIndex]] %>% 
+			group_by(week_ending) %>% 
+			arrange(week_ending) %>%
+			summarize(mean_virus_per_person := mean(target_copies_fn_per_cap, na.rm = TRUE),
+								location := location_id, 
+								target := target, 
+								target_locus := target_genetic_locus,
+								week_starting := week_starting, 
+								epi_year := mmr_year, 
+								epi_week := mmr_week)
+
+		return(df_this)
 	}
 		
 
@@ -836,7 +847,8 @@ shinyServer(function(input, output, session) {
 	changeGeolevel <- function(clicked) {
 
 		mapProxy <- getMapProxy(controlRV$mapIndex)
-		
+		mapColorBy <- controlRV$targetVec[1]
+
 		# Update some reactive elements
 		controlRV$activeGeoLevel[controlRV$mapIndex] <- clicked
 		
@@ -845,7 +857,7 @@ shinyServer(function(input, output, session) {
 					clearMarkers() %>% 
 					clearShapes() %>% 
 					addCircleMarkers(
-						data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+						data = dflist_map_f[[mapColorBy]],
 						layerId = ~location_id, 
 						lat = ~location_lat, 
 						lng = ~location_lng, 
@@ -860,7 +872,7 @@ shinyServer(function(input, output, session) {
 						label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
 						fillOpacity = 0.6) %>%
 					addPolygons( 
-						data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+						data = dflist_map_c[[mapColorBy]], 
 						layerId = ~NAME, 
 						fillColor = ~trend_color, 
 						stroke=TRUE, 
@@ -881,7 +893,7 @@ shinyServer(function(input, output, session) {
 						clearMarkers() %>% 
 						clearShapes() %>% 
 						addPolygons( 
-							data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+							data = dflist_map_c[[mapColorBy]], 
 							layerId = ~NAME, 
 							#fillColor = ~mypalette(colorby), 
 							stroke=TRUE,
@@ -891,7 +903,7 @@ shinyServer(function(input, output, session) {
 							group="county"
 						) %>% 
 						addCircles(
-							data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+							data = dflist_map_f[[mapColorBy]], 
 							layerId = ~location_id, 
 							lat = ~location_lat, 
 							lng = ~location_lng, 
@@ -1096,6 +1108,10 @@ shinyServer(function(input, output, session) {
 	}
 	
 	
+	# Accepts a map zoom level.
+	#
+	# Respond to a change in the active map zoom level.
+	#
 	zoomMap <- function(zoom) {
 		if (tolower(controlRV$activeGeoLevel[controlRV$mapIndex]) == "facility") {
 			
@@ -1141,6 +1157,7 @@ shinyServer(function(input, output, session) {
 							bringToFront = TRUE))
 			}
 		}
+
 	
 	#
 	# Render the maps.
@@ -1150,7 +1167,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+					data = dflist_map_c[[1]], 
 					layerId = ~NAME,
 					fill = TRUE,
 					fillColor = ~trend_color, 
@@ -1166,7 +1183,7 @@ shinyServer(function(input, output, session) {
 						#dashArray = "",
 						fillOpacity = 0.5)) %>% 
 				addCircles(
-					data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+					data = dflist_map_f[[1]],
 					layerId = ~location_id, 
 					lat = ~location_lat, 
 					lng = ~location_lng, 
@@ -1194,7 +1211,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+					data = dflist_map_c[[2]], 
 					layerId = ~NAME,
 					fill = TRUE,
 					fillColor = ~trend_color, 
@@ -1210,7 +1227,7 @@ shinyServer(function(input, output, session) {
 						#dashArray = "",
 						fillOpacity = 0.5)) %>% 
 				addCircles(
-					data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+					data = dflist_map_f[[2]],
 					layerId = ~location_id, 
 					lat = ~location_lat, 
 					lng = ~location_lng, 
@@ -1238,7 +1255,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+					data = dflist_map_c[[4]], 
 					layerId = ~NAME,
 					fill = TRUE,
 					fillColor = ~trend_color, 
@@ -1254,7 +1271,7 @@ shinyServer(function(input, output, session) {
 						#dashArray = "",
 						fillOpacity = 0.5)) %>% 
 				addCircles(
-					data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+					data = dflist_map_f[[4]],
 					layerId = ~location_id, 
 					lat = ~location_lat, 
 					lng = ~location_lng, 
@@ -1282,7 +1299,7 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
+					data = dflist_map_c[[5]], 
 					layerId = ~NAME,
 					fill = TRUE,
 					fillColor = ~trend_color, 
@@ -1298,7 +1315,7 @@ shinyServer(function(input, output, session) {
 						#dashArray = "",
 						fillOpacity = 0.5)) %>% 
 				addCircles(
-					data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
+					data = dflist_map_f[[5]],
 					layerId = ~location_id, 
 					lat = ~location_lat, 
 					lng = ~location_lng, 
