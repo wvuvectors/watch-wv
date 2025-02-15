@@ -1,0 +1,41 @@
+# Required Perl modules for watch-wv data processing
+# 
+cpanm Data::Dumper
+cpanm Date::Format
+cpanm DateTime
+cpanm DateTime::Duration
+cpanm DateTime::Format::Excel
+cpanm DateTime::Format::Strptime
+
+cpanm List::Util
+
+cpanm POSIX
+cpanm Spreadsheet::Read
+cpanm Statistics::LineFit
+
+cpanm Text::CSV
+cpanm Time::Piece
+cpanm Time::Local
+
+cpanm --force Spreadsheet::ParseXLSX
+# t/ahihi.t test fails and fires a SOPHOS threat event.
+# cpanm reports install failed but this is the only problem in the log.
+# First install without the --force option to make sure this is the only problem.
+# If so, use the--force option to install anyway.
+#
+# Result: FAIL
+# Failed 1/45 test programs. 0/1288 subtests failed.
+# make: *** [test_dynamic] Error 255
+# FAIL
+# ! Testing Spreadsheet-ParseXLSX-0.35 failed but installing it anyway.
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX.pm
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX/Cell.pm
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX/Decryptor.pm
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX/Worksheet.pm
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX/Decryptor/Agile.pm
+# Installing /Users/tpd0001/perl5/lib/perl5/Spreadsheet/ParseXLSX/Decryptor/Standard.pm
+# Appending installation info to /Users/tpd0001/perl5/lib/perl5/darwin-thread-multi-2level/perllocal.pod
+# Successfully installed Spreadsheet-ParseXLSX-0.35
+# Installing /Users/tpd0001/perl5/lib/perl5/darwin-thread-multi-2level/.meta/Spreadsheet-ParseXLSX-0.35/MYMETA.json
+# Installing /Users/tpd0001/perl5/lib/perl5/darwin-thread-multi-2level/.meta/Spreadsheet-ParseXLSX-0.35/install.json
+# 1 distribution installed

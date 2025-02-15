@@ -58,6 +58,14 @@ format_dates <- function(x) {
 }
 
 
+printy_dates <- function(x) {
+	month <- strftime(x, format = "%b")           		# Abbreviated name of the month.
+	day <- strftime(x, format = "%d")           			# Abbreviated name of the day.
+	years <- lubridate::year(x)                       # Year as a 4-digit number.
+	paste(month, ". ", day, ", ", years, sep = "")
+}
+
+
 excel2df <- function(fname) { 
 
 	# getting info about all excel sheets
@@ -94,84 +102,47 @@ calcTrend <- function(df_this, mo_base) {
 }
 
 
-calcDelta <- function(df_this, mo_base) {
-	
-	if (length(df_this$date_primary) == 0) {
-		return(NA)
-	}
-	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
-	
-	vec_now <- (df_this %>% filter(ymd(date_primary) == ymd(most_recent_date)))$target_copies_fn_per_cap
-	vec_all <- (df_this %>% filter(date_primary > (most_recent_date %m-% months(mo_base))))$target_copies_fn_per_cap
 
-	if (length(vec_now) == 0 | length(vec_all) == 0) {
-		delta <- NA
+watchPal <- function(name) {
+	if (tolower(name) == "abundance") {
+		return(abundance_level_colors)
+	} else if (tolower(name) == "trend") {
+		return(trend_level_colors)
+	} else if (tolower(name) == "lab") {
+		return(lab_colors)
 	} else {
-		d_now <- mean(vec_now, na.rm = TRUE)
-		d_base <- mean(vec_all, na.rm = TRUE)
-		delta <- 100 * d_now/d_base
-		delta <- formatC(as.numeric(delta), format="d")
+		print(paste0("Problem with watchPal! name is ", name, sep=""))
+		return(default_colors)
 	}
-	
-	return(delta)
 }
 
-
-calcFresh <- function(df_this) {
-	
-	if (length(df_this$date_primary) == 0) {
-		return(NA)
-	}
-	
-	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
-	
-	freshness <- ymd(today)-ymd(most_recent_date)
-	
-	return(freshness)
-}
-
-
-#
-# Generate an alert color string based on the target levels at the given location(s).
-#
-getAlertColor <- function(freshness, delta) {
-	
-# 		df_targ <- df_rs %>% filter(
-# 			target == inputTarget & 
-# 			target_genetic_locus == inputLocus & 
-# 			location_id %in% locations)
-	
-	if (is.na(freshness) | as.numeric(freshness) >= STALE_DATA_THRESHOLDS[3]) {
-		this_color <- ALERT_LEVEL_COLORS[5]
-	} else {
-		delta <- as.numeric(delta)
-		this_color <- case_when(
-			delta <= ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_COLORS[1],
-			delta > ALERT_LEVEL_THRESHOLDS[1] & delta <= ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_COLORS[2],
-			delta > ALERT_LEVEL_THRESHOLDS[2] & delta <= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[3],
-			delta >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[4]
-		)
-	}
-	
-	return(this_color)
-}
-
-
-#
-# Generate a color string based on the data freshness at the given location(s).
-#
-getFreshnessColor <- function(freshness) {
-	
-	this_color <- case_when(
-		is.na(freshness) ~ STALE_DATA_COLORS[4],
-		freshness >= 0 & freshness < STALE_DATA_THRESHOLDS[1] ~ STALE_DATA_COLORS[1],
-		freshness >= STALE_DATA_THRESHOLDS[1] & freshness < STALE_DATA_THRESHOLDS[2] ~ STALE_DATA_COLORS[2],
-		freshness >= STALE_DATA_THRESHOLDS[2] & freshness < STALE_DATA_THRESHOLDS[3] ~ STALE_DATA_COLORS[3],
-		freshness >= STALE_DATA_THRESHOLDS[3] ~ STALE_DATA_COLORS[4]
-	)
-	
-	return(this_color)
-}
-
+# watch_colors <- list(
+# 	Trend = trend_level_colors, 
+# 	Abundance = abundance_level_colors
+# )
+# 
+# 
+# watch_palettes <- function(name, n, all_palettes = watch_colors, type = c("discrete", "continuous")) {
+#   palette <- all_palettes[[name]]
+#   if (missing(n)) {
+#     n = length(palette)
+#   }
+#   type = match.arg(type)
+#   out = switch(type,
+#                continuous = grDevices::colorRampPalette(palette)(n),
+#                discrete = palette[1:n]
+#   )
+#   structure(out, name = name, class = "palette")
+# }
+# 
+# 
+# scale_color_watch_d <- function(name) {
+# 	ggplot2::scale_color_manual(values = watch_palettes(name, type = "discrete"))
+# }
+# scale_colour_watch_d = scale_color_watch_d
+# 
+# scale_fill_watch_d <- function(name) {
+# 	ggplot2::scale_fill_manual(values = watch_palettes(name, type = "discrete"))
+# }
 
 
