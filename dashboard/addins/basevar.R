@@ -1,6 +1,3 @@
-GEOLEVELS <- c("Facility", "County")
-GEOLEVELS_DEFAULT <- "County"
-
 TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)", "Human Norovirus GII (HuNoV-GII)")
 #DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "Norovirus GII", "Norovirus GI")
 DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "NoVII")

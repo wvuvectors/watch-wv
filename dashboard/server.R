@@ -37,8 +37,7 @@ shinyServer(function(input, output, session) {
 	# Initialize reactive values with some defaults.
 	#
 	controlRV <- reactiveValues(
-		activeGeoLevel = c(GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT, GEOLEVELS_DEFAULT), 
-		activeMapColor = c("Trend", "Trend", "Trend", "Trend"), 
+		activeMapColor = c("COVID", "FluA", "RSV", "Norovirus GII"), 
 		mapClick = c("WV", "WV", "WV", "WV"), 
 		trendLines = c(TRUE, TRUE),
 		viewMonths = c(VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY), 
@@ -50,14 +49,15 @@ shinyServer(function(input, output, session) {
 	
 
 	# 
-	# Watch for change of tab and update the mapIndex and plot targets
+	# Watch for change of tab and update the mapIndex and plot targets. This observer also 
+	# fires on init so use INIT = FALSE in all other observer functions.
 	#
   observe({ 
     if (input$nav == "COVID") {
       #print("tab = covid")
       controlRV$mapIndex <- 1
       controlRV$targetVec <- c(1)
-
+			
 			updateAllPlots()
 			updateSelectionInfo()
 			updateStatus()
@@ -99,17 +99,6 @@ shinyServer(function(input, output, session) {
 			session, 
 			inputId = "map_color", 
 			selected = controlRV$activeMapColor[controlRV$mapIndex]
-		)
-	}) 
-
-	# 
-	# Update the map geoLevel when the map content changes.
-	#
-	observe({
-		updateSelectInput(
-			session, 
-			inputId = "geo_level", 
-			selected = controlRV$activeGeoLevel[controlRV$mapIndex]
 		)
 	}) 
 
@@ -162,6 +151,28 @@ shinyServer(function(input, output, session) {
 		}
 	}
 	
+	
+	getColorByIndex <- function(menuOpt) {
+		if (missing(menuOpt)) {
+			i <- controlRV$targetVec[1]
+			menuOpt <- controlRV$activeMapColor[i]
+		}
+		
+		if (tolower(menuOpt) == "covid") {
+			return(1)
+		} else if (tolower(menuOpt) == "flua") {
+			return(2)
+		} else if (tolower(menuOpt) == "flub") {
+			return(3)
+		} else if (tolower(menuOpt) == "rsv") {
+			return(4)
+		} else if (tolower(menuOpt) == "norovirus gii") {
+			return(5)
+		} else {
+			return(1)
+		}
+		
+	}
 	
 	
 	getAbundance <- function(loc_id, target_index) {
@@ -436,6 +447,10 @@ shinyServer(function(input, output, session) {
 	}
 
 
+
+	#
+	# Update all the plots (usually on reaction to map click or site selection).
+	#
   updateAllPlots <- function() {
 	  print("##### updateAllPlots called!")
 
@@ -512,8 +527,7 @@ shinyServer(function(input, output, session) {
 
   
 	#
-	# Update the alert status elements (usually on reaction to map click or site 
-	# selection).
+	# Update the alert status elements (usually on reaction to map click or site selection).
 	#
 	updateStatus <- function() {
 	  print("##### updateStatus called!")
@@ -586,8 +600,7 @@ shinyServer(function(input, output, session) {
 	
 	
 	#
-	# Update content in the selection info block (usually on reaction to map click or 
-	# site selection).
+	# Update the selection info block (usually on reaction to map click or site selection).
 	#
 	updateSelectionInfo <- function() {
 	  print("##### updateSelectionInfo called!")
@@ -821,13 +834,6 @@ shinyServer(function(input, output, session) {
 		}
 	)
 
-# 	output$download_data_novi <- downloadHandler(
-# 		filename = "watch-wv_HuNoV-GI.csv",
-# 		content = function(file) {
-# 			write.csv(getDownloadTableRS(6), file, row.names = FALSE)
-# 		}
-# 	)
-
 
 	# Accepts a map (target) index.
 	#
@@ -842,188 +848,57 @@ shinyServer(function(input, output, session) {
 
 	# Accepts a menu option.
 	#
-	# Change the geolevel to the given option in the given map.
-	#
-	changeGeolevel <- function(clicked) {
-
-		mapProxy <- getMapProxy(controlRV$mapIndex)
-		mapColorBy <- controlRV$targetVec[1]
-
-		# Update some reactive elements
-		controlRV$activeGeoLevel[controlRV$mapIndex] <- clicked
-		
-		if (tolower(clicked) == "county") {
-			mapProxy %>% 
-					clearMarkers() %>% 
-					clearShapes() %>% 
-					addCircleMarkers(
-						data = dflist_map_f[[mapColorBy]],
-						layerId = ~location_id, 
-						lat = ~location_lat, 
-						lng = ~location_lng, 
-						radius = ~dotsize, 
-						stroke = TRUE,
-						weight = 4, 
-						opacity = 0.5,
-						color = ~abundance_color,
-						fill = TRUE,
-						fillColor = ~trend_color,
-						group = "facility", 
-						label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-						fillOpacity = 0.6) %>%
-					addPolygons( 
-						data = dflist_map_c[[mapColorBy]], 
-						layerId = ~NAME, 
-						fillColor = ~trend_color, 
-						stroke=TRUE, 
-						fillOpacity = 0.8, 
-						color="#000000", 
-						weight=0.5, 
-						group="county",
-						label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
-						highlightOptions = highlightOptions(
-							weight = 1,
-							color = "#00F900",
-							fillOpacity = 1.0,
-							bringToFront = TRUE)
-					)
-		} else {
-			if (tolower(clicked) == "facility") {
-				mapProxy %>% 
-						clearMarkers() %>% 
-						clearShapes() %>% 
-						addPolygons( 
-							data = dflist_map_c[[mapColorBy]], 
-							layerId = ~NAME, 
-							#fillColor = ~mypalette(colorby), 
-							stroke=TRUE,
-							fillOpacity = 0, 
-							color="#666666", 
-							weight=2, 
-							group="county"
-						) %>% 
-						addCircles(
-							data = dflist_map_f[[mapColorBy]], 
-							layerId = ~location_id, 
-							lat = ~location_lat, 
-							lng = ~location_lng, 
-							radius = ~dotsize, 
-							#radius = 20,
-							stroke = TRUE,
-							weight = 2, 
-							opacity = 0.9,
-							color = ~abundance_color,
-							fill = TRUE,
-							fillOpacity = 0.8,
-							fillColor = ~trend_color,
-							group = "facility", 
-							label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), , 
-							highlightOptions = highlightOptions(
-								weight = 3,
-								color = "#00f900",
-								fillOpacity = 1.0,
-								bringToFront = TRUE))
-			}
-		}
-	
-		updateAllPlots()
-		updateSelectionInfo()
-		updateStatus()
-
-	}
-
-
-	# Accepts a menu option.
-	#
-	# Change the geolevel to the given option in the given map.
+	# Change the way the active map is colored.
 	#
 	changeMapColor <- function(clicked) {
+    #print("##### changeMapColor called!")
 
 		mapProxy <- getMapProxy(controlRV$mapIndex)
-
+		
 		# Update some reactive elements
 		controlRV$activeMapColor[controlRV$mapIndex] <- clicked
 		
+		colorByIndex <- getColorByIndex(clicked)
 		
-		df_map_loc <- merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name", all.x = TRUE) 
-		df_map_loc <- df_map_loc %>% rename("Lab" = location_primary_lab, "Trend" = trend, "Abundance" = abundance)
-				
-		df_map_county <- merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name", all.x = TRUE)
-		df_map_county <- df_map_county %>% rename("Trend" = trend, "Abundance" = abundance)
-		
-		if (tolower(clicked) == "county") {
-			mapProxy %>% 
-					clearMarkers() %>% 
-					clearShapes() %>% 
-					addCircles(data = df_map_loc,
-										 layerId = ~location_id, 
-										 lat = ~location_lat, 
-										 lng = ~location_lng, 
-										 radius = ~dotsize, 
-#										 radius = 5, 
-										 stroke = FALSE,
-										 weight = 4, 
-										 opacity = 0.5,
-#										 color = ~alertPal(current_fold_change_smoothed), 
-										 fill = TRUE,
-										 fillColor = ~watchPal(clicked),
-										 group = "facility", 
-										 label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), 
-										 fillOpacity = 0.6) %>%
-					addPolygons( 
-						data = df_map_county, 
-						layerId = ~NAME, 
-						fillColor = ~watchPal(clicked), 
-						stroke=TRUE, 
-						fillOpacity = 0.7, 
-						color="black", 
-						weight=0.5, 
-						group="county",
-						label = ~NAME, 
-						highlightOptions = highlightOptions(
-							weight = 1,
-							color = "#fff",
-							fillOpacity = 0.9,
-							bringToFront = TRUE)
-					)
-		} else {
-			if (tolower(clicked) == "facility") {
-				mapProxy %>% 
-						clearMarkers() %>% 
-						clearShapes() %>% 
-						addPolygons( 
-							data = df_map_county, 
-							layerId = ~NAME, 
-							#fillColor = ~mypalette(colorby), 
-							stroke=TRUE,
-							fillOpacity = 0, 
-							color="#666666", 
-							weight=1, 
-							group="county"
-						) %>% 
-						addCircles(
-							data = df_map_loc,
-							layerId = ~location_id, 
-							lat = ~location_lat, 
-							lng = ~location_lng, 
-							radius = ~dotsize, 
-#										radius = 5, 
-							stroke = TRUE,
-							weight = 2, 
-							opacity = 0.9,
-							color = "#000000", 
-							fill = TRUE,
-							fillColor = ~watchPal(clicked),
-							group = "facility", 
-							label = ~as.character(paste0(location_common_name, " (" , prettyNum(location_population_served, big.mark=","), ")")), , 
-							highlightOptions = highlightOptions(
-								weight = 3,
-								color = "#fff",
-								fillOpacity = 0.9,
-								bringToFront = TRUE),
-							fillOpacity = 0.6)
-			}
-		}
+		mapProxy %>% clearMarkers() %>% clearShapes() %>% 
+			addPolygons( 
+				data = dflist_map_c[[colorByIndex]], 
+				layerId = ~NAME,
+				fill = TRUE,
+				fillColor = ~trend_color, 
+				fillOpacity = 0.4, 
+				stroke = TRUE, 
+				color = "#000000", 
+				weight = 2, 
+				group="county",
+				label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
+				highlightOptions = highlightOptions(
+					weight = 2,
+					color = "#00F900",
+					#dashArray = "",
+					fillOpacity = 0.5)) %>% 
+			addCircles(
+				data = dflist_map_f[[colorByIndex]],
+				layerId = ~location_id, 
+				lat = ~location_lat, 
+				lng = ~location_lng, 
+				radius = ~dotsize, 
+				stroke = TRUE,
+				weight = 2, 
+				opacity = 0.9,
+				color = "#000000",
+				fill = TRUE,
+				fillColor = ~trend_color,
+				fillOpacity = 0.9,
+				group = "facility", 
+				label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
+				highlightOptions = highlightOptions(
+					weight = 0.5,
+					color = "#00F900",
+					#dashArray = "",
+					fillOpacity = 1.0,
+					bringToFront = TRUE))
+
 	}
 	
 
@@ -1113,50 +988,10 @@ shinyServer(function(input, output, session) {
 	# Respond to a change in the active map zoom level.
 	#
 	zoomMap <- function(zoom) {
-		if (tolower(controlRV$activeGeoLevel[controlRV$mapIndex]) == "facility") {
-			
-			print("mapZoom")
-			
-			mapProxy <- getMapProxy(controlRV$mapIndex)
-			
-			mapProxy %>% 
-					clearMarkers() %>% 
-					clearShapes() %>% 
-					addPolygons( 
-						data = merge(county_spdf, dflist_alerts[[controlRV$mapIndex]], by.x="NAME", by.y="region_name"), 
-						layerId = ~NAME, 
-						fill = TRUE,
-						fillOpacity = 0.3, 
-						fillColor = ~trend_color, 
-						stroke=TRUE,
-						color = "#666666",
-						weight=3, 
-						group="county",
-						label = ~as.character(paste0(NAME, " (", abundance_level, " & ", trend,")")), 
-					) %>% 
-					addCircles(
-						data = merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[controlRV$mapIndex]], by.x="location_id", by.y="region_name"),
-						layerId = ~location_id, 
-						lat = ~location_lat, 
-						lng = ~location_lng, 
-						radius = (~dotsize * 7/zoom), 
-						#radius = 20,
-						stroke = TRUE,
-						weight = 2, 
-						opacity = 0.9,
-						color = ~abundance_color,
-						fill = TRUE,
-						fillOpacity = 0.8,
-						fillColor = ~trend_color,
-						group = "facility", 
-						label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), , 
-						highlightOptions = highlightOptions(
-							weight = 3,
-							color = "#00f900",
-							fillOpacity = 1.0,
-							bringToFront = TRUE))
-			}
-		}
+		print("mapZoom")
+		
+		mapProxy <- getMapProxy(controlRV$mapIndex)
+	}
 
 	
 	#
@@ -1351,7 +1186,7 @@ shinyServer(function(input, output, session) {
 	# React to map marker click
 	#
   observeEvent(input$map_covid_marker_click, { 
-    print("##### Map MARKER click top")
+    #print("##### Map MARKER click top")
     clickMapMarker(input$map_covid_marker_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
@@ -1377,22 +1212,22 @@ shinyServer(function(input, output, session) {
   observeEvent(input$map_covid_shape_click, {
 #    print("##### Map Shape Click!")
     clickMapShape(input$map_covid_shape_click)
-  }, ignoreNULL = FALSE, ignoreInit = FALSE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_flu_shape_click, {
 #    print("##### Map Shape Click!")
     clickMapShape(input$map_flu_shape_click)
-  }, ignoreNULL = FALSE, ignoreInit = FALSE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_rsv_shape_click, {
 #    print("##### Map Shape Click!")
     clickMapShape(input$map_rsv_shape_click)
-  }, ignoreNULL = FALSE, ignoreInit = FALSE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_nov_shape_click, {
-    print("##### Map Shape Click!")
+#    print("##### Map Shape Click!")
     clickMapShape(input$map_nov_shape_click)
-  }, ignoreNULL = FALSE, ignoreInit = FALSE)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
 	# 
@@ -1446,19 +1281,11 @@ shinyServer(function(input, output, session) {
 	}, ignoreInit = TRUE)
 
 	#
-	# Change the map active geolayer.
-	#
-  observeEvent(input$geo_level, {
-  	#print("geo level event fired")
-		changeGeolevel(input$geo_level)
-	}, ignoreInit = TRUE)
-
-	#
 	# Change the map color scheme.
 	#
   observeEvent(input$map_color, {
-  	#print("geo level event fired")
-		#changeMapColor(input$map_color)
+  	#print("map color event fired")
+		changeMapColor(input$map_color)
 	}, ignoreInit = TRUE)
 
 

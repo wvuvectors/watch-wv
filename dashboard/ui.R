@@ -49,7 +49,7 @@ shinyUI(fluidPage(
 					), # fluidRow (selection info)
 					fluidRow(
 						style = "background-color: #F3EFEA; margin-left: 0px;margin-right: 0px;",
-						column(3,
+						column(6,
 							style = "text-align: left",
 							div(
 								style = "display: inline-block;margin-top: 20px;",
@@ -57,31 +57,17 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-								div()
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Regions Shown:",
-# 								selectInput(
-# 									"geo_level",
-# 									label = NULL,
-# 									choices = GEOLEVELS, 
-# 									selected = GEOLEVELS_DEFAULT
-# 								)
-# 							),
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Color By Trend in:",
-# 								selectInput(
-# 									"map_color",
-# 									label = NULL,
-# 									choices = c("COVID"),
-# 									selected = "COVID"
-# 								)
-# 							)
-						), 
-						column(3,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+								"Color By Trend in:",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("COVID"),
+									selected = "COVID"
+								)
+							),
 							div(
 								class = "map_embed",
 								style = "margin-left: 5px; display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
@@ -476,7 +462,7 @@ shinyUI(fluidPage(
 					), # fluidRow (selection info)
 					fluidRow(
 						style = "background-color: #F3EFEA; margin-left: 0px;margin-right: 0px;",
-						column(3,
+						column(6,
 							style = "text-align: left",
 							div(
 								style = "display: inline-block;margin-top: 20px;",
@@ -484,31 +470,17 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div()
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Regions Shown:",
-# 								selectInput(
-# 									"geo_level",
-# 									label = NULL,
-# 									choices = GEOLEVELS, 
-# 									selected = GEOLEVELS_DEFAULT
-# 								)
-# 							),
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Color By Trend in:",
-# 								selectInput(
-# 									"map_color",
-# 									label = NULL,
-# 									choices = c("FLUA"),
-# 									selected = "FLUA"
-# 								)
-# 							)
-						), 
-						column(3,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+								"Color By Trend in:",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("FluA", "FluB"),
+									selected = "FluA"
+								)
+							),
 							div(
 								class = "map_embed",
 								style = "margin-left: 5px; display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
@@ -893,7 +865,7 @@ shinyUI(fluidPage(
 					), # fluidRow (selection info)
 					fluidRow(
 						style = "background-color: #F3EFEA; margin-left: 0px;margin-right: 0px;",
-						column(3,
+						column(6,
 							style = "text-align: left",
 							div(
 								style = "display: inline-block;margin-top: 20px;",
@@ -901,31 +873,17 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div()
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Regions Shown:",
-# 								selectInput(
-# 									"geo_level",
-# 									label = NULL,
-# 									choices = GEOLEVELS, 
-# 									selected = GEOLEVELS_DEFAULT
-# 								)
-# 							),
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Color By Trend in:",
-# 								selectInput(
-# 									"map_color",
-# 									label = NULL,
-# 									choices = c("FLUA"),
-# 									selected = "FLUA"
-# 								)
-# 							)
- 						), 
-						column(3,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+								"Color By Trend in:",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("RSV"),
+									selected = "RSV"
+								)
+							),
 							div(
 								class = "map_embed",
 								style = "margin-left: 5px; display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
@@ -1242,7 +1200,7 @@ shinyUI(fluidPage(
 					), # fluidRow (selection info)
 					fluidRow(
 						style = "background-color: #F3EFEA; margin-left: 0px;margin-right: 0px;",
-						column(3,
+						column(6,
 							style = "text-align: left",
 							div(
 								style = "display: inline-block;margin-top: 20px;",
@@ -1250,31 +1208,17 @@ shinyUI(fluidPage(
 							)
 						), 
 						column(6,
-							div()
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Regions Shown:",
-# 								selectInput(
-# 									"geo_level",
-# 									label = NULL,
-# 									choices = GEOLEVELS, 
-# 									selected = GEOLEVELS_DEFAULT
-# 								)
-# 							),
-# 							div(
-# 								class = "map_embed",
-# 								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
-# 								"Color By Trend in:",
-# 								selectInput(
-# 									"map_color",
-# 									label = NULL,
-# 									choices = c("FLUA"),
-# 									selected = "FLUA"
-# 								)
-# 							)
-						), 
-						column(3,
+							div(
+								class = "map_embed",
+								style = "display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
+								"Color By Trend in:",
+								selectInput(
+									"map_color",
+									label = NULL,
+									choices = c("Norovirus GII"),
+									selected = "Norovirus GII"
+								)
+							),
 							div(
 								class = "map_embed",
 								style = "margin-left: 5px; display: inline-block;font-size: 12px;font-weight: 400;text-align: center; width:120px;",
