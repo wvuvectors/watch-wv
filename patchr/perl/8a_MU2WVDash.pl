@@ -253,6 +253,7 @@ foreach my $uid (keys %mu_data) {
 	my $locRef = $locations{"$mu_data{$uid}->{wwtp_name}"};
 	if (defined $locRef) {
 		my %thisd = %{$mu_data{"$uid"}};
+		next unless $thisd{"pcr_target_avg_conc"}	=~ /[0-9\.,]/;
 		my $prnt = "";
 		$prnt .= "$thisd{sample_id}\t$thisd{sample_id}\t";
 
@@ -364,7 +365,7 @@ sub calcCopiesPop {
 	my $val = "NA";
 
 	my $pop = $loc->{"location_population_served"};
-	if (defined $pop and isEmpty($pop) == 0) {
+	if (defined $pop and isEmpty($pop) == 0 and isEmpty($cn) == 0) {
 		$pop =~ s/,//i;
 		$val = $cn / ($pop/$basis);
 	}
@@ -378,7 +379,7 @@ sub calcCopiesFlowNorm {
 	my $loc  = shift;
 
 	my $val = "NA";
-	if (defined $cpl and isEmpty($cpl) == 0) {
+	if (defined $cpl and isEmpty($cpl) == 0 and $flow =~ /[0-9\.,]/) {
 		$flow =~ s/,//i;
 		my $hrs = $loc->{"location_collection_window_hrs"};
 		# copies/liter x 3.78541 liters/gallon x flow million_gallons/day x 1 day/24 hrs x collection_time_hrs
