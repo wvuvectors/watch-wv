@@ -1,0 +1,31 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+N02-0544		ClarksburgWWTP-01	Routine Surveillance	Pass	03/02/2025 07:00 AM	03/03/2025 07:00 AM	03/03/2025 07:00 AM		6.940	AJ	03/06/2025		
+V01-0007		MoorefieldWWTP-01	Routine Surveillance	Pass	02/26/2025 08:00 AM	02/27/2025 08:00 AM	02/27/2025 08:00 AM		3.6	AJ	03/06/2025		
+V01-0002		MoorefieldWWTP-01	Routine Surveillance	Pass	03/02/2025 06:30 AM	03/03/2025 06:30 AM	03/03/2025 06:30 AM		2.6	AJ	03/06/2025		
+C01-0867		WheelingWWTP-01	Routine Surveillance	Pass	02/26/2025 07:00 AM	02/27/2025 07:00 AM	02/27/2025 07:00 AM		7.1	AJ	03/06/2025		
+D01-0580		CharlesTownWWTP-01	Routine Surveillance	Pass	03/03/2025 07:00 AM	03/04/2025 07:00 AM	03/04/2025 07:00 AM		1.15	AJ	03/06/2025		
+A01-1183		StarCityWWTP-01	Routine Surveillance	Pass	02/25/2025 12:00 AM	02/26/2025 12:00 AM	02/26/2025 12:00 AM		9.3	AJ	03/06/2025		
+L01-0621		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM			AJ	03/06/2025		
+Q01-0601		MadisonWWTP-01	Routine Surveillance	Pass	02/23/2025 08:00 AM	02/24/2025 08:00 AM	02/24/2025 08:00 AM		0.547	AJ	03/06/2025		
+A01-1184		StarCityWWTP-01	Routine Surveillance	Pass	02/26/2025 12:00 AM	02/27/2025 12:00 AM	02/27/2025 12:00 AM		10.7	AJ	03/06/2025		
+C01-0866		WheelingWWTP-01	Routine Surveillance	Pass	02/25/2025 07:00 AM	02/26/2025 07:00 AM	02/26/2025 07:00 AM		7.1	AJ	03/06/2025		
+A01-1185		StarCityWWTP-01	Routine Surveillance	Pass	02/28/2025 12:00 AM	03/01/2025 12:00 AM	03/01/2025 12:00 AM		8.6	AJ	03/06/2025		
+H01-0978		MoundsvilleWWTP-01	Routine Surveillance	Pass	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM		1.4	AJ	03/06/2025		
+R02-0529		ElkinsWWTP-01	Routine Surveillance	Pass	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM		2.82	AJ	03/06/2025		
+V01-0006		MoorefieldWWTP-01	Routine Surveillance	Pass	02/24/2025 07:00 AM	02/25/2025 07:00 AM	02/25/2025 07:00 AM		3.6	AJ	03/06/2025		
+C01-0870		WheelingWWTP-01	Routine Surveillance	Pass	03/02/2025 07:00 AM	03/03/2025 07:00 AM	03/03/2025 07:00 AM		6.5	AJ	03/06/2025		
+K01-0524		ParkersburgWWTP-01	Routine Surveillance	Pass	03/03/2025 06:30 AM	03/04/2025 06:30 AM	03/04/2025 06:30 AM		4.760	AJ	03/06/2025		
+V01-0003		MoorefieldWWTP-01	Routine Surveillance	Pass	02/27/2025 08:00 AM	02/28/2025 08:00 AM	02/28/2025 08:00 AM		3.7	AJ	03/06/2025		
+P01-0181		StMarysWWTP-01	Routine Surveillance	Fail: Missing Required Data	03/02/2025 07:00 AM	03/03/2025 07:00 AM	03/03/2025 07:00 AM			AJ	03/06/2025		
+C01-0869		WheelingWWTP-01	Routine Surveillance	Pass	02/27/2025 07:00 AM	02/28/2025 07:00 AM	02/28/2025 07:00 AM		7.3	AJ	03/06/2025		
+M03-0504		ManningtonWWTP-01	Routine Surveillance	Pass	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM		0.202	AJ	03/06/2025		
+A04-0651		CheatLakeWWTP-01	Routine Surveillance	Pass	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM		0.592	AJ	03/06/2025		
+C01-0868		WheelingWWTP-01	Routine Surveillance	Pass	02/24/2025 07:00 AM	02/25/2025 07:00 AM	02/25/2025 07:00 AM		7.36	AJ	03/06/2025		
+A01-1187		StarCityWWTP-01	Routine Surveillance	Pass	03/02/2025 12:00 AM	03/03/2025 12:00 AM	03/03/2025 12:00 AM		8.7	AJ	03/06/2025		
+G01-0608		KeyserWWTP-01	Routine Surveillance	Pass	03/02/2025 09:00 AM	03/03/2025 09:00 AM	03/03/2025 09:00 AM		0.918	AJ	03/06/2025		
+Q01-0604		MadisonWWTP-01	Routine Surveillance	Fail: Missing Required Data	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM			AJ	03/06/2025		
+A01-1182		StarCityWWTP-01	Routine Surveillance	Pass	02/24/2025 12:00 AM	02/25/2025 12:00 AM	02/25/2025 12:00 AM		9.6	AJ	03/06/2025		
+U01-0078		WhiteOakWWTP-01	Routine Surveillance	Pass	02/28/2025 10:00 AM	03/01/2025 10:00 AM	03/01/2025 10:00 AM		0.465	AJ	03/06/2025		
+J01-0523		AlpineLakeWWTP-01	Routine Surveillance	Pass	03/02/2025 07:30 AM	03/03/2025 07:30 AM	03/03/2025 07:30 AM		0.148	AJ	03/06/2025		
+O01-0560		GraftonWWTP-01	Routine Surveillance	Pass	03/02/2025 08:00 AM	03/03/2025 08:00 AM	03/03/2025 08:00 AM		1.27	AJ	03/06/2025		
+A01-1186		StarCityWWTP-01	Routine Surveillance	Pass	03/01/2025 12:00 AM	03/02/2025 12:00 AM	03/02/2025 12:00 AM		8.5	AJ	03/06/2025		

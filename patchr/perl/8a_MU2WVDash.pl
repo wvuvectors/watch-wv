@@ -55,7 +55,8 @@ my %nwss2watch = (
 	"InfB"			 => "NEP/NS1",
 	"InfA1 and InfA2 combined" => "M",
 	"RSV-A and RSV-B combined" => "G",
-	"RSV"        => "Respiratory Syncitial Virus, Human (RSV)"
+	"RSV"        => "Respiratory Syncitial Virus, Human (RSV)",
+	"del69/70"	 => "del69/70"
 );
 
 my %reqd_hdrs = (
