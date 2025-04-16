@@ -1,0 +1,17 @@
+#############################################
+Initiated feed_WVDash.sh
+2025-04-16_12-59
+
+See logs/feeds/WVWD/feed_WVWD.2025-04-16_12-59.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+******
+Running 8a_MU2WVDash.pl.
+******
+
+******
+Running 9_buildAlertTable.pl.
+******
+
+
+Updating the README file.

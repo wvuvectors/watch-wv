@@ -1,0 +1,17 @@
+#############################################
+Initiated feed_WVDash.sh
+2025-04-16_12-56
+
+See logs/feeds/WVWD/feed_WVWD.2025-04-16_12-56.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+******
+Running 8a_MU2WVDash.pl.
+******
+
+8a_MU2WVDash.pl exited with error code 42 and caused patchr_feed to abort.
+!!!!!!!!
+patchr_feed aborted during phase 2 (MU data merge).
+Delete the files mu.result.txt and mu.sample.txt in ../dashboard/data/, if they exist. 
+Then fix the error(s) and run patchr_feed again.
+!!!!!!!!
