@@ -1,0 +1,33 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+A01-1222		StarCityWWTP-01	Routine Surveillance	Pass	04/12/2025 12:00 AM	04/13/2025 12:00 AM	04/13/2025 12:00 AM		10.0	AJ	04/17/2025		
+E01-0612		PrincetonWWTP-01	Routine Surveillance	Pass	04/08/2025 09:00 AM	04/09/2025 09:00 AM	04/09/2025 09:00 AM		4.488	AJ	04/17/2025		
+R02-0536		ElkinsWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		3.97	AJ	04/17/2025		
+M03-0512		ManningtonWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		0.229	AJ	04/17/2025		
+U01-0103		WhiteOakWWTP-01	Routine Surveillance	Pass	04/13/2025 11:00 AM	04/14/2025 11:00 AM	04/14/2025 11:00 AM		0.600	AJ	04/17/2025		
+N03-0586		SalemWWTP-01	Routine Surveillance	Pass	04/13/2025 07:30 AM	04/14/2025 07:30 AM	04/14/2025 07:30 AM		0.343450	AJ	04/17/2025		
+A01-1221		StarCityWWTP-01	Routine Surveillance	Pass	04/11/2025 12:00 AM	04/12/2025 12:00 AM	04/12/2025 12:00 AM		10.5	AJ	04/17/2025		
+O01-0318		GraftonWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		1.26	AJ	04/17/2025		
+E01-0611		PrincetonWWTP-01	Routine Surveillance	Pass	04/07/2025 09:00 AM	04/08/2025 09:00 AM	04/08/2025 09:00 AM		6.562	AJ	04/17/2025		
+A01-1223		StarCityWWTP-01	Routine Surveillance	Pass	04/13/2025 12:00 AM	04/14/2025 12:00 AM	04/14/2025 12:00 AM		10.3	AJ	04/17/2025		
+H01-0977		MoundsvilleWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		1.9	AJ	04/17/2025		
+A01-1220		StarCityWWTP-01	Routine Surveillance	Pass	04/09/2025 12:00 AM	04/10/2025 12:00 AM	04/10/2025 12:00 AM		13.0	AJ	04/17/2025		
+C01-0775		WheelingWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		8.0	AJ	04/17/2025		
+E01-0610		PrincetonWWTP-01	Routine Surveillance	Pass	04/03/2025 09:00 AM	04/04/2025 09:00 AM	04/04/2025 09:00 AM		3.617	AJ	04/17/2025		
+A04-0691		CheatLakeWWTP-01	Routine Surveillance	Pass	04/13/2025 08:00 AM	04/14/2025 08:00 AM	04/14/2025 08:00 AM		0.767	AJ	04/17/2025		
+V01-0016		MoorefieldWWTP-01	Routine Surveillance	Pass	04/06/2025 07:00 AM	04/07/2025 07:00 AM	04/07/2025 07:00 AM		3.68	AJ	04/17/2025		
+O01-0319		GraftonWWTP-01	Routine Surveillance	Pass	04/06/2025 08:00 AM	04/07/2025 08:00 AM	04/07/2025 08:00 AM		2.23	AJ	04/17/2025		
+V01-0025		MoorefieldWWTP-01	Routine Surveillance	Pass	04/09/2025 07:00 AM	04/10/2025 07:00 AM	04/10/2025 07:00 AM		3.6	AJ	04/17/2025		
+D01-0595		CharlesTownWWTP-01	Routine Surveillance	Pass	04/14/2025 07:10 AM	04/15/2025 07:10 AM	04/15/2025 07:10 AM		1.10	AJ	04/17/2025		
+C01-0773		WheelingWWTP-01	Routine Surveillance	Pass	04/08/2025 08:00 AM	04/09/2025 08:00 AM	04/09/2025 08:00 AM		9.78	AJ	04/17/2025		
+C01-0771		WheelingWWTP-01	Routine Surveillance	Pass	04/06/2025 08:00 AM	04/07/2025 08:00 AM	04/07/2025 08:00 AM		9.67	AJ	04/17/2025		
+K01-0470		ParkersburgWWTP-01	Routine Surveillance	Pass	04/14/2025 06:20 AM	04/15/2025 06:20 AM	04/15/2025 06:20 AM		6.371	AJ	04/17/2025		
+C01-0774		WheelingWWTP-01	Routine Surveillance	Pass	04/09/2025 08:00 AM	04/10/2025 08:00 AM	04/10/2025 08:00 AM		9.81	AJ	04/17/2025		
+J01-0529		AlpineLakeWWTP-01	Routine Surveillance	Pass	04/13/2025 07:30 AM	04/14/2025 07:30 AM	04/14/2025 07:30 AM		0.176	AJ	04/17/2025		
+C01-0772		WheelingWWTP-01	Routine Surveillance	Pass	04/07/2025 08:00 AM	04/08/2025 08:00 AM	04/08/2025 08:00 AM		9.77	AJ	04/17/2025		
+V01-0014		MoorefieldWWTP-01	Routine Surveillance	Pass	04/08/2025 07:00 AM	04/09/2025 07:00 AM	04/09/2025 07:00 AM		3.6	AJ	04/17/2025		
+V01-0011		MoorefieldWWTP-01	Routine Surveillance	Fail: Missing Required Data	04/07/2025 07:00 AM	04/08/2025 07:00 AM	04/08/2025 07:00 AM			AJ	04/17/2025		
+N02-0567		ClarksburgWWTP-01	Routine Surveillance	Pass	04/13/2025 07:00 AM	04/14/2025 07:00 AM	04/14/2025 07:00 AM		8.3	AJ	04/17/2025		
+L01-0623		WestUnionWWTP-01	Routine Surveillance	Pass	04/13/2025 07:00 AM	04/14/2025 07:00 AM	04/14/2025 07:00 AM		0.274	AJ	04/17/2025		
+V01-0024		MoorefieldWWTP-01	Routine Surveillance	Fail: Missing Required Data	04/10/2025 07:00 AM	04/11/2025 07:00 AM	04/11/2025 07:00 AM			AJ	04/17/2025		
+M04-0411		FarmingtonWWTP-01	Routine Surveillance	Pass	04/13/2025 08:30 AM	04/14/2025 08:30 AM	04/14/2025 08:30 AM		0.099	AJ	04/17/2025		
+P01-0177		StMarysWWTP-01	Routine Surveillance	Pass	04/06/2025 07:00 AM	04/07/2025 07:00 AM	04/07/2025 07:00 AM		0.614	AJ	04/17/2025		
