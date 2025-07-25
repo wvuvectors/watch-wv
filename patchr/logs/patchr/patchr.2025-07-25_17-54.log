@@ -1,0 +1,131 @@
+#############################################
+Initiated patchr.sh
+2025-07-25_17-54
+
+See logs/patchr/patchr.2025-07-25_17-54.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl -i /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR -o /Users/tpd0001/github/watch-wv/patchr/data.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/ to hold the results.
+Recording batch files to process in /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB165.xlsx to batches/CB165.xlsx.
+Repairing known issues in CB165.xlsx.
+Copying file CB164.xlsx to batches/CB164.xlsx.
+Repairing known issues in CB164.xlsx.
+Copying file CB163.xlsx to batches/CB163.xlsx.
+Repairing known issues in CB163.xlsx.
+Copying file CB162.xlsx to batches/CB162.xlsx.
+Repairing known issues in CB162.xlsx.
+Copying file CB161.xlsx to batches/CB161.xlsx.
+Repairing known issues in CB161.xlsx.
+Copying file CB166.xlsx to batches/CB166.xlsx.
+Repairing known issues in CB166.xlsx.
+Copying file EB163.xlsx to batches/EB163.xlsx.
+Repairing known issues in EB163.xlsx.
+Copying file EB164.xlsx to batches/EB164.xlsx.
+Repairing known issues in EB164.xlsx.
+Copying file EB166.xlsx to batches/EB166.xlsx.
+Repairing known issues in EB166.xlsx.
+Copying file EB161.xlsx to batches/EB161.xlsx.
+Repairing known issues in EB161.xlsx.
+Copying file AB101.xlsx to batches/AB101.xlsx.
+Repairing known issues in AB101.xlsx.
+Copying file AB101_20250723_153156_928.ANALYZED.csv to batches/AB101_20250723_153156_928.ANALYZED.csv.
+Repairing known issues in AB101_20250723_153156_928.ANALYZED.csv.
+Done.
+File AB101_20250723_153156_928.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB101_20250723_153156_928.ANALYZED.csv.
+Done.
+Copying file AB100.xlsx to batches/AB100.xlsx.
+Repairing known issues in AB100.xlsx.
+Copying file AB100_20250716_110847_323.ANALYZED.csv to batches/AB100_20250716_110847_323.ANALYZED.csv.
+Repairing known issues in AB100_20250716_110847_323.ANALYZED.csv.
+Done.
+File AB100_20250716_110847_323.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB100_20250716_110847_323.ANALYZED.csv.
+Done.
+Copying file AB99.xlsx to batches/AB99.xlsx.
+Repairing known issues in AB99.xlsx.
+Copying file AB99_20250709_095157_191.ANALYZED.csv to batches/AB99_20250709_095157_191.ANALYZED.csv.
+Repairing known issues in AB99_20250709_095157_191.ANALYZED.csv.
+Done.
+File AB99_20250709_095157_191.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB99_20250709_095157_191.ANALYZED.csv.
+Done.
+Copying file AB98.xlsx to batches/AB98.xlsx.
+Repairing known issues in AB98.xlsx.
+Copying file AB98_20250702_104548_980.ANALYZED.csv to batches/AB98_20250702_104548_980.ANALYZED.csv.
+Repairing known issues in AB98_20250702_104548_980.ANALYZED.csv.
+Done.
+File AB98_20250702_104548_980.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB98_20250702_104548_980.ANALYZED.csv.
+Done.
+Copying file AB91.xlsx to batches/AB91.xlsx.
+Repairing known issues in AB91.xlsx.
+Copying file AB91_20250521_095455_813.ANALYZED.csv to batches/AB91_20250521_095455_813.ANALYZED.csv.
+Repairing known issues in AB91_20250521_095455_813.ANALYZED.csv.
+Done.
+File AB91_20250521_095455_813.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB91_20250521_095455_813.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+Ok, I'm about to start modifying the watchdb files in /Users/tpd0001/github/watch-wv/patchr/data/latest/.
+First, let's back up /Users/tpd0001/github/watch-wv/patchr/data/latest/ to /Users/tpd0001/github/watch-wv/patchr/data/latest_bk/.
+
+Now I'll create a new watchdb folder in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54/.
+It will hold the latest watchdb after update with data from /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/.
+
+
+Now I'm merging the watchdb tables from /Users/tpd0001/github/watch-wv/patchr/data/latest/ with the update tables in /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/.
+These merged tables will be put in the folder that I just created, /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54/.
+
+******
+Running 4_appendUpdate.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54 /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/.
+******
+INFO : concentration id H01-0991.c1 already exists in either the update or the main watchdb (before update).
+INFO : H01-0991.c1 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+INFO : extraction id H01-0991.e1 already exists in either the update or the main watchdb (before update).
+INFO : H01-0991.e1 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54.
+
+******
+Running 5_calculateResults.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54.
+******
+
+5_calculateResults.pl exited with error code 115 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 5 (calculating results).
+Check the file /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54/_result.rejections.txt for details.
+I STRONGLY recommend deleting /Users/tpd0001/github/watch-wv/patchr/data/incremental/2025-07-25_17-54/ after exploring this error.
+Then delete the folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2025-07-25_17-54/, fix the error(s), and run patchr again. 
+!!!!!!!!

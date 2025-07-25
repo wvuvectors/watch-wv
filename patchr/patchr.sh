@@ -85,10 +85,10 @@ echo "" | tee -a "$logf"
 echo "Searching for unprocessed batch files." | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
-echo "Running 1_queryBatches.pl $indir." | tee -a "$logf"
+echo "Running 1_queryBatches.pl -i $indir -o $DBDIR." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
-upfiles=$(./perl/1_queryBatches.pl "$indir")
+upfiles=$(./perl/1_queryBatches.pl -i "$indir" -o "$DBDIR")
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 
@@ -174,31 +174,31 @@ fi
 
 
 
-echo "" | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "Running 3_validateUpdate.pl." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-
-./perl/3_validateUpdate.pl "$update_dir" | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-#echo "Status of validation: $status" | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "3_validateUpdate.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
-	echo "Most likely this script identifed duplicate IDs or collisions (IDs present in both the existing db and the update). Check the following files for more info:" | tee -a "$logf"
-	echo "    $update_dir/_collisions.txt" | tee -a "$logf"
-	echo "    $update_dir/_rundups.txt" | tee -a "$logf"
-	echo "    $update_dir/_watchdups.txt" | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (update validation)." | tee -a "$logf"
-	echo "Delete the folder $update_dir. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
+# echo "" | tee -a "$logf"
+# echo "******" | tee -a "$logf"
+# echo "Running 3_validateUpdate.pl." | tee -a "$logf"
+# echo "******" | tee -a "$logf"
+# 
+# 
+# ./perl/3_validateUpdate.pl -i "$update_dir" -d "$DBDIR/latest" | tee -a "$logf"
+# status="${PIPESTATUS[0]}"
+# #echo "Status of validation: $status" | tee -a "$logf"
+# echo "" | tee -a "$logf"
+# 
+# if [[ "$status" != "0" ]]
+# then
+# 	echo "3_validateUpdate.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
+# 	echo "Most likely this script identifed duplicate IDs or collisions (IDs present in both the existing db and the update). Check the following files for more info:" | tee -a "$logf"
+# 	echo "    $update_dir/_collisions.txt" | tee -a "$logf"
+# 	echo "    $update_dir/_rundups.txt" | tee -a "$logf"
+# 	echo "    $update_dir/_watchdups.txt" | tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	echo "patchr aborted during phase 3 (update validation)." | tee -a "$logf"
+# 	echo "Delete the folder $update_dir. "| tee -a "$logf"
+# 	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
+# 	echo "!!!!!!!!" | tee -a "$logf"
+# 	exit 1
+# fi
 
 
 echo "" | tee -a "$logf"

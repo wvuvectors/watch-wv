@@ -1215,7 +1215,7 @@ shinyUI(fluidPage(
 								selectInput(
 									"map_color",
 									label = NULL,
-									choices = c("Norovirus GII"),
+									choices = c("Norovirus GII", "Norovirus GI"),
 									selected = "Norovirus GII"
 								)
 							),
@@ -1256,22 +1256,22 @@ shinyUI(fluidPage(
 									)
 								)
 							), # fluidRow (NoV GII abundance data freshness)
-# 							fluidRow(
-# 								column(12,
-# 									div(
-# 									"Latest Norovirus GI abundance data for this region is from ",
-# 										style="font-size: 18px;padding-top: 10px;font-weight: 800;text-align: center;color: #000000;"
-# 									),
-# 									div(
-# 										textOutput("selection_freshness_novi"), 
-# 										style="font-size: 24px;padding-bottom: 0px;font-weight: 800;text-align: center;color: #9437FF;"
-# 									),
-# 									div(
-# 										textOutput("selection_completeness_novi"), 
-# 										style="font-size: 16px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #000000;"
-# 									)
-# 								)
-# 							), # fluidRow (NoV GI abundance data freshness)
+ 							fluidRow(
+ 								column(12,
+ 									div(
+ 									"Latest Norovirus GI abundance data for this region is from ",
+ 										style="font-size: 18px;padding-top: 10px;font-weight: 800;text-align: center;color: #000000;"
+ 									),
+ 									div(
+ 										textOutput("selection_freshness_novi"), 
+ 										style="font-size: 24px;padding-bottom: 0px;font-weight: 800;text-align: center;color: #9437FF;"
+ 									),
+ 									div(
+ 										textOutput("selection_completeness_novi"), 
+ 										style="font-size: 16px;padding-bottom: 10px;font-weight: 400;text-align: center;color: #000000;"
+ 									)
+ 								)
+ 							), # fluidRow (NoV GI abundance data freshness)
 							fluidRow(
 								column(12,
 									div(
@@ -1320,47 +1320,47 @@ shinyUI(fluidPage(
 					fluidRow(
 						column(12,
 							# Plot of NoV GII change over time
-							plotlyOutput("plot_novii", height="450px", width="100%")
+							plotlyOutput("plot_novii", height="350px", width="100%")
 						)
-					) # fluidRow (NoV GII plot)
-# 					fluidRow(
-# 						#style = "margin-left: 0px; margin-right: 0px;", 
-# 						column(12,
-# 							div(
-# 								textOutput("plot_title_novi"), 
-# 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
-# 							)
-# 						)
-# 					), # fluidRow (NoV GI plot title)
-# 					fluidRow(
-# 						style = "margin-top: 5px;", 
-# 						column(6,
-# 							div(
-# 								id = "abundance_title_novi",
-# 								"Abundance",
-# 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
-# 							div(
-# 								id = "abundance_text_novi",
-# 								textOutput("abundance_novi"),
-# 								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
-# 						),
-# 						column(6,
-# 							div(
-# 								id = "trend_title_novi",
-# 								"Trend",
-# 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
-# 							div(
-# 								id = "trend_text_novi",
-# 								textOutput("trend_novi"),
-# 								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
-# 						)
-# 					), # fluidRow (NoV GI status blocks)
-# 					fluidRow(
-# 						column(12,
-# 							# Plot of NoV Gi change over time
-# 							plotlyOutput("plot_novi", height="350px", width="100%")
-# 						)
-# 					) # fluidRow (NoV GI plot)
+					), # fluidRow (NoV GII plot)
+					fluidRow(
+						#style = "margin-left: 0px; margin-right: 0px;", 
+						column(12,
+							div(
+								textOutput("plot_title_novi"), 
+								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #303D4E;"
+							)
+						)
+					), # fluidRow (NoV GI plot title)
+					fluidRow(
+						style = "margin-top: 5px;", 
+						column(6,
+							div(
+								id = "abundance_title_novi",
+								"Abundance",
+								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "abundance_text_novi",
+								textOutput("abundance_novi"),
+								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						),
+						column(6,
+							div(
+								id = "trend_title_novi",
+								"Trend",
+								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "trend_text_novi",
+								textOutput("trend_novi"),
+								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						)
+					), # fluidRow (NoV GI status blocks)
+					fluidRow(
+						column(12,
+							# Plot of NoV Gi change over time
+							plotlyOutput("plot_novi", height="350px", width="100%")
+						)
+					) # fluidRow (NoV GI plot)
 				),
 				column(2,
 					style = "margin-top: 8px;",
@@ -1554,7 +1554,17 @@ shinyUI(fluidPage(
 					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
 							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
 				)
-			) # hidden (missing data p5 popup)
+			), # hidden (missing data p5 popup)
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_p6_popup",
+					class = "mdinfo",
+					top = 730, left = 710, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+			) # hidden (missing data p6 popup)
 
 		) # tabPanel (Norovirus)
 

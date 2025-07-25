@@ -1,9 +1,9 @@
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)", "Human Norovirus GII (HuNoV-GII)")
-#DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "Norovirus GII", "Norovirus GI")
-DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "NoVII")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)", "Human Norovirus GII (HuNoV-GII)", "Human Norovirus GI (HuNoV-GI)")
+DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "Norovirus GII", "Norovirus GI")
+#DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "NoVII", "NoVI")
 
 # Do we need this?
-GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "G")
+GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "ORF1_ORF2", "ORF1_ORF2")
 
 TRENDL_03_COLOR <- "#00B140"	# MU Green
 TRENDL_12_COLOR <- "#EAAA00"	# WVU Gold

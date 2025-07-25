@@ -1,0 +1,18 @@
+#############################################
+Initiated patchr.sh
+2025-07-17_22-29
+
+See logs/patchr/patchr.2025-07-17_22-29.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_NoV
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data_nov
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_NoV.
+******
+
+******
+1_queryBatches.pl found no new batches in /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_NoV.
+As a result, there is nothing for patchr to do at the current time.
+******
+

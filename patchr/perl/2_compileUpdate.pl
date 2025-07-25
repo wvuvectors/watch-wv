@@ -226,10 +226,10 @@ print $ufh join("\t", @{$updatecols{"assay"}}) . "\n";
 # Get the first letter of the batch type to use in the unique IDs.
 my $lead = substr "assay", 0, 1;
 
-# Init an incrementor, for the uid.
-# We can & will have multiple assays for the same sample across multiple batches, but for different targets.
+# Init an incrementor for the assay id.
+# We can & will have multiple assays for the same sample across multiple batches and different targets.
 # So this incrementor has to be independent of batch and tied to the sample id.
-my %uid_tracker = ();
+my %sample2incr = ();
 
 foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the metadata hash
 	my $ccount = 1;
@@ -237,14 +237,15 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 
 		# Get the sample id (aka asset id).
 		my $sample_id = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"sample_id"};
-		$uid_tracker{"$sample_id"} = 1 unless defined $uid_tracker{"$sample_id"};
+		$sample2incr{"$sample_id"} = {} unless defined $sample2incr{"$sample_id"};
 
 		# Get the data for this well from the well2data hash.
 		# Each well contains a hash keyed on the dye.
 		unless (defined $well2data{"$bid"} and defined $well2data{"$bid"}->{"$well"}) {
 			warn "Batch $bid, well $well is in the metadata sheet but no ddPCR data was provided!\n";
 			warn "Most likely, a well was inadvertently dropped when the csv file was exported from the droplet reader.\n";
-			exit 255;
+			next;
+			#exit 255;
 		}
 		my %well_data = %{$well2data{"$bid"}->{"$well"}};
 
@@ -265,8 +266,13 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 				$ccount++;
 			} else {
 				# Construct a uid based on sample id and the incrementor.
-				$uid = "$sample_id.${lead}" . "$uid_tracker{$sample_id}";
-				$uid_tracker{"$sample_id"} = $uid_tracker{"$sample_id"}+1;
+				my $incr = 1;
+				$uid = "$sample_id.a1";
+				while (defined $sample2incr{"$sample_id"}->{"$uid"}) {
+					$incr++;
+					$uid = "$sample_id.a$incr";
+				}
+				$sample2incr{"$sample_id"}->{"$uid"} = 1;
 			}
 			# Print the uid.
 			print $ufh "$uid";

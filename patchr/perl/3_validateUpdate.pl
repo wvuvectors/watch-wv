@@ -15,7 +15,7 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 
 
 my $usage = "\n";
-$usage   .= "Usage: $progname [options] UPDATEDIR\n";
+$usage   .= "Usage: $progname [options] -i UPDATEDIR -d DBDIR\n";
 $usage   .=  "Validate the compiled update in UPDATEDIR vs the main watch database. Particularly look for duplication of table IDs.\n";
 $usage   .=   "\n";
 
@@ -26,8 +26,10 @@ while (@ARGV) {
   my $arg = shift;
   if ($arg eq "-h") {
 		die $usage;
-  } else {
-		$update_dir = $arg;
+  } elsif ($arg eq "-i") {
+  	$update_dir = shift;
+  } elsif ($arg eq "-o") {
+  	$dbdir = shift;
 	}
 }
 

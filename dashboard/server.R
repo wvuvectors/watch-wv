@@ -81,7 +81,7 @@ shinyServer(function(input, output, session) {
     } else if (input$nav == "Norovirus") {
       #print("tab = nov")
       controlRV$mapIndex <- 4
-      controlRV$targetVec <- c(5)
+      controlRV$targetVec <- c(5,6)
 
 			updateAllPlots()
 			updateSelectionInfo()
@@ -168,6 +168,8 @@ shinyServer(function(input, output, session) {
 			return(4)
 		} else if (tolower(menuOpt) == "norovirus gii") {
 			return(5)
+		} else if (tolower(menuOpt) == "norovirus gi") {
+		  return(6)
 		} else {
 			return(1)
 		}
