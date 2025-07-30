@@ -1,0 +1,22 @@
+extraction_id	concentration_id	extraction_batch_id	extraction_location_in_batch	extraction_location_in_storage	extraction_comment
+MR2-01 Non Conc.e1	MR2-01 Non Conc.c1	EBM1	C02	D2	
+MR1-01 Non Conc.e1	MR1-01 Non Conc.c1	EBM1	C01	D1	
+MR3-01.e1	MR3-01.c1	EBM1	A03	B3	
+MR2-01 Spiked / Non Conc.e1	MR2-01 Spiked / Non Conc.c1	EBM1	B02	C2	
+MR1-01 Spiked / Non Conc.e1	MR1-01 Spiked / Non Conc.c1	EBM1	B01	C1	
+MR3-01 Spiked / Non Conc.e1	MR3-01 Spiked / Non Conc.c1	EBM1	B03	C3	
+MR3-01 Non Conc.e1	MR3-01 Non Conc.c1	EBM1	C03	D3	
+MR1-01.e1	MR1-01.c1	EBM1	A01	MILK_NAB1 B1	
+MR1-01.e1	MR1-01.c1	EBM1	A02	B2	
+MP1-03.e1	MP1-03.c1	EBM2	A03	E3	
+MP2-02.e1	MP2-02.c1	EBM2	A01	MILK_NAB1 E1	
+MP3-02.e1	MP3-02.c1	EBM2	A02	E2	
+MR4-01.e1	MR4-01.c1	EBM2	A05	E5	
+MP4-02.e1	MP4-02.c1	EBM2	A04	E4	
+MP3-03.e1	MP3-03.c1	EBM3	A02	F2	
+MP1-04.e1	MP1-04.c1	EBM3	A01	MILK_NAB1 F1	
+MR4-01.e1	MR4-01.c1	EBM3	A04	F4	
+MP2-03.e1	MP2-03.c1	EBM3	A03	F3	
+MP1-05.e1	MP1-05.c1	EBM4	A02	G2	
+MP3-04.e1	MP3-04.c1	EBM4	A01	MILK_NAB1 G1	
+MP2-04.e1	MP2-04.c1	EBM4	A03	G3	
