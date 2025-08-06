@@ -1,6 +1,0 @@
-﻿Well,Sample description 1,Sample description 2,Sample description 3,Sample description 4,Target,Conc(copies/µL),Status,Experiment,SampleType,TargetType,Supermix,DyeName(s),Accepted Droplets,Positives,Negatives
-E02,,,,,FLUA,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,FAM,8813,0,8813
-E02,,,,,BRSV,0.142736077308655,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,HEX,8813,1,8812
-E02,,,,,RSV,0,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5,8813,0,8813
-E02,,,,,FLUB,2.42871880531311,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,Cy5.5,8813,17,8796
-E02,,,,,SC2D,2.28572297096252,Manual,DQ,Unknown,Unknown,One-Step RT-ddPCR Advanced Kit for Probes,ROX,8813,16,8797
