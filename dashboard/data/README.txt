@@ -1,7 +1,7 @@
-August 27, 2025 at 09:48:54
+September 04, 2025 at 15:23:40
 
 #
 This folder contains the most recent dashboard data.
-WVU data was last updated on August 27, 2025 at 09:31:36.
+WVU data was last updated on September 04, 2025 at 15:21:18.
 SEQR data was last updated on November 06, 2024 at 16:53:50.
 #
