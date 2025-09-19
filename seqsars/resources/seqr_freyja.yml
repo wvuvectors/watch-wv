@@ -1,4 +1,4 @@
-name: freyja_env_scratch
+name: seqr_freyja
 channels:
   - defaults
   - bioconda

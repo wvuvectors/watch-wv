@@ -1,4 +1,4 @@
-name: fastqc_env_scratch
+name: seqr_fastqc
 channels:
   - bioconda
 dependencies:

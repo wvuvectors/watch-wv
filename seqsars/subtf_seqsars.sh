@@ -81,7 +81,7 @@ source /shared/software/conda/etc/profile.d/conda.sh
 # It also means the first 50 or so lines of this script are duplicated in the called script; 
 # however, we don't anticipate those lines will change often (if ever).
 #
-./sh/seqsars.sh -r "$runID" -i "$readsDIR" -f "$fr_barcodesFILE" -o "$outDIR" -c "$SCRATCH/conda"
+./sh/seqsars.sh -r "$runID" -i "$readsDIR" -f "$fr_barcodesFILE" -o "$outDIR" #-c "$SCRATCH/conda"
 #usher_barcodes09_05_2024-00-47.feather
 
 

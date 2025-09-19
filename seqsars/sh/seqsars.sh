@@ -26,9 +26,9 @@ while getopts ":hr:i:f:o:c:" opt; do
 		o)
 			outDIR=$OPTARG
 			;;
-		c)
-			condaDIR=$OPTARG
-			;;
+# 		c)
+# 			condaDIR=$OPTARG
+# 			;;
 		\?)
 			echo "Invalid option: -$OPTARG" >&2
 			exit 1
@@ -83,11 +83,11 @@ if [ -z "$outDIR" ]; then
 	outDIR="output/$runID"
 fi
 
-if [ -z "$condaDIR" ]; then
-	echo "Missing a valid conda environment directory (-c)!"
-	echo "I'll try to use the current directory, but if you get a conda environment error that might be why."
-	condaDIR="."
-fi
+# if [ -z "$condaDIR" ]; then
+# 	echo "Missing a valid conda environment directory (-c)!"
+# 	echo "I'll try to use the current directory, but if you get a conda environment error that might be why."
+# 	condaDIR="."
+# fi
 
 
 if [[ "$outDIR" == "output/$runID" ]]; then
@@ -136,7 +136,7 @@ for bcDir in "$readsDIR/barcode*"; do
 
 		# Run fastqc on the original file.
 		#
-		conda activate "$condaDIR/seqr_fastqc"
+		conda activate "seqr_fastqc"
 		fastqc -o "$outDIR/3 QC1_RESULTS/" "$outdir/2 FQ_CONCAT/$bcDir.fastq.gz"
 		conda deactivate
 
@@ -144,21 +144,21 @@ for bcDir in "$readsDIR/barcode*"; do
 		# Trim the reads in the concatenated fastq file. These are specific for COVID sequencing:
 		# Remove the first 9 bases, and exclude any reads with length > 600nt.
 		#
-		conda activate "$condaDIR/seqr_general"
+		conda activate "seqr_general"
 		trimmomatic SE -phred64 "$outdir/2 FQ_CONCAT/${runID}_$bcDir.fastq.gz" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" HEADCROP:9 MINLEN:250
 		conda deactivate 
 		
 
 		# Run fastqc on the trimmed file.
 		#
-		conda activate "$condaDIR/seqr_fastqc"
+		conda activate "seqr_fastqc"
 		fastqc -o "$outDIR/5 QC2_RESULTS/" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz"
 		conda deactivate
 
 		
 		# Map the reads to the reference genome.
 		#
-		conda activate "$condaDIR/seqr_general"
+		conda activate "seqr_general"
 		minimap2 -ax map-ont "$refGenome" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" > "$outdir/6 MAPPED/${runID}_${bcDir}_tr.sam"
 		
 		
@@ -176,7 +176,7 @@ for bcDir in "$readsDIR/barcode*"; do
 
 		# Run freyja to identify SARS-CoV-2 variants.
 		#
-		conda activate "$condaDIR/seqr_freyja"
+		conda activate "seqr_freyja"
 		freyja variants --variants "$outdir/7 DEMIX/variants_${runID}_${bcDir}" --depths "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --ref "$refGenome" "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"
 		freyja demix "$outdir/7 DEMIX/variants_${runID}_${bcDir}.tsv" "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --output "$outdir/7 DEMIX/demix_${runID}_${bcDir}" --barcodes "$fr_barcodesFILE"
 		conda deactivate 
