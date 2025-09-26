@@ -1,0 +1,30 @@
+"location_id"	"sample_code_prefix"	"location_primary_lab"	"location_status"	"location_common_name"	"location_category"	"location_group"	"location_lng"	"location_lat"	"location_primary_wwtp_id"	"location_counties_served"	"location_population_served"	"location_sampler_type"	"location_collection_window_hrs"	"location_collection_pull_ml"	"location_collection_step_min"	"location_collection_basis"	"location_collection_type"	"location_zipcode"	"location_comment"
+"CSB"	NA	"MUIDSL"	"active"	"Charleston"	"wwtp"	"non-sentinel"	-81.6795542342985	38.3737355334849	"CharlestonSanitaryBoardWWTP"	"Kanawha"	49500	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	25387	NA
+"DUN"	NA	"MUIDSL"	"active"	"Dunbar"	"wwtp"	"non-sentinel"	-81.758709180509	38.368519014597	"DunbarWWTP"	"Kanawha"	9000	"Facility hardware"	24	25	20	"time"	"raw wastewater"	25064	NA
+"HSB"	NA	"MUIDSL"	"active"	"Huntington"	"wwtp"	"non-sentinel"	-82.5288640349052	38.4007449310171	"HuntingtonSanitaryBoardWWTP"	"Wayne"	56000	"Facility hardware"	24	25	20	"time"	"raw wastewater"	25704	NA
+"PRPSD"	NA	"MUIDSL"	"active"	"Pea Ridge"	"wwtp"	"non-sentinel"	-82.2982092548578	38.4196619081391	"PeaRidgeWWTP-A"	"Cabell"	7000	"MU HACH"	24	25	20	"time"	"raw wastewater"	25705	NA
+"PUT"	NA	"MUIDSL"	"active"	"Hometown-Putnam"	"wwtp"	"non-sentinel"	-81.8671187968227	38.5379013175494	"PutnamPSD"	"Putnam"	4900	"Facility hardware"	48	333	1440	"time"	"raw wastewater"	25168	NA
+"SRCM"	NA	"MUIDSL"	"active"	"SaltRock WWTP: Milton and Culloden"	"wwtp"	"non-sentinel"	-82.105145	38.425437	"SaltRockWWTP-A"	"Cabell"	7200	"Facility hardware"	24	25	20	"time"	"raw wastewater"	25541	"12\" and 20\" pipe allow ona (12\") and milton (20\") to be separated"
+"SRO"	NA	"MUIDSL"	"active"	"SaltRock WWTP: Ona and SaltRock"	"wwtp"	"non-sentinel"	-82.2448777512688	38.372162360135	"SaltRockWWTP-B"	"Cabell"	4050	"Facility hardware"	24	25	20	"time"	"raw wastewater"	25545	"12\" and 20\" pipe allow ona (12\") and milton (20\") to be separated"
+"WestUnionWWTP-01"	"K01"	"ZooWVU"	"active"	"West Union"	"wwtp"	"non-sentinel"	-80.77899	39.29906	"WestUnionWWTP"	"Doddridge"	564	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26456	NA
+"FarmingtonWWTP-01"	"M04"	"ZooWVU"	"active"	"Farmington"	"wwtp"	"non-sentinel"	-80.24933	39.51181	"FarmingtonWWTP"	"Marion"	610	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26571	NA
+"AlpineLakeWWTP-01"	"J01"	"ZooWVU"	"active"	"Alpine Lake"	"wwtp"	"non-sentinel"	-79.50179	39.45709	"AlpineLakeWWTP"	"Preston"	700	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26764	NA
+"ManningtonWWTP-01"	"M03"	"ZooWVU"	"active"	"Mannington"	"wwtp"	"non-sentinel"	-80.32371	39.51814	"ManningtonWWTP"	"Marion"	1091	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26582	NA
+"CheatLakeWWTP-01"	"A04"	"ZooWVU"	"active"	"Cheat Lake"	"wwtp"	"non-sentinel"	-79.857	39.67712	"CheatLakeWWTP"	"Monongalia"	2000	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26508	NA
+"WhiteOakWWTP-01"	"U01"	"ZooWVU"	"active"	"White Oak"	"wwtp"	"non-sentinel"	-81.1650055	37.9467707	"WhiteOakWWTP"	"Fayette"	2626	"WVU ISCO"	24	25	30	"time"	"raw wastewater"	25917	NA
+"MadisonWWTP-01"	"Q01"	"ZooWVU"	"active"	"Danville"	"wwtp"	"non-sentinel"	-81.8472888	38.102484	"MadisonWWTP"	"Boone"	4555	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	25053	NA
+"PointPleasantWWTP-01"	"T01"	"ZooWVU"	"active"	"Point Pleasant"	"wwtp"	"non-sentinel"	-82.1351148	38.8567084	"PointPleasantWWTP"	"Mason"	5515	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	25550	NA
+"GraftonWWTP-01"	"O01"	"ZooWVU"	"active"	"Grafton"	"wwtp"	"non-sentinel"	-80.01837	39.33877	"GraftonWWTP"	"Taylor"	6071	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26354	NA
+"KeyserWWTP-01"	"G01"	"ZooWVU"	"active"	"Keyser"	"wwtp"	"non-sentinel"	-78.97508	39.44123	"KeyserWWTP"	"Mineral"	8168	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26726	NA
+"WestonWWTP-01"	"F01"	"ZooWVU"	"active"	"Weston"	"wwtp"	"non-sentinel"	-80.45991	39.06224	"WestonWWTP"	"Lewis"	10364	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26452	NA
+"MoundsvilleWWTP-01"	"H01"	"ZooWVU"	"active"	"Moundsville"	"wwtp"	"non-sentinel"	-80.75493	39.92986	"MoundsvilleWWTP"	"Marshall"	12000	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26041	NA
+"ElkinsWWTP-01"	"R02"	"ZooWVU"	"active"	"Elkins"	"wwtp"	"non-sentinel"	-79.86543	38.92026	"ElkinsWWTP"	"Randolph"	13156	"WVU ISCO"	24	25	20	"time"	"raw wastewater"	26241	NA
+"CharlesTownWWTP-01"	"D01"	"ZooWVU"	"active"	"Charles Town"	"wwtp"	"non-sentinel"	-77.85589	39.27924	"CharlesTownWWTP"	"Jefferson"	17000	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	25414	NA
+"ClarksburgWWTP-01"	"N02"	"ZooWVU"	"active"	"Clarksburg"	"wwtp"	"non-sentinel"	-80.33857	39.27931	"ClarksburgWWTP"	"Harrison"	26498	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26301	NA
+"ParkersburgWWTP-01"	"K01"	"ZooWVU"	"active"	"Parkersburg"	"wwtp"	"non-sentinel"	-81.55739	39.28171	"ParkersburgWWTP"	"Wood"	48050	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26101	NA
+"StarCityWWTP-01"	"A01"	"ZooWVU"	"active"	"Morgantown Star City"	"wwtp"	"sentinel"	-79.9920554	39.6551745	"StarCityWWTP"	"Monongalia"	48328	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26505	NA
+"WheelingWWTP-01"	"C01"	"ZooWVU"	"active"	"Wheeling"	"wwtp"	"sentinel"	-80.72757	40.05588	"WheelingWWTP"	"Ohio"	50000	"Facility hardware"	24	NA	NA	"flow"	"raw wastewater"	26003	NA
+"StadiumNE-01"	"A02"	"ZooWVU"	"active"	"WVU Stadium NE"	"mixed use"	"non-sentinel"	NA	NA	"StarCityWWTP-01"	"Monongalia"	NA	"WVU ISCO"	12	25	30	"time"	"raw wastewater"	26505	NA
+"StadiumNW-01"	"A02"	"ZooWVU"	"active"	"WVU Stadium NW"	"mixed use"	"non-sentinel"	NA	NA	"StarCityWWTP-01"	"Monongalia"	NA	"WVU ISCO"	12	25	30	"time"	"raw wastewater"	26505	NA
+"StadiumSE-01"	"A02"	"ZooWVU"	"active"	"WVU Stadium SE"	"mixed use"	"non-sentinel"	NA	NA	"StarCityWWTP-01"	"Monongalia"	NA	"WVU ISCO"	12	25	30	"time"	"raw wastewater"	26505	NA
+"StadiumSW-01"	"A02"	"ZooWVU"	"active"	"WVU Stadium SW"	"mixed use"	"non-sentinel"	NA	NA	"StarCityWWTP-01"	"Monongalia"	NA	"WVU ISCO"	12	25	30	"time"	"raw wastewater"	26505	NA
