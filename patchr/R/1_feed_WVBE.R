@@ -11,9 +11,13 @@ library(readxl)
 library(scales)
 library(lubridate)
 
-#TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)", "Human Norovirus GII (HuNoV-GII)", "Human Norovirus GI (HuNoV-GI)")
 TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
 GENLOCI <- c("SC2", "M", "NEP/NS1", "N2")
+
+ALERT_LEVEL_THRESHOLDS <- c(0, 100, 150)
+ALERT_LEVEL_STRINGS <- c("LOW", "MODERATE", "HIGH", "VERY HIGH", "UNKNOWN")
+
+
 
 DB_BASE <- "../dashboard/data"
 DB_RESULTS_WVU <- paste(DB_BASE, "/watchdb.result.txt", sep="")
@@ -123,6 +127,17 @@ df_agg <- df_wkly %>%
 						total_abundance = sum(total_abundance, na.rm=TRUE))
 df_agg <- left_join(df_agg, unique(df_counties %>% select(county, county_fips)), by = "county")
 
+df_alerts <- df_alerts %>%
+	mutate(abundance_alert_level = case_when(
+		abundance_pct_change < ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_STRINGS[1],
+		abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[1] & abundance_pct_change < ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_STRINGS[2], 
+		abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[2] & abundance_pct_change < ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[3], 
+		abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[4], 
+		.default = ALERT_LEVEL_STRINGS[5]
+	))
+df_alerts <- df_alerts %>% select(county = region_name, target, abundance_alert_level, trend_alert_level = trend)
+
+df_agg <- left_join(df_agg, df_alerts, by = c("county", "target"))
 
 write.table(df_agg, file = stdout(), sep = "\t", row.names = FALSE)
 
