@@ -1,0 +1,27 @@
+sample_id	sample_status	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_ph_lab	sample_comment
+A02-1390		StadiumNE-01	Routine Surveillance	Pass	09/27/2025 01:30 PM	09/27/2025 09:30 PM	09/29/2025 09:55 AM	Gracie Moulton		LS	10/02/2025		
+A02-1392		StadiumNW-01	Routine Surveillance	Pass	09/27/2025 01:30 PM	09/27/2025 09:30 PM	09/29/2025 10:07 AM	Gracie Moulton		LS	10/02/2025		
+J01-0553		AlpineLakeWWTP-01	Routine Surveillance	Pass	09/28/2025 07:30 AM	09/29/2025 07:30 AM	09/29/2025 07:30 AM		0.063	LS	10/02/2025		
+N02-0601		ClarksburgWWTP-01	Routine Surveillance	Pass	09/28/2025 07:00 AM	09/29/2025 07:00 AM	09/29/2025 07:00 AM		6.73	LS	10/02/2025		
+C01-0996		WheelingWWTP-01	Routine Surveillance	Pass	09/22/2025 08:00 AM	09/23/2025 08:00 AM	09/23/2025 08:00 AM		5.05	LS	10/02/2025		
+H01-1001		MoundsvilleWWTP-01	Routine Surveillance	Pass	09/28/2025 08:00 AM	09/29/2025 08:00 AM	09/29/2025 08:00 AM		1	LS	10/02/2025		
+C01-0998		WheelingWWTP-01	Routine Surveillance	Pass	09/24/2025 08:00 AM	09/25/2025 08:00 AM	09/25/2025 08:00 AM		5.7	LS	10/02/2025		
+A01-1364		StarCityWWTP-01	Routine Surveillance	Pass	09/27/2025 12:00 AM	09/28/2025 12:00 AM	09/28/2025 12:00 AM		8.6	LS	10/02/2025		
+G01-0649		KeyserWWTP-01	Routine Surveillance	Pass	09/28/2025 09:00 AM	09/29/2025 09:00 AM	09/29/2025 08:00 AM		0.654	LS	10/02/2025		
+U01-0149		WhiteOakWWTP-01	Routine Surveillance	Pass	09/28/2025 09:30 AM	09/29/2025 09:30 AM	09/29/2025 09:30 AM		0.115	LS	10/02/2025		
+Q01-0633		MadisonWWTP-01	Routine Surveillance	Pass	09/28/2025 08:00 AM	09/29/2025 08:00 AM	09/29/2025 08:00 AM		0.265	LS	10/02/2025		
+A01-1361		StarCityWWTP-01	Routine Surveillance	Pass	09/23/2025 12:00 AM	09/24/2025 12:00 AM	09/24/2025 12:00 AM		9.6	LS	10/02/2025		
+A01-1363		StarCityWWTP-01	Routine Surveillance	Pass	09/26/2025 12:00 AM	09/27/2025 12:00 AM	09/27/2025 12:00 AM		9.7	LS	10/02/2025		
+A04-0673		CheatLakeWWTP-01	Routine Surveillance	Pass	09/29/2025 08:00 AM	09/30/2025 08:00 AM	09/30/2025 08:00 AM		0.535	LS	10/02/2025		
+A01-1365		StarCityWWTP-01	Routine Surveillance	Pass	09/28/2025 12:00 AM	09/29/2025 12:00 AM	09/29/2025 12:00 AM		8.7	LS	10/02/2025		
+A01-1362		StarCityWWTP-01	Routine Surveillance	Pass	09/24/2025 12:00 AM	09/25/2025 12:00 AM	09/25/2025 12:00 AM		17.1	LS	10/02/2025		
+C01-1000		WheelingWWTP-01	Routine Surveillance	Pass	09/28/2025 08:00 AM	09/29/2025 08:00 AM	09/29/2025 08:00 AM		4.73	LS	10/02/2025		
+M03-0531		ManningtonWWTP-01	Routine Surveillance	Pass	09/27/2025 08:00 AM	09/28/2025 08:00 AM	09/28/2025 08:00 AM		0.138	LS	10/02/2025		
+R02-0553		ElkinsWWTP-01	Routine Surveillance	Pass	09/28/2025 08:00 AM	09/29/2025 08:00 AM	09/29/2025 08:00 AM		0.1	LS	10/02/2025		
+L01-0659		WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	09/28/2025 07:00 AM	09/29/2025 07:00 AM	09/29/2025 07:00 AM			LS	10/02/2025		
+A01-1366		StarCityWWTP-01	Routine Surveillance	Pass	09/29/2025 12:00 AM	09/30/2025 12:00 AM	09/30/2025 12:00 AM		8.6	LS	10/02/2025		
+C01-0999		WheelingWWTP-01	Routine Surveillance	Pass	09/25/2025 08:00 AM	09/26/2025 08:00 AM	09/26/2025 08:00 AM		7.39	LS	10/02/2025		
+C01-0997		WheelingWWTP-01	Routine Surveillance	Pass	09/23/2025 08:00 AM	09/24/2025 08:00 AM	09/24/2025 08:00 AM		6.58	LS	10/02/2025		
+A02-1391		StadiumSE-01	Routine Surveillance	Pass	09/27/2025 01:30 PM	09/27/2025 09:30 PM	09/29/2025 10:00 AM	Gracie Moulton 		LS	10/02/2025		
+F01-0153		WestonWWTP-01	Routine Surveillance	Pass	09/22/2025 07:00 AM	09/23/2025 07:00 AM	09/23/2025 07:00 AM		1.5	LS	10/02/2025		
+A02-1393		StadiumSW-01	Routine Surveillance	Pass	09/27/2025 01:30 PM	09/27/2025 09:30 PM	09/29/2025 10:13 AM	Gracie Moulton		LS	10/02/2025		
