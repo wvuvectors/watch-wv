@@ -11,17 +11,17 @@ my $progname = $0;
 $progname =~ s/^.*?([^\/]+)$/$1/;
 
 my $usage = "\n";
-$usage   .= "Usage: $progname [options] RUNDIR\n";
-$usage   .=  "Using sequence demix proportion files located in RUNDIR, compile an update file ";
-$usage   .=   "and write it to STDOUT.\n";
+$usage   .= "Usage: $progname [options]\n";
+$usage   .=  "Compiles a seqr update file from sequence demix proportion files.\n";
+$usage   .=   "  [-i --indir]  Path to the folder that contains the demix files.\n";
+$usage   .=   "  [-o --outdir] Path to the folder that will contain the update file(s).\n";
 $usage   .=   "\n";
 
-my $rundir;
+my ($indir, $outdir);
 my $status = 0;
 
 # Uses file from this original source:
 # https://github.com/cov-lineages/pango-designation/blob/master/pango_designation/alias_key.json
-
 my $SEQR_ALIASES = "resources/alias_key.json";
 
 
@@ -29,17 +29,23 @@ while (@ARGV) {
   my $arg = shift;
   if ($arg eq "-h") {
 		die $usage;
-  } else {
-		$rundir = "$arg";
+  } elsif ("$arg" eq "-i" or "$arg" eq "--indir") {
+		defined ($indir = shift) or die "FATAL: Malformed argument to -i in $progname.\n$usage\n";
+  } elsif ("$arg" eq "-o" or "$arg" eq "--outdir") {
+		defined ($outdir = shift) or die "FATAL: Malformed argument to -o in $progname.\n$usage\n";
 	}
 }
 
-die "FATAL: A run directory containing demix files must be provided!\n$usage\n" unless defined $rundir;
-die "FATAL: Run directory $rundir is not a readable directory.\n$usage\n" unless -d $rundir;
+die "FATAL: An input directory containing demix files must be provided!\n$usage\n" unless defined $indir;
+die "FATAL: Input dir $indir is not a readable dir.\n$usage\n" unless -d "$indir";
+
+die "FATAL: An output directory to hold the update file(s) must be provided!\n$usage\n" unless defined $outdir;
+die "FATAL: Output dir $outdir is not a readable dir.\n$usage\n" unless -d "$outdir";
+
 
 
 my %aliases  = ();	# Stores info about variant aliases.
-my %props    = ();	# Stores the actual variant proportions from the run in $rundir.
+my %props    = ();	# Stores the actual variant proportions from the run in $indir.
 
 # Read in the variant alias key (json)
 #
@@ -103,17 +109,17 @@ foreach my $vtw_k (keys %vtw) {
 
 
 #
-# Read in the variant proportion files from $rundir.
+# Read in the variant proportion files from $indir.
 #
-my @files = glob(qq("$rundir/*.txt"));
-die "FATAL: $progname requires at least one txt file with freyja proportions in the run directory.\n$usage\n" unless scalar(@files) > 0;
+my @files = glob(qq("$indir/*.txt"));
+die "FATAL: $progname requires at least one txt file with freyja proportions in the input directory.\n$usage\n" unless scalar(@files) > 0;
 #print Dumper(\@files);
 #die;
 
 foreach my $f (@files) {
 	next if "$f" =~ /_NTC.txt/i;
-	open my $fh, "<", "$f" or die "Unable to open $f: $!\n";
-	while (my $line = <$fh>) {
+	open my $infh, "<", "$f" or die "Unable to open $f for reading: $!\n";
+	while (my $line = <$infh>) {
 		chomp $line;
 		my ($runid, $sample_id, $varname, $prop) = split /\t/, "$line", -1;
 		next unless defined $runid and $runid ne "";
@@ -123,27 +129,30 @@ foreach my $f (@files) {
 		$props{"$sample_id"}->{"$runid"} = {} unless defined $props{"$sample_id"}->{"$runid"};
 		$props{"$sample_id"}->{"$runid"}->{"$varname"} = $prop;
 	}
-	close $fh;
+	close $infh;
 }
 
 #print Dumper(\%props);
 #die;
 
-print "sample_id\tsbatch_id\tvariant\tproportion\taliases\n";
+open my $outfh, ">", "$outdir/update.seqr.txt" or die "Unable to open $outdir/update.seqr.txt for writing: $!\n";
+
+print $outfh "sample_id\tsbatch_id\tvariant\tproportion\taliases\n";
 foreach my $sample_id (keys %props) {
 	foreach my $runid (keys %{$props{"$sample_id"}}) {
 		foreach my $varname (keys %{$props{"$sample_id"}->{"$runid"}}) {
 			my $astring = "$varname";
 			$astring .= "," . join(",", keys(%{$aliases{"$varname"}})) if defined $aliases{"$varname"};
 			
-			print "$sample_id\t";
-			print "$runid\t";
-			print "$varname\t";
-			print "$props{$sample_id}->{$runid}->{$varname}\t";
-			print "$astring\n";
+			print $outfh "$sample_id\t";
+			print $outfh "$runid\t";
+			print $outfh "$varname\t";
+			print $outfh "$props{$sample_id}->{$runid}->{$varname}\t";
+			print $outfh "$astring\n";
 		}
 	}
 }
+close $outfh;
 
 exit $status;
 

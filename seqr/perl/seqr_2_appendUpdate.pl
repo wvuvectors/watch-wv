@@ -17,14 +17,15 @@ $progname =~ s/^.*?([^\/]+)$/$1/;
 my $usage = "\n";
 $usage   .= "Usage: $progname [options]\n";
 $usage   .=  "Using the sequence demix proportion file (-i), update the seqr database in the given outdir (-o).\n";
-$usage   .=   "  [-i --infile]    Path to the update table.\n";
+$usage   .=   "  [-d --dbdir]    Path to the folder that contains the full seqr database file(s).\n";
+$usage   .=   "  [-u --update]    Path to the folder that contains the update file(s).\n";
 $usage   .=   "  [-o --outdir]    Path to the output directory.\n";
 $usage   .=   "  [-w --watchdb]   Path to the watch database directory to inform the update (default: ../patchr/data/latest).\n";
 $usage   .=   "  [-r --relineage] Recalculate the parental and lineage assignments for all entries.\n";
 $usage   .=   "\n";
 
-my ($infile, $outdir);
-my $dbdir = "../patchr/data/latest";
+my ($dbdir, $updir, $outdir);
+my $watchdir = "../patchr/data/latest";
 my $relin = 0;
 
 my %aliases  = ();	# Stores info about variant aliases.
@@ -42,24 +43,32 @@ while (@ARGV) {
   my $arg = shift;
   if ($arg eq "-h") {
 		die $usage;
-  } elsif ("$arg" eq "-i" or "$arg" eq "--infile") {
-		defined ($infile = shift) or die "FATAL: Malformed argument to -i in $progname.\n$usage\n";
+  } elsif ("$arg" eq "-d" or "$arg" eq "--dbdir") {
+		defined ($dbdir = shift) or die "FATAL: Malformed argument to -d in $progname.\n$usage\n";
+  } elsif ("$arg" eq "-u" or "$arg" eq "--update") {
+		defined ($updir = shift) or die "FATAL: Malformed argument to -u in $progname.\n$usage\n";
   } elsif ("$arg" eq "-o" or "$arg" eq "--outdir") {
 		defined ($outdir = shift) or die "FATAL: Malformed argument to -o in $progname.\n$usage\n";
   } elsif ("$arg" eq "-w" or "$arg" eq "--watchdb") {
-		defined ($dbdir = shift) or die "FATAL: Malformed argument to -w in $progname.\n$usage\n";
+		defined ($watchdir = shift) or die "FATAL: Malformed argument to -w in $progname.\n$usage\n";
   } elsif ("$arg" eq "-r" or "$arg" eq "--relineage") {
 		$relin = 1;
 	}
 }
 
-die "FATAL: An update file containing demix data must be provided (-i).\n$usage\n" unless defined $infile;
-die "FATAL: Update file $infile is not a readable file.\n$usage\n" unless -f $infile;
+die "FATAL: A directory containing the FULL seqr datbase must be provided (-d).\n$usage\n" unless defined $dbdir;
+die "FATAL: Seqr database dir $dbdir is not a readable dir.\n$usage\n" unless -d "$dbdir";
+die "FATAL: Seqr database file $dbdir/watchdb.seqr.txt is not a readable file.\n$usage\n" unless -f "$dbdir/watchdb.seqr.txt";
 
-die "FATAL: An output directory for the seqrdb tables must be provided (-o).\n$usage\n" unless defined $outdir;
+die "FATAL: A directory containing the seqr datbase UPDATE must be provided (-u).\n$usage\n" unless defined $updir;
+die "FATAL: Update dir $updir is not a readable dir.\n$usage\n" unless -d "$updir";
+die "FATAL: Update file $updir/update.seqr.txt is not a readable file.\n$usage\n" unless -f "$updir/update.seqr.txt";
+
+die "FATAL: An output directory for the new db version must be provided (-o).\n$usage\n" unless defined $outdir;
 die "FATAL: Output directory $outdir is not a readable directory.\n$usage\n" unless -d $outdir;
 
-die "FATAL: watchDB directory $dbdir is not a readable directory.\n$usage\n" unless -d $dbdir;
+
+die "FATAL: watchDB directory $watchdir is not a readable directory.\n$usage\n" unless -d "$watchdir";
 
 
 
@@ -120,7 +129,7 @@ close $fhI;
 
 
 
-# Read in the latest seqr database file to populate the props hash.
+# Read in the latest seqr file to populate the props hash.
 # sample_id
 # sbatch_id
 # location
@@ -132,45 +141,43 @@ close $fhI;
 # variant_aliases
 # variant_proportion
 #
-if (-f "data/latest/seqrdb.txt") {
-	open my $fhV, "<", "data/latest/seqrdb.txt" or die "Unable to open data/latest/seqrdb.txt for reading: $!\n";
-	while (my $line = <$fhV>) {
-		next if "$line" =~ /^sample_id/;
-		chomp $line;
+open my $fhV, "<", "$dbdir/watchdb.seqr.txt" or die "Unable to open $dbdir/watchdb.seqr.txt for reading: $!\n";
+while (my $line = <$fhV>) {
+	next if "$line" =~ /^sample_id/;
+	chomp $line;
 
-		my @cols = split /\t/, "$line", -1;
+	my @cols = split /\t/, "$line", -1;
 
-		# Recalcuate the lineage group for previous variants, if that flag is set by the user.
-		if ($relin == 1) {
-			my $alist = makeAliases("$cols[7]");
-			$cols[8] = "$alist";
-			$cols[6] = makeLineageGroup("$alist");
-		}
-		
-		# Add the data to the props hash, keyed on sample id, run id, and variant.
-		$props{"$cols[0]"} = {} unless defined $props{"$cols[0]"};
-		$props{"$cols[0]"}->{"$cols[1]"} = {} unless defined $props{"$cols[0]"}->{"$cols[1]"};
-		$props{"$cols[0]"}->{"$cols[1]"}->{"$cols[7]"} = {
-			"aliases"       => "$cols[8]", 
-			"proportion"    => $cols[9], 
-			"lineage_group" => "$cols[6]"
-		};
-		
-		# Add the sample metadata to the metadata hash, to minimize redundancy.
-		$metadata{"$cols[0]"} = {
-			"sample_id" => "$cols[0]",
-			"location"  => "$cols[2]",
-			"county"    => "$cols[3]",
-			"sample_collection_start_datetime" => "$cols[4]",
-			"sample_collection_end_datetime"   => "$cols[5]"
-		} unless defined $metadata{"$cols[0]"};
+	# Recalcuate the lineage group for previous variants, if that flag is set by the user.
+	if ($relin == 1) {
+		my $alist = makeAliases("$cols[7]");
+		$cols[8] = "$alist";
+		$cols[6] = makeLineageGroup("$alist");
 	}
-	close $fhV;
+	
+	# Add the data to the props hash, keyed on sample id, run id, and variant.
+	$props{"$cols[0]"} = {} unless defined $props{"$cols[0]"};
+	$props{"$cols[0]"}->{"$cols[1]"} = {} unless defined $props{"$cols[0]"}->{"$cols[1]"};
+	$props{"$cols[0]"}->{"$cols[1]"}->{"$cols[7]"} = {
+		"aliases"       => "$cols[8]", 
+		"proportion"    => $cols[9], 
+		"lineage_group" => "$cols[6]"
+	};
+	
+	# Add the sample metadata to the metadata hash, to minimize redundancy.
+	$metadata{"$cols[0]"} = {
+		"sample_id" => "$cols[0]",
+		"location"  => "$cols[2]",
+		"county"    => "$cols[3]",
+		"sample_collection_start_datetime" => "$cols[4]",
+		"sample_collection_end_datetime"   => "$cols[5]"
+	} unless defined $metadata{"$cols[0]"};
 }
+close $fhV;
 
 
 
-# Read in the seqrdb update file.
+# Read in the seqr update file.
 # sample_id
 # sbatch_id
 # variant
@@ -178,7 +185,7 @@ if (-f "data/latest/seqrdb.txt") {
 # aliases
 #
 my $linenum = 0;
-open my $fhU, "<", "$infile" or die "Unable to open $infile: $!\n";
+open my $fhU, "<", "$updir/update.seqr.txt" or die "Unable to open $updir/update.seqr.txt for reading: $!\n";
 while (my $line = <$fhU>) {
 	chomp $line;
 	
@@ -228,7 +235,7 @@ my %resources = (
 foreach my $table (keys %tables) {
 	$linenum = 0;
 	my @headers = ();
-	open (my $tFH, "<", "$dbdir/watchdb.$table.txt") or die "Unable to open $dbdir/watchdb.$table.txt for reading: $!\n";
+	open (my $tFH, "<", "$watchdir/watchdb.$table.txt") or die "Unable to open $watchdir/watchdb.$table.txt for reading: $!\n";
 	while (my $line = <$tFH>) {
 		chomp $line;
 		next if $line =~ /^\s*$/;
@@ -343,9 +350,10 @@ foreach my $sample_id (keys %metadata) {
 }
 
 
-# Write the updated seqrdb file to $outdir.
+
+# Write the updated seqr file to $outdir.
 #
-open my $fho, ">", "$outdir/seqrdb.txt" or die "Unable to open $outdir/seqrdb.txt for writing: $!\n";
+open my $fho, ">", "$outdir/watchdb.seqr.txt" or die "Unable to open $outdir/watchdb.seqr.txt for writing: $!\n";
 print $fho "sample_id\tsbatch_id\tlocation\tcounty\tsample_collection_start_datetime\tsample_collection_end_datetime\tlineage_group\tvariant\tvariant_aliases\tvariant_proportion\n";
 foreach my $sample_id (keys %props) {
 	foreach my $sbid (keys %{$props{"$sample_id"}}) {

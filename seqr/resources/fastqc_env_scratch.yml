@@ -1,5 +1,0 @@
-name: fastqc_env_scratch
-channels:
-  - bioconda
-dependencies:
-  - fastqc
