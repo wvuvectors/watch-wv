@@ -277,7 +277,13 @@ foreach my $region (keys %ordered_means) {
 					$sum += $this_arr->[$i];
 				}
 				my $mean_comp = $sum / $comp;
-				$pct_ch = 100 * ($this_arr->[0] - $mean_comp)/$mean_comp;
+				if ($mean_comp == 0) {
+					warn "The sum of the ordered means for target '$targ' from region '$region' is 0!";
+					print "$region\t$targ\tNA\tNA\n";
+					next;
+				} else {
+					$pct_ch = 100 * ($this_arr->[0] - $mean_comp)/$mean_comp;
+				}
 			}
 			
 			# More than one abundance value: look for trend.
