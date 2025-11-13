@@ -279,7 +279,7 @@ foreach my $region (keys %ordered_means) {
 				my $mean_comp = $sum / $comp;
 				if ($mean_comp == 0) {
 					warn "The sum of the ordered means for target '$targ' from region '$region' is 0!";
-					print "$region\t$targ\tNA\tNA\n";
+					print "$region\t$targ\t0\tSTABLE\n";
 					next;
 				} else {
 					$pct_ch = 100 * ($this_arr->[0] - $mean_comp)/$mean_comp;

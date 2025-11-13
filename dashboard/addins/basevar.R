@@ -15,7 +15,7 @@ VIEW_RANGES <- c(1, 3, 6, 12, 24)
 DATE_BREAKS <- c("5 days", "15 days", "1 month", "2 months", "4 months")
 DATE_LABELS <- c("%d-%b", "%d-%b", "%b '%y", "%b '%y", "%b '%y")
 
-VIEW_RANGE_PRIMARY <- 6
+VIEW_RANGE_PRIMARY <- 12
 
 MAP_CENTER <- list2env(list(lat = 38.95, lng = -80.2, zoom = 7))
 

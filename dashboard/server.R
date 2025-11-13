@@ -371,6 +371,9 @@ shinyServer(function(input, output, session) {
 		
 		if (nrow(df_plot) > 0) {
 			
+			# Calculate a 4-period rolling mean, aligned to the center, filling with NA
+			df_plot$rollmean <- rollmean(df_plot$val, k = 4, fill = NA, align = "right")
+	
 			largest_val <- max(df_plot$val+10, na.rm=TRUE)
 			
 			# Calculate the mean signal for each target over the last 3 months and last year.
@@ -386,11 +389,16 @@ shinyServer(function(input, output, session) {
 												plot_theme() + 
 												labs(x = NULL, y = NULL, color = NULL) + 
 												annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#bfbfbf") + 
-												annotate("text", x = gos_dates[1]+10, y = largest_val+10, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
-												geom_hline(aes(yintercept=trend03, text=paste0("Most recent 3 months: ", prettyNum(trend03, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.5) + 
-												geom_hline(aes(yintercept=trend12, text=paste0("Most recent year:", prettyNum(trend12, big.mark=",", digits=1), " particles/person", sep="")), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.5) + 
-												geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles/person (on average).", sep="")), shape = 1, size = 2, alpha=0.9) + 
-												geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
+												annotate("text", x = gos_dates[1]-23, y = largest_val+5, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
+												geom_hline(aes(yintercept=trend03), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.8) + 
+												annotate("text", x = gos_dates[1]-50, y = trend03+5, color=TRENDL_03_COLOR, size = 2.5, family = "Arial", label = "3 month mean") + 
+												geom_hline(aes(yintercept=trend12), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.8) + 
+												annotate("text", x = gos_dates[1]-30, y = trend12+5, color=TRENDL_12_COLOR, size = 2.5, family = "Arial", label = "12 month mean") + 
+												geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles.", sep="")), shape = 21, color="#444444", fill="#444444", size = 1, alpha=0.4) + 
+#												geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
+#												geom_col(aes(x = date_to_plot, y = val), fill=TRENDL_12_COLOR, alpha=1.0) + 
+											  geom_area(aes(x = date_to_plot, y = rollmean), outline.type="upper", alpha=0.5, color = "#676767", linewidth=0.5, na.rm = TRUE)
+#												geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
 			
 			#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
 		} else {
@@ -867,7 +875,7 @@ shinyServer(function(input, output, session) {
 				data = dflist_map_c[[colorByIndex]], 
 				layerId = ~NAME,
 				fill = TRUE,
-				fillColor = ~trend_color, 
+				fillColor = ~abundance_color, 
 				fillOpacity = 0.4, 
 				stroke = TRUE, 
 				color = "#000000", 
@@ -878,29 +886,7 @@ shinyServer(function(input, output, session) {
 					weight = 2,
 					color = "#00F900",
 					#dashArray = "",
-					fillOpacity = 0.5)) %>% 
-			addCircles(
-				data = dflist_map_f[[colorByIndex]],
-				layerId = ~location_id, 
-				lat = ~location_lat, 
-				lng = ~location_lng, 
-				radius = ~dotsize, 
-				stroke = TRUE,
-				weight = 2, 
-				opacity = 0.9,
-				color = "#000000",
-				fill = TRUE,
-				fillColor = ~trend_color,
-				fillOpacity = 0.9,
-				group = "facility", 
-				label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-				highlightOptions = highlightOptions(
-					weight = 0.5,
-					color = "#00F900",
-					#dashArray = "",
-					fillOpacity = 1.0,
-					bringToFront = TRUE))
-
+					fillOpacity = 0.5))
 	}
 	
 
@@ -1007,39 +993,19 @@ shinyServer(function(input, output, session) {
 					data = dflist_map_c[[1]], 
 					layerId = ~NAME,
 					fill = TRUE,
-					fillColor = ~trend_color, 
-					fillOpacity = 0.4, 
+					fillColor = ~abundance_color, 
+					fillOpacity = 0.5, 
 					stroke = TRUE, 
-					color = "#000000", 
-					weight = 2, 
+					color = ~trend_color, 
+					#color = "#000000", 
+					weight = 3, 
 					group="county",
 					label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
 					highlightOptions = highlightOptions(
 						weight = 2,
 						color = "#00F900",
 						#dashArray = "",
-						fillOpacity = 0.5)) %>% 
-				addCircles(
-					data = dflist_map_f[[1]],
-					layerId = ~location_id, 
-					lat = ~location_lat, 
-					lng = ~location_lng, 
-					radius = ~dotsize, 
-					stroke = TRUE,
-					weight = 2, 
-					opacity = 0.9,
-					color = "#000000",
-					fill = TRUE,
-					fillColor = ~trend_color,
-					fillOpacity = 0.9,
-					group = "facility", 
-					label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-					highlightOptions = highlightOptions(
-						weight = 0.5,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 1.0,
-						bringToFront = TRUE))
+						fillOpacity = 0.5))
 	})
 
 
@@ -1051,7 +1017,7 @@ shinyServer(function(input, output, session) {
 					data = dflist_map_c[[2]], 
 					layerId = ~NAME,
 					fill = TRUE,
-					fillColor = ~trend_color, 
+					fillColor = ~abundance_color, 
 					fillOpacity = 0.4, 
 					stroke = TRUE, 
 					color = "#000000", 
@@ -1062,28 +1028,7 @@ shinyServer(function(input, output, session) {
 						weight = 2,
 						color = "#00F900",
 						#dashArray = "",
-						fillOpacity = 0.5)) %>% 
-				addCircles(
-					data = dflist_map_f[[2]],
-					layerId = ~location_id, 
-					lat = ~location_lat, 
-					lng = ~location_lng, 
-					radius = ~dotsize, 
-					stroke = TRUE,
-					weight = 2, 
-					opacity = 0.9,
-					color = "#000000",
-					fill = TRUE,
-					fillColor = ~trend_color,
-					fillOpacity = 0.9,
-					group = "facility", 
-					label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-					highlightOptions = highlightOptions(
-						weight = 0.5,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 1.0,
-						bringToFront = TRUE))
+						fillOpacity = 0.5))
 	})
 
 
@@ -1095,7 +1040,7 @@ shinyServer(function(input, output, session) {
 					data = dflist_map_c[[4]], 
 					layerId = ~NAME,
 					fill = TRUE,
-					fillColor = ~trend_color, 
+					fillColor = ~abundance_color, 
 					fillOpacity = 0.4, 
 					stroke = TRUE, 
 					color = "#000000", 
@@ -1106,28 +1051,7 @@ shinyServer(function(input, output, session) {
 						weight = 2,
 						color = "#00F900",
 						#dashArray = "",
-						fillOpacity = 0.5)) %>% 
-				addCircles(
-					data = dflist_map_f[[4]],
-					layerId = ~location_id, 
-					lat = ~location_lat, 
-					lng = ~location_lng, 
-					radius = ~dotsize, 
-					stroke = TRUE,
-					weight = 2, 
-					opacity = 0.9,
-					color = "#000000",
-					fill = TRUE,
-					fillColor = ~trend_color,
-					fillOpacity = 0.9,
-					group = "facility", 
-					label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-					highlightOptions = highlightOptions(
-						weight = 0.5,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 1.0,
-						bringToFront = TRUE))
+						fillOpacity = 0.5))
 	})
 
 
@@ -1139,7 +1063,7 @@ shinyServer(function(input, output, session) {
 					data = dflist_map_c[[5]], 
 					layerId = ~NAME,
 					fill = TRUE,
-					fillColor = ~trend_color, 
+					fillColor = ~abundance_color, 
 					fillOpacity = 0.4, 
 					stroke = TRUE, 
 					color = "#000000", 
@@ -1150,28 +1074,7 @@ shinyServer(function(input, output, session) {
 						weight = 2,
 						color = "#00F900",
 						#dashArray = "",
-						fillOpacity = 0.5)) %>% 
-				addCircles(
-					data = dflist_map_f[[5]],
-					layerId = ~location_id, 
-					lat = ~location_lat, 
-					lng = ~location_lng, 
-					radius = ~dotsize, 
-					stroke = TRUE,
-					weight = 2, 
-					opacity = 0.9,
-					color = "#000000",
-					fill = TRUE,
-					fillColor = ~trend_color,
-					fillOpacity = 0.9,
-					group = "facility", 
-					label = ~as.character(paste0(location_common_name, " (" , abundance_level, " & ", trend, ")")), 
-					highlightOptions = highlightOptions(
-						weight = 0.5,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 1.0,
-						bringToFront = TRUE))
+						fillOpacity = 0.5))
 	})
 
 
