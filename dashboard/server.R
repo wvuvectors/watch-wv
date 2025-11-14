@@ -294,7 +294,8 @@ shinyServer(function(input, output, session) {
 							 group_by(date_to_plot) %>% 
 							 arrange(date_to_plot) %>%
 							 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
-												date_primary := date_primary)
+												date_primary := date_primary, 
+												epi_week := epi_week)
 
 		#print("Content of df_this from getAbundanceData:")
 		#print(df_this)
@@ -394,12 +395,13 @@ shinyServer(function(input, output, session) {
 												annotate("text", x = gos_dates[1]-50, y = trend03+5, color=TRENDL_03_COLOR, size = 2.5, family = "Arial", label = "3 month mean") + 
 												geom_hline(aes(yintercept=trend12), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.8) + 
 												annotate("text", x = gos_dates[1]-30, y = trend12+5, color=TRENDL_12_COLOR, size = 2.5, family = "Arial", label = "12 month mean") + 
-												geom_point(aes(x = date_to_plot, y = val, text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles.", sep="")), shape = 21, color="#444444", fill="#444444", size = 1, alpha=0.4) + 
-#												geom_point(aes(x = date_to_plot, y = val), shape = 1, size = 2, alpha=0.9) + 
+												geom_point(aes(x = date_to_plot, y = val, text=paste0("Epi week ", epi_week, " (", prettyNum(val, big.mark=",", digits=1), ")")), shape = 21, color="#444444", fill="#444444", size = 1, alpha=0.4) + 
 #												geom_col(aes(x = date_to_plot, y = val), fill=TRENDL_12_COLOR, alpha=1.0) + 
 											  geom_area(aes(x = date_to_plot, y = rollmean), outline.type="upper", alpha=0.5, color = "#676767", linewidth=0.5, na.rm = TRUE)
 #												geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
 			
+# "Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles.", sep=""
+
 			#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
 		} else {
 			gplot <- ggplot()
@@ -699,11 +701,19 @@ shinyServer(function(input, output, session) {
 				
 			} else {
 				most_recent_sample_date <- max(df_fresh$date_to_plot, na.rm=TRUE)
-				most_recent_sample_win <- c(most_recent_sample_date-7, most_recent_sample_date)
+				
+				most_recent_sample_win <- c(
+					floor_date(most_recent_sample_date, "week", week_start = 7), 
+					floor_date(most_recent_sample_date, "week", week_start = 7) + 6
+				)
+				epi_week <- lubridate::epiweek(most_recent_sample_date)
+
 		
 				sample_freshness_text <- paste0(
-					printy_dates(most_recent_sample_win[1]), 
-					" - ", printy_dates(most_recent_sample_win[2]), 
+					"week ", epi_week, 
+					" (", 
+					printy_dates(most_recent_sample_win[1]), " - ", printy_dates(most_recent_sample_win[2]), 
+					")",
 					sep="")
 		
 				# Calculate the completeness of the abundance data.
@@ -728,10 +738,19 @@ shinyServer(function(input, output, session) {
 	
 					if (nrow(df_fresh_sq) > 0) {
 						most_recent_sample_date_sq <- max(df_fresh_sq$date_to_plot, na.rm=TRUE)
-						most_recent_sample_win_sq <- c(most_recent_sample_date_sq-7, most_recent_sample_date_sq)
+						most_recent_sample_win_sq <- c(
+							floor_date(most_recent_sample_date_sq, "week", week_start = 7), 
+							floor_date(most_recent_sample_date_sq, "week", week_start = 7) + 6
+						)
+						epi_week_sq <- lubridate::epiweek(most_recent_sample_date_sq)
+		
+				
 						sample_freshness_text_sq <- paste0(
-							printy_dates(most_recent_sample_win_sq[1]), " - ", 
-							printy_dates(most_recent_sample_win_sq[2]), sep="")
+							"week ", epi_week_sq, 
+							" (", 
+							printy_dates(most_recent_sample_win_sq[1]), " - ", printy_dates(most_recent_sample_win_sq[2]), 
+							")",
+							sep="")
 	
 						most_recent_contributors_sq <- df_fresh_sq %>% filter(date_to_plot == most_recent_sample_date_sq)
 						most_recent_contributor_count_sq <- length(unique(most_recent_contributors_sq$location_id))

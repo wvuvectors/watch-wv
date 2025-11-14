@@ -56,7 +56,7 @@ fi
 
 if [ -z "$readsDIR" ]; then
 	echo "Missing a valid input directory of reads (-i)!"
-	echo "This is usually the directory that contains the \'fastq_pass\' folder (among others)."
+	echo "This is usually the directory that *contains* the \'fastq_pass\' folder (among others)."
 	echo "This is a required parameter with no default, so I'm forced to quit. Sorry."
 	exit 1
 fi
@@ -68,7 +68,7 @@ if [ -z "$fr_barcodesFILE" ]; then
 	exit 1
 fi
 
-cd $SCRATCH/watch-wv/seqsars/
+cd $SCRATCH/watch-wv/seqr/
 
 
 # This process utilizes conda environments, so we need to load the conda profile script before anything else.

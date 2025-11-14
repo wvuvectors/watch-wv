@@ -40,7 +40,7 @@ while getopts ":hr:i:f:o:c:" opt; do
 	esac
 done
 
-refGenome="../resources/NC_045512_Hu-1.fasta"
+refGenome="resources/NC_045512_Hu-1.fasta"
 
 # Required parameters that have NO default value.
 #

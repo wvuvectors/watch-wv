@@ -25,6 +25,9 @@ Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
 #today <- as.Date("2022-07-12")
 
+this_epiweek <- lubridate::epiweek(today)
+
+
 county_spdf <- read_sf(paste0(RES_BASE, "/shapefiles/wv_counties/WV_Counties.shp"))
 
 # Load data files
@@ -84,15 +87,18 @@ df_seqr$date_primary <- as.Date(df_seqr$sample_collection_end_datetime)
 
 # Add some date objects, for use in summary stats.
 #
-df_pcr$mmr_year <- lubridate::year(df_pcr$date_primary)
-df_pcr$mmr_week <- lubridate::week(df_pcr$date_primary)
-df_pcr$week_starting <- floor_date(df_pcr$date_primary, "week", week_start = 1)
-df_pcr$week_ending <- ceiling_date(df_pcr$date_primary, "week", week_start = 1)
 
-df_seqr$mmr_year <- lubridate::year(df_seqr$date_primary)
-df_seqr$mmr_week <- lubridate::week(df_seqr$date_primary)
-df_seqr$week_starting <- floor_date(df_seqr$date_primary, "week", week_start = 1)
-df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 1)
+df_pcr$epi_week <- lubridate::epiweek(df_pcr$date_primary)
+
+df_pcr$week_starting <- floor_date(df_pcr$date_primary, "week", week_start = 7)
+df_pcr$week_ending <- df_pcr$week_starting+6
+#df_pcr$week_ending <- ceiling_date(df_pcr$date_primary, "week", week_start = 7)
+
+df_seqr$epi_week <- lubridate::epiweek(df_seqr$date_primary)
+
+df_seqr$week_starting <- floor_date(df_seqr$date_primary, "week", week_start = 7)
+df_seqr$week_ending <- df_seqr$week_starting+6
+#df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 7)
 
 
 # Assign overarching lineage groups to our seqr data.
@@ -130,7 +136,7 @@ df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.n
 #
 df_rs$date_to_plot <- df_rs$week_ending
 df_seqr$date_to_plot <- df_seqr$week_ending
-this_week <- ceiling_date(today, "week", week_start = 1)
+this_week <- floor_date(today, "week", week_start = 7) + 6
 
 # Use this block instead if you want to refer everything to the start of the week
 #
