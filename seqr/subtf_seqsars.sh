@@ -9,24 +9,30 @@
 
 START=$(date "+%F_%H-%M")
 
-while getopts ":hr:i:f:o:" opt; do
+while getopts ":hi:r:b:g:o:" opt; do
 	case $opt in
 		h)
 			echo "help not available."
 			exit 1
 			;;
+		i)
+			runDIR=$OPTARG
+			;;
 		r)
 			runID=$OPTARG
 			;;
-		i)
-			readsDIR=$OPTARG
+		b)
+			usher_barcodesFILE=$OPTARG
 			;;
-		f)
-			fr_barcodesFILE=$OPTARG
+		g)
+			refGenomeFILE=$OPTARG
 			;;
 		o)
 			outDIR=$OPTARG
 			;;
+# 		c)
+# 			condaDIR=$OPTARG
+# 			;;
 		\?)
 			echo "Invalid option: -$OPTARG" >&2
 			exit 1
@@ -38,35 +44,47 @@ while getopts ":hr:i:f:o:" opt; do
 	esac
 done
 
+
+# Required parameters that have NO default value.
+#
+if [ -z "$runDIR" ]; then
+	echo "Missing a valid input run directory (-i)!"
+	echo "This is usually the parent run folder that contains the \'fastq_pass\' folder (among others)."
+	echo "This is a required parameter with no default, so I'm forced to quit immediately. Sorry."
+	exit 1
+fi
+
+
+# Required parameters for which I can try to provide a default value.
+#
+
+if [ -z "$usher_barcodesFILE" ]; then
+	usher_barcodesFILE="resources/usher_barcodes.csv"
+fi
+
+if [ -z "$refGenomeFILE" ]; then
+	refGenomeFILE="resources/NC_045512_Hu-1.fasta"
+fi
+
 if [ -z "$runID" ]; then
-	echo "Missing a valid run ID (-r)!"
-	echo "I'm going to use a default \'RUNON_$START\' but be aware:"
+	echo "You have not provided a custom run ID (-r)."
+	echo "I'm going to use the default \'RUNON_$START\' but be aware:"
 	echo "this run ID contains the date the analysis was started, not the date of sequencing."
 	runID="RUNON_$START"
 fi
 
 if [ -z "$outDIR" ]; then
-	echo "Missing a valid output directory (-o)!"
-	echo "Writing output to the default dir of \'output/$runID/\'."
-	echo "You MUST move this dir out of the git repository BEFORE committing! MUST!"
-	echo "If you fail to do so, the data push to github will FAIL (it's too big)."
+	echo "You have not provided a custom output directory (-o)."
+	echo "I will write all output to the default dir of \'output/$runID/\'"
 	outDIR="output/$runID"
 fi
 
+# if [ -z "$condaDIR" ]; then
+# 	echo "Missing a valid conda environment directory (-c)!"
+# 	echo "I'll try to use the current directory, but if you get a conda environment error that might be why."
+# 	condaDIR="."
+# fi
 
-if [ -z "$readsDIR" ]; then
-	echo "Missing a valid input directory of reads (-i)!"
-	echo "This is usually the directory that *contains* the \'fastq_pass\' folder (among others)."
-	echo "This is a required parameter with no default, so I'm forced to quit. Sorry."
-	exit 1
-fi
-
-if [ -z "$fr_barcodesFILE" ]; then
-	echo "Missing a valid freyja barcodes file (-f)!"
-	echo "This is usually located in the project resources folder and has a \'.feather\' extension."
-	echo "This is a required parameter with no default, so I'm forced to quit. Sorry."
-	exit 1
-fi
 
 cd $SCRATCH/watch-wv/seqr/
 
@@ -81,7 +99,6 @@ source /shared/software/conda/etc/profile.d/conda.sh
 # It also means the first 50 or so lines of this script are duplicated in the called script; 
 # however, we don't anticipate those lines will change often (if ever).
 #
-./sh/seqsars.sh -r "$runID" -i "$readsDIR" -f "$fr_barcodesFILE" -o "$outDIR" #-c "$SCRATCH/conda"
-#usher_barcodes09_05_2024-00-47.feather
+./sh/seqsars.sh -i "$runDIR" -r "$runID" -b "$usher_barcodesFILE" -g "$refGenomeFILE" -o "$outDIR" #-c "$SCRATCH/conda"
 
 

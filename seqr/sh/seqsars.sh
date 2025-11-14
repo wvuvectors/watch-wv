@@ -8,20 +8,23 @@
 
 START=$(date "+%F_%H-%M")
 
-while getopts ":hr:i:f:o:c:" opt; do
+while getopts ":hi:r:b:g:o:" opt; do
 	case $opt in
 		h)
 			echo "help not available."
 			exit 1
 			;;
+		i)
+			runDIR=$OPTARG
+			;;
 		r)
 			runID=$OPTARG
 			;;
-		i)
-			readsDIR=$OPTARG
+		b)
+			usher_barcodesFILE=$OPTARG
 			;;
-		f)
-			fr_barcodesFILE=$OPTARG
+		g)
+			refGenomeFILE=$OPTARG
 			;;
 		o)
 			outDIR=$OPTARG
@@ -40,34 +43,43 @@ while getopts ":hr:i:f:o:c:" opt; do
 	esac
 done
 
-refGenome="resources/NC_045512_Hu-1.fasta"
 
 # Required parameters that have NO default value.
 #
-if [ -z "$readsDIR" ]; then
-	echo "Missing a valid input directory of reads (-i)!"
-	echo "This is usually the directory that contains the \'fastq_pass\' folder (among others)."
-	echo "This is a required parameter with no default, so I'm forced to quit. Sorry."
-	exit 1
-fi
-
-if [ -z "$fr_barcodesFILE" ]; then
-	echo "Missing a valid freyja barcodes file (-f)!"
-	echo "This is usually located in the project resources folder and has a \'.feather\' extension."
-	echo "This is a required parameter with no default, so I'm forced to quit. Sorry."
-	exit 1
-fi
-
-if [ ! -f "$refGenome" ]; then
-	echo "Missing the  reference fasta file \'$refGenome\'!"
-	echo "Please add this file and try again."
-	echo "If a file by that name does exist, please check that it is readable."
+if [ -z "$runDIR" ]; then
+	echo "Missing a valid input run directory (-i)!"
+	echo "This is the parent run folder that contains the \'fastq_pass\' folder (among others)."
+	echo "This is a required parameter with no default, so I'm forced to quit immediately. Sorry."
 	exit 1
 fi
 
 
 # Required parameters for which I can try to provide a default value.
 #
+
+if [ -z "$usher_barcodesFILE" ]; then
+	usher_barcodesFILE="resources/usher_barcodes.csv"
+fi
+if [ ! -f "$usher_barcodesFILE" ]; then
+	echo "A valid USHER barcodes file for freyja was not provided (-b), so I tried the default $usher_barcodesFILE."
+	echo "Sadly, $usher_barcodesFILE either does not exist or cannot be read."
+	echo "The usher barcodes file is usually located in the project resources folder, and is named something akin to \'usher_barcodes.csv\'."
+	echo "You can try to download it directly from https://github.com/andersen-lab/Freyja/blob/main/freyja/data/usher_barcodes.csv."
+	echo "This is a required parameter, so I'm forced to quit immediately. Sorry."
+	exit 1
+fi
+
+if [ -z "$refGenomeFILE" ]; then
+	refGenomeFILE="resources/NC_045512_Hu-1.fasta"
+fi
+if [ ! -f "$refGenomeFILE" ]; then
+	echo "A valid reference genome file was not provided (-g), so I tried the default $refGenomeFILE."
+	echo "Sadly, $refGenomeFILE either does not exist or cannot be read."
+	echo "The reference genome file is usually located in the project resources folder, and is named something akin to \'NC_045512_Hu-1.fasta\'."
+	echo "This is a required parameter, so I'm forced to quit immediately. Sorry."
+	exit 1
+fi
+
 if [ -z "$runID" ]; then
 	echo "Missing a valid run ID (-r)!"
 	echo "I'm going to use a default \'RUNON_$START\' but be aware:"
@@ -78,8 +90,7 @@ fi
 if [ -z "$outDIR" ]; then
 	echo "Missing a valid output directory (-o)!"
 	echo "Writing output to the default dir of \'output/$runID/\'"
-	echo "You MUST move this dir out of the git repository BEFORE committing (or add it to the .ignore file)! MUST!"
-	echo "If you fail to do so, the data push to github will FAIL (it's too big)."
+	mkdir "output"
 	outDIR="output/$runID"
 fi
 
@@ -94,7 +105,7 @@ if [[ "$outDIR" == "output/$runID" ]]; then
 	echo ""
 	echo "WARNING! If $outDIR is \'output/$runID\' don't forget to MOVE IT out of the github repository ASAP."
 	echo "You MUST move this dir out of the git repository BEFORE committing! MUST!"
-	echo "If you fail to do so, the data push to github will FAIL (it's too big)."
+	echo "If you fail to do so, the next commit and push to github will FAIL (it's too big)."
 	echo ""
 	echo "You have been warned."
 	echo ""
@@ -118,7 +129,7 @@ mkdir "$outDIR/8 DASHBOARD"
 mkdir "$outDIR/9 SRA"
 
 
-for bcDir in "$readsDIR/barcode*"; do
+for bcDir in "$runDIR/fastq_pass/barcode*"; do
 	# Extract the barcode id to a variable $barcode.
 	if [[ $bcDir =~ barcode(\d+) ]]; then
 		barcode=${BASH_REMATCH[1]}
@@ -131,7 +142,7 @@ for bcDir in "$readsDIR/barcode*"; do
 
 		# Concatenate all the fastq.gz files into one file.
 		#
-		ls "$readsDIR/$bcDir/*.fastq.gz" | xargs cat > "$outdir/2 FQ_CONCAT/$bcDir.fastq.gz"
+		ls "$runDIR/fastq_pass/$bcDir/*.fastq.gz" | xargs cat > "$outdir/2 FQ_CONCAT/$bcDir.fastq.gz"
 
 
 		# Run fastqc on the original file.
@@ -159,7 +170,7 @@ for bcDir in "$readsDIR/barcode*"; do
 		# Map the reads to the reference genome.
 		#
 		conda activate "seqr_general"
-		minimap2 -ax map-ont "$refGenome" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" > "$outdir/6 MAPPED/${runID}_${bcDir}_tr.sam"
+		minimap2 -ax map-ont "$refGenomeFILE" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" > "$outdir/6 MAPPED/${runID}_${bcDir}_tr.sam"
 		
 		
 		# Convert to bam (binary sam), index, and write out some mapping statistics.
@@ -177,8 +188,8 @@ for bcDir in "$readsDIR/barcode*"; do
 		# Run freyja to identify SARS-CoV-2 variants.
 		#
 		conda activate "seqr_freyja"
-		freyja variants --variants "$outdir/7 DEMIX/variants_${runID}_${bcDir}" --depths "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --ref "$refGenome" "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"
-		freyja demix "$outdir/7 DEMIX/variants_${runID}_${bcDir}.tsv" "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --output "$outdir/7 DEMIX/demix_${runID}_${bcDir}" --barcodes "$fr_barcodesFILE"
+		freyja variants --variants "$outdir/7 DEMIX/variants_${runID}_${bcDir}" --depths "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --ref "$refGenomeFILE" "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"
+		freyja demix "$outdir/7 DEMIX/variants_${runID}_${bcDir}.tsv" "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --output "$outdir/7 DEMIX/demix_${runID}_${bcDir}" --barcodes "$usher_barcodesFILE"
 		conda deactivate 
 
 	fi
