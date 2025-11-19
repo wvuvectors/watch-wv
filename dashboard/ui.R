@@ -93,7 +93,7 @@ shinyUI(fluidPage(
 							fluidRow(
 								column(12,
 									div(
-										"It is now ", printy_dates(today), " (week ", this_epiweek, ").",
+										"It is now ", printy_dates(today), ".", 
 										style="font-size: 18px;padding-top: 10px;font-weight: 400;text-align: center;color: #333333;"
 									)
 								)
@@ -513,6 +513,14 @@ shinyUI(fluidPage(
 							fluidRow(
 								column(12,
 									div(
+										"It is now ", printy_dates(today), ".", 
+										style="font-size: 18px;padding-top: 10px;font-weight: 400;text-align: center;color: #333333;"
+									)
+								)
+							),
+							fluidRow(
+								column(12,
+									div(
 									"Latest Flu A abundance data for this region is from ",
 										style="font-size: 18px;padding-top: 10px;font-weight: 800;text-align: center;color: #000000;"
 									),
@@ -913,6 +921,14 @@ shinyUI(fluidPage(
 					fluidRow(
 						style = "padding-top: 4px;padding-bottom: 4px;margin-bottom: 12px; margin-left: 0px; margin-right: 0px;background-color: #fbfbfb;color: #000000;",
 						column(12,
+							fluidRow(
+								column(12,
+									div(
+										"It is now ", printy_dates(today), ".", 
+										style="font-size: 18px;padding-top: 10px;font-weight: 400;text-align: center;color: #333333;"
+									)
+								)
+							),
 							fluidRow(
 								column(12,
 									div(
