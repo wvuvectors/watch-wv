@@ -93,7 +93,7 @@ shinyUI(fluidPage(
 							fluidRow(
 								column(12,
 									div(
-										"It is now ", printy_dates(today), ".", 
+										paste0("Today is ", printy_dates(today), " (Week ", this_epiweek, ").", sep=""), 
 										style="font-size: 18px;padding-top: 10px;font-weight: 400;text-align: center;color: #333333;"
 									)
 								)
