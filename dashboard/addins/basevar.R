@@ -1,9 +1,9 @@
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)", "Human Norovirus GII (HuNoV-GII)", "Human Norovirus GI (HuNoV-GI)")
-DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "Norovirus GII", "Norovirus GI")
-#DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "NoVII", "NoVI")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+DISEASES <- c("COVID", "FluA", "FluB", "RSV")
+DISEASE_LABELS <- c("COVID", "Influenza A", "Influenza B", "RSV")
 
 # Do we need this?
-GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "ORF1_ORF2", "ORF1_ORF2")
+GENLOCI <- c("SC2", "M", "NEP/NS1", "N2")
 
 TRENDL_03_COLOR <- "#00B140"	# MU Green
 TRENDL_12_COLOR <- "#EAAA00"	# WVU Gold
@@ -12,7 +12,8 @@ TRENDL_12_COLOR <- "#EAAA00"	# WVU Gold
 #002855	# WVU Blue
 
 VIEW_RANGES <- c(1, 3, 6, 12, 24)
-DATE_BREAKS <- c("5 days", "15 days", "1 month", "2 months", "4 months")
+DATE_BREAKS <- c("5 days", "2 weeks", "1 month", "1 month", "4 months")
+DATE_BREAKS_MINOR <- c("1 day", "2 days", "1 week", "1 week", "2 weeks")
 DATE_LABELS <- c("%d-%b", "%d-%b", "%b '%y", "%b '%y", "%b '%y")
 
 VIEW_RANGE_PRIMARY <- 12
@@ -48,7 +49,7 @@ TREND_DESCRIPTIONS <- c(
 # [1] "#9E0142" "#D53E4F" "#F46D43" "#FDAE61" "#FEE08B" "#FFFFBF" "#E6F598" "#ABDDA4"
 # [9] "#66C2A5" "#3288BD" "#5E4FA2"
 
-MAP_COLORS <- c(c("COVID"), c("FLUA", "FLUB"), c("RSV"))
+MAP_COLORS <- c(c("COVID"), c("FLUA"), c("FLUB"), c("RSV"))
 MAP_COLORS_DEFAULT <- "COVID"
 
 abundance_level_colors = c("#3288BD", "#E6F598", "#FDAE61", "#D53E4F", "#EEEEEE")
