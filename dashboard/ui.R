@@ -35,7 +35,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "abundance_title_covid",
-								"Abundance",
+								textOutput("abundance_head_covid"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "abundance_text_covid",
@@ -45,7 +45,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "trend_title_covid",
-								"Trend",
+								textOutput("trend_head_covid"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "trend_text_covid",
@@ -55,7 +55,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "variant_title_covid",
-								"Variant",
+								textOutput("variant_head_covid"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "variant_text_covid",
@@ -131,10 +131,10 @@ shinyUI(fluidPage(
 							div(
 								#class = "map_embed",
 								style = "display: inline-block;font-size: 12px;font-weight: 800;text-align: center; width:110px;",
-								"Plot Most Recent:",
+								#"Plot Most Recent:",
 								selectInput(
 									"view_range",
-									label = NULL,
+									label = "Plot Most Recent:",
 									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
 									selected = VIEW_RANGE_PRIMARY
 								)
@@ -220,10 +220,11 @@ shinyUI(fluidPage(
 					fluidRow(
 						# alert blocks
 						style = "margin-top: 0px;", 
+						column(2),
 						column(4,
 							div(
 								id = "abundance_title_flua",
-								"Abundance",
+								textOutput("abundance_head_flua"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "abundance_text_flua",
@@ -233,23 +234,14 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "trend_title_flua",
-								"Trend",
+								textOutput("trend_head_flua"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "trend_text_flua",
 								textOutput("trend_flua"),
 								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
 						),
-						column(4,
-							div(
-								id = "variant_title_flua",
-								"Variant",
-								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
-							div(
-								id = "variant_text_flua",
-								textOutput("variant_flua"),
-								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
-						)
+						column(2)
 					), # fluidRow (alert blocks)
 					fluidRow(
 						# Alert details
@@ -387,7 +379,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "abundance_title_flub",
-								"Abundance",
+								textOutput("abundance_head_flub"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "abundance_text_flub",
@@ -397,7 +389,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "trend_title_flub",
-								"Trend",
+								textOutput("trend_head_flub"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "trend_text_flub",
@@ -542,7 +534,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "abundance_title_rsv",
-								"Abundance",
+								textOutput("abundance_head_rsv"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "abundance_text_rsv",
@@ -552,7 +544,7 @@ shinyUI(fluidPage(
 						column(4,
 							div(
 								id = "trend_title_rsv",
-								"Trend",
+								textOutput("trend_head_rsv"),
 								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
 							div(
 								id = "trend_text_rsv",

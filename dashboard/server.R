@@ -547,6 +547,37 @@ shinyServer(function(input, output, session) {
 
   
 	#
+	# Rollup location ids
+	#
+	
+	rollupLocations <- function(loc_id) {
+		
+		loc_ids <- c(loc_id)
+		
+		if ("WV" %in% loc_ids) {
+			# State specific elements
+			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
+			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
+			loc_name <- "West Virginia"
+		} else if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
+			# County specific elements
+			loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
+			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
+			county_name <- loc_id
+			loc_name <- paste0(loc_id, " county", sep="")
+		} else {
+			# Facility specific elements
+			loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
+			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
+			loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
+		}
+		
+		rval <- list(locIds=loc_ids, countyIds=county_ids, locName=loc_name)
+		return(rval)
+	}
+	
+	
+	#
 	# Update the alert status elements (usually on reaction to map click or site selection).
 	#
 	updateAlerts <- function() {
@@ -557,11 +588,22 @@ shinyServer(function(input, output, session) {
 		
 		# Get the current map click
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
+		rolled_locs <- rollupLocations(loc_id)
+		loc_ids <- rolled_locs$locIds
+		county_ids <- rolled_locs$countyIds
+		loc_name <- rolled_locs$locName
 		
 #	  print("1 updateAlerts called!")
 		
 		lapply(1:length(controlRV$targetVec), function(i) {
 			target_index <- controlRV$targetVec[i]
+			
+			df_fresh <- dflist_rs[[target_index]] %>% filter(location_id %in% loc_ids)
+			most_recent_sample_date <- max(df_fresh$date_to_plot, na.rm=TRUE)
+			epi_week <- lubridate::epiweek(most_recent_sample_date)
+			
+			abundance_head <- paste0("Abundance (W", epi_week ,")", sep="")
+			trend_head <- paste0("Trend (W", epi_week ,")", sep="")
 			
 			plotSuffix <- tolower(DISEASES[target_index])
 			#print(paste0("target index is ", target_index, " and plot suffix is ", plotSuffix, sep=""))
@@ -587,26 +629,46 @@ shinyServer(function(input, output, session) {
 					"document.getElementById('variant_text_", plotSuffix, "').style.backgroundColor = '", vec_variant[2], "';", sep="")
 				runjs(frunner2)
 				
+				df_fresh_sq <- df_seqr %>% filter(location_id %in% loc_ids)
+				variant_head <- paste0("Variant (W", epi_week ,")", sep="")
+
 				# Write the text blocks. Be nice to construct these variable names from visPlot but can't figure that out.
+				output$abundance_head_covid <- renderText(abundance_head)
 				output$abundance_covid <- renderText(vec_abundance[1])
+
+				output$trend_head_covid <- renderText(trend_head)
 				output$trend_covid <- renderText(vec_trend[1])
+
+				output$variant_head_covid <- renderText(variant_head)
 				output$variant_covid <- renderText(vec_variant[1])
+
 				output$alert_details_covid <- renderText(paste0(vec_abundance[3], " ", vec_trend[3], sep=""))
 			
 			} else if (target_index == 2) {
+				output$abundance_head_flua <- renderText(abundance_head)
 				output$abundance_flua <- renderText(vec_abundance[1])
+
+				output$trend_head_flua <- renderText(trend_head)
 				output$trend_flua <- renderText(vec_trend[1])
-				output$variant_flua <- renderText(vec_abundance[1])
+
 				output$alert_details_flua <- renderText(paste0(vec_abundance[3], " ", vec_trend[3], sep=""))
 			
 			} else if (target_index == 3) {
+				output$abundance_head_flub <- renderText(abundance_head)
 				output$abundance_flub <- renderText(vec_abundance[1])
+
+				output$trend_head_flub <- renderText(trend_head)
 				output$trend_flub <- renderText(vec_trend[1])
+
 				output$alert_details_flub <- renderText(paste0(vec_abundance[3], " ", vec_trend[3], sep=""))
 			
 			} else if (target_index == 4) {
+				output$abundance_head_rsv <- renderText(abundance_head)
 				output$abundance_rsv <- renderText(vec_abundance[1])
+
+				output$trend_head_rsv <- renderText(trend_head)
 				output$trend_rsv <- renderText(vec_trend[1])
+
 				output$alert_details_rsv <- renderText(paste0(vec_abundance[3], " ", vec_trend[3], sep=""))
 			
 			}
@@ -623,37 +685,12 @@ shinyServer(function(input, output, session) {
 	  #print("##### updateSelectionInfo called!")
 	  
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
+		rolled_locs <- rollupLocations(loc_id)
+
+		loc_ids <- rolled_locs$locIds
+		county_ids <- rolled_locs$countyIds
+		loc_name <- rolled_locs$locName
 		
-		# Rollup location ids into a vector, even if it is a single facility.
-		# Faciliates calculation of completenes and freshness.
-		# Default is a vector containing the facility location id.
-		loc_ids <- c(loc_id)
-		
-		if ("WV" %in% loc_ids) {
-			# State specific elements
-			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-			loc_name <- "West Virginia"
-
-		} else if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
-			# County specific elements
-			loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-			
-			county_name <- loc_id
-
-			loc_name <- paste0(loc_id, " county", sep="")
-
-		} else {
-			# Facility specific elements
-			loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-			county_name <- county_ids[[1]]
-			
-			loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
-			
-		}
-				
 		popserved_total <- sum(distinct(df_active_loc %>% filter(location_id %in% loc_ids), location_id, location_population_served)$location_population_served)
 		if (popserved_total == -1) {
 			popserved_total <- "UNK"
