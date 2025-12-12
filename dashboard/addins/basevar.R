@@ -3,7 +3,7 @@ DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "Norovirus GII", "Norovirus GI")
 #DISEASES <- c("COVID", "FLUA", "FLUB", "RSV", "NoVII", "NoVI")
 
 # Do we need this?
-GENLOCI <- c("SC2", "M", "NEP/NS1", "N2", "ORF1_ORF2", "ORF1_ORF2")
+GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G", "ORF1_ORF2", "ORF1_ORF2")
 
 TRENDL_03_COLOR <- "#00B140"	# MU Green
 TRENDL_12_COLOR <- "#EAAA00"	# WVU Gold

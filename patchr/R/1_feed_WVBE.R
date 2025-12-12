@@ -12,7 +12,7 @@ library(scales)
 library(lubridate)
 
 TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
-GENLOCI <- c("SC2", "M", "NEP/NS1", "N2")
+GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
 
 ALERT_LEVEL_THRESHOLDS <- c(0, 100, 150)
 ALERT_LEVEL_STRINGS <- c("LOW", "MODERATE", "HIGH", "VERY HIGH", "UNKNOWN")

@@ -60,7 +60,7 @@ my %targ2loci = (
 	"Influenza Virus B (FluB)" => {"NEP/NS1" => 1}, 
 	"Human Norovirus GII (HuNoV-GII)" => {"ORF1_ORF2" => 1}, 
 	"SARS-CoV-2" => {"SC2" => 1, "N2" => 1}, 
-	"Respiratory Syncitial Virus, Human (RSV)" => {"N2" => 1}
+	"Respiratory Syncitial Virus, Human (RSV)" => {"G" => 1}
 );
 
 my %infiles = ("../dashboard/data/watchdb.result.txt" => 1,
