@@ -81,7 +81,7 @@ NWSS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My 
 if [ -f "$NWSS_F" ]
 then
 	echo "******" | tee -a "$logf"
-	echo "Running 8a_MU2WVDash.pl." | tee -a "$logf"
+	echo "Running 8a_MU2WVDash.pl $NWSS_F." | tee -a "$logf"
 	echo "******" | tee -a "$logf"
 
 	./perl/8a_MU2WVDash.pl "$NWSS_F" | tee -a "$logf"

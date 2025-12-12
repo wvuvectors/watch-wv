@@ -107,7 +107,7 @@ df_pcr$target_copies_per_ldcap <- df_pcr$target_copies_per_ldcap/df_pcr$target_p
 df_pcr$target_per_capita_basis <- 1
 
 df_rs <- df_pcr %>% 
-	filter(tolower(event_type) == "routine surveillance" & !is.na(sample_flow)) %>% 
+	filter(tolower(event_type) == "routine surveillance" & !is.na(sample_flow) & target_genetic_locus %in% GENLOCI) %>% 
 	select(collection_end_datetime, assay_id, location_id, target, total_abundance = target_copies_flownorm, abundance_per_person = target_copies_fn_per_cap, epi_year, epi_week)
 
 # average over epi week and facility

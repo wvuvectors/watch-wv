@@ -61,6 +61,7 @@ df_active_loc$dotsize <- case_when(
 df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
 df_pcr <- df_pcr %>% filter(tolower(sample_qc) == "pass")
 df_pcr <- df_pcr %>% filter(tolower(target_result_validated) != "ntc above threshold")
+
 #df_pcr <- df_pcr %>% filter(location_id != "CheatLakeWWTP-01")
 
 df_seqr <- df_seqr %>% filter(tolower(sample_id) != "ntc")
@@ -130,7 +131,7 @@ df_pcr$target_copies_fn_per_cap <- df_pcr$target_copies_fn_per_cap/df_pcr$target
 df_pcr$target_copies_per_ldcap <- df_pcr$target_copies_per_ldcap/df_pcr$target_per_capita_basis
 df_pcr$target_per_capita_basis <- 1
 
-df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.na(sample_flow))
+df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.na(sample_flow) & target_genetic_locus %in% GENLOCI)
 
 # Assign a default date column for plotting data.
 #

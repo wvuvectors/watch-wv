@@ -178,7 +178,7 @@ shinyServer(function(input, output, session) {
 	
 	
 	getAbundance <- function(loc_id, target_index) {
-	  print("##### getAbundance called!")
+	  #print("##### getAbundance called!")
 
 		if (nrow(dflist_alerts[[target_index]]) < 1) {
 			return(c(ALERT_LEVEL_STRINGS[5], ALERT_LEVEL_COLORS[5]))
@@ -221,8 +221,8 @@ shinyServer(function(input, output, session) {
 	
 	
 	getTrend <- function(loc_id, target_index) {
-	  print("##### getTrend called!")
-		print((dflist_alerts[[target_index]] %>% filter(region_name == loc_id))$trend)
+	  #print("##### getTrend called!")
+		#print((dflist_alerts[[target_index]] %>% filter(region_name == loc_id))$trend)
 		
 		if (nrow(dflist_alerts[[target_index]]) < 1) {
 			return(c(TREND_STRINGS[5], ALERT_LEVEL_COLORS[5]))
@@ -262,7 +262,7 @@ shinyServer(function(input, output, session) {
 	# Return a dataframe of abundance data for the current bio target at the given location.
 	#
 	getAbundanceData <- function(loc_id, target_index) {
-	  print("##### getAbundanceData called!")
+	  #print("##### getAbundanceData called!")
 	  #print(controlRV$mapIndex)
 		
 		if (missing(loc_id)) {
@@ -272,7 +272,10 @@ shinyServer(function(input, output, session) {
 		if (missing(target_index)) {
 			target_index <- controlRV$mapIndex
 		}
-
+		
+		#print("incoming loc_id:")
+		#print(loc_id)
+		
 		df_base <- dflist_rs[[target_index]]
 		#View(df_base)
 		
@@ -289,16 +292,20 @@ shinyServer(function(input, output, session) {
 			}
 		}
 
+		#print("rolled up loc_ids:")
+		#print(loc_ids)
+		
+		#df_epi <- data.frame(df_base$date_to_plot, df_base$epi_week)
+		
 		df_this <- df_base %>% 
 							 filter(location_id %in% loc_ids) %>%
-							 group_by(date_to_plot) %>% 
+							 group_by(date_to_plot, epi_week) %>% 
 							 arrange(date_to_plot) %>%
-							 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
-												date_primary := date_primary, 
-												epi_week := epi_week)
-
+							 summarize(val = mean(target_copies_fn_per_cap, na.rm = TRUE))
+		#df_this <- cbind
+		
 		#print("Content of df_this from getAbundanceData:")
-		#print(df_this)
+		#View(df_this)
 		return(df_this)
 	}
 
@@ -308,7 +315,7 @@ shinyServer(function(input, output, session) {
 	# Return a dataframe of variant data for the current bio target at the given location.
 	#
 	getVariantData <- function(loc_id) {
-	  print("##### getVariantData called!")
+	  #print("##### getVariantData called!")
 	
 		if (loc_id == "WV") {
 			# get all active facilities
@@ -343,7 +350,7 @@ shinyServer(function(input, output, session) {
 	# Generate a ggplotly object of the abundance data within the date window.
 	#
 	plotAbundance <- function(df_abundance, months_to_plot, target_index) {
-	  print("##### plotAbundance called!")
+	  #print("##### plotAbundance called!")
     #View(df_abundance)
 
 		dlab <- case_when(
@@ -464,7 +471,7 @@ shinyServer(function(input, output, session) {
 	# Update all the plots (usually on reaction to map click or site selection).
 	#
   updateAllPlots <- function() {
-	  print("##### updateAllPlots called!")
+	  #print("##### updateAllPlots called!")
 
 # Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in dplyr 1.1.0.
 # Please use `reframe()` instead.
@@ -542,7 +549,7 @@ shinyServer(function(input, output, session) {
 	# Update the alert status elements (usually on reaction to map click or site selection).
 	#
 	updateStatus <- function() {
-	  print("##### updateStatus called!")
+	  #print("##### updateStatus called!")
 	  # Update abundance and trend text blocks, and the dominant variant text block (if applicable).
 
 #	  print("0 updateStatus called!")
@@ -615,7 +622,7 @@ shinyServer(function(input, output, session) {
 	# Update the selection info block (usually on reaction to map click or site selection).
 	#
 	updateSelectionInfo <- function() {
-	  print("##### updateSelectionInfo called!")
+	  #print("##### updateSelectionInfo called!")
 	  
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
 		
@@ -914,7 +921,7 @@ shinyServer(function(input, output, session) {
 	# Respond to a click on the given map marker in the given map.
 	#
 	clickMapMarker <- function(clicked) {
-    print("##### clickMapMarker called!")
+    #print("##### clickMapMarker called!")
     if (length(clicked) == 0) {
 			clickedLocation <- "WV"
 			loc_id <- "WV"
@@ -944,7 +951,7 @@ shinyServer(function(input, output, session) {
 	# Respond to a click on the given map shape in the given map.
 	#
 	clickMapShape <- function(clicked) {
-    print("##### clickMapShape called!")
+    #print("##### clickMapShape called!")
 		if (length(clicked) == 0) {
 			clickedLocation <- "WV"
 		} else {
@@ -973,7 +980,7 @@ shinyServer(function(input, output, session) {
 	# Respond to a generic off-marker click in the given map.
 	#
 	clickMapOffMarker <- function(clicked) {
-    print("##### clickMapOffMarker called!")
+    #print("##### clickMapOffMarker called!")
 		# only respond if this click is in a new position on the map
 		if (clicked$lat != controlRV$mapClickLat[controlRV$mapIndex] | clicked$lng != controlRV$mapClickLng[controlRV$mapIndex]) {
 			#print("New position detected!")
@@ -995,7 +1002,7 @@ shinyServer(function(input, output, session) {
 	# Respond to a change in the active map zoom level.
 	#
 	zoomMap <- function(zoom) {
-		print("mapZoom")
+		#print("mapZoom")
 		
 		mapProxy <- getMapProxy(controlRV$mapIndex)
 	}

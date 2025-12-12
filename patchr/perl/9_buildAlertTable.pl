@@ -55,6 +55,14 @@ my %targ2disease = (
 	"Respiratory Syncitial Virus, Human (RSV)" => "RSV"
 );
 
+my %targ2loci = (
+	"Influenza Virus A (FluA)" => {"M" => 1}, 
+	"Influenza Virus B (FluB)" => {"NEP/NS1" => 1}, 
+	"Human Norovirus GII (HuNoV-GII)" => {"ORF1_ORF2" => 1}, 
+	"SARS-CoV-2" => {"SC2" => 1, "N2" => 1}, 
+	"Respiratory Syncitial Virus, Human (RSV)" => {"N2" => 1}
+);
+
 my %infiles = ("../dashboard/data/watchdb.result.txt" => 1,
 							 "../dashboard/data/mu.result.txt" 			=> 1);
 
@@ -184,7 +192,10 @@ foreach my $f (keys %infiles) {
 			next unless defined $loc2county{"$thisLoc"};
 			
 			# skip any legacy SARS-CoV-2 N1 results
-			next if "$thisTarg" eq "SARS-CoV-2" and "$thisLocus" eq "N1";
+			#next if "$thisTarg" eq "SARS-CoV-2" and "$thisLocus" eq "N1";
+
+			# skip any results that don't match one of the accepted gene loci
+			next unless defined $targ2loci{"$thisTarg"}->{"$thisLocus"};
 			
 			# date format hack area to make sure all times are in 24-hour format.
 			# Also calculate a collection week as year.week (eg, 2023.1) to enable roll-up to 

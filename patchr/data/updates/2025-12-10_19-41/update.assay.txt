@@ -1,0 +1,161 @@
+assay_id	extraction_id	sample_id	assay_batch_id	assay_location_in_batch	assay_input_ul	assay_class	assay_type	assay_target	assay_target_genetic_locus	assay_template	assay_target_macromolecule	assay_target_fluorophore	assay_accepted_droplets	assay_target_predicted_copies_per_ul_reaction	assay_target_copies_per_ul_reaction	assay_comment
+R02-1002.a1	R02-1002.e1	R02-1002	AB127	G02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21998	0	0.400328785181046	
+R02-1002.a2	R02-1002.e1	R02-1002	AB127	G02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21998	0	0	
+R02-1002.a3	R02-1002.e1	R02-1002	AB127	G02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21998	0	0	
+R02-1002.a4	R02-1002.e1	R02-1002	AB127	G02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21998	0	0.0571820251643658	
+R02-1002.a5	R02-1002.e1	R02-1002	AB127	G02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21998	0	0	
+M03-1000.a1	M03-1000.e1	M03-1000	AB127	B04	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21720	0	0	
+M03-1000.a2	M03-1000.e1	M03-1000	AB127	B04	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21720	0	0	
+M03-1000.a3	M03-1000.e1	M03-1000	AB127	B04	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21720	0	0.0579139292240143	
+M03-1000.a4	M03-1000.e1	M03-1000	AB127	B04	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21720	0	0.0579139292240143	
+M03-1000.a5	M03-1000.e1	M03-1000	AB127	B04	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21720	0	11.636176109314	
+U01-0165.a1	U01-0165.e1	U01-0165	AB127	F03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21497	0	0	
+U01-0165.a2	U01-0165.e1	U01-0165	AB127	F03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21497	0	0.81945389509201	
+U01-0165.a3	U01-0165.e1	U01-0165	AB127	F03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21497	0	0.0585147179663181	
+U01-0165.a4	U01-0165.e1	U01-0165	AB127	F03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21497	0	0.175552323460579	
+U01-0165.a5	U01-0165.e1	U01-0165	AB127	F03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21497	0	0	
+A01-1421.a1	A01-1421.e1	A01-1421	AB127	F01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	20900	0	2.6509211063385	
+A01-1421.a2	A01-1421.e1	A01-1421	AB127	F01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	20900	0	0	
+A01-1421.a3	A01-1421.e1	A01-1421	AB127	F01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	20900	0	0.0601862072944641	
+A01-1421.a4	A01-1421.e1	A01-1421	AB127	F01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	20900	0	3.0128436088562	
+A01-1421.a5	A01-1421.e1	A01-1421	AB127	F01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	20900	0	0.120375290513039	
+C01-1130.a1	C01-1130.e1	C01-1130	AB127	D02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21576	0	0	
+C01-1130.a2	C01-1130.e1	C01-1130	AB127	D02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21576	0	0.466479361057281	
+C01-1130.a3	C01-1130.e1	C01-1130	AB127	D02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21576	0	0.0583004616200924	
+C01-1130.a4	C01-1130.e1	C01-1130	AB127	D02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21576	0	1.98373317718506	
+C01-1130.a5	C01-1130.e1	C01-1130	AB127	D02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21576	0	0.0583004616200924	
+C01-1126.a1	C01-1126.e1	C01-1126	AB127	H01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21775	0	0	
+C01-1126.a2	C01-1126.e1	C01-1126	AB127	H01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21775	0	0.346645683050156	
+C01-1126.a3	C01-1126.e1	C01-1126	AB127	H01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21775	0	0	
+C01-1126.a4	C01-1126.e1	C01-1126	AB127	H01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21775	0	3.47076320648193	
+C01-1126.a5	C01-1126.e1	C01-1126	AB127	H01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21775	0	0	
+Q01-1002.a1	Q01-1002.e1	Q01-1002	AB127	A03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21010	0	1.43769311904907	
+Q01-1002.a2	Q01-1002.e1	Q01-1002	AB127	A03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21010	0	0	
+Q01-1002.a3	Q01-1002.e1	Q01-1002	AB127	A03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21010	0	0	
+Q01-1002.a4	Q01-1002.e1	Q01-1002	AB127	A03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21010	0	0	
+Q01-1002.a5	Q01-1002.e1	Q01-1002	AB127	A03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21010	0	0	
+A01-1416.a1	A01-1416.e1	A01-1416	AB127	A01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21113	0	0.059578999876976	
+A01-1416.a2	A01-1416.e1	A01-1416	AB127	A01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21113	0	0.417112290859222	
+A01-1416.a3	A01-1416.e1	A01-1416	AB127	A01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21113	0	0	
+A01-1416.a4	A01-1416.e1	A01-1416	AB127	A01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21113	0	1.90792906284332	
+A01-1416.a5	A01-1416.e1	A01-1416	AB127	A01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21113	0	0	
+P01-1003.a1	P01-1003.e1	P01-1003	AB127	H03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21539	0	2.10413217544556	
+P01-1003.a2	P01-1003.e1	P01-1003	AB127	H03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21539	0	0	
+P01-1003.a3	P01-1003.e1	P01-1003	AB127	H03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21539	0	0	
+P01-1003.a4	P01-1003.e1	P01-1003	AB127	H03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21539	0	0	
+P01-1003.a5	P01-1003.e1	P01-1003	AB127	H03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21539	0	13.3269824981689	
+J01-1001.a1	J01-1001.e1	J01-1001	AB127	E02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21728	0	0	
+J01-1001.a2	J01-1001.e1	J01-1001	AB127	E02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21728	0	0	
+J01-1001.a3	J01-1001.e1	J01-1001	AB127	E02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21728	0	0	
+J01-1001.a4	J01-1001.e1	J01-1001	AB127	E02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21728	0	0.0578926056623459	
+J01-1001.a5	J01-1001.e1	J01-1001	AB127	E02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21728	0	0.289489686489105	
+N02-0595.a1	N02-0595.e1	N02-0595	AB127	E04	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21611	0	7.94085073471069	
+N02-0595.a2	N02-0595.e1	N02-0595	AB127	E04	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21611	0	0.0582060404121876	
+N02-0595.a3	N02-0595.e1	N02-0595	AB127	E04	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21611	0	0	
+N02-0595.a4	N02-0595.e1	N02-0595	AB127	E04	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21611	0	0.0582060404121876	
+N02-0595.a5	N02-0595.e1	N02-0595	AB127	E04	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21611	0	1.33942079544067	
+K01-0543.a1	K01-0543.e1	K01-0543	AB127	C03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21240	0	0	
+K01-0543.a2	K01-0543.e1	K01-0543	AB127	C03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21240	0	0.0592227503657341	
+K01-0543.a3	K01-0543.e1	K01-0543	AB127	C03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21240	0	2.19310092926025	
+K01-0543.a4	K01-0543.e1	K01-0543	AB127	C03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21240	0	0	
+K01-0543.a5	K01-0543.e1	K01-0543	AB127	C03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21240	0	1.00716614723206	
+L01-0658.a1	L01-0658.e1	L01-0658	AB127	D04	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21405	0	0.176306903362274	
+L01-0658.a2	L01-0658.e1	L01-0658	AB127	D04	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21405	0	0.117535196244717	
+L01-0658.a3	L01-0658.e1	L01-0658	AB127	D04	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21405	0	0	
+L01-0658.a4	L01-0658.e1	L01-0658	AB127	D04	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21405	0	0	
+L01-0658.a5	L01-0658.e1	L01-0658	AB127	D04	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21405	0	11.0965948104858	
+A01-1418.a1	A01-1418.e1	A01-1418	AB127	C01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	20977	0	1.31989681720734	
+A01-1418.a2	A01-1418.e1	A01-1418	AB127	C01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	20977	0	0	
+A01-1418.a3	A01-1418.e1	A01-1418	AB127	C01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	20977	0	0	
+A01-1418.a4	A01-1418.e1	A01-1418	AB127	C01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	20977	0	0	
+A01-1418.a5	A01-1418.e1	A01-1418	AB127	C01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	20977	0	2.40084362030029	
+AB127.RO1	NA	NA	AB127	G04	5	control	PCR Negative	SARS-CoV-2	SC2	NA	RNA	ROX	21795	0	0	
+AB127.CZ2	NA	NA	AB127	G04	5	control	PCR Negative	Influenza Virus B (FluB)	NEP/NS1	NA	RNA	Cy5.5	21795	0	0.115431919693947	
+AB127.CY3	NA	NA	AB127	G04	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	Cy5	21795	0	0	
+AB127.FA4	NA	NA	AB127	G04	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	FAM	21795	0	0.0577146336436272	
+AB127.HE5	NA	NA	AB127	G04	5	control	PCR Negative	Respiratory Syncitial Virus, Bovine (BRSV)	Other	NA	RNA	HEX	21795	0	0	
+C01-1128.a1	C01-1128.e1	C01-1128	AB127	B02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21213	0	0.0592981353402138	
+C01-1128.a2	C01-1128.e1	C01-1128	AB127	B02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21213	0	0	
+C01-1128.a3	C01-1128.e1	C01-1128	AB127	B02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21213	0	0.593107104301453	
+C01-1128.a4	C01-1128.e1	C01-1128	AB127	B02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21213	0	1.9583158493042	
+C01-1128.a5	C01-1128.e1	C01-1128	AB127	B02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21213	0	0	
+C01-1129.a1	C01-1129.e1	C01-1129	AB127	C02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21380	0	2.17872762680054	
+C01-1129.a2	C01-1129.e1	C01-1129	AB127	C02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21380	0	0	
+C01-1129.a3	C01-1129.e1	C01-1129	AB127	C02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21380	0	0.294202238321304	
+C01-1129.a4	C01-1129.e1	C01-1129	AB127	C02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21380	0	0.0588349401950836	
+C01-1129.a5	C01-1129.e1	C01-1129	AB127	C02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21380	0	0	
+AB127.RO6	NA	NA	AB127	H04	5	control	PCR Negative	SARS-CoV-2	SC2	NA	RNA	ROX	21340	0	0	
+AB127.CZ7	NA	NA	AB127	H04	5	control	PCR Negative	Influenza Virus B (FluB)	NEP/NS1	NA	RNA	Cy5.5	21340	0	0.0589452236890793	
+AB127.CY8	NA	NA	AB127	H04	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	Cy5	21340	0	0	
+AB127.HE9	NA	NA	AB127	H04	5	control	PCR Negative	Respiratory Syncitial Virus, Bovine (BRSV)	Other	NA	RNA	HEX	21340	0	0	
+AB127.FA10	NA	NA	AB127	H04	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	FAM	21340	0	0	
+O01-0589.a1	O01-0589.e1	O01-0589	AB127	A04	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	20669	0	0	
+O01-0589.a2	O01-0589.e1	O01-0589	AB127	A04	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	20669	0	2.86355471611023	
+O01-0589.a3	O01-0589.e1	O01-0589	AB127	A04	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	20669	0	0	
+O01-0589.a4	O01-0589.e1	O01-0589	AB127	A04	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	20669	0	0	
+O01-0589.a5	O01-0589.e1	O01-0589	AB127	A04	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	20669	0	0	
+A01-1417.a1	A01-1417.e1	A01-1417	AB127	B01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21375	0	2.06134462356567	
+A01-1417.a2	A01-1417.e1	A01-1417	AB127	B01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21375	0	0	
+A01-1417.a3	A01-1417.e1	A01-1417	AB127	B01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21375	0	0	
+A01-1417.a4	A01-1417.e1	A01-1417	AB127	B01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21375	0	0.294271051883698	
+A01-1417.a5	A01-1417.e1	A01-1417	AB127	B01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21375	0	0	
+AB127.HE11	NA	NA	AB127	F04	5	control	PCR Negative	Respiratory Syncitial Virus, Bovine (BRSV)	Other	NA	RNA	HEX	21762	0	0	
+AB127.FA12	NA	NA	AB127	F04	5	control	PCR Negative	Influenza Virus A (FluA)	M	NA	RNA	FAM	21762	0	0	
+AB127.CY13	NA	NA	AB127	F04	5	control	PCR Negative	Respiratory Syncitial Virus, Human (RSV)	G	NA	RNA	Cy5	21762	0	0	
+AB127.CZ14	NA	NA	AB127	F04	5	control	PCR Negative	Influenza Virus B (FluB)	NEP/NS1	NA	RNA	Cy5.5	21762	0	0	
+AB127.RO15	NA	NA	AB127	F04	5	control	PCR Negative	SARS-CoV-2	SC2	NA	RNA	ROX	21762	0	0	
+A04-0567.a1	A04-0567.e1	A04-0567	AB127	B03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	20091	0	0.0626097694039345	
+A04-0567.a2	A04-0567.e1	A04-0567	AB127	B03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	20091	0	6.08770418167114	
+A04-0567.a3	A04-0567.e1	A04-0567	AB127	B03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	20091	0	0	
+A04-0567.a4	A04-0567.e1	A04-0567	AB127	B03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	20091	0	1.69155871868134	
+A04-0567.a5	A04-0567.e1	A04-0567	AB127	B03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	20091	0	0.313080042600632	
+A01-1422.a1	A01-1422.e1	A01-1422	AB127	G01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	20792	0	2.66470527648926	
+A01-1422.a2	A01-1422.e1	A01-1422	AB127	G01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	20792	0	0.0604988411068916	
+A01-1422.a3	A01-1422.e1	A01-1422	AB127	G01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	20792	0	0.121000587940216	
+A01-1422.a4	A01-1422.e1	A01-1422	AB127	G01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	20792	0	0.302523285150528	
+A01-1422.a5	A01-1422.e1	A01-1422	AB127	G01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	20792	0	2.48284149169922	
+H01-1009.a1	H01-1009.e1	H01-1009	AB127	G03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21287	0	0	
+H01-1009.a2	H01-1009.e1	H01-1009	AB127	G03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21287	0	1.24151504039764	
+H01-1009.a3	H01-1009.e1	H01-1009	AB127	G03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21287	0	0	
+H01-1009.a4	H01-1009.e1	H01-1009	AB127	G03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21287	0	1.83314371109009	
+H01-1009.a5	H01-1009.e1	H01-1009	AB127	G03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21287	0	0	
+J01-1002.a1	J01-1002.e1	J01-1002	AB127	F02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21877	0	0.114999234676361	
+J01-1002.a2	J01-1002.e1	J01-1002	AB127	F02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21877	0	0	
+J01-1002.a3	J01-1002.e1	J01-1002	AB127	F02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21877	0	0	
+J01-1002.a4	J01-1002.e1	J01-1002	AB127	F02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21877	0	0	
+J01-1002.a5	J01-1002.e1	J01-1002	AB127	F02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21877	0	0	
+D01-1001.a1	D01-1001.e1	D01-1001	AB127	H02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	22166	0	0.0567486248910427	
+D01-1001.a2	D01-1001.e1	D01-1001	AB127	H02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	22166	0	0	
+D01-1001.a3	D01-1001.e1	D01-1001	AB127	H02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	22166	0	0	
+D01-1001.a4	D01-1001.e1	D01-1001	AB127	H02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	22166	0	2.61309027671814	
+D01-1001.a5	D01-1001.e1	D01-1001	AB127	H02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	22166	0	0	
+F01-0151.a1	F01-0151.e1	F01-0151	AB127	E03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21584	0	0	
+F01-0151.a2	F01-0151.e1	F01-0151	AB127	E03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21584	0	0.174844667315483	
+F01-0151.a3	F01-0151.e1	F01-0151	AB127	E03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21584	0	0	
+F01-0151.a4	F01-0151.e1	F01-0151	AB127	E03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21584	0	2.80043506622314	
+F01-0151.a5	F01-0151.e1	F01-0151	AB127	E03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21584	0	0	
+C01-1127.a1	C01-1127.e1	C01-1127	AB127	A02	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21146	0	0	
+C01-1127.a2	C01-1127.e1	C01-1127	AB127	A02	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21146	0	0.118974857032299	
+C01-1127.a3	C01-1127.e1	C01-1127	AB127	A02	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21146	0	0	
+C01-1127.a4	C01-1127.e1	C01-1127	AB127	A02	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21146	0	0.0594860166311264	
+C01-1127.a5	C01-1127.e1	C01-1127	AB127	A02	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21146	0	2.20285844802856	
+A01-1420.a1	A01-1420.e1	A01-1420	AB127	E01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21278	0	0.0591169856488705	
+A01-1420.a2	A01-1420.e1	A01-1420	AB127	E01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21278	0	1.53794527053833	
+A01-1420.a3	A01-1420.e1	A01-1420	AB127	E01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21278	0	0.0591169856488705	
+A01-1420.a4	A01-1420.e1	A01-1420	AB127	E01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21278	0	0.118236742913723	
+A01-1420.a5	A01-1420.e1	A01-1420	AB127	E01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21278	0	2.84075379371643	
+A01-1419.a1	A01-1419.e1	A01-1419	AB127	D01	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21780	0	0.115511417388916	
+A01-1419.a2	A01-1419.e1	A01-1419	AB127	D01	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21780	0	2.54370498657227	
+A01-1419.a3	A01-1419.e1	A01-1419	AB127	D01	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21780	0	2.31224608421326	
+A01-1419.a4	A01-1419.e1	A01-1419	AB127	D01	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21780	0	0	
+A01-1419.a5	A01-1419.e1	A01-1419	AB127	D01	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21780	0	0.0577543862164021	
+M04-1000.a1	M04-1000.e1	M04-1000	AB127	C04	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21667	0	0	
+M04-1000.a2	M04-1000.e1	M04-1000	AB127	C04	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21667	0	11.54758644104	
+M04-1000.a3	M04-1000.e1	M04-1000	AB127	C04	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21667	0	0	
+M04-1000.a4	M04-1000.e1	M04-1000	AB127	C04	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21667	0	0.0580555982887745	
+M04-1000.a5	M04-1000.e1	M04-1000	AB127	C04	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21667	0	0	
+K01-0540.a1	K01-0540.e1	K01-0540	AB127	D03	5	unknown	sample	Respiratory Syncitial Virus, Human (RSV)	G	sample	RNA	Cy5	21421	0	0	
+K01-0540.a2	K01-0540.e1	K01-0540	AB127	D03	5	unknown	sample	SARS-CoV-2	SC2	sample	RNA	ROX	21421	0	4.52965974807739	
+K01-0540.a3	K01-0540.e1	K01-0540	AB127	D03	5	unknown	sample	Influenza Virus B (FluB)	NEP/NS1	sample	RNA	Cy5.5	21421	0	0	
+K01-0540.a4	K01-0540.e1	K01-0540	AB127	D03	5	unknown	sample	Respiratory Syncitial Virus, Bovine (BRSV)	Other	sample	RNA	HEX	21421	0	0.58734667301178	
+K01-0540.a5	K01-0540.e1	K01-0540	AB127	D03	5	unknown	sample	Influenza Virus A (FluA)	M	sample	RNA	FAM	21421	0	0.0587223246693611	

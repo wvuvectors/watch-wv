@@ -83,13 +83,13 @@ excel2df <- function(fname) {
 
 calcTrend <- function(df_this, mo_base) {
 	
-	if (length(df_this$date_primary) == 0) {
+	if (length(df_this$date_to_plot) == 0) {
 		return(NA)
 	}
 	
-	most_recent_date <- max(df_this$date_primary, na.rm = TRUE)
+	most_recent_date <- max(df_this$date_to_plot, na.rm = TRUE)
 
-	vec_all <- (df_this %>% filter(date_primary > (most_recent_date %m-% months(mo_base))))$val
+	vec_all <- (df_this %>% filter(date_to_plot > (most_recent_date %m-% months(mo_base))))$val
 
 	if (length(vec_all) == 0) {
 		trend <- NA
