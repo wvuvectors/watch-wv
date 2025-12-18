@@ -1,4 +1,0 @@
-assay_id	sample_id	collection_start_datetime	collection_end_datetime	event_type	sample_flow	sample_qc	location_id	target	target_genetic_locus	lab_id	target_copies_per_l	target_copies_per_ld	target_copies_per_ldcap	target_copies_flownorm	target_copies_fn_per_cap	target_per_capita_basis	nc_copies_per_rxn	pc_copies_per_rxn	target_result_validated
-7929	7929	12/02/2025 0:0	12/03/2025 0:0	Routine Surveillance	17.54	Pass	HSB	SARS-CoV-2	N2	MUIDSL	8410174	8410174	15018.1678571429	558402681.593904	997147.645703399	100	0	NA	yes
-7929	7929	12/02/2025 0:0	12/03/2025 0:0	Routine Surveillance	17.54	Pass	HSB	SARS-CoV-2	del69/70	MUIDSL	5917490.387	5917490.387	10566.9471196429	392898232.593873	701603.986774774	100	0	NA	yes
-7929	7929	12/02/2025 0:0	12/03/2025 0:0	Routine Surveillance	17.54	Pass	HSB	SARS-CoV-2	N1	MUIDSL	7595235	7595235	13562.9196428571	504293917.264479	900524.852257998	100	0	NA	yes

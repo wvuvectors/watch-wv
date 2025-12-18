@@ -1,0 +1,25 @@
+#############################################
+Initiated feed_WVDash.sh
+2025-12-18_12-00
+
+See logs/feeds/WVWD/feed_WVWD.2025-12-18_12-00.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+******
+Running 8a_MU2WVDash.pl /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/merged_nwss.LATEST.csv.
+******
+
+******
+Running 9_tagOutliers.R.
+******
+
+******
+Running 10_buildAlertTable.pl.
+******
+
+10_buildAlertTable.pl exited with error code 25 and caused patchr_feed to abort.
+!!!!!!!!
+patchr_feed aborted during phase 4 (alert labeling).
+Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. 
+Then fix the error(s) and run patchr_feed again.
+!!!!!!!!

@@ -257,7 +257,7 @@ foreach my $uid (keys %mu_data) {
 		my %thisd = %{$mu_data{"$uid"}};
 		next unless $thisd{"pcr_target_avg_conc"}	=~ /[0-9\.,]/;
 		my $prnt = "";
-		$prnt .= "$thisd{sample_id}\t$thisd{sample_id}\t";
+		$prnt .= "$uid\t$thisd{sample_id}\t";
 
 		# start and end datetimes as MM/DD/YYYY HH:MM in 24-hr format
 		next unless ($thisd{"sample_collect_date"} =~ /^\d+?\/\d+?\/\d+$/ or $thisd{"sample_collect_date"} =~ /^\d+-\d+-\d+$/);

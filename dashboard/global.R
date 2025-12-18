@@ -62,7 +62,9 @@ df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
 df_pcr <- df_pcr %>% filter(tolower(sample_qc) == "pass")
 df_pcr <- df_pcr %>% filter(tolower(target_result_validated) != "ntc above threshold")
 
-#df_pcr <- df_pcr %>% filter(location_id != "CheatLakeWWTP-01")
+# Ignore results that are extreme
+#
+df_pcr <- df_pcr %>% filter(is.extreme != TRUE)
 
 df_seqr <- df_seqr %>% filter(tolower(sample_id) != "ntc")
 

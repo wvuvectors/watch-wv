@@ -107,23 +107,51 @@ else
 fi
 
 
-# Creating a dashboard-specific table to hold most recent risk, abundance, and trend data
-# by region (state, county, or facility). Must be pre-calculated because too computationally
-# expensive to do them all when the dashboard initializes.
+# Identifying outliers to enable toggling feature on WV dashboard.
 #
 echo "******" | tee -a "$logf"
-echo "Running 9_buildAlertTable.pl." | tee -a "$logf"
+echo "Running 9_tagOutliers.R." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
-./perl/9_buildAlertTable.pl > "../dashboard/data/wvdash.alerts.txt" | tee -a "$logf"
+R/9_tagOutliers.R | tee -a "$logf"
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 
 if [[ "$status" != "0" ]]
 then
-	echo "9_buildAlertTable.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "9_tagOutliers.R exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 3 (WVDash optimization)." | tee -a "$logf"
+	echo "patchr_feed aborted during phase 3 (outlier tagging)." | tee -a "$logf"
+#	echo "Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
+	echo "Fix the error(s) and run patchr_feed again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+mv "../dashboard/data/mu.result.txt" "../dashboard/data/mu.result.UNTAGGED.txt"
+mv "../dashboard/data/mu.result.tagged.txt" "../dashboard/data/mu.result.txt"
+
+mv "../dashboard/data/watchdb.result.txt" "../dashboard/data/watchdb.result.UNTAGGED.txt"
+mv "../dashboard/data/watchdb.result.tagged.txt" "../dashboard/data/watchdb.result.txt"
+
+
+# Creating a dashboard-specific table to hold most recent risk, abundance, and trend data
+# by region (state, county, or facility). Must be pre-calculated because too computationally
+# expensive to do them all when the dashboard initializes.
+#
+echo "******" | tee -a "$logf"
+echo "Running 10_buildAlertTable.pl." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+./perl/10_buildAlertTable.pl > "../dashboard/data/wvdash.alerts.txt" | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
+if [[ "$status" != "0" ]]
+then
+	echo "10_buildAlertTable.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr_feed aborted during phase 4 (alert labeling)." | tee -a "$logf"
 	echo "Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
 	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"

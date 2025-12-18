@@ -65,7 +65,9 @@ df_pcr <- df_pcr %>% filter(tolower(target_result_validated) != "ntc above thres
 df_pcr <- df_pcr %>% filter(target %in% TARGETS)
 df_pcr <- df_pcr %>% filter(target_genetic_locus %in% GENLOCI)
 
-#df_pcr <- df_pcr %>% filter(location_id != "CheatLakeWWTP-01")
+# Ignore results that are extreme
+#
+df_pcr <- df_pcr %>% filter(is.extreme != TRUE)
 
 # Convert date strings into Date objects.
 #
