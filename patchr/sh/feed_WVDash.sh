@@ -4,6 +4,7 @@ DBDIR="data/latest"
 RSDIR="resources"
 SVDIR="../seqr/data/latest"
 
+WVD_DIR="../dashboard"
 
 # Get the current date and time
 START=$(date "+%F_%H-%M")
@@ -25,42 +26,122 @@ echo "" | tee -a "$logf"
 echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
 echo "" | tee -a "$logf"
 
-
 echo "Generating WV WaTCH Dashboard (WVWD) feed for WVU." | tee -a "$logf"
 
-cp "$DBDIR/watchdb.result.txt" "../dashboard/data/watchdb.result.txt"
+ALL_RESOURCE_F="$RSDIR/watchdb.all_tables.xlsx"	# This is simply copied from the patchr directory.
+WVU_RESULTS_F="$DBDIR/watchdb.result.txt"	# This starts as the watchdb.result.txt file from patchr.
+MU_RESULTS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/mu_nwss.LATEST.csv"
+
+
+echo "Ensuring all input files exist and are readable before starting." | tee -a "$logf"
+if [ ! -f "$ALL_RESOURCE_F" ];then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "$ALL_RESOURCE_F does not exist. This is a fatal error." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+if [ ! -f "$WVU_RESULTS_F" ];then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "$WVU_RESULTS_F does not exist. This is a fatal error." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+if [ ! -f "$MU_RESULTS_F" ];then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "$MU_RESULTS_F does not exist. This is a fatal error." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "All input files appear to exist, so we're moving on." | tee -a "$logf"
+echo "Copying the latest WaTCH resource tables to the dashboard directory." | tee -a "$logf"
+
+cp "$ALL_RESOURCE_F" "../dashboard/data/watchdb.all_tables.xlsx"
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "Copy of watchdb.result.txt from $DBDIR to ../dashboard/data exited with error code $status." | tee -a "$logf"
+	echo "Copy of $ALL_RESOURCE_F to ../dashboard/data exited with error code $status." | tee -a "$logf"
 	echo "This is fatal." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
 
-cp "$DBDIR/watchdb.sample.txt" "../dashboard/data/watchdb.sample.txt"
+
+echo "******" | tee -a "$logf"
+echo "Running 8_MU2WVDash.pl." | tee -a "$logf"
+echo "This subroutine takes the raw MU data file as input and converts it into watchdb format." | tee -a "$logf"
+echo "The result is written into the dashboard data directory as mu.result.txt." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+./perl/8_MU2WVDash.pl < "$MU_RESULTS_F" > "$WVD_DIR/data/mu.result.txt" | tee -a "$logf"
 status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
 if [[ "$status" != "0" ]]
 then
+	echo "8_MU2WVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "Copy of watchdb.sample.txt from $DBDIR to ../dashboard/data exited with error code $status." | tee -a "$logf"
-	echo "This is fatal." | tee -a "$logf"
+	echo "patchr_feed aborted during MU data conversion." | tee -a "$logf"
+	echo "Delete the file mu.result.txt $WVD_DIR/data/, if it exists. "| tee -a "$logf"
+	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
 
 
-cp "$RSDIR/watchdb.all_tables.xlsx" "../dashboard/data/watchdb.all_tables.xlsx"
+# Identifying outliers and extreme values in the input data.
+#
+echo "******" | tee -a "$logf"
+echo "Running 9_tagOutliers.R." | tee -a "$logf"
+echo "This subroutine reads data from $WVU_RESULTS_F and $MU_RESULTS_F and adds three columns:" | tee -a "$logf"
+echo "A numeric z-score for each entry, and logical columns is.outlier and is.extreme." | tee -a "$logf"
+echo "The modified files are written to the dashboard data directory; the original files are unchanged." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+echo "$WVU_RESULTS_F $WVD_DIR/data/mu.result.txt $ALL_RESOURCE_F" | R/9_tagOutliers.R | tee -a "$logf"
 status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
 if [[ "$status" != "0" ]]
 then
+	echo "9_tagOutliers.R exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "Copy of watchdb.all_tables.xlsx from $RSDIR to ../dashboard/data exited with error code $status." | tee -a "$logf"
-	echo "This is fatal." | tee -a "$logf"
+	echo "patchr_feed aborted during the outlier tagging phase." | tee -a "$logf"
+	echo "Check the logs, fix the error(s), and run patchr_feed again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
+
+# We can remove the temporary MU table now that we've successfully added outlier data.
+rm "$WVD_DIR/data/mu.result.txt"
+
+
+# Creating a routine surveillance summary table to hold most recent risk, abundance, and trend data
+# by region (state, county, and facility). Must be pre-calculated because too computationally
+# expensive to do them all when the dashboard initializes.
+#
+echo "******" | tee -a "$logf"
+echo "Running 10_buildRSStable.R." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+R/10_buildRSStable.R | tee -a "$logf"
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+
+if [[ "$status" != "0" ]]
+then
+	echo "10_buildRSStable.R exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "patchr_feed aborted during routine surveillance summary table construction." | tee -a "$logf"
+	echo "Delete the file wvdash.rsstable.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
+	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+
+
 
 
 cp "$SVDIR/seqrdb.txt" "../dashboard/data/seqrdb.txt"
@@ -76,88 +157,6 @@ fi
 
 
 
-NWSS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/merged_nwss.LATEST.csv"
-
-if [ -f "$NWSS_F" ]
-then
-	echo "******" | tee -a "$logf"
-	echo "Running 8a_MU2WVDash.pl $NWSS_F." | tee -a "$logf"
-	echo "******" | tee -a "$logf"
-
-	./perl/8a_MU2WVDash.pl "$NWSS_F" | tee -a "$logf"
-	status="${PIPESTATUS[0]}"
-	echo "" | tee -a "$logf"
-
-	if [[ "$status" != "0" ]]
-	then
-		echo "8a_MU2WVDash.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
-		echo "!!!!!!!!" | tee -a "$logf"
-		echo "patchr_feed aborted during phase 2 (MU data merge)." | tee -a "$logf"
-		echo "Delete the files mu.result.txt and mu.sample.txt in ../dashboard/data/, if they exist. "| tee -a "$logf"
-		echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
-		echo "!!!!!!!!" | tee -a "$logf"
-		exit 1
-	fi
-else
-		echo "There is no merged NWSS file available." | tee -a "$logf"
-		echo "The Marshall data file in ../dashboard/data, if present, will be untouched." | tee -a "$logf"
-		echo "!!!!!!!!" | tee -a "$logf"
-		echo "MU DATA WAS NOT UPDATED. "| tee -a "$logf"
-		echo "!!!!!!!!" | tee -a "$logf"
-fi
-
-
-# Identifying outliers to enable toggling feature on WV dashboard.
-#
-echo "******" | tee -a "$logf"
-echo "Running 9_tagOutliers.R." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-R/9_tagOutliers.R | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "9_tagOutliers.R exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 3 (outlier tagging)." | tee -a "$logf"
-#	echo "Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
-	echo "Fix the error(s) and run patchr_feed again."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
-mv "../dashboard/data/mu.result.txt" "../dashboard/data/mu.result.UNTAGGED.txt"
-mv "../dashboard/data/mu.result.tagged.txt" "../dashboard/data/mu.result.txt"
-
-mv "../dashboard/data/watchdb.result.txt" "../dashboard/data/watchdb.result.UNTAGGED.txt"
-mv "../dashboard/data/watchdb.result.tagged.txt" "../dashboard/data/watchdb.result.txt"
-
-
-# Creating a dashboard-specific table to hold most recent risk, abundance, and trend data
-# by region (state, county, or facility). Must be pre-calculated because too computationally
-# expensive to do them all when the dashboard initializes.
-#
-echo "******" | tee -a "$logf"
-echo "Running 10_buildAlertTable.pl." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-
-./perl/10_buildAlertTable.pl > "../dashboard/data/wvdash.alerts.txt" | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "10_buildAlertTable.pl exited with error code $status and caused patchr_feed to abort." | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr_feed aborted during phase 4 (alert labeling)." | tee -a "$logf"
-	echo "Delete the file wvdash.alerts.txt in ../dashboard/data/, if it exists. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr_feed again."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
 
 
 echo "" | tee -a "$logf"
@@ -170,7 +169,7 @@ echo "$UPDAY" > "../dashboard/data/README.txt"
 echo "" >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"
 echo "This folder contains the most recent dashboard data." >> "../dashboard/data/README.txt"
-echo "WVU data was last updated on $patchrUp." >> "../dashboard/data/README.txt"
+echo "Abundance data was last updated on $patchrUp." >> "../dashboard/data/README.txt"
 #echo "MU data was last updated on $DBUP_MU." >> "../dashboard/data/README.txt"
 echo "SEQR data was last updated on $seqrUP." >> "../dashboard/data/README.txt"
 echo "#" >> "../dashboard/data/README.txt"

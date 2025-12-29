@@ -1,0 +1,22 @@
+#############################################
+Initiated feed_WVDash.sh
+2025-12-22_10-42
+
+See logs/feeds/WVWD/feed_WVWD.2025-12-22_10-42.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+Ensuring all input files exist and are readable before starting.
+All input files appear to exist, so we're moving on.
+Copying the latest WaTCH resource tables to the dashboard directory.
+******
+Running 8_MU2WVDash.pl.
+This subroutine takes the raw MU data file as input and converts it into watchdb format.
+The result is written into the dashboard data directory as mu.result.txt.
+******
+
+8_MU2WVDash.pl exited with error code 255 and caused patchr_feed to abort.
+!!!!!!!!
+patchr_feed aborted during MU data conversion.
+Delete the file mu.result.txt ../dashboard/data/, if it exists. 
+Then fix the error(s) and run patchr_feed again.
+!!!!!!!!

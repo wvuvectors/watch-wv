@@ -42,10 +42,9 @@ while (@ARGV) {
 	}
 }
 
-
-my $WINDOW = 4;	# Number of weeks to use in trend calculations.
-my $SPIKE_THRESHOLD = 500; # Trigger (percent change) for identifying spikes/despikes.
-my $TREND_THRESHOLD = 20; # Trigger (percent change) for identifying consistent trend; given as percent change.
+my $ABUND_ALERT_WINDOW = 12;	# Number of weeks to use in determining abundance alert level.
+my $TREND_ALERT_WINDOW = 4;		# Number of consecutive samples to use in trend calculations.
+my $SPIKE_THRESHOLD 	 = 5;		# Trigger (X) for identifying spikes.
 
 my %targ2disease = (
 	"Influenza Virus A (FluA)" => "FLUA", 
@@ -137,6 +136,10 @@ foreach my $locid (keys %{$resources{"location"}}) {
 #print Dumper(\%resources);
 #die;
 
+# Used to pre-fill the dated_abundance hash.
+#
+my @epiweek_bounds = (2050.1, 2019.11);
+
 # Read result tables into hash, keyed by county, location_id, target, and sample id
 my %results = ();
 
@@ -195,11 +198,15 @@ foreach my $f (keys %infiles) {
 			next unless defined $loc2county{"$thisLoc"};
 			
 			# skip any extreme values
-			next if lc("$cols[$extreme_col]") eq "TRUE";
+			next if lc("$cols[$extreme_col]") eq lc("TRUE");
 
 			# skip any results that don't match one of the accepted gene loci
 			next unless defined $targ2loci{"$thisTarg"}->{"$thisLocus"};
 			
+			# skip any NA abundance values
+			next if lc("$cols[$val1_col]") eq lc("NA");
+			next if lc("$cols[$val2_col]") eq lc("NA");
+
 			# date format hack area to make sure all times are in 24-hour format.
 			# Also calculate a collection week as year.week (eg, 2023.1) to enable roll-up to 
 			# county and state.
@@ -218,7 +225,14 @@ foreach my $f (keys %infiles) {
 			my $week  = strftime( "%U", @{localtime($epoch)} );
 			$week = "0$week" unless ($week =~ /^\d{2}$/);
 			my $epi_week = "$y.$week";
-
+			
+			# Also update the oldest and newest epi weeks.
+			#
+			$epiweek_bounds[0] = $epi_week unless $epiweek_bounds[0] < $epi_week;
+			$epiweek_bounds[1] = $epi_week unless $epiweek_bounds[1] > $epi_week;
+			
+			# Add this datum to the results hash, keyed on epi week.
+			# 
 			my $thisCounty = $loc2county{"$thisLoc"};
 			$results{$epi_week} = {} unless defined $results{$epi_week};
 			$results{$epi_week}->{"$thisCounty"} = {} unless defined $results{$epi_week}->{"$thisCounty"};
@@ -226,32 +240,43 @@ foreach my $f (keys %infiles) {
 			$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"} = [] unless defined $results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"};
 			push @{$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}}, $val;
 			#push @{$results{$epi_week}->{"$thisCounty"}->{"$thisLoc"}->{"$thisTarg"}}, "$thisId";
-			 
+
 		}
 		$linenum++;
 	}
 	close $fh;
 }
 #print Dumper(\%results);
+#print Dumper(\@epiweek_bounds);
 #die;
 
-my %ordered_means = ();
+my %dated_abundances = ();
  
 foreach my $epiweek (sort {$b <=> $a} keys %results) {
-	$ordered_means{"WV"} = {} unless defined $ordered_means{"WV"};
+	$dated_abundances{"WV"} = {} unless defined $dated_abundances{"WV"};
+	# Set up array to hold the values for all locations in the state
 	my %state_vals = ();
 	foreach my $county (keys %{$results{$epiweek}}) {
-		$ordered_means{"$county"} = {} unless defined $ordered_means{"$county"};
+		$dated_abundances{"$county"} = {} unless defined $dated_abundances{"$county"};
+		# Set up array to hold the values for all locations in the county
 		my %county_vals = ();
 		foreach my $loc (keys %{$results{$epiweek}->{"$county"}}) {
-			$ordered_means{"$loc"} = {} unless defined $ordered_means{"$loc"};
+			$dated_abundances{"$loc"} = {} unless defined $dated_abundances{"$loc"};
 			foreach my $targ (keys %{$results{$epiweek}->{"$county"}->{"$loc"}}) {
+				# Add this target to the state and county rollup arrays unless it already exists
 				$state_vals{"$targ"} = [] unless defined $state_vals{"$targ"};
 				$county_vals{"$targ"} = [] unless defined $county_vals{"$targ"};
-				$ordered_means{"$county"}->{"$targ"} = [] unless defined $ordered_means{"$county"}->{"$targ"};
-				$ordered_means{"$loc"}->{"$targ"} = [] unless defined $ordered_means{"$loc"}->{"$targ"};
+				
+				# Add the target to the dated_abundances hashes
+				$dated_abundances{"WV"}->{"$targ"} = {} unless defined $dated_abundances{"WV"}->{"$targ"};
+				$dated_abundances{"$county"}->{"$targ"} = {} unless defined $dated_abundances{"$county"}->{"$targ"};
+				$dated_abundances{"$loc"}->{"$targ"} = {} unless defined $dated_abundances{"$loc"}->{"$targ"};
+
+				# In case there are multiple samples for this epi week, make sure to take the average
 				my $mean = calcSimpleMean($results{$epiweek}->{"$county"}->{"$loc"}->{"$targ"});
-				push @{$ordered_means{"$loc"}->{"$targ"}}, $mean;
+				# Store the average (or value) in the dated_abundances hash for this location, target, and epi week
+				$dated_abundances{"$loc"}->{"$targ"}->{$epiweek} = $mean;
+				# Temporarily put the average (or value) in the arrays set up to hold county and state rollups
 				push @{$county_vals{"$targ"}}, $mean unless defined $do_not_rollup{"$loc"};
 				push @{$state_vals{"$targ"}}, $mean unless defined $do_not_rollup{"$loc"};
 			}
@@ -259,78 +284,64 @@ foreach my $epiweek (sort {$b <=> $a} keys %results) {
 		# county rollup
 		foreach my $targ (keys %county_vals) {
 			my $county_mean = calcSimpleMean($county_vals{"$targ"});
-			push @{$ordered_means{"$county"}->{"$targ"}}, $county_mean;
+			$dated_abundances{"$county"}->{"$targ"}->{$epiweek} = $county_mean;
 		}
 	}
 	# state rollup
 	foreach my $targ (keys %state_vals) {
 		my $state_mean = calcSimpleMean($state_vals{"$targ"});
-		push @{$ordered_means{"WV"}->{"$targ"}}, $state_mean;
+		$dated_abundances{"WV"}->{"$targ"}->{$epiweek} = $state_mean;
 	}
 }
-#print Dumper(\%ordered_means);
+#print Dumper(\%dated_abundances);
 #die;
 
 
-print "region_name\ttarget\tabundance_pct_change\ttrend\n";
-foreach my $region (keys %ordered_means) {
-	foreach my $targ (keys %{$ordered_means{"$region"}}) {
-		my $this_arr = $ordered_means{"$region"}->{"$targ"};
-		my $total = scalar @{$this_arr};
-		# No abundance values for this region.
-		if ($total <= 1) {
-			print "$region\t$targ\tNA\tNA\n";
-		} else {
-			# More than one abundance value: try to calculate risk.
-			my $comp = 13;
-			$comp = scalar @{$this_arr} if scalar @{$this_arr} < 13;
-			my $pct_ch = "NA";
-			if ($comp > 3) {
-				my $sum = 0;
-				for (my $i=0; $i < $comp; $i++) {
-					$sum += $this_arr->[$i];
-				}
-				my $mean_comp = $sum / $comp;
-				if ($mean_comp == 0) {
-					warn "The sum of the ordered means for target '$targ' from region '$region' is 0!";
-					print "$region\t$targ\t0\tSTABLE\n";
-					next;
-				} else {
-					$pct_ch = 100 * ($this_arr->[0] - $mean_comp)/$mean_comp;
-				}
-			}
+print "region_name\tregion_geolevel\ttarget\tepi_year\tepi_week\tabundance_change\tabundance_level\ttrend_slope\ttrend_level\n";
+foreach my $region (sort keys %dated_abundances) {
+
+	my $geolevel = "county";
+	if (defined $loc2county{"$region"}) {
+		$geolevel = "facility";
+	} elsif ("$region" eq "WV") {
+		$geolevel = "state";
+	}
+	
+	foreach my $targ (sort keys %{$dated_abundances{"$region"}}) {
+		# Traverse the epi weeks from oldest to newest
+		my @sorted_eweeks = sort {$a <=> $b} keys %{$dated_abundances{"$region"}->{"$targ"}};
+		#print Dumper(\@sorted_eweeks);
+		foreach (my $i=0; $i<scalar(@sorted_eweeks); $i++) {
+			my $epiweek = $sorted_eweeks[$i];
+			my ($y, $w) = split /\./, $epiweek, -1;
+			my $prnt_str = "$region\t$geolevel\t$targ\t$y\t$w\t";
 			
-			# More than one abundance value: look for trend.
-			my $trend = "NA";
-			my $prnt_str = "";
-			
-			# First look for spiking or despiking trend.
-		 	# SPIKING: most recent sample is >SPIKE_THRESHOLD higher than the previous sample.
-			# DESPIKING: most recent sample is >SPIKE_THRESHOLD lower than the previous sample.
-			# Actual values less than 1 are not eligible for spiking/despiking.
 			#
-			my $ultim_ab  = $this_arr->[0];
-			my $penult_ab = $this_arr->[1];
-			my $spike_result = checkForSpike($ultim_ab, $penult_ab);	# returns 1 for spike, -1 for despike, 0 for neither
+			# Calculate the abundance level. This is written as an integer so the exact text 
+			# can be tweaked in the dashboard. In the simplest case it refers to an assay index.
+			#
 			
-			if ($spike_result == 1) {
-				$trend = "SPIKING";
-				$prnt_str .= "$ultim_ab,$penult_ab";
-			} elsif ($spike_result == -1) {
-				$trend = "DESPIKING";
-				$prnt_str .= "$ultim_ab,$penult_ab";
-			} else {
-				# Look at the pct diff between values for the trend.
-				my @abundances = ();
-				for (my $i=0; $i<$WINDOW; $i++) {
-					last if $i >= scalar(@{$this_arr});
-					push @abundances, $this_arr->[$i];
-					$prnt_str .= "$this_arr->[$i],";
-				}
-				$trend = getTrend(\@abundances);
-			}
-#			print "$region\t$targ\t$prnt_str\t$trend\n";
-			print "$region\t$targ\t$pct_ch\t$trend\n";
+			# Get the abundance for the most recent available epi week.
+			my $this_val = $dated_abundances{"$region"}->{"$targ"}->{$epiweek};
+			# Extract array of values for determining abundance level of the current value.
+			my $al_compare_arr = getComparisonTimeWindow($epiweek, $dated_abundances{"$region"}->{"$targ"}, $ABUND_ALERT_WINDOW);
+			# Calculate the abundance level text to use for this epiweek
+			my $alevel = getAbundanceLevel($this_val, $al_compare_arr);
+			
+			$prnt_str .= "$alevel->{change}\t$alevel->{level}\t";
+
+			#
+			# Calculate the trend level. This is written as an integer so the exact text 
+			# can be tweaked in the dashboard. In the simplest case it refers to an assay index.
+			#
+
+			my $tl_compare_arr = getComparisonSampleWindow($epiweek, $dated_abundances{"$region"}->{"$targ"}, $TREND_ALERT_WINDOW);
+			# Calculate the trend level text to use for this epiweek
+			my $tlevel = getTrendLevel($this_val, $tl_compare_arr);
+			
+			$prnt_str .= "$tlevel->{slope}\t$tlevel->{level}";
+			
+			print "$prnt_str\n";
 		}
 	}
 }
@@ -339,66 +350,155 @@ exit $status;
 
 
 
-sub checkForSpike {
-	my $ult = shift;
-	my $penult = shift;
-	return 0 unless $ult > 1 and $penult > 1;
+sub getComparisonTimeWindow {
+	my $this_wk    = shift;
+	my $value_hash = shift;
+	my $win_width  = shift;
 	
-	my $val  = 100 * ($ult - $penult) / ($penult+1);
-
-	if ($val >= $SPIKE_THRESHOLD) {
-		return 1;
-	} elsif ($val <= (-1 * $SPIKE_THRESHOLD)) {
-		return -1;
-	} else {
-		return 0;
+	# Working backward in time from $this_wk, not including $this_wk, retrieve the appropriate 
+	# values from the keyed values in $value_hash. Since this is time-based, not sample-based, 
+	# we can simply step through the hash $win_width times.
+	# Store the values in a new array @comp.
+	#
+	my @comp = ();
+	my ($y, $w) = split /\./, $this_wk;
+	# Step backwards through the epi weeks until we reach $win_width time points in the past.
+	for (my $j=0; $j < $win_width; $j++) {
+		$w = $w - 1;
+		if ($w < 0 or ($w == 0 and !defined $value_hash->{"$y.$w"})) {
+			$y--;
+			$w = 52;
+		}
+		push(@comp, $value_hash->{"$y.$w"}) if defined $value_hash->{"$y.$w"};
 	}
-	
+	#print Dumper(\@comp);
+	return \@comp;
 }
 
-sub getTrend {
-	# Array of abundance values, ordered chronologically, element 0 is most recent.
-	my $a = shift;
 
-# 	INCREASING: at least a TREND_THRESHOLD increase over each of the most recent WINDOW samples.
-# 	DECREASING: at least a TREND_THRESHOLD decrease over each of the most recent WINDOW samples.
-# 	VARIABLE: at least WINDOW-1 samples >TREND_THRESHOLD change in either direction.
-# 	STABLE: at most WINDOW-2 samples >TREND_THRESHOLD change in either direction.
-		
-		my ($incr, $decr, $stable) = (0,0,0);
-		
-		for (my $i=scalar(@{$a})-1; $i>0; $i--) {
-			my ($a_now, $a_next) = ($a->[$i], $a->[$i-1]);
-			my $pct_diff = (100 * ($a_next - $a_now) / ($a_now+1));
-			if ($pct_diff >= $TREND_THRESHOLD) {
-				$incr++;
-			} elsif ($pct_diff <= (-1 * $TREND_THRESHOLD)) {
-				$decr++;
-			} else {
-				$stable++;
-			}
-		}
-		
-		my $t = "INDETERMINATE";
-		if ($incr == 0 and $decr == 0) {
-			$t = "STABLE";
-		} elsif ($incr - $decr > 0) {
-			$t = "INCREASING";
-		} elsif ($decr - $incr > 0) {
-			$t = "DECREASING";
-		} else {
-			$t = "VARIABLE";
-		}
-
-	return "$t";
+sub getComparisonSampleWindow {
+	my $this_wk = shift;
+	my $value_hash = shift;
+	my $win_width = shift;
 	
+	# Working backward in time from $this_wk, not including $this_wk, retrieve the appropriate 
+	# values from the keyed values in $values_hash. Since this is sample-based, we need to track 
+	# how many samples we actually find.
+	# Store the values in a new array @comp.
+	#
+	my @comp = ();
+	my ($y, $w) = split /\./, $this_wk;
+	
+	my $stopper = $win_width * 2;
+	# Step backwards through the epi weeks until we extract $win_width samples.
+	while (scalar(@comp) <= $win_width and $stopper > 0) {
+		$w = $w - 1;
+		if ($w < 0 or ($w == 0 and !defined $value_hash->{"$y.$w"})) {
+			$y--;
+			$w = 52;
+		}
+		push(@comp, $value_hash->{"$y.$w"}) if defined $value_hash->{"$y.$w"};
+		$stopper--;
+	}
+	#print Dumper(\@comp);
+	return \@comp;
+}
+
+
+sub getAbundanceLevel {
+	my $val = shift;
+	my $arr = shift;
+	
+	my %result = ("change" => "NA", "level" => 1);
+	
+	my $mean = calcSimpleMean($arr);
+	# Handle edge case: no values in the array returns NA.
+	return \%result if "$mean" eq "NA";	# Not enough data
+	
+	if ($mean > 0) {
+		$result{"change"} = ($val-$mean)/$mean;
+		if ($result{"change"} <= -0.5) {
+			$result{"level"} = 3;	# LOW
+		} elsif ($result{"change"} <= 0) {
+			$result{"level"} = 4;	# MODERATE
+		} elsif ($result{"change"} <= 0.5) {
+			$result{"level"} = 5;	#HIGH
+		} elsif ($result{"change"} > 1.5) {
+			$result{"level"} = 6;	#VERY HIGH
+		}
+	} else {
+		# If the mean is actually 0, we need a special case.
+		$result{"change"} = "NA";	
+		$result{"level"} = 2;	
+	}
+
+	return \%result;
+}
+
+
+
+sub getTrendLevel {
+	my $val = shift;
+	my $arr = shift;
+	
+	my %result = ("slope" => "NA", "level" => 1);
+	return \%result if scalar @$arr < 2;	# Not enough data.
+			
+	# Add the current value $val to the front of the comparison array $arr.
+	# This makes the length of $arr equal to $TREND_LEVEL_WINDOW.
+	unshift(@$arr, $val);
+	
+	# Convert the input data into x,y pairs (points) where x is the date index and y is 
+	# the abundance value. This will allow us to calculate the slope of a linear trend line 
+	# through the points and determine the direction and magnitude (slope) of the change.
+	#
+	my @points = ();
+	for (my $i=0; $i<scalar(@$arr); $i++) {
+		my $x = $i+1;
+		my $y = $arr->[$i];
+		push(@points, [$x, $y]);
+	}
+		
+	# Look for a spiking trend, where the slope of the line connecting the most recent pair 
+	# of points exceeds the SPIKE_THRESHOLD. If the actual values are less than 1, this step 
+	# is skipped.
+	#
+ 	if ($points[1]->[0] > 1) {
+ 		my @latest2 = ($points[0], $points[1]);
+ 		my $sline = calcLSM(\@latest2);
+		if ($sline->{"slope"} > 8) {
+			$result{"slope"} = $sline->{"slope"};
+			$result{"level"} = 2;
+		}
+ 	}
+ 	
+ 	unless ($result{"level"} == 2) {
+
+		my $line = calcLSM(\@points);
+		my $slope = $line->{"slope"};
+		$result{"slope"} = $slope;
+		
+		if ($slope <= -5) {
+			$result{"level"} = 3; # RAPIDLY DECREASING
+		} elsif ($slope <= -0.5) {
+			$result{"level"} = 4; # DECREASING
+		} elsif ($slope <= 0.5) {
+			$result{"level"} = 5; # STABLE
+		} elsif ($slope <= 5) {
+			$result{"level"} = 6; # INCREASING
+		} elsif ($slope > 5) {
+			$result{"level"} = 7; # RAPIDLY INCREASING
+		}
+	}
+	
+	return \%result;
 }
 
 
 sub calcSimpleMean {
 	my $a = shift;
 	
-	return 0 if scalar @{$a} == 0;
+	return "NA" if scalar @{$a} == 0;
 	
 	my $sum = 0;
 	foreach my $val (@{$a}) {
@@ -409,6 +509,39 @@ sub calcSimpleMean {
 	return $mean;
 }
 
+
+sub calcLSM {
+	
+	my $points = shift; # array of arrays of paired points.
+	
+	my %lsm = ("slope" => "NA", "intercept" => "NA");
+	
+	my $n 		= scalar @$points;
+	my $sumX  = 0;
+	my $sumY  = 0;
+	my $sumX2 = 0;
+	my $sumXY = 0;
+	
+	
+	foreach my $point (@$points) {
+		my ($x, $y) = @$point;
+		$sumX  += $x;
+		$sumY  += $y;
+		$sumX2 += $x * $x;
+		$sumXY += $x * $y;
+	}
+	
+	# Calculate the slope (m)
+	my $m = ($n * $sumXY - $sumX * $sumY) / ($n * $sumX2 - $sumX * $sumX);
+	
+	# Calculate the y-intercept (b)
+	my $b = ($sumY - $m * $sumX) / $n;
+	
+	$lsm{"slope"} = $m;
+	$lsm{"intercept"} = $b;
+	
+	return \%lsm;
+}
 
 
 
