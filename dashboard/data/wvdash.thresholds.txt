@@ -1,0 +1,13 @@
+target	category	step
+SARS-CoV-2	z	5
+Influenza Virus A (FluA)	z	5
+Influenza Virus B (FluB)	z	5
+Respiratory Syncitial Virus, Human (RSV)	z	5
+SARS-CoV-2	trend	30
+Influenza Virus A (FluA)	trend	6
+Influenza Virus B (FluB)	trend	3
+Respiratory Syncitial Virus, Human (RSV)	trend	3
+SARS-CoV-2	spike	500
+Influenza Virus A (FluA)	spike	250
+Influenza Virus B (FluB)	spike	40
+Respiratory Syncitial Virus, Human (RSV)	spike	50

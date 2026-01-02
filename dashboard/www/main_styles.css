@@ -1,12 +1,12 @@
 .nbcontainer .container{
 	margin: 0 auto;
 	padding:0;
-	min-width: 1400px;
+	min-width: 1300px;
 	width: auto !important;
 }
 
 .container-fluid {
-	min-width: 1400px;
+	min-width: 1300px;
 	width: auto !important;
 }
 

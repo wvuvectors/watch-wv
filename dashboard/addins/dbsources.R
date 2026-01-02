@@ -1,14 +1,7 @@
-DB_BASE <- "data"
-DB_RESULTS_WVU <- paste(DB_BASE, "/watchdb.result.txt", sep="")
-DB_SAMPLES_WVU <- paste(DB_BASE, "/watchdb.sample.txt", sep="")
+WVD_DBASE <- "data"
 
-DB_RESULTS_MU <- paste(DB_BASE, "/mu.result.txt", sep="")
-DB_SAMPLES_MU <- paste(DB_BASE, "/mu.sample.txt", sep="")
+WVD_RSS_F <- paste0(WVD_DBASE, "/wvdash.rsstable.txt", sep="")
+WVD_COUNTY_F <- paste0(WVD_DBASE, "/shapefiles/wv_counties/WV_Counties.shp", sep="")
+WVD_RESOURCE_F <- paste(WVD_DBASE, "/watchdb.all_tables.xlsx", sep="")
 
-DB_ALERTS <- paste(DB_BASE, "/wvdash.alerts.txt", sep="")
-
-RES_BASE <- "data"
-RES_ALL <- paste(RES_BASE, "/watchdb.all_tables.xlsx", sep="")
-
-SEQR_BASE="data"
-DB_SEQR <- paste(SEQR_BASE, "/seqrdb.txt", sep="")
+WVD_SEQR_F <- paste(WVD_DBASE, "/seqrdb.txt", sep="")

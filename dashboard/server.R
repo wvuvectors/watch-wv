@@ -11,23 +11,26 @@
 shinyServer(function(input, output, session) {
 	
 	#
-	# Assign Leaflet proxies
+	# Assign Leaflet proxies.
 	#
 	leafletProxyCovid <- leafletProxy(mapId="map_covid", session)
-	leafletProxyFlu <- leafletProxy(mapId="map_flu", session)
+	leafletProxyFluA <- leafletProxy(mapId="map_flua", session)
+	leafletProxyFluB <- leafletProxy(mapId="map_flub", session)
 	leafletProxyRsv <- leafletProxy(mapId="map_rsv", session)
-	leafletProxyNov <- leafletProxy(mapId="map_nov", session)
 	
 
+	#
+	# Get the mapProxy by tab index.
+	#
 	getMapProxy <- function(indx) {
 		if (indx == 1) {
 			return(leafletProxyCovid)
 		} else if (indx == 2) {
-			return(leafletProxyFlu)
+			return(leafletProxyFluA)
 		} else if (indx == 3) {
-			return(leafletProxyRsv)
+			return(leafletProxyFluB)
 		} else if (indx == 4) {
-			return(leafletProxyNov)
+			return(leafletProxyRsv)
 		}
 		return(leafletProxyCovid)
 	}
@@ -37,14 +40,14 @@ shinyServer(function(input, output, session) {
 	# Initialize reactive values with some defaults.
 	#
 	controlRV <- reactiveValues(
-		activeMapColor = c("COVID", "FluA", "RSV", "Norovirus GII"), 
+		activeMapColor = c("COVID", "FluA", "FluB", "RSV"), 
 		mapClick = c("WV", "WV", "WV", "WV"), 
 		trendLines = c(TRUE, TRUE),
 		viewMonths = c(VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY, VIEW_RANGE_PRIMARY), 
 		mapClickLat = c(0, 0, 0, 0),
 		mapClickLng = c(0, 0, 0, 0),
 		mapIndex = 1,
-		targetVec = c(1)
+		clicked_shape_id = NULL
 	)
 	
 
@@ -53,42 +56,45 @@ shinyServer(function(input, output, session) {
 	# fires on init so use INIT = FALSE in all other observer functions.
 	#
   observe({ 
-    if (input$nav == "COVID") {
+    if (tolower(input$nav) == "covid") {
       #print("tab = covid")
       controlRV$mapIndex <- 1
-      controlRV$targetVec <- c(1)
 			
 			updateAllPlots()
-			updateSelectionInfo()
-			updateStatus()
+			updateSelectionDetails()
+			updateAbundanceFreshness()
+			updateAlertBlocks()
 
-    } else if (input$nav == "Influenza") {
-      #print("tab = flu")
+    } else if (tolower(input$nav) == "flua") {
+      #print("tab = fluA")
       controlRV$mapIndex <- 2
-      controlRV$targetVec <- c(2,3)
-
+			
 			updateAllPlots()
-			updateSelectionInfo()
-			updateStatus()
-    } else if (input$nav == "RSV") {
-      #print("tab = rsv")
+			updateSelectionDetails()
+			updateAbundanceFreshness()
+			updateAlertBlocks()
+
+    } else if (tolower(input$nav) == "flub") {
+      #print("tab = fluB")
       controlRV$mapIndex <- 3
-      controlRV$targetVec <- c(4)
 
 			updateAllPlots()
-			updateSelectionInfo()
-			updateStatus()
-    } else if (input$nav == "Norovirus") {
-      #print("tab = nov")
+			updateSelectionDetails()
+			updateAbundanceFreshness()
+			updateAlertBlocks()
+
+    } else if (tolower(input$nav) == "rsv") {
+      #print("tab = rsv")
       controlRV$mapIndex <- 4
-      controlRV$targetVec <- c(5,6)
 
 			updateAllPlots()
-			updateSelectionInfo()
-			updateStatus()
+			updateSelectionDetails()
+			updateAbundanceFreshness()
+			updateAlertBlocks()
     }
   })
 	
+
 	# The following three observers keep the map and controls synched across tabs.
 	
 	# 
@@ -134,27 +140,28 @@ shinyServer(function(input, output, session) {
 
 	# Open data warning window(s).
 	#
-	fireDataWarnings <- function(targets) {
-		#lapply(1:length(targets), function(i) {
-		for (index in targets) {
-			#target_index <- targets[[i]]
-			togglePanels(on=c(paste0("missing_data_p", index, "_popup", sep="")))
+	fireDataWarnings <- function(target_indx) {
+		if (missing(target_indx)) {
+			target_indx <- controlRV$mapIndex
 		}
+		plotSuffix <- tolower(DISEASES[target_indx])
+		togglePanels(on=c(paste0("missing_data_", plotSuffix, "_popup", sep="")))
 	}
 	
 	# Close data warning window(s).
 	#
-	killDataWarnings <- function(targets) {
-		for (index in targets) {
-			#target_index <- targets[[i]]
-			togglePanels(off=c(paste0("missing_data_p", index, "_popup", sep="")))
+	killDataWarnings <- function(target_indx) {
+		if (missing(target_indx)) {
+			target_indx <- controlRV$mapIndex
 		}
+		plotSuffix <- tolower(DISEASES[target_indx])
+		togglePanels(off=c(paste0("missing_data_", plotSuffix, "_popup", sep="")))
 	}
 	
 	
 	getColorByIndex <- function(menuOpt) {
 		if (missing(menuOpt)) {
-			i <- controlRV$targetVec[1]
+			i <- controlRV$mapIndex
 			menuOpt <- controlRV$activeMapColor[i]
 		}
 		
@@ -166,10 +173,6 @@ shinyServer(function(input, output, session) {
 			return(3)
 		} else if (tolower(menuOpt) == "rsv") {
 			return(4)
-		} else if (tolower(menuOpt) == "norovirus gii") {
-			return(5)
-		} else if (tolower(menuOpt) == "norovirus gi") {
-		  return(6)
 		} else {
 			return(1)
 		}
@@ -177,93 +180,101 @@ shinyServer(function(input, output, session) {
 	}
 	
 	
-	getAbundance <- function(loc_id, target_index) {
-	  #print("##### getAbundance called!")
-
-		if (nrow(dflist_alerts[[target_index]]) < 1) {
-			return(c(ALERT_LEVEL_STRINGS[5], ALERT_LEVEL_COLORS[5]))
+	getAbundanceLevel <- function(loc_id, target_index, yr, wk) {
+	  #print("##### getAbundanceLevel called!")
+		
+		if (missing(loc_id)) {
+			loc_id <- controlRV$mapClick[controlRV$mapIndex]
 		}
 
-		if (nrow(dflist_alerts[[target_index]] %>% filter(region_name == loc_id)) < 1) {
-			return(c(ALERT_LEVEL_STRINGS[5], ALERT_LEVEL_COLORS[5]))
+		if (missing(target_index)) {
+			target_index <- controlRV$mapIndex
 		}
+
+		df_base <- df_rss %>% filter(location_id == loc_id & target == TARGETS[target_index])
 		
-		val <- (dflist_alerts[[target_index]] %>% filter(region_name == loc_id))$abundance_pct_change
-		
-		if (is.na(val)) {
-			return(c(ALERT_LEVEL_STRINGS[5], ALERT_LEVEL_COLORS[5]))
-		}
-		
-		if (val < ALERT_LEVEL_THRESHOLDS[1]) {
-			# LOW
-			txt <- ALERT_LEVEL_STRINGS[1]
-			color <- ALERT_LEVEL_COLORS[1]
-		} else if (val >= ALERT_LEVEL_THRESHOLDS[1] & val < ALERT_LEVEL_THRESHOLDS[2]) {
-			# MODERATE
-			txt <- ALERT_LEVEL_STRINGS[2]
-			color <- ALERT_LEVEL_COLORS[2]
-		} else if (val >= ALERT_LEVEL_THRESHOLDS[2] & val < ALERT_LEVEL_THRESHOLDS[3]) {
-			# HIGH
-			txt <- ALERT_LEVEL_STRINGS[3]
-			color <- ALERT_LEVEL_COLORS[3]
-		} else if (val >= ALERT_LEVEL_THRESHOLDS[3]) {
-			# VERY HIGH
-			txt <- ALERT_LEVEL_STRINGS[4]
-			color <- ALERT_LEVEL_COLORS[4]
+		# Get the single row that represents the queried date, or the most recent if no date was 
+		# specified. This is stored in df_this.
+		if (missing(yr) | missing(wk)) {
+			df_this <- df_base %>% filter(epi_date == max(df_base$epi_date))
 		} else {
-			# UNKNOWN
-			txt <- ALERT_LEVEL_STRINGS[5]
-			color <- ALERT_LEVEL_COLORS[5]
+			df_this <- df_base %>% filter(epi_year == yr & epi_week == wk)
 		}
 		
-		return(c(txt, color))
-	}
-	
-	
-	getTrend <- function(loc_id, target_index) {
-	  #print("##### getTrend called!")
-		#print((dflist_alerts[[target_index]] %>% filter(region_name == loc_id))$trend)
+		level <- 1	# Ensures that even if there is some data snafu, we return a valid set.
 		
-		if (nrow(dflist_alerts[[target_index]]) < 1) {
-			return(c(TREND_STRINGS[5], ALERT_LEVEL_COLORS[5]))
-		}
-		
-		if (nrow(dflist_alerts[[target_index]] %>% filter(region_name == loc_id)) < 1) {
-			return(c(TREND_STRINGS[5], ALERT_LEVEL_COLORS[5]))
-		}
-
-		txt <- (dflist_alerts[[target_index]] %>% filter(region_name == loc_id))$trend
-		color <- ALERT_LEVEL_COLORS[5]
-
-		for (i in 1:length(TREND_STRINGS)) {
-			tstr <- TREND_STRINGS[i]
-			if (txt == tstr) {
-				color <- ALERT_LEVEL_COLORS[i]
-				break
+		# Only set the level if exactly one row was returned, and the level is not missing.
+		if (nrow(df_this) == 1 & !is.na(df_this$abundance_level)) {
+			level <- as.numeric(df_this$abundance_level)
+			# If the data exists but is stale, set the level to 1 anyway.
+			if (isStale(df_this$primary_date) == TRUE) {
+				level <- 1
 			}
 		}
 		
-		return(c(txt, color))
+		df_level <- data.frame(
+			level = level, 
+			label = ALEVEL_STRINGS[level], 
+			color = ALEVEL_COLORS[level], 
+			detail = ALEVEL_DESCRIPTIONS[level]
+		)
+		return(df_level)
 	}
 	
 	
-	getDominantVariant <- function(loc_id, target_index) {
-		i <- 4
-		txt <- ALERT_LEVEL_STRINGS[i]
-		color <- ALERT_LEVEL_COLORS[i]
-		# do stuff in here!
+	getTrendLevel <- function(loc_id, target_index, yr, wk) {
+	  #print("##### getTrendLevel called!")
+		
+		if (missing(loc_id)) {
+			loc_id <- controlRV$mapClick[controlRV$mapIndex]
+		}
+
+		if (missing(target_index)) {
+			target_index <- controlRV$mapIndex
+		}
+
+		df_base <- df_rss %>% filter(location_id == loc_id & target == TARGETS[target_index])
+		
+		# Get the single row that represents the queried date, or the most recent if no date was 
+		# specified. This is stored in df_this.
+		if (missing(yr) | missing(wk)) {
+			df_this <- df_base %>% filter(epi_date == max(df_base$epi_date))
+		} else {
+			df_this <- df_base %>% filter(epi_year == yr & epi_week == wk)
+		}
+		
+		level <- 1	# Ensures that even if there is some data snafu, we return a valid set.
+		
+		# Only set the level if exactly one row was returned, and the level is not missing.
+		if (nrow(df_this) == 1 & !is.na(df_this$trend_level)) {
+			level <- as.numeric(df_this$trend_level)
+			# If the data exists but is stale, set the level to 1 anyway.
+			if (isStale(df_this$primary_date) == TRUE) {
+				level <- 1
+			}
+		}
+		
+		df_level <- data.frame(
+			label = TLEVEL_STRINGS[level], 
+			color = TLEVEL_COLORS[level], 
+			detail = TLEVEL_DESCRIPTIONS[level]
+		)
+		return(df_level)
+	}
 	
+	
+	getDominantVariant <- function(loc_id, target_index, yr, wk) {
+		# do stuff in here!
 		return(c("KP.1", "#ffffff"))
 	}
 
 
-	# Accepts a location id and the index of the target
+	# Accepts a location id and the index of a target.
 	#
-	# Return a dataframe of abundance data for the current bio target at the given location.
+	# Return a dataframe of abundance data for the current target at the given location.
 	#
 	getAbundanceData <- function(loc_id, target_index) {
 	  #print("##### getAbundanceData called!")
-	  #print(controlRV$mapIndex)
 		
 		if (missing(loc_id)) {
 			loc_id <- controlRV$mapClick[controlRV$mapIndex]
@@ -273,75 +284,25 @@ shinyServer(function(input, output, session) {
 			target_index <- controlRV$mapIndex
 		}
 		
-		#print("incoming loc_id:")
-		#print(loc_id)
+		# Pretty simple except when different epi weeks have the same primary_date. This occurs 
+		# at the end of some years. We take the mean of those events.
+		df_this <- df_rss %>% 
+							 filter(location_id == loc_id & target == TARGETS[target_index]) %>% 
+							 arrange(primary_date) %>% 
+							 group_by(primary_date) %>% 
+							 summarize(
+							 	mean_abundance = mean(mean_abundance, na.rm=TRUE),
+							 	rolling_mean = mean(rolling_mean, na.rm = TRUE),
+							 	epi_week = last(epi_week)
+							 )
+		df_this$mean_abundance[is.nan(df_this$mean_abundance)] <- NA
+		df_this$rolling_mean[is.nan(df_this$rolling_mean)] <- NA
 		
-		df_base <- dflist_rs[[target_index]]
-		#View(df_base)
-		
-		if (loc_id == "WV") {
-			# get all active facilities
-			loc_ids <- (df_active_loc %>% filter(location_category == "wwtp"))$location_id
-		} else {
-			if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
-				# roll up county active facilities
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
-			} else {
-				# just the single facility, but need it as a vector
-				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
-			}
-		}
-
-		#print("rolled up loc_ids:")
-		#print(loc_ids)
-		
-		#df_epi <- data.frame(df_base$date_to_plot, df_base$epi_week)
-		
-		df_this <- df_base %>% 
-							 filter(location_id %in% loc_ids) %>%
-							 group_by(date_to_plot, epi_week) %>% 
-							 arrange(date_to_plot) %>%
-							 summarize(val = mean(target_copies_fn_per_cap, na.rm = TRUE))
-		#df_this <- cbind
+		#df_this$primary_date <- lubridate::ymd(df_this$primary_date)
 		
 		#print("Content of df_this from getAbundanceData:")
 		#View(df_this)
 		return(df_this)
-	}
-
-
-	# Accepts a location id.
-	#
-	# Return a dataframe of variant data for the current bio target at the given location.
-	#
-	getVariantData <- function(loc_id) {
-	  #print("##### getVariantData called!")
-	
-		if (loc_id == "WV") {
-			# get all active facilities
-			loc_ids <- (df_active_loc %>% filter(location_category == "wwtp"))$location_id
-		} else {
-			if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
-				# roll up county active facilities
-				loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
-			} else {
-				# just the single facility, but need it as a vector
-				loc_ids <- (df_active_loc %>% filter(location_id == loc_id))$location_id
-			}
-		}
-		
-		df_trans <- df_seqr %>% filter(location_id %in% loc_ids)
-
-		t1 <- df_trans %>% group_by(date_to_plot, color_group) %>% tally(variant_proportion)	# n = sum of variant prop across all samples in a date
-		t2 <- df_trans %>% group_by(date_to_plot) %>% mutate(location_count = n_distinct(location_id, na.rm = TRUE)) %>% select(date_to_plot, location_count) %>% distinct()
-		t3 <- df_trans %>% group_by(date_to_plot) %>% mutate(collection_count = n_distinct(sample_collection_end_datetime, na.rm = TRUE)) %>% select(date_to_plot, collection_count) %>% distinct()
-		t23 <- merge(t2, t3, by = "date_to_plot")
-		df_this <- merge(t1, t23, by = "date_to_plot")
-		df_this$total_prop <- (df_this$n / df_this$location_count) / df_this$collection_count
-		df_this$total_pct <- as.numeric(formatC(100*df_this$total_prop, format="f", digits=2))
-
-		return(df_this)
-
 	}
 
 
@@ -353,12 +314,20 @@ shinyServer(function(input, output, session) {
 	  #print("##### plotAbundance called!")
     #View(df_abundance)
 
+		if (missing(target_index)) {
+			target_index <- controlRV$mapIndex
+		}
+		
+		if (missing(months_to_plot)) {
+			months_to_plot <- controlRV$viewMonths
+		}
+		
 		dlab <- case_when(
 			months_to_plot == 1 ~ DATE_LABELS[1],
 			months_to_plot == 3 ~ DATE_LABELS[2],
 			months_to_plot == 6 ~ DATE_LABELS[3],
 			months_to_plot == 12 ~ DATE_LABELS[4],
-			months_to_plot == 24 ~ DATE_LABELS[5],
+			months_to_plot == 24 ~ DATE_LABELS[5]
 		)
 
 		dbrk <- case_when(
@@ -366,72 +335,141 @@ shinyServer(function(input, output, session) {
 			months_to_plot == 3 ~ DATE_BREAKS[2],
 			months_to_plot == 6 ~ DATE_BREAKS[3],
 			months_to_plot == 12 ~ DATE_BREAKS[4],
-			months_to_plot == 24 ~ DATE_BREAKS[5],
+			months_to_plot == 24 ~ DATE_BREAKS[5]
+		)
+
+		dbrk_minor <- case_when(
+			months_to_plot == 1 ~ DATE_BREAKS_MINOR[1],
+			months_to_plot == 3 ~ DATE_BREAKS_MINOR[2],
+			months_to_plot == 6 ~ DATE_BREAKS_MINOR[3],
+			months_to_plot == 12 ~ DATE_BREAKS_MINOR[4],
+			months_to_plot == 24 ~ DATE_BREAKS_MINOR[5]
 		)
 		
 		end_date <- this_week
 		date_limits <- c(end_date %m-% months(months_to_plot), end_date)
 
-		most_recent_sample_date <- max(df_abundance$date_to_plot, na.rm=TRUE)
+		most_recent_sample_date <- max(df_abundance$primary_date, na.rm=TRUE)
 		gos_dates <- c(most_recent_sample_date-12, most_recent_sample_date+3)
 		
-		df_plot <- df_abundance %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
+		# Calculate a 4-period rolling mean, aligned to the right, filling with NA
+		df_abundance$roll4 <- rollmean(df_abundance$mean_abundance, k = 4, fill = NA, align = "right")
+		# Calculate the mean signal for each target over the last 3 months and last year.
+		trend03 <- calcTrend(df_abundance, 3)
+		trend12 <- calcTrend(df_abundance, 12)
 		
+		df_plot <- df_abundance %>% filter(primary_date >= date_limits[1] & primary_date <= date_limits[2])
+
 		if (nrow(df_plot) > 0) {
 			
-			# Calculate a 4-period rolling mean, aligned to the center, filling with NA
-			df_plot$rollmean <- rollmean(df_plot$val, k = 4, fill = NA, align = "right")
-	
-			largest_val <- max(df_plot$val+10, na.rm=TRUE)
+			top_of_tent_win <- max(df_plot$mean_abundance, na.rm=TRUE) * 1.1
 			
-			# Calculate the mean signal for each target over the last 3 months and last year.
-			trend03 <- calcTrend(df_abundance, 3)
-			trend12 <- calcTrend(df_abundance, 12)
-	
-	#		geompt_msg <- paste0(date_to_plot, sep="")
+			t3_y <- trend03 - (0.25 * trend03)
+			t12_y <- trend12 + (0.25 * trend12)
+			if (trend03 > trend12) {
+				t3_y <- trend03 + (0.25 * trend03)
+				t12_y <- trend12 - (0.25 * trend12)
+			}
 			
-			gplot <- ggplot(df_plot) + labs(y = "", x = "") + 
-												scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
-												scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
-												#scale_fill_manual(name = "Target", values = TARGET_FILLS, labels = c("n1" = "SARS-CoV-2 N1", "n1n2" = "SARS-CoV-2 N1N2", "n2" = "SARS-CoV-2 N2")) + 
-												plot_theme() + 
-												labs(x = NULL, y = NULL, color = NULL) + 
-												annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = largest_val, alpha = 0.7, fill = "#bfbfbf") + 
-												annotate("text", x = gos_dates[1]-23, y = largest_val+5, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change.") + 
-												geom_hline(aes(yintercept=trend03), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.8) + 
-												annotate("text", x = gos_dates[1]-50, y = trend03+5, color=TRENDL_03_COLOR, size = 2.5, family = "Arial", label = "3 month mean") + 
-												geom_hline(aes(yintercept=trend12), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.8) + 
-												annotate("text", x = gos_dates[1]-30, y = trend12+5, color=TRENDL_12_COLOR, size = 2.5, family = "Arial", label = "12 month mean") + 
-												geom_point(aes(x = date_to_plot, y = val, text=paste0("Epi week ", epi_week, " (", prettyNum(val, big.mark=",", digits=1), ")")), shape = 21, color="#444444", fill="#444444", size = 1, alpha=0.4) + 
-#												geom_col(aes(x = date_to_plot, y = val), fill=TRENDL_12_COLOR, alpha=1.0) + 
-											  geom_area(aes(x = date_to_plot, y = rollmean), outline.type="upper", alpha=0.5, color = "#676767", linewidth=0.5, na.rm = TRUE)
-#												geom_line(aes(x = date_to_plot, y = val), alpha=0.4, na.rm = TRUE)
-			
-# "Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\n", prettyNum(val, big.mark=",", digits=1), " particles.", sep=""
-
-			#gplot$x$data[[1]]$hoverinfo <- "none"	# Supposed to get rid of the popup on the rect annotation but doesn't work
+			gplot <- ggplot(df_plot) + 
+				#labs(y = "", x = "") + 
+				scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
+				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab) + 
+				plot_theme() + 
+				labs(x = NULL, y = NULL, color = NULL) + 
+				annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = top_of_tent_win, alpha = 0.7, fill = "#dfdfdf") + 
+				annotate("text", x = gos_dates[1]-15, y = top_of_tent_win, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change") + 
+				geom_hline(aes(yintercept=trend03), color=TRENDL_03_COLOR, linetype="dotted", alpha=0.8, linewidth=0.8) + 
+				annotate("text", x = gos_dates[1]-100, y = t3_y, color=TRENDL_03_COLOR, size = 2.5, family = "Arial", label = "3 month average") + 
+				geom_hline(aes(yintercept=trend12), color=TRENDL_12_COLOR, linetype="dotted", alpha=0.6, linewidth=0.8) + 
+				annotate("text", x = gos_dates[1]-30, y = t12_y, color=TRENDL_12_COLOR, size = 2.5, family = "Arial", label = "12 month average") + 
+				geom_point(aes(x = primary_date, y = mean_abundance, text=paste0("Epi week ", epi_week, " (", prettyNum(mean_abundance, big.mark=",", digits=1), ")")), na.rm = TRUE, shape = 21, color="#333333", fill="#444444", size = 1, alpha=0.4) + 
+				geom_area(aes(x = primary_date, y = roll4), outline.type="upper", alpha=0.5, fill = "#B7B1D6", linewidth=0.5)
 		} else {
 			gplot <- ggplot()
-			fireDataWarnings(c(target_index))
+			fireDataWarnings(target_index)
 		}
 		
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
 	
 
+	# Accepts a location id and the index of a target.
+	#
+	# Return a dataframe of fold change and trend slope data for the current target at the given location.
+	#
+	getChangeData <- function(loc_id, target_index) {
+	  #print("##### getChangeData called!")
+		
+		if (missing(loc_id)) {
+			loc_id <- controlRV$mapClick[controlRV$mapIndex]
+		}
+
+		if (missing(target_index)) {
+			target_index <- controlRV$mapIndex
+		}
+		
+		# Pretty simple except when different epi weeks have the same primary_date. This occurs 
+		# at the end of some years. We take the mean of those events.
+		df_a <- df_rss %>% 
+							 filter(location_id == loc_id & target == TARGETS[target_index]) %>% 
+							 arrange(primary_date) %>% 
+							 group_by(primary_date) %>% 
+							 summarize(
+							 	val = mean(100*abundance_fold_change, na.rm=TRUE),
+							 	level = last(abundance_level),
+							 	epi_week = last(epi_week),
+							 	epi_year = last(epi_year)
+							 )
+		df_a$category <- "fold_change"
+		df_a <- df_a %>% mutate(
+			ccolor = ALEVEL_COLORS[level], 
+			clabel = ALEVEL_STRINGS[level])
+
+		df_b <- df_rss %>% 
+							 filter(location_id == loc_id & target == TARGETS[target_index]) %>% 
+							 arrange(primary_date) %>% 
+							 group_by(primary_date) %>% 
+							 summarize(
+							 	val = mean(trend_slope, na.rm=TRUE),
+							 	level = last(trend_level),
+							 	epi_week = last(epi_week),
+							 	epi_year = last(epi_year)
+							 )
+		df_b$category <- "trend"
+		df_b <- df_b %>% mutate(
+			ccolor = TLEVEL_COLORS[level], 
+			clabel = TLEVEL_STRINGS[level])
+		
+		df_this <- rbind(df_a, df_b)
+		df_this$val[is.nan(df_this$val)] <- NA
+		
+		return(df_this)
+	}
+
+
 	# Accepts a dataframe and an integer representing # of months to plot.
 	#
-	# Generate a ggplotly object of the variant data within the date window.
+	# Generate a ggplotly object of the fold change and trend slope within the date window.
 	#
-	plotVariants <- function(df_variants, months_to_plot, target_index) {
-		#print("##### plotVariants called!")
-
+	plotChangeVals <- function(df_changes, months_to_plot, target_index) {
+	  #print("##### plotChangeVals called!")
+		#View(df_changes)
+		
+		if (missing(target_index)) {
+			target_index <- controlRV$mapIndex
+		}
+		
+		if (missing(months_to_plot)) {
+			months_to_plot <- controlRV$viewMonths
+		}
+		
 		dlab <- case_when(
 			months_to_plot == 1 ~ DATE_LABELS[1],
 			months_to_plot == 3 ~ DATE_LABELS[2],
 			months_to_plot == 6 ~ DATE_LABELS[3],
 			months_to_plot == 12 ~ DATE_LABELS[4],
-			months_to_plot == 24 ~ DATE_LABELS[5],
+			months_to_plot == 24 ~ DATE_LABELS[5]
 		)
 
 		dbrk <- case_when(
@@ -439,33 +477,46 @@ shinyServer(function(input, output, session) {
 			months_to_plot == 3 ~ DATE_BREAKS[2],
 			months_to_plot == 6 ~ DATE_BREAKS[3],
 			months_to_plot == 12 ~ DATE_BREAKS[4],
-			months_to_plot == 24 ~ DATE_BREAKS[5],
+			months_to_plot == 24 ~ DATE_BREAKS[5]
 		)
-				
-		#end_date <- max(df_variants$date_to_plot, na.rm=TRUE)
-    end_date <- this_week
+
+		dbrk_minor <- case_when(
+			months_to_plot == 1 ~ DATE_BREAKS_MINOR[1],
+			months_to_plot == 3 ~ DATE_BREAKS_MINOR[2],
+			months_to_plot == 6 ~ DATE_BREAKS_MINOR[3],
+			months_to_plot == 12 ~ DATE_BREAKS_MINOR[4],
+			months_to_plot == 24 ~ DATE_BREAKS_MINOR[5]
+		)
+		
+		end_date <- this_week
 		date_limits <- c(end_date %m-% months(months_to_plot), end_date)
-		df_plot <- df_variants %>% filter(date_to_plot >= date_limits[1] & date_to_plot <= date_limits[2])
-    
-    if (nrow(df_plot) > 0) {
-			gplot <- ggplot(df_plot, aes(fill=color_group, y=total_pct, x=date_to_plot)) + labs(y = "", x = "") + 
-	#							geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week that starts ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
-								geom_bar(position="stack", stat="identity", aes(fill=factor(color_group), text=paste0("Week of ", printy_dates(date_to_plot-7), " - ", printy_dates(date_to_plot), "\nVariant family: ", color_group, "\nProportion: ", prettyNum(total_pct, digits=2), "%", sep=""))) + 
-								scale_fill_brewer(type="div", palette = "RdYlBu", direction = -1, na.value = "#a8a8a8") + 
-								labs(x="", y="", fill=NULL) + 
-								scale_x_date(date_breaks = dbrk, date_labels = dlab, limits = date_limits) + 
-	#							scale_y_continuous(name = NULL, limits = c(0, 110), breaks = c(0, 25, 50, 75, 100)) +  DOESN'T WORK FOR SOME REASON!?
-								plot_theme() + 
-								theme(legend.position = "right", legend.title=element_blank())
+
+		most_recent_sample_date <- max(df_changes$val, na.rm=TRUE)
+		
+		df_plot <- df_changes %>% filter(primary_date >= date_limits[1] & primary_date <= date_limits[2])
+
+		if (nrow(df_plot) > 0) {
+			
+			gplot <- ggplot(df_plot) + 
+				facet_wrap(~category, nrow=2, scales = "free_y") + 
+				scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
+				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab) + 
+				scale_color_identity() + 
+				scale_fill_identity() + 
+				plot_theme() + 
+				labs(x = NULL, y = NULL, color = NULL, title="TOP: Percent fold change compared to 3 month average. BOTTOM: Slope of the 4-week trend line.") + 
+#				annotate("text", x = date_limits[1]+5, y = top_of_tent_win, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change") + 
+				geom_col(aes(x = primary_date, y = val, color = ccolor, fill = ccolor, text=paste0("Week ", epi_week, " (", epi_year ,"): ", clabel, sep="")))
+#				geom_point(aes(x = primary_date, y = val, color = ccolor, fill = ccolor, text=paste0("Epi week ", epi_week, sep="")), na.rm = TRUE, shape = 21, size = 1, alpha=0.8)
+#				geom_area(aes(x = primary_date, y = roll4), outline.type="upper", alpha=0.3, fill = "#B7B1D6", linewidth=0.5)
 		} else {
 			gplot <- ggplot()
-			fireDataWarnings(c(0))
+			fireDataWarnings(target_index)
 		}
-
+		
 		ggplotly(gplot, tooltip="text") %>% layout(clickmode = list("event"), xaxis = list(showspikes = TRUE, showline = TRUE, spikemode = "across", hovermode = "x"))
 	}
-
-
+	
 
 	#
 	# Update all the plots (usually on reaction to map click or site selection).
@@ -473,363 +524,270 @@ shinyServer(function(input, output, session) {
   updateAllPlots <- function() {
 	  #print("##### updateAllPlots called!")
 
-# Warning: Returning more (or less) than 1 row per `summarise()` group was deprecated in dplyr 1.1.0.
-# Please use `reframe()` instead.
-# When switching from `summarise()` to `reframe()`, remember that `reframe()` always returns an ungrouped data
-#  frame and adjust accordingly.
-
-		killDataWarnings(c(0, controlRV$targetVec))
+		killDataWarnings(controlRV$mapIndex)
 		
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
 
 		if (loc_id == "WV") {
 			plot_location <- "West Virginia"
 		} else {
-			if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
-				#this_county <- (df_active_loc %>% filter(location_id == loc_id))$location_counties_served
-				this_state <- "WV"
-				plot_location <- paste0(loc_id, " county, ", this_state, sep="")
-			} else {
-				plot_location <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
-			}
+			plot_location <- paste0(loc_id, " county, WV", sep="")
 		}
 		
-		lapply(1:length(controlRV$targetVec), function(i) {
-		#for (target_index in controlRV$targetVec) {
-			target_index <- controlRV$targetVec[i]
-			
-			plotSuffix <- tolower(DISEASES[target_index])
-			
-	    df_abundance <- getAbundanceData(loc_id, target_index)
+		target_index <- controlRV$mapIndex
+		
+		plotSuffix <- tolower(DISEASES[target_index])
 
-			if (target_index == 1) {
-		    df_variants <- getVariantData(loc_id)
-				output$plot_title_covid <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_covid <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
+		df_abundance <- getAbundanceData(loc_id, target_index)
+		aplot_title <- paste0(DISEASE_LABELS[target_index], " abundance in ", plot_location, " wastewater")
+		aplot <- plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index)
 
-				output$plotsq_title_covid <- renderText(paste0(toupper(plotSuffix), " variants in ", plot_location, " wastewater"))
-				output$plotsq_covid <- renderPlotly({
-					plotVariants(df_variants, controlRV$viewMonths[target_index], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-
-			} else if (target_index == 2) {
-				output$plot_title_flua <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_flua <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-			} else if (target_index == 3) {
-				output$plot_title_flub <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_flub <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-			} else if (target_index == 4) {
-				output$plot_title_rsv <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_rsv <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-			} else if (target_index == 5) {
-				output$plot_title_novii <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_novii <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-			} else if (target_index == 6) {
-				output$plot_title_novi <- renderText(paste0(toupper(plotSuffix), " abundance in ", plot_location, " wastewater"))
-				output$plot_novi <- renderPlotly({
-					plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index) %>% config(displayModeBar = FALSE)# %>% style(hoverinfo = "skip")
-				})
-			}
+		df_changes <- getChangeData(loc_id, target_index)
+		cplot <- plotChangeVals(df_changes, controlRV$viewMonths[controlRV$mapIndex], target_index)
+		
+		if (target_index == 1) {
+			output$aplot_title_covid <- renderText(aplot_title)
+			output$aplot_covid <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
+			output$cplot_covid <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+		} else if (target_index == 2) {
+			output$aplot_title_flua <- renderText(aplot_title)
+			output$aplot_flua <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
+			output$cplot_flua <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+		} else if (target_index == 3) {
+			output$aplot_title_flub <- renderText(aplot_title)
+			output$aplot_flub <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
+			output$cplot_flub <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+		} else if (target_index == 4) {
+			output$aplot_title_rsv <- renderText(aplot_title)
+			output$aplot_rsv <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
+			output$cplot_rsv <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+		}
 			
-		}) # end of lapply
   }
 
   
 	#
 	# Update the alert status elements (usually on reaction to map click or site selection).
 	#
-	updateStatus <- function() {
-	  #print("##### updateStatus called!")
-	  # Update abundance and trend text blocks, and the dominant variant text block (if applicable).
-
-#	  print("0 updateStatus called!")
+	updateAlertBlocks <- function() {
+	  #print("##### updateAlertBlocks called!")
 		
 		# Get the current map click
 		loc_id <- controlRV$mapClick[controlRV$mapIndex]
 		
-#	  print("1 updateStatus called!")
+		this_region <- "West Virginia"
+		if (loc_id != "WV") {
+			this_region <- paste0(loc_id, " county", sep="")
+		}
 		
-		lapply(1:length(controlRV$targetVec), function(i) {
-			target_index <- controlRV$targetVec[i]
-			
-			plotSuffix <- tolower(DISEASES[target_index])
-#			print(paste0("target index is ", target_index, " and plot suffix is ", plotSuffix, sep=""))
-			
-			# Generate the value for the abundance block.
-			vec_abundance <- getAbundance(loc_id, target_index)
-	
-#	  	print("2 updateStatus called!")
-	
-			# Generate the value for the trend block.
-			vec_trend <- getTrend(loc_id, target_index)
-	
-#		  print("3 updateStatus called!")
-	
-			frunner <- paste0(
-				"document.getElementById('abundance_text_", plotSuffix, "').style.backgroundColor = '", vec_abundance[2], "';",
-				"document.getElementById('trend_text_", plotSuffix, "').style.backgroundColor = '", vec_trend[2], "';", sep="")
-			runjs(frunner)
-			
-			if (target_index == 1) {
-				# Generate the value for the variant block.
-				vec_variant <- getDominantVariant(loc_id, target_index)
-				frunner2 <- paste0(
-					"document.getElementById('variant_text_", plotSuffix, "').style.backgroundColor = '", vec_variant[2], "';", sep="")
-				runjs(frunner2)
-				
-				# Write the text blocks. Be nice to construct these variable names from visPlot but can't figure that out.
-				output$abundance_covid <- renderText(vec_abundance[1])
-				output$trend_covid <- renderText(vec_trend[1])
-				output$variant_covid <- renderText(vec_variant[1])
-			
-			} else if (target_index == 2) {
-				output$abundance_flua <- renderText(vec_abundance[1])
-				output$trend_flua <- renderText(vec_trend[1])
-			
-			} else if (target_index == 3) {
-				output$abundance_flub <- renderText(vec_abundance[1])
-				output$trend_flub <- renderText(vec_trend[1])
-			
-			} else if (target_index == 4) {
-				output$abundance_rsv <- renderText(vec_abundance[1])
-				output$trend_rsv <- renderText(vec_trend[1])
-			
-			} else if (target_index == 5) {
-				output$abundance_novii <- renderText(vec_abundance[1])
-				output$trend_novii <- renderText(vec_trend[1])
+		target_index <- controlRV$mapIndex
+		target_name <- TARGETS[target_index]
+		disease_name <- DISEASES[target_index]
+					
+		abundance_head <- paste0(disease_name, " Level", sep="")
+		trend_head <- paste0(disease_name, " Trend", sep="")
+		
+		plotSuffix <- tolower(DISEASES[target_index])
+		#print(paste0("target index is ", target_index, " and plot suffix is ", plotSuffix, sep=""))
+		
+		# Generate the value for the abundance block.
+		df_alevel <- getAbundanceLevel(loc_id, target_index)
 
-			} else if (target_index == 6) {
-				output$abundance_novi <- renderText(vec_abundance[1])
-				output$trend_novi <- renderText(vec_trend[1])
-			}
-		}) # end lapply
+		# Generate the value for the trend block.
+		df_tlevel <- getTrendLevel(loc_id, target_index)
+
+		alert_details_text <- getAlertDetail(disease_name, this_region, df_alevel, df_tlevel)
 		
-#	  print("4 updateStatus called!")
+		frunner <- paste0(
+			"document.getElementById('abundance_text_", plotSuffix, "').style.backgroundColor = '", df_alevel$color, "';",
+			"document.getElementById('trend_text_", plotSuffix, "').style.backgroundColor = '", df_tlevel$color, "';", sep="")
+		runjs(frunner)
+		
+		if (target_index == 1) {
+			# Write the text blocks. Be nice to construct these variable names from visPlot but can't figure that out.
+			output$abundance_head_covid <- renderText(abundance_head)
+			output$abundance_covid <- renderText(df_alevel$label)
+
+			output$trend_head_covid <- renderText(trend_head)
+			output$trend_covid <- renderText(df_tlevel$label)
+
+			output$alert_details_covid <- renderText(alert_details_text)
+		
+		} else if (target_index == 2) {
+			output$abundance_head_flua <- renderText(abundance_head)
+			output$abundance_flua <- renderText(df_alevel$label)
+
+			output$trend_head_flua <- renderText(trend_head)
+			output$trend_flua <- renderText(df_tlevel$label)
+
+			output$alert_details_flua <- renderText(alert_details_text)
+		
+		} else if (target_index == 3) {
+			output$abundance_head_flub <- renderText(abundance_head)
+			output$abundance_flub <- renderText(df_alevel$label)
+
+			output$trend_head_flub <- renderText(trend_head)
+			output$trend_flub <- renderText(df_tlevel$label)
+
+			output$alert_details_flub <- renderText(alert_details_text)
+		
+		} else if (target_index == 4) {
+			output$abundance_head_rsv <- renderText(abundance_head)
+			output$abundance_rsv <- renderText(df_alevel$label)
+
+			output$trend_head_rsv <- renderText(trend_head)
+			output$trend_rsv <- renderText(df_tlevel$label)
+
+			output$alert_details_rsv <- renderText(alert_details_text)
+		
+		}
 	}
 	
 	
 	#
-	# Update the selection info block (usually on reaction to map click or site selection).
+	# Update the selection details (usually on reaction to map click or site selection).
 	#
-	updateSelectionInfo <- function() {
-	  #print("##### updateSelectionInfo called!")
+	updateSelectionDetails <- function(loc_id) {
+	  #print("##### updateSelectionDetails called!")
+	  #print(paste0("##### mapClick is ", controlRV$mapClick[controlRV$mapIndex], sep=""))
 	  
-		loc_id <- controlRV$mapClick[controlRV$mapIndex]
-		
-		# Rollup location ids into a vector, even if it is a single facility.
-		# Faciliates calculation of completenes and freshness.
-		# Default is a vector containing the facility location id.
-		loc_ids <- c(loc_id)
-		
-		if ("WV" %in% loc_ids) {
-			# State specific elements
-			loc_ids <- unique((df_active_loc %>% filter(location_category == "wwtp"))$location_id)
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-
-			title_text <- "The State of West Virginia"
-			selection_text <- "The State of West Virginia"
-
-		} else if ((df_regions %>% filter(region_name == loc_id))$region_geolevel == "county") {
-			# County specific elements
-			loc_ids <- (df_active_loc %>% filter(location_counties_served == loc_id & location_category == "wwtp"))$location_id
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
+	  if (missing(loc_id)) {
+			loc_id <- controlRV$mapClick[controlRV$mapIndex]	# This is a county name, or WV
+		}
 			
-			county_name <- loc_id
+	  #print(paste0("##### loc_id is ", loc_id, sep=""))
 
-			title_text <- paste0(loc_id, " county, WV", sep="")
-			selection_text <- paste0(loc_id, " county", sep="")
+		pop_served <- -1
+		pop_location <- -1
+		pct_served <- -1
+				
+		if (loc_id == "WV") {
+			pop_served <- sum(df_facilities$location_population_served)
+			pop_location <- sum(df_counties$county_population)
+			num_counties <- length(COUNTIES)
+			num_facilities <- length(FACILITIES)
+			county_text <- "counties"
+
+			if (pop_served > 0 & pop_location > 0) {
+				pct_served <- 100 * pop_served / pop_location
+			}
+
+			selection_details <- paste0(
+				"West Virginia is represented by ", num_facilities, " active WaTCH facilities serving approximately ", 
+				prettyNum(pop_served, big.mark=","), " residents (", 
+				prettyNum(pct_served, digits=1) ,"% of the state) across ", 
+				num_counties, " counties.", sep=""
+			)
 
 		} else {
-			# Facility specific elements
-			loc_ids <- unique((df_active_loc %>% filter(location_id == loc_id))$location_id)
-			county_ids <- unique((df_active_loc %>% filter(location_id %in% loc_ids))$location_counties_served)
-			county_name <- county_ids[[1]]
-			
-			loc_name <- unique((df_active_loc %>% filter(location_id == loc_id))$location_common_name)
-			
-			title_text <- loc_name
-			selection_text <- loc_name
+			facilities_this <- df_facilities %>% filter(loc_id == location_counties_served)
+			#View(facilities_this)
+			pop_served <- sum(facilities_this$location_population_served)
+			pop_location <- as.numeric((df_counties %>% filter(county_id == loc_id))$county_population)
+			num_facilities <- length(unique(facilities_this$location_id))
+			region_name <- paste0(loc_id, " county", sep="")
 
-		}
-
-		popserved_total <- sum(distinct(df_active_loc %>% filter(location_id %in% loc_ids), location_id, location_population_served)$location_population_served)
-		#popserved_pct <- 100 * popserved_total / sum((resources$county %>% filter(county_id %in% county_ids))$county_population)
-		
-		if (popserved_total == -1) {
-			popserved_total <- "Unknown"
-		}
-
-		num_counties <- length(county_ids)
-		counties_text <- "counties"
-		if (num_counties == 1) {
-			counties_text <- paste0(county_name, " county, WV.", sep="")
-		} else {
-			counties_text <- paste0(num_counties, " counties.", sep="")
-		}
-
-		num_facilities <- length(loc_ids)
-		facility_text <- "facilities"
-		if (num_facilities == 1) {
-			facility_text <- "facility"
-		}
-		
-		selection_details_text <- paste0(
-			selection_text, " supports ", num_facilities, " active WaTCH ", facility_text, " serving ", 
-			prettyNum(popserved_total, big.mark=","), " residents in ", counties_text, sep=""
-		)
-
-		lapply(1:length(controlRV$targetVec), function(i) {
-		#for (target_index in controlRV$targetVec) {
-			target_index <- controlRV$targetVec[i]
-		
-			plotSuffix <- tolower(DISEASES[target_index])
-			
-			# Calculate the freshness of the abundance data.
-			#	
-			df_fresh <- dflist_rs[[target_index]] %>% filter(location_id %in% loc_ids)
-			
-			if (nrow(df_fresh) < 1) {
-				
-				# Punt if there is no data.
-				sample_freshness_text <- ""
-				sample_completeness_text <- ""
-				sample_freshness_text_sq <- ""
-				sample_completeness_text_sq <- ""
-				
+			if (pop_served > 0 & pop_location > 0) {
+				pct_served <- 100 * pop_served / pop_location
+			}
+			if (num_facilities == 1) {
+				facility_text <- "facility"
 			} else {
-				most_recent_sample_date <- max(df_fresh$date_to_plot, na.rm=TRUE)
-				
-				most_recent_sample_win <- c(
-					floor_date(most_recent_sample_date, "week", week_start = 7), 
-					floor_date(most_recent_sample_date, "week", week_start = 7) + 6
-				)
-				epi_week <- lubridate::epiweek(most_recent_sample_date)
+				facility_text <- "facilities"
+			}
 
+			selection_details <- paste0(
+				loc_id, " county is represented by ", num_facilities, " active WaTCH ", facility_text, " serving approximately ", 
+				prettyNum(pop_served, big.mark=","), " residents (", 
+				prettyNum(pct_served, digits=1) ,"% of the county).", sep=""
+			)
+		}
 		
-				sample_freshness_text <- paste0(
-					"week ", epi_week, 
-					" (", 
-					printy_dates(most_recent_sample_win[1]), " - ", printy_dates(most_recent_sample_win[2]), 
-					")",
-					sep="")
-		
-				# Calculate the completeness of the abundance data.
-				#		
-				most_recent_contributors <- df_fresh %>% filter(date_to_plot == most_recent_sample_date)
-				most_recent_contributor_count <- length(unique(most_recent_contributors$location_id))
-				if (most_recent_contributor_count > 1) {
-					site_suffix <- "sites"
-				} else {
-					site_suffix <- "site"
-				}
-				sample_completeness_text <- paste0(
-					"and includes ", 
-					most_recent_contributor_count, " reporting ", site_suffix, " (", 
-					prettyNum(100*(most_recent_contributor_count/num_facilities), digits=1), "%).", 
-					sep="")
-		
-				# Calculate the freshness and completeness of the variant data (COVID only).
-				#
-				if (target_index == 1) {
-					df_fresh_sq <- df_seqr %>% filter(location_id %in% loc_ids)
+		target_index <- controlRV$mapIndex
+
+		# Update the UI.
+		if (target_index == 1) {
+			output$selection_details_covid <- renderText(selection_details)
+		} else if (target_index == 2) {
+			output$selection_details_flua <- renderText(selection_details)
+		} else if (target_index == 3) {
+			output$selection_details_flub <- renderText(selection_details)
+		} else if (target_index == 4) {
+			output$selection_details_rsv <- renderText(selection_details)
+		}
+
+	}
 	
-					if (nrow(df_fresh_sq) > 0) {
-						most_recent_sample_date_sq <- max(df_fresh_sq$date_to_plot, na.rm=TRUE)
-						most_recent_sample_win_sq <- c(
-							floor_date(most_recent_sample_date_sq, "week", week_start = 7), 
-							floor_date(most_recent_sample_date_sq, "week", week_start = 7) + 6
-						)
-						epi_week_sq <- lubridate::epiweek(most_recent_sample_date_sq)
+
+	#
+	# Update the abundance data freshness report to the user.
+	#
+	updateAbundanceFreshness <- function() {
+	  #print("##### updateDataFreshness called!")
+	  
+	  loc_id <- controlRV$mapClick[controlRV$mapIndex]	# This is a county name, or WV
+		this_region <- "West Virginia"
+		if (loc_id != "WV") {
+			this_region <- paste0(loc_id, " county", sep="")
+		}
+	  
+		target_index <- controlRV$mapIndex
+		target_name <- TARGETS[target_index]
+					
+		# Calculate the freshness of the abundance data.
+		#	
+		df_this <- df_rss %>% filter(location_id == loc_id & target == target_name)
+		df_latest <- df_this %>% filter(epi_date == max(epi_date, na.rm = TRUE))
 		
-				
-						sample_freshness_text_sq <- paste0(
-							"week ", epi_week_sq, 
-							" (", 
-							printy_dates(most_recent_sample_win_sq[1]), " - ", printy_dates(most_recent_sample_win_sq[2]), 
-							")",
-							sep="")
-	
-						most_recent_contributors_sq <- df_fresh_sq %>% filter(date_to_plot == most_recent_sample_date_sq)
-						most_recent_contributor_count_sq <- length(unique(most_recent_contributors_sq$location_id))
-						if (most_recent_contributor_count_sq > 1) {
-							site_suffix_sq <- "sites"
-						} else {
-							site_suffix_sq <- "site"
-						}
-						sample_completeness_text_sq <- paste0(
-							"and includes ", 
-							most_recent_contributor_count_sq, " reporting ", site_suffix_sq, ".", 
-							sep="")
-	
-					} else {
-						sample_freshness_text_sq <- paste0("not reported for this region.", sep="")
-						sample_completeness_text_sq <- ""
-					}
-				}
-			}
-				
-			# Print the title, selection, and last_sample strings to the UI.
-			#
-			if (target_index == 1) {
-				output$selection_title_covid <- renderText(title_text)
-				output$selection_details_covid <- renderText(selection_details_text)
-				output$selection_freshness_covid <- renderText(sample_freshness_text)
-				output$selection_completeness_covid <- renderText(sample_completeness_text)
-				output$selectionsq_freshness_covid <- renderText(sample_freshness_text_sq)
-				output$selectionsq_completeness_covid <- renderText(sample_completeness_text_sq)
-			} else if (target_index == 2) {
-				output$selection_title_flu <- renderText(title_text)
-				output$selection_details_flu <- renderText(selection_details_text)
-				output$selection_freshness_flua <- renderText(sample_freshness_text)
-				output$selection_completeness_flua <- renderText(sample_completeness_text)
-			} else if (target_index == 3) {
-				output$selection_title_flu <- renderText(title_text)
-				output$selection_details_flu <- renderText(selection_details_text)
-				output$selection_freshness_flub <- renderText(sample_freshness_text)
-				output$selection_completeness_flub <- renderText(sample_completeness_text)
-			} else if (target_index == 4) {
-				output$selection_title_rsv <- renderText(title_text)
-				output$selection_details_rsv <- renderText(selection_details_text)
-				output$selection_freshness_rsv <- renderText(sample_freshness_text)
-				output$selection_completeness_rsv <- renderText(sample_completeness_text)
-			} else if (target_index == 5) {
-				output$selection_title_nov <- renderText(title_text)
-				output$selection_details_nov <- renderText(selection_details_text)
-				output$selection_freshness_novii <- renderText(sample_freshness_text)
-				output$selection_completeness_novii <- renderText(sample_completeness_text)
-			} else if (target_index == 6) {
-				output$selection_title_nov <- renderText(title_text)
-				output$selection_details_nov <- renderText(selection_details_text)
-				output$selection_freshness_novi <- renderText(sample_freshness_text)
-				output$selection_completeness_novi <- renderText(sample_completeness_text)
-			}
+		this_freshness <- paste0(
+			"The latest abundance data for ", this_region, " was collected during the week of ", 
+			printy_dates(df_latest$primary_date), " (epi week ", df_latest$epi_week, "). ", sep="")
+
+		# Calculate the completeness of the abundance data.
+		#	
+		num_facilities <- -1
+		all_facilities <- -1
+		if (loc_id == "WV") {
+			df_comp <- df_all %>% filter(location_id %in% FACILITIES & epi_date == df_latest$epi_date)
+			num_facilities <- length(unique(df_comp$location_id))
+			all_facilities <- length(FACILITIES)
+		} else {
+			df_countyfacs <- df_facilities %>% filter(location_counties_served == loc_id)
+			df_comp <- df_all %>% filter(location_id %in% df_countyfacs$location_id & epi_date == df_latest$epi_date)
+			num_facilities <- length(unique(df_comp$location_id))
+			all_facilities <- length(unique(df_countyfacs$location_id))
+		}
+		
+		if (num_facilities > 1) {
+			site_suffix <- "sites"
+		} else {
+			site_suffix <- "site"
+		}
+		this_completeness <- paste0(
+			"It includes samples from ", num_facilities, " reporting ", site_suffix, " (", 
+			prettyNum(100*(num_facilities/all_facilities), digits=1), "% of ", this_region, " participants).", 
+			sep="")
+		
+		text2print <- paste0(this_freshness, this_completeness, sep = "")
+
+		# Update the UI.
+		if (target_index == 1) {
+			output$selection_freshness_covid <- renderText(text2print)
+		} else if (target_index == 2) {
+			output$selection_freshness_flua <- renderText(text2print)
+		} else if (target_index == 3) {
+			output$selection_freshness_flub <- renderText(text2print)
+		} else if (target_index == 4) {
+			output$selection_freshness_rsv <- renderText(text2print)
+		}
 			
-		}) # end lapply
-		
 	}
 
-	
-	getDownloadTableRS <- function(targetIndex) {
-		df_this <- dflist_rs[[targetIndex]] %>% 
-			group_by(week_ending) %>% 
-			arrange(week_ending) %>%
-			summarize(mean_virus_per_person := mean(target_copies_fn_per_cap, na.rm = TRUE),
-								location := location_id, 
-								target := target, 
-								target_locus := target_genetic_locus,
-								week_starting := week_starting, 
-								epi_year := mmr_year, 
-								epi_week := mmr_week)
+		
+	getDownloadTableRSS <- function(targetIndex) {
+		df_this <- df_rss %>% 
+			filter(target == TARGETS[targetIndex]) %>% 
+			select(collection_week = primary_date, location_id, target, mean_abundance)
 
 		return(df_this)
 	}
@@ -838,35 +796,28 @@ shinyServer(function(input, output, session) {
 	output$download_data_covid <- downloadHandler(
 		filename = "watch-wv_COVID.csv",
 		content = function(file) {
-			write.csv(getDownloadTableRS(1), file, row.names = FALSE)
+			write.csv(getDownloadTableRSS(1), file, row.names = FALSE)
 		}
 	)
 
 	output$download_data_flua <- downloadHandler(
 		filename = "watch-wv_FluA.csv",
 		content = function(file) {
-			write.csv(getDownloadTableRS(2), file, row.names = FALSE)
+			write.csv(getDownloadTableRSS(2), file, row.names = FALSE)
 		}
 	)
 
 	output$download_data_flub <- downloadHandler(
 		filename = "watch-wv_FluB.csv",
 		content = function(file) {
-			write.csv(getDownloadTableRS(3), file, row.names = FALSE)
+			write.csv(getDownloadTableRSS(3), file, row.names = FALSE)
 		}
 	)
 
 	output$download_data_rsv <- downloadHandler(
 		filename = "watch-wv_RSV.csv",
 		content = function(file) {
-			write.csv(getDownloadTableRS(4), file, row.names = FALSE)
-		}
-	)
-
-	output$download_data_novii <- downloadHandler(
-		filename = "watch-wv_HuNoV-GII.csv",
-		content = function(file) {
-			write.csv(getDownloadTableRS(5), file, row.names = FALSE)
+			write.csv(getDownloadTableRSS(4), file, row.names = FALSE)
 		}
 	)
 
@@ -882,40 +833,6 @@ shinyServer(function(input, output, session) {
 	}
 	
 
-	# Accepts a menu option.
-	#
-	# Change the way the active map is colored.
-	#
-	changeMapColor <- function(clicked) {
-    #print("##### changeMapColor called!")
-
-		mapProxy <- getMapProxy(controlRV$mapIndex)
-		
-		# Update some reactive elements
-		controlRV$activeMapColor[controlRV$mapIndex] <- clicked
-		
-		colorByIndex <- getColorByIndex(clicked)
-		
-		mapProxy %>% clearMarkers() %>% clearShapes() %>% 
-			addPolygons( 
-				data = dflist_map_c[[colorByIndex]], 
-				layerId = ~NAME,
-				fill = TRUE,
-				fillColor = ~abundance_color, 
-				fillOpacity = 0.4, 
-				stroke = TRUE, 
-				color = "#000000", 
-				weight = 2, 
-				group="county",
-				label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
-				highlightOptions = highlightOptions(
-					weight = 2,
-					color = "#00F900",
-					#dashArray = "",
-					fillOpacity = 0.5))
-	}
-	
-
 	# Accepts a map marker.
 	#
 	# Respond to a click on the given map marker in the given map.
@@ -924,24 +841,23 @@ shinyServer(function(input, output, session) {
     #print("##### clickMapMarker called!")
     if (length(clicked) == 0) {
 			clickedLocation <- "WV"
-			loc_id <- "WV"
 		} else {
     	clickedLocation <- clicked$id
-			loc_id <- unique((df_active_loc %>% filter(location_common_name == clickedLocation))$location_id)
+			#loc_id <- unique((df_rss %>% filter(location_id == clickedLocation))$location_id)
     }
-    
-		#print(loc_id)
+		controlRV$mapClick[controlRV$mapIndex] <- clickedLocation    
 		
-		if (clickedLocation %in% df_active_loc$location_id | clickedLocation == "WV") {
-			# Update the reactive element
-			controlRV$mapClick[controlRV$mapIndex] <- clickedLocation
-		} else {
-			print(paste0("No data for ", clickedLocation))
-		}
+# 		if (clickedLocation %in% df_active_loc$location_id | clickedLocation == "WV") {
+# 			# Update the reactive element
+# 			controlRV$mapClick[controlRV$mapIndex] <- clickedLocation
+# 		} else {
+# 			print(paste0("No data for ", clickedLocation))
+# 		}
 
 		updateAllPlots()
-		updateSelectionInfo()
-		updateStatus()
+		updateSelectionDetails()
+		updateAbundanceFreshness()
+		updateAlertBlocks()
 
 	}
 
@@ -951,7 +867,8 @@ shinyServer(function(input, output, session) {
 	# Respond to a click on the given map shape in the given map.
 	#
 	clickMapShape <- function(clicked) {
-    #print("##### clickMapShape called!")
+    print("##### clickMapShape called!")
+
 		if (length(clicked) == 0) {
 			clickedLocation <- "WV"
 		} else {
@@ -959,18 +876,56 @@ shinyServer(function(input, output, session) {
 			controlRV$mapClickLat[controlRV$mapIndex] <- clicked$lat
 			controlRV$mapClickLng[controlRV$mapIndex] <- clicked$lng
     }
+		    
+    # Reset style of previously clicked shape, if any.
+    prev_id <- controlRV$mapClick[controlRV$mapIndex]
+    if (prev_id != "WV") {
+      getMapProxy(controlRV$mapIndex) %>%
+      	removeShape(prev_id) %>% 
+				addPolygons(
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex] & county_id == prev_id), 
+					layerId = ~county_id,
+					fill = TRUE,
+					stroke = TRUE, 
+					fillOpacity = 0.7, 
+					opacity = 1.0,
+					weight = 2, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = ~TLEVEL_COLORS[this_tlevel], 
+					group="county",
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
+					highlightOptions = highlightOptions(
+						weight = 4,
+						fillOpacity = 0.9))
+    }
 
-    
-		if (clickedLocation %in% df_active_loc$location_id | clickedLocation %in% df_active_loc$location_counties_served | clickedLocation == "WV") {
-			controlRV$mapClick[controlRV$mapIndex] <- clickedLocation
-		} else {
-			clickedLocation <- "WV"
-			controlRV$mapClick[controlRV$mapIndex] <- clickedLocation
-		}
-		
+    # Highlight the newly clicked shape.
+    if (clickedLocation != "WV") {
+      getMapProxy(controlRV$mapIndex) %>%
+      	removeShape(clickedLocation) %>% 
+				addPolygons(
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex] & county_id == clickedLocation), 
+					layerId = ~county_id,
+					fill = TRUE,
+					stroke = TRUE, 
+					fillOpacity = 1.0, 
+					opacity = 1.0,
+					weight = 3, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = "#000000", 
+					group="county",
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")"))
+        )
+ 
+    }
+    		
+		# Update the tracking variable
+		controlRV$mapClick[controlRV$mapIndex] <- clickedLocation    
+
     updateAllPlots()
-		updateSelectionInfo()
-		updateStatus()
+		#updateSelectionDetails()
+		updateAbundanceFreshness()
+		updateAlertBlocks()
 
 	}
 	
@@ -981,18 +936,44 @@ shinyServer(function(input, output, session) {
 	#
 	clickMapOffMarker <- function(clicked) {
     #print("##### clickMapOffMarker called!")
-		# only respond if this click is in a new position on the map
+
+		# Only respond if this click is in a new position on the map, or if the mapShape observer 
+		# hasn't set the map coords to the new shape.
 		if (clicked$lat != controlRV$mapClickLat[controlRV$mapIndex] | clicked$lng != controlRV$mapClickLng[controlRV$mapIndex]) {
-			#print("New position detected!")
+			print("New position detected!")
 			controlRV$mapClickLat[controlRV$mapIndex] <- 0
 			controlRV$mapClickLng[controlRV$mapIndex] <- 0
 
-			# Update the reactive element
-			controlRV$mapClick[controlRV$mapIndex] <- "WV"
+			# Reset style of previously clicked shape, if any.
+			prev_id <- controlRV$mapClick[controlRV$mapIndex]
+			if (prev_id != "WV") {
+				getMapProxy(controlRV$mapIndex) %>%
+					removeShape(prev_id) %>% 
+					addPolygons(
+						data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex] & county_id == prev_id), 
+						layerId = ~county_id,
+						fill = TRUE,
+						stroke = TRUE, 
+						fillOpacity = 0.7, 
+						opacity = 1.0,
+						weight = 2, 
+						fillColor = ~ALEVEL_COLORS[this_alevel], 
+						color = ~TLEVEL_COLORS[this_tlevel], 
+						group="county",
+						label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
+						highlightOptions = highlightOptions(
+							weight = 3,
+							fillOpacity = 0.9))
+
+    	}
 		
+			# Update the reactive element.
+			controlRV$mapClick[controlRV$mapIndex] <- "WV"
+
 			updateAllPlots()
-			updateSelectionInfo()
-			updateStatus()
+			updateSelectionDetails()
+			updateAbundanceFreshness()
+			updateAlertBlocks()
 		}
 	}
 	
@@ -1015,46 +996,65 @@ shinyServer(function(input, output, session) {
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addPolygons( 
-					data = dflist_map_c[[1]], 
-					layerId = ~NAME,
+				addPolygons(
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex]), 
+					layerId = ~county_id,
 					fill = TRUE,
-					fillColor = ~abundance_color, 
-					fillOpacity = 0.5, 
 					stroke = TRUE, 
-					color = ~trend_color, 
-					#color = "#000000", 
-					weight = 3, 
+					fillOpacity = 0.7, 
+					opacity = 1.0,
+					weight = 2, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = ~TLEVEL_COLORS[this_tlevel], 
 					group="county",
-					label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
 					highlightOptions = highlightOptions(
-						weight = 2,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 0.5))
+						weight = 3,
+						fillOpacity = 0.9))
 	})
 
 
-	output$map_flu <- renderLeaflet({
+	output$map_flua <- renderLeaflet({
 		leaflet() %>% 
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = dflist_map_c[[2]], 
-					layerId = ~NAME,
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex]), 
+					layerId = ~county_id,
 					fill = TRUE,
-					fillColor = ~abundance_color, 
-					fillOpacity = 0.4, 
 					stroke = TRUE, 
-					color = "#000000", 
+					fillOpacity = 0.7, 
+					opacity = 1.0,
 					weight = 2, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = ~TLEVEL_COLORS[this_tlevel], 
 					group="county",
-					label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
 					highlightOptions = highlightOptions(
-						weight = 2,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 0.5))
+						weight = 3,
+						fillOpacity = 0.9))
+	})
+
+
+	output$map_flub <- renderLeaflet({
+		leaflet() %>% 
+				addTiles() %>% 
+				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
+				addPolygons( 
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex]), 
+					layerId = ~county_id,
+					fill = TRUE,
+					stroke = TRUE, 
+					fillOpacity = 0.7, 
+					opacity = 1.0,
+					weight = 2, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = ~TLEVEL_COLORS[this_tlevel], 
+					group="county",
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
+					highlightOptions = highlightOptions(
+						weight = 3,
+						fillOpacity = 0.9))
 	})
 
 
@@ -1063,46 +1063,21 @@ shinyServer(function(input, output, session) {
 				addTiles() %>% 
 				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
 				addPolygons( 
-					data = dflist_map_c[[4]], 
-					layerId = ~NAME,
+					data = map_county_spdf %>% filter(target == TARGETS[controlRV$mapIndex]), 
+					layerId = ~county_id,
 					fill = TRUE,
-					fillColor = ~abundance_color, 
-					fillOpacity = 0.4, 
 					stroke = TRUE, 
-					color = "#000000", 
+					fillOpacity = 0.7, 
+					opacity = 1.0,
 					weight = 2, 
+					fillColor = ~ALEVEL_COLORS[this_alevel], 
+					color = ~TLEVEL_COLORS[this_tlevel], 
 					group="county",
-					label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
+					label = ~as.character(paste0(county_id, " county (", ALEVEL_STRINGS[this_alevel], " & ", TLEVEL_STRINGS[this_tlevel],")")), 
 					highlightOptions = highlightOptions(
-						weight = 2,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 0.5))
+						weight = 3,
+						fillOpacity = 0.9))
 	})
-
-
-	output$map_nov <- renderLeaflet({
-		leaflet() %>% 
-				addTiles() %>% 
-				setView(lng = MAP_CENTER$lng, lat = MAP_CENTER$lat, zoom = MAP_CENTER$zoom) %>% 
-				addPolygons( 
-					data = dflist_map_c[[5]], 
-					layerId = ~NAME,
-					fill = TRUE,
-					fillColor = ~abundance_color, 
-					fillOpacity = 0.4, 
-					stroke = TRUE, 
-					color = "#000000", 
-					weight = 2, 
-					group="county",
-					label = ~as.character(paste0(NAME, " county (", abundance_level, " & ", trend,")")), 
-					highlightOptions = highlightOptions(
-						weight = 2,
-						color = "#00F900",
-						#dashArray = "",
-						fillOpacity = 0.5))
-	})
-
 
 
 	
@@ -1118,22 +1093,22 @@ shinyServer(function(input, output, session) {
 	#
   observeEvent(input$map_covid_marker_click, { 
     #print("##### Map MARKER click top")
-    clickMapMarker(input$map_covid_marker_click)
+    #clickMapMarker(input$map_covid_marker_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-  observeEvent(input$map_flu_marker_click, { 
+  observeEvent(input$map_flua_marker_click, { 
     #print("##### Map MARKER click top")
-    clickMapMarker(input$map_flu_marker_click)
+    #clickMapMarker(input$map_flua_marker_click)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
+  observeEvent(input$map_flub_marker_click, { 
+    #print("##### Map MARKER click top")
+    #clickMapMarker(input$map_flub_marker_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_rsv_marker_click, { 
     #print("##### Map MARKER click top")
-    clickMapMarker(input$map_rsv_marker_click)
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
-
-  observeEvent(input$map_nov_marker_click, { 
-    #print("##### Map MARKER click top")
-    clickMapMarker(input$map_nov_marker_click)
+    #clickMapMarker(input$map_rsv_marker_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
@@ -1141,13 +1116,18 @@ shinyServer(function(input, output, session) {
 	# React to map shape click
 	#
   observeEvent(input$map_covid_shape_click, {
-#    print("##### Map Shape Click!")
+    #print("##### Map Shape Click!")
     clickMapShape(input$map_covid_shape_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-  observeEvent(input$map_flu_shape_click, {
+  observeEvent(input$map_flua_shape_click, {
 #    print("##### Map Shape Click!")
-    clickMapShape(input$map_flu_shape_click)
+    clickMapShape(input$map_flua_shape_click)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
+  observeEvent(input$map_flub_shape_click, {
+#    print("##### Map Shape Click!")
+    clickMapShape(input$map_flub_shape_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_rsv_shape_click, {
@@ -1155,10 +1135,6 @@ shinyServer(function(input, output, session) {
     clickMapShape(input$map_rsv_shape_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-  observeEvent(input$map_nov_shape_click, {
-#    print("##### Map Shape Click!")
-    clickMapShape(input$map_nov_shape_click)
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
 	# 
@@ -1166,13 +1142,18 @@ shinyServer(function(input, output, session) {
 	# In this case, the marker/shape listener fires first.
 	#
   observeEvent(input$map_covid_click, { 
-#		print("##### Map off-target click top")
+		#print("##### Map off-target click top")
     clickMapOffMarker(input$map_covid_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-  observeEvent(input$map_flu_click, { 
+  observeEvent(input$map_flua_click, { 
 #		print("##### Map off-target click top")
-    clickMapOffMarker(input$map_flu_click)
+    clickMapOffMarker(input$map_flua_click)
+  }, ignoreNULL = FALSE, ignoreInit = TRUE)
+
+  observeEvent(input$map_flub_click, { 
+#		print("##### Map off-target click top")
+    clickMapOffMarker(input$map_flub_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
   observeEvent(input$map_rsv_click, { 
@@ -1180,19 +1161,14 @@ shinyServer(function(input, output, session) {
     clickMapOffMarker(input$map_rsv_click)
   }, ignoreNULL = FALSE, ignoreInit = TRUE)
 
-  observeEvent(input$map_nov_click, { 
-#		print("##### Map off-target click top")
-    clickMapOffMarker(input$map_nov_click)
-  }, ignoreNULL = FALSE, ignoreInit = TRUE)
-
 
 	#
 	# React to a change in the map zoom level.
 	#
-	observeEvent(input$map_covid_zoom, {
+#	observeEvent(input$map_covid_zoom, {
 #		print("##### Map zoom top")
-		#zoomMap(input$map_covid_zoom)
-	}, ignoreNULL = FALSE, ignoreInit = TRUE)
+#		zoomMap(input$map_covid_zoom)
+#	}, ignoreNULL = FALSE, ignoreInit = TRUE)
 
 
 
@@ -1211,13 +1187,6 @@ shinyServer(function(input, output, session) {
 		resetMap()
 	}, ignoreInit = TRUE)
 
-	#
-	# Change the map color scheme.
-	#
-  observeEvent(input$map_color, {
-  	#print("map color event fired")
-		changeMapColor(input$map_color)
-	}, ignoreInit = TRUE)
 
 
 	#
@@ -1235,90 +1204,6 @@ shinyServer(function(input, output, session) {
 
 
 
-	#
-	# Open the COVID color key popups.
-	#
-	onevent("click", "abundance_level_key_covid", togglePanels(on=c("abundance_level_key_covid_popup")))
-	onevent("click", "trend_key_covid", togglePanels(on=c("trend_key_covid_popup")))
-
-	#
-	# Close the COVID color key popups.
-	#
-	observeEvent(input$abundance_level_key_covid_popup_close,{
-    togglePanels(off=c("abundance_level_key_covid_popup"))
-	}, ignoreInit = TRUE)
-
-	observeEvent(input$trend_key_covid_popup_close,{
-    togglePanels(off=c("trend_key_covid_popup"))
-	}, ignoreInit = TRUE)
-	
-
-	#
-	# Open the FLU color key popups.
-	#
-	onevent("click", "abundance_level_key_flu", togglePanels(on=c("abundance_level_key_flu_popup")))
-	onevent("click", "trend_key_flu", togglePanels(on=c("trend_key_flu_popup")))
-
-	#
-	# Close the FLU color key popups.
-	#
-	observeEvent(input$abundance_level_key_flu_popup_close,{
-    togglePanels(off=c("abundance_level_key_flu_popup"))
-	}, ignoreInit = TRUE)
-
-	observeEvent(input$trend_key_flu_popup_close,{
-    togglePanels(off=c("trend_key_flu_popup"))
-	}, ignoreInit = TRUE)
-	
-
-	#
-	# Open the RSV color key popups.
-	#
-	onevent("click", "abundance_level_key_rsv", togglePanels(on=c("abundance_level_key_rsv_popup")))
-	onevent("click", "trend_key_rsv", togglePanels(on=c("trend_key_rsv_popup")))
-
-	#
-	# Close the RSV color key popups.
-	#
-	observeEvent(input$abundance_level_key_rsv_popup_close,{
-    togglePanels(off=c("abundance_level_key_rsv_popup"))
-	}, ignoreInit = TRUE)
-
-	observeEvent(input$trend_key_rsv_popup_close,{
-    togglePanels(off=c("trend_key_rsv_popup"))
-	}, ignoreInit = TRUE)
-
-
-	#
-	# Open the NoV color key popups.
-	#
-	onevent("click", "abundance_level_key_nov", togglePanels(on=c("abundance_level_key_nov_popup")))
-	onevent("click", "trend_key_nov", togglePanels(on=c("trend_key_nov_popup")))
-
-	#
-	# Close the NoV popups.
-	#
-	observeEvent(input$abundance_level_key_nov_popup_close,{
-    togglePanels(off=c("abundance_level_key_nov_popup"))
-	}, ignoreInit = TRUE)
-
-	observeEvent(input$trend_key_nov_popup_close,{
-    togglePanels(off=c("trend_key_nov_popup"))
-	}, ignoreInit = TRUE)
-	
-	observeEvent(input$missing_data_p1_nov_popup_close,{
-    togglePanels(off=c("missing_data_p1_nov_popup"))
-	}, ignoreInit = TRUE)
-	
-
-	# 
-	# React to plot click.
-	#
-#  observeEvent(plotww_wide$plotly_click, { 
-    #clickedLocation <- input$map_rs_shape_click$id
-		#print(plotww_wide$plotly_click)
-		
-#	}, ignoreInit = TRUE)
 
 })
 

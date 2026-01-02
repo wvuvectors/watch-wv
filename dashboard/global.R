@@ -23,84 +23,88 @@ source("addins/dbsources.R")
 
 Sys.setenv(TZ="America/New_York")
 today <- Sys.Date()
-#today <- as.Date("2022-07-12")
+#testd <- as.Date("2025-12-20")
 
+# This might be a kludge, but when the epi week is 53 and the current month is January, 
+# we have to use the previous year when calculating the start date of the current epi week.
 this_epiweek <- lubridate::epiweek(today)
+this_epiyear <- year(today)
+if (this_epiweek == 53 & month(today) == 1) {
+  this_epiyear <- this_epiyear - 1
+}
+this_week <- get_date_from_epi_week(this_epiyear, this_epiweek)
 
 
-county_spdf <- read_sf(paste0(RES_BASE, "/shapefiles/wv_counties/WV_Counties.shp"))
 
-# Load data files
-df_pcr_wvu <- as.data.frame(read.table(DB_RESULTS_WVU, sep="\t", header=TRUE, check.names=FALSE))
-df_pcr_mu <- as.data.frame(read.table(DB_RESULTS_MU, sep="\t", header=TRUE, check.names=FALSE))
-df_pcr <- rbind(df_pcr_wvu, df_pcr_mu)
+# Load input files:
+# First, all the abundance data.
+df_all <- as.data.frame(read.table(WVD_RSS_F, sep="\t", header=TRUE, check.names=FALSE))
 
-df_s_wvu <- as.data.frame(read.table(DB_SAMPLES_WVU, sep="\t", header=TRUE, check.names=FALSE))
-df_s_mu <- as.data.frame(read.table(DB_SAMPLES_MU, sep="\t", header=TRUE, check.names=FALSE))
-df_sample <- rbind(df_s_wvu, df_s_mu)
+# Load the resource tables, primarily to retrieve metadata for active locations.
+# Also need the active facilities so we can report the response rate for each county.
+# We simplify the county and facility id columns to unnamed vectors for certain applications.
+resources <- excel2df(WVD_RESOURCE_F)
+df_counties <- resources$county %>% filter(county_id %in% df_all$location_id)
+COUNTIES <- unname(unique(df_counties$county_id))
+df_facilities <- resources$location %>% filter(tolower(location_status) == "active" & tolower(location_category) == "wwtp")
+FACILITIES <- unname(unique(df_facilities$location_id))
 
-df_seqr <- as.data.frame(read.table(DB_SEQR, sep="\t", header=TRUE, check.names=FALSE))
-df_seqr <- df_seqr %>% rename(location_id = location)
+# We use all the abundance data to identify counties; however, we don't need the facility data.
+# So here we simplify to just the county and state rows.
+# This is the primary data frame used across the dashboard.
+df_rss <- df_all %>% filter(location_id %in% COUNTIES | location_id == "WV")
 
-df_alerts <- as.data.frame(read.table(DB_ALERTS, sep="\t", header=TRUE, check.names=FALSE))
+# Summary table comes in with the year and epi week stored in separate columns.
+# We extract the Sunday of that week to use as a primary date, for plotting, etc.
+df_rss <- df_rss %>% mutate(primary_date = as.Date(lubridate::ymd(get_date_from_epi_week(epi_year, epi_week))))
 
+# Identify any stale data in df_rss and flag in a new column called stale.
+# This is set by the global var STALE_THRESHOLD_DAYS and compares the current and 
+# row epi week (so its a bit crude). This is equivalent to the function isStale, 
+# but that function is not vectorized to work within mutate. Yet.
+df_rss <- df_rss %>% mutate(stale = ifelse(as.numeric(difftime(this_week, primary_date, units = "days")) >= STALE_THRESHOLD_DAYS, TRUE, FALSE))
+#df_rss <- df_rss %>% mutate(stale = ifelse(isStale(primary_date), TRUE, FALSE))
 
-resources <- excel2df(RES_ALL)
-df_active_loc <- resources$location %>% filter(tolower(location_status) == "active")
-df_active_wwtp <- resources$wwtp %>% filter(wwtp_id %in% df_active_loc$location_primary_wwtp_id)
-df_active_county <- resources$county %>% filter(county_id %in% df_active_loc$location_counties_served)
-df_active_loci <- resources$loci %>% filter(target_id %in% TARGETS)
+# To generate the maps, we need the county polygons which are available in an SPDF file.
+# Only need the NAME and geometry columns for now.
+county_spdf <- read_sf(WVD_COUNTY_F)
 
-
-df_active_loc$dotsize <- case_when(
-  df_active_loc$location_population_served < 26000 ~ 3250, 
-  .default = df_active_loc$location_population_served/8)
+# Populate the map colors with appropriate values.
+# map_county_spdf is the primary data frame used to build the map layers.
+map_county_spdf <- county_spdf %>% 
+  filter(NAME %in% COUNTIES) %>%
+  select(county_id = NAME, geometry)
   
-# Restrict results to those that pass sample QC and have NTC below threshold
+df_colors <- df_rss %>% 
+	filter(location_id %in% COUNTIES) %>% 
+	group_by(location_id, target) %>% 
+	arrange(epi_date) %>% 
+	summarize(
+		this_epi_date = max(epi_date, na.rm = TRUE),
+		stale = last(stale), 
+		this_alevel = ifelse(stale == TRUE, 1, last(abundance_level)), 
+		this_tlevel = ifelse(stale == TRUE, 1, last(trend_level)), 
+		this_acolor = ifelse(stale == TRUE, ALEVEL_COLORS[1], ALEVEL_COLORS[last(abundance_level)]), 
+		this_tcolor = ifelse(stale == TRUE, TLEVEL_COLORS[1], TLEVEL_COLORS[last(trend_level)]))
+		
+
+map_county_spdf <- left_join(map_county_spdf, df_colors, by = c("county_id" = "location_id"))
+
+
+
+#################################################
 #
-df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
-df_pcr <- df_pcr %>% filter(tolower(sample_qc) == "pass")
-df_pcr <- df_pcr %>% filter(tolower(target_result_validated) != "ntc above threshold")
-
-# Ignore results that are extreme
+# Processing for the seqr data. This is soon-to-be updated!
 #
-df_pcr <- df_pcr %>% filter(is.extreme != TRUE)
-
-df_seqr <- df_seqr %>% filter(tolower(sample_id) != "ntc")
-
-# Convert date strings into Date objects.
+#df_seqr <- as.data.frame(read.table(WVD_SEQR_F, sep="\t", header=TRUE, check.names=FALSE))
+#df_seqr <- df_seqr %>% rename(location_id = location)
 #
-df_pcr$collection_start_datetime <- mdy_hm(df_pcr$collection_start_datetime)
-df_pcr$collection_end_datetime <- mdy_hm(df_pcr$collection_end_datetime)
-
-df_sample$sample_collection_start_datetime <- mdy_hm(df_sample$sample_collection_start_datetime)
-df_sample$sample_collection_end_datetime <- mdy_hm(df_sample$sample_collection_end_datetime)
-df_sample$sample_recovered_datetime <- mdy_hm(df_sample$sample_recovered_datetime)
-df_sample$sample_received_date <- mdy(df_sample$sample_received_date)
-
-df_seqr$sample_collection_start_datetime <- mdy_hm(df_seqr$sample_collection_start_datetime)
-df_seqr$sample_collection_end_datetime <- mdy_hm(df_seqr$sample_collection_end_datetime)
-
-
-# Create a date to use as the primary reference and make sure all tables use the same date.
-#
-df_pcr$date_primary <- as.Date(df_pcr$collection_end_datetime)
-df_seqr$date_primary <- as.Date(df_seqr$sample_collection_end_datetime)
-
-
-# Add some date objects, for use in summary stats.
-#
-
-df_pcr$epi_week <- lubridate::epiweek(df_pcr$date_primary)
-
-df_pcr$week_starting <- floor_date(df_pcr$date_primary, "week", week_start = 7)
-df_pcr$week_ending <- df_pcr$week_starting+6
-#df_pcr$week_ending <- ceiling_date(df_pcr$date_primary, "week", week_start = 7)
-
-df_seqr$epi_week <- lubridate::epiweek(df_seqr$date_primary)
-
-df_seqr$week_starting <- floor_date(df_seqr$date_primary, "week", week_start = 7)
-df_seqr$week_ending <- df_seqr$week_starting+6
+# df_seqr$sample_collection_start_datetime <- mdy_hm(df_seqr$sample_collection_start_datetime)
+# df_seqr$sample_collection_end_datetime <- mdy_hm(df_seqr$sample_collection_end_datetime)
+# df_seqr$date_primary <- as.Date(df_seqr$sample_collection_end_datetime)
+# df_seqr$epi_week <- lubridate::epiweek(df_seqr$date_primary)
+# df_seqr$week_starting <- floor_date(df_seqr$date_primary, "week", week_start = 7)
+# df_seqr$week_ending <- df_seqr$week_starting+6
 #df_seqr$week_ending <- ceiling_date(df_seqr$date_primary, "week", week_start = 7)
 
 
@@ -109,195 +113,21 @@ df_seqr$week_ending <- df_seqr$week_starting+6
 #
 #df_seqr$percent <- as.numeric(df_seqr$variant_proportion) * 100
 
-df_seqr <- df_seqr %>% mutate(
-	color_group = case_when(
-		str_detect(variant, "^B\\.") ~ "Alpha-Kappa B*",
-		str_detect(variant, "^B\\.1\\.1\\.529") ~ "Omicron B*",
-		str_detect(variant, "^BA\\.2\\.86") ~ "Pirola BA.2.86",
-		str_detect(variant, "^BA") ~ "Omicron BA*",
-		str_detect(variant, "^XBB") ~ "Omicron XBB",
-		str_detect(variant, "^EG") ~ "Eris EG*",
-		str_detect(variant, "^KP\\.") ~ "Pirola KP*",
-		str_detect(variant, "^LB\\.") ~ "Pirola LB*",
-		str_detect(variant, "^JN\\.") ~ "Pirola JN*",
-		str_detect(variant, "^XEC") ~ "Pirola XEC"
-	)
-)
-df_seqr$color_group <- replace_na(df_seqr$color_group, "Other Omicron")
-
-
-
-#################################################
-
-df_pcr$target_copies_fn_per_cap <- df_pcr$target_copies_fn_per_cap/df_pcr$target_per_capita_basis
-df_pcr$target_copies_per_ldcap <- df_pcr$target_copies_per_ldcap/df_pcr$target_per_capita_basis
-df_pcr$target_per_capita_basis <- 1
-
-df_rs <- df_pcr %>% filter(tolower(event_type) == "routine surveillance" & !is.na(sample_flow) & target_genetic_locus %in% GENLOCI)
-
-# Assign a default date column for plotting data.
-#
-df_rs$date_to_plot <- df_rs$week_ending
-df_seqr$date_to_plot <- df_seqr$week_ending
-this_week <- floor_date(today, "week", week_start = 7) + 6
-
-# Use this block instead if you want to refer everything to the start of the week
-#
-#df_rs$date_to_plot <- df_rs$week_starting
-#df_seqr$date_to_plot <- df_seqr$week_starting
-#this_week <- floor_date(today, "week", week_start = 1)
-#
-
-
-# Split the full data set for use in the different environments (tabs).
-#
-dflist_rs <- list()
-for (i in 1:length(TARGETS)) {
-#	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
-	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i])
-}
-
-dflist_alerts <- list()
-for (i in 1:length(TARGETS)) {
-	dflist_alerts[[i]] <- df_alerts %>% filter(target == TARGETS[i])
-	dflist_alerts[[i]]$region_geolevel <- case_when(
-		dflist_alerts[[i]]$region_name %in% df_active_county$county_id ~ "county", 
-		dflist_alerts[[i]]$region_name %in% df_active_loc$location_id ~ "facility", 
-		.default = "state")
-		
-	dflist_alerts[[i]]$abundance_color <- case_when(
-		dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_COLORS[1], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[1] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_COLORS[2], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[2] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[3], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_COLORS[4], 
-		.default = ALERT_LEVEL_COLORS[5])
-
-	dflist_alerts[[i]]$abundance_level <- case_when(
-		dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[1] ~ ALERT_LEVEL_STRINGS[1], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[1] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[2] ~ ALERT_LEVEL_STRINGS[2], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[2] & dflist_alerts[[i]]$abundance_pct_change < ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[3], 
-		dflist_alerts[[i]]$abundance_pct_change >= ALERT_LEVEL_THRESHOLDS[3] ~ ALERT_LEVEL_STRINGS[4], 
-		.default = ALERT_LEVEL_STRINGS[5])
-
-	dflist_alerts[[i]]$trend_color <- case_when(
-		dflist_alerts[[i]]$trend == TREND_STRINGS[1] ~ ALERT_LEVEL_COLORS[1], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[2] ~ ALERT_LEVEL_COLORS[2], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[3] ~ ALERT_LEVEL_COLORS[3], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[4] ~ ALERT_LEVEL_COLORS[4], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[5] ~ ALERT_LEVEL_COLORS[5], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[6] ~ ALERT_LEVEL_COLORS[6], 
-		dflist_alerts[[i]]$trend == TREND_STRINGS[7] ~ ALERT_LEVEL_COLORS[7], 
-		.default = "#f3f3e1")
-
-}
-
-
-dflist_map_f <- list()
-dflist_map_c <- list()
-df_mappable_c <- county_spdf %>% 
-	filter(NAME %in% df_active_loc$location_counties_served) %>%
-	select(NAME,OBJECTID,AREA_,PERIMETER,DEP_24K_,DEP_24K_ID,STATE,FIPS,Shape_Leng,County,SHAPE_Le_1,SHAPE_Area,geometry)
-
-for (i in 1:length(TARGETS)) {
-	dflist_map_f[[i]] <- merge(df_active_loc %>% filter(location_category == "wwtp"), dflist_alerts[[i]], by.x="location_id", by.y="region_name", all.x = TRUE)
-
-	dflist_map_f[[i]]$abundance_color <- replace_na(dflist_map_f[[i]]$abundance_color, ALERT_LEVEL_COLORS[5])
-	dflist_map_f[[i]]$abundance_level <- replace_na(dflist_map_f[[i]]$abundance_level, ALERT_LEVEL_STRINGS[5])
-	dflist_map_f[[i]]$trend_color <- replace_na(dflist_map_f[[i]]$trend_color, ALERT_LEVEL_COLORS[5])
-	dflist_map_f[[i]]$trend <- replace_na(dflist_map_f[[i]]$trend, TREND_STRINGS[5])
-
-
-	dflist_map_c[[i]] <- merge(df_mappable_c, dflist_alerts[[i]], by.x="NAME", by.y="region_name", all.x = TRUE)
-
-	dflist_map_c[[i]]$abundance_color <- replace_na(dflist_map_c[[i]]$abundance_color, ALERT_LEVEL_COLORS[5])
-	dflist_map_c[[i]]$abundance_level <- replace_na(dflist_map_c[[i]]$abundance_level, ALERT_LEVEL_STRINGS[5])
-	dflist_map_c[[i]]$trend_color <- replace_na(dflist_map_c[[i]]$trend_color, ALERT_LEVEL_COLORS[5])
-	dflist_map_c[[i]]$trend <- replace_na(dflist_map_c[[i]]$trend, TREND_STRINGS[5])
-}
-
-
-df_rs_meta <- df_active_loc %>% filter(tolower(location_category) == "wwtp") %>% 
-	select(location_common_name, location_group, location_counties_served, location_population_served, location_primary_lab) %>% 
-	rename(Site = location_common_name, Group = location_group, County = location_counties_served, Pop = location_population_served, Lab = location_primary_lab)
-
-
-anames <- c("region_name", "region_geolevel")
-df_regions <- data.frame(matrix(ncol=2,nrow=0, dimnames=list(NULL, anames)), stringsAsFactors = FALSE)
-
-for (county in df_active_county$county_id) {
-	#print(county)
-	this_rowc <- list("region_name" = c(county), "region_geolevel" = c("county"))
-	#this_rowf <- list("region_name" = c(county), "region_geolevel" = c("county"))
-	df_regions <- rbind(df_regions, as.data.frame(this_rowc))
-	
-	locations <- (df_active_loc %>% filter(tolower(location_category) == "wwtp" & location_counties_served == county))$location_id
-	
-	for (loc_id in locations) {
-		this_rowl <- list("region_name" = c(loc_id), "region_geolevel" = c("facility"))
-		df_regions <- rbind(df_regions, as.data.frame(this_rowl))
-	}
-	
-}
-colnames(df_regions) <- anames
-df_regions <- df_regions %>% arrange(region_name)
-
-df_regions$region_lab <- case_when(
-  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_id ~ "zoowvu", 
-  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_id ~ "muidsl", 
-  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "zoowvu"))$location_counties_served ~ "zoowvu", 
-  df_regions$region_name %in% (df_active_loc %>% filter(tolower(location_category) == "wwtp" & tolower(location_primary_lab) == "muidsl"))$location_counties_served ~ "muidsl", 
-  .default = "other")
-df_regions$region_lab <- replace_na(df_regions$region_lab, "other")
-
-
-
-# Pre-calculate risk, abundance, trend, and variant for latest week (all regions).
-# Enables map coloring and informs the county table.
-#
-# This info appears in dflist_alerts.
-#
-
-# dflist_alerts <- list()
-# for (i in 1:length(TARGETS)) {
-# #	dflist_rs[[i]] <- df_rs %>% filter(target == TARGETS[i] & target_genetic_locus == GENLOCI[i])
-# 	dflist_alerts[[i]] <- df_regions
-# 	latest_date <- max(dflist_rs[[i]]$date_to_plot)
-# 	df_latest <- dflist_rs[[i]] %>% 
-# 		filter(date_to_plot >= latest_date-31) %>% 
-# 		select("date_to_plot", "target_copies_fn_per_cap", "location_id")
-# 	
-# 	for (this_region in df_regions$region_name) {
-# 		if ((df_regions %>% filter(region_name == this_region))$region_geolevel == "county") {
-# 			# roll up county active facilities
-# 			loc_ids <- (df_active_loc %>% filter(location_counties_served == this_region & location_category == "wwtp"))$location_id
-# #		} else {
-# 			# just the single facility, but need it as a vector
-# #			loc_ids <- (df_active_loc %>% filter(location_id == this_region))$location_id
-# #		}
-# 		
-# 		suppressMessages(
-# 		status_df <- df_latest %>% 
-# 								 filter(location_id %in% loc_ids) %>%
-# 								 group_by(date_to_plot) %>% 
-# 								 arrange(date_to_plot) %>%
-# 								 summarize(val := mean(target_copies_fn_per_cap, na.rm = TRUE),
-# 													 date_to_plot := date_to_plot)
-# 		)
-# 	
-# 		vec_risk <- getRiskLevel(status_df)
-# 		dflist_alerts[[i]]$risk_text <- vec_risk[1]
-# 		dflist_alerts[[i]]$risk_color <- vec_risk[2]
+# df_seqr <- df_seqr %>% mutate(
+# 	color_group = case_when(
+# 		str_detect(variant, "^B\\.") ~ "Alpha-Kappa B*",
+# 		str_detect(variant, "^B\\.1\\.1\\.529") ~ "Omicron B*",
+# 		str_detect(variant, "^BA\\.2\\.86") ~ "Pirola BA.2.86",
+# 		str_detect(variant, "^BA") ~ "Omicron BA*",
+# 		str_detect(variant, "^XBB") ~ "Omicron XBB",
+# 		str_detect(variant, "^EG") ~ "Eris EG*",
+# 		str_detect(variant, "^KP\\.") ~ "Pirola KP*",
+# 		str_detect(variant, "^LB\\.") ~ "Pirola LB*",
+# 		str_detect(variant, "^JN\\.") ~ "Pirola JN*",
+# 		str_detect(variant, "^XEC") ~ "Pirola XEC"
+# 	)
+# )
+# df_seqr$color_group <- replace_na(df_seqr$color_group, "Other Omicron")
 # 
-# 		vec_abundance <- getAbundance(status_df)
-# 		dflist_alerts[[i]]$abundance_text <- vec_abundance[1]
-# 		dflist_alerts[[i]]$abundance_color <- vec_abundance[2]
-# 
-# 		vec_trend <- getTrend(status_df)
-# 		vec_variant <- getDominantVariant(status_df)
-# 		dflist_alerts[[i]]$variant_text <- vec_variant[1]
-# 		dflist_alerts[[i]]$variant_color <- vec_variant[2]
-# 		} else {
-# 		}
-# 	}
-# }
+
 
