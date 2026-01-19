@@ -1,0 +1,29 @@
+#############################################
+Initiated feed_WVDash.sh
+2026-01-18_15-10
+
+See logs/feeds/WVWD/feed_WVWD.2026-01-18_15-10.log for warnings, errors, and other important information.
+
+Generating WV WaTCH Dashboard (WVWD) feed for WVU.
+Ensuring all input files exist and are readable before starting.
+All input files appear to exist, so we're moving on.
+Copying the latest WaTCH resource tables to the dashboard directory.
+******
+Running 8_MU2WVDash.pl.
+This subroutine takes the raw MU data file as input and converts it into watchdb format.
+The result is written into the dashboard data directory as mu.result.txt.
+******
+
+******
+Running 9_tagOutliers.R.
+This subroutine reads data from data/latest/watchdb.result.txt and /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/mu_nwss.LATEST.csv and adds three columns:
+A numeric z-score for each entry, and logical columns is.outlier and is.extreme.
+The modified files are written to the dashboard data directory; the original files are unchanged.
+******
+
+******
+Running 10_buildRSStable.R.
+******
+
+
+Updating the README file.

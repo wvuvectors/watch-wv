@@ -20,7 +20,7 @@ get_LTcoefs <- function(window_data) {
 
 ABUND_ALERT_WINDOW <- 12			# Number of consecutive samples to use in determining abundance alert level.
 TREND_ALERT_WINDOW <- 4				# Number of consecutive samples to use in trend calculations.
-ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (pct of the rolling mean) are not used to fire alerts.
+ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (fraction of the rolling mean) are not used to fire alerts.
 
 TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
@@ -51,15 +51,17 @@ df_pcr$collection_start_datetime <- mdy_hm(df_pcr$collection_start_datetime)
 df_pcr$collection_end_datetime <- mdy_hm(df_pcr$collection_end_datetime)
 
 # Create a date to use as the primary reference and make sure all tables use the same date.
-df_pcr$date_primary <- as.Date(df_pcr$collection_end_datetime)
+df_pcr$date_of_collection <- as.Date(df_pcr$collection_end_datetime)
 
 # Add epi week info.
-df_pcr$year <- lubridate::year(df_pcr$date_primary)
-df_pcr$month <- lubridate::month(df_pcr$date_primary)
-df_pcr$epi_week <- lubridate::epiweek(df_pcr$date_primary)
+df_pcr$year <- lubridate::year(df_pcr$date_of_collection)
+df_pcr$month <- lubridate::month(df_pcr$date_of_collection)
+df_pcr$week <- lubridate::week(df_pcr$date_of_collection)
+df_pcr$epi_week <- lubridate::epiweek(df_pcr$date_of_collection)
 df_pcr <- df_pcr %>%
   mutate(epi_year = case_when(
     df_pcr$month == 12 & df_pcr$epi_week == 1 ~ df_pcr$year + 1,
+    df_pcr$month == 1 & df_pcr$epi_week == 53 ~ df_pcr$year - 1,
     TRUE ~ df_pcr$year
   ))
 
@@ -118,6 +120,9 @@ for (i in 1:length(LOCATIONS)) {
 			reframe(mean_abundance = mean(target_copies_fn_per_cap, na.rm = TRUE),
 								location_id = first(location_id), 
 								target = first(target),
+								cal_year = first(year), 
+								cal_month = first(month), 
+								cal_week = first(week), 
 								epi_year = first(epi_year), 
 								epi_week = first(epi_week))
 		
@@ -229,6 +234,9 @@ for (i in 1:length(COUNTIES)) {
       reframe(mean_abundance = mean(target_copies_fn_per_cap, na.rm = TRUE),
               location_id = county, 
 							target = first(target),
+							cal_year = first(year), 
+							cal_month = first(month), 
+							cal_week = first(week), 
 							epi_year = first(epi_year), 
 							epi_week = first(epi_week))
     
@@ -336,6 +344,9 @@ for (j in 1:length(TARGETS)) {
     reframe(mean_abundance = mean(target_copies_fn_per_cap, na.rm = TRUE),
             location_id = "WV", 
 						target = first(target),
+						cal_year = first(year), 
+						cal_month = first(month), 
+						cal_week = first(week), 
 						epi_year = first(epi_year), 
 						epi_week = first(epi_week))
   
