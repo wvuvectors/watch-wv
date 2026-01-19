@@ -18,9 +18,16 @@ get_LTcoefs <- function(window_data) {
   return(coef(model))
 }
 
-ABUND_ALERT_WINDOW <- 12			# Number of consecutive samples to use in determining abundance alert level.
-TREND_ALERT_WINDOW <- 4				# Number of consecutive samples to use in trend calculations.
-ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (fraction of the rolling mean) are not used to fire alerts.
+# We use a ratio of the most recent X samples compared to the most recent Y samples. 
+# X is set by the ABUND_ALERT_WINDOW variable and Y by the ABUND_ALERT_WINDOW_BASIS variable.
+#
+ABUND_ALERT_WINDOW_BASIS <- 12		# Number of consecutive samples to use as the basis for determining abundance alert level.
+ABUND_ALERT_WINDOW <- 4						# Number of consecutive samples to use as the numerator in determining abundance alert level.
+ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (fraction of the rolling mean) are not used to calculate alerts.
+
+# We use the slope over Z samples to determine the trend. Z is set by the TREND_ALERT_WINDOW variable.
+#
+TREND_ALERT_WINDOW <- 4						# Number of consecutive samples to use in trend calculations.
 
 TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
@@ -135,15 +142,16 @@ for (i in 1:length(LOCATIONS)) {
 		df_added <- df_this %>% 
 			arrange(epi_date) %>% 
 			mutate(
-				rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right")
+				rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right"),
+				rolling_mean_basis = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW_BASIS, fill = NA, align = "right")
 			)
 
 		df_added <- df_added %>% 
 			mutate(
 				abundance_fold_change = case_when(
-					is.na(rolling_mean) ~ NaN,
+					is.na(rolling_mean) | is.na(rolling_mean_basis) ~ NaN,
 					(mean_abundance <= ABUND_RESPONSE_THRESHOLD*rolling_mean) ~ NA,
-					.default =  (mean_abundance - rolling_mean) / rolling_mean
+					.default =  (rolling_mean - rolling_mean_basis) / rolling_mean_basis
 				)
 			)
 
@@ -249,16 +257,17 @@ for (i in 1:length(COUNTIES)) {
     df_added <- df_this %>% 
       arrange(epi_date) %>% 
       mutate(
-        rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right")
+        rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right"),
+				rolling_mean_basis = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW_BASIS, fill = NA, align = "right")
       )
     
     df_added <- df_added %>% 
       mutate(
         abundance_fold_change = case_when(
-          is.na(rolling_mean) ~ NaN,
-          (mean_abundance <= ABUND_RESPONSE_THRESHOLD*rolling_mean) ~ NA,
-          .default =  (mean_abundance - rolling_mean) / rolling_mean
-        )
+					is.na(rolling_mean) | is.na(rolling_mean_basis) ~ NaN,
+					(mean_abundance <= ABUND_RESPONSE_THRESHOLD*rolling_mean) ~ NA,
+					.default =  (rolling_mean - rolling_mean_basis) / rolling_mean_basis
+				)
       )
     
     df_added <- df_added %>% 
@@ -359,16 +368,17 @@ for (j in 1:length(TARGETS)) {
   df_added <- df_this %>% 
     arrange(epi_date) %>% 
     mutate(
-      rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right")
+      rolling_mean = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW, fill = NA, align = "right"),
+			rolling_mean_basis = rollmean(mean_abundance, k = ABUND_ALERT_WINDOW_BASIS, fill = NA, align = "right")
     )
   
   df_added <- df_added %>% 
     mutate(
       abundance_fold_change = case_when(
-        is.na(rolling_mean) ~ NaN,
-        (mean_abundance <= ABUND_RESPONSE_THRESHOLD*rolling_mean) ~ NA,
-        .default =  (mean_abundance - rolling_mean) / rolling_mean
-      )
+					is.na(rolling_mean) | is.na(rolling_mean_basis) ~ NaN,
+					(mean_abundance <= ABUND_RESPONSE_THRESHOLD*rolling_mean) ~ NA,
+					.default =  (rolling_mean - rolling_mean_basis) / rolling_mean_basis
+				)
     )
   
   df_added <- df_added %>% 

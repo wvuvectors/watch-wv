@@ -28,7 +28,7 @@ ALEVEL_STRINGS <- c("UNKNOWN", "VERY LOW", "LOW", "MODERATE", "HIGH", "VERY HIGH
 ALEVEL_DESCRIPTIONS <- c(
 "is too old to make an accurate determination.", 
 "EXTREMELY LOW. It is approaching the limit of detection for this region.",
-"LOW. It is now much lower the 3 month average for this region.",
+"LOW. It is now substantially lower the 3 month average for this region.",
 "MODERATE. It is about the same as the 3 month average for this region.",
 "HIGH. It is measurably higher than the 3 month average for this region.",
 "VERY HIGH. It is now substantially higher than the 3 month average for this region."
