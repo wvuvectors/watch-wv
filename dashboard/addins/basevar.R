@@ -20,6 +20,8 @@ DATE_LABELS <- c("%d-%b", "%d-%b", "%b '%y", "%b '%y", "%b '%y")
 
 MAP_CENTER <- list2env(list(lat = 38.95, lng = -80.2, zoom = 7))
 
+# STALE_THRESHOLD_DAYS is used in global.R AND the isStale function in basefun.R.
+# Make sure if you change the logic, you change it in BOTH places!
 STALE_THRESHOLD_DAYS <- 21
 
 

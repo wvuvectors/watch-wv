@@ -62,7 +62,7 @@ df_rss <- df_rss %>% mutate(primary_date = as.Date(lubridate::ymd(get_date_from_
 # This is set by the global var STALE_THRESHOLD_DAYS and compares the current and 
 # row epi week (so its a bit crude). This is equivalent to the function isStale, 
 # but that function is not vectorized to work within mutate. Yet.
-df_rss <- df_rss %>% mutate(stale = ifelse(as.numeric(difftime(this_week, primary_date, units = "days")) >= STALE_THRESHOLD_DAYS, TRUE, FALSE))
+df_rss <- df_rss %>% mutate(stale = ifelse(as.numeric(difftime(this_week, primary_date, units = "days")) > STALE_THRESHOLD_DAYS, TRUE, FALSE))
 #df_rss <- df_rss %>% mutate(stale = ifelse(isStale(primary_date), TRUE, FALSE))
 
 # To generate the maps, we need the county polygons which are available in an SPDF file.

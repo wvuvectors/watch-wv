@@ -102,12 +102,13 @@ get_date_from_epi_week <- function(year, epi_week) {
 }
 
 
+# This is used in server.R, but NOT global.R so be careful.
 isStale <- function(d) {
 
 	date_diff <- as.numeric(difftime(this_week, d, units = "days"))
 	#print(paste0(d, ": ", date_diff, sep=""))
 	
-	if (date_diff >= STALE_THRESHOLD_DAYS) {
+	if (date_diff > STALE_THRESHOLD_DAYS) {
 		return(TRUE)
 	} else {
 		return(FALSE)

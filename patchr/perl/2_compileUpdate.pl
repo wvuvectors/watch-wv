@@ -277,19 +277,29 @@ foreach my $bid (keys %{$batchmeta{"assay"}}) {	# Each batch of this type in the
 			# Print the uid.
 			print $ufh "$uid";
 			
-			# Loop over the update column names for this batch type, stored in the updatecols hash.
+			# Loop over the update column names for this assay batch, stored in the updatecols{"assay"} hash.
 			# These are in array form to control the print order to the output.
 			foreach my $colname (@{$updatecols{"assay"}}) {
-				next if "$colname" eq "assay_id";
+				next if "$colname" eq "assay_id" or "$colname" eq "assay_target_genetic_locus";
 				
-				# We pull update values from several hashes.
-				# This block tests for the existence in these hashes in order to find the value.
-				my $val = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"$colname"};
-				$val = $batchmeta{"assay"}->{"$bid"}->{"$colname"} unless defined $val;
-				$val = $sample2id{"$sample_id"}->{"$colname"} unless defined $val;
-				$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"$colname"} unless defined $val;
-				$val = $well_data{"$dye"}->{"$colname"} unless defined $val;
-
+				my $val = "NA";
+				
+				# KLUDGE to separate assay_target field into target and target_genetic_locus
+				if ("$colname" eq "assay_target") {
+					my $combo = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"assay_target"};
+					my ($target, $locus) = ("$combo", "Unk");
+					($target, $locus) = ($1, $2) if ($combo =~ /^(.+)\s\((.+)\)$/i);
+					$val = "$target\t$locus";
+				} else {
+					# We pull update values from several hashes.
+					# This block tests for the existence in these hashes in order to find the value.
+					$val = $batchmeta{"assay"}->{"$bid"}->{"wells"}->{"$well"}->{"$colname"};
+					$val = $batchmeta{"assay"}->{"$bid"}->{"$colname"} unless defined $val;
+					$val = $sample2id{"$sample_id"}->{"$colname"} unless defined $val;
+					$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"$colname"} unless defined $val;
+					$val = $well_data{"$dye"}->{"$colname"} unless defined $val;
+				}
+				
 				if (defined $control_wells{$well}) {
 					$val = "NA" if "$colname" eq "sample_id" or "$colname" eq "extraction_id";
 					$val = $batchmeta{"assay"}->{"$bid"}->{"fluorophores"}->{"$dye"}->{"controls"}->{"$well"}->{"type"} if "$colname" eq "assay_type";
@@ -607,14 +617,15 @@ sub procBatchSamples {
 	$btype = lc $btype;
 	
 	# The location (order) of sheets in each batch excel file.
-	my %sheet2batch = ("assay"         => {"metadata" => 1, "sample ids" => 2, "backrefs" => 3, "comments" => 4, "volume overrides" => 5}, # backrefs are extraction ids, defaults to 1
+	my %sheet2batch = ("assay"         => {"metadata" => 1, "sample ids" => 2, "comments" => 3, "volume overrides" => 4},
 										 "concentration" => {"metadata" => 1, "sample ids" => 2, "spikes" => 3, "comments" => 4}, 
-										 "extraction"    => {"metadata" => 1, "sample ids" => 2, "backrefs" => 3, "comments" => 4, "storage ids" => 5}, # backrefs are concentration ids, defaults to 1
+										 "extraction"    => {"metadata" => 1, "sample ids" => 2, "comments" => 3, "storage ids" => 4},
 										 "archive"       => {"metadata" => 1, "sample ids" => 2, "comments" => 3, "storage ids" => 4});
 
 
 	# Map the source of each set.
-	my %ref2source = ("assay" => "extraction", "extraction" => "concentration", "concentration" => "sample");
+#	my %ref2source = ("assay" => "extraction", "extraction" => "concentration", "concentration" => "sample");
+	my %ref2source = ("assay" => "extraction", "extraction" => "concentration");
 
 	my @row2name = ("", "A", "B", "C", "D", "E", "F", "G", "H");
 	
@@ -622,7 +633,6 @@ sub procBatchSamples {
 	
 	my @sample_rows  = Spreadsheet::Read::rows($batch_wkbkRef->[$position2sheet{"sample ids"}]);
 	my @comment_rows = Spreadsheet::Read::rows($batch_wkbkRef->[$position2sheet{"comments"}]);
-	my @backref_rows = Spreadsheet::Read::rows($batch_wkbkRef->[$position2sheet{"backrefs"}]) if defined $position2sheet{"backrefs"};
 	my @volume_rows  = Spreadsheet::Read::rows($batch_wkbkRef->[$position2sheet{"volume overrides"}]) if defined $position2sheet{"volume overrides"};
 	my @storage_rows = Spreadsheet::Read::rows($batch_wkbkRef->[$position2sheet{"storage ids"}]) if defined $position2sheet{"storage ids"};
 	
@@ -648,7 +658,6 @@ sub procBatchSamples {
 					my $lead = substr $btype, 0, 1;
 					$sample2idRef->{"$sample_id"} = {} unless defined $sample2idRef->{"$sample_id"};
 					my $num = 1;
-					#$num = "$backref_rows[$i][$j]" if defined "$backref_rows[$i][$j]" and "$backref_rows[$i][$j]" ne "";
 					my $uid = "$sample_id.${lead}${num}";
 					$sample2idRef->{"$sample_id"}->{"${btype}_id"} = "$uid";
 
@@ -663,6 +672,13 @@ sub procBatchSamples {
 						}
 					}
 
+					if (defined $ref2source{"$btype"}) {
+						my $source      = $ref2source{"$btype"};
+						my $source_code = substr "$source", 0, 1;
+						my $num         = 1;
+						$batchmetaRef->{"wells"}->{"$batch_loc"}->{"${source}_id"} = "${sample_id}.${source_code}${num}";
+					}
+					
 					if (defined $comment_rows[0]) {
 						# record any comment on the sample in this batch
 						if (defined $comment_rows[$i][$j] and "$comment_rows[$i][$j]" ne "") {
@@ -687,17 +703,6 @@ sub procBatchSamples {
 							$batchmetaRef->{"wells"}->{"$batch_loc"}->{"${btype}_input_ul"} = $batchmetaRef->{"${btype}_input_ul"};
 						}
 					}
-
-					if (defined $backref_rows[0]) {
-						# Record the back reference.
-						# For extractions the source is the concentration. For assays the source is the extraction.
-						my $source      = $ref2source{"$btype"};
-						my $source_code = substr "$source", 0, 1;
-						my $num         = 1;
-						$num = "$backref_rows[$i][$j]" if defined $backref_rows[$i][$j] and "$backref_rows[$i][$j]" ne "";
-						$batchmetaRef->{"wells"}->{"$batch_loc"}->{"${source}_id"} = "${sample_id}.${source_code}${num}";
-					}
-
 				}
 			}
 		}	# j loop
