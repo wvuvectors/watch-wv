@@ -202,10 +202,11 @@
 "Kanawha"	"SARS-CoV-2"	2026	2	146.276757556236	"MODERATE"	"INCR. RAPIDLY"	54039
 "Kanawha"	"SARS-CoV-2"	2026	3	139.182731962624	"MODERATE"	"DECREASING"	54039
 "Kanawha"	"SARS-CoV-2"	2026	4	221.500688069314	"MODERATE"	"INCREASING"	54039
-"Kanawha"	"Influenza Virus A (FluA)"	1900	1	177.442026153838	"UNKNOWN"	NA	54039
-"Kanawha"	"Influenza Virus A (FluA)"	2022	44	67.6434852268049	"UNKNOWN"	"UNKNOWN"	54039
+"Kanawha"	"SARS-CoV-2"	2026	5	225.312746345719	"MODERATE"	"STABLE"	54039
+"Kanawha"	"SARS-CoV-2"	2026	6	158.086639781205	"MODERATE"	"INCR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2022	44	67.6434852268049	"UNKNOWN"	NA	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2022	45	69.133111849963	"UNKNOWN"	"UNKNOWN"	54039
-"Kanawha"	"Influenza Virus A (FluA)"	2022	46	68.4917379817361	"UNKNOWN"	"DECR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2022	46	68.4917379817361	"UNKNOWN"	"UNKNOWN"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2022	47	105.21385541209	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2022	48	85.3251743590212	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2022	49	83.4899999420509	"UNKNOWN"	"INCR. RAPIDLY"	54039
@@ -213,7 +214,7 @@
 "Kanawha"	"Influenza Virus A (FluA)"	2022	52	67.2508896484942	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2023	2	18.4209695275438	"UNKNOWN"	"DECR. RAPIDLY"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2023	3	13.1002125343818	"UNKNOWN"	"INCR. RAPIDLY"	54039
-"Kanawha"	"Influenza Virus A (FluA)"	2023	4	0	"VERY LOW"	"DECR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2023	4	0	"UNKNOWN"	"DECR. RAPIDLY"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2023	5	184.138194718425	"MODERATE"	"DECREASING"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2023	6	33.6518876816515	"MODERATE"	"DECR. RAPIDLY"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2023	7	111.863160582971	"MODERATE"	"INCR. RAPIDLY"	54039
@@ -363,11 +364,13 @@
 "Kanawha"	"Influenza Virus A (FluA)"	2025	52	161.62945153831	"HIGH"	"INCR. RAPIDLY"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2025	53	367.007903317555	"HIGH"	"DECR. RAPIDLY"	54039
 "Kanawha"	"Influenza Virus A (FluA)"	2026	1	76.796862857657	"HIGH"	"INCR. RAPIDLY"	54039
-"Kanawha"	"Influenza Virus A (FluA)"	2026	2	133.780009537133	"HIGH"	"INCR. RAPIDLY"	54039
-"Kanawha"	"Influenza Virus B (FluB)"	1900	1	0	"UNKNOWN"	NA	54039
-"Kanawha"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	"UNKNOWN"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2026	2	167.285908545834	"HIGH"	"INCR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2026	3	147.827845199837	"HIGH"	"DECR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2026	4	223.476724269145	"MODERATE"	"INCR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus A (FluA)"	2026	5	347.780893071001	"MODERATE"	"DECR. RAPIDLY"	54039
+"Kanawha"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	NA	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2022	45	0	"UNKNOWN"	"UNKNOWN"	54039
-"Kanawha"	"Influenza Virus B (FluB)"	2022	46	0	"UNKNOWN"	"STABLE"	54039
+"Kanawha"	"Influenza Virus B (FluB)"	2022	46	0	"UNKNOWN"	"UNKNOWN"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2022	47	0	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2022	48	0	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2022	49	0	"UNKNOWN"	"STABLE"	54039
@@ -375,7 +378,7 @@
 "Kanawha"	"Influenza Virus B (FluB)"	2022	52	0	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2023	2	2.9448447506252	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2023	3	0	"UNKNOWN"	"STABLE"	54039
-"Kanawha"	"Influenza Virus B (FluB)"	2023	4	0	"VERY LOW"	"INCREASING"	54039
+"Kanawha"	"Influenza Virus B (FluB)"	2023	4	0	"UNKNOWN"	"INCREASING"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2023	5	0	"VERY LOW"	"DECREASING"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2023	6	0	"VERY LOW"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2023	7	0	"VERY LOW"	"STABLE"	54039
@@ -523,10 +526,11 @@
 "Kanawha"	"Influenza Virus B (FluB)"	2025	53	2.33516958486102	"MODERATE"	"STABLE"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2026	1	0	"VERY LOW"	"INCREASING"	54039
 "Kanawha"	"Influenza Virus B (FluB)"	2026	2	0	"VERY LOW"	"STABLE"	54039
-"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	1900	1	0.479319340344438	"UNKNOWN"	NA	54039
-"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	4.89208759930662	"UNKNOWN"	"UNKNOWN"	54039
+"Kanawha"	"Influenza Virus B (FluB)"	2026	3	0	"VERY LOW"	"DECREASING"	54039
+"Kanawha"	"Influenza Virus B (FluB)"	2026	4	0	"VERY LOW"	"STABLE"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	4.89208759930662	"UNKNOWN"	NA	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	23	0	"UNKNOWN"	"UNKNOWN"	54039
-"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	41.5343168524217	"UNKNOWN"	"INCREASING"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	41.5343168524217	"UNKNOWN"	"UNKNOWN"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	25	6.25265474778804	"UNKNOWN"	"DECR. RAPIDLY"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	26	6.59243310666338	"UNKNOWN"	"INCR. RAPIDLY"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	27	2.73938851510211	"UNKNOWN"	"DECR. RAPIDLY"	54039
@@ -534,7 +538,7 @@
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	29	0	"UNKNOWN"	"DECREASING"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	30	5.0288335289866	"UNKNOWN"	"STABLE"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	31	2.72165183795668	"UNKNOWN"	"DECREASING"	54039
-"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	32	1.1775201996995	"LOW"	"INCR. RAPIDLY"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	32	1.1775201996995	"UNKNOWN"	"INCR. RAPIDLY"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	33	1.63225309920316	"LOW"	"DECREASING"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	34	0	"VERY LOW"	"DECREASING"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2022	35	2.89596924430237	"LOW"	"STABLE"	54039
@@ -692,6 +696,9 @@
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2025	53	4.39188553555553	"HIGH"	"STABLE"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2026	1	0.865919738971235	"MODERATE"	"DECREASING"	54039
 "Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2026	2	0	"VERY LOW"	"INCREASING"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2026	3	1.1982983508611	"MODERATE"	"DECREASING"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2026	4	0	"VERY LOW"	"STABLE"	54039
+"Kanawha"	"Respiratory Syncitial Virus, Human (RSV)"	2026	5	0	"VERY LOW"	"STABLE"	54039
 "Wayne"	"SARS-CoV-2"	2022	11	28.3909978121676	"UNKNOWN"	NA	54099
 "Wayne"	"SARS-CoV-2"	2022	12	48.2869492535938	"UNKNOWN"	"UNKNOWN"	54099
 "Wayne"	"SARS-CoV-2"	2022	13	63.2682598467101	"UNKNOWN"	"UNKNOWN"	54099
@@ -893,11 +900,12 @@
 "Wayne"	"SARS-CoV-2"	2026	1	235.976248506033	"HIGH"	"STABLE"	54099
 "Wayne"	"SARS-CoV-2"	2026	2	233.496149276701	"HIGH"	"INCR. RAPIDLY"	54099
 "Wayne"	"SARS-CoV-2"	2026	3	202.896119710712	"HIGH"	"DECR. RAPIDLY"	54099
-"Wayne"	"SARS-CoV-2"	2026	4	88.4475159439625	"MODERATE"	"STABLE"	54099
-"Wayne"	"Influenza Virus A (FluA)"	1900	1	135.162438310944	"UNKNOWN"	NA	54099
-"Wayne"	"Influenza Virus A (FluA)"	2022	44	37.5160756306639	"UNKNOWN"	"UNKNOWN"	54099
+"Wayne"	"SARS-CoV-2"	2026	4	168.815856474355	"HIGH"	"STABLE"	54099
+"Wayne"	"SARS-CoV-2"	2026	5	108.721375023429	"MODERATE"	"DECREASING"	54099
+"Wayne"	"SARS-CoV-2"	2026	6	148.449093426762	"MODERATE"	"DECREASING"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2022	44	37.5160756306639	"UNKNOWN"	NA	54099
 "Wayne"	"Influenza Virus A (FluA)"	2022	46	30.7185314113775	"UNKNOWN"	"UNKNOWN"	54099
-"Wayne"	"Influenza Virus A (FluA)"	2022	47	114.947800274746	"UNKNOWN"	"DECR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2022	47	114.947800274746	"UNKNOWN"	"UNKNOWN"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2022	48	82.2231632993436	"UNKNOWN"	"DECREASING"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2022	49	17.052652682588	"UNKNOWN"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2022	52	46.6436453294375	"UNKNOWN"	"DECR. RAPIDLY"	54099
@@ -905,7 +913,7 @@
 "Wayne"	"Influenza Virus A (FluA)"	2023	3	23.0816720726578	"UNKNOWN"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2023	4	38.8680152174521	"UNKNOWN"	"DECR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2023	5	128.675022592473	"UNKNOWN"	"STABLE"	54099
-"Wayne"	"Influenza Virus A (FluA)"	2023	7	77.4972818050494	"MODERATE"	"INCR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2023	7	77.4972818050494	"UNKNOWN"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2023	9	14.7563055409821	"MODERATE"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2023	10	0	"VERY LOW"	"DECR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2023	11	0	"VERY LOW"	"DECR. RAPIDLY"	54099
@@ -1049,11 +1057,14 @@
 "Wayne"	"Influenza Virus A (FluA)"	2025	52	173.842556279564	"MODERATE"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2025	53	150.680903441242	"MODERATE"	"DECREASING"	54099
 "Wayne"	"Influenza Virus A (FluA)"	2026	1	49.3655599632028	"MODERATE"	"INCR. RAPIDLY"	54099
-"Wayne"	"Influenza Virus A (FluA)"	2026	2	96.8461846970911	"MODERATE"	"DECR. RAPIDLY"	54099
-"Wayne"	"Influenza Virus B (FluB)"	1900	1	7.29020100369395	"UNKNOWN"	NA	54099
-"Wayne"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	"UNKNOWN"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2026	2	113.780559218945	"MODERATE"	"DECR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2026	3	148.077130142016	"MODERATE"	"DECR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2026	4	430.068337942015	"MODERATE"	"SURGING"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2026	5	207.378238502492	"HIGH"	"INCR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus A (FluA)"	2026	6	48.3442440759521	"MODERATE"	"INCR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	NA	54099
 "Wayne"	"Influenza Virus B (FluB)"	2022	46	0	"UNKNOWN"	"UNKNOWN"	54099
-"Wayne"	"Influenza Virus B (FluB)"	2022	47	0	"UNKNOWN"	"DECR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2022	47	0	"UNKNOWN"	"UNKNOWN"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2022	48	0	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2022	49	0	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2022	52	0	"UNKNOWN"	"STABLE"	54099
@@ -1061,7 +1072,7 @@
 "Wayne"	"Influenza Virus B (FluB)"	2023	3	0	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2023	4	0	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2023	5	0	"UNKNOWN"	"STABLE"	54099
-"Wayne"	"Influenza Virus B (FluB)"	2023	7	5.1188944600098	"MODERATE"	"STABLE"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2023	7	5.1188944600098	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2023	8	0	"VERY LOW"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2023	9	0	"VERY LOW"	"INCR. RAPIDLY"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2023	10	0	"VERY LOW"	"DECR. RAPIDLY"	54099
@@ -1204,11 +1215,13 @@
 "Wayne"	"Influenza Virus B (FluB)"	2025	52	0	"LOW"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2025	53	2.2660607623661	"MODERATE"	"STABLE"	54099
 "Wayne"	"Influenza Virus B (FluB)"	2026	1	0	"VERY LOW"	"STABLE"	54099
-"Wayne"	"Influenza Virus B (FluB)"	2026	2	5.15946970219265	"HIGH"	"INCREASING"	54099
-"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	1900	1	0.74457660875	"UNKNOWN"	NA	54099
-"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	0	"UNKNOWN"	"UNKNOWN"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2026	2	5.99017450772295	"HIGH"	"INCREASING"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2026	3	8.1748750968998	"HIGH"	"DECREASING"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2026	5	6.6270216452906	"HIGH"	"INCR. RAPIDLY"	54099
+"Wayne"	"Influenza Virus B (FluB)"	2026	6	3.31156656454195	"VERY HIGH"	"INCREASING"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	0	"UNKNOWN"	NA	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	23	0	"UNKNOWN"	"UNKNOWN"	54099
-"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	0	"UNKNOWN"	"STABLE"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	0	"UNKNOWN"	"UNKNOWN"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	25	1.63106189871329	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	26	0	"UNKNOWN"	"STABLE"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	27	2.17549383066704	"UNKNOWN"	"INCREASING"	54099
@@ -1216,7 +1229,7 @@
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	29	0	"UNKNOWN"	"INCREASING"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	30	77.4794788003765	"UNKNOWN"	"SURGING"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	31	0	"UNKNOWN"	"DECR. RAPIDLY"	54099
-"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	32	0	"VERY LOW"	"INCR. RAPIDLY"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	32	0	"UNKNOWN"	"INCR. RAPIDLY"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	33	2.37649504336802	"HIGH"	"DECR. RAPIDLY"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	34	49.2267228256621	"MODERATE"	"STABLE"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2022	35	2.18690892663751	"MODERATE"	"INCREASING"	54099
@@ -1369,13 +1382,17 @@
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2025	53	1.76035772272083	"HIGH"	"STABLE"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	1	1.12937697916218	"MODERATE"	"STABLE"	54099
 "Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	2	0	"VERY LOW"	"STABLE"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	3	1.4891532175	"MODERATE"	"STABLE"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	4	3.00210190944593	"MODERATE"	"STABLE"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	5	0	"VERY LOW"	"STABLE"	54099
+"Wayne"	"Respiratory Syncitial Virus, Human (RSV)"	2026	6	0	"VERY LOW"	"INCREASING"	54099
 "Cabell"	"SARS-CoV-2"	2022	42	146.634593602938	"UNKNOWN"	NA	54011
 "Cabell"	"SARS-CoV-2"	2022	43	192.35160433311	"UNKNOWN"	"UNKNOWN"	54011
 "Cabell"	"SARS-CoV-2"	2022	44	160.40782351952	"UNKNOWN"	"UNKNOWN"	54011
 "Cabell"	"SARS-CoV-2"	2022	45	342.571225275391	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2022	46	240.280634273252	"UNKNOWN"	"DECREASING"	54011
 "Cabell"	"SARS-CoV-2"	2022	47	158.93588021417	"UNKNOWN"	"INCR. RAPIDLY"	54011
-"Cabell"	"SARS-CoV-2"	2022	48	290.103117898446	"UNKNOWN"	"DECR. RAPIDLY"	54011
+"Cabell"	"SARS-CoV-2"	2022	48	290.103117898447	"UNKNOWN"	"DECR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2022	49	253.450960976607	"UNKNOWN"	"DECR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2022	50	492.839436937514	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2022	51	451.132501669333	"UNKNOWN"	"DECREASING"	54011
@@ -1435,7 +1452,7 @@
 "Cabell"	"SARS-CoV-2"	2024	1	474.289171832027	"HIGH"	"STABLE"	54011
 "Cabell"	"SARS-CoV-2"	2024	2	235.208489410848	"MODERATE"	"INCREASING"	54011
 "Cabell"	"SARS-CoV-2"	2024	3	227.329355943551	"MODERATE"	"DECR. RAPIDLY"	54011
-"Cabell"	"SARS-CoV-2"	2024	4	117.492969937437	"MODERATE"	"DECR. RAPIDLY"	54011
+"Cabell"	"SARS-CoV-2"	2024	4	117.492969937436	"MODERATE"	"DECR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2024	5	256.149804197753	"LOW"	"STABLE"	54011
 "Cabell"	"SARS-CoV-2"	2024	6	166.436217202989	"LOW"	"DECR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2024	7	257.67817379894	"LOW"	"INCR. RAPIDLY"	54011
@@ -1456,7 +1473,7 @@
 "Cabell"	"SARS-CoV-2"	2024	22	22.5812020229949	"MODERATE"	"STABLE"	54011
 "Cabell"	"SARS-CoV-2"	2024	23	21.3078118898673	"MODERATE"	"INCREASING"	54011
 "Cabell"	"SARS-CoV-2"	2024	24	47.883384177185	"MODERATE"	"DECREASING"	54011
-"Cabell"	"SARS-CoV-2"	2024	25	36.1550992571305	"MODERATE"	"STABLE"	54011
+"Cabell"	"SARS-CoV-2"	2024	25	36.1550992571306	"MODERATE"	"STABLE"	54011
 "Cabell"	"SARS-CoV-2"	2024	26	88.7283794628336	"HIGH"	"INCREASING"	54011
 "Cabell"	"SARS-CoV-2"	2024	27	72.8905177851781	"HIGH"	"STABLE"	54011
 "Cabell"	"SARS-CoV-2"	2024	28	287.1380634961	"HIGH"	"INCR. RAPIDLY"	54011
@@ -1540,11 +1557,12 @@
 "Cabell"	"SARS-CoV-2"	2026	1	111.417229904852	"HIGH"	"INCREASING"	54011
 "Cabell"	"SARS-CoV-2"	2026	2	306.493621044996	"HIGH"	"INCR. RAPIDLY"	54011
 "Cabell"	"SARS-CoV-2"	2026	3	71.4617302496131	"MODERATE"	"DECR. RAPIDLY"	54011
-"Cabell"	"SARS-CoV-2"	2026	4	80.2760139207208	"MODERATE"	"INCR. RAPIDLY"	54011
-"Cabell"	"Influenza Virus A (FluA)"	1900	1	139.211578417115	"UNKNOWN"	NA	54011
-"Cabell"	"Influenza Virus A (FluA)"	2022	44	52.9708413377565	"UNKNOWN"	"UNKNOWN"	54011
+"Cabell"	"SARS-CoV-2"	2026	4	525.58490101348	"HIGH"	"INCR. RAPIDLY"	54011
+"Cabell"	"SARS-CoV-2"	2026	5	630.199968091534	"HIGH"	"DECR. RAPIDLY"	54011
+"Cabell"	"SARS-CoV-2"	2026	6	143.949291696512	"HIGH"	"INCR. RAPIDLY"	54011
+"Cabell"	"Influenza Virus A (FluA)"	2022	44	52.9708413377565	"UNKNOWN"	NA	54011
 "Cabell"	"Influenza Virus A (FluA)"	2022	45	65.047761221264	"UNKNOWN"	"UNKNOWN"	54011
-"Cabell"	"Influenza Virus A (FluA)"	2022	46	74.7484126207722	"UNKNOWN"	"DECR. RAPIDLY"	54011
+"Cabell"	"Influenza Virus A (FluA)"	2022	46	74.7484126207722	"UNKNOWN"	"UNKNOWN"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2022	47	137.137836018361	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2022	48	100.04602808082	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2022	49	28.7307474445164	"UNKNOWN"	"INCR. RAPIDLY"	54011
@@ -1552,7 +1570,7 @@
 "Cabell"	"Influenza Virus A (FluA)"	2022	52	33.1778446631669	"UNKNOWN"	"DECR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2023	2	30.9003875784095	"UNKNOWN"	"DECREASING"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2023	3	13.7330113122482	"UNKNOWN"	"INCR. RAPIDLY"	54011
-"Cabell"	"Influenza Virus A (FluA)"	2023	4	0	"VERY LOW"	"STABLE"	54011
+"Cabell"	"Influenza Virus A (FluA)"	2023	4	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2023	5	130.704561239679	"MODERATE"	"DECR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2023	6	5.070982553625	"MODERATE"	"DECR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2023	7	63.963412052076	"MODERATE"	"INCR. RAPIDLY"	54011
@@ -1692,10 +1710,11 @@
 "Cabell"	"Influenza Virus A (FluA)"	2025	52	154.981262086541	"HIGH"	"DECREASING"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2026	1	78.932046485547	"HIGH"	"INCR. RAPIDLY"	54011
 "Cabell"	"Influenza Virus A (FluA)"	2026	2	184.494022304358	"HIGH"	"DECR. RAPIDLY"	54011
-"Cabell"	"Influenza Virus B (FluB)"	1900	1	1.87017067659848	"UNKNOWN"	NA	54011
-"Cabell"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	"UNKNOWN"	54011
+"Cabell"	"Influenza Virus A (FluA)"	2026	3	139.211578417115	"HIGH"	"DECR. RAPIDLY"	54011
+"Cabell"	"Influenza Virus A (FluA)"	2026	5	204.267228263059	"HIGH"	"INCR. RAPIDLY"	54011
+"Cabell"	"Influenza Virus B (FluB)"	2022	44	0	"UNKNOWN"	NA	54011
 "Cabell"	"Influenza Virus B (FluB)"	2022	45	0	"UNKNOWN"	"UNKNOWN"	54011
-"Cabell"	"Influenza Virus B (FluB)"	2022	46	0	"UNKNOWN"	"DECREASING"	54011
+"Cabell"	"Influenza Virus B (FluB)"	2022	46	0	"UNKNOWN"	"UNKNOWN"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2022	47	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2022	48	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2022	49	0	"UNKNOWN"	"STABLE"	54011
@@ -1703,7 +1722,7 @@
 "Cabell"	"Influenza Virus B (FluB)"	2022	52	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2023	2	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2023	3	0	"UNKNOWN"	"STABLE"	54011
-"Cabell"	"Influenza Virus B (FluB)"	2023	4	0	"VERY LOW"	"STABLE"	54011
+"Cabell"	"Influenza Virus B (FluB)"	2023	4	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2023	5	0	"VERY LOW"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2023	6	0	"VERY LOW"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2023	7	0	"VERY LOW"	"STABLE"	54011
@@ -1841,10 +1860,11 @@
 "Cabell"	"Influenza Virus B (FluB)"	2025	52	0	"VERY LOW"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2026	1	0	"VERY LOW"	"STABLE"	54011
 "Cabell"	"Influenza Virus B (FluB)"	2026	2	0	"VERY LOW"	"STABLE"	54011
-"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	1900	1	0.90690988293325	"UNKNOWN"	NA	54011
-"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	0	"UNKNOWN"	"UNKNOWN"	54011
+"Cabell"	"Influenza Virus B (FluB)"	2026	3	1.87017067659848	"VERY HIGH"	"STABLE"	54011
+"Cabell"	"Influenza Virus B (FluB)"	2026	5	5.43926492367138	"VERY HIGH"	"STABLE"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	22	0	"UNKNOWN"	NA	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	23	0	"UNKNOWN"	"UNKNOWN"	54011
-"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	26.2731913977719	"UNKNOWN"	"STABLE"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	24	26.2731913977719	"UNKNOWN"	"UNKNOWN"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	26	0	"UNKNOWN"	"STABLE"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	27	0	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	28	9.63060171179494	"UNKNOWN"	"DECR. RAPIDLY"	54011
@@ -1852,7 +1872,7 @@
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	31	0	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	32	1.86284797352816	"UNKNOWN"	"INCR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	33	14.0946277485012	"UNKNOWN"	"DECR. RAPIDLY"	54011
-"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	34	5.33698930962924	"MODERATE"	"INCREASING"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	34	5.33698930962924	"UNKNOWN"	"INCREASING"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	35	1.25259441710763	"MODERATE"	"INCR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	36	36.1609415140851	"MODERATE"	"DECR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2022	37	3.6741807549924	"MODERATE"	"DECREASING"	54011
@@ -1997,6 +2017,10 @@
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2025	52	6.55056416925486	"VERY HIGH"	"INCR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	1	1.58119649013759	"VERY HIGH"	"DECR. RAPIDLY"	54011
 "Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	2	0	"VERY LOW"	"INCR. RAPIDLY"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	3	0.90690988293325	"MODERATE"	"DECR. RAPIDLY"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	4	0	"VERY LOW"	"DECREASING"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	5	11.3963695040823	"MODERATE"	"STABLE"	54011
+"Cabell"	"Respiratory Syncitial Virus, Human (RSV)"	2026	6	19.3335469713316	"MODERATE"	"STABLE"	54011
 "Putnam"	"SARS-CoV-2"	2023	13	110.499611955923	"UNKNOWN"	NA	54079
 "Putnam"	"SARS-CoV-2"	2023	15	7.42846840157169	"UNKNOWN"	"UNKNOWN"	54079
 "Putnam"	"SARS-CoV-2"	2023	16	2.60719137165995	"UNKNOWN"	"UNKNOWN"	54079
@@ -2132,10 +2156,10 @@
 "Putnam"	"SARS-CoV-2"	2026	2	22.8300245395209	"HIGH"	"INCR. RAPIDLY"	54079
 "Putnam"	"SARS-CoV-2"	2026	3	26.4704119721097	"HIGH"	"DECR. RAPIDLY"	54079
 "Putnam"	"SARS-CoV-2"	2026	4	10.9166348055851	"MODERATE"	"DECREASING"	54079
-"Putnam"	"Influenza Virus A (FluA)"	1900	1	40.6523700935163	"UNKNOWN"	NA	54079
-"Putnam"	"Influenza Virus A (FluA)"	2025	7	9.63207867840949	"UNKNOWN"	"UNKNOWN"	54079
+"Putnam"	"SARS-CoV-2"	2026	5	57.403245674594	"MODERATE"	"STABLE"	54079
+"Putnam"	"Influenza Virus A (FluA)"	2025	7	9.63207867840949	"UNKNOWN"	NA	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	11	75.6161606664441	"UNKNOWN"	"UNKNOWN"	54079
-"Putnam"	"Influenza Virus A (FluA)"	2025	13	2.78589996219806	"UNKNOWN"	"DECR. RAPIDLY"	54079
+"Putnam"	"Influenza Virus A (FluA)"	2025	13	2.78589996219806	"UNKNOWN"	"UNKNOWN"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	15	8.48690453935341	"UNKNOWN"	"INCR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	16	44.9333807192917	"UNKNOWN"	"DECR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	17	23.3723756031571	"UNKNOWN"	"INCREASING"	54079
@@ -2143,7 +2167,7 @@
 "Putnam"	"Influenza Virus A (FluA)"	2025	19	2.82825615011455	"UNKNOWN"	"DECR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	24	11.7903577875184	"UNKNOWN"	"DECR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	26	8.20397907392874	"UNKNOWN"	"DECREASING"	54079
-"Putnam"	"Influenza Virus A (FluA)"	2025	28	0	"VERY LOW"	"INCREASING"	54079
+"Putnam"	"Influenza Virus A (FluA)"	2025	28	0	"UNKNOWN"	"INCREASING"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	29	0	"VERY LOW"	"DECREASING"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	30	1.04744940226637	"LOW"	"DECREASING"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	31	5.20856395723077	"LOW"	"STABLE"	54079
@@ -2167,10 +2191,11 @@
 "Putnam"	"Influenza Virus A (FluA)"	2025	49	25.0684032230067	"HIGH"	"INCR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2025	50	11.9380243380693	"MODERATE"	"DECR. RAPIDLY"	54079
 "Putnam"	"Influenza Virus A (FluA)"	2026	1	6.98938909951558	"MODERATE"	"STABLE"	54079
-"Putnam"	"Influenza Virus B (FluB)"	1900	1	0	"UNKNOWN"	NA	54079
-"Putnam"	"Influenza Virus B (FluB)"	2025	7	0	"UNKNOWN"	"UNKNOWN"	54079
+"Putnam"	"Influenza Virus A (FluA)"	2026	2	41.8347000314541	"MODERATE"	"DECR. RAPIDLY"	54079
+"Putnam"	"Influenza Virus A (FluA)"	2026	4	38.2877102176408	"MODERATE"	"DECREASING"	54079
+"Putnam"	"Influenza Virus B (FluB)"	2025	7	0	"UNKNOWN"	NA	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	11	0.207870344924239	"UNKNOWN"	"UNKNOWN"	54079
-"Putnam"	"Influenza Virus B (FluB)"	2025	13	0	"UNKNOWN"	"STABLE"	54079
+"Putnam"	"Influenza Virus B (FluB)"	2025	13	0	"UNKNOWN"	"UNKNOWN"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	15	1.46445868414119	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	16	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	17	0.547675785737225	"UNKNOWN"	"STABLE"	54079
@@ -2178,7 +2203,7 @@
 "Putnam"	"Influenza Virus B (FluB)"	2025	19	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	24	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	26	0	"UNKNOWN"	"STABLE"	54079
-"Putnam"	"Influenza Virus B (FluB)"	2025	28	0	"VERY LOW"	"STABLE"	54079
+"Putnam"	"Influenza Virus B (FluB)"	2025	28	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	29	0	"VERY LOW"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	30	0.508507958795008	"LOW"	"STABLE"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	31	1.36368123395502	"MODERATE"	"STABLE"	54079
@@ -2202,10 +2227,11 @@
 "Putnam"	"Influenza Virus B (FluB)"	2025	49	0	"VERY LOW"	"INCREASING"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2025	50	0	"VERY LOW"	"DECREASING"	54079
 "Putnam"	"Influenza Virus B (FluB)"	2026	1	0	"VERY LOW"	"STABLE"	54079
-"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	1900	1	0.0741600727336683	"UNKNOWN"	NA	54079
-"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	0	"UNKNOWN"	"UNKNOWN"	54079
+"Putnam"	"Influenza Virus B (FluB)"	2026	2	0	"VERY LOW"	"STABLE"	54079
+"Putnam"	"Influenza Virus B (FluB)"	2026	4	0	"VERY LOW"	"STABLE"	54079
+"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	0	"UNKNOWN"	NA	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	11	0.500647958817418	"UNKNOWN"	"UNKNOWN"	54079
-"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	13	0.287959219361293	"UNKNOWN"	"STABLE"	54079
+"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	13	0.287959219361293	"UNKNOWN"	"UNKNOWN"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	15	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	16	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	17	0.627858676891762	"UNKNOWN"	"STABLE"	54079
@@ -2213,7 +2239,7 @@
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	38	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	39	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	40	0.430347088167534	"UNKNOWN"	"STABLE"	54079
-"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	41	0	"VERY LOW"	"STABLE"	54079
+"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	41	0	"UNKNOWN"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	42	0	"VERY LOW"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	43	0	"VERY LOW"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	44	0	"VERY LOW"	"STABLE"	54079
@@ -2224,6 +2250,8 @@
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	49	0	"VERY LOW"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2025	50	7.12279874380164	"HIGH"	"STABLE"	54079
 "Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2026	1	1.01968823846364	"VERY HIGH"	"STABLE"	54079
+"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2026	2	0.111240109100502	"VERY HIGH"	"INCR. RAPIDLY"	54079
+"Putnam"	"Respiratory Syncitial Virus, Human (RSV)"	2026	4	0	"VERY LOW"	"DECR. RAPIDLY"	54079
 "Doddridge"	"SARS-CoV-2"	2022	2	1438.90365562414	"UNKNOWN"	NA	54017
 "Doddridge"	"SARS-CoV-2"	2022	3	3331.48782780042	"UNKNOWN"	"SURGING"	54017
 "Doddridge"	"SARS-CoV-2"	2022	4	5334.56406515518	"UNKNOWN"	"SURGING"	54017
@@ -2373,6 +2401,7 @@
 "Doddridge"	"SARS-CoV-2"	2025	51	48.4094109364545	"LOW"	"DECR. RAPIDLY"	54017
 "Doddridge"	"SARS-CoV-2"	2026	1	11.2623167250945	"LOW"	"INCR. RAPIDLY"	54017
 "Doddridge"	"SARS-CoV-2"	2026	2	13.7732445815376	"LOW"	"DECR. RAPIDLY"	54017
+"Doddridge"	"SARS-CoV-2"	2026	7	1.20451880434397	"LOW"	"DECREASING"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	7	7.1923603451114	"UNKNOWN"	NA	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	8	3.59248161267731	"UNKNOWN"	"UNKNOWN"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	9	5.37995355702128	"UNKNOWN"	"UNKNOWN"	54017
@@ -2384,7 +2413,7 @@
 "Doddridge"	"Influenza Virus A (FluA)"	2024	30	2.61595993191489	"UNKNOWN"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	31	2.91939678670213	"UNKNOWN"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	33	0.107823779521277	"UNKNOWN"	"STABLE"	54017
-"Doddridge"	"Influenza Virus A (FluA)"	2024	34	1.24276218409574	"MODERATE"	"STABLE"	54017
+"Doddridge"	"Influenza Virus A (FluA)"	2024	34	2.04818870223404	"MODERATE"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	36	3.42023874595745	"MODERATE"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	38	0.0242293086879433	"VERY LOW"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2024	39	1.0777679748227	"MODERATE"	"STABLE"	54017
@@ -2400,10 +2429,10 @@
 "Doddridge"	"Influenza Virus A (FluA)"	2025	17	0.133267909503546	"VERY LOW"	"INCR. RAPIDLY"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2025	20	25.9909697886746	"MODERATE"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2025	21	5.65857047177305	"MODERATE"	"DECR. RAPIDLY"	54017
-"Doddridge"	"Influenza Virus A (FluA)"	2025	22	3.74840157670213	"LOW"	"INCR. RAPIDLY"	54017
-"Doddridge"	"Influenza Virus A (FluA)"	2025	27	6.68965076118864	"MODERATE"	"DECR. RAPIDLY"	54017
-"Doddridge"	"Influenza Virus A (FluA)"	2025	29	3.59694490638298	"LOW"	"STABLE"	54017
-"Doddridge"	"Influenza Virus A (FluA)"	2025	31	1.55332017365248	"LOW"	"STABLE"	54017
+"Doddridge"	"Influenza Virus A (FluA)"	2025	22	2.06314912579787	"LOW"	"INCR. RAPIDLY"	54017
+"Doddridge"	"Influenza Virus A (FluA)"	2025	27	6.68965076118864	"LOW"	"DECR. RAPIDLY"	54017
+"Doddridge"	"Influenza Virus A (FluA)"	2025	29	3.59694490638298	"LOW"	"DECREASING"	54017
+"Doddridge"	"Influenza Virus A (FluA)"	2025	31	1.55332017365248	"LOW"	"INCREASING"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2025	32	7.0989040084983	"LOW"	"DECREASING"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2025	33	0.28288556858156	"LOW"	"STABLE"	54017
 "Doddridge"	"Influenza Virus A (FluA)"	2025	35	2.94633763021277	"LOW"	"INCREASING"	54017
@@ -2423,7 +2452,7 @@
 "Doddridge"	"Influenza Virus B (FluB)"	2024	39	53.5911976297431	"UNKNOWN"	"UNKNOWN"	54017
 "Doddridge"	"Influenza Virus B (FluB)"	2024	46	9.34514241171317	"UNKNOWN"	"UNKNOWN"	54017
 "Doddridge"	"Influenza Virus B (FluB)"	2024	51	24.423346115418	"UNKNOWN"	"INCR. RAPIDLY"	54017
-"Doddridge"	"Influenza Virus B (FluB)"	2024	52	3.49512140441489	"UNKNOWN"	"DECR. RAPIDLY"	54017
+"Doddridge"	"Influenza Virus B (FluB)"	2024	52	3.04008693319149	"UNKNOWN"	"DECR. RAPIDLY"	54017
 "Doddridge"	"Influenza Virus B (FluB)"	2025	5	0.109501709485816	"UNKNOWN"	"INCR. RAPIDLY"	54017
 "Doddridge"	"Influenza Virus B (FluB)"	2025	7	1.50131105647163	"UNKNOWN"	"DECR. RAPIDLY"	54017
 "Doddridge"	"Influenza Virus B (FluB)"	2025	11	0.166880202553192	"UNKNOWN"	"DECREASING"	54017
@@ -2464,15 +2493,15 @@
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	1.65482822478723	"UNKNOWN"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	2.38009667265958	"UNKNOWN"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	1.52856063909574	"UNKNOWN"	"STABLE"	54017
-"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	2.40656098406028	"UNKNOWN"	"STABLE"	54017
+"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.72403349141844	"UNKNOWN"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	2.8465477793617	"MODERATE"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	2.09145244843972	"MODERATE"	"STABLE"	54017
-"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	43	1.90671907106383	"MODERATE"	"STABLE"	54017
+"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	43	1.90671907106383	"MODERATE"	"INCREASING"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	9.00626510368517	"HIGH"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	46	5.58264078501773	"HIGH"	"STABLE"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	0.347089880744681	"HIGH"	"INCR. RAPIDLY"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	29.3086915792769	"HIGH"	"DECREASING"	54017
-"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	2.26538666856383	"HIGH"	"DECR. RAPIDLY"	54017
+"Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	2.63724279558511	"HIGH"	"DECR. RAPIDLY"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	1.52628536606383	"HIGH"	"INCR. RAPIDLY"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	1.55228656879433	"HIGH"	"DECR. RAPIDLY"	54017
 "Doddridge"	"Respiratory Syncitial Virus, Human (RSV)"	2025	11	182.79459516124	"HIGH"	"SURGING"	54017
@@ -2673,8 +2702,10 @@
 "Marion"	"SARS-CoV-2"	2025	52	114.181540212062	"MODERATE"	"STABLE"	54049
 "Marion"	"SARS-CoV-2"	2026	1	8.47273762532277	"MODERATE"	"STABLE"	54049
 "Marion"	"SARS-CoV-2"	2026	2	52.4649686067545	"MODERATE"	"INCR. RAPIDLY"	54049
-"Marion"	"SARS-CoV-2"	2026	4	47.2455845288498	"MODERATE"	"DECR. RAPIDLY"	54049
+"Marion"	"SARS-CoV-2"	2026	4	31.693894630934	"MODERATE"	"DECR. RAPIDLY"	54049
 "Marion"	"SARS-CoV-2"	2026	5	444.463827920581	"MODERATE"	"INCREASING"	54049
+"Marion"	"SARS-CoV-2"	2026	6	22.022098523618	"MODERATE"	"DECREASING"	54049
+"Marion"	"SARS-CoV-2"	2026	7	77.6379030450822	"HIGH"	"INCR. RAPIDLY"	54049
 "Marion"	"Influenza Virus A (FluA)"	2023	51	3.42806296535794	"UNKNOWN"	NA	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	2	1.00127148378423	"UNKNOWN"	"UNKNOWN"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	4	7.02455052483353	"UNKNOWN"	"UNKNOWN"	54049
@@ -2697,8 +2728,8 @@
 "Marion"	"Influenza Virus A (FluA)"	2024	31	0.431276105213115	"LOW"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	32	0.265707330705775	"LOW"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	33	1.2875945472044	"MODERATE"	"STABLE"	54049
-"Marion"	"Influenza Virus A (FluA)"	2024	34	1.09270595465188	"MODERATE"	"STABLE"	54049
-"Marion"	"Influenza Virus A (FluA)"	2024	35	0.491638364216315	"MODERATE"	"STABLE"	54049
+"Marion"	"Influenza Virus A (FluA)"	2024	34	0.826319592457777	"MODERATE"	"STABLE"	54049
+"Marion"	"Influenza Virus A (FluA)"	2024	35	0.646635463684693	"MODERATE"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	36	1.39107745577452	"MODERATE"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	37	0.822561612758937	"MODERATE"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	38	0.75711302795082	"MODERATE"	"STABLE"	54049
@@ -2709,7 +2740,7 @@
 "Marion"	"Influenza Virus A (FluA)"	2024	44	5.32150536336566	"HIGH"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	46	0.930247574372671	"MODERATE"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	47	0.697415250573771	"HIGH"	"INCREASING"	54049
-"Marion"	"Influenza Virus A (FluA)"	2024	50	0.490238989414389	"HIGH"	"DECREASING"	54049
+"Marion"	"Influenza Virus A (FluA)"	2024	50	0.490238989414389	"MODERATE"	"DECREASING"	54049
 "Marion"	"Influenza Virus A (FluA)"	2024	51	2.58552524142071	"MODERATE"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2025	1	17.3260572803931	"HIGH"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2025	5	7.23935828532136	"HIGH"	"STABLE"	54049
@@ -2749,7 +2780,7 @@
 "Marion"	"Influenza Virus A (FluA)"	2026	4	12.5947891722778	"HIGH"	"STABLE"	54049
 "Marion"	"Influenza Virus A (FluA)"	2026	5	0.431263694032787	"HIGH"	"STABLE"	54049
 "Marion"	"Influenza Virus B (FluB)"	2024	34	7.03424458512578	"UNKNOWN"	NA	54049
-"Marion"	"Influenza Virus B (FluB)"	2024	35	1.48125601177445	"UNKNOWN"	"UNKNOWN"	54049
+"Marion"	"Influenza Virus B (FluB)"	2024	35	1.34364084429904	"UNKNOWN"	"UNKNOWN"	54049
 "Marion"	"Influenza Virus B (FluB)"	2024	39	6.41574327661448	"UNKNOWN"	"UNKNOWN"	54049
 "Marion"	"Influenza Virus B (FluB)"	2024	43	1.1228208674918	"UNKNOWN"	"DECR. RAPIDLY"	54049
 "Marion"	"Influenza Virus B (FluB)"	2024	46	1.3147766787937	"UNKNOWN"	"INCR. RAPIDLY"	54049
@@ -2817,8 +2848,8 @@
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.0251793953895509	"VERY LOW"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.571498678522337	"MODERATE"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.90264652847541	"LOW"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.871545703209195	"LOW"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	1.10003760915929	"MODERATE"	"STABLE"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.0558960286440099	"LOW"	"STABLE"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.396369760080698	"LOW"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	1.30202837451879	"MODERATE"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	0.244748476065574	"MODERATE"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	40	0.161131476076994	"MODERATE"	"STABLE"	54049
@@ -2828,14 +2859,14 @@
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	46	1.64269533244811	"HIGH"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	47	0.514071089180328	"MODERATE"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	0.418684962770492	"MODERATE"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	3.84139312589368	"MODERATE"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	1.08186046292392	"MODERATE"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	1.83639871820261	"MODERATE"	"INCREASING"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	3.84139312589368	"HIGH"	"STABLE"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	1.58262405931256	"MODERATE"	"STABLE"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	1.83639871820261	"HIGH"	"INCREASING"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	2.67837071048489	"HIGH"	"DECREASING"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	4.02574363379468	"MODERATE"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	9	7.39736294209703	"HIGH"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	10	0.418706918387387	"HIGH"	"STABLE"	54049
-"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	11	1.3648761486358	"HIGH"	"INCREASING"	54049
+"Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	11	1.3648761486358	"MODERATE"	"INCREASING"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	12	1.90155364543528	"MODERATE"	"DECR. RAPIDLY"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	14	0.319376977320836	"LOW"	"STABLE"	54049
 "Marion"	"Respiratory Syncitial Virus, Human (RSV)"	2025	15	6.14337397491578	"MODERATE"	"STABLE"	54049
@@ -3052,6 +3083,7 @@
 "Preston"	"SARS-CoV-2"	2026	2	1.90560243264286	"LOW"	"STABLE"	54077
 "Preston"	"SARS-CoV-2"	2026	4	1.01232678857143	"LOW"	"STABLE"	54077
 "Preston"	"SARS-CoV-2"	2026	5	0.252054228714286	"LOW"	"STABLE"	54077
+"Preston"	"SARS-CoV-2"	2026	6	0.5153835715	"MODERATE"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	1	16.2421291117206	"UNKNOWN"	NA	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	2	3.74007714248461	"UNKNOWN"	"UNKNOWN"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	3	2.66345773782857	"UNKNOWN"	"UNKNOWN"	54077
@@ -3070,7 +3102,7 @@
 "Preston"	"Influenza Virus A (FluA)"	2024	31	0.0594850142857143	"LOW"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	32	0.649738587857143	"LOW"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	33	0.433926956028571	"LOW"	"STABLE"	54077
-"Preston"	"Influenza Virus A (FluA)"	2024	34	0.2143677683	"MODERATE"	"STABLE"	54077
+"Preston"	"Influenza Virus A (FluA)"	2024	34	0.2599441047	"MODERATE"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	36	0.438404555285714	"MODERATE"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	37	0.0292017342857143	"MODERATE"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2024	38	0.154531251657143	"MODERATE"	"STABLE"	54077
@@ -3123,7 +3155,7 @@
 "Preston"	"Influenza Virus A (FluA)"	2026	4	2.19300868722335	"HIGH"	"STABLE"	54077
 "Preston"	"Influenza Virus A (FluA)"	2026	5	0.758715134028571	"HIGH"	"STABLE"	54077
 "Preston"	"Influenza Virus B (FluB)"	2024	34	2.85921774489455	"UNKNOWN"	NA	54077
-"Preston"	"Influenza Virus B (FluB)"	2024	52	0.9290910304	"UNKNOWN"	"UNKNOWN"	54077
+"Preston"	"Influenza Virus B (FluB)"	2024	52	0.4561797591	"UNKNOWN"	"UNKNOWN"	54077
 "Preston"	"Influenza Virus B (FluB)"	2025	1	3.57124017397792	"UNKNOWN"	"UNKNOWN"	54077
 "Preston"	"Influenza Virus B (FluB)"	2025	5	2.05885685200559	"UNKNOWN"	"DECREASING"	54077
 "Preston"	"Influenza Virus B (FluB)"	2025	6	12.0063150414239	"UNKNOWN"	"INCREASING"	54077
@@ -3186,8 +3218,8 @@
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.624127585342857	"LOW"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.475166294114286	"LOW"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.171965768571429	"LOW"	"STABLE"	54077
-"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.5718240346	"LOW"	"STABLE"	54077
-"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.399685218714286	"MODERATE"	"STABLE"	54077
+"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.6168704136	"MODERATE"	"STABLE"	54077
+"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.585862497971429	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.2769027415	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.426150642342857	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.35961395	"MODERATE"	"STABLE"	54077
@@ -3196,7 +3228,7 @@
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	44	0.281634504	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	0.516497563585714	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	49	1.01910267247143	"MODERATE"	"STABLE"	54077
-"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	0.8483860892	"HIGH"	"STABLE"	54077
+"Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	0.8483860892	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	2.1691913464	"HIGH"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	1.28730978642857	"HIGH"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	2.12183045957143	"HIGH"	"STABLE"	54077
@@ -3249,43 +3281,43 @@
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2026	3	1.4916786646	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2026	4	0.800614215	"MODERATE"	"STABLE"	54077
 "Preston"	"Respiratory Syncitial Virus, Human (RSV)"	2026	5	0.434554252542857	"MODERATE"	"STABLE"	54077
-"Monongalia"	"SARS-CoV-2"	2020	45	0.763822893452326	"UNKNOWN"	NA	54061
-"Monongalia"	"SARS-CoV-2"	2020	46	0.818166351577265	"UNKNOWN"	"UNKNOWN"	54061
-"Monongalia"	"SARS-CoV-2"	2020	47	0.841520000251738	"UNKNOWN"	"UNKNOWN"	54061
-"Monongalia"	"SARS-CoV-2"	2020	48	0.489979951930019	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2020	49	0.849016644137065	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2020	50	0.868299285188173	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2020	51	0.788506652236342	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2020	52	0.830166778026612	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2020	53	0.610005470582634	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	1	1.39783478210044	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	2	0.754843823858095	"UNKNOWN"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	3	1.15795178071793	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	4	0.769797477928613	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	5	1.09055085126217	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	6	1.36088591267837	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	7	1.73528735807455	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	10	0.716766584559801	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	11	0.850729791243421	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	12	1.25165336726817	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	13	1.14666604544148	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	14	0.907154833231005	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	15	1.27235954743577	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	16	0.924297552119351	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	17	1.26662641522041	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	18	1.24151143237965	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	19	0.778777299466561	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	20	2.14708726996323	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	21	1.50650651457014	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	22	2.6330619505996	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	23	0.899359636358675	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	24	1.27760550628214	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	25	3.42460984311948	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	26	2.41098392295313	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	27	2.13956256917793	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	28	2.60323715261611	"MODERATE"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	29	7.32272233072538	"HIGH"	"STABLE"	54061
-"Monongalia"	"SARS-CoV-2"	2021	30	8.61042371142692	"HIGH"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	45	0.948753722604741	"UNKNOWN"	NA	54061
+"Monongalia"	"SARS-CoV-2"	2020	46	0.806468770460313	"UNKNOWN"	"UNKNOWN"	54061
+"Monongalia"	"SARS-CoV-2"	2020	47	0.519701686627669	"UNKNOWN"	"UNKNOWN"	54061
+"Monongalia"	"SARS-CoV-2"	2020	48	0.857634890405148	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	49	1.22774953077458	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	50	0.923170090841791	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	51	0.561657420292046	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	52	1.00749761802897	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2020	53	1.08882450989339	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	1	1.48395469246325	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	2	0.977232040037328	"UNKNOWN"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	3	0.622662347814105	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	4	0.783453089156058	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	5	1.47066189407971	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	6	0.729376022758691	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	7	1.850706489093	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	10	0.547389178585912	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	11	1.12087111749379	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	12	0.86887293991748	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	13	1.12704742653791	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	14	1.10480740650968	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	15	0.557840632307317	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	16	1.21919396214849	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	17	1.01195322919856	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	18	1.32762225675587	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	19	1.20799397978687	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	20	2.35993543520367	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	21	1.96495878230896	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	22	2.7369333409524	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	23	1.03807642757561	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	24	1.042615872637	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	25	3.27287964760669	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	26	2.28983018716287	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	27	1.98155293867321	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	28	2.09570569072859	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	29	7.28155264455964	"MODERATE"	"STABLE"	54061
+"Monongalia"	"SARS-CoV-2"	2021	30	8.53303242640379	"HIGH"	"STABLE"	54061
 "Monongalia"	"SARS-CoV-2"	2021	32	25.4307569999877	"HIGH"	"STABLE"	54061
 "Monongalia"	"SARS-CoV-2"	2021	33	30.2436491485939	"HIGH"	"STABLE"	54061
 "Monongalia"	"SARS-CoV-2"	2021	34	73.4055992021792	"VERY HIGH"	"INCREASING"	54061
@@ -3324,8 +3356,8 @@
 "Monongalia"	"SARS-CoV-2"	2022	15	38.3177375419758	"LOW"	"STABLE"	54061
 "Monongalia"	"SARS-CoV-2"	2022	16	70.7881564929082	"LOW"	"INCR. RAPIDLY"	54061
 "Monongalia"	"SARS-CoV-2"	2022	17	100.75682678393	"MODERATE"	"DECR. RAPIDLY"	54061
-"Monongalia"	"SARS-CoV-2"	2022	18	101.159236898027	"MODERATE"	"INCREASING"	54061
-"Monongalia"	"SARS-CoV-2"	2022	19	242.205392478548	"MODERATE"	"INCREASING"	54061
+"Monongalia"	"SARS-CoV-2"	2022	18	100.936880874438	"MODERATE"	"INCREASING"	54061
+"Monongalia"	"SARS-CoV-2"	2022	19	242.191210791423	"MODERATE"	"INCREASING"	54061
 "Monongalia"	"SARS-CoV-2"	2022	20	385.407501856427	"HIGH"	"STABLE"	54061
 "Monongalia"	"SARS-CoV-2"	2022	21	204.265179116463	"HIGH"	"INCR. RAPIDLY"	54061
 "Monongalia"	"SARS-CoV-2"	2022	22	16.5185786258237	"HIGH"	"INCR. RAPIDLY"	54061
@@ -3515,7 +3547,9 @@
 "Monongalia"	"SARS-CoV-2"	2026	2	82.4750634529044	"MODERATE"	"DECREASING"	54061
 "Monongalia"	"SARS-CoV-2"	2026	3	147.944795372056	"MODERATE"	"INCREASING"	54061
 "Monongalia"	"SARS-CoV-2"	2026	4	106.398547807393	"MODERATE"	"DECREASING"	54061
-"Monongalia"	"SARS-CoV-2"	2026	5	134.622259280555	"MODERATE"	"INCR. RAPIDLY"	54061
+"Monongalia"	"SARS-CoV-2"	2026	5	108.139223570419	"MODERATE"	"INCR. RAPIDLY"	54061
+"Monongalia"	"SARS-CoV-2"	2026	6	63.725456123482	"MODERATE"	"DECREASING"	54061
+"Monongalia"	"SARS-CoV-2"	2026	7	29.2874755868156	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2022	36	1.46272635004552	"UNKNOWN"	NA	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2023	50	28.2594419238366	"UNKNOWN"	"UNKNOWN"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2023	51	32.7501320250327	"UNKNOWN"	"UNKNOWN"	54061
@@ -3548,9 +3582,9 @@
 "Monongalia"	"Influenza Virus A (FluA)"	2024	30	2.2594811822015	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2024	31	1.46664302106424	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2024	32	1.12613584792579	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2024	33	1.53363296420836	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2024	34	0.71499077547695	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2024	35	1.85980451691447	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2024	33	1.63879934263287	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2024	34	0.607876001220824	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2024	35	1.91903293447946	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2024	36	1.12434902910682	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2024	37	1.01793353426572	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2024	38	1.44742034614552	"MODERATE"	"STABLE"	54061
@@ -3582,15 +3616,15 @@
 "Monongalia"	"Influenza Virus A (FluA)"	2025	15	6.80064737333655	"LOW"	"DECR. RAPIDLY"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	16	3.69282239359999	"LOW"	"INCREASING"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	20	3.19998459257516	"LOW"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2025	21	2.56317062844251	"LOW"	"DECREASING"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2025	22	0.165243548388098	"LOW"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2025	21	2.71897336679709	"LOW"	"DECREASING"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2025	22	0.694161542853006	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	26	3.40576389829541	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	27	3.58491446133046	"LOW"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2025	28	0.439036438656679	"LOW"	"INCREASING"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2025	28	0.439036438656679	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	29	1.39351438744355	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	30	3.49751823974049	"MODERATE"	"DECREASING"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2025	31	4.88755494986817	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus A (FluA)"	2025	32	2.13195138978845	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2025	31	4.83211998799651	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus A (FluA)"	2025	32	2.04798042491301	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	33	1.2658293926008	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	34	2.24446972438597	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2025	35	2.57921957885353	"MODERATE"	"STABLE"	54061
@@ -3618,8 +3652,8 @@
 "Monongalia"	"Influenza Virus A (FluA)"	2026	4	7.86852555917501	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus A (FluA)"	2026	5	8.16140935060853	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2024	33	7.75249122013479	"UNKNOWN"	NA	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2024	34	6.68002750292897	"UNKNOWN"	"UNKNOWN"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2024	35	4.69586364057779	"UNKNOWN"	"UNKNOWN"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2024	34	6.69868040678181	"UNKNOWN"	"UNKNOWN"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2024	35	5.15024651946098	"UNKNOWN"	"UNKNOWN"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2024	38	3.87814415289305	"UNKNOWN"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2024	39	23.8789811369493	"UNKNOWN"	"DECREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2024	45	1.22963946298212	"UNKNOWN"	"STABLE"	54061
@@ -3628,8 +3662,8 @@
 "Monongalia"	"Influenza Virus B (FluB)"	2024	51	3.55815781932106	"UNKNOWN"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2024	52	1.11984373150077	"UNKNOWN"	"INCR. RAPIDLY"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	1	4.04511587336531	"UNKNOWN"	"DECR. RAPIDLY"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	2	1.78806660132837	"LOW"	"DECREASING"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	3	1.58323047192985	"LOW"	"INCREASING"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	2	1.72677535557022	"LOW"	"DECREASING"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	3	1.53686923265665	"LOW"	"INCREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	4	1.17562288105756	"LOW"	"DECREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	5	4.49689494603067	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	6	9.68943668013588	"MODERATE"	"STABLE"	54061
@@ -3646,7 +3680,7 @@
 "Monongalia"	"Influenza Virus B (FluB)"	2025	17	5.83847413817622	"MODERATE"	"DECREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	18	8.26882419859065	"MODERATE"	"INCR. RAPIDLY"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	19	6.02721432414079	"MODERATE"	"DECREASING"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	20	4.6882174485254	"MODERATE"	"INCREASING"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	20	4.68821744852541	"MODERATE"	"INCREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	21	2.55979822210933	"MODERATE"	"DECREASING"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	22	3.06567982458593	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	23	4.51589568924664	"MODERATE"	"DECREASING"	54061
@@ -3657,11 +3691,11 @@
 "Monongalia"	"Influenza Virus B (FluB)"	2025	28	1.83625920368967	"MODERATE"	"DECR. RAPIDLY"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	29	1.77376755360207	"LOW"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	30	2.0857378339091	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	31	1.72018876192745	"LOW"	"STABLE"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	32	1.42330312114861	"LOW"	"STABLE"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	31	1.66209849880186	"LOW"	"STABLE"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	32	1.71074927282052	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	33	2.17154322938703	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	34	1.28421671173288	"LOW"	"STABLE"	54061
-"Monongalia"	"Influenza Virus B (FluB)"	2025	35	0.951007323963473	"LOW"	"STABLE"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	34	1.28421671173288	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Influenza Virus B (FluB)"	2025	35	0.951007323963473	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	36	0.805864339510123	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	37	0.633858347201456	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Influenza Virus B (FluB)"	2025	38	0.981606137822383	"MODERATE"	"STABLE"	54061
@@ -3715,9 +3749,9 @@
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	1.05337298114052	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.868045527942704	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.615107928959831	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	1.502648003453	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.432461630773051	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.763932021853531	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	1.59844563311696	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	1.14582906942145	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	1.26828046619271	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.750697005686835	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.565533476062877	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	1.01282856353863	"MODERATE"	"STABLE"	54061
@@ -3737,7 +3771,7 @@
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	8.16402832746278	"HIGH"	"INCREASING"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	12.8561935343201	"HIGH"	"DECR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	20.7654370823515	"HIGH"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	6.29055183256382	"HIGH"	"INCR. RAPIDLY"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	6.48840701154215	"HIGH"	"INCR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	4	19.0913402330504	"HIGH"	"INCR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	21.2745447521447	"HIGH"	"DECR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	15.7027924161253	"MODERATE"	"INCR. RAPIDLY"	54061
@@ -3765,8 +3799,8 @@
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	28	1.34348376192818	"MODERATE"	"INCR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	29	2.33997596531021	"MODERATE"	"DECR. RAPIDLY"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	30	1.37465291505784	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	31	1.13639272259164	"MODERATE"	"STABLE"	54061
-"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	32	1.16525804902013	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	31	1.14723977181432	"MODERATE"	"STABLE"	54061
+"Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	32	1.00307220926626	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	33	1.33773103889345	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	34	1.34947300134575	"MODERATE"	"STABLE"	54061
 "Monongalia"	"Respiratory Syncitial Virus, Human (RSV)"	2025	35	1.05414492144395	"MODERATE"	"STABLE"	54061
@@ -3825,7 +3859,7 @@
 "Fayette"	"SARS-CoV-2"	2024	47	0.321909767227723	"LOW"	"STABLE"	54019
 "Fayette"	"SARS-CoV-2"	2024	49	20.157295859774	"LOW"	"STABLE"	54019
 "Fayette"	"SARS-CoV-2"	2024	51	0.571999091793602	"MODERATE"	"STABLE"	54019
-"Fayette"	"SARS-CoV-2"	2025	3	0.129978236435644	"VERY LOW"	"INCREASING"	54019
+"Fayette"	"SARS-CoV-2"	2025	3	1.32367542252475	"MODERATE"	"INCREASING"	54019
 "Fayette"	"SARS-CoV-2"	2025	6	0.776075359543031	"MODERATE"	"DECREASING"	54019
 "Fayette"	"SARS-CoV-2"	2025	7	0.400555768286367	"LOW"	"STABLE"	54019
 "Fayette"	"SARS-CoV-2"	2025	8	2.55459820946687	"LOW"	"STABLE"	54019
@@ -3871,6 +3905,7 @@
 "Fayette"	"SARS-CoV-2"	2026	1	1.06902515460777	"VERY LOW"	"STABLE"	54019
 "Fayette"	"SARS-CoV-2"	2026	2	0.562893061721249	"VERY LOW"	"INCR. RAPIDLY"	54019
 "Fayette"	"SARS-CoV-2"	2026	5	1.79310987901646	"HIGH"	"DECR. RAPIDLY"	54019
+"Fayette"	"SARS-CoV-2"	2026	6	71.9805891188141	"MODERATE"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	11	9.61475275215532	"UNKNOWN"	NA	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	16	1.04336624447829	"UNKNOWN"	"UNKNOWN"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	21	0.574105140540746	"UNKNOWN"	"UNKNOWN"	54019
@@ -3878,7 +3913,7 @@
 "Fayette"	"Influenza Virus A (FluA)"	2024	27	7.98609072079208	"UNKNOWN"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	28	0.886335155997715	"UNKNOWN"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	31	0.183860506195735	"UNKNOWN"	"INCREASING"	54019
-"Fayette"	"Influenza Virus A (FluA)"	2024	33	0.255249936827875	"UNKNOWN"	"DECREASING"	54019
+"Fayette"	"Influenza Virus A (FluA)"	2024	33	0.110928657932216	"UNKNOWN"	"DECREASING"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	44	0.0215275372962681	"UNKNOWN"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	46	0.179900673267327	"UNKNOWN"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2024	47	1.65607554437303	"UNKNOWN"	"STABLE"	54019
@@ -3892,7 +3927,7 @@
 "Fayette"	"Influenza Virus A (FluA)"	2025	15	32.6330480940833	"MODERATE"	"INCREASING"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2025	16	14.8703198493612	"HIGH"	"INCR. RAPIDLY"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2025	17	0.930063416603199	"MODERATE"	"INCR. RAPIDLY"	54019
-"Fayette"	"Influenza Virus A (FluA)"	2025	22	1.09244683841584	"MODERATE"	"DECR. RAPIDLY"	54019
+"Fayette"	"Influenza Virus A (FluA)"	2025	22	0.439407394455446	"VERY LOW"	"DECR. RAPIDLY"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2025	30	1.69437603981721	"LOW"	"DECR. RAPIDLY"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2025	31	2.24016123943641	"LOW"	"STABLE"	54019
 "Fayette"	"Influenza Virus A (FluA)"	2025	32	2.3905741265176	"LOW"	"STABLE"	54019
@@ -3972,8 +4007,8 @@
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	28	0.828896676614623	"UNKNOWN"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.423214892349581	"UNKNOWN"	"INCR. RAPIDLY"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.204475566519421	"UNKNOWN"	"DECR. RAPIDLY"	54019
-"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.372205555616908	"UNKNOWN"	"STABLE"	54019
-"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.706499350761615	"LOW"	"STABLE"	54019
+"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.233748346744097	"UNKNOWN"	"STABLE"	54019
+"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.102779791698401	"LOW"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	44	0.0277721664356436	"LOW"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	0.452147475788271	"LOW"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	46	0.316123538842346	"LOW"	"STABLE"	54019
@@ -3981,7 +4016,7 @@
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	49	0.127129809108911	"LOW"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	3.10767204964457	"MODERATE"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	1.20730938206398	"HIGH"	"STABLE"	54019
-"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	0.66135985009901	"HIGH"	"INCREASING"	54019
+"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	1.38293020678218	"HIGH"	"INCREASING"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	1.46467401670982	"HIGH"	"DECREASING"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	3.35942308044935	"HIGH"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	8	2.92716558454684	"HIGH"	"STABLE"	54019
@@ -3991,7 +4026,7 @@
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	14	0.492270515369383	"MODERATE"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	15	0.719536383526276	"MODERATE"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	16	1.48072092612338	"LOW"	"STABLE"	54019
-"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	17	0.192009372429551	"MODERATE"	"STABLE"	54019
+"Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	17	0.192009372429551	"LOW"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	18	1.05830030677837	"MODERATE"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	19	0.933132395236102	"MODERATE"	"STABLE"	54019
 "Fayette"	"Respiratory Syncitial Virus, Human (RSV)"	2025	22	0.830691358811881	"MODERATE"	"STABLE"	54019
@@ -4134,7 +4169,7 @@
 "Boone"	"SARS-CoV-2"	2024	47	0.983650426750339	"LOW"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2024	49	0.160990038463227	"LOW"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2024	50	0.79286929107135	"LOW"	"STABLE"	54005
-"Boone"	"SARS-CoV-2"	2024	51	0.749023356581778	"LOW"	"STABLE"	54005
+"Boone"	"SARS-CoV-2"	2024	51	1.8353338080461	"LOW"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2024	52	3.66057951540135	"LOW"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2025	1	74.9902208402342	"HIGH"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2025	2	318.714753984676	"VERY HIGH"	"STABLE"	54005
@@ -4143,7 +4178,7 @@
 "Boone"	"SARS-CoV-2"	2025	9	49.5445022554564	"HIGH"	"DECR. RAPIDLY"	54005
 "Boone"	"SARS-CoV-2"	2025	11	10.5404925783826	"MODERATE"	"INCR. RAPIDLY"	54005
 "Boone"	"SARS-CoV-2"	2025	12	16.2282492294736	"MODERATE"	"STABLE"	54005
-"Boone"	"SARS-CoV-2"	2025	13	14.9696518445089	"MODERATE"	"DECREASING"	54005
+"Boone"	"SARS-CoV-2"	2025	13	14.9696518445089	"LOW"	"DECREASING"	54005
 "Boone"	"SARS-CoV-2"	2025	14	70.2774111824441	"MODERATE"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2025	15	37.6786007690845	"MODERATE"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2025	16	6.78084498895168	"MODERATE"	"INCR. RAPIDLY"	54005
@@ -4180,6 +4215,8 @@
 "Boone"	"SARS-CoV-2"	2025	52	4.96690052388037	"MODERATE"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2026	1	27.0935321352093	"HIGH"	"STABLE"	54005
 "Boone"	"SARS-CoV-2"	2026	2	19.3592453167404	"HIGH"	"STABLE"	54005
+"Boone"	"SARS-CoV-2"	2026	5	1.58535545485309	"HIGH"	"INCREASING"	54005
+"Boone"	"SARS-CoV-2"	2026	6	2.14167885968534	"HIGH"	"STABLE"	54005
 "Boone"	"Influenza Virus A (FluA)"	2023	51	0.209827229255763	"UNKNOWN"	NA	54005
 "Boone"	"Influenza Virus A (FluA)"	2024	1	1.07823990974685	"UNKNOWN"	"UNKNOWN"	54005
 "Boone"	"Influenza Virus A (FluA)"	2024	4	0.852548816932194	"UNKNOWN"	"UNKNOWN"	54005
@@ -4313,9 +4350,9 @@
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	47	0.200503735339188	"MODERATE"	"STABLE"	54005
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	49	0.208454342906696	"MODERATE"	"STABLE"	54005
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	2.27121904868831	"HIGH"	"STABLE"	54005
-"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	0.793045472612514	"HIGH"	"STABLE"	54005
-"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	0.941178413795829	"HIGH"	"INCREASING"	54005
-"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	1.05883444149287	"HIGH"	"STABLE"	54005
+"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	1.1452224008584	"HIGH"	"STABLE"	54005
+"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	0.742458101038419	"HIGH"	"INCREASING"	54005
+"Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	0.995532081334797	"HIGH"	"STABLE"	54005
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	3.84656187408396	"HIGH"	"STABLE"	54005
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	5.37972862479986	"HIGH"	"STABLE"	54005
 "Boone"	"Respiratory Syncitial Virus, Human (RSV)"	2025	8	0.0904010756970362	"VERY LOW"	"INCREASING"	54005
@@ -4492,7 +4529,7 @@
 "Mason"	"Influenza Virus A (FluA)"	2024	27	0.101722168993654	"UNKNOWN"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2024	28	0.131936810553037	"UNKNOWN"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2024	31	0.0712055182955576	"LOW"	"STABLE"	54053
-"Mason"	"Influenza Virus A (FluA)"	2024	35	0.0993610066364461	"LOW"	"STABLE"	54053
+"Mason"	"Influenza Virus A (FluA)"	2024	35	0.128861808413418	"LOW"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2024	36	0.0674029486854035	"LOW"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2024	38	0.0268719495013599	"LOW"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2024	39	0.126253547669991	"LOW"	"STABLE"	54053
@@ -4525,7 +4562,7 @@
 "Mason"	"Influenza Virus A (FluA)"	2025	52	0.223871137914778	"MODERATE"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2025	53	0.0189167542339075	"LOW"	"STABLE"	54053
 "Mason"	"Influenza Virus A (FluA)"	2026	2	0.379845130371714	"LOW"	"STABLE"	54053
-"Mason"	"Influenza Virus B (FluB)"	2024	35	0.137990721015413	"UNKNOWN"	NA	54053
+"Mason"	"Influenza Virus B (FluB)"	2024	35	0.211598584732548	"UNKNOWN"	NA	54053
 "Mason"	"Influenza Virus B (FluB)"	2024	39	0.502747432769623	"UNKNOWN"	"UNKNOWN"	54053
 "Mason"	"Influenza Virus B (FluB)"	2024	52	0.0800598771350861	"UNKNOWN"	"UNKNOWN"	54053
 "Mason"	"Influenza Virus B (FluB)"	2025	1	0.194274242320943	"UNKNOWN"	"STABLE"	54053
@@ -4571,7 +4608,7 @@
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	26	0.993175190462603	"UNKNOWN"	"STABLE"	54053
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	28	0.178350124097915	"MODERATE"	"STABLE"	54053
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.0350261962466002	"MODERATE"	"STABLE"	54053
-"Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.10320475931097	"MODERATE"	"STABLE"	54053
+"Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.155671983318223	"MODERATE"	"STABLE"	54053
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.0180107268177697	"LOW"	"STABLE"	54053
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.0259041474886673	"LOW"	"STABLE"	54053
 "Mason"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	0.071294748268359	"LOW"	"STABLE"	54053
@@ -4791,6 +4828,7 @@
 "Taylor"	"SARS-CoV-2"	2026	3	6.45504789052247	"MODERATE"	"STABLE"	54091
 "Taylor"	"SARS-CoV-2"	2026	4	17.1706618721969	"MODERATE"	"DECREASING"	54091
 "Taylor"	"SARS-CoV-2"	2026	5	7.04855206660564	"LOW"	"STABLE"	54091
+"Taylor"	"SARS-CoV-2"	2026	6	0.578797980678636	"LOW"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2023	51	3.05782771024452	"UNKNOWN"	NA	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	1	0.731392839729863	"UNKNOWN"	"UNKNOWN"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	8	14.0989290341842	"UNKNOWN"	"UNKNOWN"	54091
@@ -4809,8 +4847,8 @@
 "Taylor"	"Influenza Virus A (FluA)"	2024	30	0.369075916191731	"LOW"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	31	0.341191953879097	"MODERATE"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	32	0.535999340849942	"MODERATE"	"STABLE"	54091
-"Taylor"	"Influenza Virus A (FluA)"	2024	34	0.171125971750947	"LOW"	"STABLE"	54091
-"Taylor"	"Influenza Virus A (FluA)"	2024	35	0.820338439548674	"LOW"	"STABLE"	54091
+"Taylor"	"Influenza Virus A (FluA)"	2024	34	0.764408398863449	"LOW"	"STABLE"	54091
+"Taylor"	"Influenza Virus A (FluA)"	2024	35	0.318053003936749	"LOW"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	36	0.157240107692308	"MODERATE"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	38	0.330804055575688	"MODERATE"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2024	39	0.566969743534838	"MODERATE"	"STABLE"	54091
@@ -4821,7 +4859,7 @@
 "Taylor"	"Influenza Virus A (FluA)"	2024	51	1.04153333289409	"MODERATE"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2025	2	5.48339598532875	"HIGH"	"STABLE"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2025	6	11.2036590592675	"VERY HIGH"	"STABLE"	54091
-"Taylor"	"Influenza Virus A (FluA)"	2025	7	3.9310775151046	"HIGH"	"INCREASING"	54091
+"Taylor"	"Influenza Virus A (FluA)"	2025	7	3.9310775151046	"VERY HIGH"	"INCREASING"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2025	8	2.72938598543897	"HIGH"	"INCREASING"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2025	9	5.3530655318252	"HIGH"	"DECREASING"	54091
 "Taylor"	"Influenza Virus A (FluA)"	2025	10	5.15257769665016	"MODERATE"	"STABLE"	54091
@@ -4861,10 +4899,10 @@
 "Taylor"	"Influenza Virus B (FluB)"	2024	34	2.29075005071419	"UNKNOWN"	NA	54091
 "Taylor"	"Influenza Virus B (FluB)"	2024	39	8.86589581191138	"UNKNOWN"	"UNKNOWN"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2024	51	6.8359347336662	"UNKNOWN"	"UNKNOWN"	54091
-"Taylor"	"Influenza Virus B (FluB)"	2025	2	2.25686131729534	"UNKNOWN"	"INCR. RAPIDLY"	54091
+"Taylor"	"Influenza Virus B (FluB)"	2025	2	0.601176232185801	"UNKNOWN"	"INCR. RAPIDLY"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2025	6	2.1717067391863	"UNKNOWN"	"DECREASING"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2025	7	4.16554721966727	"UNKNOWN"	"DECR. RAPIDLY"	54091
-"Taylor"	"Influenza Virus B (FluB)"	2025	10	1.11733506139022	"UNKNOWN"	"STABLE"	54091
+"Taylor"	"Influenza Virus B (FluB)"	2025	10	1.11733506139022	"UNKNOWN"	"INCREASING"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2025	11	1.23083500905946	"UNKNOWN"	"INCREASING"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2025	12	0.921130982210509	"UNKNOWN"	"DECREASING"	54091
 "Taylor"	"Influenza Virus B (FluB)"	2025	13	1.0033487655411	"UNKNOWN"	"STABLE"	54091
@@ -4920,8 +4958,8 @@
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.60249810159776	"LOW"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.504006359940702	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.313569871355625	"LOW"	"STABLE"	54091
-"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.572020282325811	"MODERATE"	"STABLE"	54091
-"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.265502459578323	"LOW"	"STABLE"	54091
+"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.940335500082359	"MODERATE"	"STABLE"	54091
+"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.792535535266019	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.882497478076099	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.523304406308681	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	0.400676077417229	"MODERATE"	"STABLE"	54091
@@ -4930,8 +4968,8 @@
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	0.076319252841377	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	47	1.08784864417724	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	1.85523748445067	"MODERATE"	"STABLE"	54091
-"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	0.986713163696261	"MODERATE"	"STABLE"	54091
-"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	0.412722547718663	"HIGH"	"STABLE"	54091
+"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	1.30608803704497	"MODERATE"	"STABLE"	54091
+"Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	0.412722547718663	"MODERATE"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	3.2781239074617	"HIGH"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	8	3.79740658843683	"HIGH"	"STABLE"	54091
 "Taylor"	"Respiratory Syncitial Virus, Human (RSV)"	2025	9	1.11807705412617	"HIGH"	"INCREASING"	54091
@@ -5133,6 +5171,7 @@
 "Mineral"	"SARS-CoV-2"	2025	51	18.0306677255535	"MODERATE"	"STABLE"	54057
 "Mineral"	"SARS-CoV-2"	2025	52	13.2913003902534	"MODERATE"	"STABLE"	54057
 "Mineral"	"SARS-CoV-2"	2026	1	132.970168259905	"HIGH"	"STABLE"	54057
+"Mineral"	"SARS-CoV-2"	2026	7	2.59157844270323	"HIGH"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2023	51	36.618822205674	"UNKNOWN"	NA	54057
 "Mineral"	"Influenza Virus A (FluA)"	2023	52	18.129449439722	"UNKNOWN"	"UNKNOWN"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	2	2.34292617378717	"UNKNOWN"	"UNKNOWN"	54057
@@ -5147,8 +5186,8 @@
 "Mineral"	"Influenza Virus A (FluA)"	2024	27	0.231172319262977	"LOW"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	28	0.129167383927522	"LOW"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	30	0.549778896780117	"LOW"	"STABLE"	54057
-"Mineral"	"Influenza Virus A (FluA)"	2024	34	0.378759282089863	"LOW"	"STABLE"	54057
-"Mineral"	"Influenza Virus A (FluA)"	2024	40	1.38754370389814	"MODERATE"	"STABLE"	54057
+"Mineral"	"Influenza Virus A (FluA)"	2024	34	0.230857177392263	"LOW"	"STABLE"	54057
+"Mineral"	"Influenza Virus A (FluA)"	2024	40	1.38754370389814	"LOW"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	41	0.408479477717924	"MODERATE"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	46	0.711799820729677	"MODERATE"	"STABLE"	54057
 "Mineral"	"Influenza Virus A (FluA)"	2024	50	0.608432360247307	"MODERATE"	"STABLE"	54057
@@ -5213,7 +5252,7 @@
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	28	0.0814984684304603	"LOW"	"STABLE"	54057
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.426243283459843	"LOW"	"STABLE"	54057
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.362317218429236	"LOW"	"STABLE"	54057
-"Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.454334010238736	"LOW"	"STABLE"	54057
+"Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.574486019444172	"LOW"	"STABLE"	54057
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.0378156341540157	"LOW"	"STABLE"	54057
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	46	0.067948294877571	"LOW"	"STABLE"	54057
 "Mineral"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	0.0877855487512243	"LOW"	"STABLE"	54057
@@ -5384,8 +5423,8 @@
 "Marshall"	"SARS-CoV-2"	2022	14	7.54501503407154	"LOW"	"STABLE"	54051
 "Marshall"	"SARS-CoV-2"	2022	15	2.77706915586668	"LOW"	"STABLE"	54051
 "Marshall"	"SARS-CoV-2"	2022	16	5.05806092194319	"LOW"	"STABLE"	54051
-"Marshall"	"SARS-CoV-2"	2022	17	6.00385277535401	"LOW"	"STABLE"	54051
-"Marshall"	"SARS-CoV-2"	2022	18	9.25846818595837	"MODERATE"	"STABLE"	54051
+"Marshall"	"SARS-CoV-2"	2022	17	6.11210198203259	"LOW"	"STABLE"	54051
+"Marshall"	"SARS-CoV-2"	2022	18	9.00390386989884	"MODERATE"	"STABLE"	54051
 "Marshall"	"SARS-CoV-2"	2022	19	27.1459757647011	"MODERATE"	"STABLE"	54051
 "Marshall"	"SARS-CoV-2"	2022	20	59.8023528026393	"HIGH"	"STABLE"	54051
 "Marshall"	"SARS-CoV-2"	2022	21	16.9214952066961	"HIGH"	"INCREASING"	54051
@@ -5548,6 +5587,8 @@
 "Marshall"	"SARS-CoV-2"	2026	1	25.6426580060844	"HIGH"	"INCR. RAPIDLY"	54051
 "Marshall"	"SARS-CoV-2"	2026	2	19.42547542133	"HIGH"	"DECR. RAPIDLY"	54051
 "Marshall"	"SARS-CoV-2"	2026	5	66.0534287431315	"MODERATE"	"DECREASING"	54051
+"Marshall"	"SARS-CoV-2"	2026	6	101.368764818644	"MODERATE"	"STABLE"	54051
+"Marshall"	"SARS-CoV-2"	2026	7	10.0505940643051	"MODERATE"	"INCR. RAPIDLY"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2023	51	7.15850384082691	"UNKNOWN"	NA	54051
 "Marshall"	"Influenza Virus A (FluA)"	2023	52	3.8968348183618	"UNKNOWN"	"UNKNOWN"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	2	10.6667289283123	"UNKNOWN"	"UNKNOWN"	54051
@@ -5566,8 +5607,8 @@
 "Marshall"	"Influenza Virus A (FluA)"	2024	31	0.397152599166667	"LOW"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	32	0.240121174333333	"LOW"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	33	0.0138798366666667	"VERY LOW"	"STABLE"	54051
-"Marshall"	"Influenza Virus A (FluA)"	2024	34	0.56402609	"LOW"	"STABLE"	54051
-"Marshall"	"Influenza Virus A (FluA)"	2024	35	0.79010970225	"MODERATE"	"STABLE"	54051
+"Marshall"	"Influenza Virus A (FluA)"	2024	34	0.755189295	"LOW"	"STABLE"	54051
+"Marshall"	"Influenza Virus A (FluA)"	2024	35	0.530335941	"MODERATE"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	37	0.656169278416667	"MODERATE"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	38	0.747618475	"MODERATE"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2024	39	0.489579693333333	"MODERATE"	"STABLE"	54051
@@ -5617,21 +5658,21 @@
 "Marshall"	"Influenza Virus A (FluA)"	2026	2	2.64771974039369	"HIGH"	"STABLE"	54051
 "Marshall"	"Influenza Virus A (FluA)"	2026	5	2.27375626365084	"HIGH"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2024	34	5.4824331924269	"UNKNOWN"	NA	54051
-"Marshall"	"Influenza Virus B (FluB)"	2024	35	0.25409564625	"UNKNOWN"	"UNKNOWN"	54051
+"Marshall"	"Influenza Virus B (FluB)"	2024	35	0.6887553495	"UNKNOWN"	"UNKNOWN"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2024	39	14.5259902750122	"UNKNOWN"	"UNKNOWN"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2024	46	10.335973744142	"UNKNOWN"	"DECR. RAPIDLY"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2024	52	0.700427030333333	"UNKNOWN"	"INCR. RAPIDLY"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	1	1.80391140032521	"UNKNOWN"	"DECREASING"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	2	1.96077235658422	"UNKNOWN"	"DECR. RAPIDLY"	54051
-"Marshall"	"Influenza Virus B (FluB)"	2025	3	1.21404407716667	"UNKNOWN"	"STABLE"	54051
+"Marshall"	"Influenza Virus B (FluB)"	2025	3	0.0737524048333333	"UNKNOWN"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	5	0.53610869125	"UNKNOWN"	"STABLE"	54051
-"Marshall"	"Influenza Virus B (FluB)"	2025	6	4.29842320343379	"UNKNOWN"	"STABLE"	54051
+"Marshall"	"Influenza Virus B (FluB)"	2025	6	4.29842320343379	"UNKNOWN"	"DECREASING"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	7	10.4240954901207	"UNKNOWN"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	8	5.19012370319335	"MODERATE"	"INCREASING"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	10	1.21051102783333	"MODERATE"	"INCR. RAPIDLY"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	12	0.737397868	"MODERATE"	"DECR. RAPIDLY"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	14	1.367290092	"MODERATE"	"DECREASING"	54051
-"Marshall"	"Influenza Virus B (FluB)"	2025	15	1.83545067375	"LOW"	"STABLE"	54051
+"Marshall"	"Influenza Virus B (FluB)"	2025	15	1.83545067375	"MODERATE"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	17	0.0472545348333333	"VERY LOW"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	18	1.11716912625	"LOW"	"STABLE"	54051
 "Marshall"	"Influenza Virus B (FluB)"	2025	19	6.82758016012031	"MODERATE"	"DECREASING"	54051
@@ -5686,8 +5727,8 @@
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.773800894166667	"LOW"	"STABLE"	54051
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.829320240833333	"LOW"	"STABLE"	54051
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.32933067	"LOW"	"STABLE"	54051
-"Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.757397450833333	"MODERATE"	"STABLE"	54051
-"Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.76058350425	"MODERATE"	"STABLE"	54051
+"Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.732161384166667	"MODERATE"	"STABLE"	54051
+"Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.58001944725	"MODERATE"	"STABLE"	54051
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.441725801916667	"MODERATE"	"STABLE"	54051
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.597463878333333	"MODERATE"	"STABLE"	54051
 "Marshall"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	0.1977876725	"MODERATE"	"STABLE"	54051
@@ -5913,6 +5954,8 @@
 "Randolph"	"SARS-CoV-2"	2026	1	6.6266624457255	"MODERATE"	"STABLE"	54083
 "Randolph"	"SARS-CoV-2"	2026	2	0.624840100030404	"MODERATE"	"STABLE"	54083
 "Randolph"	"SARS-CoV-2"	2026	5	10.6463448659789	"MODERATE"	"STABLE"	54083
+"Randolph"	"SARS-CoV-2"	2026	6	16.1334219898446	"MODERATE"	"STABLE"	54083
+"Randolph"	"SARS-CoV-2"	2026	7	2.9266565657627	"MODERATE"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2023	51	0.484360415909091	"UNKNOWN"	NA	54083
 "Randolph"	"Influenza Virus A (FluA)"	2023	52	19.7155645006017	"UNKNOWN"	"UNKNOWN"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	1	1.07521296653086	"UNKNOWN"	"UNKNOWN"	54083
@@ -5934,9 +5977,9 @@
 "Randolph"	"Influenza Virus A (FluA)"	2024	30	0.306187762040134	"LOW"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	31	0.552738915822438	"LOW"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	33	0.161682698935847	"LOW"	"STABLE"	54083
-"Randolph"	"Influenza Virus A (FluA)"	2024	35	0.342056507145029	"LOW"	"STABLE"	54083
+"Randolph"	"Influenza Virus A (FluA)"	2024	35	0.0195658163575555	"LOW"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	36	0.202736385375494	"LOW"	"STABLE"	54083
-"Randolph"	"Influenza Virus A (FluA)"	2024	37	0.532650577075099	"MODERATE"	"STABLE"	54083
+"Randolph"	"Influenza Virus A (FluA)"	2024	37	0.532650577075099	"LOW"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	38	1.04738692287929	"MODERATE"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	41	0.786252330328367	"MODERATE"	"STABLE"	54083
 "Randolph"	"Influenza Virus A (FluA)"	2024	43	1.44309692673305	"HIGH"	"STABLE"	54083
@@ -6048,20 +6091,20 @@
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.329184501842505	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.0231682284280936	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.649308879781089	"MODERATE"	"STABLE"	54083
-"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.360241207053816	"MODERATE"	"STABLE"	54083
+"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.0432749820614168	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.888000330039526	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.349551941205534	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	39	0.56826036284585	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	41	0.127079977242323	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	43	2.13626776306628	"HIGH"	"STABLE"	54083
-"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	44	0.346881207272727	"MODERATE"	"STABLE"	54083
+"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	44	0.346881207272727	"HIGH"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	0.652514220872606	"MODERATE"	"INCREASING"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	49	2.66435490120857	"HIGH"	"DECREASING"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	51	1.1199818562177	"MODERATE"	"STABLE"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	2.06850961462451	"HIGH"	"INCREASING"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	6.24206892844179	"HIGH"	"DECREASING"	54083
-"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	0.929974760778352	"HIGH"	"STABLE"	54083
-"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	3.51153173088325	"HIGH"	"INCREASING"	54083
+"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	0.54711201722408	"HIGH"	"STABLE"	54083
+"Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	3	3.2054417979249	"HIGH"	"INCREASING"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	0.947791162967467	"HIGH"	"DECR. RAPIDLY"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	2.81301194563697	"MODERATE"	"INCREASING"	54083
 "Randolph"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	2.2239197430222	"MODERATE"	"DECREASING"	54083
@@ -6166,7 +6209,7 @@
 "Jefferson"	"SARS-CoV-2"	2023	13	30.4145842784884	"LOW"	"DECR. RAPIDLY"	54037
 "Jefferson"	"SARS-CoV-2"	2023	14	72.306248830351	"LOW"	"INCR. RAPIDLY"	54037
 "Jefferson"	"SARS-CoV-2"	2023	15	74.5149620413019	"LOW"	"DECR. RAPIDLY"	54037
-"Jefferson"	"SARS-CoV-2"	2023	16	50.904210439711	"LOW"	"INCREASING"	54037
+"Jefferson"	"SARS-CoV-2"	2023	16	50.9042104397109	"LOW"	"INCREASING"	54037
 "Jefferson"	"SARS-CoV-2"	2023	17	85.3537117552071	"LOW"	"STABLE"	54037
 "Jefferson"	"SARS-CoV-2"	2023	18	79.3849263759043	"MODERATE"	"DECREASING"	54037
 "Jefferson"	"SARS-CoV-2"	2023	19	42.3767705751631	"MODERATE"	"INCREASING"	54037
@@ -6272,6 +6315,8 @@
 "Jefferson"	"SARS-CoV-2"	2026	2	9.85824305526481	"HIGH"	"INCR. RAPIDLY"	54037
 "Jefferson"	"SARS-CoV-2"	2026	4	64.6663716329642	"HIGH"	"INCREASING"	54037
 "Jefferson"	"SARS-CoV-2"	2026	5	279.748977153667	"HIGH"	"DECR. RAPIDLY"	54037
+"Jefferson"	"SARS-CoV-2"	2026	6	25.3172754687392	"HIGH"	"INCR. RAPIDLY"	54037
+"Jefferson"	"SARS-CoV-2"	2026	7	12.232008168791	"HIGH"	"INCR. RAPIDLY"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2023	50	7.05771614636225	"UNKNOWN"	NA	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2023	52	48.7232839444542	"UNKNOWN"	"UNKNOWN"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	2	21.2366506103677	"UNKNOWN"	"UNKNOWN"	54037
@@ -6289,7 +6334,7 @@
 "Jefferson"	"Influenza Virus A (FluA)"	2024	31	0.472846696658824	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	32	0.0906271688235294	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	33	0.722300762235294	"MODERATE"	"STABLE"	54037
-"Jefferson"	"Influenza Virus A (FluA)"	2024	34	0.258855242647059	"MODERATE"	"STABLE"	54037
+"Jefferson"	"Influenza Virus A (FluA)"	2024	34	0.662725088970588	"MODERATE"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	36	0.290006940235294	"MODERATE"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	38	0.517095912847059	"MODERATE"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	39	0.187958966770588	"MODERATE"	"STABLE"	54037
@@ -6299,7 +6344,7 @@
 "Jefferson"	"Influenza Virus A (FluA)"	2024	47	2.89375385977686	"HIGH"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	51	4.96575940645166	"HIGH"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2024	52	1.7962985408568	"HIGH"	"STABLE"	54037
-"Jefferson"	"Influenza Virus A (FluA)"	2025	1	6.86835273042164	"VERY HIGH"	"STABLE"	54037
+"Jefferson"	"Influenza Virus A (FluA)"	2025	1	6.86835273042164	"HIGH"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	2	1.30318351989507	"HIGH"	"DECREASING"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	3	8.80365840659555	"HIGH"	"INCREASING"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	6	31.7362955725752	"HIGH"	"DECREASING"	54037
@@ -6312,7 +6357,7 @@
 "Jefferson"	"Influenza Virus A (FluA)"	2025	16	2.05408593619556	"LOW"	"INCREASING"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	17	0.253310730352941	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	21	0.755995364658824	"LOW"	"DECREASING"	54037
-"Jefferson"	"Influenza Virus A (FluA)"	2025	22	0.335788134117647	"LOW"	"STABLE"	54037
+"Jefferson"	"Influenza Virus A (FluA)"	2025	22	0.211760288823529	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	27	1.62377799944231	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	29	0.906195573667446	"LOW"	"STABLE"	54037
 "Jefferson"	"Influenza Virus A (FluA)"	2025	30	1.08328850438609	"LOW"	"STABLE"	54037
@@ -6344,7 +6389,7 @@
 "Jefferson"	"Influenza Virus B (FluB)"	2024	52	1.7962985408568	"UNKNOWN"	"UNKNOWN"	54037
 "Jefferson"	"Influenza Virus B (FluB)"	2025	1	1.716718671102	"UNKNOWN"	"STABLE"	54037
 "Jefferson"	"Influenza Virus B (FluB)"	2025	2	1.30318351989507	"UNKNOWN"	"STABLE"	54037
-"Jefferson"	"Influenza Virus B (FluB)"	2025	3	0.117899934517647	"UNKNOWN"	"STABLE"	54037
+"Jefferson"	"Influenza Virus B (FluB)"	2025	3	0.575141835129412	"UNKNOWN"	"STABLE"	54037
 "Jefferson"	"Influenza Virus B (FluB)"	2025	6	0.2046392646	"UNKNOWN"	"STABLE"	54037
 "Jefferson"	"Influenza Virus B (FluB)"	2025	7	1.30102467435067	"UNKNOWN"	"STABLE"	54037
 "Jefferson"	"Influenza Virus B (FluB)"	2025	8	0.0643430631529412	"UNKNOWN"	"STABLE"	54037
@@ -6648,6 +6693,8 @@
 "Harrison"	"SARS-CoV-2"	2026	2	77.7655307285871	"HIGH"	"INCREASING"	54033
 "Harrison"	"SARS-CoV-2"	2026	4	21.8391948030281	"HIGH"	"STABLE"	54033
 "Harrison"	"SARS-CoV-2"	2026	5	5.24552200257612	"MODERATE"	"INCREASING"	54033
+"Harrison"	"SARS-CoV-2"	2026	6	24.1635735212399	"MODERATE"	"DECR. RAPIDLY"	54033
+"Harrison"	"SARS-CoV-2"	2026	7	13.9989127314718	"MODERATE"	"DECREASING"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2023	51	12.7933981813122	"UNKNOWN"	NA	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	4	43.0934688351346	"UNKNOWN"	"UNKNOWN"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	8	14.2269206049712	"UNKNOWN"	"UNKNOWN"	54033
@@ -6665,8 +6712,8 @@
 "Harrison"	"Influenza Virus A (FluA)"	2024	31	1.57884925407918	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	32	1.04043489556948	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	33	1.53379390369462	"MODERATE"	"STABLE"	54033
-"Harrison"	"Influenza Virus A (FluA)"	2024	34	1.66454497650842	"MODERATE"	"STABLE"	54033
-"Harrison"	"Influenza Virus A (FluA)"	2024	35	1.37217526803306	"MODERATE"	"STABLE"	54033
+"Harrison"	"Influenza Virus A (FluA)"	2024	34	1.4793135995494	"MODERATE"	"STABLE"	54033
+"Harrison"	"Influenza Virus A (FluA)"	2024	35	1.15772432014114	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	36	2.34315136151408	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	37	1.08210197686278	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	39	1.33327917314514	"MODERATE"	"STABLE"	54033
@@ -6678,7 +6725,7 @@
 "Harrison"	"Influenza Virus A (FluA)"	2024	47	2.22494337002038	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	50	2.29306017869273	"HIGH"	"INCREASING"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2024	51	0.472381968182504	"HIGH"	"DECREASING"	54033
-"Harrison"	"Influenza Virus A (FluA)"	2024	52	2.57976448639143	"MODERATE"	"STABLE"	54033
+"Harrison"	"Influenza Virus A (FluA)"	2024	52	0.882578527164314	"MODERATE"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	1	21.9889337139075	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	2	12.3112595518511	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	3	32.5286431282157	"HIGH"	"INCR. RAPIDLY"	54033
@@ -6692,10 +6739,10 @@
 "Harrison"	"Influenza Virus A (FluA)"	2025	16	21.6247276918359	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	17	1.06990475098875	"VERY LOW"	"INCR. RAPIDLY"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	21	2.52712474464488	"MODERATE"	"DECR. RAPIDLY"	54033
-"Harrison"	"Influenza Virus A (FluA)"	2025	22	2.53214757714545	"MODERATE"	"DECR. RAPIDLY"	54033
+"Harrison"	"Influenza Virus A (FluA)"	2025	22	0.883721378700279	"LOW"	"DECR. RAPIDLY"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	27	2.94360464382406	"LOW"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	29	1.7027402176919	"LOW"	"STABLE"	54033
-"Harrison"	"Influenza Virus A (FluA)"	2025	30	16.1904563506404	"MODERATE"	"STABLE"	54033
+"Harrison"	"Influenza Virus A (FluA)"	2025	30	16.1904563506404	"LOW"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	31	1.36412130754623	"LOW"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	32	0.726796434296928	"LOW"	"INCR. RAPIDLY"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2025	33	0.868704309517699	"LOW"	"DECR. RAPIDLY"	54033
@@ -6722,11 +6769,11 @@
 "Harrison"	"Influenza Virus A (FluA)"	2026	4	12.478482892984	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus A (FluA)"	2026	5	0.655543371361092	"HIGH"	"STABLE"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2024	34	16.2668051397604	"UNKNOWN"	NA	54033
-"Harrison"	"Influenza Virus B (FluB)"	2024	35	0.777773184202204	"UNKNOWN"	"UNKNOWN"	54033
+"Harrison"	"Influenza Virus B (FluB)"	2024	35	1.04195188812703	"UNKNOWN"	"UNKNOWN"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2024	46	4.08184012753964	"UNKNOWN"	"UNKNOWN"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2024	51	14.9090566715661	"UNKNOWN"	"DECR. RAPIDLY"	54033
-"Harrison"	"Influenza Virus B (FluB)"	2024	52	0.920224056759001	"UNKNOWN"	"INCREASING"	54033
-"Harrison"	"Influenza Virus B (FluB)"	2025	1	2.11638961687675	"UNKNOWN"	"INCR. RAPIDLY"	54033
+"Harrison"	"Influenza Virus B (FluB)"	2024	52	0.404689443142879	"UNKNOWN"	"INCREASING"	54033
+"Harrison"	"Influenza Virus B (FluB)"	2025	1	1.14317724865273	"UNKNOWN"	"INCR. RAPIDLY"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2025	2	4.10337825573584	"UNKNOWN"	"DECR. RAPIDLY"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2025	3	5.00310797364705	"UNKNOWN"	"STABLE"	54033
 "Harrison"	"Influenza Virus B (FluB)"	2025	5	41.1513268710131	"UNKNOWN"	"INCREASING"	54033
@@ -6785,7 +6832,7 @@
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	1.6122465188018	"UNKNOWN"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.980305190569099	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	1.13148730600423	"MODERATE"	"STABLE"	54033
-"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.806898327026945	"MODERATE"	"STABLE"	54033
+"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.445316529538456	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.575114321314816	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	1.57965253585252	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.135385050079251	"MODERATE"	"STABLE"	54033
@@ -6799,8 +6846,8 @@
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	47	2.44584085771379	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	50	1.13534442993811	"MODERATE"	"INCREASING"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2024	52	4.80438901655129	"HIGH"	"STABLE"	54033
-"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	2.08206978525172	"HIGH"	"STABLE"	54033
-"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	1.84620122815005	"MODERATE"	"INCREASING"	54033
+"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	1	1.78708266104612	"HIGH"	"STABLE"	54033
+"Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	2	2.43353777521624	"MODERATE"	"INCREASING"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	5	1.46909336397615	"MODERATE"	"DECREASING"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	6	2.96009976330289	"MODERATE"	"STABLE"	54033
 "Harrison"	"Respiratory Syncitial Virus, Human (RSV)"	2025	7	0.264467273937656	"MODERATE"	"STABLE"	54033
@@ -7030,6 +7077,8 @@
 "Wood"	"SARS-CoV-2"	2026	1	78.1641948082012	"HIGH"	"STABLE"	54107
 "Wood"	"SARS-CoV-2"	2026	2	23.278241416389	"HIGH"	"INCR. RAPIDLY"	54107
 "Wood"	"SARS-CoV-2"	2026	5	27.5419228171532	"HIGH"	"DECR. RAPIDLY"	54107
+"Wood"	"SARS-CoV-2"	2026	6	56.9395139141255	"MODERATE"	"DECR. RAPIDLY"	54107
+"Wood"	"SARS-CoV-2"	2026	7	28.9543844115431	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2023	49	0.716785778780645	"UNKNOWN"	NA	54107
 "Wood"	"Influenza Virus A (FluA)"	2023	50	3.13780262377041	"UNKNOWN"	"UNKNOWN"	54107
 "Wood"	"Influenza Virus A (FluA)"	2023	51	2.7273066950368	"UNKNOWN"	"UNKNOWN"	54107
@@ -7050,8 +7099,8 @@
 "Wood"	"Influenza Virus A (FluA)"	2024	28	0.904297185754839	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2024	30	0.703467753154839	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2024	31	0.588167946025807	"LOW"	"STABLE"	54107
-"Wood"	"Influenza Virus A (FluA)"	2024	33	0.757175276283871	"MODERATE"	"STABLE"	54107
-"Wood"	"Influenza Virus A (FluA)"	2024	34	0.466490766890323	"MODERATE"	"STABLE"	54107
+"Wood"	"Influenza Virus A (FluA)"	2024	33	0.496471214090323	"MODERATE"	"STABLE"	54107
+"Wood"	"Influenza Virus A (FluA)"	2024	34	0.307042207432258	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2024	36	0.29109054483871	"MODERATE"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2024	37	0.3267956664	"MODERATE"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2024	38	0.838199436658065	"MODERATE"	"STABLE"	54107
@@ -7073,7 +7122,7 @@
 "Wood"	"Influenza Virus A (FluA)"	2025	16	0.213312383387097	"LOW"	"DECR. RAPIDLY"	54107
 "Wood"	"Influenza Virus A (FluA)"	2025	17	0.223917439935484	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2025	21	0.857080242419355	"LOW"	"STABLE"	54107
-"Wood"	"Influenza Virus A (FluA)"	2025	22	0.461208524632258	"LOW"	"STABLE"	54107
+"Wood"	"Influenza Virus A (FluA)"	2025	22	0.455434927490323	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2025	27	0.669035175354839	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2025	29	1.05196118484516	"LOW"	"STABLE"	54107
 "Wood"	"Influenza Virus A (FluA)"	2025	30	6.37113371853251	"LOW"	"STABLE"	54107
@@ -7165,10 +7214,10 @@
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	28	0.451491877419355	"LOW"	"STABLE"	54107
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.884035118941935	"LOW"	"STABLE"	54107
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.515662651935484	"LOW"	"STABLE"	54107
-"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.194677924703226	"MODERATE"	"STABLE"	54107
-"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.143740801741935	"MODERATE"	"STABLE"	54107
-"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.284431610806452	"LOW"	"STABLE"	54107
-"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.0422348553354839	"LOW"	"STABLE"	54107
+"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.226132436554839	"MODERATE"	"STABLE"	54107
+"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.779164057277419	"MODERATE"	"STABLE"	54107
+"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.284431610806452	"MODERATE"	"STABLE"	54107
+"Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.0422348553354839	"MODERATE"	"STABLE"	54107
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	40	1.18113772993548	"MODERATE"	"STABLE"	54107
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	43	0.335937845148387	"MODERATE"	"STABLE"	54107
 "Wood"	"Respiratory Syncitial Virus, Human (RSV)"	2024	45	3.14774038831897	"HIGH"	"STABLE"	54107
@@ -7425,7 +7474,7 @@
 "Ohio"	"SARS-CoV-2"	2025	42	35.2649201413426	"MODERATE"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2025	43	20.6293124000962	"MODERATE"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2025	44	6.82241084146581	"MODERATE"	"STABLE"	54069
-"Ohio"	"SARS-CoV-2"	2025	45	6.30876977531694	"MODERATE"	"STABLE"	54069
+"Ohio"	"SARS-CoV-2"	2025	45	6.30876977531693	"MODERATE"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2025	46	6.41761189761575	"MODERATE"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2025	47	8.01633344604206	"LOW"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2025	48	9.05856040469185	"LOW"	"STABLE"	54069
@@ -7437,7 +7486,8 @@
 "Ohio"	"SARS-CoV-2"	2026	1	37.5391670709262	"MODERATE"	"INCREASING"	54069
 "Ohio"	"SARS-CoV-2"	2026	2	50.0135437940801	"MODERATE"	"STABLE"	54069
 "Ohio"	"SARS-CoV-2"	2026	4	41.1969881764139	"MODERATE"	"STABLE"	54069
-"Ohio"	"SARS-CoV-2"	2026	5	2028.13096096864	"VERY HIGH"	"SURGING"	54069
+"Ohio"	"SARS-CoV-2"	2026	5	458.111100135107	"HIGH"	"STABLE"	54069
+"Ohio"	"SARS-CoV-2"	2026	6	40.4075536622522	"HIGH"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2023	50	1.11597623026141	"UNKNOWN"	NA	54069
 "Ohio"	"Influenza Virus A (FluA)"	2023	51	10.2813589810648	"UNKNOWN"	"UNKNOWN"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2023	52	11.6686053715644	"UNKNOWN"	"UNKNOWN"	54069
@@ -7467,9 +7517,9 @@
 "Ohio"	"Influenza Virus A (FluA)"	2024	30	0.3916417361985	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2024	31	0.6477972133	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2024	32	0.413849033234	"LOW"	"STABLE"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2024	33	0.8878620481145	"LOW"	"STABLE"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2024	34	0.653298928194	"LOW"	"STABLE"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2024	35	0.5267414670804	"LOW"	"STABLE"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2024	33	0.642398461558	"LOW"	"STABLE"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2024	34	0.806219397767333	"LOW"	"STABLE"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2024	35	0.485621920998	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2024	36	0.4871047418032	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2024	37	1.03615352906933	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2024	38	0.32079078504	"MODERATE"	"STABLE"	54069
@@ -7501,18 +7551,18 @@
 "Ohio"	"Influenza Virus A (FluA)"	2025	15	9.86785461116856	"LOW"	"DECREASING"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	16	1.37846502191755	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	20	2.11219301712545	"LOW"	"INCREASING"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2025	21	14.4838006092216	"LOW"	"DECREASING"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2025	22	0.86343687936	"LOW"	"STABLE"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2025	21	14.3969981295936	"LOW"	"DECREASING"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2025	22	0.98747719424	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	26	3.76653220939355	"LOW"	"INCR. RAPIDLY"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	27	4.83274111286827	"MODERATE"	"DECR. RAPIDLY"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	28	1.235258019528	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	29	1.94853249913748	"MODERATE"	"STABLE"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2025	30	1.44354378429883	"MODERATE"	"DECREASING"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2025	30	1.52940415108603	"MODERATE"	"DECREASING"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	31	2.76601398866595	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	32	1.07675072005622	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	33	0.85088102409259	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	34	0.849737668294576	"LOW"	"STABLE"	54069
-"Ohio"	"Influenza Virus A (FluA)"	2025	35	3.50784974926719	"MODERATE"	"STABLE"	54069
+"Ohio"	"Influenza Virus A (FluA)"	2025	35	3.50784974926719	"LOW"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	36	1.30763423824408	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	37	0.5006684714988	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2025	38	0.613763349072	"MODERATE"	"STABLE"	54069
@@ -7537,19 +7587,19 @@
 "Ohio"	"Influenza Virus A (FluA)"	2026	4	3.9629764452119	"HIGH"	"INCREASING"	54069
 "Ohio"	"Influenza Virus A (FluA)"	2026	5	0.93959932856	"MODERATE"	"INCREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	33	3.47567461505983	"UNKNOWN"	NA	54069
-"Ohio"	"Influenza Virus B (FluB)"	2024	34	0.924961475805768	"UNKNOWN"	"UNKNOWN"	54069
-"Ohio"	"Influenza Virus B (FluB)"	2024	35	0.880716518928	"UNKNOWN"	"UNKNOWN"	54069
+"Ohio"	"Influenza Virus B (FluB)"	2024	34	0.888351715780968	"UNKNOWN"	"UNKNOWN"	54069
+"Ohio"	"Influenza Virus B (FluB)"	2024	35	0.317874505176	"UNKNOWN"	"UNKNOWN"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	38	2.73261326235961	"UNKNOWN"	"DECREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	45	1.003884675344	"UNKNOWN"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	50	1.6793357779649	"UNKNOWN"	"INCREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	51	1.23147691818608	"UNKNOWN"	"DECREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2024	52	2.19865355957972	"UNKNOWN"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	1	0.665852483377	"UNKNOWN"	"STABLE"	54069
-"Ohio"	"Influenza Virus B (FluB)"	2025	2	2.85299501997347	"UNKNOWN"	"STABLE"	54069
+"Ohio"	"Influenza Virus B (FluB)"	2025	2	2.82779100311147	"UNKNOWN"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	3	9.62537773514909	"UNKNOWN"	"DECREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	4	1.09945229922512	"HIGH"	"INCREASING"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	5	1.05608396508	"HIGH"	"INCR. RAPIDLY"	54069
-"Ohio"	"Influenza Virus B (FluB)"	2025	6	1.0501851419585	"MODERATE"	"DECR. RAPIDLY"	54069
+"Ohio"	"Influenza Virus B (FluB)"	2025	6	1.0501851419585	"HIGH"	"DECR. RAPIDLY"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	7	2.8731936144962	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	8	2.39287831197842	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	9	3.41883890460591	"MODERATE"	"INCREASING"	54069
@@ -7573,7 +7623,7 @@
 "Ohio"	"Influenza Virus B (FluB)"	2025	27	2.75273667526385	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	28	1.81307440058752	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	29	0.790047242985	"MODERATE"	"STABLE"	54069
-"Ohio"	"Influenza Virus B (FluB)"	2025	30	1.50363044373003	"MODERATE"	"STABLE"	54069
+"Ohio"	"Influenza Virus B (FluB)"	2025	30	1.31487142832923	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	31	2.39315863589434	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	32	0.976364565560464	"MODERATE"	"STABLE"	54069
 "Ohio"	"Influenza Virus B (FluB)"	2025	33	0.6081639706	"MODERATE"	"STABLE"	54069
@@ -7630,9 +7680,9 @@
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	30	0.5425796603745	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	31	0.19817378432	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	32	0.471051120826	"MODERATE"	"STABLE"	54069
-"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.842915919389333	"MODERATE"	"STABLE"	54069
-"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	0.484106999916	"MODERATE"	"STABLE"	54069
-"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.758385695204	"MODERATE"	"STABLE"	54069
+"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	33	0.386309923123333	"MODERATE"	"STABLE"	54069
+"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	34	1.0480602586276	"MODERATE"	"STABLE"	54069
+"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	35	0.635253878724	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	36	0.913664727568	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	37	0.576238579742	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2024	38	0.4975570158952	"MODERATE"	"STABLE"	54069
@@ -7679,7 +7729,7 @@
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	27	1.62437621215	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	28	1.0373905505852	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	29	0.53168733237	"MODERATE"	"STABLE"	54069
-"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	30	0.5286939815584	"MODERATE"	"STABLE"	54069
+"Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	30	0.4088778814056	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	31	0.8070412355144	"MODERATE"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	32	0.608777964102	"LOW"	"STABLE"	54069
 "Ohio"	"Respiratory Syncitial Virus, Human (RSV)"	2025	33	0.8192562993352	"MODERATE"	"STABLE"	54069

@@ -740,7 +740,7 @@ shinyServer(function(input, output, session) {
 		df_latest <- df_this %>% filter(epi_date == max(epi_date, na.rm = TRUE))
 		
 		this_freshness <- paste0(
-			"The latest abundance data for ", this_region, " was collected during the week of ", 
+			"The latest abundance data for ", this_region, " was collected during the week that began ", 
 			printy_dates(df_latest$primary_date), " (epi week ", df_latest$epi_week, "). ", sep="")
 
 		# Calculate the completeness of the abundance data.

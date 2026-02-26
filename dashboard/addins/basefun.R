@@ -130,8 +130,9 @@ format_dates <- function(x) {
 printy_dates <- function(x) {
 	month <- strftime(x, format = "%b")           		# Abbreviated name of the month.
 	day <- strftime(x, format = "%d")           			# Abbreviated name of the day.
+	dow <- strftime(x, format = "%A")           			# Abbreviated name of the day of the week.
 	years <- lubridate::year(x)                       # Year as a 4-digit number.
-	paste(month, ". ", day, ", ", years, sep = "")
+	paste(dow, " ", month, ". ", day, ", ", years, sep = "")
 }
 
 
