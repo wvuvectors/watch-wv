@@ -1,14 +1,30 @@
 name: seqr_freyja
 channels:
-  - defaults
   - bioconda
   - conda-forge
+  - defaults
 dependencies:
-  - python=3.7
-  - freyja
+  - python=3.10
+  - freyja=2.0.3
+  - samtools=1.17
+  - pysam=0.20.0
   - ivar
-  - samtools
-  - UShER
-  - cvxpy
+  - usher
   - numpy
   - pandas
+  - biopython
+  - matplotlib-base
+  - seaborn-base
+  - plotly
+  - pyarrow>=10.0.1
+  - click
+  - tqdm
+  - requests
+  - pyyaml
+  - joblib
+  - cvxpy
+  - epiweeks
+  - sphinx
+  - sphinx-click
+  - sphinx_rtd_theme
+  - pip
