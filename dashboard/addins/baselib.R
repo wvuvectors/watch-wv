@@ -25,7 +25,6 @@ library(leaflet)
 library(tableHTML)
 
 library(fontawesome)
-library(DT)
 #library(leaflet.extras)
 library(rsconnect)
 

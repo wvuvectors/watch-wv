@@ -1,0 +1,26 @@
+control_id	control_type	assay_well	assay_batch_id	assay_input_ul	assay_comment	assay_target	assay_target_genetic_locus	assay_template	assay_target_macromolecule	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_droplets	assay_positive_droplets
+AB9999.20260218.FAM.1	negative	D04	AB9999	5	NA	Influenza Virus A	M	PCR-grade Water	NA	FAM	0.289409756660461	21734	5
+AB9999.20260218.FAM.2	negative	E04	AB9999	5	NA	Influenza Virus A	M	PCR-grade Water	NA	FAM	0.123921148478985	20302	2
+AB9999.20260218.FAM.3	negative	F04	AB9999	5	NA	Influenza Virus A	M	PCR-grade Water	NA	FAM	0.323865592479706	19422	5
+AB9999.20260218.FAM.4	negative	G04	AB9999	5	NA	Influenza Virus A	M	PCR-grade Water	NA	FAM	0.233434453606606	21556	4
+AB9999.20260218.FAM.5	negative	H04	AB9999	5	NA	Influenza Virus A	M	PCR-grade Water	NA	FAM	0.169900953769684	22212	3
+AB9999.20260218.HEX.1	negative	D04	AB9999	5	NA	Respiratory Syncitial Virus, Bovine	Unk	PCR-grade Water	NA	HEX	0	21734	0
+AB9999.20260218.HEX.2	negative	E04	AB9999	5	NA	Respiratory Syncitial Virus, Bovine	Unk	PCR-grade Water	NA	HEX	0	20302	0
+AB9999.20260218.HEX.3	negative	F04	AB9999	5	NA	Respiratory Syncitial Virus, Bovine	Unk	PCR-grade Water	NA	HEX	0	19422	0
+AB9999.20260218.HEX.4	negative	G04	AB9999	5	NA	Respiratory Syncitial Virus, Bovine	Unk	PCR-grade Water	NA	HEX	0	21556	0
+AB9999.20260218.HEX.5	negative	H04	AB9999	5	NA	Respiratory Syncitial Virus, Bovine	Unk	PCR-grade Water	NA	HEX	0.0566310957074165	22212	1
+AB9999.20260218.Cy5.1	negative	D04	AB9999	5	NA	Respiratory Syncitial Virus, Human	G	PCR-grade Water	NA	Cy5	0	21734	0
+AB9999.20260218.Cy5.2	negative	E04	AB9999	5	NA	Respiratory Syncitial Virus, Human	G	PCR-grade Water	NA	Cy5	0	20302	0
+AB9999.20260218.Cy5.3	negative	F04	AB9999	5	NA	Respiratory Syncitial Virus, Human	G	PCR-grade Water	NA	Cy5	0	19422	0
+AB9999.20260218.Cy5.4	negative	G04	AB9999	5	NA	Respiratory Syncitial Virus, Human	G	PCR-grade Water	NA	Cy5	0	21556	0
+AB9999.20260218.Cy5.5	negative	H04	AB9999	5	NA	Respiratory Syncitial Virus, Human	G	PCR-grade Water	NA	Cy5	0	22212	0
+AB9999.20260218.Cy5.5.1	negative	D04	AB9999	5	NA	Influenza Virus B	NEP/NS1	PCR-grade Water	NA	Cy5.5	0.289409756660461	21734	5
+AB9999.20260218.Cy5.5.2	negative	E04	AB9999	5	NA	Influenza Virus B	NEP/NS1	PCR-grade Water	NA	Cy5.5	0.309825748205185	20302	5
+AB9999.20260218.Cy5.5.3	negative	F04	AB9999	5	NA	Influenza Virus B	NEP/NS1	PCR-grade Water	NA	Cy5.5	0.453435182571411	19422	7
+AB9999.20260218.Cy5.5.4	negative	G04	AB9999	5	NA	Influenza Virus B	NEP/NS1	PCR-grade Water	NA	Cy5.5	0.233434453606606	21556	4
+AB9999.20260218.Cy5.5.5	negative	H04	AB9999	5	NA	Influenza Virus B	NEP/NS1	PCR-grade Water	NA	Cy5.5	0.283180981874466	22212	5
+AB9999.20260218.ROX.1	negative	D04	AB9999	5	NA	SARS-CoV-2	SC2	PCR-grade Water	NA	ROX	0	21734	0
+AB9999.20260218.ROX.2	negative	E04	AB9999	5	NA	SARS-CoV-2	SC2	PCR-grade Water	NA	ROX	0	20302	0
+AB9999.20260218.ROX.3	negative	F04	AB9999	5	NA	SARS-CoV-2	SC2	PCR-grade Water	NA	ROX	0	19422	0
+AB9999.20260218.ROX.4	negative	G04	AB9999	5	NA	SARS-CoV-2	SC2	PCR-grade Water	NA	ROX	0	21556	0
+AB9999.20260218.ROX.5	negative	H04	AB9999	5	NA	SARS-CoV-2	SC2	PCR-grade Water	NA	ROX	0	22212	0

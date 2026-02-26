@@ -1,0 +1,2 @@
+assay_batch_id	assay_batch_type	assay_batch_record_version	assay_date	assay_run_by	assay_machine	assay_analysis_software_version	assay_reaction_ul	assay_amplification_method	assay_amplification_method_lot_id	assay_quantification_type	assay_method	assay_method_lot_id	assay_batch_comment
+AB9999	Assay	2.0.3	2026-02-18	JL	Zoo QX600	2	20	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	None
