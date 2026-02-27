@@ -323,23 +323,21 @@ echo "******" | tee -a "$logf"
 
 
 echo "" | tee -a "$logf"
-echo "Now I'll apply the update from $UPDIR to $DBDIR/incremental/$START/." | tee -a "$logf"
-echo "Why do we apply it to the incremental version first?" | tee -a "$logf"
-echo "This lets us fully validate the update before touching the 'production' copy in latest/." | tee -a "$logf"
-echo "The validation takes place during the run of 3_applyUpdate.R, which is about to happen." | tee -a "$logf"
+echo "Now let's validate the update in $UPDIR against the existing data in $DBDIR/incremental/$START/." | tee -a "$logf"
+echo "This checks for common issues such as spurious sample ids, missing concentration or extraction data, and more." | tee -a "$logf"
 echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
-echo "Running 3_applyUpdate.R." | tee -a "$logf"
-u_count=$(echo "$UPDIR" "$DBDIR/incremental/$START" | ./R/3_applyUpdate.R)
+echo "Running 3_validateUpdate.R." | tee -a "$logf"
+u_count=$(echo "$UPDIR" "$DBDIR/incremental/$START" | ./R/3_validateUpdate.R)
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "3_applyUpdate.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "3_validateUpdate.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR $DBDIR/incremental/$START" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (applying the update to the incremental version)." | tee -a "$logf"
+	echo "patchr aborted during phase 3 (update validation)." | tee -a "$logf"
 	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
 	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
@@ -350,8 +348,33 @@ echo "******" | tee -a "$logf"
 
 
 echo "" | tee -a "$logf"
+echo "Now I'll apply the validated update from $UPDIR to $DBDIR/incremental/$START/." | tee -a "$logf"
+echo "" | tee -a "$logf"
+
+echo "******" | tee -a "$logf"
+echo "Running 4_applyUpdate.R." | tee -a "$logf"
+u_count=$(echo "$UPDIR" "$DBDIR/incremental/$START" | ./R/4_applyUpdate.R)
+status="${PIPESTATUS[0]}"
+echo "" | tee -a "$logf"
+if [[ "$status" != "0" ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "4_applyUpdate.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "Arguments: $UPDIR $DBDIR/incremental/$START" | tee -a "$logf"
+	echo "patchr aborted during phase 4 (applying the update to the incremental version)." | tee -a "$logf"
+	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
+	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+echo "Done." | tee -a "$logf"
+echo "******" | tee -a "$logf"
+
+
+
+echo "" | tee -a "$logf"
 echo "It looks like the update was successfully applied to $DBDIR/incremental/$START." | tee -a "$logf"
-echo "Before we copy it to the production folder, I need to regenerate some processor-intensive data." | tee -a "$logf"
+echo "Before we copy it to the production folder, though, I need to regenerate some processor-intensive data." | tee -a "$logf"
 echo "This is primarily aimed at optimizing data loading into the dashboard." | tee -a "$logf"
 
 echo "First I'll generate the result table using the updated tables in $DBDIR/incremental/$START." | tee -a "$logf"
@@ -359,16 +382,16 @@ echo "This table is an amalgam of data tables and consequently will contain a ce
 echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
-echo "Running 4_generateResults.R." | tee -a "$logf"
-result_count=$(echo "$DBDIR/incremental/$START" | ./R/4_generateResults.R)
+echo "Running 5_generateResults.R." | tee -a "$logf"
+result_count=$(echo "$DBDIR/incremental/$START" | ./R/5_generateResults.R)
 status="${PIPESTATUS[0]}"
 echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "4_generateResults.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "5_generateResults.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
 	echo "Arguments: $DBDIR/incremental/$START" | tee -a "$logf"
-	echo "patchr aborted during phase 4 (generating the results table)." | tee -a "$logf"
+	echo "patchr aborted during phase 5 (generating the results table)." | tee -a "$logf"
 	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
 	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
@@ -379,45 +402,22 @@ echo "******" | tee -a "$logf"
 echo "" | tee -a "$logf"
 
 
-
-echo "" | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "Running 6_generateBatchList.pl $DBDIR/incremental/$START > $DBDIR/incremental/$START/watchdb.completed_batches.txt." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-./perl/6_generateBatchList.pl "$DBDIR/incremental/$START" > "$DBDIR/incremental/$START/watchdb.completed_batches.txt" | tee -a "$logf"
-status="${PIPESTATUS[0]}"
-echo "" | tee -a "$logf"
-
-if [[ "$status" != "0" ]]
-then
-	echo "6_generateBatchList.pl exited with error code $status and caused patchr to abort." | tee -a "$logf"
-	#echo "Removing $DBDIR/watchdb/$START/" | tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "patchr aborted during phase 6 (generating list of completed batches)." | tee -a "$logf"
-	echo "Sometimes this error is due to a missing or misnamed file." | tee -a "$logf"
-	echo "If the fix is not simple, I STRONGLY recommend deleting $DBDIR/incremental/$START/." | tee -a "$logf"
-	echo "Then fix the error(s), delete the folder $UPDIR, and run patchr again. "| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-
-
-
 echo "" | tee -a "$logf"
 echo "******" | tee -a "$logf"
 echo "Everything appears to be ok, so on to the final step." | tee -a "$logf"
-echo "I am now copying the watchdb tables from $DBDIR/incremental/$START/ to $DBDIR/latest/, overwriting the old set." | tee -a "$logf"
-echo "Never fear! The previous version is still readily available in $DBDIR/latest_bk/, and older sets in the $DBDIR/incremental/ folder." | tee -a "$logf"
+echo "I am now copying the watchdb tables from $DBDIR/incremental/$START/ to $DBDIR/latest/." | tee -a "$logf"
+echo "This overwrites the previous set of data, which is why we save it for last." | tee -a "$logf"
+echo "Never fear! The most recent previous version is still available in $DBDIR/latest_bk/." | tee -a "$logf"
+echo "Also, older sets are collected in the $DBDIR/incremental/ folder." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 
-for i in ${!tables[@]}
+
+new_dbfiles=$(ls -1 "$DBDIR/incremental/$START/*.txt")
+for i in ${!new_dbfiles[@]}
 do
-	table=${tables[$i]}
-	if [ -f "$DBDIR/incremental/$START/watchdb.$table.txt" ]
-	then
-		cp "$DBDIR/incremental/$START/watchdb.$table.txt" "$DBDIR/latest/watchdb.$table.txt"
+	f=${new_dbfiles[$i]}
+	if [ -f "$f" ];then
+		cp "$f" "$DBDIR/latest/watchdb.$table.txt"
 	fi
 done
 cp "$DBDIR/incremental/$START/watchdb.completed_batches.txt" "$DBDIR/latest/watchdb.completed_batches.txt"
