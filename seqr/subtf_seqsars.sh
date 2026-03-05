@@ -9,7 +9,7 @@
 
 START=$(date "+%F_%H-%M")
 
-while getopts ":hi:r:b:g:o:" opt; do
+while getopts ":hi:r:b:g:m:o:" opt; do
 	case $opt in
 		h)
 			echo "help not available."
@@ -26,6 +26,9 @@ while getopts ":hi:r:b:g:o:" opt; do
 			;;
 		g)
 			refGenomeFILE=$OPTARG
+			;;
+		m)
+			metaDIR=$OPTARG
 			;;
 		o)
 			outDIR=$OPTARG
@@ -54,6 +57,12 @@ if [ -z "$runDIR" ]; then
 	exit 1
 fi
 
+if [ -z "$metaDIR" ]; then
+	echo "You have not provided a custom meta directory (-m)."
+	echo "This is usually the parent folder that contains the sample spreadsheet and screentape pdf."
+	echo "This is a required parameter with no default, so I'm force to quit immediately. Sorry."
+	exit 1
+fi
 
 # Required parameters for which I can try to provide a default value.
 #
@@ -99,6 +108,6 @@ source /shared/software/conda/etc/profile.d/conda.sh
 # It also means the first 50 or so lines of this script are duplicated in the called script; 
 # however, we don't anticipate those lines will change often (if ever).
 #
-./sh/seqsars.sh -i "$runDIR" -r "$runID" -b "$usher_barcodesFILE" -g "$refGenomeFILE" -o "$outDIR" #-c "$SCRATCH/conda"
+./sh/seqsars.sh -i "$runDIR" -r "$runID" -b "$usher_barcodesFILE" -g "$refGenomeFILE" -m "$metaDIR" -o "$outDIR" #-c "$SCRATCH/conda"
 
 

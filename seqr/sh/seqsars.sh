@@ -52,6 +52,9 @@ while getopts ":hi:r:b:g:o:" opt; do
 		g)
 			refGenomeFILE=$OPTARG
 			;;
+		m)
+			metaDIR=$OPTARG
+			;;
 		o)
 			outDIR=$OPTARG
 			;;
@@ -77,6 +80,12 @@ if [ -z "$runDIR" ]; then
 	exit 1
 fi
 
+if [ -z "$metaDIR" ]; then
+	echo "You have not provided a custom meta directory (-m)."
+	echo "This is usually the parent folder that contains the sample spreadsheet and screentape pdf."
+	echo "This is a required parameter with no default, so I'm force to quit immediately. Sorry."
+	exit 1
+fi
 
 # Required parameters for which I can try to provide a default value.
 #
@@ -172,6 +181,20 @@ mkdir -p "$outDIR/7_DEMIX"
 mkdir -p "$outDIR/8_DASHBOARD"
 mkdir -p "$outDIR/9_SRA"
 
+# Adding run files
+log "Adding run metadata files to 0_RUN_FILES directory"
+
+shopt -u failglob
+run_files=( "$metaDIR"/*.pdf "$metaDIR"/*.xlsx )
+shopt -s failglob
+
+if (( ${#run_files[@]} > 0 )); then
+	cp "${run_files[@]}" "$outDIR/0_RUN_FILES/"
+	log "Copied ${#run_files[@]} run metadata files"
+else 
+	log "No PDF or XLSX run files found in $metaDIR"
+fi
+
 # Barcode discovery
 log "Discovering barcode directories"
 barcode_dirs=( "$runDIR/fastq_pass"/barcode* )
@@ -225,9 +248,10 @@ for bcDir in "${barcode_dirs[@]}"; do
 	#
 	log "Running FastQC on raw files"
 	conda_activate "seqr_fastqc" || fail "Failed to activate conda env: seqr_fastqc"
+	export _JAVA_OPTIONS="-Xmx2g"
 	fastqc -o "$outDIR/3_QC1_RESULTS/" "$concat_fastq"
 	conda_deactivate
-
+	
 		
 	# Trim the reads in the concatenated fastq file. These are specific for COVID sequencing:
 	# Remove the first 9 bases, and exclude any reads with length > 600nt.
