@@ -44,10 +44,12 @@ df_all <- as.data.frame(read.table(WVD_RSS_F, sep="\t", header=TRUE, check.names
 # Also need the active facilities so we can report the response rate for each county.
 # We simplify the county and facility id columns to unnamed vectors for certain applications.
 resources <- excel2df(WVD_RESOURCE_F)
-df_counties <- resources$county %>% filter(county_id %in% df_all$location_id)
-COUNTIES <- unname(unique(df_counties$county_id))
+#df_counties <- resources$county %>% filter(county_id %in% df_all$location_id)
+#COUNTIES <- unname(unique(df_counties$county_id))
 df_facilities <- resources$location %>% filter(tolower(location_status) == "active" & tolower(location_category) == "wwtp")
 FACILITIES <- unname(unique(df_facilities$location_id))
+df_counties <- resources$county %>% filter(county_id %in% df_facilities$location_counties_served)
+COUNTIES <- unname(unique(df_counties$county_id))
 
 # We use all the abundance data to identify counties; however, we don't need the facility data.
 # So here we simplify to just the county and state rows.

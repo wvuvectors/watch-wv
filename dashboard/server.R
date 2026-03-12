@@ -510,7 +510,7 @@ shinyServer(function(input, output, session) {
 #				geom_point(aes(x = primary_date, y = val, color = ccolor, fill = ccolor, text=paste0("Epi week ", epi_week, sep="")), na.rm = TRUE, shape = 21, size = 1, alpha=0.8)
 #				geom_area(aes(x = primary_date, y = roll4), outline.type="upper", alpha=0.3, fill = "#B7B1D6", linewidth=0.5)
 		} else {
-			gplot <- ggplot()
+		#	gplot <- ggplot()
 			fireDataWarnings(target_index)
 		}
 		
@@ -543,29 +543,29 @@ shinyServer(function(input, output, session) {
 		aplot <- plotAbundance(df_abundance, controlRV$viewMonths[controlRV$mapIndex], target_index)
 
 		df_changes <- getChangeData(loc_id, target_index)
-		cplot <- plotChangeVals(df_changes, controlRV$viewMonths[controlRV$mapIndex], target_index)
+		print(paste0("Loc ", loc_id, "; target ", target_index, sep=""))
+		#View(df_changes)
+		#cplot <- plotChangeVals(df_changes, controlRV$viewMonths[controlRV$mapIndex], target_index)
 		
 		if (target_index == 1) {
 			output$aplot_title_covid <- renderText(aplot_title)
 			output$aplot_covid <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			output$cplot_covid <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			#output$cplot_covid <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 2) {
 			output$aplot_title_flua <- renderText(aplot_title)
 			output$aplot_flua <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			output$cplot_flua <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			#output$cplot_flua <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 3) {
 			output$aplot_title_flub <- renderText(aplot_title)
 			output$aplot_flub <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			output$cplot_flub <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			#output$cplot_flub <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 4) {
 			output$aplot_title_rsv <- renderText(aplot_title)
 			output$aplot_rsv <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			output$cplot_rsv <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			#output$cplot_rsv <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		}
 			
-  }
-
-  
+  }  
 	#
 	# Update the alert status elements (usually on reaction to map click or site selection).
 	#

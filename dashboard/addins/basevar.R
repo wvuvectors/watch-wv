@@ -22,7 +22,7 @@ MAP_CENTER <- list2env(list(lat = 38.95, lng = -80.2, zoom = 7))
 
 # STALE_THRESHOLD_DAYS is used in global.R AND the isStale function in basefun.R.
 # Make sure if you change the logic, you change it in BOTH places!
-STALE_THRESHOLD_DAYS <- 21
+STALE_THRESHOLD_DAYS <- 35
 
 
 ALEVEL_COLORS <- c("#DDDDDD", "#9289D6", "#3288BD", "#DEE998", "#FDAE61", "#D53E4F")

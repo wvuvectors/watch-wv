@@ -59,7 +59,7 @@ my %updatecols    = (
 	"concentration" => ["concentration_id", "sample_id", "concentration_batch_id", "concentration_location_in_batch", "concentration_comment"], 
 	"extraction"    => ["extraction_id", "concentration_id", "extraction_batch_id", "extraction_location_in_batch", "extraction_location_in_storage", "extraction_comment"],
 	"archive"       => ["archive_id", "sample_id", "archive_batch_id", "archive_location_in_batch", "archive_location_in_storage", "archive_comment"],
-	"sample"        => ["sample_id", "sample_status", "location_id", "sample_event", "sample_qc", "sample_collection_start_datetime", "sample_collection_end_datetime", "sample_recovered_datetime", "sample_collection_by", "sample_flow", "sample_received_by", "sample_received_date", "sample_ph_lab", "sample_comment"]
+	"sample"        => ["sample_id", "location_id", "sample_event", "sample_qc", "sample_collection_start_datetime", "sample_collection_end_datetime", "sample_recovered_datetime", "sample_collection_by", "sample_flow", "sample_received_by", "sample_received_date", "sample_comment"]
 );
 
 
@@ -168,6 +168,11 @@ foreach my $sid (keys %sample2id) {
 	}
 	print $sfh "$sid";
 	foreach my $colhead (@{$updatecols{"sample"}}) {
+# 		if (!defined $sid2meta{$sid}) {	
+# 			warn "sample id $sid not in the hash!\n";
+# 		} elsif (!defined $sid2meta{$sid}->{$colhead}) {
+# 			warn "column $colhead not in the hash for $sid!\n";
+# 		}
 		print $sfh "\t$sid2meta{$sid}->{$colhead}" unless "$colhead" eq "sample_id";
 	}
 	print $sfh "\n";
@@ -368,7 +373,6 @@ sub translateSampleHeader {
 	
 	my %lookup = (
 		"Asset Tag ID" 								=> "sample_id", 
-		"Status: WaTCH" 							=> "sample_status", 
 		"Location" 										=> "location_id", 
 		"Event Type" 									=> "sample_event", 
 		"Sample QC Check" 						=> "sample_qc", 
@@ -384,15 +388,7 @@ sub translateSampleHeader {
 		"Sample Received Date" 				=> "sample_received_date", 
 		"Sample pH (Lab)" 						=> "sample_ph_lab", 
 		"Comments" 										=> "sample_comment", 
-		"Description" 								=> "ignore", 
 		"Site" 												=> "ignore", 
-		"Assay Date" 									=> "ignore", 
-		"Control, Process (Type)" 		=> "ignore", 
-		"Control Internal (Type)" 		=> "ignore", 
-		"Assay Target 1" 							=> "ignore", 
-		"Assay Target 1 Result (CN/L)"=> "ignore", 
-		"Assay Target 2" 							=> "ignore", 
-		"Assay Target 2 Result (CN/L)"=> "ignore",
 		"Category" 										=> "ignore", 
 		"Department" 									=> "ignore", 
 		"Sample Collection Method" 		=> "ignore"

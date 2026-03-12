@@ -33,6 +33,7 @@ TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
 
 WVD_BASE <- "../dashboard/data"
+#WVD_BASE <- "data"
 WVU_RESULTS_F <- paste(WVD_BASE, "/wvu.result_tagged.txt", sep="")
 MU_RESULTS_F <- paste(WVD_BASE, "/mu.result_tagged.txt", sep="")
 ALL_RESOURCE_F <- paste(WVD_BASE, "/watchdb.all_tables.xlsx", sep="")
@@ -117,7 +118,8 @@ df_agg <- data.frame()
 # First calculate by location (facility)
 #
 for (i in 1:length(LOCATIONS)) {
-	loc <- LOCATIONS[i]
+#for (i in 19:19) {
+  loc <- LOCATIONS[i]
 	for (j in 1:length(TARGETS)) {
 		targ <- TARGETS[j]
 
@@ -137,7 +139,7 @@ for (i in 1:length(LOCATIONS)) {
 		  next
 		}
 		
-		#print(paste0(loc, ": ", targ, ". MAX = ", max_abund, sep=""))
+		#print(paste0(loc, ": ", targ, ".", sep=""))
 
 		df_added <- df_this %>% 
 			arrange(epi_date) %>% 
@@ -166,20 +168,27 @@ for (i in 1:length(LOCATIONS)) {
 					(abundance_fold_change > 1.5) ~ 6
 				)
 			)
-
-		trend_results <- rollapplyr(
-			df_added,
-			width = TREND_ALERT_WINDOW,
-			FUN = get_LTcoefs,
-			by.column = FALSE, # Apply the function to the entire window data frame
-			fill = NA            # Fill initial empty values with NA
-		)
-		# Convert results to a data frame for easier use
-		trend_coefs_df <- as.data.frame(trend_results)
-		names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
-		# Add the results back to the original data frame
-		df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
     
+		if (nrow(df_added) < TREND_ALERT_WINDOW) {
+		  # make a vector of length TREND_ALERT_WINDOW containg NAs
+		  no_trend_yet <- rep(NA, nrow(df_added))
+		  # cbind the vector as a column to df_added
+		  df_added <- cbind(df_added, trend_slope = no_trend_yet)
+		} else {
+  		trend_results <- rollapplyr(
+  			df_added,
+  			width = TREND_ALERT_WINDOW,
+  			FUN = get_LTcoefs,
+  			by.column = FALSE, # Apply the function to the entire window data frame
+  			fill = NA            # Fill initial empty values with NA
+  		)
+  		# Convert results to a data frame for easier use
+  		trend_coefs_df <- as.data.frame(trend_results)
+  		names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
+  		# Add the results back to the original data frame
+  		df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
+		}    
+
 		trend_step <- df_thresholds %>% 
 		  filter(category == "trend" & target == targ) %>% 
 		  select(step)
@@ -250,7 +259,7 @@ for (i in 1:length(COUNTIES)) {
     
     #print(paste0(county, ": ", targ, ". COUNT = ", nrow(df_this), sep=""))
 
-        if (nrow(df_this) < 1) {
+    if (nrow(df_this) < 1) {
       next
     }
     
@@ -282,18 +291,25 @@ for (i in 1:length(COUNTIES)) {
         )
       )
     
-    trend_results <- rollapplyr(
-      df_added,
-      width = TREND_ALERT_WINDOW,
-      FUN = get_LTcoefs,
-      by.column = FALSE, # Apply the function to the entire window data frame
-      fill = NA            # Fill initial empty values with NA
-    )
-    # Convert results to a data frame for easier use
-    trend_coefs_df <- as.data.frame(trend_results)
-    names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
-    # Add the results back to the original data frame
-    df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
+		if (nrow(df_added) < TREND_ALERT_WINDOW) {
+		  # make a vector of length TREND_ALERT_WINDOW containg NAs
+		  no_trend_yet <- rep(NA, nrow(df_added))
+		  # cbind the vector as a column to df_added
+		  df_added <- cbind(df_added, trend_slope = no_trend_yet)
+		} else {
+			trend_results <- rollapplyr(
+				df_added,
+				width = TREND_ALERT_WINDOW,
+				FUN = get_LTcoefs,
+				by.column = FALSE, # Apply the function to the entire window data frame
+				fill = NA            # Fill initial empty values with NA
+			)
+			# Convert results to a data frame for easier use
+			trend_coefs_df <- as.data.frame(trend_results)
+			names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
+			# Add the results back to the original data frame
+			df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
+    }
     
     trend_step <- df_thresholds %>% 
       filter(category == "trend" & target == targ) %>% 
@@ -393,18 +409,25 @@ for (j in 1:length(TARGETS)) {
       )
     )
   
-  trend_results <- rollapplyr(
-    df_added,
-    width = TREND_ALERT_WINDOW,
-    FUN = get_LTcoefs,
-    by.column = FALSE, # Apply the function to the entire window data frame
-    fill = NA            # Fill initial empty values with NA
-  )
-  # Convert results to a data frame for easier use
-  trend_coefs_df <- as.data.frame(trend_results)
-  names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
-  # Add the results back to the original data frame
-  df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
+		if (nrow(df_added) < TREND_ALERT_WINDOW) {
+		  # make a vector of length TREND_ALERT_WINDOW containg NAs
+		  no_trend_yet <- rep(NA, nrow(df_added))
+		  # cbind the vector as a column to df_added
+		  df_added <- cbind(df_added, trend_slope = no_trend_yet)
+		} else {
+		trend_results <- rollapplyr(
+			df_added,
+			width = TREND_ALERT_WINDOW,
+			FUN = get_LTcoefs,
+			by.column = FALSE, # Apply the function to the entire window data frame
+			fill = NA            # Fill initial empty values with NA
+		)
+		# Convert results to a data frame for easier use
+		trend_coefs_df <- as.data.frame(trend_results)
+		names(trend_coefs_df) <- c("trend_intercept", "trend_slope")
+		# Add the results back to the original data frame
+		df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
+  }
   
   trend_step <- df_thresholds %>% 
     filter(category == "trend" & target == targ) %>% 
