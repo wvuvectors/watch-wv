@@ -41,13 +41,13 @@ my %nwss2watch = (
 	"n1"				 => "N1",
 	"n2"				 => "N2",
 	"n"				 	 => "SC2",
-	"FLUAV"			 => "Influenza Virus A (FluA)",
-	"FLUBV"			 => "Influenza Virus B (FluB)",
+	"FLUAV"			 => "Influenza Virus A",
+	"FLUBV"			 => "Influenza Virus B",
 	"InfA"			 => "M",
 	"InfB"			 => "NEP/NS1",
 	"InfA1 and InfA2 combined" => "M",
 	"RSV-A and RSV-B combined" => "G",
-	"RSV"        => "Respiratory Syncitial Virus, Human (RSV)",
+	"RSV"        => "Respiratory Syncitial Virus, Human",
 	"del69/70"	 => "del69/70",
 	"omicron"		 => "SARS-CoV-2"
 );

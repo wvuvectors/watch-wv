@@ -494,23 +494,22 @@ shinyServer(function(input, output, session) {
 		most_recent_sample_date <- max(df_changes$val, na.rm=TRUE)
 		
 		df_plot <- df_changes %>% filter(primary_date >= date_limits[1] & primary_date <= date_limits[2])
-
+		#View(df_plot)
+		
 		if (nrow(df_plot) > 0) {
 			
-			gplot <- ggplot(df_plot) + 
-				facet_wrap(~category, nrow=2, scales = "free_y") + 
+			gplot <- ggplot(df_plot %>% filter(category == "trend")) + 
+#				facet_wrap(~category, nrow=2, scales = "free_y") + 
 				scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
 				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab) + 
 				scale_color_identity() + 
 				scale_fill_identity() + 
 				plot_theme() + 
-				labs(x = NULL, y = NULL, color = NULL, title="TOP: Percent fold change compared to 3 month average. BOTTOM: Slope of the 4-week trend line.") + 
-#				annotate("text", x = date_limits[1]+5, y = top_of_tent_win, color = "#474747", size = 2.5, family = "Arial", label = "Data subject to change") + 
+#				labs(x = NULL, y = NULL, color = NULL, title="TOP: Percent fold change compared to 3 month average. BOTTOM: Slope of the 4-week trend line.") + 
+				labs(x = NULL, y = NULL, color = NULL, title="Slope of the 4-week trend line.") + 
 				geom_col(aes(x = primary_date, y = val, color = ccolor, fill = ccolor, text=paste0("Week ", epi_week, " (", epi_year ,"): ", clabel, sep="")))
-#				geom_point(aes(x = primary_date, y = val, color = ccolor, fill = ccolor, text=paste0("Epi week ", epi_week, sep="")), na.rm = TRUE, shape = 21, size = 1, alpha=0.8)
-#				geom_area(aes(x = primary_date, y = roll4), outline.type="upper", alpha=0.3, fill = "#B7B1D6", linewidth=0.5)
 		} else {
-		#	gplot <- ggplot()
+			gplot <- ggplot()
 			fireDataWarnings(target_index)
 		}
 		
@@ -545,24 +544,24 @@ shinyServer(function(input, output, session) {
 		df_changes <- getChangeData(loc_id, target_index)
 		print(paste0("Loc ", loc_id, "; target ", target_index, sep=""))
 		#View(df_changes)
-		#cplot <- plotChangeVals(df_changes, controlRV$viewMonths[controlRV$mapIndex], target_index)
+		cplot <- plotChangeVals(df_changes, controlRV$viewMonths[controlRV$mapIndex], target_index)
 		
 		if (target_index == 1) {
 			output$aplot_title_covid <- renderText(aplot_title)
 			output$aplot_covid <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			#output$cplot_covid <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			output$cplot_covid <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 2) {
 			output$aplot_title_flua <- renderText(aplot_title)
 			output$aplot_flua <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			#output$cplot_flua <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			output$cplot_flua <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 3) {
 			output$aplot_title_flub <- renderText(aplot_title)
 			output$aplot_flub <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			#output$cplot_flub <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			output$cplot_flub <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		} else if (target_index == 4) {
 			output$aplot_title_rsv <- renderText(aplot_title)
 			output$aplot_rsv <- renderPlotly({aplot %>% config(displayModeBar = FALSE)})
-			#output$cplot_rsv <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
+			output$cplot_rsv <- renderPlotly({cplot %>% config(displayModeBar = FALSE)})
 		}
 			
   }  

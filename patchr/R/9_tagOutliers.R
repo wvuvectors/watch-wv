@@ -12,7 +12,7 @@ library(scales)
 library(lubridate)
 library(rstatix)
 
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
 
 f <- file("stdin")
@@ -26,9 +26,9 @@ WVU_RESULTS_F <- input_fnames[1]
 MU_RESULTS_F <- input_fnames[2]
 ALL_RESOURCE_F <- input_fnames[3]
 
-# WVU_RESULTS_F <- "../patchr/data/latest/watchdb.result.txt"
-# MU_RESULTS_F <- "../dashboard/data/mu.result.txt"
-# ALL_RESOURCE_F <- "../patchr/resources/watchdb.all_tables.xlsx"
+#WVU_RESULTS_F <- "../patchr/data/latest/watchdb.result.txt"
+#MU_RESULTS_F <- "../dashboard/data/mu.result.txt"
+#ALL_RESOURCE_F <- "../patchr/resources/watchdb.all_tables.xlsx"
 
 
 WVD_BASE <- "../dashboard/data"

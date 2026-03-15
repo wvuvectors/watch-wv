@@ -37,7 +37,7 @@ library(lubridate)
 # trend_level
 # spike_slope
 
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
 
 ALEVEL_STRINGS <- c("UNKNOWN", "VERY LOW", "LOW", "MODERATE", "HIGH", "VERY HIGH")

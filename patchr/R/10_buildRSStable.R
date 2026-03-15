@@ -10,7 +10,7 @@ library(glue)
 library(readxl)
 library(scales)
 library(lubridate)
-library(rstatix)
+#library(rstatix)
 
 get_LTcoefs <- function(window_data) {
   # window_data is a data frame slice
@@ -29,7 +29,7 @@ ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (f
 #
 TREND_ALERT_WINDOW <- 4						# Number of consecutive samples to use in trend calculations.
 
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
 GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
 
 WVD_BASE <- "../dashboard/data"
