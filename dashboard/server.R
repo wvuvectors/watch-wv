@@ -374,7 +374,7 @@ shinyServer(function(input, output, session) {
 			gplot <- ggplot(df_plot) + 
 				#labs(y = "", x = "") + 
 				scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
-				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab) + 
+				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab, limits = date_limits) + 
 				plot_theme() + 
 				labs(x = NULL, y = NULL, color = NULL) + 
 				annotate("rect", xmin = gos_dates[1], xmax = gos_dates[2], ymin = 0, ymax = top_of_tent_win, alpha = 0.7, fill = "#dfdfdf") + 
@@ -501,7 +501,7 @@ shinyServer(function(input, output, session) {
 			gplot <- ggplot(df_plot %>% filter(category == "trend")) + 
 #				facet_wrap(~category, nrow=2, scales = "free_y") + 
 				scale_y_continuous(labels = scales::label_number(scale_cut = scales::cut_short_scale())) + 
-				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab) + 
+				scale_x_date(date_breaks = dbrk, date_minor_breaks = dbrk_minor, date_labels = dlab, limits = date_limits) + 
 				scale_color_identity() + 
 				scale_fill_identity() + 
 				plot_theme() + 

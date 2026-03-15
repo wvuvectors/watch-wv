@@ -88,7 +88,7 @@ df_pcr <- df_pcr %>% filter(target_genetic_locus %in% GENLOCI)
 
 # Restrict results to those from active locations only. Also store these location ids in 
 # an unnamed array for later use.
-df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
+#df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
 LOCATIONS <- unname(unique(df_pcr$location_id))
 
 df_agg <- data.frame()

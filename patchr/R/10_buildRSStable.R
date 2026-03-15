@@ -135,6 +135,7 @@ for (i in 1:length(LOCATIONS)) {
 								epi_year = first(epi_year), 
 								epi_week = first(epi_week))
 		
+		# Require at least N samples, where N is the value of TREND_ALERT_WINDOW.
 		if (nrow(df_this) < 1) {
 		  next
 		}
@@ -170,7 +171,7 @@ for (i in 1:length(LOCATIONS)) {
 			)
     
 		if (nrow(df_added) < TREND_ALERT_WINDOW) {
-		  # make a vector of length TREND_ALERT_WINDOW containg NAs
+		  # make a vector of length TREND_ALERT_WINDOW containing NAs
 		  no_trend_yet <- rep(NA, nrow(df_added))
 		  # cbind the vector as a column to df_added
 		  df_added <- cbind(df_added, trend_slope = no_trend_yet)
@@ -189,10 +190,10 @@ for (i in 1:length(LOCATIONS)) {
   		df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
 		}    
 
-		trend_step <- df_thresholds %>% 
+		df_trend_steps <- df_thresholds %>% 
 		  filter(category == "trend" & target == targ) %>% 
 		  select(step)
-		trend_step <- as.numeric(trend_step$step)
+		trend_step <- as.numeric(df_trend_steps$step)
 		
 		df_added <- df_added %>%
 			mutate(
@@ -311,10 +312,10 @@ for (i in 1:length(COUNTIES)) {
 			df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
     }
     
-    trend_step <- df_thresholds %>% 
+    df_trend_steps <- df_thresholds %>% 
       filter(category == "trend" & target == targ) %>% 
       select(step)
-    trend_step <- as.numeric(trend_step$step)
+    trend_step <- as.numeric(df_trend_steps$step)
     
     df_added <- df_added %>%
       mutate(
@@ -429,10 +430,10 @@ for (j in 1:length(TARGETS)) {
 		df_added <- cbind(df_added, trend_slope = trend_coefs_df$trend_slope)
   }
   
-  trend_step <- df_thresholds %>% 
+  df_trend_steps <- df_thresholds %>% 
     filter(category == "trend" & target == targ) %>% 
     select(step)
-  trend_step <- as.numeric(trend_step$step)
+  trend_step <- as.numeric(df_trend_steps$step)
   
   df_added <- df_added %>%
     mutate(
