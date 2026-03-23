@@ -1,31 +1,4 @@
 
-plot_theme <- function () { 
-	theme(axis.text = element_text(size = 8),
-				axis.title = element_text(size = 9, color="#333333"),
-				axis.line.x = element_line(color="#bbbbbb", linewidth=1),
-				axis.line.y = element_line(color="#bbbbbb", linewidth=1),
-				axis.ticks.length.y = unit(-0.5, "cm"), 
-				strip.text = element_blank(),
-				strip.background = element_rect(fill="#ffffff"),
-#				strip.text = element_text(size = 8, color="#045a8d", hjust=0, vjust=0.5),
-				panel.grid.major = element_line(color="#eeeeee", linewidth=1), 
-#				panel.grid.minor.x = element_line(color="#eeeeee", linewidth=1),
-				panel.grid.minor = element_line(color="#eeeeee", linewidth=0.7),
-				panel.background = element_rect(fill="transparent"), 
-				panel.border = element_rect(fill=NA, color="#bbbbbb", linewidth=1), 
-				panel.spacing.y = unit(2, "lines"),
-				legend.position = "none",
-				legend.justification = c("left", "top"),
-				#legend.direction = "horizontal",
-				legend.box.just = "center",
-				#legend.margin = margin(6, 6, 6, 6),
-				legend.title = element_blank(),
-				legend.background = element_rect(fill="transparent"), 
-				legend.text = element_text(size = 8, color = "#333333"),
-				plot.background = element_rect(fill="transparent"), 
-				plot.title = element_text(size = 9, color="#045a8d", face="italic", hjust=0, vjust=0.5)
-)}
-
 ci90 <- function(x) {
 	0.5 * qt(0.80, length(x) - 1) * (sd(x) / sqrt(length(x)))
 #	m <- mean(x)
@@ -102,20 +75,6 @@ get_date_from_epi_week <- function(year, epi_week) {
 }
 
 
-# This is used in server.R, but NOT global.R so be careful.
-isStale <- function(d) {
-
-	date_diff <- as.numeric(difftime(this_week, d, units = "days"))
-	#print(paste0(d, ": ", date_diff, sep=""))
-	
-	if (date_diff > STALE_THRESHOLD_DAYS) {
-		return(TRUE)
-	} else {
-		return(FALSE)
-	}
-	
-}
-
 format_dates <- function(x) {
 	month <- strftime(x, format = "%b")           		# Abbreviated name of the month.
 	day <- strftime(x, format = "%d")           			# Abbreviated name of the day.
@@ -146,84 +105,12 @@ excel2df <- function(fname) {
 	names(data_frame) <- sheets
 
 	# return the data frame
-	data_frame
+	return(data_frame)
 } 
-  
 
-calcTrend <- function(df_this, mo_base) {
-	
-	if (length(df_this$primary_date) == 0) {
-		return(NA)
-	}
-	
-	most_recent_date <- max(df_this$primary_date, na.rm = TRUE)
-
-	vec_all <- (df_this %>% filter(primary_date > (most_recent_date %m-% months(mo_base))))$mean_abundance
-
-	if (length(vec_all) == 0) {
-		trend <- NA
-	} else {
-		trend <- mean(vec_all, na.rm = TRUE)
-		trend <- as.numeric(trend)
-	}
-	
-	return(trend)
+get_LTcoefs <- function(window_data) {
+  # window_data is a data frame slice
+  model <- lm(mean_abundance ~ epi_date, data = as.data.frame(window_data))
+  return(coef(model))
 }
-
-
-getAlertDetail <- function(disease, region, alevel, tlevel) {
-	if (alevel$level == 1) {
-		txt <- paste0(
-		"Abundance data for ", disease, " in ", region, " is ", alevel$detail, " ", tlevel$detail, sep="")
-	} else {
-		txt <- paste0(
-		"The level of ", disease, " in ", region, " wastewater is ", alevel$detail, " ", tlevel$detail, sep="")
-	}
-		
-	return(txt)
-}
-
-
-watchPal <- function(name) {
-	if (tolower(name) == "abundance") {
-		return(abundance_level_colors)
-	} else if (tolower(name) == "trend") {
-		return(trend_level_colors)
-	} else if (tolower(name) == "lab") {
-		return(lab_colors)
-	} else {
-		print(paste0("Problem with watchPal! name is ", name, sep=""))
-		return(default_colors)
-	}
-}
-
-# watch_colors <- list(
-# 	Trend = trend_level_colors, 
-# 	Abundance = abundance_level_colors
-# )
-# 
-# 
-# watch_palettes <- function(name, n, all_palettes = watch_colors, type = c("discrete", "continuous")) {
-#   palette <- all_palettes[[name]]
-#   if (missing(n)) {
-#     n = length(palette)
-#   }
-#   type = match.arg(type)
-#   out = switch(type,
-#                continuous = grDevices::colorRampPalette(palette)(n),
-#                discrete = palette[1:n]
-#   )
-#   structure(out, name = name, class = "palette")
-# }
-# 
-# 
-# scale_color_watch_d <- function(name) {
-# 	ggplot2::scale_color_manual(values = watch_palettes(name, type = "discrete"))
-# }
-# scale_colour_watch_d = scale_color_watch_d
-# 
-# scale_fill_watch_d <- function(name) {
-# 	ggplot2::scale_fill_manual(values = watch_palettes(name, type = "discrete"))
-# }
-
 

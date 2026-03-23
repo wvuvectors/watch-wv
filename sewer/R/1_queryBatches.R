@@ -1,35 +1,20 @@
 #! /usr/bin/env Rscript --vanilla
 
-library(tidyverse)
-library(dplyr)
-library(data.table)
-library(DT)
-library(zoo)
-library(rlang)
-library(glue)
-
-library(readxl)
-
-library(scales)
-library(lubridate)
+source("addins/sewer_version.R")
+source("addins/sewer_libs.R")
+source("addins/base_vars.R")
+source("addins/base_functions.R")
+source("addins/sewer_sources.R")
 
 
-excel2df <- function(fname) { 
-  
-  # getting info about all excel sheets
-  sheets <- readxl::excel_sheets(fname)
-  tibble <- lapply(sheets, function(x) readxl::read_excel(fname, sheet = x))
-  data_frame <- lapply(tibble, as.data.frame)
-  
-  # assigning names to data frames
-  names(data_frame) <- sheets
-  
-  # return the data frame
-  data_frame
-} 
+# Accepts a set of 3 directory paths on STDIN:
+#   1. INDIR contains the lab data files to query for new batch data. The sub-folders of 
+# 		 INDIR are hard-coded in the map_df dataframe in this script.
+#		2. OUTDIR is a path to the directory where the update will be written.
+# 	3. DBDIR is the path to the latest version of the data. This is only used to check 
+# 		 which batches are new in INDIR.
+# Arguments must be passed in the above order to this script.
 
-#The update (output), database, and input dirs are passed on STDIN. The sub-folders of the 
-# input dir are hard-coded in the map_df dataframe.
 f <- file("stdin")
 open(f)
 while(length(line <- readLines(f, n = 1)) > 0) {
@@ -37,10 +22,10 @@ while(length(line <- readLines(f, n = 1)) > 0) {
 }
 close(f)
 
-#fpaths <- c("../patchr/tmp", "../patchr/data/latest", "/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR")
-UPDIR <- fpaths[1]
-DBDIR <- fpaths[2]
-INDIR <- fpaths[3]
+#fpaths <- c("/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR", "../sewer/tmp", "../sewer/data/latest")
+INDIR <- fpaths[1]
+OUTDIR <- fpaths[2]
+DBDIR <- fpaths[3]
 
 # A map of file name labels to folder names.
 map_df <- data.frame(

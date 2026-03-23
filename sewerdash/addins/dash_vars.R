@@ -1,4 +1,4 @@
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
+TARGETS <- c("SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
 DISEASES <- c("COVID", "FluA", "FluB", "RSV")
 DISEASE_LABELS <- c("COVID", "Influenza A", "Influenza B", "RSV")
 

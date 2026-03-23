@@ -1,22 +1,10 @@
 #! /usr/bin/env Rscript
 
-library(tidyverse)
-library(dplyr)
-library(data.table)
-library(DT)
-library(zoo)
-library(rlang)
-library(glue)
-library(readxl)
-library(scales)
-library(lubridate)
-library(rstatix)
-
-get_LTcoefs <- function(window_data) {
-  # window_data is a data frame slice
-  model <- lm(mean_abundance ~ epi_date, data = as.data.frame(window_data))
-  return(coef(model))
-}
+source("addins/sewer_version.R")
+source("addins/sewer_libs.R")
+source("addins/base_vars.R")
+source("addins/base_functions.R")
+source("addins/sewer_sources.R")
 
 # We use a ratio of the most recent X samples compared to the most recent Y samples. 
 # X is set by the ABUND_ALERT_WINDOW variable and Y by the ABUND_ALERT_WINDOW_BASIS variable.
@@ -29,24 +17,14 @@ ABUND_RESPONSE_THRESHOLD <- 0.05	# Mean abundance values below this threshold (f
 #
 TREND_ALERT_WINDOW <- 4						# Number of consecutive samples to use in trend calculations.
 
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
-GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
-
-WVD_BASE <- "../dashboard/data"
-WVU_RESULTS_F <- paste(WVD_BASE, "/wvu.result_tagged.txt", sep="")
-MU_RESULTS_F <- paste(WVD_BASE, "/mu.result_tagged.txt", sep="")
-ALL_RESOURCE_F <- paste(WVD_BASE, "/watchdb.all_tables.xlsx", sep="")
-WVD_THRESHOLDS_F <- paste(WVD_BASE, "/wvdash.thresholds.txt", sep="")
-
-
 # Load data files.
-df_pcr_wvu <- as.data.frame(read.table(WVU_RESULTS_F, sep="\t", header=TRUE, check.names=FALSE))
+df_pcr_wvu <- as.data.frame(read.table(SEWER_RESULTS_F, sep="\t", header=TRUE, check.names=FALSE))
 df_pcr_mu <- as.data.frame(read.table(MU_RESULTS_F, sep="\t", header=TRUE, check.names=FALSE))
 df_pcr <- rbind(df_pcr_wvu, df_pcr_mu)
-df_res_loc <- as.data.frame(read_excel(ALL_RESOURCE_F, sheet = "location"))
+df_res_loc <- as.data.frame(read_excel(SEWER_RESOURCE_F, sheet = "location"))
 df_active_loc <- df_res_loc %>% filter(tolower(location_status) == "active")
 
-df_thresholds <- as.data.frame(read.table(WVD_THRESHOLDS_F, sep="\t", header=TRUE, check.names=FALSE))
+df_thresholds <- as.data.frame(read.table(SEWER_THRESHOLDS_F, sep="\t", header=TRUE, check.names=FALSE))
 
 
 #

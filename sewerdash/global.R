@@ -1,10 +1,11 @@
-source("addins/baselib.R")
-source("addins/basevar.R")
-source("addins/basefun.R")
+source("addins/base_vars.R")
+source("addins/base_functions.R")
 
-source("addins/version.R")
-source("addins/dbsources.R")
-
+source("addins/dash_version.R")
+source("addins/dash_libs.R")
+source("addins/dash_vars.R")
+source("addins/dash_functions.R")
+source("addins/dash_sources.R")
 
 
 # color palette is ggthemes$calc

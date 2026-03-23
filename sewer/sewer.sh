@@ -32,7 +32,7 @@ fi
 
 if [ -z "$DBDIR" ]; then
 	echo "WARN : no data output directory provided (-o). Using the default directory:"
-	echo "WARN : watch-wv/patchr/data/"
+	echo "WARN : watch-wv/sewer/data/"
 	DBDIR="data"
 fi
 
@@ -76,7 +76,7 @@ mkdir "$UPDIR/batches"
 
 
 # Write all output to log file in the update dir.
-logf="$UPDIR/patchr.$START.log"
+logf="$UPDIR/sewer.$START.log"
 if [ -f "$logf" ]
 then
 	rm "$logf"
@@ -84,7 +84,8 @@ fi
 
 touch "$logf"
 echo "#############################################" | tee -a "$logf"
-echo "Initiated patchr.sh" | tee -a "$logf"
+echo "SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response." | tee -a "$logf"
+echo "Initiated from sewer.sh." | tee -a "$logf"
 echo "$START" | tee -a "$logf"
 echo "" | tee -a "$logf"
 echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
@@ -104,9 +105,9 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "1_queryBatches.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "1_queryBatches.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR $DBDIR/latest $INDIR" | tee -a "$logf"
-	echo "patchr aborted during phase 1 (batch identification)." | tee -a "$logf"
+	echo "sewer aborted during phase 1 (batch identification)." | tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "" | tee -a "$logf"
 	exit 1
@@ -115,9 +116,9 @@ fi
 if [ $num2proc == 0 ]
 then
 	echo "1_queryBatches.R found no new batches in $INDIR." | tee -a "$logf"
-	echo "As a result, there is nothing for patchr to do at this time." | tee -a "$logf"
+	echo "As a result, there is nothing for sewer to do at this time." | tee -a "$logf"
 	echo "******" | tee -a "$logf"
-	echo "All done. patchr run of $START will now exit, having done nothing."
+	echo "All done. sewer run of $START will now exit, having done nothing."
 	echo "******" | tee -a "$logf"
 	exit 1
 fi
@@ -142,7 +143,7 @@ else
 	echo "!!!!!!!!" | tee -a "$logf"
 	echo "Unable to locate a samples file from AssetTiger in the input dir:" | tee -a "$logf"
 	echo "$INDIR/0 SAMPLES/AssetTagReport.csv" | tee -a "$logf"
-	echo "patchr aborted during phase 1 (no AssetTiger input file)." | tee -a "$logf"
+	echo "sewer aborted during phase 1 (no AssetTiger input file)." | tee -a "$logf"
 	echo "It is possible the file was renamed or moved. "| tee -a "$logf"
 	echo "It is also possible that I do not have permission to access this file. "| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
@@ -205,11 +206,23 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "2a_compileCPLATES.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "2a_compileCPLATES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
-	echo "patchr aborted during phase 2a (CPLATE update compilation)." | tee -a "$logf"
+	echo "sewer aborted during phase 2a (CPLATE update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "Then fix the error(s) and run sewer again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "" | tee -a "$logf"
+if [[ $c_count < 0 ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "FATAL: At least one row of concentration data is missing required data." | tee -a "$logf"
+	echo "FATAL: This has caused sewer to abort." | tee -a "$logf"
+	echo "FATAL: Check the validation_key column in $UPDIR/update.concentration.txt and $UPDIR/update.cbatch.txt." | tee -a "$logf"
+	echo "FATAL: Fix the error(s) and run sewer again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -224,11 +237,23 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "2b_compileEPLATES.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "2b_compileEPLATES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
-	echo "patchr aborted during phase 2b (EPLATE update compilation)." | tee -a "$logf"
+	echo "sewer aborted during phase 2b (EPLATE update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "Then fix the error(s) and run sewer again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "" | tee -a "$logf"
+if [[ $e_count < 0 ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "FATAL: At least one row of extraction data is missing required data." | tee -a "$logf"
+	echo "FATAL: This has caused sewer to abort." | tee -a "$logf"
+	echo "FATAL: Check the validation_key column in $UPDIR/update.extraction.txt and $UPDIR/update.ebatch.txt." | tee -a "$logf"
+	echo "FATAL: Fix the error(s) and run sewer again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -243,11 +268,23 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "2c_compileAPLATES.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "2c_compileAPLATES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
-	echo "patchr aborted during phase 2c (APLATE update compilation)." | tee -a "$logf"
+	echo "sewer aborted during phase 2c (APLATE update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "Then fix the error(s) and run sewer again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "" | tee -a "$logf"
+if [[ $a_count < 0 ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "FATAL: At least one row of assay data is missing required data." | tee -a "$logf"
+	echo "FATAL: This has caused sewer to abort." | tee -a "$logf"
+	echo "FATAL: Check the validation_key column in $UPDIR/update.assay.txt and $UPDIR/update.abatch.txt." | tee -a "$logf"
+	echo "FATAL: Fix the error(s) and run sewer again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -262,11 +299,23 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "2d_compileSAMPLES.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "2d_compileSAMPLES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
-	echo "patchr aborted during phase 2d (SAMPLE update compilation)." | tee -a "$logf"
+	echo "sewer aborted during phase 2d (SAMPLE update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
-	echo "Then fix the error(s) and run patchr again."| tee -a "$logf"
+	echo "Then fix the error(s) and run sewer again."| tee -a "$logf"
+	echo "!!!!!!!!" | tee -a "$logf"
+	exit 1
+fi
+
+echo "" | tee -a "$logf"
+if [[ $s_count < 0 ]]
+then
+	echo "!!!!!!!!" | tee -a "$logf"
+	echo "FATAL: At least one row of sample data is missing required data." | tee -a "$logf"
+	echo "FATAL: This has caused sewer to abort." | tee -a "$logf"
+	echo "FATAL: Check the validation_key column in $UPDIR/update.sample.txt." | tee -a "$logf"
+	echo "FATAL: Fix the error(s) and run sewer again."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -281,6 +330,11 @@ echo "   $s_count new samples;" | tee -a "$logf"
 echo "   $c_count new concentrations;" | tee -a "$logf"
 echo "   $e_count new extractions;" | tee -a "$logf"
 echo "   $a_count new assays." | tee -a "$logf"
+
+
+#
+# VALIDATE!
+#
 
 
 echo "" | tee -a "$logf"
@@ -335,11 +389,11 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "3_validateUpdate.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "3_validateUpdate.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR $DBDIR/incremental/$START" | tee -a "$logf"
-	echo "patchr aborted during phase 3 (update validation)." | tee -a "$logf"
+	echo "sewer aborted during phase 3 (update validation)." | tee -a "$logf"
 	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
-	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
+	echo "address the errors, and run sewer again from the start."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -359,11 +413,11 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "4_applyUpdate.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "4_applyUpdate.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR $DBDIR/incremental/$START" | tee -a "$logf"
-	echo "patchr aborted during phase 4 (applying the update to the incremental version)." | tee -a "$logf"
+	echo "sewer aborted during phase 4 (applying the update to the incremental version)." | tee -a "$logf"
 	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
-	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
+	echo "address the errors, and run sewer again from the start."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -389,11 +443,11 @@ echo "" | tee -a "$logf"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "5_generateResults.R exited with error code $status and caused patchr to abort." | tee -a "$logf"
+	echo "5_generateResults.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $DBDIR/incremental/$START" | tee -a "$logf"
-	echo "patchr aborted during phase 5 (generating the results table)." | tee -a "$logf"
+	echo "sewer aborted during phase 5 (generating the results table)." | tee -a "$logf"
 	echo "The safest route to recovery is to check the run logs, then delete $UPDIR and $DBDIR/incremental/$START, " | tee -a "$logf"
-	echo "address the errors, and run patchr again from the start."| tee -a "$logf"
+	echo "address the errors, and run sewer again from the start."| tee -a "$logf"
 	echo "!!!!!!!!" | tee -a "$logf"
 	exit 1
 fi
@@ -441,6 +495,6 @@ echo "$DBDIR/latest_bk/ contains the data from immediately before this update wa
 echo "" | tee -a "$logf"
 
 
-echo "All done! patchr run of $START will now exit." | tee -a "$logf"
+echo "All done! sewer run of $START will now exit." | tee -a "$logf"
 echo "" | tee -a "$logf"
 

@@ -1,19 +1,10 @@
 #! /usr/bin/env Rscript
 
-library(tidyverse)
-library(dplyr)
-library(data.table)
-library(DT)
-library(zoo)
-library(rlang)
-library(glue)
-library(readxl)
-library(scales)
-library(lubridate)
-library(rstatix)
-
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A (FluA)", "Influenza Virus B (FluB)", "Respiratory Syncitial Virus, Human (RSV)")
-GENLOCI <- c("SC2", "N2", "M", "NEP/NS1", "G")
+source("addins/sewer_version.R")
+source("addins/sewer_libs.R")
+source("addins/base_vars.R")
+source("addins/base_functions.R")
+source("addins/sewer_sources.R")
 
 # Load data files.
 df_res_loc <- as.data.frame(read_excel(file("stdin"), sheet = "location"))
