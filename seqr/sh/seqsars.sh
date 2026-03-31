@@ -34,7 +34,7 @@ fail() {
 START=$(date "+%F_%H-%M")
 log "Starting SEQSARS run at $START"
 
-while getopts ":hi:r:b:g:o:" opt; do
+while getopts ":hi:r:b:g:m:o:" opt; do
 	case $opt in
 		h)
 			echo "help not available."
@@ -184,6 +184,7 @@ mkdir -p "$outDIR/9_SRA"
 # Adding run files
 log "Adding run metadata files to 0_RUN_FILES directory"
 
+# Copy PDF/XLSX files
 shopt -u failglob
 run_files=( "$metaDIR"/*.pdf "$metaDIR"/*.xlsx )
 shopt -s failglob
@@ -193,6 +194,14 @@ if (( ${#run_files[@]} > 0 )); then
 	log "Copied ${#run_files[@]} run metadata files"
 else 
 	log "No PDF or XLSX run files found in $metaDIR"
+fi
+
+# Copy fastq_pass directory
+if [[ -d "$runDIR" ]]; then
+    cp -r "$runDIR" "$outDIR/0_RUN_FILES/fastq_pass"
+    log "Copied fastq_pass directory: $runDIR"
+else
+    log "Run directory not found: $runDIR"
 fi
 
 # Barcode discovery
@@ -248,7 +257,7 @@ for bcDir in "${barcode_dirs[@]}"; do
 	#
 	log "Running FastQC on raw files"
 	conda_activate "seqr_fastqc" || fail "Failed to activate conda env: seqr_fastqc"
-	export _JAVA_OPTIONS="-Xmx2g"
+	export _JAVA_OPTIONS="-Xmx64g"
 	fastqc -o "$outDIR/3_QC1_RESULTS/" "$concat_fastq"
 	conda_deactivate
 	
