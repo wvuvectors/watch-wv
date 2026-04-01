@@ -55,7 +55,7 @@ shinyUI(fluidPage(
 						column(12,
 							div(
 								textOutput("selection_details_covid"), 
-								style="font-size: 13px;font-weight: 400;text-align: center;padding-bottom: 3px;"
+								style="font-size: 14px;font-weight: 400;text-align: center;padding-bottom: 3px;"
 							)
 						)	# column
 					), # fluidRow (selection info)
@@ -190,7 +190,7 @@ shinyUI(fluidPage(
 						column(12,
 							div(
 								textOutput("selection_details_flua"), 
-								style="font-size: 13px;font-weight: 400;text-align: center;padding-bottom: 3px;"
+								style="font-size: 14px;font-weight: 400;text-align: center;padding-bottom: 3px;"
 							)
 						)	# column
 					), # fluidRow (selection info)
@@ -325,7 +325,7 @@ shinyUI(fluidPage(
 						column(12,
 							div(
 								textOutput("selection_details_flub"), 
-								style="font-size: 13px;font-weight: 400;text-align: center;padding-bottom: 3px;"
+								style="font-size: 14px;font-weight: 400;text-align: center;padding-bottom: 3px;"
 							)
 						)	# column
 					), # fluidRow (selection info)
@@ -460,7 +460,7 @@ shinyUI(fluidPage(
 						column(12,
 							div(
 								textOutput("selection_details_rsv"), 
-								style="font-size: 13px;font-weight: 400;text-align: center;padding-bottom: 3px;"
+								style="font-size: 14px;font-weight: 400;text-align: center;padding-bottom: 3px;"
 							)
 						)	# column
 					), # fluidRow (selection info)

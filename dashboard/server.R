@@ -757,15 +757,9 @@ shinyServer(function(input, output, session) {
 			all_facilities <- length(unique(df_countyfacs$location_id))
 		}
 		
-		if (num_facilities > 1) {
-			site_suffix <- "sites"
-		} else {
-			site_suffix <- "site"
-		}
 		this_completeness <- paste0(
-			"It includes samples from ", num_facilities, " reporting ", site_suffix, " (", 
-			prettyNum(100*(num_facilities/all_facilities), digits=1), "% of ", this_region, " participants).", 
-			sep="")
+			"It includes samples from ", num_facilities, " of ", all_facilities, " reporting facilities (", 
+			prettyNum(100*(num_facilities/all_facilities), digits=1), "%).", sep="")
 		
 		text2print <- paste0(this_freshness, this_completeness, sep = "")
 
