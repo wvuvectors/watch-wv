@@ -3,7 +3,10 @@ import sys
 import os
 
 demix_dir = sys.argv[1]
-barcodes = sys.argv[2:]
+demix_files = [
+    f for f in os.listdir(demix_dir)
+    if f.startswith("demix_") and "barcode" in f
+]
 
 summary_file = os.path.join(demix_dir, "demix_summary.txt")
 
@@ -42,20 +45,14 @@ def parse_demix_file(filepath, barcode):
     return list(zip(lineages, abundances))
 
 with open(summary_file, "a") as out:
-    for barcode in barcodes:
-        # Find matching demix file
-        matches = [
-            f for f in os.listdir(demix_dir)
-            if f.startswith("demix_") and f.endswith(f"barcode{barcode}")
-        ]
-
-        if not matches:
-            print(f"[WARN] No demix file found for barcode {barcode}")
-            continue
-
-        demix_file = os.path.join(demix_dir, matches[0])
+    for filename in demix_files:
+        barcode = filename.split("barcode")[-1]
+        demix_file = os.path.join(demix_dir, filename)
 
         results = parse_demix_file(demix_file, barcode)
+
+        if results is None:
+            continue
 
         for lineage, abundance in results:
             out.write(f"{barcode}\t{lineage}\t{abundance}\n")

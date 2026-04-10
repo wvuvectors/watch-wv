@@ -365,5 +365,17 @@ for bcDir in "${barcode_dirs[@]}"; do
 done
 
 log "SEQSARS completed successfully for run $runID"
+
+# Parse demix outputs
+log "Starting demix parsing step"
+
+conda_activate "seqr_freyja" || fail "Failed to activate seqr_freyja for parsing"
+
+python parse_demix.py "$outDIR/7_DEMIX"
+
+conda deactivate
+
+log "Demix parsing complete"
+
 exit 0
 
