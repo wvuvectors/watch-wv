@@ -35,14 +35,21 @@ WVD_BASE <- "../dashboard/data"
 WVD_THRESHOLDS_F <- paste(WVD_BASE, "/wvdash.thresholds.txt", sep="")
 
 # Load data files.
+print("Loading WVU data.")
 df_pcr_wvu <- as.data.frame(read.table(WVU_RESULTS_F, sep="\t", header=TRUE, check.names=FALSE))
+print("Done.")
+print("Loading MU data.")
 df_pcr_mu <- as.data.frame(read.table(MU_RESULTS_F, sep="\t", header=TRUE, check.names=FALSE))
 df_pcr <- rbind(df_pcr_wvu, df_pcr_mu)
 
+print("Loading resources.")
 df_res_loc <- as.data.frame(read_excel(ALL_RESOURCE_F, sheet = "location"))
+print("Done.")
 df_active_loc <- df_res_loc %>% filter(tolower(location_status) == "active")
 
+print("Loading thresholds.")
 df_thresholds <- as.data.frame(read.table(WVD_THRESHOLDS_F, sep="\t", header=TRUE, check.names=FALSE))
+print("Done.")
 
 #
 # Dates, dates, dates.
