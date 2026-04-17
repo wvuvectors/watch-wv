@@ -516,7 +516,7 @@ sub procBatchMetadata {
 			$val = $datetime->mdy('/');
 		}
 		$key =~ s/ /_/gi;
-		$key = "${btype}_$key";
+		$key = "${btype}_$key" unless index("$key", "$btype") == 0;
 		if (scalar @dyes > 0) {
 			$local_fluoro{$dyes[-1]} = {} unless defined $local_fluoro{$dyes[-1]};
 			$local_fluoro{$dyes[-1]}->{"$key"} = "$val";

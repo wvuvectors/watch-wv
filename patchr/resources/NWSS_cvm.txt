@@ -1,12 +1,12 @@
 nwss_field	watch_table	watch_field	watch_value	nwss_value
 pcr_target	assay	assay_target	SARS-CoV-2	sars-cov-2
-pcr_target	assay	assay_target	MPXV I	hMPXV Clade I
-pcr_target	assay	assay_target	MPXV II	hMPXV Clade II
-pcr_target	assay	assay_target	HuNoV-GI	NoV GI
-pcr_target	assay	assay_target	HuNoV-GII	NoV GII
-pcr_target	assay	assay_target	Influenza Virus A (FluA)	FLUAV
-pcr_target	assay	assay_target	Influenza Virus B (FluB)	FLUBV
-pcr_target	assay	assay_target	Respiratory Syncitial Virus, Human (RSV)	RSV
+pcr_target	assay	assay_target	Mpox Virus Clade I	hMPXV Clade I
+pcr_target	assay	assay_target	Mpox Virus Clade II	hMPXV Clade II
+pcr_target	assay	assay_target	Norovirus GI, Human	NoV GI
+pcr_target	assay	assay_target	Norovirus GII, Human	NoV GII
+pcr_target	assay	assay_target	Influenza Virus A	FLUAV
+pcr_target	assay	assay_target	Influenza Virus B	FLUBV
+pcr_target	assay	assay_target	Respiratory Syncitial Virus, Human	RSV
 pcr_gene_target	assay	assay_target_genetic_locus	N1	n1
 pcr_gene_target	assay	assay_target_genetic_locus	N2	n2
 pcr_gene_target	assay	assay_target_genetic_locus	SC2	n
