@@ -3,10 +3,13 @@ import sys
 import os
 
 demix_dir = sys.argv[1]
-demix_files = [
-    f for f in os.listdir(demix_dir)
-    if f.startswith("demix_") and "barcode" in f
-]
+demix_files = sorted(
+    [
+        f for f in os.listdir(demix_dir)
+        if f.startswith("demix_") and "barcode" in f
+    ],
+    key=lambda x: int(x.split("barcode")[-1])
+)
 
 summary_file = os.path.join(demix_dir, "demix_summary.txt")
 
