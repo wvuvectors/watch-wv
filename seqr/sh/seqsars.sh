@@ -1,18 +1,44 @@
 #!/bin/bash
 
+# SEQSARS guarded execution verion
 #
 # This script runs freyja analysis on barcoded COVID sequencing data from the ONT platform.
 # It is generally called from an HPC scheduler script, but it can also be run separately.
 # If you want to run this on your laptop, be warned that the processing requirements are not trivial.
 #
 
-START=$(date "+%F_%H-%M")
+#
+# Fail immediately on:
+# - unset variables
+# - non-zero exit codes
+# - failures inside pipes
+set -Eeuo pipefail
 
-while getopts ":hi:r:b:g:o:" opt; do
+# Better glob handling
+shopt -s nullglob
+shopt -s failglob
+
+# Helpful error reporting
+trap 'echo "[FATAL] Error on line $LINENO: $BASH_COMMAND" >&2' ERR
+
+# Logging 
+log() {
+    echo "[$(date '+%F %T')] $*"
+}
+
+fail() {
+    echo "[FATAL] $*" >&2
+    exit 1
+}
+
+START=$(date "+%F_%H-%M")
+log "Starting SEQSARS run at $START"
+
+while getopts ":hi:r:b:g:m:o:" opt; do
 	case $opt in
 		h)
 			echo "help not available."
-			exit 1
+			exit 0
 			;;
 		i)
 			runDIR=$OPTARG
@@ -26,6 +52,9 @@ while getopts ":hi:r:b:g:o:" opt; do
 		g)
 			refGenomeFILE=$OPTARG
 			;;
+		m)
+			metaDIR=$OPTARG
+			;;
 		o)
 			outDIR=$OPTARG
 			;;
@@ -33,12 +62,10 @@ while getopts ":hi:r:b:g:o:" opt; do
 # 			condaDIR=$OPTARG
 # 			;;
 		\?)
-			echo "Invalid option: -$OPTARG" >&2
-			exit 1
+			fail "Invalid option: -$OPTARG"
 			;;
 		:)
-			echo "Option -$OPTARG requires an argument." >&2
-			exit 1
+			fail "Option -$OPTARG requires an argument."
 			;;
 	esac
 done
@@ -53,6 +80,12 @@ if [ -z "$runDIR" ]; then
 	exit 1
 fi
 
+if [ -z "$metaDIR" ]; then
+	echo "You have not provided a custom meta directory (-m)."
+	echo "This is usually the parent folder that contains the sample spreadsheet and screentape pdf."
+	echo "This is a required parameter with no default, so I'm force to quit immediately. Sorry."
+	exit 1
+fi
 
 # Required parameters for which I can try to provide a default value.
 #
@@ -111,89 +144,238 @@ if [[ "$outDIR" == "output/$runID" ]]; then
 	echo ""
 fi
 
+# Checking tool availability
+#log "Checking required tools in PATH"
+#for tool in minimap2 samtools fastqc trimmomatic freyja; do
+#    command -v "$tool" >/dev/null || fail "Required tool not found in PATH: $tool"
+#done 
+
+# Conda setup (specific to my scratch drive, should be updated before merging with main branch)
+source /shared/software/conda/etc/profile.d/conda.sh || fail "Could not find conda.sh; Conda not initialized"
+conda_activate() {
+	set +u
+	conda activate "$1"
+	set -u 
+}
+
+conda_deactivate() {
+	set +u 
+	conda deactivate
+	set -u 
+}
 
 # Create the output directory if it doesn't already exist.
+log "Creating output directory structure in $outDIR"
 if [ ! -d "$outDIR" ]; then
 	mkdir "$outDIR"
 fi
 
-mkdir "$outDIR/0 RUN_FILES"
-mkdir "$outDIR/1 BASECALLING"
-mkdir "$outDIR/2 FQ_CONCAT"
-mkdir "$outDIR/3 QC1_RESULTS"
-mkdir "$outDIR/4 FQ_CHECKED"
-mkdir "$outDIR/5 QC2_RESULTS"
-mkdir "$outDIR/6 MAPPED"
-mkdir "$outDIR/7 DEMIX"
-mkdir "$outDIR/8 DASHBOARD"
-mkdir "$outDIR/9 SRA"
+mkdir -p "$outDIR/0_RUN_FILES"
+mkdir -p "$outDIR/1_BASECALLING"
+mkdir -p "$outDIR/2_FQ_CONCAT"
+mkdir -p "$outDIR/3_QC1_RESULTS"
+mkdir -p "$outDIR/4_FQ_CHECKED"
+mkdir -p "$outDIR/5_QC2_RESULTS"
+mkdir -p "$outDIR/6_MAPPED"
+mkdir -p "$outDIR/7_DEMIX"
+mkdir -p "$outDIR/8_DASHBOARD"
+mkdir -p "$outDIR/9_SRA"
 
+# Adding run files
+log "Adding run metadata files to 0_RUN_FILES directory"
 
-for bcDir in "$runDIR/fastq_pass/barcode*"; do
-	# Extract the barcode id to a variable $barcode.
-	if [[ $bcDir =~ barcode(\d+) ]]; then
+# Copy PDF/XLSX files
+shopt -u failglob
+run_files=( "$metaDIR"/*.pdf "$metaDIR"/*.xlsx )
+shopt -s failglob
+
+if (( ${#run_files[@]} > 0 )); then
+	cp "${run_files[@]}" "$outDIR/0_RUN_FILES/"
+	log "Copied ${#run_files[@]} run metadata files"
+else 
+	log "No PDF or XLSX run files found in $metaDIR"
+fi
+
+# Copy fastq_pass directory
+if [[ -d "$runDIR" ]]; then
+    cp -r "$runDIR" "$outDIR/0_RUN_FILES/fastq_pass"
+    log "Copied fastq_pass directory: $runDIR"
+else
+    log "Run directory not found: $runDIR"
+fi
+
+# Barcode discovery
+log "Discovering barcode directories"
+barcode_dirs=( "$runDIR/fastq_pass"/barcode* )
+(( ${#barcode_dirs[@]} > 0 )) || fail "No barcode directories found in $runDIR/fastq_pass"
+
+# Main loop
+for bcDir in "${barcode_dirs[@]}"; do
+	[[ -d "$bcDir" ]] || continue 
+	
+	log "Processing barcode directory: $bcDir" 
+	bcBase=$(basename "$bcDir")
+	bcBase="${bcBase//$'\r'/}"  # remove any carriage return characters
+	log " Found $bcBase"
+	
+	# Extract the barcode id to a variable $barcode. 
+	if [[ $bcBase =~ barcode([0-9]+) ]]; then
 		barcode=${BASH_REMATCH[1]}
 		barcode2d="$barcode"
-		
-		# Deal with a leading zero on the barcode number.
-		if [[ $barcode =~ 0(\d) ]]; then
-			barcode=${BASH_REMATCH[1]}
-		fi
-
-		# Concatenate all the fastq.gz files into one file.
-		#
-		ls "$runDIR/fastq_pass/$bcDir/*.fastq.gz" | xargs cat > "$outdir/2 FQ_CONCAT/$bcDir.fastq.gz"
-
-
-		# Run fastqc on the original file.
-		#
-		conda activate "seqr_fastqc"
-		fastqc -o "$outDIR/3 QC1_RESULTS/" "$outdir/2 FQ_CONCAT/$bcDir.fastq.gz"
-		conda deactivate
-
-		
-		# Trim the reads in the concatenated fastq file. These are specific for COVID sequencing:
-		# Remove the first 9 bases, and exclude any reads with length > 600nt.
-		#
-		conda activate "seqr_general"
-		trimmomatic SE -phred64 "$outdir/2 FQ_CONCAT/${runID}_$bcDir.fastq.gz" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" HEADCROP:9 MINLEN:250
-		conda deactivate 
-		
-
-		# Run fastqc on the trimmed file.
-		#
-		conda activate "seqr_fastqc"
-		fastqc -o "$outDIR/5 QC2_RESULTS/" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz"
-		conda deactivate
-
-		
-		# Map the reads to the reference genome.
-		#
-		conda activate "seqr_general"
-		minimap2 -ax map-ont "$refGenomeFILE" "$outdir/4 FQ_CHECKED/${runID}_${bcDir}_tr.fastq.gz" > "$outdir/6 MAPPED/${runID}_${bcDir}_tr.sam"
-		
-		
-		# Convert to bam (binary sam), index, and write out some mapping statistics.
-		#
-		samtools view -b "$outdir/6 MAPPED/${runID}_${bcDir}_tr.sam" > "$outdir/6 MAPPED/${runID}_${bcDir}_tr.bam"
-		samtools sort "$outdir/6 MAPPED/${runID}_${bcDir}_tr.bam" > "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"
-		samtools index "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"	# Creates a file ${runID}_${bcDir}_trso.bam.bai
-				
-		samtools stats "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam" > "$outdir/6 MAPPED/${runID}_${bcDir}_trso.mapstats.txt"
-		samtools idxstats "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam" > "$outdir/6 MAPPED/${runID}_${bcDir}_trso.idxmapstats.txt"
-				
-		conda deactivate
-
-
-		# Run freyja to identify SARS-CoV-2 variants.
-		#
-		conda activate "seqr_freyja"
-		freyja variants --variants "$outdir/7 DEMIX/variants_${runID}_${bcDir}" --depths "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --ref "$refGenomeFILE" "$outdir/6 MAPPED/${runID}_${bcDir}_trso.bam"
-		freyja demix "$outdir/7 DEMIX/variants_${runID}_${bcDir}.tsv" "$outdir/7 DEMIX/depths_${runID}_${bcDir}" --output "$outdir/7 DEMIX/demix_${runID}_${bcDir}" --barcodes "$usher_barcodesFILE"
-		conda deactivate 
-
+	else 
+		fail "Unexpected barcode directory name: $bcBase"
+	fi 
+	
+	# Deal with a leading zero on the barcode number.
+	if [[ $barcode =~ ^0([0-9]+)$ ]]; then
+		barcode=${BASH_REMATCH[1]}
 	fi
+	
+	# Paths for concatenated and trimmed FASTQ
+	concat_fastq="$outDIR/2_FQ_CONCAT/$bcBase.fastq.gz"
+	trimmed_fastq="$outDIR/4_FQ_CHECKED/${runID}_${bcBase}_tr.fastq.gz"
+	
+	# Check that FASTQ files exist before concatenation
+	fastq_files=( "$bcDir"/*.fastq.gz )
+	(( ${#fastq_files[@]} > 0 )) || fail "No FASTQ files found in $bcDir"
+
+	# Concatenate all the fastq.gz files into one file.
+	#
+	log "Concatenating FASTQs for barcode $barcode2d"
+	
+	# Input FASTQs
+	fastq_files=( "$bcDir"/*.fastq.gz )
+	(( ${#fastq_files[@]} > 0 )) || fail "No FASTQ files found in $bcDir"
+	
+	# Output file 
+	concat_fastq="$outDIR/2_FQ_CONCAT/$bcBase.fastq.gz"
+	
+	cat "${fastq_files[@]}" > "$concat_fastq"
+
+
+	# Run fastqc on the original file.
+	#
+	log "Running FastQC on raw files"
+	conda_activate "seqr_fastqc" || fail "Failed to activate conda env: seqr_fastqc"
+	export _JAVA_OPTIONS="-Xmx64g"
+	fastqc -o "$outDIR/3_QC1_RESULTS/" "$concat_fastq"
+	conda_deactivate
+	
+		
+	# Trim the reads in the concatenated fastq file. These are specific for COVID sequencing:
+	# Remove the first 9 bases, and exclude any reads with length > 600nt.
+	#
+	log "Trimming reads"
+	conda_activate "seqr_general" || fail "Failed to activate conda env: seqr_general"
+	trimmed_fastq="$outDIR/4_FQ_CHECKED/${runID}_${bcBase}_tr.fastq.gz"
+	trimmomatic SE -phred64 "$concat_fastq" "$trimmed_fastq" HEADCROP:9 MINLEN:250
+	conda_deactivate 
+		
+
+	# Run fastqc on the trimmed file.
+	#
+	log "Running FASTQC on trimmed files"
+	conda_activate "seqr_fastqc" || fail "Failed to activate conda env: seqr_fastqc"
+	fastqc -o "$outDIR/5_QC2_RESULTS/" "$trimmed_fastq"
+	conda_deactivate
+
+	
+	# Map the reads to the reference genome.
+	#
+	log "Mapping reads"
+	conda_activate "seqr_general" || fail "Failed to activate conda env: seqr_general"
+	sam="$outDIR/6_MAPPED/${runID}_${bcBase}_tr.sam"
+	bam="$outDIR/6_MAPPED/${runID}_${bcBase}_tr.bam"
+	bam_sorted="$outDIR/6_MAPPED/${runID}_${bcBase}_trso.bam"
+
+	minimap2 -ax map-ont "$refGenomeFILE" "$trimmed_fastq" > "$sam"
+	
+	
+	# Convert to bam (binary sam), index, and write out some mapping statistics.
+	#
+	samtools view -b "$sam" > "$bam"
+	samtools sort "$bam" > "$bam_sorted"
+	samtools index "$bam_sorted"	# Creates a file ${runID}_${bcDir}_trso.bam.bai
+			
+	samtools stats "$bam_sorted" > "$outDIR/6_MAPPED/${runID}_${bcBase}_trso.mapstats.txt"
+	samtools idxstats "$bam_sorted" > "$outDIR/6_MAPPED/${runID}_${bcBase}_trso.idxmapstats.txt"
+			
+	conda_deactivate
+
+
+	# Run freyja to identify SARS-CoV-2 variants.
+	#
+	log "Running freyja demixing"
+	
+	# Defining filenames
+	demix_dir="$outDIR/7_DEMIX"
+	variants_prefix="$demix_dir/variants_${runID}_${bcBase}"
+	depths_file="$demix_dir/depths_${runID}_${bcBase}"
+	demix_out="$demix_dir/demix_${runID}_${bcBase}"
+	bam_file="$outDIR/6_MAPPED/${runID}_${bcBase}_trso.bam"
+	
+	# Ensuring DEMIX directory exists
+	mkdir -p "$demix_dir"
+
+	conda_activate "seqr_freyja" || fail "Failed to activate conda env: seqr_freyja"
+	freyja variants \
+		--variants "$variants_prefix" \
+		--depths "$depths_file" \
+		--ref "$refGenomeFILE" \
+		"$bam_file"
+		
+	# Quality gate before demixing
+	log "Checking coverage quality for $bcBase"
+
+	# 1) Check mapped reads in BAM
+	mapped_reads=$(samtools view -c -F 4 "$bam_file" || echo 0)
+
+	if [[ "$mapped_reads" -lt 5000 ]]; then
+		log "[WARN] Skipping freyja demix for $bcBase: low mapped reads ($mapped_reads)"
+		conda_deactivate
+		continue
+	fi
+
+	# 2) Check depths file exists and is non-empty
+	if [[ ! -s "$depths_file" ]]; then
+		log "[WARN] Skipping freyja demix for $bcBase: empty depths file"
+		conda_deactivate
+		continue
+	fi
+
+	# 3) Check depths file has enough lines
+	min_lines=5000
+	depth_lines=$(wc -l < "$depths_file" || echo 0)
+
+	if [[ "$depth_lines" -lt $min_lines ]]; then
+		log "[WARN] Skipping freyja demix for $bcBase: insufficient depth data ($depth_lines lines)"
+		conda_deactivate
+		continue
+	fi
+	
+	freyja demix \
+		"${variants_prefix}.tsv" \
+		"$depths_file" \
+		--output "$demix_out" \
+		--barcodes "$usher_barcodesFILE"
+	
+	conda_deactivate 
+	
+	log "Completed barcode $barcode2d"
 done
+
+log "SEQSARS completed successfully for run $runID"
+
+# Parse demix outputs
+log "Starting demix parsing step"
+
+conda_activate "seqr_freyja" || fail "Failed to activate seqr_freyja for parsing"
+
+python parse_demix.py "$outDIR/7_DEMIX"
+
+conda deactivate
+
+log "Demix parsing complete"
 
 exit 0
 
