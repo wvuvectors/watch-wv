@@ -256,6 +256,8 @@ foreach my $uid (keys %mu_data) {
 		$prnt .= "100\t0\tNA\tyes\n";
 
 		print "$prnt";
+	} else {
+		warn "MU data hash does not contain a location for $uid!";
 	}
 }
 #close $RFH;
