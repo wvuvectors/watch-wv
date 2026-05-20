@@ -8,6 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Importing router objects for each table router 
 from app.routers.samples import router as samples_router # Import router object directly
 from app.routers.concentration import router as concentration_router
+from app.routers.extractions import router as extractions_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -31,6 +32,7 @@ def root():
 # Include routers 
 app.include_router(samples_router)
 app.include_router(concentration_router)
+app.include_router(extractions_router)
 
 # Mount the frontend directory
 frontend_path = Path(__file__).parent / "static"
