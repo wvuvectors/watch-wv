@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PATCHR Samples Query</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { border-collapse: collapse; width: 90%; margin: 20px auto; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        .controls { width: 90%; margin: 20px auto; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+        input { padding: 6px; font-size: 14px; }
+        button { padding: 6px 12px; font-size: 14px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align:center;">PATCHR Samples Query</h1>
+
+    <!-- Search Controls -->
+    <div class="controls">
+        <label>Sample ID:<input type="text" id="sample_id"></label>
+        <label>Status:<input type="text" id="status"></label>
+        <label>Location ID:<input type="text" id="location_id"></label>
+        <label>Event:<input type="text" id="sample_event"></label>
+        <label>QC:<input type="text" id="qc"></label>
+        <label>Received By:<input type="text" id="received_by"></label>
+        <label>Flow:<input type="number" id="flow" step="0.01"></label>
+        <label>Collection Start:<input type="date" id="collection_start"></label>
+        <label>Collection End:<input type="date" id="collection_end"></label>
+        <label>Recovered Start:<input type="date" id="recovered_start"></label>
+        <label>Recovered End:<input type="date" id="recovered_end"></label>
+        <label>Received Start Date:<input type="date" id="received_start_date"></label>
+        <label>Received End Date:<input type="date" id="received_end_date"></label>
+        <label>Min pH:<input type="number" id="min_ph" step="0.01"></label>
+        <label>Max pH:<input type="number" id="max_ph" step="0.01"></label>
+        <button onclick="searchSamples()">Search</button>
+        <button onclick="loadAllSamples()">Clear</button>
+    </div>
+
+    <!-- Data Table -->
+    <table id="samplesTable">
+        <thead>
+            <tr>
+                <th>Sample ID</th>
+                <th>Status</th>
+                <th>Location ID</th>
+                <th>Event</th>
+                <th>QC</th>
+                <th>Collection Start</th>
+                <th>Collection End</th>
+                <th>Recovered</th>
+                <th>Flow</th>
+                <th>Received By</th>
+                <th>Received Date</th>
+                <th>pH Lab</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+    const BASE_API_URL = "http://127.0.0.1:8000/samples/query";
+    const tbody = document.querySelector("#samplesTable tbody");
+
+    function clearTable() { tbody.innerHTML = ""; }
+
+    function renderSamples(data) {
+        clearTable();
+        const samples = Array.isArray(data) ? data : [data];
+        samples.forEach(row => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td>${row.sample_id ?? ""}</td>
+                <td>${row.sample_status ?? ""}</td>
+                <td>${row.location_id ?? ""}</td>
+                <td>${row.sample_event ?? ""}</td>
+                <td>${row.sample_qc ?? ""}</td>
+                <td>${row.sample_collection_start_datetime ?? ""}</td>
+                <td>${row.sample_collection_end_datetime ?? ""}</td>
+                <td>${row.sample_recovered_datetime ?? ""}</td>
+                <td>${row.sample_flow ?? ""}</td>
+                <td>${row.sample_received_by ?? ""}</td>
+                <td>${row.sample_received_date ?? ""}</td>
+                <td>${row.sample_ph_lab ?? ""}</td>
+                <td>${row.sample_comment ?? ""}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    function loadAllSamples() {
+        fetch("http://127.0.0.1:8000/samples/?limit=100")
+            .then(res => res.json())
+            .then(data => renderSamples(data))
+            .catch(err => console.error("Error loading samples:", err));
+    }
+
+    function searchSamples() {
+        const params = new URLSearchParams();
+
+        const fields = [
+            "sample_id","status","location_id","sample_event","qc","received_by",
+            "flow","collection_start","collection_end","recovered_start","recovered_end",
+            "received_start_date","received_end_date","min_ph","max_ph"
+        ];
+
+        fields.forEach(id => {
+            const val = document.getElementById(id).value;
+            if (val) {
+                // For date inputs, send as YYYY-MM-DD (FastAPI parses automatically)
+                params.append(id, val);
+            }
+        });
+
+        fetch(BASE_API_URL + "?" + params.toString())
+            .then(res => {
+                if (!res.ok) throw new Error("Query failed: " + res.status);
+                return res.json();
+            })
+            .then(data => renderSamples(data))
+            .catch(err => console.error("Error querying samples:", err));
+    }
+
+    // Initial load
+    loadAllSamples();
+	</script>
+</body>
+</html>

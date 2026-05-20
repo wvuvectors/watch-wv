@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PATCHR Samples</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .controls {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        input {
+            padding: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align:center;">PATCHR Samples Table</h1>
+
+    <!-- Search Controls -->
+    <div class="controls">
+        <label for="sampleIdInput"><strong>Sample ID:</strong></label>
+        <input type="text" id="sampleIdInput" placeholder="Enter sample_id">
+        <button onclick="searchSample()">Search</button>
+        <button onclick="loadAllSamples()">Clear</button>
+    </div>
+
+    <!-- Data Table -->
+    <table id="samplesTable">
+        <thead>
+            <tr>
+                <th>Sample ID</th>
+                <th>Status</th>
+                <th>Location ID</th>
+                <th>Event</th>
+                <th>QC</th>
+                <th>Collection Start</th>
+                <th>Collection End</th>
+                <th>Recovered</th>
+                <th>Flow</th>
+                <th>Received By</th>
+                <th>Received Date</th>
+                <th>pH Lab</th>
+                <th>Comment</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        const BASE_API_URL = "http://127.0.0.1:8000/samples/";
+        const tbody = document.querySelector("#samplesTable tbody");
+
+        function clearTable() {
+            tbody.innerHTML = "";
+        }
+
+        function renderSamples(data) {
+            clearTable();
+
+            // Normalize single-object vs list response
+            const samples = Array.isArray(data) ? data : [data];
+
+            samples.forEach(row => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+                    <td>${row.sample_id ?? ""}</td>
+                    <td>${row.sample_status ?? ""}</td>
+                    <td>${row.location_id ?? ""}</td>
+                    <td>${row.sample_event ?? ""}</td>
+                    <td>${row.sample_qc ?? ""}</td>
+                    <td>${row.sample_collection_start_datetime ?? ""}</td>
+                    <td>${row.sample_collection_end_datetime ?? ""}</td>
+                    <td>${row.sample_recovered_datetime ?? ""}</td>
+                    <td>${row.sample_flow ?? ""}</td>
+                    <td>${row.sample_received_by ?? ""}</td>
+                    <td>${row.sample_received_date ?? ""}</td>
+                    <td>${row.sample_ph_lab ?? ""}</td>
+                    <td>${row.sample_comment ?? ""}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function loadAllSamples() {
+            fetch(BASE_API_URL)
+                .then(res => {
+                    if (!res.ok) throw new Error("Failed to fetch samples");
+                    return res.json();
+                })
+                .then(data => renderSamples(data))
+                .catch(err => console.error("Error loading samples:", err));
+        }
+
+        function searchSample() {
+            const sampleId = document.getElementById("sampleIdInput").value.trim();
+            if (!sampleId) return;
+
+            fetch(BASE_API_URL + sampleId)
+                .then(res => {
+                    if (res.status === 404) {
+                        clearTable();
+                        alert("Sample not found");
+                        return null;
+                    }
+                    if (!res.ok) throw new Error("Failed to fetch sample");
+                    return res.json();
+                })
+                .then(data => {
+                    if (data) renderSamples(data);
+                })
+                .catch(err => console.error("Error fetching sample:", err));
+        }
+
+        // Initial load
+        loadAllSamples();
+    </script>
+</body>
+</html>
