@@ -1,0 +1,155 @@
+library(shiny)
+library(httr)
+library(jsonlite)
+library(DT)
+
+# ----------------------------
+# UI
+# ----------------------------
+ui <- navbarPage(
+  "PATCHR Dashboard",
+  
+  # ---------------- SAMPLES TAB ----------------
+  tabPanel(
+    "Samples",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("sample_id", "Sample ID"),
+        actionButton("search_sample", "Search"),
+        actionButton("clear_sample", "Clear")
+      ),
+      mainPanel(DTOutput("samples_table"))
+    )
+  ),
+  
+  # ---------------- CONCENTRATION TAB ----------------
+  tabPanel(
+    "Concentration",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("concentration_id", "Concentration ID"),
+        textInput("batch_id", "Batch ID"),
+        textInput("sample_id_c", "Sample ID"),
+        actionButton("search_conc", "Search"),
+        actionButton("clear_conc", "Clear")
+      ),
+      mainPanel(DTOutput("concentration_table"))
+    )
+  )
+)
+
+# ----------------------------
+# SERVER
+# ----------------------------
+server <- function(input, output, session) {
+  
+  # =========================
+  # Reactive storage
+  # =========================
+  samples_data <- reactiveVal(data.frame())
+  concentration_data <- reactiveVal(data.frame())
+  
+  # =========================
+  # Helper: API fetch
+  # =========================
+  fetch_api <- function(url) {
+    res <- GET(url)
+    
+    if (status_code(res) != 200) {
+      return(data.frame())
+    }
+    
+    fromJSON(content(res, "text", encoding = "UTF-8"))
+  }
+  
+  # =========================
+  # LOAD INITIAL SAMPLES
+  # =========================
+  observe({
+    data <- fetch_api("http://127.0.0.1:8000/samples/?limit=100")
+    samples_data(as.data.frame(data))
+  })
+  
+  # =========================
+  # SAMPLES SEARCH
+  # =========================
+  observeEvent(input$search_sample, {
+    
+    if (input$sample_id == "") return()
+    
+    url <- paste0(
+      "http://127.0.0.1:8000/samples/query?sample_id=",
+      URLencode(input$sample_id)
+    )
+    
+    data <- fetch_api(url)
+    samples_data(as.data.frame(data))
+  })
+  
+  observeEvent(input$clear_sample, {
+    updateTextInput(session, "sample_id", value = "")
+    data <- fetch_api("http://127.0.0.1:8000/samples/?limit=100")
+    samples_data(as.data.frame(data))
+  })
+  
+  # =========================
+  # LOAD INITIAL CONCENTRATION
+  # =========================
+  observe({
+    data <- fetch_api("http://127.0.0.1:8000/concentration/?limit=100")
+    concentration_data(as.data.frame(data))
+  })
+  
+  # =========================
+  # CONCENTRATION SEARCH
+  # =========================
+  observeEvent(input$search_conc, {
+    
+    params <- list()
+    
+    if (input$concentration_id != "")
+      params$concentration_id <- input$concentration_id
+    
+    if (input$batch_id != "")
+      params$concentration_batch_id <- input$batch_id
+    
+    if (input$sample_id_c != "")
+      params$sample_id <- input$sample_id_c
+    
+    url <- paste0(
+      "http://127.0.0.1:8000/concentration/query?",
+      paste(
+        paste0(names(params), "=", URLencode(unlist(params))),
+        collapse = "&"
+      )
+    )
+    
+    data <- fetch_api(url)
+    concentration_data(as.data.frame(data))
+  })
+  
+  observeEvent(input$clear_conc, {
+    updateTextInput(session, "concentration_id", value = "")
+    updateTextInput(session, "batch_id", value = "")
+    updateTextInput(session, "sample_id_c", value = "")
+    
+    data <- fetch_api("http://127.0.0.1:8000/concentration/?limit=100")
+    concentration_data(as.data.frame(data))
+  })
+  
+  # =========================
+  # RENDER TABLES
+  # =========================
+  output$samples_table <- renderDT({
+    datatable(samples_data(), options = list(pageLength = 10))
+  })
+  
+  output$concentration_table <- renderDT({
+    datatable(concentration_data(), options = list(pageLength = 10))
+  })
+}
+
+# ----------------------------
+# RUN
+# ----------------------------
+shinyApp(ui, server)

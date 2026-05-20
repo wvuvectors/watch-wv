@@ -1,0 +1,11 @@
+concentration_id,sample_id,concentration_batch_id,concentration_location_in_batch,concentration_comment
+C01-P1.C1,C01-P1,CB4,C01,
+C01-P2.C1,C01-P2,CB4,C02,
+C01-P3.C1,C01-P3,CB4,C03,
+C01-P4.C1,C01-P4,CB4,C04,
+C01-P5.C1,C01-P5,CB4,C05,
+C01-P6.C1,C01-P6,CB4,B06,
+E01-P12.C1,E01-P12,CB6,B04,
+E01-P13.C1,E01-P13,CB6,B05,
+E01-P15.C1,E01-P15,CB6,B06,
+UO1-0083.C1,UO1-0083,CB49,A02,

@@ -1,0 +1,100 @@
+
+========== PATCHR DB LOADER RUN ==========
+[LOAD] watchdb.sample.txt → samples
+[OK] Inserted/Updated 13392 rows into samples
+[LOAD] watchdb.cbatch.txt → cbatch
+[OK] Inserted/Updated 834 rows into cbatch
+[LOAD] watchdb.concentration.txt → concentration
+[WARN] Skipping 10 invalid concentration rows (missing sample_id).
+[EXPORT] Saved 10 invalid concentration rows to invalid_concentration_missing_sample_id.csv
+[OK] Inserted/Updated 13245 rows into concentration
+[LOAD] watchdb.ebatch.txt → ebatch
+[OK] Inserted/Updated 561 rows into ebatch
+[LOAD] watchdb.extraction.txt → extractions
+[WARN] Skipping 15 invalid extractions rows (missing concentration_id).
+[EXPORT] Saved 15 invalid extractions rows to invalid_extractions_missing_concentration_id.csv
+[OK] Inserted/Updated 13433 rows into extractions
+[LOAD] watchdb.abatch.txt → abatch
+[OK] Inserted/Updated 365 rows into abatch
+[LOAD] watchdb.assay.txt → assay
+[WARN] Skipping 2524 invalid assay rows (missing extraction_id).
+[EXPORT] Saved 2524 invalid assay rows to invalid_assay_missing_extraction_id.csv
+[OK] Inserted/Updated 44448 rows into assay
+[LOAD] watchdb.result.txt → results
+[OK] Inserted/Updated 43447 rows into results
+[LOAD] watchdb.result.OLD.txt → results_old
+[OK] Inserted/Updated 36280 rows into results_old
+[LOAD] watchdb.archive.txt → archive
+[WARN] No valid rows left for archive, skipping.
+[LOAD] watchdb.rbatch.txt → rbatch
+[WARN] No valid rows left for rbatch, skipping.
+========== LOADER COMPLETE ==========
+
+
+========== PATCHR DB LOADER RUN ==========
+[LOAD] watchdb.sample.txt → samples
+[OK] Inserted/Updated 13392 rows into samples
+[LOAD] watchdb.cbatch.txt → cbatch
+[OK] Inserted/Updated 834 rows into cbatch
+[LOAD] watchdb.concentration.txt → concentration
+[WARN] Skipping 10 invalid concentration rows (missing sample_id).
+[EXPORT] Saved 10 invalid concentration rows to invalid_concentration_missing_sample_id.csv
+[OK] Inserted/Updated 13245 rows into concentration
+[LOAD] watchdb.ebatch.txt → ebatch
+[OK] Inserted/Updated 561 rows into ebatch
+[LOAD] watchdb.extraction.txt → extractions
+[WARN] Skipping 15 invalid extractions rows (missing concentration_id).
+[EXPORT] Saved 15 invalid extractions rows to invalid_extractions_missing_concentration_id.csv
+[OK] Inserted/Updated 13433 rows into extractions
+[LOAD] watchdb.abatch.txt → abatch
+[OK] Inserted/Updated 365 rows into abatch
+[LOAD] watchdb.assay.txt → assay
+[WARN] Skipping 2524 invalid assay rows (missing extraction_id).
+[EXPORT] Saved 2524 invalid assay rows to invalid_assay_missing_extraction_id.csv
+[OK] Inserted/Updated 44448 rows into assay
+[LOAD] watchdb.result.txt → results
+[OK] Inserted/Updated 43447 rows into results
+[LOAD] watchdb.result.OLD.txt → results_old
+[OK] Inserted/Updated 36280 rows into results_old
+[LOAD] watchdb.archive.txt → archive
+[WARN] No valid rows left for archive, skipping.
+[LOAD] watchdb.rbatch.txt → rbatch
+[WARN] No valid rows left for rbatch, skipping.
+========== LOADER COMPLETE ==========
+
+
+========== PATCHR DB LOADER RUN ==========
+[LOAD] watchdb.sample.txt → samples
+[OK] Inserted/Updated 13392 rows into samples
+[LOAD] watchdb.cbatch.txt → cbatch
+[OK] Inserted/Updated 834 rows into cbatch
+[LOAD] watchdb.concentration.txt → concentration
+[WARN] Skipping 10 invalid concentration rows (missing sample_id).
+[EXPORT] Saved 10 invalid concentration rows to invalid_concentration_missing_sample_id.csv
+[OK] Inserted/Updated 13245 rows into concentration
+[LOAD] watchdb.ebatch.txt → ebatch
+[OK] Inserted/Updated 561 rows into ebatch
+[LOAD] watchdb.extraction.txt → extractions
+[WARN] Skipping 15 invalid extractions rows (missing concentration_id).
+[EXPORT] Saved 15 invalid extractions rows to invalid_extractions_missing_concentration_id.csv
+[OK] Inserted/Updated 13433 rows into extractions
+[LOAD] watchdb.abatch.txt → abatch
+[OK] Inserted/Updated 365 rows into abatch
+[LOAD] watchdb.assay.txt → assay
+[WARN] Skipping 2524 invalid assay rows (missing extraction_id).
+[EXPORT] Saved 2524 invalid assay rows to invalid_assay_missing_extraction_id.csv
+[OK] Inserted/Updated 44448 rows into assay
+[LOAD] watchdb.result.txt → results
+[OK] Inserted/Updated 43447 rows into results
+[LOAD] watchdb.result.OLD.txt → results_old
+[OK] Inserted/Updated 36280 rows into results_old
+[LOAD] watchdb.archive.txt → archive
+[WARN] No valid rows left for archive, skipping.
+[LOAD] watchdb.rbatch.txt → rbatch
+[WARN] No valid rows left for rbatch, skipping.
+[LOAD] watchdb.location.txt → location
+[WARN] Skipping 32 invalid location rows (missing location_id).
+[EXPORT] Saved 32 invalid location rows to invalid_location_missing_location_id.csv
+[OK] Inserted/Updated 49 rows into location
+========== LOADER COMPLETE ==========
+
