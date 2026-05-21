@@ -1,6 +1,6 @@
 # R/extractions_api.R
 
-get_extractions <- function(limit = 10000) {
+get_extractions <- function(limit = as.integer(100000)) {
   
   fetch_api(
     "/extractions/",
@@ -9,6 +9,7 @@ get_extractions <- function(limit = 10000) {
 }
 
 query_extractions_api <- function(
+    limit = as.integer(100000),
     extraction_id = NULL,
     concentration_id = NULL,
     extraction_batch_id = NULL,
@@ -16,7 +17,7 @@ query_extractions_api <- function(
     extraction_location_in_storage = NULL
 ) {
   
-  params <- list()
+  params <- list(limit = limit)
   
   if (!is.null(extraction_id) && extraction_id != "")
     params$extraction_id <- extraction_id

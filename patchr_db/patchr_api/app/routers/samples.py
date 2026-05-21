@@ -18,7 +18,7 @@ router = APIRouter(
 
 # Get list of 10000 samples 
 @router.get("/", response_model=list[SamplesSchema])
-def read_samples(skip: int = 0, limit: int = Query(1000, le=10000), db: Session = Depends(get_db)):
+def read_samples(skip: int = 0, limit: int = Query(1000, le=100000), db: Session = Depends(get_db)):
     """
     Returns a list of samples from the database.
     

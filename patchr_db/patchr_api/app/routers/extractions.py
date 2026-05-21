@@ -16,7 +16,7 @@ router = APIRouter(
 
 # List extractions
 @router.get("/", response_model=list[ExtractionsSchema])
-def read_extractions(skip: int = 0, limit: int = Query(1000, le=10000), db: Session = Depends(get_db)):
+def read_extractions(skip: int = 0, limit: int = Query(1000, le=100000), db: Session = Depends(get_db)):
     extractions = list_extractions(db=db, skip=skip, limit=limit)
     return extractions
 
