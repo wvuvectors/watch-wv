@@ -7,7 +7,7 @@ from typing import Optional
 class SamplesSchema(BaseModel):
     sample_id: str
     sample_status: Optional[str]
-    location_id: str
+    location_id: str | None = None
     sample_event: Optional[str]
     sample_qc: Optional[str]
     sample_collection_start_datetime: Optional[datetime]

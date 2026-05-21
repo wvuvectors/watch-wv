@@ -2,7 +2,7 @@
 # Defines helper functions to be used throughout app
 
 from sqlalchemy.orm import Session
-from sqlalcehmy import select, func, and_
+from sqlalchemy import select, func, and_
 
 from app.models.extractions import Extractions
 

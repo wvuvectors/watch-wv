@@ -54,7 +54,7 @@ ui <- navbarPage(
         textInput("extraction_location_in_batch", "Batch Location"),
         textInput("extraction_location_int_storage", "Storage Location"),
         actionButton("search_extr", "Search"),
-        actionButtion("clear_extr", "Clear")
+        actionButton("clear_extr", "Clear")
       ),
       mainPanel(DTOutput("extractions_table"))
     )
@@ -78,7 +78,7 @@ server <- function(input, output, session) {
   # LOAD INITIAL DATA
   # =========================
   observe({
-    data <- get_samples(limit = 1500)
+    data <- get_samples(limit = 10000)
     samples_data(data)
   })
   
@@ -88,7 +88,7 @@ server <- function(input, output, session) {
   })
   
   observe({
-    data <- get_extractions(limit = 100)
+    data <- get_extractions(limit = 10000)
     extractions_data(data)
   })
   
@@ -156,7 +156,7 @@ server <- function(input, output, session) {
     updateTextInput(session, "extraction_location_in_batch", value = "")
     updateTextInput(session, "extraction_location_in_storage", value = "")
     
-    data <- get_extraction(limit = 100)
+    data <- get_extractions(limit = 100)
     
     extractions_data(data)
   })

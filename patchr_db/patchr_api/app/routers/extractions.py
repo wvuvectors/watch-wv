@@ -32,6 +32,7 @@ def query_extractions_endpoint(
     skip: int = Query(0),
     limit: int = Query(100),
     db: Session = Depends(get_db)
+):
     
     # Query extractions table with optional filters
     

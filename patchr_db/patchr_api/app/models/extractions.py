@@ -1,10 +1,10 @@
 # app/models/extractions.py
 
 from sqlalchemy import Column, String, Text, ForeignKey
-from app.database import BaseException
+from app.database import Base
 
 class Extractions(Base):
-    __tablename__ = "extraction"
+    __tablename__ = "extractions"
     
     extraction_id = Column(String(50), primary_key = True)
     concentration_id = Column(String(50), ForeignKey("concentration.concentration_id"))
