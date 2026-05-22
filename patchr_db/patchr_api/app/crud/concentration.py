@@ -15,7 +15,7 @@ def get_concentration_by_id(db: Session, concentration_id: str):
     )
 
 # List concentrations
-def list_concentrations(db: Session, skip: int = 0, limit: int = 10000):
+def list_concentrations(db: Session, skip: int = 0, limit: int = 100000):
     return (
         db.query(Concentration)
         .offset(skip)
@@ -33,7 +33,7 @@ def query_concentrations(
     concentration_location_in_batch: str | None = None,
     concentration_comment: str | None = None,
     skip: int = 0,
-    limit: int = 100,
+    limit: int = 10000,
 ):
     
     filters = []

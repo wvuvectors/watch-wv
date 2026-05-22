@@ -30,7 +30,7 @@ def query_extractions_endpoint(
     extraction_location_in_storage: str | None = Query(None),
     extraction_comment: str | None = Query(None),
     skip: int = Query(0),
-    limit: int = Query(100),
+    limit: int = Query(1000),
     db: Session = Depends(get_db)
 ):
     
@@ -48,7 +48,7 @@ def query_extractions_endpoint(
         limit=limit
     )
     
-# Get single extraction_batch_id
+# Get single extraction_id
 @router.get("/{extraction_id}", response_model=ExtractionsSchema)
 def read_extractions(extraction_id: str, db: Session = Depends(get_db)):
     extraction = get_extraction_by_id(db=db, extraction_id=extraction_id)
