@@ -64,6 +64,27 @@ ui <- navbarPage(
       ),
       mainPanel(DTOutput("extractions_table"))
     )
+  ),
+  
+  # ---------------- ASSAYS TAB ----------------
+  tabPanel(
+    "Assays",
+    sidebarLayout(
+      sidbarPanel(
+        textInput("assay_id", "Assay ID"),
+        textInput("extraction_id", "Extraction ID"),
+        textInput("sample_id", "Sample ID"),
+        textInput("assay_batch_id", "Batch ID"),
+        textInput("assay_location_in_batch", "Batch Location"),
+        numericInput("assay_input_ul", "Input ul"),
+        textInput("assay_class", "Assay Class"),
+        textInput("assay_type", "Assay Type"),
+        numericInput("assay_target_copies_per_ul_reaction", "Copies/ul"),
+        actionButton("search_assay", "Search"),
+        actionButton("clear_assay", "Clear")
+      ),
+      mainPanel(DTOutput("assay_table"))
+    )
   )
 )
 
@@ -78,7 +99,7 @@ server <- function(input, output, session) {
   samples_data <- reactiveVal(data.frame())
   concentration_data <- reactiveVal(data.frame())
   extractions_data <- reactiveVal(data.frame())
-  
+  assay_data <- reactiveVal(data.fram())
   
   # =========================
   # LOAD INITIAL DATA
@@ -96,6 +117,11 @@ server <- function(input, output, session) {
   observe({
     data <- get_extractions(limit = as.integer(100000))
     extractions_data(data)
+  })
+  
+  observe({
+    data <- get_assays(limit = as.integet(100000))
+    assays_data(data)
   })
   
   # =========================
@@ -180,6 +206,41 @@ server <- function(input, output, session) {
   })
   
   # =========================
+  # ASSAYS SEARCH
+  # =========================
+  observeEvent(input$search_assay, {
+    data <- query_assays_api(
+      assay_id = input$assay_id,
+      extraction_id = input$extraction_id,
+      sample_id = input$sample_id,
+      assay_batch_id = input$assay_batch_id,
+      assay_location_in_batch = input$assay_location_in_batch,
+      assay_input_ul = input$assay_input_ul,
+      assay_class = input$assay_class,
+      assay_type = input$assay_type,
+      assay_target_copies_per_ul_reaction = input$assay_target_copies_per_ul_reaction
+    )
+    
+    assays_data(data)
+  })
+  
+  observeEvent(input$clear_assay, {
+    updateTextInput(session, "assay_id", value = "")
+    updateTextInput(session, "extraction_id", value = "")
+    updateTextInput(session, "sample_id", value = "")
+    updateTextInput(session, "assay_batch_id", value = "")
+    updateTextInput(session, "assay_location_in_batch", value = "")
+    updateNumericInput(session, "assay_input_ul", value = "")
+    updateTextInput(session, "assay_class", value = "")
+    updateTextInput(session, "assay_type", value = "")
+    updateNumericInput(session, "assay_target_copies_per_ul_reaction", value = "")
+    
+    data <- get_assays(limit = as.integer(100000))
+    
+    assays_data(data)
+  })
+  
+  # =========================
   # RENDER TABLES
   # =========================
   output$samples_table <- renderDT({
@@ -192,6 +253,10 @@ server <- function(input, output, session) {
   
   output$extractions_table <- renderDT({
     datatable(extractions_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$assays_table <- renderDT({
+    datatable(assays_data(), options = list(pageLength = 10, scrollX = TRUE))
   })
 }
 
