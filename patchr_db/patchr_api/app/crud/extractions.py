@@ -34,7 +34,7 @@ def query_extractions(
     extraction_location_in_storage: str | None = None,
     extraction_comment: str | None = None,
     skip: int = 0,
-    limit: int = 100,
+    limit: int = 10000,
 ):
 
     filters = []

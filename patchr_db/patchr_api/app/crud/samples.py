@@ -52,7 +52,7 @@ def query_samples(
     min_ph: float | None = None,
     max_ph: float | None = None,
     skip: int = 0,
-    limit: int = 100,
+    limit: int = 10000,
 ):
     filters = []
     
