@@ -1,23 +1,23 @@
-# app/crud/assays.py
+# app/crud/assay.py
 # Defines helper functions to be used throughout app 
 
 from sqlalchemy.orm import Session
 from sqlalchemy import select, func, and_
 
-from app.models.assays import Assays
+from app.models.assay import Assay
 
 # Function to retrieve a single assay by its assay_id
 def get_assay_by_id(db: Session, assay_id: str):
     return (
-        db.query(Assays)
-        .filter(Assays.assay_id == assay_id)
+        db.query(Assay)
+        .filter(Assay.assay_id == assay_id)
         .first()
     )
 
 # List assays
-def list_assay(db: Session, skip: int = 0, limit = int = 100000):
+def list_assays(db: Session, skip: int = 0, limit: int = 100000):
     return (
-        db.query(Assays)
+        db.query(Assay)
         .offset(skip)
         .limit(limit)
         .all()
@@ -51,56 +51,55 @@ def query_assays(
     
     # ---- String / categorical filters ----
     if assay_id is not None:
-        filters.append(func.lower(func.trim(Assays.assay_id)) == assay_id.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_id)) == assay_id.strip().lower())
     
     if extraction_id is not None: 
-        filters.append(func.lower(func.trim(Assays.extraction_id)) == extraction_id.strip().lower())
+        filters.append(func.lower(func.trim(Assay.extraction_id)) == extraction_id.strip().lower())
         
     if sample_id is not None: 
-        filters.append(func.lower(func.trim(Assays.samples_id)) == sample_id.strip().lower())
+        filters.append(func.lower(func.trim(Assay.samples_id)) == sample_id.strip().lower())
         
     if assay_batch_id is not None: 
-        filters.append(func.lower(func.trim(Assays.assay_batch_id)) == assay_batch_id.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_batch_id)) == assay_batch_id.strip().lower())
     
     if assay_location_in_batch is not None: 
-        filters.append(func.lower(func.trim(Assays.assay_location_in_batch)) == assay_location_in_batch.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_location_in_batch)) == assay_location_in_batch.strip().lower())
     
     if assay_input_ul is not None:
-        filters.append(func.lower(func.trim(Assays.assay_input_ul)) == assay_input_ul.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_input_ul)) == assay_input_ul.strip().lower())
         
     if assay_class is not None:
-        filters.append(func.lower(func.trim(Assays.assay_class)) == assay_class.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_class)) == assay_class.strip().lower())
         
     if assay_type is not None: 
-        filters.append(func.lower(func.trim(Assays.assay_type)) == assay_type.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_type)) == assay_type.strip().lower())
         
     if assay_target is not None:
-        filters.append(func.lower(func.trim(Assays.assay_target)) == assay_target.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_target)) == assay_target.strip().lower())
         
     if assay_target_genetic_locus is not None:
-        filters.append(func.lower(func.trim(Assays.assay_target_genetic_locus)) == assay_target_genetic_locus.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_target_genetic_locus)) == assay_target_genetic_locus.strip().lower())
         
     if assay_template is not None: 
-        filters.append(func.lower(func.trim(Assays.assay_template)) == assay_template.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_template)) == assay_template.strip().lower())
         
     if assay_target_macromolecule is not None:
-        filters.append(func.lower(func.trim(Assays.assay_target_macromolecule)) == assay_target_macromolecule.strip().lower())
-        
+        filters.append(func.lower(func.trim(Assay.assay_target_macromolecule)) == assay_target_macromolecule.strip().lower())
         
     if assay_target_flourophore is not None:
-        filters.append(func.lower(func.trim(Assays.assay_target_flourophore)) == assay_target_flourophore.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_target_flourophore)) == assay_target_flourophore.strip().lower())
         
     if assay_accepted_droplets is not None:
-        filters.append(func.lower(func.trim(Assays.assay_accepted_droplets)) == assay_accepted_droplets.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_accepted_droplets)) == assay_accepted_droplets.strip().lower())
         
     if assay_target_predicted_copies_per_ul_reaction is not None: 
-        filters.append(func.lower(func.trim(Assays.assay_target_predicted_copies_per_ul_reaction)) == assay_target_predicted_copies_per_ul_reaction.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_target_predicted_copies_per_ul_reaction)) == assay_target_predicted_copies_per_ul_reaction.strip().lower())
         
     if assay_target_copies_per_ul_reaction is not None:
-        filters.append(func.lower(func.trim(Assays.assay_target_copies_per_ul_reaction)) == assay_target_copies_per_ul_reaction.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_target_copies_per_ul_reaction)) == assay_target_copies_per_ul_reaction.strip().lower())
         
     if assay_comment is not None:
-        filters.append(func.lower(func.trim(Assays.assay_comment)) == assay_comment.strip().lower())
+        filters.append(func.lower(func.trim(Assay.assay_comment)) == assay_comment.strip().lower())
     
     # Build statement
     stmt = select(Assays).where(and_(*filters)).offset(skip).limit(limit)

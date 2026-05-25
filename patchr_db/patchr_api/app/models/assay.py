@@ -1,10 +1,10 @@
-# app/models/assays.py
+# app/models/assay.py
 
-from sqlalchemy import Column, String, Text, Integer, ForeignKey
+from sqlalchemy import Column, String, Text, Float, ForeignKey
 from app.database import Base
 
-class Assays(Base):
-    __tablename__ = "assays"
+class Assay(Base):
+    __tablename__ = "assay"
     
     assay_id = Column(String(50), primary_key = True)
     extraction_id = Column(String(50), nullable=True)

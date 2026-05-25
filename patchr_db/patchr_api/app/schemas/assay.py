@@ -1,9 +1,9 @@
-# app/schemas/assays.py
+# app/schemas/assay.py
 
 from pydantic import BaseModel
 from typing import Optional
 
-class AssaysSchema(BaseModel):
+class AssaySchema(BaseModel):
     assay_id: str
     extraction_id: str
     sample_id: str

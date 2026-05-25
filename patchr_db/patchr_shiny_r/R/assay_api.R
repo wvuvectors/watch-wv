@@ -1,9 +1,9 @@
-# R/assays.R
+# R/assay.R
 
 get_assays <- function(limit = as.integer(100000)) {
   
   fetch_api(
-    "/assays/",
+    "/assay/",
     params = list(limit = limit)
   )
 }
@@ -46,11 +46,11 @@ query_assays_api <- function(
   if (!is.null(assay_location_in_batch) && assay_location_in_batch != "")
     params$assay_location_in_batch <- assay_location_in_batch
   
-  if (!is.null(assay_input_ul) && assay_input_ul != "")
-    params$assay_input_ul <- assay_input_ul
+  if (!is.null(assay_input_ul))
+    params$assay_input_ul <- as.numeric(assay_input_ul)
   
   if (!is.null(assay_class) && assay_class != "")
-    params$assasy_class <- assay_class
+    params$assay_class <- assay_class
   
   if (!is.null(assay_type) && assay_type != "")
     params$assay_type <- assay_type
@@ -70,20 +70,20 @@ query_assays_api <- function(
   if (!is.null(assay_target_fluorophore) && assay_target_fluorophore != "")
     params$assay_target_fluorophore <- assay_target_fluorophore
   
-  if (!is.null(assay_accepted_droplets) && assay_accepted_droplets != "")
-    params$assay_accepted_droplets <- assay_accepted_droplets
+  if (!is.null(assay_accepted_droplets))
+    params$assay_accepted_droplets <- as.numeric(assay_accepted_droplets)
   
-  if (!is.null(assay_target_predicted_copies_per_ul_reaction) && assay_target_predicted_copies_per_ul_reaction != "")
-    params$assay_target_predicted_copies_per_ul_reaction <- assay_target_predicted_copies_per_ul_reaction
+  if (!is.null(assay_target_predicted_copies_per_ul_reaction))
+    params$assay_target_predicted_copies_per_ul_reaction <- as.numeric(assay_target_predicted_copies_per_ul_reaction)
   
-  if (!is.null(assay_target_copies_per_ul_reaction) && assay_target_copies_per_ul_reaction != "")
-    params$assay_target_copies_per_ul_reaction <- assay_target_copies_per_ul_reaction
+  if (!is.null(assay_target_copies_per_ul_reaction))
+    params$assay_target_copies_per_ul_reaction <- as.numeric(assay_target_copies_per_ul_reaction)
   
   if (!is.null(assay_comment) && assay_comment != "")
     params$assay_comment <- assay_comment
   
   fetch_api(
-    "/assays/query",
+    "/assay/query",
     params = params
   )
 }

@@ -1,27 +1,27 @@
-# app/routers/assays.py
-# Handles all assays endpoints 
+# app/routers/assay.py
+# Handles all assay endpoints 
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from app.database import SessionLocal, get_db
-from app.schemas.assays import AssaysSchema
-from app.crud.assays import get_assay_by_id, list_assays, query_assays
+from app.schemas.assay import AssaySchema
+from app.crud.assay import get_assay_by_id, list_assays, query_assays
 
 # Create router object
 router = APIRouter(
-    prefix="/assays",
-    tags=["assays"]
+    prefix="/assay",
+    tags=["assay"]
 )
 
 # List assays
-@router.get("/", response_model=list[AssaysSchema])
+@router.get("/", response_model=list[AssaySchema])
 def read_assays(skip: int = 0, limit: int = Query(1000, le=100000), db: Session = Depends(get_db)):
     assays = list_assays(db=db, skip=skip, limit=limit)
     return assays
     
 # Dynamic querying
-@router.get("/query", response_model=list[AssaysSchema])
+@router.get("/query", response_model=list[AssaySchema])
 def query_assays_endpoint(
     assay_id: str | None = Query(None),
     extraction_id: str | None = Query(None),
@@ -71,7 +71,7 @@ def query_assays_endpoint(
     )
 
 # Get single assay_id
-@router.get("/{assay_id}", response_model=AssaysSchema)
+@router.get("/{assay_id}", response_model=AssaySchema)
 def read_assays(assay_id: str, db: Session = Depends(get_db)):
     assay = get_assay_by_id(db=db, assay_id=assay_id)
     if not assay:
