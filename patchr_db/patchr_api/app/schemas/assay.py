@@ -16,7 +16,7 @@ class AssaySchema(BaseModel):
     assay_target_genetic_locus: str | None = None
     assay_template: str | None = None
     assay_target_marcomolecule: str | None = None
-    assay_target_flourophore: str | None = None
+    assay_target_fluorophore: str | None = None
     assay_accepted_droplets: Optional[float]
     assay_target_predicted_copies_per_ul_reaction: Optional[float]
     assay_target_copies_per_ul_reaction: Optional[float]

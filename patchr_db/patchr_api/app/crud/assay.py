@@ -39,7 +39,7 @@ def query_assays(
     assay_target_genetic_locus: str | None = None,
     assay_template: str | None = None,
     assay_target_macromolecule: str | None = None,
-    assay_target_flourophore: str | None = None,
+    assay_target_fluorophore: str | None = None,
     assay_accepted_droplets: float | None = None,
     assay_target_predicted_copies_per_ul_reaction: float | None = None,
     assay_target_copies_per_ul_reaction: float | None = None,
@@ -57,7 +57,7 @@ def query_assays(
         filters.append(func.lower(func.trim(Assay.extraction_id)) == extraction_id.strip().lower())
         
     if sample_id is not None: 
-        filters.append(func.lower(func.trim(Assay.samples_id)) == sample_id.strip().lower())
+        filters.append(func.lower(func.trim(Assay.sample_id)) == sample_id.strip().lower())
         
     if assay_batch_id is not None: 
         filters.append(func.lower(func.trim(Assay.assay_batch_id)) == assay_batch_id.strip().lower())
@@ -66,7 +66,7 @@ def query_assays(
         filters.append(func.lower(func.trim(Assay.assay_location_in_batch)) == assay_location_in_batch.strip().lower())
     
     if assay_input_ul is not None:
-        filters.append(func.lower(func.trim(Assay.assay_input_ul)) == assay_input_ul.strip().lower())
+        filters.append(Assay.assay_input_ul == assay_input_ul)
         
     if assay_class is not None:
         filters.append(func.lower(func.trim(Assay.assay_class)) == assay_class.strip().lower())
@@ -86,22 +86,22 @@ def query_assays(
     if assay_target_macromolecule is not None:
         filters.append(func.lower(func.trim(Assay.assay_target_macromolecule)) == assay_target_macromolecule.strip().lower())
         
-    if assay_target_flourophore is not None:
-        filters.append(func.lower(func.trim(Assay.assay_target_flourophore)) == assay_target_flourophore.strip().lower())
+    if assay_target_fluorophore is not None:
+        filters.append(func.lower(func.trim(Assay.assay_target_fluorophore)) == assay_target_fluorophore.strip().lower())
         
     if assay_accepted_droplets is not None:
-        filters.append(func.lower(func.trim(Assay.assay_accepted_droplets)) == assay_accepted_droplets.strip().lower())
+        filters.append(Assay.assay_accepted_droplets == assay_accepted_droplets)
         
     if assay_target_predicted_copies_per_ul_reaction is not None: 
-        filters.append(func.lower(func.trim(Assay.assay_target_predicted_copies_per_ul_reaction)) == assay_target_predicted_copies_per_ul_reaction.strip().lower())
+        filters.append(Assay.assay_target_predicted_copies_per_ul_reaction == assay_target_predicted_copies_per_ul_reaction)
         
     if assay_target_copies_per_ul_reaction is not None:
-        filters.append(func.lower(func.trim(Assay.assay_target_copies_per_ul_reaction)) == assay_target_copies_per_ul_reaction.strip().lower())
+        filters.append(Assay.assay_target_copies_per_ul_reaction == assay_target_copies_per_ul_reaction)
         
     if assay_comment is not None:
         filters.append(func.lower(func.trim(Assay.assay_comment)) == assay_comment.strip().lower())
     
     # Build statement
-    stmt = select(Assays).where(and_(*filters)).offset(skip).limit(limit)
+    stmt = select(Assay).where(and_(*filters)).offset(skip).limit(limit)
     result = db.execute(stmt).scalars().all()
     return result

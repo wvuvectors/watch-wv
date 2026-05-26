@@ -46,7 +46,7 @@ query_assays_api <- function(
   if (!is.null(assay_location_in_batch) && assay_location_in_batch != "")
     params$assay_location_in_batch <- assay_location_in_batch
   
-  if (!is.null(assay_input_ul))
+  if (!is.null(assay_input_ul) && !is.na(assay_input_ul))
     params$assay_input_ul <- as.numeric(assay_input_ul)
   
   if (!is.null(assay_class) && assay_class != "")
@@ -70,13 +70,13 @@ query_assays_api <- function(
   if (!is.null(assay_target_fluorophore) && assay_target_fluorophore != "")
     params$assay_target_fluorophore <- assay_target_fluorophore
   
-  if (!is.null(assay_accepted_droplets))
+  if (!is.null(assay_accepted_droplets) && !is.na(assay_accepted_droplets))
     params$assay_accepted_droplets <- as.numeric(assay_accepted_droplets)
   
-  if (!is.null(assay_target_predicted_copies_per_ul_reaction))
+  if (!is.null(assay_target_predicted_copies_per_ul_reaction) && !is.na(assay_target_predicted_copies_per_ul_reaction))
     params$assay_target_predicted_copies_per_ul_reaction <- as.numeric(assay_target_predicted_copies_per_ul_reaction)
   
-  if (!is.null(assay_target_copies_per_ul_reaction))
+  if (!is.null(assay_target_copies_per_ul_reaction) && !is.na(assay_target_copies_per_ul_reaction))
     params$assay_target_copies_per_ul_reaction <- as.numeric(assay_target_copies_per_ul_reaction)
   
   if (!is.null(assay_comment) && assay_comment != "")
