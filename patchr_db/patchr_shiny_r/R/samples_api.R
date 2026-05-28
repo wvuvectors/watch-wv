@@ -32,11 +32,11 @@ query_samples_api <- function(
   if (!is.null(sample_qc) && sample_qc != "")
     params$sample_qc <- sample_qc
   
-  if (!is.null(recovered_start) && recovered_start != "")
-    params$recovered_start <- recovered_start
+  if (!is.null(recovered_start) && !is.na(recovered_start))
+    params$recovered_start <- as.character(recovered_start)
   
-  if (!is.null(recovered_end) && recovered_end != "")
-    params$recovered_end <- recovered_end
+  if (!is.null(recovered_end) && !is.na(recovered_end))
+    params$recovered_end <- as.character(recovered_end)
 
   fetch_api(
     "/samples/query",

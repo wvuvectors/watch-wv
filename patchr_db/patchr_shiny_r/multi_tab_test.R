@@ -146,8 +146,8 @@ server <- function(input, output, session) {
     updateTextInput(session, "sample_status", value = "")
     updateTextInput(session, "location_id", value = "")
     updateTextInput(session, "sample_qc", value = "")
-    updateDateInput(session, "recovered_start", value = NULL)
-    updateDateInput(session, "recovered_end", value = NULL)
+    updateDateInput(session, "recovered_start", value = "")
+    updateDateInput(session, "recovered_end", value = "")
     
     data <- get_samples(limit = as.integer(100000))
     
