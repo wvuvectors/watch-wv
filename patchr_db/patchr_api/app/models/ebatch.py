@@ -14,6 +14,6 @@ class eBatch(Base):
     extraction_method = Column(String(100), nullable=True)
     extraction_method_lot_id = Column(String(20), nullable=True)
     extraction_output_ul = Column(Float, nullable=True)
-    extraction_batch_record_version = Column(String(10), nullable=True)
+    extraction_batch_record_version = Column(String(100), nullable=True)
     extraction_run_by = Column(String(50, nullable=True)
-    extraction_batch_comment = Column(String(100), nullable=True)
+    extraction_batch_comment = Column(Text, nullable=True)

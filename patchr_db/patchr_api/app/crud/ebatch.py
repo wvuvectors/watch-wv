@@ -11,7 +11,7 @@ from app.models.ebatch import eBatch
 def get_ebatch_by_id(db: Session, extraction_batch_id: str):
     return (
         db.query(eBatch)
-        .filter(ebatch.extraction_batch_id == extraction_batch_id)
+        .filter(eBatch.extraction_batch_id == extraction_batch_id)
         .first()
     )
 

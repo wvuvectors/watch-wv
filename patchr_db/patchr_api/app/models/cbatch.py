@@ -15,4 +15,4 @@ class cBatch(Base):
     concentration_output_ml = Column(Float, nullable=True)
     concentration_run_by = Column(String(50), nullable=True)
     concentration_batch_record_version = Column(String(10), nullable=True)
-    concentration_batch_comment = Column(String(100), nullable=True)
+    concentration_batch_comment = Column(Text, nullable=True)
