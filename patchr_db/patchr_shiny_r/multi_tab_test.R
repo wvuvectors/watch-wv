@@ -9,6 +9,9 @@ source("R/api_helpers.R")
 source("R/samples_api.R")
 source("R/concentration_api.R")
 source("R/assay_api.R")
+source("R/cbatch_api.R")
+source("R/ebatch_api.R")
+source("R/abatch_api.R")
 
 # ----------------------------
 # UI
@@ -86,6 +89,53 @@ ui <- navbarPage(
       ),
       mainPanel(DTOutput("assay_table"))
     )
+  ),
+  
+  # ---------------- CBATCH TAB ----------------
+  tabPanel(
+    "cBatch",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("concentration_batch_id", "cBatch ID"),
+        dateInput("concentration_date", "cBatch Date"),
+        textInput("concentration_method", "cBatch Method"),
+        actionButton("search_cbatch", "Search"),
+        actionButton("clear_cbatch", "Clear")
+      ),
+      mainPanel(DTOutput("cbatch_table"))
+    )
+  ),
+  
+  # ---------------- EBATCH TABLE ----------------
+  tabPanel(
+    "eBatch",
+    sidebarLayour(
+      sidebarPanel(
+        textInput("extraction_batch_id", "eBatch ID"),
+        dateInput("extraction_date", "eBatch Date"),
+        textInput("extraction_method", "eBatch Method"),
+        actionButton("search_ebatch", "Search"),
+        actionButton("clear_ebatch", "Clear")
+      ),
+      mainPanel(DTOutput("ebatch_table"))
+    )
+  ),
+  
+  # ---------------- ABATCH TABLE ----------------
+  tabPanel(
+    "abatch",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("assay_batch_id", "aBatch ID"),
+        dateInput("assay_date", "aBatch Date"),
+        textInput("assay_amplification_method", "Amplification Method"),
+        textInput("assay_quantification_method", "Quantification Method"),
+        textInput("assay_method", "aBatch Method"),
+        actionButton("search_abatch", "Search"),
+        actionButton("clear_abatch", "Clear")
+      ),
+      mainPanel(DTOutput("abatch_table"))
+    )
   )
 )
 
@@ -101,6 +151,9 @@ server <- function(input, output, session) {
   concentration_data <- reactiveVal(data.frame())
   extractions_data <- reactiveVal(data.frame())
   assay_data <- reactiveVal(data.frame())
+  cbatch_data <- reactiveVal(data.frame())
+  ebatch_data <- reactiveVal(data.frame())
+  abatch_data <- reactiveVal(data.frame())
   
   # =========================
   # LOAD INITIAL DATA
@@ -123,6 +176,21 @@ server <- function(input, output, session) {
   observe({
     data <- get_assays(limit = as.integer(100000))
     assay_data(data)
+  })
+  
+  observe({
+    data <- get_cbatch(limit = as.integer(100000))
+    cbatch_data(data)
+  })
+  
+  observe({
+    data <- get_ebatch(limit = as.integer(100000))
+    ebatch_data(data)
+  })
+  
+  observe({
+    data <- get_abatch(limit = as.integer(100000))
+    abatch_data(data)
   })
   
   # =========================
@@ -242,6 +310,79 @@ server <- function(input, output, session) {
   })
   
   # =========================
+  # CBATCH SEARCH
+  # =========================
+  observeEvent(input$search_cbatch, {
+    data <- query_cbatch_api(
+      concentration_batch_id = input$concentration_batch_id,
+      concentration_date = input$concentration_date,
+      concentration_method = input$concentration_method
+    )
+    
+    cbatch_data(data)
+  })
+  
+  observeEvent(input$clear_cbatch, {
+    updateTextInput(session, "concentration_batch_id", value = "")
+    updateDateInput(session, "concentration_date", value = "")
+    updateTextInput(session, "concentration_method", value = "")
+    
+    data <- get_cbatch(limit = as.integer(100000))
+    
+    cbatch_data(data)
+  })
+  
+  # =========================
+  # EBATCH SEARCH
+  # =========================
+  observeEvent(input$search_ebatch, {
+    data <- query_ebatch_api(
+      extraction_batch_id = input$extraction_batch_id,
+      extraction_date = input$extraction_date,
+      extraction_method = input$extraction_method
+    )
+    
+    ebatch_data(data)
+  })
+  
+  observeEvent(input$clear_ebatch, {
+    updateTextInput(session, "extraction_batch_id", value = "")
+    updateDateInput(session, "extraction_date", value = "")
+    updateTextInput(session, "extraction_method", value = "")
+    
+    data <- get_ebatch(limit = as.integer(100000))
+    
+    ebatch_data(data)
+  })
+  
+  # =========================
+  # ABATCH SEARCH
+  # =========================
+  observeEvent(input$search_abatch, {
+    data <- query_abatch_api(
+      assay_batch_id = input$assay_batch_id,
+      assay_date = input$assay_date,
+      assay_amplification_method = input$assay_amplification_method,
+      assay_quantification_method = input$assay_quantification_method,
+      assay_method = input$assay_method
+    )
+    
+    abatch_data(data)
+  })
+  
+  observeEvent(input$clear_abatch, {
+    updateTextInput(session, "assay_batch_id", value = "")
+    updateDateInput(session, "assay_date", value = "")
+    updateTextInput(session, "assay_amplification_method", value = "")
+    updateTextInput(session, "assay_quantification_method", value = "")
+    updateTextInput(session, "assay_method", value = "")
+    
+    data <- get_abatch(limit = as.integer(100000))
+    
+    abatch_data(data)
+  })
+  
+  # =========================
   # RENDER TABLES
   # =========================
   output$samples_table <- renderDT({
@@ -258,6 +399,18 @@ server <- function(input, output, session) {
   
   output$assay_table <- renderDT({
     datatable(assay_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$cbatch_table <- renderDT({
+    datatable(cbatch_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$ebatch_table <- renderDT({
+    datatable(ebatch_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$abatch_table <- renderDT({
+    datatable(abatch_data(), options = list(pageLength = 10, scrollX = TRUE))
   })
 }
 
