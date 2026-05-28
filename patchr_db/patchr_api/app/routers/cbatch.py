@@ -3,7 +3,7 @@
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
-from datetime import datetime, datetime
+from datetime import date, datetime
 
 from app.database import SessionLocal, get_db 
 from app.schemas.cbatch import cBatchSchema
@@ -61,4 +61,4 @@ def read_cbatch(concentration_batch_id: str, db: Session = Depends(get_db)):
     cbatch = get_cbatch_by_id(db=db, concentration_batch_id=concentration_batch_id)
     if not cbatch: 
         raise HTTPException(status_code=404, detail="cBatch record not found")
-    retrn cbatch
+    return cbatch

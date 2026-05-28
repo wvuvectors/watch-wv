@@ -22,7 +22,7 @@ def list_cbatch(db: Session, skip: int = 0, limit: int = 100000):
         .offset(skip)
         .limit(limit)
         .all()
-    _
+    )
     
 # Dynamic Query
 def query_cbatch(

@@ -7,7 +7,7 @@ class cBatch(Base):
     __tablename__ = "cbatch"
     
     concentration_batch_id = Column(String(50), primary_key = True)
-    concentratoin_date = Column(Date, nullable=True)
+    concentration_date = Column(Date, nullable=True)
     concentration_input_ml = Column(Float, nullable=True)
     concentration_machine = Column(String(100), nullable=True)
     concentration_method = Column(String(100), nullable=True)
