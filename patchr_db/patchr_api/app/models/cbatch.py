@@ -1,6 +1,6 @@
 # app/models/cbatch.py
 
-from sqlalchemy import Column, String, Date, Datetime, Float, Text
+from sqlalchemy import Column, String, Date, DateTime, Float, Text
 from app.database import Base
 
 class cBatch(Base):

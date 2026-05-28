@@ -51,19 +51,19 @@ def query_ebatch(
     if extraction_eluant is not None: 
         filters.append(func.lower(func.trim(eBatch.extraction_eluant)) == extraction_eluant.strip().lower())
         
-    extraction_machine is not None: 
+    if extraction_machine is not None: 
         filters.append(func.lower(func.trim(eBatch.extraction_machine)) == extraction_machine.strip().lower())
         
-    extraction_method is not None: 
+    if extraction_method is not None: 
         filters.append(func.lower(func.trim(eBatch.extraction_method)) == extraction_method.strip().lower())
        
-    extraction_method_lot_id is not None: 
+    if extraction_method_lot_id is not None: 
         filters.append(func.lower(func.trim(eBatch.extraction_method_lot_id)) == extraction_method_lot_id.strip().lower())
         
-    extraction_batch_record_version is not None:
+    if extraction_batch_record_version is not None:
         filters.append(func.lower(func.trim(eBatch.extraction_batch_record_version)) == extraction_batch_record_version.strip().lower())
         
-    extraction_run_by is not None:
+    if extraction_run_by is not None:
         filterse.append(func.lower(func.trim(eBatch.extraction_run_by)) == extraction_run_by.strip().lower())
         
     # ---- Numerical filters ----

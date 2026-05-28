@@ -64,7 +64,7 @@ def query_abatch_endpoint(
     )
 
 # Get single abatch id
-@router.get("/{assay_batch_id}", response_mode=aBatchSchema)
+@router.get("/{assay_batch_id}", response_model=aBatchSchema)
 def read_abatch(assay_batch_id: str, db: Session = Depends(get_db)):
     abatch = get_abatch_by_id(db=db, assay_batch_id=assay_batch_id)
     if not abatch: 
