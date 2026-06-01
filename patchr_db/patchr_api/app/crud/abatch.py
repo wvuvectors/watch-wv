@@ -29,8 +29,10 @@ def query_abatch(
     db: Session,
     *,
     assay_batch_id: str | None = None,
-    assay_date: date | None = None, 
-    assay_reaction_ul: float | None = None, 
+    start_date: date | None = None, 
+    end_date: date | None = None,
+    min_reaction_ul: float | None = None, 
+    max_reaction_ul: float | None = None,
     assay_machine: str | None = None, 
     assay_amplification_method: str | None = None, 
     assay_amplification_method_lot_id: str | None = None, 
@@ -79,12 +81,18 @@ def query_abatch(
         filters.append(func.lower(func.trim(aBatch.assay_run_by)) == assay_run_by.strip().lower())
         
     # ---- Numerical filters ----
-    if assay_reaction_ul is not None: 
-        filters.append(func.lower(func.trim(aBatch.assay_reaction_ul)) == assay_reaction_ul.strip().lower())
+    if min_reaction_ul is not None: 
+        filters.append(aBatch.assay_reaction_ul >= min_reaction_ul)
+        
+    if max_reaction_ul is not None:
+        filters.append(aBatch.assay_reaction_ul <= max_reaction_ul)
         
     # ---- Date / datetime filters ---- 
-    if assay_date is not None: 
-        filters.append(func.lower(func.trim(aBatch.assay_date)) == assay_date.strip().lower())
+    if start_date is not None: 
+        filters.append(aBatch.assay_date >= start_date)
+        
+    if end_date is not None:
+        filters.append(aBatch.assay_date <= end_date)
         
     # Build statement
     stmt = select(aBatch).where(and_(*filters)).offset(skip).limit(limit)

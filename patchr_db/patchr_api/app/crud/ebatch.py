@@ -29,13 +29,15 @@ def query_ebatch(
     db: Session,
     *,
     extraction_batch_id: str | None = None, 
-    extraction_date: date | None = None, 
+    start_date: date | None = None, 
+    end_date: date | None = None,
     extraction_input_ul: float | None = None, 
     extraction_eluant: str | None = None, 
     extraction_machine: str | None = None,
     extraction_method: str | None = None, 
     extraction_method_lot_id: str | None = None, 
-    extraction_output_ul: float | None = None, 
+    min_output_ul: float | None = None, 
+    max_output_ul: float | None = None,
     extraction_batch_record_version: str | None = None, 
     extraction_run_by: str | None = None, 
     skip: int = 0,
@@ -68,14 +70,20 @@ def query_ebatch(
         
     # ---- Numerical filters ----
     if extraction_input_ul is not None:
-        filters.append(func.lower(func.trim(eBatch.extraction_input_ul)) == extraction_input_ul.strip().lower())
+        filters.append(eBatch.extraction_input_ul == extraction_input_ul)
         
-    if extraction_output_ul is not None:
-        filters.append(func.lower(func.trim(eBatch.extraction_output_ul)) == extraction_output_ul.strip().lower())
+    if min_output_ul is not None:
+        filters.append(eBatch.extraction_output_ul >= min_output_ul)
+        
+    if max_output_ul is not None: 
+        filters.append(eBatch.extraction_output_ul <= max_output_ul)
         
     # ---- Date / datetime filters ----
-    if extraction_date is not None:
-        filters.append(func.lower(func.trim(eBatch.extraction_date)) == extraction_date.strip().lower())
+    if start_date is not None:
+        filters.append(eBatch.extraction_date >= start_date)
+        
+    if end_date is not None:
+        filters.append(eBatch.extraction_date <= end_date)
         
     # Build statement
     stmt = select(eBatch).where(and_(*filters)).offset(skip).limit(limit)

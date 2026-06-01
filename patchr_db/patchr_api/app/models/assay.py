@@ -7,7 +7,7 @@ class Assay(Base):
     __tablename__ = "assay"
     
     assay_id = Column(String(50), primary_key = True)
-    extraction_id = Column(String(50), nullable=True)
+    extraction_id = Column(String(50), ForeignKey("extractions.extraction_id_id"))
     sample_id = Column(String(50), nullable=True)
     assay_batch_id = Column(String(50), nullable=True)
     assay_location_in_batch = Column(String(50), nullable=True)

@@ -31,3 +31,17 @@ fetch_api <- function(endpoint, params = list()) {
   
   return(as.data.frame(data))
 }
+
+clean_param <- function(x, type = c("numeric", "text")) {
+  type <- match.arg(type)
+  
+  if (is.null(x) || x == "" || is.na(x) || x == "NA") {
+    return(NULL)
+  }
+  
+  if (type == "numeric") {
+    return(as.numeric(x))
+  }
+  
+  return(x)
+}

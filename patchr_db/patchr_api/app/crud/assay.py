@@ -40,9 +40,12 @@ def query_assays(
     assay_template: str | None = None,
     assay_target_macromolecule: str | None = None,
     assay_target_fluorophore: str | None = None,
-    assay_accepted_droplets: float | None = None,
-    assay_target_predicted_copies_per_ul_reaction: float | None = None,
-    assay_target_copies_per_ul_reaction: float | None = None,
+    min_accepted_droplets: float | None = None,
+    max_accepted_droplets: float | None = None,
+    min_target_predicted_copies_per_ul_reaction: float | None = None,
+    max_target_predicted_copies_per_ul_reaction: float | None = None,
+    min_target_copies_per_ul_reaction: float | None = None,
+    max_target_copies_per_ul_reaction: float | None = None,
     assay_comment: str | None = None,
     skip: int = 0,
     limit: int = 10000,
@@ -65,9 +68,6 @@ def query_assays(
     if assay_location_in_batch is not None: 
         filters.append(func.lower(func.trim(Assay.assay_location_in_batch)) == assay_location_in_batch.strip().lower())
     
-    if assay_input_ul is not None:
-        filters.append(Assay.assay_input_ul == assay_input_ul)
-        
     if assay_class is not None:
         filters.append(func.lower(func.trim(Assay.assay_class)) == assay_class.strip().lower())
         
@@ -89,17 +89,30 @@ def query_assays(
     if assay_target_fluorophore is not None:
         filters.append(func.lower(func.trim(Assay.assay_target_fluorophore)) == assay_target_fluorophore.strip().lower())
         
-    if assay_accepted_droplets is not None:
-        filters.append(Assay.assay_accepted_droplets == assay_accepted_droplets)
-        
-    if assay_target_predicted_copies_per_ul_reaction is not None: 
-        filters.append(Assay.assay_target_predicted_copies_per_ul_reaction == assay_target_predicted_copies_per_ul_reaction)
-        
-    if assay_target_copies_per_ul_reaction is not None:
-        filters.append(Assay.assay_target_copies_per_ul_reaction == assay_target_copies_per_ul_reaction)
-        
     if assay_comment is not None:
         filters.append(func.lower(func.trim(Assay.assay_comment)) == assay_comment.strip().lower())
+        
+    # ---- Numeric filters ----
+    if assay_input_ul is not None:
+        filters.append(Assay.assay_input_ul == assay_input_ul)
+        
+    if min_accepted_droplets is not None:
+        filters.append(Assay.assay_accepted_droplets >= min_accepted_droplets)
+        
+    if max_accepted_droplets is not None:
+        filters.append(Assay.assay_accepted_droplets <= max_accepted_droplets)
+        
+    if min_target_predicted_copies_per_ul_reaction is not None: 
+        filters.append(Assay.assay_target_predicted_copies_per_ul_reaction >= min_target_predicted_copies_per_ul_reaction)
+    
+    if max_target_predicted_copies_per_ul_reaction is not None:
+        filters.append(Assay.assay_target_predicted_copies_per_ul_reaction <= max_target_predicted_copies_per_ul_reaction)
+        
+    if min_target_copies_per_ul_reaction is not None:
+        filters.append(Assay.assay_target_copies_per_ul_reaction >= min_target_copies_per_ul_reaction)
+        
+    if max_target_copies_per_ul_reaction is not None:
+        filters.append(Assay.assay_target_copies_per_ul_reaction <= max_target_copies_per_ul_reaction)
     
     # Build statement
     stmt = select(Assay).where(and_(*filters)).offset(skip).limit(limit)

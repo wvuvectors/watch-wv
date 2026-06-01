@@ -5,10 +5,10 @@ from typing import Optional
 
 class ExtractionsSchema(BaseModel):
     extraction_id: str
-    concentration_id: str | None = None
-    extraction_batch_id: str | None = None
-    extraction_location_in_batch: str | None = None
-    extraction_location_in_storage: str | None = None
+    concentration_id: str
+    extraction_batch_id: Optional[str]
+    extraction_location_in_batch: Optional[str]
+    extraction_location_in_storage: Optional[str]
     extraction_comment: Optional[str]
     
     class Config:

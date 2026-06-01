@@ -29,12 +29,14 @@ def query_cbatch(
     db: Session, 
     *, 
     concentration_batch_id: str | None = None,
-    concentration_date: date | None = None,
+    start_date: date | None = None,
+    end_date: date | None = None,
     concentration_input_ml: float | None = None, 
     concentration_machine: str | None = None, 
     concentration_method: str | None = None, 
     concentration_method_lot_id: str | None = None, 
-    concentration_output_ml: float | None = None, 
+    min_output_ml: float | None = None, 
+    max_output_ml: float | None = None,
     concentration_run_by: str | None = None, 
     concentration_batch_record_version: str | None = None, 
     skip: int = 0,
@@ -47,12 +49,6 @@ def query_cbatch(
     if concentration_batch_id is not None: 
         filters.append(func.lower(func.trim(cBatch.concentration_batch_id)) == concentration_batch_id.strip().lower())
         
-    if concentration_date is not None:
-        filters.append(func.lower(func.trim(cBatch.concentration_date)) == concentration_date.strip().lower())
-        
-    if concentration_input_ml is not None:
-        filters.append(func.lower(func.trim(cBatch.concentration_input_ml)) == concentration_input_ml.strip().lower())
-        
     if concentration_machine is not None:
         filters.append(func.lower(func.trim(cBatch.concentration_machine)) == concentration_machine.strip().lower())
         
@@ -62,12 +58,26 @@ def query_cbatch(
     if concentration_method_lot_id is not None:
         filters.append(func.lower(func.trim(cBatch.concentration_method_lot_id)) == concentration_method_lot_id.strip().lower())
         
-    if concentration_output_ml is not None:
-        filters.append(func.lower(func.trim(cBatch.concentration_output_ml)) == concentration_output_ml.strip().lower())
-        
     if concentration_batch_record_version is not None:
         filters.append(func.lower(func.trim(cBatch.concentration_batch_record_version)) == concentration_batch_record_version.strip().lower())
         
+    # ---- Numeric filters ----
+    if concentration_input_ml is not None:
+        filters.append(cBatch.concentration_input_ml == concentration_input_ml)
+        
+    if min_output_ml is not None:
+        filters.append(cBatch.concentration_output_ml >= min_output_ml)
+        
+    if max_output_ml is not None:
+        filters.append(cBatch.concentration_output_ml <= max_output_ml)
+
+    # ---- Date filters ----
+    if start_date is not None:
+        filters.append(cBatch.concentration_date >= start_date)
+        
+    if end_date is not None:
+        filters.append(cBatch.concentration_date <= end_date)
+     
     # Build statement
     stmt = select(cBatch).where(and_(*filters)).offset(skip).limit(limit)
     result = db.execute(stmt).scalars().all()
