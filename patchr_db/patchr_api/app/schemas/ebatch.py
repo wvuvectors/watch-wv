@@ -12,7 +12,7 @@ class eBatchSchema(BaseModel):
     extraction_machine: Optional[str]
     extraction_method: Optional[str]
     extraction_method_lot_id: Optional[str]
-    extraction_output_ml: Optional[float]
+    extraction_output_ul: Optional[float]
     extraction_batch_record_version: Optional[str]
     extraction_run_by: Optional[str]
     extraction_batch_comment: Optional[str]

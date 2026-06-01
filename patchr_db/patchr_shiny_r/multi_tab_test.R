@@ -109,7 +109,7 @@ ui <- navbarPage(
   # ---------------- EBATCH TABLE ----------------
   tabPanel(
     "eBatch",
-    sidebarLayour(
+    sidebarLayout(
       sidebarPanel(
         textInput("extraction_batch_id", "eBatch ID"),
         dateInput("extraction_date", "eBatch Date"),
@@ -123,7 +123,7 @@ ui <- navbarPage(
   
   # ---------------- ABATCH TABLE ----------------
   tabPanel(
-    "abatch",
+    "aBatch",
     sidebarLayout(
       sidebarPanel(
         textInput("assay_batch_id", "aBatch ID"),
