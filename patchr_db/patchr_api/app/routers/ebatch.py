@@ -33,7 +33,7 @@ def query_ebatch_endpoint(
     extraction_method: str | None = Query(None),
     extraction_method_lot_id: str | None = Query(None),
     min_output_ul: float | None = Query(None),
-    max_output_ul: flaot | None = Query(None),
+    max_output_ul: float | None = Query(None),
     extraction_batch_record_version: str | None = Query(None),
     extraction_run_by: str | None = Query(None),
     skip: int = Query(0),

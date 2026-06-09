@@ -65,7 +65,7 @@ def query_samples(
 
     # ---- String / categorical filters ----
     if sample_id is not None:
-        filters.append(func.lower(func.trim(Samples.sample_id)) == sample_id.lower().strip())
+        filters.append(Samples.sample_id.ilike(f"%{sample_id}%"))
     
     if status is not None:
         filters.append(Samples.sample_status == status)
