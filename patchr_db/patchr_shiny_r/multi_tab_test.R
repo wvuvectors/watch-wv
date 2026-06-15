@@ -12,6 +12,7 @@ source("R/assay_api.R")
 source("R/cbatch_api.R")
 source("R/ebatch_api.R")
 source("R/abatch_api.R")
+source("R/results_api.R")
 
 # ----------------------------
 # UI
@@ -136,6 +137,24 @@ ui <- navbarPage(
       ),
       mainPanel(DTOutput("abatch_table"))
     )
+  ),
+  
+  # ---------------- RESULTS TABLE ----------------
+  tabPanel(
+    "Results",
+    br(),
+    fluidRow(
+      column(
+        4,
+        textInput("results_location_id", "Location ID"),
+        dateInput("results_start_date", "Recovered Start Date"),
+        dateInput("results_end_data", "Recovered End Date"),
+        textInput("results_assay_target", "Assay Target"),
+        actionButton("results_search", "Search")
+      ),
+      column(9, DTOutput("results_table")
+      )
+    )
   )
 )
 
@@ -154,6 +173,7 @@ server <- function(input, output, session) {
   cbatch_data <- reactiveVal(data.frame())
   ebatch_data <- reactiveVal(data.frame())
   abatch_data <- reactiveVal(data.frame())
+  results_data <- reactiveVal(data.frame())
   
   # =========================
   # LOAD INITIAL DATA
@@ -192,7 +212,7 @@ server <- function(input, output, session) {
     data <- get_abatch(limit = as.integer(100000))
     abatch_data(data)
   })
-  
+  a
   # =========================
   # SAMPLES SEARCH
   # =========================
@@ -383,6 +403,20 @@ server <- function(input, output, session) {
   })
   
   # =========================
+  # RESULTS SEARCH
+  # =========================
+  observeEvent(input$results_search, {
+    data <- query_results_api(
+      location_id <- input$results_location_id,
+      recovered_start <- input$results_start_date,
+      recovered_end <- input$results_end_date,
+      assay_target <- input$results_assay_target
+    )
+    
+    results_data(data)
+  })
+  
+  # =========================
   # RENDER TABLES
   # =========================
   output$samples_table <- renderDT({
@@ -411,6 +445,10 @@ server <- function(input, output, session) {
   
   output$abatch_table <- renderDT({
     datatable(abatch_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$results_table <- renderDT({
+    datatable(results_data(), options = list(pageLength = 10, scrollX = TRUE))
   })
 }
 

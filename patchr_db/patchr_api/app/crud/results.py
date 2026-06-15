@@ -39,28 +39,23 @@ def query_results(
         )
         .join(
             cBatch,
-            Concentration.concentration_batch_id
-            == cBatch.concentration_batch_id
+            Concentration.concentration_batch_id == cBatch.concentration_batch_id
         )
         .join(
             Extractions,
-            Concentration.concentration_id
-            == Extractions.concentration_id
+            Concentration.concentration_id == Extractions.concentration_id
         )
         .join(
             eBatch,
-            Extractions.extraction_batch_id
-            == eBatch.extraction_batch_id
+            Extractions.extraction_batch_id == eBatch.extraction_batch_id
         )
         .join(
             Assay,
-            Extractions.extraction_id
-            == Assay.extraction_id
+            Extractions.extraction_id == Assay.extraction_id
         )
         .join(
             aBatch,
-            Assay.assay_batch_id
-            == aBatch.assay_batch_id
+            Assay.assay_batch_id == aBatch.assay_batch_id
         )
     )
     
@@ -73,15 +68,17 @@ def query_results(
 
     if recovered_start:
         filters.append(
-            Samples.sample_recovered_datetime
-            >= recovered_start
+            Samples.sample_recovered_datetime >= recovered_start
         )
 
     if recovered_end:
         filters.append(
-            Samples.sample_recovered_datetime
-            <= recovered_end
+            Samples.sample_recovered_datetime <= recovered_end
         )
+        
+    if assay_target:
+        filters.append(
+            Assay.assay_target == assay_target
 
     if filters:
         query = query.filter(*filters)
@@ -135,8 +132,8 @@ def query_results(
             {
                 "sample_id": sample.sample_id,
                 "location_id": sample.location_id,
-                "sample_recovered_datetime":
-                    sample.sample_recovered_datetime,
+                "sample_recovered_datetime": sample.sample_recovered_datetime,
+                "assay_target": assay.assay_target,
 
                 "assay_target_copies_per_ul_reaction":
                     assay.assay_target_copies_per_ul_reaction,

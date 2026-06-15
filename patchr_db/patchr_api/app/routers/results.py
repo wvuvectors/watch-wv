@@ -25,6 +25,8 @@ def query_results_endpoint(
 
     recovered_start: date | None = Query(None),
     recovered_end: date | None = Query(None),
+    
+    assay_target: str | None = Query(None),
 
     skip: int = Query(0),
     limit: int = Query(100),
@@ -56,6 +58,7 @@ def query_results_endpoint(
         location_id=location_id,
         recovered_start=recovered_start_dt,
         recovered_end=recovered_end_dt,
+        assay_target=assay_target,
         skip=skip,
         limit=limit
     )
