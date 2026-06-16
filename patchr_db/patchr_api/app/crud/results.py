@@ -1,7 +1,5 @@
 # app/crud/results.py
 
-# app/crud/results.py
-
 from datetime import datetime
 from sqlalchemy.orm import Session
 
@@ -13,12 +11,38 @@ from app.models.ebatch import eBatch
 from app.models.assay import Assay
 from app.models.abatch import aBatch
 
+def get_location_ids(db: Session):
+    return (
+        db.query(Samples.location_id)
+        .distinct()
+        .order_by(Samples.location_id)
+        .all()
+    )
+    
+def get_assay_targets(db: Session):
+    return (
+        db.query(Assay.assay_target)
+        .distinct()
+        .order_by(Assay.assay_target)
+        .all()
+    )
+    
+def get_genetic_loci(db: Session):
+    return (
+        db.query(Assay.assay_target_genetic_locus)
+        .distinct()
+        .order_by(Assay.assay_target_genetic_locus)
+        .all()
+    )
+
 def query_results(
     db: Session,
     *,
     location_id: str | None = None,
     recovered_start: datetime | None = None,
     recovered_end: datetime | None = None,
+    assay_target: str | None = None,
+    assay_target_genetic_locus: str | None = None,
     skip: int = 0,
     limit: int = 100,
 ):
@@ -62,23 +86,19 @@ def query_results(
     filters = []
 
     if location_id:
-        filters.append(
-            Samples.location_id == location_id
-        )
+        filters.append(Samples.location_id == location_id)
 
     if recovered_start:
-        filters.append(
-            Samples.sample_recovered_datetime >= recovered_start
-        )
+        filters.append(Samples.sample_recovered_datetime >= recovered_start)
 
     if recovered_end:
-        filters.append(
-            Samples.sample_recovered_datetime <= recovered_end
-        )
+        filters.append(Samples.sample_recovered_datetime <= recovered_end)
         
     if assay_target:
-        filters.append(
-            Assay.assay_target == assay_target
+        filters.append(Assay.assay_target == assay_target)
+        
+    if assay_target_genetic_locus:
+        filters.append(Assay.assay_target_genetic_locus == assay_target_genetic_locus)
 
     if filters:
         query = query.filter(*filters)
@@ -134,6 +154,7 @@ def query_results(
                 "location_id": sample.location_id,
                 "sample_recovered_datetime": sample.sample_recovered_datetime,
                 "assay_target": assay.assay_target,
+                "assay_target_genetic_locus": assay.assay_target_genetic_locus,
 
                 "assay_target_copies_per_ul_reaction":
                     assay.assay_target_copies_per_ul_reaction,

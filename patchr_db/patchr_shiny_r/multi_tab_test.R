@@ -145,11 +145,12 @@ ui <- navbarPage(
     br(),
     fluidRow(
       column(
-        4,
-        textInput("results_location_id", "Location ID"),
+        5,
+        selectInput("results_location_id", "Location ID", choices = NULL),
         dateInput("results_start_date", "Recovered Start Date"),
-        dateInput("results_end_data", "Recovered End Date"),
-        textInput("results_assay_target", "Assay Target"),
+        dateInput("results_end_date", "Recovered End Date"),
+        selectInput("results_assay_target", "Assay Target", choices = NULL),
+        selectInput("results_genetic_locus", "Genetic Locus", choices = NULL),
         actionButton("results_search", "Search")
       ),
       column(9, DTOutput("results_table")
@@ -174,6 +175,32 @@ server <- function(input, output, session) {
   ebatch_data <- reactiveVal(data.frame())
   abatch_data <- reactiveVal(data.frame())
   results_data <- reactiveVal(data.frame())
+  
+  # =========================
+  # RESULTS DROPDOWNS
+  # =========================
+  
+  observeEvent(TRUE, {
+    
+    updateSelectInput(
+      session,
+      "results_location_id",
+      choices = c("", get_results_location_ids())
+    )
+    
+    updateSelectInput(
+      session,
+      "results_assay_target",
+      choices = c("", get_results_assay_targets())
+    )
+    
+    updateSelectInput(
+      session,
+      "results_genetic_locus",
+      choices = c("", get_results_genetic_loci())
+    )
+    
+  }, once = TRUE)
   
   # =========================
   # LOAD INITIAL DATA
@@ -407,10 +434,11 @@ server <- function(input, output, session) {
   # =========================
   observeEvent(input$results_search, {
     data <- query_results_api(
-      location_id <- input$results_location_id,
-      recovered_start <- input$results_start_date,
-      recovered_end <- input$results_end_date,
-      assay_target <- input$results_assay_target
+      location_id = input$results_location_id,
+      recovered_start = input$results_start_date,
+      recovered_end = input$results_end_date,
+      assay_target = input$results_assay_target,
+      assay_target_genetic_locus = input$results_genetic_locus
     )
     
     results_data(data)

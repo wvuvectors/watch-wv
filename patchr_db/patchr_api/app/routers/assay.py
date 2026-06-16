@@ -41,7 +41,7 @@ def query_assays_endpoint(
     min_target_predicted_copies_per_ul_reaction: float | None = Query(None),
     max_target_predicted_copies_per_ul_reaction: float | None = Query(None),
     min_target_copies_per_ul_reaction: float | None = Query(None),
-    max_target_copies_per_ul_raction: float | None = Query(None),
+    max_target_copies_per_ul_reaction: float | None = Query(None),
     assay_comment: str | None = Query(None),
     skip: int = Query(0),
     limit: int = Query(1000),
@@ -70,7 +70,7 @@ def query_assays_endpoint(
         min_target_predicted_copies_per_ul_reaction=min_target_predicted_copies_per_ul_reaction,
         max_target_predicted_copies_per_ul_reaction=max_target_predicted_copies_per_ul_reaction,
         min_target_copies_per_ul_reaction=min_target_copies_per_ul_reaction,
-        max_target_copies_per_ul_raction=max_target_copies_per_ul_raction,
+        max_target_copies_per_ul_reaction=max_target_copies_per_ul_reaction,
         assay_comment=assay_comment,
         skip=skip,
         limit=limit

@@ -8,6 +8,7 @@ class ResultsSchema(BaseModel):
     location_id: str | None = None
     sample_recovered_datetime: datetime | None = None
     assay_target: str | None = None
+    assay_target_genetic_locus: str | None = None
     assay_target_copies_per_ul_reaction: float | None = None
     concentration_input_ml: float | None = None
     concentration_output_ml: float | None = None

@@ -27,6 +27,7 @@ def query_results_endpoint(
     recovered_end: date | None = Query(None),
     
     assay_target: str | None = Query(None),
+    assay_target_genetic_locus: str | None = Query(None),
 
     skip: int = Query(0),
     limit: int = Query(100),
@@ -59,6 +60,30 @@ def query_results_endpoint(
         recovered_start=recovered_start_dt,
         recovered_end=recovered_end_dt,
         assay_target=assay_target,
+        assay_target_genetic_locus=assay_target_genetic_locus,
         skip=skip,
         limit=limit
     )
+    
+# Get values for dropdown query conditions
+@router.get("/options")
+def get_results_options(
+    db: Session = Depends(get_db)
+):
+    return {
+        "location_ids": [
+            row[0]
+            for row in get_location_ids(db)
+            if row[0] is not None
+        ],
+        "assay_targets": [
+            row[0]
+            for row in get_assay_targets(db)
+            if row[0] is not None
+        ],
+        "genetic_loci": [
+            row[0]
+            for row in get_genetic_loci(db)
+            if row[0] is not None
+        ]
+    }
