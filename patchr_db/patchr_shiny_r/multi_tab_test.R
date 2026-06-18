@@ -145,13 +145,14 @@ ui <- navbarPage(
     br(),
     fluidRow(
       column(
-        5,
+        3,
         selectInput("results_location_id", "Location ID", choices = NULL),
         dateInput("results_start_date", "Recovered Start Date"),
         dateInput("results_end_date", "Recovered End Date"),
         selectInput("results_assay_target", "Assay Target", choices = NULL),
         selectInput("results_genetic_locus", "Genetic Locus", choices = NULL),
-        actionButton("results_search", "Search")
+        actionButton("results_search", "Search"),
+        actionButton("results_clear", "Clear")
       ),
       column(9, DTOutput("results_table")
       )
@@ -181,25 +182,9 @@ server <- function(input, output, session) {
   # =========================
   
   observeEvent(TRUE, {
-    
-    updateSelectInput(
-      session,
-      "results_location_id",
-      choices = c("", get_results_location_ids())
-    )
-    
-    updateSelectInput(
-      session,
-      "results_assay_target",
-      choices = c("", get_results_assay_targets())
-    )
-    
-    updateSelectInput(
-      session,
-      "results_genetic_locus",
-      choices = c("", get_results_genetic_loci())
-    )
-    
+    updateSelectInput(session, "results_location_id", choices = c("", get_results_location_ids()))
+    updateSelectInput(session, "results_assay_target", choices = c("", get_results_assay_targets()))
+    updateSelectInput(session, "results_genetic_locus", choices = c("", get_results_genetic_loci()))
   }, once = TRUE)
   
   # =========================
@@ -239,7 +224,7 @@ server <- function(input, output, session) {
     data <- get_abatch(limit = as.integer(100000))
     abatch_data(data)
   })
-  a
+  
   # =========================
   # SAMPLES SEARCH
   # =========================
@@ -442,6 +427,19 @@ server <- function(input, output, session) {
     )
     
     results_data(data)
+  })
+  
+  observeEvent(input$results_clear, {
+    updateSelectInput(session, "results_location_id", selected = "")
+    updateSelectInput(session, "results_assay_target", selected = "")
+    updateSelectInput(session, "results_genetic_locus", selected = "")
+    updateDateInput(session, "results_start_date", value = NULL)
+    updateDateInput(session, "results_end_date", value = NULL)
+    
+    # reload default recent results
+    results_data(
+      get_results(limit = as.integer(100))
+    )
   })
   
   # =========================

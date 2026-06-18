@@ -14,7 +14,7 @@ DB_CONFIG = {
     'database': 'patchr_db'
 }
 
-WATCHDB_DIR = r'C:\Users\nazim\Desktop\My Stuff\patchr_db'
+WATCHDB_DIR = os.path.dirname(os.path.abspath(__file__))
 LOG_FILE = os.path.join(WATCHDB_DIR, 'patchrdb_loader.log')
 INVALID_DIR = os.path.join(WATCHDB_DIR, 'invalid_rows')
 
@@ -68,6 +68,28 @@ def log_message(msg):
 import numpy as np
 
 def clean_dataframe(df):
+    # --------------------------------------------------
+    # TEMPORARY FIX:
+    # watchdb.abatch.txt renamed assay_qx_manager_version
+    # to assay_analysis_software_version
+    # --------------------------------------------------
+    if (
+        "assay_analysis_software_version" in df.columns
+        and "assay_qx_manager_version" not in df.columns
+    ):
+        log_message(
+            "[INFO] Renaming assay_analysis_software_version "
+            "-> assay_qx_manager_version for compatibility"
+        )
+
+        df = df.rename(
+            columns={
+                "assay_analysis_software_version":
+                "assay_qx_manager_version"
+            }
+        )
+
+    
     # Clean ID, date/datetime, and numeric columns before insertion.
     for col in df.columns:
         col_lower = col.lower()
@@ -179,6 +201,7 @@ def main():
     conn = connect_db()
     cursor = conn.cursor()
     log_message("\n========== PATCHR DB LOADER RUN ==========")
+    print("WATCHDB_DIR =", WATCHDB_DIR)
 
     for table_name in table_order:
         file_to_load = None

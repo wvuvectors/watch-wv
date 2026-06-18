@@ -1,6 +1,6 @@
 # R/results_api.R
 
-get_results <- function(limit = as.integer(100000)) {
+get_results <- function(limit = as.integer(100)) {
   
   fetch_api(
     "/results/",

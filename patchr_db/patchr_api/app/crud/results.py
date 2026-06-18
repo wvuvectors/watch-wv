@@ -34,6 +34,15 @@ def get_genetic_loci(db: Session):
         .order_by(Assay.assay_target_genetic_locus)
         .all()
     )
+    
+def list_results(db: Session, skip: int = 0, limit: int = 100):
+    return (
+        db.query(Samples)
+        .order_by(Samples.sample_recovered_datetime.desc())
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
 
 def query_results(
     db: Session,
