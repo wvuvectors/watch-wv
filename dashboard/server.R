@@ -59,39 +59,22 @@ shinyServer(function(input, output, session) {
     if (tolower(input$nav) == "covid") {
       #print("tab = covid")
       controlRV$mapIndex <- 1
-			
-			updateAllPlots()
-			updateSelectionDetails()
-			updateAbundanceFreshness()
-			updateAlertBlocks()
-
     } else if (tolower(input$nav) == "flua") {
       #print("tab = fluA")
       controlRV$mapIndex <- 2
-			
-			updateAllPlots()
-			updateSelectionDetails()
-			updateAbundanceFreshness()
-			updateAlertBlocks()
-
     } else if (tolower(input$nav) == "flub") {
       #print("tab = fluB")
       controlRV$mapIndex <- 3
-
-			updateAllPlots()
-			updateSelectionDetails()
-			updateAbundanceFreshness()
-			updateAlertBlocks()
-
     } else if (tolower(input$nav) == "rsv") {
       #print("tab = rsv")
       controlRV$mapIndex <- 4
-
-			updateAllPlots()
-			updateSelectionDetails()
-			updateAbundanceFreshness()
-			updateAlertBlocks()
     }
+
+		updateAllPlots()
+		updateSelectionDetails()
+		updateAbundanceFreshness()
+		updateAlertBlocks()
+
   })
 	
 

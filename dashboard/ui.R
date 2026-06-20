@@ -555,6 +555,141 @@ shinyUI(fluidPage(
 		), # tabPanel (RSV)
 		
 		tabPanel(
+			"COVID Variants",
+			style = "border: 0px solid #000000; background-color: #ffffff;padding: 0px;margin: 0px;", 
+			fluidRow(
+				column(5, 
+					style = "margin-top: 5px;border: 0px solid #000000;margin-left: 0px; margin-right: 0px;padding: 0px;padding-right: 5px;",
+					fluidRow(
+						# Alert blocks
+						style = "border: 1px solid #DDC0AD;padding-top: 4px;padding-bottom: 4px;margin-bottom: 5px; margin-left: 0px; margin-right: 0px;background-color: #FFEBCF;color: #000000;",
+						column(4,
+							div(
+								id = "abundance_title_seq",
+								textOutput("abundance_head_seq"),
+								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "abundance_text_seq",
+								textOutput("abundance_seq"),
+								style="margin-bottom: 8px;font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;"),
+							div(
+								id = "trend_title_seq",
+								textOutput("trend_head_seq"),
+								style="font-size: 14px;padding: 4px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"),
+							div(
+								id = "trend_text_seq",
+								textOutput("trend_seq"),
+								style="font-size: 18px;padding: 4px;font-weight: 800;text-align: center;color: #000000; background-color: #ffffff; border: 2px solid #000000;")
+						),
+						# Alert details
+						column(8,
+							div(
+								textOutput("alert_details_seq"), 
+								style="font-size: 18px;font-weight: 800;text-align: center;padding-bottom: 5px;"
+							)
+						)	# column
+					), # fluidRow (alert blocks and details)
+					fluidRow(
+						# Selection details
+						style = "border: 1px solid #000000;margin-bottom: 5px;margin-left: 0px; margin-right: 0px;background-color: #fbfbfb;color: #000000;",
+						column(12,
+							div(
+								textOutput("selection_details_seq"), 
+								style="font-size: 14px;font-weight: 400;text-align: center;padding-bottom: 3px;"
+							)
+						)	# column
+					), # fluidRow (selection info)
+					fluidRow(
+						column(12,
+							leafletOutput("map_seq", width = "100%", height = "470px"),
+							fixedPanel(
+								actionBttn(inputId="map_reset", label="Reset Map", style="pill", size="xs", color="success"),
+								left = 75,
+								top = 290,
+								style = "z-index: 1000;"
+							)
+						)
+					), # fluidRow (map)
+					fluidRow(
+						style = "padding-top: 4px;padding-bottom: 4px;margin-bottom: 12px; margin-left: 0px; margin-right: 0px;background-color: #fbfbfb;color: #000000;",
+						column(12,
+							div(
+								MAP_FOOTNOTES_SEQ,
+								style="font-size: 14px;font-style: italic;font-weight: 400;text-align: center;color: #000000"
+							)
+						)	# column
+					) # fluidRow (footnotes)
+				),
+				column(7,
+					style = "margin-top: 5px;border: 0px solid #000000;margin-left: 0px; margin-right: 0px;padding: 0px;padding-left: 5px;",
+					fluidRow(
+						column(12,
+							div(
+								textOutput("aplot_title_seq"), 
+								style="font-size: 16px;padding: 5px;font-weight: 800;text-align: center;color: #ffffff; background-color: #000000;"
+							)
+						)
+					), # fluidRow (abundance plot title)
+					fluidRow(
+						style = "border: 0px solid #C6BFDD;", 
+						column(10,
+							div(
+								textOutput("selection_freshness_seq"), 
+								style="color: #000000;background-color: #E8E1FF;font-size: 15px;padding: 5px;font-weight: 400;text-align: center;"
+							)
+						),
+						column(2,
+							div(
+								style = "display: inline-block;font-size: 12px;font-weight: 800;text-align: center; width:110px; height: 65px;",
+								#"Plot Most Recent:",
+								selectInput(
+									"view_range",
+									label = "Plot Most Recent:",
+									choices = c("1 month" = 1, "3 months" = 3, "6 months" = 6, "1 year" = 12, "2 years" = 24),
+									selected = VIEW_RANGE_PRIMARY
+								)
+							)
+						)
+					), # fluidRow (abundance data freshness)
+					fluidRow(
+						style = "border: 1px solid #000000;margin-top: 0px;margin-left: 0px; margin-right: 0px;padding: 0px;",
+						column(12,
+							# Plot of abundance over time
+							plotlyOutput("aplot_seq", height="350px", width="100%")
+						)
+					), # fluidRow (plot of abundance data over time)
+					fluidRow(
+						style = "border: 1px solid #000000;margin-top: 5px;margin-left: 0px; margin-right: 0px;padding: 0px;",
+						column(12,
+							# Plot of abundance fold change and trend slopes
+							plotlyOutput("cplot_seq", height="315", width="100%")
+						)
+					) # fluidRow (Change plot)
+				)
+			),
+
+			hidden(
+				absolutePanel(
+					id = "missing_data_seq_popup",
+					class = "mdinfo",
+					top = 320, left = 880, width = 450, height = 100,
+					div("There is no data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+				)
+# 			), # hidden (missing data p1 popup)
+# 			hidden(
+# 				absolutePanel(
+# 					id = "missing_data_p0_popup",
+# 					class = "mdinfo",
+# 					top = 660, left = 705, width = 450, height = 100,
+# 					div("There is no variant data for this target at the selected region during the requested time period. Please try a different region or time period.", 
+# 							style="font-size: 16px;padding: 4px;font-weight: 800;text-align: center;color: #000000;")
+# 				)
+			) # hidden (missing data popup)
+
+		), # tabPanel (Seq)
+
+		tabPanel(
 			HTML("<span style=\"color: #FFC749; font-style: italic;\">Get The Data</span>")
 		) # tabPanel (Get The Data)
 		

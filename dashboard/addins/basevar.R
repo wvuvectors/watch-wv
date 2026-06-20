@@ -1,6 +1,6 @@
-TARGETS <- c("SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
-DISEASES <- c("COVID", "FluA", "FluB", "RSV")
-DISEASE_LABELS <- c("COVID", "Influenza A", "Influenza B", "RSV")
+TARGETS <- c("SARS-CoV-2", "SARS-CoV-2", "Influenza Virus A", "Influenza Virus B", "Respiratory Syncitial Virus, Human")
+DISEASES <- c("COVID", "Seq", "FluA", "FluB", "RSV")
+DISEASE_LABELS <- c("COVID", "COVID Variants", "Influenza A", "Influenza B", "RSV")
 
 # Do we need this?
 GENLOCI <- c("SC2", "M", "NEP/NS1", "N2")
@@ -54,6 +54,15 @@ MAP_FOOTNOTES = paste0(
 	"Click anywhere else on the map to return to statewide results. Each map ",
 	"county is colored according to the amount (abundance) of the disease present, ", 
 	"with the county border colored according to the trend of the disease. ", 
+	"IMPORTANT: Data is subject to change as additional sites report results. ",
+	"The dashboard updates weekly except during major holidays.",
+	sep=""
+)
+
+MAP_FOOTNOTES_SEQ = paste0(
+	"Click any county on the map above to see specific data for that region. ", 
+	"Click anywhere else on the map to return to statewide results. Each map ",
+	"county is colored according to the dominant COVID variant present. ", 
 	"IMPORTANT: Data is subject to change as additional sites report results. ",
 	"The dashboard updates weekly except during major holidays.",
 	sep=""
