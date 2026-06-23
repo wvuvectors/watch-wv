@@ -106,7 +106,7 @@ def query_samples(
 
     # ---- Datetime filters ----
     if collection_start is not None:
-        filters.append(Samples.sample_collection_start_datetime >= collection_start)
+        filters.append(Samples.sample_collection_end_datetime >= collection_start)
     
     if collection_end is not None:
         filters.append(Samples.sample_collection_end_datetime <= collection_end)

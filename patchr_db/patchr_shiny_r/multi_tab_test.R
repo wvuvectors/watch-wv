@@ -29,8 +29,10 @@ ui <- navbarPage(
         textInput("sample_status", "Sample Status"),
         textInput("location_id", "Location ID"),
         textInput("sample_qc", "Sample QC"),
-        dateInput("recovered_start", "Recovered Start"),
-        dateInput("recovered_end", "Recovered End"),
+        #dateInput("recovered_start", "Recovered Start"),
+        #dateInput("recovered_end", "Recovered End"),
+        dateInput("collection_start", "Collection Start"),
+        dateInput("collection_end", "Collection End"),
         actionButton("search_sample", "Search"),
         actionButton("clear_sample", "Clear")
       ),
@@ -235,8 +237,10 @@ server <- function(input, output, session) {
       sample_status = input$sample_status,
       location_id = input$location_id,
       sample_qc = input$sample_qc,
-      recovered_start = input$recovered_start,
-      recovered_end = input$recovered_end
+      #recovered_start = input$recovered_start,
+      #recovered_end = input$recovered_end,
+      collection_start = input$collection_start,
+      collection_end = input$collection_end
     )
     
     samples_data(data)
@@ -247,8 +251,10 @@ server <- function(input, output, session) {
     updateTextInput(session, "sample_status", value = "")
     updateTextInput(session, "location_id", value = "")
     updateTextInput(session, "sample_qc", value = "")
-    updateDateInput(session, "recovered_start", value = NULL)
-    updateDateInput(session, "recovered_end", value = NULL)
+    #updateDateInput(session, "recovered_start", value = NULL)
+    #updateDateInput(session, "recovered_end", value = NULL)
+    updateDateInput(session, "collection_start", value = NULL)
+    updateDateInput(session, "collection_end", value = NULL)
     
     data <- get_samples(limit = as.integer(100000))
     

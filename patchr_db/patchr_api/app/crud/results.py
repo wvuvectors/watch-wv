@@ -38,7 +38,7 @@ def get_genetic_loci(db: Session):
 def list_results(db: Session, skip: int = 0, limit: int = 100):
     return (
         db.query(Samples)
-        .order_by(Samples.sample_recovered_datetime.desc())
+        .order_by(Samples.sample_collection_end_datetime.desc())
         .offset(skip)
         .limit(limit)
         .all()
@@ -97,11 +97,11 @@ def query_results(
     if location_id:
         filters.append(Samples.location_id == location_id)
 
-    if recovered_start:
-        filters.append(Samples.sample_collection_datetime >= collection_start)
+    if collection_start:
+        filters.append(Samples.sample_collection_end_datetime >= collection_start)
 
-    if recovered_end:
-        filters.append(Samples.sample_collection_datetime <= collection_end)
+    if collection_end:
+        filters.append(Samples.sample_collection_end_datetime <= collection_end)
         
     if assay_target:
         filters.append(Assay.assay_target == assay_target)
@@ -161,7 +161,7 @@ def query_results(
             {
                 "sample_id": sample.sample_id,
                 "location_id": sample.location_id,
-                "sample_collection_datetime": sample.sample_collection_datetime,
+                "sample_collection_end_datetime": sample.sample_collection_end_datetime,
                 "assay_target": assay.assay_target,
                 "assay_target_genetic_locus": assay.assay_target_genetic_locus,
 
