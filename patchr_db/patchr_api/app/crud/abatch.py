@@ -47,7 +47,7 @@ def query_abatch(
     limit: int = 10000,
 ):
 
-    filter = []
+    filters = []
     
     # ---- String / categorical filters ----
     if assay_batch_id is not None: 
@@ -96,5 +96,5 @@ def query_abatch(
         
     # Build statement
     stmt = select(aBatch).where(and_(*filters)).offset(skip).limit(limit)
-    result = db.execute(stmt.scalars().all())
+    result = db.execute(stmt).scalars().all()
     return result 

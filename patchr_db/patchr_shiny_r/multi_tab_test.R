@@ -128,7 +128,8 @@ ui <- navbarPage(
     sidebarLayout(
       sidebarPanel(
         textInput("assay_batch_id", "aBatch ID"),
-        dateInput("assay_date", "aBatch Date"),
+        dateInput("assay_start_date", "Start Date"),
+        dateInput("assay_end_date", "End Date"),
         textInput("assay_amplification_method", "Amplification Method"),
         textInput("assay_quantification_method", "Quantification Method"),
         textInput("assay_method", "aBatch Method"),
@@ -246,8 +247,8 @@ server <- function(input, output, session) {
     updateTextInput(session, "sample_status", value = "")
     updateTextInput(session, "location_id", value = "")
     updateTextInput(session, "sample_qc", value = "")
-    updateDateInput(session, "recovered_start", value = "")
-    updateDateInput(session, "recovered_end", value = "")
+    updateDateInput(session, "recovered_start", value = NULL)
+    updateDateInput(session, "recovered_end", value = NULL)
     
     data <- get_samples(limit = as.integer(100000))
     
@@ -393,7 +394,8 @@ server <- function(input, output, session) {
   observeEvent(input$search_abatch, {
     data <- query_abatch_api(
       assay_batch_id = input$assay_batch_id,
-      assay_date = input$assay_date,
+      assay_start_date = input$assay_start_date,
+      assay_end_date = input$assay_end_date,
       assay_amplification_method = input$assay_amplification_method,
       assay_quantification_method = input$assay_quantification_method,
       assay_method = input$assay_method
@@ -404,7 +406,8 @@ server <- function(input, output, session) {
   
   observeEvent(input$clear_abatch, {
     updateTextInput(session, "assay_batch_id", value = "")
-    updateDateInput(session, "assay_date", value = "")
+    updateDateInput(session, "assay_start_date", value = NULL)
+    updateDateInput(session, "assay_end_date", value = NULL)
     updateTextInput(session, "assay_amplification_method", value = "")
     updateTextInput(session, "assay_quantification_method", value = "")
     updateTextInput(session, "assay_method", value = "")

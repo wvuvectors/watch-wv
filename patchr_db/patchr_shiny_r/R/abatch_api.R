@@ -11,7 +11,8 @@ get_abatch <- function(limit = as.integer(100000)) {
 query_abatch_api <- function(
     limit = as.integer(100000),
     assay_batch_id = NULL,
-    assay_date = NULL,
+    assay_start_date = NULL,
+    assay_end_date = NULL,
     assay_amplification_method = NULL,
     assay_quantification_method = NULL,
     assay_method = NULL
@@ -22,8 +23,11 @@ query_abatch_api <- function(
   if (!is.null(assay_batch_id) && assay_batch_id != "")
     params$assay_batch_id <- assay_batch_id
   
-  if (!is.null(assay_date) && !is.na(assay_date))
-    params$assay_date <- as.character(assay-date)
+  if (!is.null(assay_start_date) && !is.na(assay_start_date))
+    params$assay_start_date <- as.character(assay_start_date)
+  
+  if (!is.null(assay_end_date) && !is.na(assay_end_date))
+    params$assay_end_date <- as.character(assay_end_date)
   
   if (!is.null(assay_amplification_method) && assay_amplification_method != "")
     params$assay_amplification_method <- assay_amplification_method
