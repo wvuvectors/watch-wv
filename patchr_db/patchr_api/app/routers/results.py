@@ -23,8 +23,8 @@ router = APIRouter(
 def query_results_endpoint(
     location_id: str | None = Query(None),
 
-    recovered_start: date | None = Query(None),
-    recovered_end: date | None = Query(None),
+    collection_start: date | None = Query(None),
+    collection_end: date | None = Query(None),
     
     assay_target: str | None = Query(None),
     assay_target_genetic_locus: str | None = Query(None),
@@ -36,29 +36,29 @@ def query_results_endpoint(
 ):
 
     # Convert dates to datetimes 
-    recovered_start_dt = (
+    collection_start_dt = (
         datetime.combine(
-            recovered_start,
+            collection_start,
             datetime.min.time()
         )
-        if recovered_start
+        if collection_start
         else None
     )
 
-    recovered_end_dt = (
+    collection_end_dt = (
         datetime.combine(
-            recovered_end,
+            collection_end,
             datetime.max.time()
         )
-        if recovered_end
+        if collection_end
         else None
     )
 
     return query_results(
         db=db,
         location_id=location_id,
-        recovered_start=recovered_start_dt,
-        recovered_end=recovered_end_dt,
+        collection_start=collection_start_dt,
+        collection_end=collection_end_dt,
         assay_target=assay_target,
         assay_target_genetic_locus=assay_target_genetic_locus,
         skip=skip,

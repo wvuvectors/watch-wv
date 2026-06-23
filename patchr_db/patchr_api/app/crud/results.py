@@ -48,8 +48,8 @@ def query_results(
     db: Session,
     *,
     location_id: str | None = None,
-    recovered_start: datetime | None = None,
-    recovered_end: datetime | None = None,
+    collection_start: datetime | None = None,
+    collection_end: datetime | None = None,
     assay_target: str | None = None,
     assay_target_genetic_locus: str | None = None,
     skip: int = 0,
@@ -98,10 +98,10 @@ def query_results(
         filters.append(Samples.location_id == location_id)
 
     if recovered_start:
-        filters.append(Samples.sample_recovered_datetime >= recovered_start)
+        filters.append(Samples.sample_collection_datetime >= collection_start)
 
     if recovered_end:
-        filters.append(Samples.sample_recovered_datetime <= recovered_end)
+        filters.append(Samples.sample_collection_datetime <= collection_end)
         
     if assay_target:
         filters.append(Assay.assay_target == assay_target)
@@ -161,7 +161,7 @@ def query_results(
             {
                 "sample_id": sample.sample_id,
                 "location_id": sample.location_id,
-                "sample_recovered_datetime": sample.sample_recovered_datetime,
+                "sample_collection_datetime": sample.sample_collection_datetime,
                 "assay_target": assay.assay_target,
                 "assay_target_genetic_locus": assay.assay_target_genetic_locus,
 
