@@ -147,8 +147,8 @@ ui <- navbarPage(
       column(
         3,
         selectInput("results_location_id", "Location ID", choices = NULL),
-        dateInput("results_start_date", "Recovered Start Date"),
-        dateInput("results_end_date", "Recovered End Date"),
+        dateInput("results_start_date", "Collection Start Date"),
+        dateInput("results_end_date", "Collection End Date"),
         selectInput("results_assay_target", "Assay Target", choices = NULL),
         selectInput("results_genetic_locus", "Genetic Locus", choices = NULL),
         actionButton("results_search", "Search"),
@@ -420,8 +420,8 @@ server <- function(input, output, session) {
   observeEvent(input$results_search, {
     data <- query_results_api(
       location_id = input$results_location_id,
-      recovered_start = input$results_start_date,
-      recovered_end = input$results_end_date,
+      collection_start = input$results_start_date,
+      collection_end = input$results_end_date,
       assay_target = input$results_assay_target,
       assay_target_genetic_locus = input$results_genetic_locus
     )
