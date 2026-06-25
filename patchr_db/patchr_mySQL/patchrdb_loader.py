@@ -100,9 +100,15 @@ def clean_dataframe(df):
             df[col] = df[col].replace({'NAN': None, '': None})
         
         # Date columns: parse to YYYY-MM-DD
-        elif 'datetime' in col.lower():
+        elif 'datetime' in col_lower:
+            df[col] = pd.to_datetime(df[col], errors='coerce', format='mixed').dt.strftime('%Y-%m-%d %H:%M:%S')
+            failed_rows = df[col].isna().sum()
+            if failed_rows > 0: 
+                log_message(f"[WARN] {failed_rows} values in "
+                            f"{col} could not be parsed as datetime")
+        #elif 'datetime' in col.lower():
             # Keep time information
-            df[col] = pd.to_datetime(df[col], errors='coerce').dt.strftime('%Y-%m-%d %H:%M:%S')
+        #    df[col] = pd.to_datetime(df[col], errors='coerce').dt.strftime('%Y-%m-%d %H:%M:%S')
         elif 'date' in col.lower():
             # Only keep the date portion
             df[col] = pd.to_datetime(df[col], errors='coerce').dt.strftime('%Y-%m-%d')
