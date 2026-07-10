@@ -14,6 +14,8 @@ from app.routers.cbatch import router as cbatch_router
 from app.routers.ebatch import router as ebatch_router
 from app.routers.abatch import router as abatch_router
 from app.routers.results import router as results_router
+from app.routers.location import router as location_router
+from app.routers.county import router as county_router
 
 # Create FastAPI app
 app = FastAPI(
@@ -43,6 +45,8 @@ app.include_router(cbatch_router)
 app.include_router(ebatch_router)
 app.include_router(abatch_router)
 app.include_router(results_router)
+app.include_router(location_router)
+app.include_router(county_router)
 
 # Mount the frontend directory
 frontend_path = Path(__file__).parent / "static"
