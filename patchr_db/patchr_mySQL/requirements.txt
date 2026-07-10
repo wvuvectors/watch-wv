@@ -1,0 +1,10 @@
+# requirements.txt 
+
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+pydantic_settings
+mysql-connector-python
+pymysql
+pandas
