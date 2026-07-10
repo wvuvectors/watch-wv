@@ -13,6 +13,9 @@ source("R/cbatch_api.R")
 source("R/ebatch_api.R")
 source("R/abatch_api.R")
 source("R/results_api.R")
+source("R/location_api.R")
+source("R/county_api.R")
+source("R/wwtp_api.R")
 
 # ----------------------------
 # UI
@@ -37,6 +40,54 @@ ui <- navbarPage(
         actionButton("clear_sample", "Clear")
       ),
       mainPanel(DTOutput("samples_table"))
+    )
+  ),
+  
+  # ---------------- LOCATION TAB ----------------
+  tabPanel(
+    "Locations",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("location_id_l", "Location ID"),
+        textInput("location_common_name", "Common Name"),
+        textInput("location_primary_wwtp_id", "Primary WWTP ID"),
+        textInput("location_zipcode", "Zip Code"),
+        actionButton("search_location", "Search"),
+        actionButton("clear_location", "Clear")
+      ),
+      mainPanel(DTOutput("location_table"))
+    )
+  ),
+  
+  
+  # ---------------- COUNTY TAB ----------------
+  tabPanel(
+    "Counties",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("county_id", "County ID"),
+        textInput("county_labcode", "Lab Code"),
+        textInput("county_name", "County Name"),
+        actionButton("search_county", "Search"),
+        actionButton("clear_county", "Clear")
+      ),
+      mainPanel(DTOutput("county_table"))
+    )
+  ),
+  
+  
+  # ---------------- WWTP TAB ----------------
+  tabPanel(
+    "WWTPs",
+    sidebarLayout(
+      sidebarPanel(
+        textInput("wwtp_id", "WWTP ID"),
+        textInput("wwtp_site_id", "Site ID"),
+        textInput("wwtp_common_name", "Common Name"),
+        actionButton("search_wwtp", "Search"),
+        actionButton("clear_wwtp", "Clear")
+      ),
+      mainPanel(DTOutput("wwtp_table"))
     )
   ),
   
@@ -172,6 +223,9 @@ server <- function(input, output, session) {
   # Reactive storage
   # =========================
   samples_data <- reactiveVal(data.frame())
+  location_data <- reactiveVal(data.frame())
+  county_data <- reactiveVal(data.frame())
+  wwtp_data <- reactiveVal(data.frame())
   concentration_data <- reactiveVal(data.frame())
   extractions_data <- reactiveVal(data.frame())
   assay_data <- reactiveVal(data.frame())
@@ -196,6 +250,21 @@ server <- function(input, output, session) {
   observe({
     data <- get_samples(limit = as.integer(100000))
     samples_data(data)
+  })
+  
+  observe({
+    data <- get_locations(limit = as.integer(100000))
+    location_data(data)
+  })
+  
+  observe({
+    data <- get_counties(limit = as.integer(100000))
+    county_data(data)
+  })
+  
+  observe({
+    data <- get_wwtps(limit = as.integer(100000))
+    wwtp_data(data)
   })
   
   observe({
@@ -260,6 +329,87 @@ server <- function(input, output, session) {
     
     samples_data(data)
   })
+  
+  # =========================
+  # LOCATION SEARCH
+  # =========================
+  observeEvent(input$search_location, {
+    
+    data <- query_locations_api(
+      location_id = input$location_id_l,
+      location_common_name = input$location_common_name,
+      location_primary_wwtp_id = input$location_primary_wwtp_id,
+      location_zipcode = input$location_zipcode
+    )
+    
+    location_data(data)
+  })
+  
+  
+  observeEvent(input$clear_location, {
+    
+    updateTextInput(session, "location_id_l", value = "")
+    updateTextInput(session, "location_common_name", value = "")
+    updateTextInput(session, "location_primary_wwtp_id", value = "")
+    updateTextInput(session, "location_zipcode", value = "")
+    
+    location_data(
+      get_locations(limit = as.integer(100000))
+    )
+  })
+  
+  # =========================
+  # COUNTY SERACH
+  # =========================
+  observeEvent(input$search_county, {
+    
+    data <- query_counties_api(
+      county_id = input$county_id,
+      county_labcode = input$county_labcode,
+      county_name = input$county_name
+    )
+    
+    county_data(data)
+  })
+  
+  
+  observeEvent(input$clear_county, {
+    
+    updateTextInput(session, "county_id", value = "")
+    updateTextInput(session, "county_labcode", value = "")
+    updateTextInput(session, "county_name", value = "")
+    
+    county_data(
+      get_counties(limit = as.integer(100000))
+    )
+  })
+  
+  # =========================
+  # WWTP SEARCH
+  # =========================
+  observeEvent(input$search_wwtp, {
+    
+    data <- query_wwtps_api(
+      wwtp_id = input$wwtp_id,
+      wwtp_site_id = input$wwtp_site_id,
+      wwtp_common_name = input$wwtp_common_name
+    )
+    
+    wwtp_data(data)
+  })
+  
+  
+  observeEvent(input$clear_wwtp, {
+    
+    updateTextInput(session, "wwtp_id", value = "")
+    updateTextInput(session, "wwtp_site_id", value = "")
+    updateTextInput(session, "wwtp_common_name", value = "")
+    
+    wwtp_data(
+      get_wwtps(limit = as.integer(100000))
+    )
+  })
+  
   
   # =========================
   # CONCENTRATION SEARCH
@@ -456,6 +606,20 @@ server <- function(input, output, session) {
   # =========================
   output$samples_table <- renderDT({
     datatable(samples_data(), options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  output$location_table <- renderDT({
+    datatable(location_data(),options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  
+  output$county_table <- renderDT({
+    datatable(county_data(),options = list(pageLength = 10, scrollX = TRUE))
+  })
+  
+  
+  output$wwtp_table <- renderDT({
+    datatable(wwtp_data(),options = list(pageLength = 10, scrollX = TRUE))
   })
   
   output$concentration_table <- renderDT({
