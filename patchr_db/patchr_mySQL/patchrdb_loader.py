@@ -5,6 +5,7 @@
 import os
 import mysql.connector
 import pandas as pd
+import openpyxl
 
 # ----------------------------- CONFIGURATION -----------------------------
 DB_CONFIG = {
@@ -21,22 +22,39 @@ INVALID_DIR = os.path.join(WATCHDB_DIR, 'invalid_rows')
 # -----------------------------
 # Table mapping and order
 # -----------------------------
-table_map = {
-    'sample': 'samples',
-    'concentration': 'concentration',
-    'extraction': 'extractions',
-    'assay': 'assay',
-    'result.txt': 'results',
-    'result.OLD': 'results_old',
-    'cbatch': 'cbatch',
-    'ebatch': 'ebatch',
-    'abatch': 'abatch',
-    'rbatch': 'rbatch',
-    'archive': 'archive',
-    'location': 'location',
+TEXT_TABLES = {
+    "samples": "watchdb.sample.txt",
+    "concentration": "watchdb.concentration.txt",
+    "extractions": "watchdb.extraction.txt",
+    "assay": "watchdb.assay.txt",
+    "results": "watchdb.result.txt",
+    "results_old": "watchdb.result.OLD.txt",
+    "cbatch": "watchdb.cbatch.txt",
+    "ebatch": "watchdb.ebatch.txt",
+    "abatch": "watchdb.abatch.txt",
+    "rbatch": "watchdb.rbatch.txt",
+    "archive": "watchdb.archive.txt"
+}
+
+EXCEL_TABLES = {
+    "location": {
+        "file": "watchdb.all_tables.xlsx",
+        "sheet": "location"
+    },
+    "county": {
+        "file": "watchdb.all_tables.xlsx",
+        "sheet": "county"
+    },
+    "wwtp": {
+        "file": "watchdb.all_tables.xlsx",
+        "sheet": "wwtp"
+    }
 }
 
 table_order = [
+    'county',
+    'wwtp',
+    'location',
     'samples',
     'cbatch',
     'concentration',
@@ -47,8 +65,7 @@ table_order = [
     'results',
     'results_old',
     'archive',
-    'rbatch',
-    'location'
+    'rbatch'
 ]
 
 # -----------------------------
@@ -61,6 +78,69 @@ def log_message(msg):
     print(msg)
     with open(LOG_FILE, 'a', encoding='utf-8') as f:
         f.write(msg + '\n')
+        
+# -----------------------------
+# Load table from source
+# -----------------------------
+
+def load_table_dataframe(table_name):
+    """
+    Loads a table from either a tab-delimited text file
+    or an Excel workbook.
+    """
+
+    # --------------------
+    # TXT tables
+    # --------------------
+    if table_name in TEXT_TABLES:
+
+        file_path = os.path.join(
+            WATCHDB_DIR,
+            TEXT_TABLES[table_name]
+        )
+
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(file_path)
+
+        log_message(
+            f"[LOAD] {TEXT_TABLES[table_name]} → {table_name}"
+        )
+
+        return pd.read_csv(
+            file_path,
+            sep="\t",
+            dtype=str
+        )
+
+    # --------------------
+    # Excel tables
+    # --------------------
+    if table_name in EXCEL_TABLES:
+
+        excel_file = EXCEL_TABLES[table_name]["file"]
+        sheet_name = EXCEL_TABLES[table_name]["sheet"]
+
+        file_path = os.path.join(
+            WATCHDB_DIR,
+            excel_file
+        )
+
+        if not os.path.exists(file_path):
+            raise FileNotFoundError(file_path)
+
+        log_message(
+            f"[LOAD] {excel_file} ({sheet_name}) → {table_name}"
+        )
+
+        return pd.read_excel(
+            file_path,
+            sheet_name=sheet_name,
+            dtype=str
+        )
+
+    raise ValueError(
+        f"No data source configured for table '{table_name}'"
+    )
 
 # -----------------------------
 # Data cleaning
@@ -147,13 +227,14 @@ def validate_foreign_keys(df, table_name, cursor, export_invalid=True):
     - export_invalid: if True, save invalid rows to CSV
     """
     fk_checks = {
+        'samples': ('location_id', 'location', 'location_id'),
         'concentration': ('sample_id', 'samples', 'sample_id'),
         'extractions': ('concentration_id', 'concentration', 'concentration_id'),
         'assay': ('extraction_id', 'extractions', 'extraction_id'),
         'results': ('assay_id', 'assay', 'assay_id'),
         'results_old': ('sample_id', 'samples', 'sample_id'),
-        'archive': ('sample_id', 'samples', 'sample_id'),
-        'location': ('location_id', 'samples', 'location_id')
+        'archive': ('sample_id', 'samples', 'sample_id')
+        #'location': ('location_id', 'samples', 'location_id')
     }
 
     if table_name not in fk_checks:
@@ -210,26 +291,32 @@ def main():
     print("WATCHDB_DIR =", WATCHDB_DIR)
 
     for table_name in table_order:
-        file_to_load = None
-        for file in os.listdir(WATCHDB_DIR):
-            if not file.startswith('watchdb.') or not file.endswith('.txt'):
-                continue
-            for key, tbl in table_map.items():
-                if key in file and tbl == table_name:
-                    file_to_load = file
-                    break
-            if file_to_load:
-                break
-
-        if not file_to_load:
-            log_message(f"[SKIP] No file found for table {table_name}")
-            continue
-
-        file_path = os.path.join(WATCHDB_DIR, file_to_load)
-        log_message(f"[LOAD] {file_to_load} → {table_name}")
-
         try:
-            df = pd.read_csv(file_path, sep='\t', dtype=str)
+            df = load_table_dataframe(table_name)
+            df = clean_dataframe(df)
+            df = validate_foreign_keys(
+                df,
+                table_name,
+                cursor
+            )
+
+            if df.empty:
+                log_message(
+                    f"[WARN] No valid rows left for {table_name}, skipping."
+                )
+                continue
+
+            insert_dataframe(df, table_name, cursor)
+            conn.commit()
+            log_message(
+                f"[OK] Inserted/Updated {len(df)} rows into {table_name}"
+            )
+        
+        except Exception as e:
+            conn.rollback()
+            log_message(
+                f"[ERROR] Failed to load {table_name} → {e}"
+            )
             df = clean_dataframe(df)
             df = validate_foreign_keys(df, table_name, cursor)
 

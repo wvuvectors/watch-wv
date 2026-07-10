@@ -8,3 +8,4 @@ pydantic_settings
 mysql-connector-python
 pymysql
 pandas
+openpyxl

@@ -120,6 +120,54 @@ CREATE TABLE abatch ( -- assay batch metadata
     INDEX idx_assay_date (assay_date)
 );
 
+CREATE TABLE location ( -- location metadata
+	location_id VARCHAR(100) PRIMARY KEY,
+    sample_code_prefix VARCHAR(20),
+    location_primary_lab VARCHAR(20),
+    location_status VARCHAR(50),
+    location_common_name VARCHAR(255),
+    location_category VARCHAR(100),
+    location_group VARCHAR(100),
+    location_lng DECIMAL(10,6),
+    location_lat DECIMAL(10,6),
+    location_primary_wwtp_id VARCHAR(100),
+    location_counties_served VARCHAR(255),
+    location_population_served VARCHAR(50),
+    location_sampler_type VARCHAR(100),
+    location_collection_window_hrs FLOAT,
+    location_collection_pull_ml FLOAT,
+    location_collection_step_min FLOAT,
+    location_collection_basis VARCHAR(100),
+    location_collection_type VARCHAR(100),
+    location_zipcode VARCHAR(20),
+    location_comment TEXT,
+    FOREIGN KEY (location_id) REFERENCES samples(location_id),
+    FULLTEXT INDEX idx_location_comment (location_comment),
+    INDEX idx_location_common_name (location_common_name),
+    INDEX idx_location_category (location_category),
+    INDEX idx_location_status (location_status)
+);
+
+CREATE TABLE wwtp ( -- wastewater treatment plant metadata
+	wwtp_id VARCHAR(100) PRIMARY KEY,
+    wwtp_site_id VARCHAR(30),
+    wwtp_common_name VARCHAR(50),
+    wwtp_authority_name VARCHAR(100),
+    wwtp_counties_served VARCHAR(20),
+    wwtp_epaid_id VARCHAR(20),
+    wwtp_cwns_id VARCHAR(20),
+    wwtp_capacity_mgd FLOAT,
+    wwtp_population_served FLOAT
+);
+
+CREATE TABLE county ( -- county metadata
+	county_id VARCHAR(10) PRIMARY KEY,
+    county_labcode VARCHAR(5),
+    county_fips VARCHAR(10),
+    county_name VARCHAR(20),
+    county_population FLOAT
+);
+
 CREATE TABLE results (
     assay_id VARCHAR(50) PRIMARY KEY,
     sample_id VARCHAR(50),
