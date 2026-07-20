@@ -1,0 +1,166 @@
+#############################################
+Initiated patchr.sh
+2026-07-08_13-38
+
+See logs/patchr/patchr.2026-07-08_13-38.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl -i /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR -o /Users/tpd0001/github/watch-wv/patchr/data.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38/ to hold the results.
+Recording batch files to process in /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB260.xlsx to batches/CB260.xlsx.
+Repairing known issues in CB260.xlsx.
+Copying file CB256.xlsx to batches/CB256.xlsx.
+Repairing known issues in CB256.xlsx.
+Copying file CB257.xlsx to batches/CB257.xlsx.
+Repairing known issues in CB257.xlsx.
+Copying file CB258.xlsx to batches/CB258.xlsx.
+Repairing known issues in CB258.xlsx.
+Copying file CB255.xlsx to batches/CB255.xlsx.
+Repairing known issues in CB255.xlsx.
+Copying file CB259.xlsx to batches/CB259.xlsx.
+Repairing known issues in CB259.xlsx.
+Copying file EB257.xlsx to batches/EB257.xlsx.
+Repairing known issues in EB257.xlsx.
+Copying file EB260.xlsx to batches/EB260.xlsx.
+Repairing known issues in EB260.xlsx.
+Copying file EB255.xlsx to batches/EB255.xlsx.
+Repairing known issues in EB255.xlsx.
+Copying file EB258.xlsx to batches/EB258.xlsx.
+Repairing known issues in EB258.xlsx.
+Copying file AB160.xlsx to batches/AB160.xlsx.
+Repairing known issues in AB160.xlsx.
+Copying file AB160_analysis_06_07_2026_14_23_48_UTC-04_00.csv to batches/AB160_analysis_06_07_2026_14_23_48_UTC-04_00.csv.
+Repairing known issues in AB160_analysis_06_07_2026_14_23_48_UTC-04_00.csv.
+Done.
+File AB160_analysis_06_07_2026_14_23_48_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB161.xlsx to batches/AB161.xlsx.
+Repairing known issues in AB161.xlsx.
+Copying file AB161_20260702_144012_522.ANALYZED.csv to batches/AB161_20260702_144012_522.ANALYZED.csv.
+Repairing known issues in AB161_20260702_144012_522.ANALYZED.csv.
+Done.
+File AB161_20260702_144012_522.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB161_20260702_144012_522.ANALYZED.csv.
+Done.
+Copying file AB166.xlsx to batches/AB166.xlsx.
+Repairing known issues in AB166.xlsx.
+Copying file AB166_analysis_06_07_2026_17_08_17_UTC-04_00.csv to batches/AB166_analysis_06_07_2026_17_08_17_UTC-04_00.csv.
+Repairing known issues in AB166_analysis_06_07_2026_17_08_17_UTC-04_00.csv.
+Done.
+File AB166_analysis_06_07_2026_17_08_17_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB164.xlsx to batches/AB164.xlsx.
+Repairing known issues in AB164.xlsx.
+Copying file AB164_analysis_06_07_2026_16_59_57_UTC-04_00.csv to batches/AB164_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Repairing known issues in AB164_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Done.
+File AB164_analysis_06_07_2026_16_59_57_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB165.xlsx to batches/AB165.xlsx.
+Repairing known issues in AB165.xlsx.
+Copying file AB165_analysis_06_07_2026_16_59_57_UTC-04_00.csv to batches/AB165_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Repairing known issues in AB165_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Done.
+File AB165_analysis_06_07_2026_16_59_57_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB162.xlsx to batches/AB162.xlsx.
+Repairing known issues in AB162.xlsx.
+Copying file AB162_analysis_29_06_2026_14_47_35_UTC-04_00.csv to batches/AB162_analysis_29_06_2026_14_47_35_UTC-04_00.csv.
+Repairing known issues in AB162_analysis_29_06_2026_14_47_35_UTC-04_00.csv.
+Done.
+File AB162_analysis_29_06_2026_14_47_35_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB158.xlsx to batches/AB158.xlsx.
+Repairing known issues in AB158.xlsx.
+Copying file AB158_analysis_26_06_2026_09_58_48_UTC-04_00.csv to batches/AB158_analysis_26_06_2026_09_58_48_UTC-04_00.csv.
+Repairing known issues in AB158_analysis_26_06_2026_09_58_48_UTC-04_00.csv.
+Done.
+File AB158_analysis_26_06_2026_09_58_48_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB159.xlsx to batches/AB159.xlsx.
+Repairing known issues in AB159.xlsx.
+Copying file AB159_analysis_26_06_2026_15_01_03_UTC-04_00.csv to batches/AB159_analysis_26_06_2026_15_01_03_UTC-04_00.csv.
+Repairing known issues in AB159_analysis_26_06_2026_15_01_03_UTC-04_00.csv.
+Done.
+File AB159_analysis_26_06_2026_15_01_03_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AB163.xlsx to batches/AB163.xlsx.
+Repairing known issues in AB163.xlsx.
+Copying file AB163_analysis_06_07_2026_16_59_57_UTC-04_00.csv to batches/AB163_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Repairing known issues in AB163_analysis_06_07_2026_16_59_57_UTC-04_00.csv.
+Done.
+File AB163_analysis_06_07_2026_16_59_57_UTC-04_00.csv is a csv file of unknown data format.
+It has been copied to batches/ but will be ignored.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+Ok, I'm about to start modifying the watchdb files in /Users/tpd0001/github/watch-wv/patchr/data/latest/.
+First, let's back up /Users/tpd0001/github/watch-wv/patchr/data/latest/ to /Users/tpd0001/github/watch-wv/patchr/data/latest_bk/.
+
+Now I'll create a new watchdb folder in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38/.
+It will hold the latest watchdb after update with data from /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38/.
+
+
+Now I'm merging the watchdb tables from /Users/tpd0001/github/watch-wv/patchr/data/latest/ with the update tables in /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38/.
+These merged tables will be put in the folder that I just created, /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38/.
+
+******
+Running 4_appendUpdate.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38 /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-07-08_13-38/.
+******
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38.
+
+******
+Running 5_calculateResults.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38.
+******
+
+
+******
+Running 6_generateBatchList.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38 > /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38/watchdb.completed_batches.txt.
+******
+
+
+
+******
+Everything appears to be ok, so on to the final step.
+I am now copying the watchdb tables from /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38/ to /Users/tpd0001/github/watch-wv/patchr/data/latest/, overwriting the old set.
+Never fear! The previous version is still readily available in /Users/tpd0001/github/watch-wv/patchr/data/latest_bk/, and older sets in the /Users/tpd0001/github/watch-wv/patchr/data/incremental/ folder.
+******
+
+Updating the README file.
+
+File copy finished.
+The most recent version of the watchdb can be found in two places:
+    /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-07-08_13-38/
+    and
+    /Users/tpd0001/github/watch-wv/patchr/data/latest/
+/Users/tpd0001/github/watch-wv/patchr/data/latest_bk/ contains the data from immediately before this update was applied.
+
+All done! patchr run of 2026-07-08_13-38 will now exit.
+
