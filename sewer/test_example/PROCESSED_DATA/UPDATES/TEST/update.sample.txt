@@ -1,0 +1,7 @@
+sample_id	location_id	sample_collection_method	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	validation_key
+S1	CheatLakeWWTP-01	Composite	NA	Routine Surveillance	Pass	03/30/2025 08:00 AM	03/31/2025 08:00 AM	03/31/2025 08:00 AM	0.634	AJ	04/03/2025	NA	1
+S2	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	03/30/2025 12:00 AM	03/31/2025 12:00 AM	03/31/2025 12:00 AM	13.3	AJ	04/03/2025	NA	1
+S3	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	03/29/2025 12:00 AM	03/30/2025 12:00 AM	03/30/2025 12:00 AM	9.4	AJ	04/03/2025	NA	1
+S4	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	03/28/2025 12:00 AM	03/29/2025 12:00 AM	03/29/2025 12:00 AM	8.3	AJ	04/03/2025	NA	1
+S5	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	03/26/2025 12:00 AM	03/27/2025 12:00 AM	03/27/2025 12:00 AM	8.1	AJ	04/03/2025	NA	1
+S6	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	03/25/2025 12:00 AM	03/26/2025 12:00 AM	03/26/2025 12:00 AM	9.1	AJ	04/03/2025	NA	1

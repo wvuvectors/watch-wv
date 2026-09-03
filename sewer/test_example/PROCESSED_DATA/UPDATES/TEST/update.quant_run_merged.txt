@@ -1,0 +1,127 @@
+assay_id	assay_type	sample_id	assay_well	assay_block_id	assay_batch_id	assay_target_name	assay_target_abbreviation	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_partitions	assay_positive_partitions	validation_key
+S1.1786397514.68369	sample	S1	A01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8289	0	1
+S1.1786397514.68725	sample	S1	A01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	7.40592765643093	8289	18	1
+S1.1786397514.68912	sample	S1	A01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8289	0	1
+S1.1786397514.69098	sample	S1	A01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8289	0	1
+S1.1786397514.69281	sample	S1	A01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8289	0	1
+S7.1786397514.69495	sample	S7	A02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8246	0	1
+S7.1786397514.69674	sample	S7	A02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	1.66293340410112	8246	4	1
+S7.1786397514.6994	sample	S7	A02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8246	0	1
+S7.1786397514.70151	sample	S7	A02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8246	0	1
+S7.1786397514.70319	sample	S7	A02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8246	0	1
+S2.1786397514.70505	sample	S2	B01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8262	0	1
+S2.1786397514.70675	sample	S2	B01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	2.49388737513662	8262	6	1
+S2.1786397514.70841	sample	S2	B01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8262	0	1
+S2.1786397514.71015	sample	S2	B01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8262	0	1
+S2.1786397514.71908	sample	S2	B01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8262	0	1
+S8.1786397514.72094	sample	S8	B02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8280	0	1
+S8.1786397514.72299	sample	S8	B02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	8280	0	1
+S8.1786397514.72474	sample	S8	B02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8280	0	1
+S8.1786397514.72644	sample	S8	B02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	1.26027463962833	8280	3	1
+S8.1786397514.72812	sample	S8	B02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8280	0	1
+S3.1786397514.73016	sample	S3	C01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8275	0	1
+S3.1786397514.73222	sample	S3	C01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	2.97228149611084	8275	7	1
+S3.1786397514.7342	sample	S3	C01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8275	0	1
+S3.1786397514.73609	sample	S3	C01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	3.82196699431163	8275	9	1
+S3.1786397514.73782	sample	S3	C01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8275	0	1
+S9.1786397514.73962	sample	S9	C02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8307	0	1
+S9.1786397514.74144	sample	S9	C02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	2.13133454825471	8307	5	1
+S9.1786397514.74325	sample	S9	C02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8307	0	1
+S9.1786397514.74496	sample	S9	C02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8307	0	1
+S9.1786397514.74675	sample	S9	C02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8307	0	1
+S4.1786397514.7487	sample	S4	D01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8274	0	1
+S4.1786397514.75041	sample	S4	D01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	7.05476806103544	8274	17	1
+S4.1786397514.75209	sample	S4	D01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8274	0	1
+S4.1786397514.75382	sample	S4	D01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8274	0	1
+S4.1786397514.75557	sample	S4	D01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8274	0	1
+S10.1786397514.75745	sample	S10	D02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0.427744407505872	8266	1	1
+S10.1786397514.75917	sample	S10	D02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	8266	0	1
+S10.1786397514.76103	sample	S10	D02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8266	0	1
+S10.1786397514.76272	sample	S10	D02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.855540571852666	8266	2	1
+S10.1786397514.76447	sample	S10	D02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8266	0	1
+S5.1786397514.76656	sample	S5	E01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	1.25580806449401	8279	3	1
+S5.1786397514.76838	sample	S5	E01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0.41855211905164	8279	1	1
+S5.1786397514.77014	sample	S5	E01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8279	0	1
+S5.1786397514.77851	sample	S5	E01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	5.86433553751145	8279	14	1
+S5.1786397514.78064	sample	S5	E01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8279	0	1
+S11.1786397514.78241	sample	S11	E02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8301	0	1
+S11.1786397514.78406	sample	S11	E02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	2.57783419249124	8301	6	1
+S11.1786397514.78573	sample	S11	E02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8301	0	1
+S11.1786397514.78775	sample	S11	E02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8301	0	1
+S11.1786397514.78947	sample	S11	E02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8301	0	1
+S6.1786397514.79136	sample	S6	F01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8108	0	1
+S6.1786397514.79318	sample	S6	F01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0.871128740559817	8108	2	1
+S6.1786397514.79484	sample	S6	F01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8108	0	1
+S6.1786397514.79648	sample	S6	F01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	4.79386974604004	8108	11	1
+S6.1786397514.79827	sample	S6	F01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8108	0	1
+S12.1786397514.80002	sample	S12	F02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0.43626304612993	8266	1	1
+S12.1786397514.80166	sample	S12	F02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	11.7976681416551	8266	27	1
+S12.1786397514.80331	sample	S12	F02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8266	0	1
+S12.1786397514.80495	sample	S12	F02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.43626304612993	8266	1	1
+S12.1786397514.80671	sample	S12	F02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0.43626304612993	8266	1	1
+EBLANK.1786397514.80847	sample	EBLANK	G01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0.416362712604201	8309	1	1
+EBLANK.1786397514.81016	sample	EBLANK	G01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0.832775544102608	8309	2	1
+EBLANK.1786397514.81181	sample	EBLANK	G01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8309	0	1
+EBLANK.1786397514.81343	sample	EBLANK	G01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.416362712604201	8309	1	1
+EBLANK.1786397514.81505	sample	EBLANK	G01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8309	0	1
+EBLANK.1786397514.81668	sample	EBLANK	G02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8291	0	1
+EBLANK.1786397514.81834	sample	EBLANK	G02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	8.55309333786812	8291	20	1
+EBLANK.1786397514.81994	sample	EBLANK	G02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8291	0	1
+EBLANK.1786397514.82157	sample	EBLANK	G02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	8291	0	1
+EBLANK.1786397514.82318	sample	EBLANK	G02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8291	0	1
+S1.1786397514.85089	sample	S1	A04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S1.1786397514.85267	sample	S1	A04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S7.1786397514.8544	sample	S7	A05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S7.1786397514.85646	sample	S7	A05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S2.1786397514.85836	sample	S2	B04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S2.1786397514.86014	sample	S2	B04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S8.1786397514.86213	sample	S8	B05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S8.1786397514.86412	sample	S8	B05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S3.1786397514.86604	sample	S3	C04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S3.1786397514.86774	sample	S3	C04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S9.1786397514.86948	sample	S9	C05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S9.1786397514.87124	sample	S9	C05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S4.1786397514.87313	sample	S4	D04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S4.1786397514.87484	sample	S4	D04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S10.1786397514.87647	sample	S10	D05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S10.1786397514.87807	sample	S10	D05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S5.1786397514.87983	sample	S5	E04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S5.1786397514.8815	sample	S5	E04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S11.1786397514.88312	sample	S11	E05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S11.1786397514.88489	sample	S11	E05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S6.1786397514.88681	sample	S6	F04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S6.1786397514.89404	sample	S6	F04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S12.1786397514.89601	sample	S12	F05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+S12.1786397514.89772	sample	S12	F05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+EBLANK.1786397514.8996	sample	EBLANK	G04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+EBLANK.1786397514.90127	sample	EBLANK	G04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+EBLANK.1786397514.90292	sample	EBLANK	G05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+EBLANK.1786397514.90455	sample	EBLANK	G05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+S1.1786397514.91592	sample	S1	A07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S7.1786397514.91794	sample	S7	A08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S2.1786397514.92021	sample	S2	B07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S8.1786397514.922	sample	S8	B08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S3.1786397514.92399	sample	S3	C07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S9.1786397514.92584	sample	S9	C08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S4.1786397514.92772	sample	S4	D07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S10.1786397514.9296	sample	S10	D08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S5.1786397514.93161	sample	S5	E07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S11.1786397514.93338	sample	S11	E08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S6.1786397514.93515	sample	S6	F07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S12.1786397514.93695	sample	S12	F08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+EBLANK.1786397514.93877	sample	EBLANK	G07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+EBLANK.1786397514.94047	sample	EBLANK	G08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+S1.1786397514.95354	sample	S1	A10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S7.1786397514.95568	sample	S7	A11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S2.1786397514.95769	sample	S2	B10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S8.1786397514.95959	sample	S8	B11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S3.1786397514.96219	sample	S3	C10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S9.1786397514.96425	sample	S9	C11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S4.1786397514.96621	sample	S4	D10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S10.1786397514.96816	sample	S10	D11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S5.1786397514.97033	sample	S5	E10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S11.1786397514.9721	sample	S11	E11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S6.1786397514.97386	sample	S6	F10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+S12.1786397514.97554	sample	S12	F11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+EBLANK.1786397514.97728	sample	EBLANK	G10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+EBLANK.1786397514.97895	sample	EBLANK	G11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1

@@ -1,0 +1,19 @@
+assay_id	assay_type	sample_id	assay_well	assay_block_id	assay_batch_id	assay_target_name	assay_target_abbreviation	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_partitions	assay_positive_partitions	validation_key
+ppc.1786397514.82492	pcr_positive_control	CTL	H01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	8257	0	1
+ppc.1786397514.82657	pcr_positive_control	CTL	H01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	1.64154520643879	8257	4	1
+ppc.1786397514.82818	pcr_positive_control	CTL	H01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	8257	0	1
+ppc.1786397514.83618	pcr_positive_control	CTL	H01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.410311737133803	8257	1	1
+ppc.1786397514.8382	pcr_positive_control	CTL	H01	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	8257	0	1
+pnc.1786397514.84001	pcr_negative_control	CTL	H02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus A (M)	FluA	FAM	0	6380	0	1
+pnc.1786397514.84168	pcr_negative_control	CTL	H02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	6380	0	1
+pnc.1786397514.84333	pcr_negative_control	CTL	H02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	6380	0	1
+pnc.1786397514.84495	pcr_negative_control	CTL	H02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	6380	0	1
+pnc.1786397514.84659	pcr_negative_control	CTL	H02	GTM GT-Digital Flu;SC2;RSV WW Surveillance Panel for QIAcuity R001 (100740)	JAM_Q000	SARS-CoV-2 (SC2)	SC2	ROX	0	6380	0	1
+ppc.1786397514.90654	pcr_positive_control	CTL	H04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+ppc.1786397514.90845	pcr_positive_control	CTL	H04	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+pnc.1786397514.91015	pcr_negative_control	CTL	H05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GI, Human (ORF1_2)	Noro I	FAM	-1	-1	-1	-1
+pnc.1786397514.91182	pcr_negative_control	CTL	H05	GTM GT-Digital Norovirus GI;Norovirus GII Assay Kit for the QIAcuity Digital PCR System v1.1 (100469-1.1)	JAM_Q000	Norovirus GII, Human (ORF1_2)	Noro II	HEX	-1	-1	-1	-1
+ppc.1786397514.94219	pcr_positive_control	CTL	H07	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+pnc.1786397514.94385	pcr_negative_control	CTL	H08	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	JAM_Q000	Pertussis, Bordetella	Pertussis	FAM	-1	-1	-1	-1
+ppc.1786397514.98095	pcr_positive_control	CTL	H10	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1
+pnc.1786397514.98277	pcr_negative_control	CTL	H11	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	JAM_Q000	Measles Virus, Wild-Type (N)	MeV	Cy5	-1	-1	-1	-1

@@ -1,0 +1,6 @@
+batch_type	batch_id	path_to_original	file_name
+Concentration	JAM_C000	test_example/RAW_DATA/JAM_C000.xlsx	JAM_C000.xlsx
+Extraction	JAM_E000	test_example/RAW_DATA/JAM_E000.xlsx	JAM_E000.xlsx
+Quantification	JAM_Q000	test_example/RAW_DATA/JAM_Q000.xlsm	JAM_Q000.xlsm
+Result	JAM_Q000	test_example/RAW_DATA/JAM_Q000_analysis_29_06_2026_14_45_37_UTC-04_00.csv	JAM_Q000_analysis_29_06_2026_14_45_37_UTC-04_00.csv
+Sample	Sample	test_example/RAW_DATA/AssetTagReport.csv	AssetTagReport.csv

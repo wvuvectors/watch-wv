@@ -98,7 +98,7 @@ excel2df <- function(fname) {
 
 	# getting info about all excel sheets
 	sheets <- readxl::excel_sheets(fname)
-	tibble <- lapply(sheets, function(x) readxl::read_excel(fname, sheet = x))
+	tibble <- lapply(sheets, function(x) readxl::read_excel(fname, sheet = x, col_names = FALSE))
 	data_frame <- lapply(tibble, as.data.frame)
 
 	# assigning names to data frames
