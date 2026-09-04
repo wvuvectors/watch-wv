@@ -1,0 +1,90 @@
+#############################################
+Initiated patchr.sh
+2026-09-03_15-23
+
+See logs/patchr/patchr.2026-09-03_15-23.log for warnings, errors, and other important information.
+Input data dir: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR
+Output data dir: /Users/tpd0001/github/watch-wv/patchr/data
+
+Searching for unprocessed batch files.
+******
+Running 1_queryBatches.pl -i /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/DATA_PCR -o /Users/tpd0001/github/watch-wv/patchr/data.
+******
+
+1_queryBatches.pl identified unprocessed batch files, so an update will be prepared.
+Preparing an update to WaTCH now.
+Creating update folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/ to hold the results.
+Recording batch files to process in /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23//update.batch_files.txt.
+******
+Running prepUpdate.sh.
+******
+Switching to update directory /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/.
+Creating directory batches/ to hold the validated batch files.
+Preparing unprocessed batch files listed in update.batch_files.txt.
+Validated batch files will be stored in batches/ and update.batch_files.txt will be revised.
+Further steps in patchr will use the files in batches/.
+Copying file CB276.xlsx to batches/CB276.xlsx.
+Repairing known issues in CB276.xlsx.
+Copying file CB277.xlsx to batches/CB277.xlsx.
+Repairing known issues in CB277.xlsx.
+Copying file CB275.xlsx to batches/CB275.xlsx.
+Repairing known issues in CB275.xlsx.
+Copying file EB277.xlsx to batches/EB277.xlsx.
+Repairing known issues in EB277.xlsx.
+Copying file EB275.xlsx to batches/EB275.xlsx.
+Repairing known issues in EB275.xlsx.
+Copying file AB176.xlsx to batches/AB176.xlsx.
+Repairing known issues in AB176.xlsx.
+Copying file AB176_20260831_164918_994.ANALYZED.csv to batches/AB176_20260831_164918_994.ANALYZED.csv.
+Repairing known issues in AB176_20260831_164918_994.ANALYZED.csv.
+Done.
+File AB176_20260831_164918_994.ANALYZED.csv appears to be a ddPCR results file.
+  Fixing known incompatibilities in AB176_20260831_164918_994.ANALYZED.csv.
+Done.
+Copying file AssetTagReport.csv to batches/AssetTagReport.csv.
+Repairing known issues in AssetTagReport.csv.
+Done.
+File AssetTagReport.csv appears to be an asset file.
+It has been copied to batches/.
+
+******
+Running 2_compileUpdate.pl.
+******
+
+
+Ok, I'm about to start modifying the watchdb files in /Users/tpd0001/github/watch-wv/patchr/data/latest/.
+First, let's back up /Users/tpd0001/github/watch-wv/patchr/data/latest/ to /Users/tpd0001/github/watch-wv/patchr/data/latest_bk/.
+
+Now I'll create a new watchdb folder in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23/.
+It will hold the latest watchdb after update with data from /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/.
+
+
+Now I'm merging the watchdb tables from /Users/tpd0001/github/watch-wv/patchr/data/latest/ with the update tables in /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/.
+These merged tables will be put in the folder that I just created, /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23/.
+
+******
+Running 4_appendUpdate.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23 /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/.
+******
+INFO : concentration id W01-1027.c1 already exists in either the update or the main watchdb (before update).
+INFO : W01-1027.c1 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+INFO : extraction id W01-1027.e1 already exists in either the update or the main watchdb (before update).
+INFO : W01-1027.e1 will not be added again!
+INFO : It is unclear how this passed the validation stage, so you may want to look into it.
+
+
+
+Now I will generate the RESULT table using the updated watchdb tables in /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23.
+
+******
+Running 5_calculateResults.pl /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23.
+******
+Undefined sample with id O01-1023 in sample table
+
+5_calculateResults.pl exited with error code 255 and caused patchr to abort.
+!!!!!!!!
+patchr aborted during phase 5 (calculating results).
+Check the file /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23/_result.rejections.txt for details.
+I STRONGLY recommend deleting /Users/tpd0001/github/watch-wv/patchr/data/incremental/2026-09-03_15-23/ after exploring this error.
+Then delete the folder /Users/tpd0001/github/watch-wv/patchr/data/updates/2026-09-03_15-23/, fix the error(s), and run patchr again. 
+!!!!!!!!
