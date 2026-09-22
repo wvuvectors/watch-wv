@@ -1,0 +1,46 @@
+sample_id	location_id	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_collection_by	sample_flow	sample_received_by	sample_received_date	sample_comment
+C01-1360	WheelingWWTP-01	Routine Surveillance	Fail: Missing Required Data						LS	09/17/2026	
+U01-1012	WhiteOakWWTP-01	Routine Surveillance	Pass	09/13/2026 12:00 AM	09/14/2026 12:00 AM	09/14/2026 12:00 AM		0.354	LS	09/17/2026	
+T01-1012	PointPleasantWWTP-01	Routine Surveillance	Pass	09/07/2026 12:45 PM	09/08/2026 12:45 PM	09/08/2026 12:45 PM		0.17	LS	09/10/2026	
+Q01-1042	MadisonWWTP-01	Routine Surveillance	Pass	09/02/2026 08:00 AM	09/07/2026 08:00 AM	09/07/2026 08:00 AM		0.218	LS	09/17/2026	
+C01-1355	WheelingWWTP-01	Routine Surveillance	Pass	09/01/2026 08:00 AM	09/02/2026 08:00 AM	09/02/2026 08:00 AM		8.0	LS	09/10/2026	
+P01-1028	StMarysWWTP-01	Routine Surveillance	Pass	09/06/2026 07:00 AM	09/07/2026 07:00 AM	09/08/2026 12:00 AM		0.204	LS	09/17/2026	
+H01-1048	MoundsvilleWWTP-01	Routine Surveillance	Pass	09/06/2026 08:00 AM	09/07/2026 08:00 AM	09/07/2026 08:00 AM		1.3	LS	09/10/2026	
+C01-1362	WheelingWWTP-01	Routine Surveillance	Fail: Missing Required Data						LS	09/17/2026	
+P01-1029	StMarysWWTP-01	Routine Surveillance	Pass	09/16/2026 07:00 AM	09/17/2026 07:00 AM	09/17/2026 07:00 AM		0.381	LS	09/17/2026	
+H01-1049	MoundsvilleWWTP-01	Routine Surveillance	Pass	09/13/2026 08:00 AM	09/14/2026 08:00 AM	09/14/2026 08:00 AM		2.2	LS	09/17/2026	
+R02-1041	ElkinsWWTP-01	Routine Surveillance	Pass	09/07/2026 08:00 AM	09/08/2026 08:05 AM	09/08/2026 08:05 AM		1.36	LS	09/10/2026	
+C01-1354	WheelingWWTP-01	Routine Surveillance	Pass	08/31/2026 08:00 AM	09/01/2026 08:00 AM	09/01/2026 08:00 AM		8.2	LS	09/10/2026	
+U01-1011	WhiteOakWWTP-01	Routine Surveillance	Pass	09/07/2026 09:35 AM	09/08/2026 09:35 AM	09/08/2026 09:35 AM		0.185	LS	09/10/2026	
+K01-1018	ParkersburgWWTP-01	Routine Surveillance	Pass	09/14/2026 06:50 AM	09/15/2026 06:50 AM	09/15/2026 06:50 AM		9.693	LS	09/17/2026	
+T01-1011	PointPleasantWWTP-01	Routine Surveillance	Pass	08/30/2026 01:00 AM	08/31/2026 01:00 AM	08/31/2026 01:00 AM		0.25	LS	09/10/2026	
+D01-1038	CharlesTownWWTP-01	Routine Surveillance	Pass	09/02/2026 06:51 AM	09/03/2026 07:20 AM	09/03/2026 07:20 AM		1.257	LS	09/10/2026	
+N02-0602	ClarksburgWWTP-01	Routine Surveillance	Pass	09/07/2026 07:00 AM	09/08/2026 07:00 AM	09/08/2026 07:00 AM		9.13	LS	09/17/2026	
+C01-1353	WheelingWWTP-01	Routine Surveillance	Pass	08/30/2026 08:00 AM	08/31/2026 08:00 AM	08/31/2026 08:00 AM		8.2	LS	09/10/2026	
+C01-1349	WheelingWWTP-01	Routine Surveillance	Pass	08/24/2026 08:00 AM	08/25/2026 08:00 AM	08/25/2026 08:00 AM		12.4	LS	09/10/2026	
+K01-0487	ParkersburgWWTP-01	Routine Surveillance	Pass	09/07/2026 06:49 AM	09/08/2026 06:48 AM	09/08/2026 06:48 AM		4.228	LS	09/10/2026	
+D01-1039	CharlesTownWWTP-01	Routine Surveillance	Pass	09/09/2026 07:00 AM	09/10/2026 07:00 AM	09/10/2026 07:00 AM		1.133	LS	09/17/2026	
+J01-1042	AlpineLakeWWTP-01	Routine Surveillance	Pass	09/07/2026 07:30 AM	09/08/2026 07:30 AM	09/08/2026 07:30 AM		0.061	LS	09/10/2026	
+C01-1361	WheelingWWTP-01	Routine Surveillance	Fail: Missing Required Data						LS	09/17/2026	
+L01-1032	WestUnionWWTP-01	Routine Surveillance	Fail: Missing Required Data	09/13/2026 12:00 AM	09/14/2026 12:00 AM	09/14/2026 12:00 AM			LS	09/17/2026	
+F01-1027	WestonWWTP-01	Routine Surveillance	Pass	09/07/2026 12:00 AM	09/08/2026 12:00 AM	09/08/2026 12:00 AM		1.1	LS	09/17/2026	
+G01-1026	KeyserWWTP-01	Routine Surveillance	Pass	09/07/2026 09:00 AM	09/08/2026 08:00 AM	09/08/2026 08:00 AM		0.6901	LS	09/10/2026	
+C01-1352	WheelingWWTP-01	Routine Surveillance	Pass	08/27/2026 08:00 AM	08/28/2026 08:00 AM	08/28/2026 08:00 AM		8.7	LS	09/10/2026	
+M03-1035	ManningtonWWTP-01	Routine Surveillance	Pass	09/13/2026 08:00 AM	09/14/2026 08:00 AM	09/14/2026 08:00 AM		0.254	LS	09/17/2026	
+N02-1023	ClarksburgWWTP-01	Routine Surveillance	Pass	09/13/2026 07:00 AM	09/14/2026 07:00 AM	09/14/2026 07:00 AM		11.78	LS	09/17/2026	
+C01-1359	WheelingWWTP-01	Routine Surveillance	Fail: Missing Required Data						LS	09/17/2026	
+C01-1350	WheelingWWTP-01	Routine Surveillance	Pass	08/25/2026 08:00 AM	08/26/2026 08:00 AM	08/26/2026 08:00 AM		11.9	LS	09/10/2026	
+C01-1357	WheelingWWTP-01	Routine Surveillance	Pass	09/03/2026 08:00 AM	09/04/2026 08:00 AM	09/04/2026 08:00 AM		9.0	LS	09/10/2026	
+C01-1358	WheelingWWTP-01	Routine Surveillance	Pass	09/07/2026 08:00 AM	09/08/2026 08:00 AM	09/08/2026 08:00 AM		8.2	LS	09/10/2026	
+J01-1043	AlpineLakeWWTP-01	Routine Surveillance	Pass	09/13/2026 07:30 AM	09/14/2026 07:30 AM	09/14/2026 07:30 AM		0.134	LS	09/17/2026	
+O01-1026	GraftonWWTP-01	Routine Surveillance	Pass	09/06/2026 08:00 AM	09/07/2026 08:00 AM	09/07/2026 08:00 AM		3.46	LS	09/17/2026	
+W02-1009	CraigsvilleWWTP-01	Routine Surveillance	Fail: Missing Required Data	09/12/2026 08:00 AM	09/13/2026 04:00 PM	09/13/2026 04:00 PM			LS	09/17/2026	
+L01-1031	WestUnionWWTP-01	Routine Surveillance	Pass	09/06/2026 12:00 AM	09/07/2026 12:00 AM	09/07/2026 12:00 AM		0.246	LS	09/17/2026	
+C01-1351	WheelingWWTP-01	Routine Surveillance	Pass	08/26/2026 08:00 AM	08/27/2026 08:00 AM	08/27/2026 08:00 AM		9.3	LS	09/10/2026	
+W02-1008	CraigsvilleWWTP-01	Routine Surveillance	Fail: Missing Required Data	09/13/2026 08:00 AM	09/13/2026 04:00 PM	09/13/2026 04:00 PM			LS	09/17/2026	
+F01-1026	WestonWWTP-01	Routine Surveillance	Pass	09/13/2026 12:00 AM	09/14/2026 12:00 AM	09/14/2026 12:00 AM		1.7	LS	09/17/2026	
+Q01-1043	MadisonWWTP-01	Routine Surveillance	Pass	09/09/2026 08:00 AM	09/14/2026 08:00 AM	09/14/2026 08:00 AM		0.234	LS	09/17/2026	
+N03-1009	SalemWWTP-01	Routine Surveillance	Pass	09/13/2026 07:00 AM	09/14/2026 07:00 AM	09/14/2026 07:30 AM		0.59667	LS	09/17/2026	
+O01-1027	GraftonWWTP-01	Routine Surveillance	Pass	09/13/2026 08:00 AM	09/14/2026 08:00 AM	09/14/2026 08:00 AM		2.68	LS	09/17/2026	
+C01-1363	WheelingWWTP-01	Routine Surveillance	Fail: Missing Required Data						LS	09/17/2026	
+C01-1356	WheelingWWTP-01	Routine Surveillance	Pass	09/02/2026 08:00 AM	09/03/2026 08:00 AM	09/03/2026 08:00 AM		7.8	LS	09/10/2026	
