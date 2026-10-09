@@ -1,0 +1,7 @@
+sample_id	location_id	sample_collection_method	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	location_type	county_id	validation_key
+SX	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	08/24/2026 10:00 AM	08/25/2026 10:00 AM	08/25/2026 10:00 AM	0.47	ID	46262	NA	WWTP	Nicholas	1
+S1	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	08/24/2026 10:00 AM	08/25/2026 10:00 AM	08/25/2026 10:00 AM	0.47	ID	46262	NA	WWTP	Nicholas	1
+S2	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	08/31/2026 10:00 AM	09/01/2026 10:00 AM	09/01/2026 10:00 AM	0.45	LS	46268	NA	WWTP	Nicholas	1
+S3	CraigsvilleWWTP-01	Composite	NA	Routine Surveillance	Fail: Missing Required Data	09/13/2026 08:00 AM	09/13/2026 04:00 PM	09/13/2026 04:00 PM	NA	LS	46282	NA	WWTP	Nicholas	1
+S4	CraigsvilleWWTP-01	Composite	NA	Routine Surveillance	Fail: Missing Required Data	09/12/2026 08:00 AM	09/13/2026 04:00 PM	09/13/2026 04:00 PM	NA	LS	46282	NA	WWTP	Nicholas	1
+S5	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	09/20/2026 11:00 AM	09/21/2026 11:00 AM	09/21/2026 11:10 AM	1.4	LS	46289	NA	WWTP	Nicholas	1

@@ -1,0 +1,2 @@
+sample_id	location_id	sample_collection_method	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	location_type	county_id	validation_key
+SX	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	08/24/2026 10:00 AM	08/25/2026 10:00 AM	08/25/2026 10:00 AM	0.47	ID	46262	NA	WWTP	Nicholas	1

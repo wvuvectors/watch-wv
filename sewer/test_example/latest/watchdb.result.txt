@@ -1,0 +1,41 @@
+sample_id	target	lab_id	location_id	location_category	location_population_served	location_counties_served	event_type	collection_start_datetime	collection_end_datetime	collection_window_hours	sample_flow	sample_qc	target_copies_per_ml	target_copies_per_ml_per_day	target_copies_per_ml_per_day_per_capita	target_copies_flow_normalized	target_copies_flow_normalized_per_capita
+SX	Influenza Virus A (M)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	-35.625	-35.625	-0.00939725666051174	-63381958687.5	-16719060.5875758
+SX	Respiratory Syncytial Virus, Bovine	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	-35.625	-35.625	-0.00939725666051174	-63381958687.5	-16719060.5875758
+SX	Respiratory Syncytial Virus, Human (G)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	-35.625	-35.625	-0.00939725666051174	-63381958687.5	-16719060.5875758
+SX	Influenza Virus B (NEP/NS1)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	-35.625	-35.625	-0.00939725666051174	-63381958687.5	-16719060.5875758
+SX	SARS-CoV-2 (SC2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	-35.625	-35.625	-0.00939725666051174	-63381958687.5	-16719060.5875758
+S1	Influenza Virus A (M)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	0	0	0	0	0
+S1	Respiratory Syncytial Virus, Bovine	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	263.836172760352	263.836172760352	0.0695954029966637	469402200762.519	123820153.195072
+S1	Respiratory Syncytial Virus, Human (G)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	0	0	0	0	0
+S1	Influenza Virus B (NEP/NS1)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	0	0	0	0	0
+S1	SARS-CoV-2 (SC2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	0	0	0	0	0
+S4	Influenza Virus A (M)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S4	Respiratory Syncytial Virus, Bovine	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	59.2420025211024	44.4315018908268	0.0105789290216254	NA	NA
+S4	Respiratory Syncytial Virus, Human (G)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S4	Influenza Virus B (NEP/NS1)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S4	SARS-CoV-2 (SC2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S2	Influenza Virus A (M)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S2	Respiratory Syncytial Virus, Bovine	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	88.8447377392421	88.8447377392421	0.0234356997465687	151341191408.477	39921179.4799464
+S2	Respiratory Syncytial Virus, Human (G)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S2	Influenza Virus B (NEP/NS1)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S2	SARS-CoV-2 (SC2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S5	Influenza Virus A (M)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S5	Respiratory Syncytial Virus, Bovine	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S5	Respiratory Syncytial Virus, Human (G)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S5	Influenza Virus B (NEP/NS1)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	44.8972840367593	44.8972840367593	0.0118431242513214	237936479151.824	62763513.3610721
+S5	SARS-CoV-2 (SC2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S3	Influenza Virus A (M)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S3	Respiratory Syncytial Virus, Bovine	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	105.887528298949	317.662584896846	0.0756339487849634	NA	NA
+S3	Respiratory Syncytial Virus, Human (G)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S3	Influenza Virus B (NEP/NS1)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	136.157574172352	408.472722517055	0.0972554101231084	NA	NA
+S3	SARS-CoV-2 (SC2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S1	Norovirus GI, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	263.836172760352	263.836172760352	0.0695954029966637	469402200762.519	123820153.195072
+S1	Norovirus GII, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-24 10:00:00	2026-08-25 10:00:00	24	0.47	Pass	0	0	0	0	0
+S4	Norovirus GI, Human (ORF1_2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S4	Norovirus GII, Human (ORF1_2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-12 08:00:00	2026-09-13 16:00:00	32	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S2	Norovirus GI, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S2	Norovirus GII, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-08-31 10:00:00	2026-09-01 10:00:00	24	0.45	Pass	0	0	0	0	0
+S5	Norovirus GI, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S5	Norovirus GII, Human (ORF1_2)	ZooWVU	SummersvilleWWTP-01	wwtp	3791	Nicholas	Routine Surveillance	2026-09-20 11:00:00	2026-09-21 11:00:00	24	1.4	Pass	0	0	0	0	0
+S3	Norovirus GI, Human (ORF1_2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	0	0	0	NA	NA
+S3	Norovirus GII, Human (ORF1_2)	ZooWVU	CraigsvilleWWTP-01	wwtp	4200	Nicholas	Routine Surveillance	2026-09-13 08:00:00	2026-09-13 16:00:00	8	NA	Fail: Missing Required Data	0	0	0	NA	NA
