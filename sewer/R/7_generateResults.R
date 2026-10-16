@@ -10,12 +10,12 @@ source("addins/sewer_sources.R")
 #   INCDIR is the directory that contains the incremental update files.
 #
 
-args <- commandArgs(trailingOnly = TRUE)
-if (length(args) > 0) {
- INCDIR <- args[1]
-}
-#INCDIR <- "test_example/incremental/2026-42-42"
-RUNID <- basename(INCDIR)
+#args <- commandArgs(trailingOnly = TRUE)
+#if (length(args) > 0) {
+# INCDIR <- args[1]
+#}
+INCDIR <- "../data/latest"
+#RUNID <- basename(INCDIR)
 
 
 # We need info from the resources Excel file.
@@ -105,7 +105,7 @@ calc_df <- left_join(
 	cjoin_df %>% select(
 		sample_id, 
 		concentration_batch_matrix_vol_ul, 
-		concentration_batch_reagent_vol_ul, 
+		concentration_batch_enhancement_reagent_vol_ul, 
 		conc_input_ml=concentration_batch_sample_input_vol_ml,
 		conc_output_ul=concentration_batch_elution_output_vol_ul
 	), 
@@ -201,5 +201,5 @@ rfn <- paste0(INCDIR, "/watchdb.result.txt", sep="")
 write.table(result_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 
-ret_val <- nrow(result_df)
-cat(ret_val)
+#ret_val <- nrow(result_df)
+#cat(ret_val)

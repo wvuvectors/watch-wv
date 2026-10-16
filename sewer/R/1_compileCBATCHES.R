@@ -25,10 +25,16 @@ batch_df <- data.frame(
   concentration_batch_id = character(),
   concentration_batch_record_version = numeric(),
   concentration_batch_machine = character(),
-  concentration_batch_method = character(),
-  concentration_batch_method_lot_id = character(),
-  concentration_batch_input_ml = character(),
-  concentration_batch_output_ml = character(),
+  concentration_batch_matrix = character(),
+  concentration_batch_matrix_lot_id = character(),
+  concentration_batch_matrix_vol_ul = character(),
+  concentration_batch_enhancement_reagent = character(),
+  concentration_batch_matrix_lot_id = character(),
+  concentration_batch_enhancement_reagent_vol_ul = character(),
+  concentration_batch_spike_material = character(),
+  concentration_batch_spike_vol_ul = character(),
+  concentration_batch_sample_input_vol_ml = character(),
+  concentration_batch_elution_output_vol_ul = character(),
   concentration_batch_date = character(),
   concentration_batch_run_by = character(),
   concentration_batch_comment = character()
@@ -190,7 +196,7 @@ if (nrow(run_df) > 0) {
 			is.na(concentration_batch_id) | concentration_batch_id == "" ~ -1, 
 			is.na(concentration_batch_sample_input_vol_ml) | concentration_batch_sample_input_vol_ml == "" ~ -1, 
 			is.na(concentration_batch_elution_output_vol_ul) | concentration_batch_elution_output_vol_ul == "" ~ -1, 
-			is.na(concentration_batch_method) | concentration_batch_method == "" ~ -1, 
+			is.na(concentration_batch_matrix) | concentration_batch_matrix == "" ~ -1, 
 			.default = 1
 		)
 	)
