@@ -61,7 +61,9 @@ qbatch_df <- abatch_df %>% select(
   quantification_batch_comment = assay_batch_comment
 )
 qbatch_df$batch_type <- "Quantification"
-qbatch_df <- qbatch_df %>% mutate(run_id = paste0(quantification_batch_id, "-legacy", sep=""))
+qbatch_df <- qbatch_df %>% mutate(
+	run_id = quantification_batch_id
+)
 
 
 qblock_df <- abatch_df %>% select(
@@ -75,24 +77,16 @@ qblock_df$assay_block_comment <- "Legacy import"
 qblock_df$assay_block_samples_in_block <- -1
 
 qblock_df <- qblock_df %>% mutate(
-  assay_block_id = case_when(
-    str_detect(assay_block_id, "Flu;SC2;RSV") ~ "Respiratory Multiplex", 
-    str_detect(assay_block_id, "Influenza") ~ "Respiratory Multiplex", 
-    str_detect(assay_block_id, "SARS-CoV-2") ~ "Respiratory Multiplex", 
-    str_detect(assay_block_id, "infA;infB") ~ "Influenza Duplex", 
-    str_detect(assay_block_id, "Norovirus") ~ "Norovirus", 
-    str_detect(assay_block_id, "Pertussis") ~ "Pertussis", 
-    str_detect(assay_block_id, "MeV") ~ "Measles", 
-    str_detect(assay_block_id, "NVO;Mpox") ~ "Mpox", 
-    str_detect(assay_block_id, "auris") ~ "Candida Multiplex", 
-    .default = NA
-  )
+  assay_block_id = quantification_batch_id, 
+  assay_block_sample_input_vol_ul = 5
 )
-qblock_df <- left_join(
-  qblock_df, 
-  assay_df %>% select(quantification_batch_id = assay_batch_id, assay_block_sample_input_vol_ul = assay_input_ul),
-  by = join_by(quantification_batch_id)
-)
+
+#qblock_df <- left_join(
+#  qblock_df, 
+#  assay_df %>% select(quantification_batch_id = assay_batch_id, assay_block_sample_input_vol_ul = assay_input_ul),
+#  by = join_by(quantification_batch_id)
+#)
+
 
 qassay_df <- assay_df %>% select(
   assay_id,
@@ -112,14 +106,7 @@ qassay_df$assay_positive_partitions <- NA
 
 qassay_df <- qassay_df %>% mutate(
   assay_target_name = paste0(assay_target_name, " (", assay_target_locus, ")", sep=""),
-  assay_block_id = case_when(
-    str_detect(assay_target_name, "Human") ~ "Respiratory Multiplex (probable)", 
-    str_detect(assay_target_name, "Influenza") ~ "Respiratory Multiplex (probable)", 
-    str_detect(assay_target_name, "SARS-CoV-2") ~ "Respiratory Multiplex (probable)", 
-    str_detect(assay_target_name, "Syncitial Virus") ~ "Respiratory Multiplex (probable)", 
-    str_detect(assay_target_name, "Norovirus") ~ "Norovirus", 
-    .default = NA
-  ),
+  assay_block_id = quantification_batch_id,
   assay_target_abbreviation = case_when(
     str_detect(assay_target_name, "Human") ~ "Human", 
     str_detect(assay_target_name, "Influenza Virus A") ~ "FluA", 
@@ -202,7 +189,7 @@ cbatch_df <- cbatch_df %>% mutate(
   concentration_batch_enhancement_reagent_vol_ul = 100, 
   concentration_batch_spike_material = "Respiratory Syncytial Virus, Bovine (BRSV)", 
   concentration_batch_spike_vol_ul = 15, 
-  run_id = paste0(concentration_batch_id, "-legacy", sep=""),
+  run_id = concentration_batch_id,
   validation_key = -1, 
   concentration_batch_elution_output_vol_ul = concentration_batch_elution_output_vol_ul * 1000
 )
@@ -259,7 +246,7 @@ ebatch_df <- ebatch_OLD_df %>% select(
 
 ebatch_df <- ebatch_df %>% mutate(
   batch_type = "Extraction", 
-  run_id = paste0(extraction_batch_id, "-legacy", sep=""),
+  run_id = extraction_batch_id,
   validation_key = -1
 )
 

@@ -10,11 +10,11 @@ source("addins/sewer_sources.R")
 #   INCDIR is the directory that contains the incremental update files.
 #
 
-#args <- commandArgs(trailingOnly = TRUE)
-#if (length(args) > 0) {
-# INCDIR <- args[1]
-#}
-INCDIR <- "../data/latest"
+args <- commandArgs(trailingOnly = TRUE)
+if (length(args) > 0) {
+INCDIR <- args[1]
+}
+#INCDIR <- "../data/latest"
 #RUNID <- basename(INCDIR)
 
 
@@ -176,7 +176,8 @@ result_df <- calc_df %>% mutate(
 )
 
 result_df <- result_df %>% select(
-	sample_id,
+	assay_id,
+  sample_id,
 	target,
 	lab_id,
 	location_id,
@@ -201,5 +202,5 @@ rfn <- paste0(INCDIR, "/watchdb.result.txt", sep="")
 write.table(result_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 
-#ret_val <- nrow(result_df)
-#cat(ret_val)
+ret_val <- nrow(result_df)
+cat(ret_val)

@@ -1,615 +1,616 @@
 extraction_batch_record_version	extraction_batch_id	extraction_batch_machine	extraction_batch_method	extraction_batch_method_lot_id	extraction_batch_sample_input_vol_ul	extraction_batch_elution_output_vol_ul	extraction_batch_eluant_material	extraction_batch_date	extraction_batch_run_by	extraction_batch_comment	batch_type	run_id	validation_key
-2.0.0	EB1	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/29/2023	AJ		Extraction	EB1-legacy	-1
-2.0.0	EB101	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/14/2024	AJ		Extraction	EB101-legacy	-1
-2.0.0	EB103	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/21/2024	AJ		Extraction	EB103-legacy	-1
-2.0.0	EB105	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04491	400	75	Kit Buffer	12/02/2024	AJ		Extraction	EB105-legacy	-1
-2.0.0	EB107	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/05/2024	AJ		Extraction	EB107-legacy	-1
-2.0.0	EB108	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	12/12/2024	AJ		Extraction	EB108-legacy	-1
-2.0.0	EB11	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/04/2024	AJ		Extraction	EB11-legacy	-1
-2.0.0	EB110	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	12/19/2024	AJ		Extraction	EB110-legacy	-1
-2.0.0	EB112	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/09/2025	AJ		Extraction	EB112-legacy	-1
-2.0.0	EB113	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/10/2025	AJ		Extraction	EB113-legacy	-1
-2.0.0	EB115	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/16/2025	AJ		Extraction	EB115-legacy	-1
-2.0.0	EB117	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/23/2025	AJ		Extraction	EB117-legacy	-1
-2.0.0	EB119	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/30/2025	AJ		Extraction	EB119-legacy	-1
-2.0.0	EB12	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/09/2024	AJ		Extraction	EB12-legacy	-1
-2.0.0	EB121	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/06/2025	AJ		Extraction	EB121-legacy	-1
-2.0.0	EB123	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/13/2025	AJ		Extraction	EB123-legacy	-1
-2.0.0	EB124	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/20/2025	AJ		Extraction	EB124-legacy	-1
-2.0.0	EB127	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/27/2025	AJ		Extraction	EB127-legacy	-1
-2.0.0	EB129	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/06/2025	AJ		Extraction	EB129-legacy	-1
-2.0.0	EB13	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/10/2024	AJ		Extraction	EB13-legacy	-1
-2.0.0	EB131	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/13/2025	AJ		Extraction	EB131-legacy	-1
-2.0.0	EB133	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/20/2025	AJ		Extraction	EB133-legacy	-1
-2.0.0	EB135	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	03/27/2025	AJ		Extraction	EB135-legacy	-1
-2.0.0	EB137	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/03/2025	AJ		Extraction	EB137-legacy	-1
-2.0.0	EB139	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	319176	400	75	Kit Buffer	04/11/2025	AJ		Extraction	EB139-legacy	-1
-2.0.0	EB14	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/18/2024	GC		Extraction	EB14-legacy	-1
-2.0.0	EB141	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/17/2025	AJ		Extraction	EB141-legacy	-1
-2.0.0	EB143	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/24/2025	AJ		Extraction	EB143-legacy	-1
-2.0.0	EB145	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/01/2025	AJ		Extraction	EB145-legacy	-1
-2.0.0	EB147	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/08/2025	AJ		Extraction	EB147-legacy	-1
-2.0.0	EB149	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/15/2025	AJ		Extraction	EB149-legacy	-1
-2.0.0	EB15	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/23/2024	AJ		Extraction	EB15-legacy	-1
-2.0.0	EB151	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/22/2025	AJ		Extraction	EB151-legacy	-1
-2.0.1	EB152	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/29/2025	BB		Extraction	EB152-legacy	-1
-2.0.1	EB154	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/05/2025	BB, IZ		Extraction	EB154-legacy	-1
-2.0.0	EB156	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/12/2025	AJ		Extraction	EB156-legacy	-1
-2.0.0	EB158	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/19/2025	AJ		Extraction	EB158-legacy	-1
-2.0.0	EB16	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/23/2024	AJ		Extraction	EB16-legacy	-1
-2.0.0	EB160	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/26/2025	AJ		Extraction	EB160-legacy	-1
-2.0.0	EB161	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/02/2025	AJ		Extraction	EB161-legacy	-1
-2.0.0	EB163	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	xxxxxxx	400	75	Kit Buffer	12/31/1899	TD		Extraction	EB163-legacy	-1
-2.0.1	EB164	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/05/2025	BB, IZ		Extraction	EB164-legacy	-1
-2.0.0	EB166	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/23/2025	AJ		Extraction	EB166-legacy	-1
-2.0.0	EB167	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/31/2025	AJ		Extraction	EB167-legacy	-1
-2.0.0	EB168	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/07/2025	ID		Extraction	EB168-legacy	-1
-2.0.0	EB171	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/14/2025	AJ		Extraction	EB171-legacy	-1
-2.0.0	EB173	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/21/2025	AJ		Extraction	EB173-legacy	-1
-2.0.0	EB175	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/28/2025	AJ		Extraction	EB175-legacy	-1
-2.0.0	EB177	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	09/04/2025	AJ		Extraction	EB177-legacy	-1
-2.0.1	EB179	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/11/2025	AJ		Extraction	EB179-legacy	-1
-2.0.0	EB18	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/31/2024	AJ		Extraction	EB18-legacy	-1
-2.0.1	EB180	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/18/2025	LS		Extraction	EB180-legacy	-1
-2.0.1	EB181	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/18/2025	AJ		Extraction	EB181-legacy	-1
-2.0.1	EB182	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/25/2025	LS		Extraction	EB182-legacy	-1
-2.0.1	EB184	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/02/2025	LS		Extraction	EB184-legacy	-1
-2.0.1	EB187	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/10/2025	AJ		Extraction	EB187-legacy	-1
-2.0.1	EB188	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/16/2025	LS		Extraction	EB188-legacy	-1
-2.0.1	EB189	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/16/2025	LS		Extraction	EB189-legacy	-1
-2.0.1	EB190	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/23/2025	LS		Extraction	EB190-legacy	-1
-2.0.1	EB192	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/30/2025	AJ		Extraction	EB192-legacy	-1
-2.0.1	EB194	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/06/2025	LS		Extraction	EB194-legacy	-1
-2.0.1	EB196	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/13/2025	LS		Extraction	EB196-legacy	-1
-2.0.1	EB198	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/20/2025	LS		Extraction	EB198-legacy	-1
-2.0.1	EB199	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/26/2025	TD		Extraction	EB199-legacy	-1
-2.0.0	EB20	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/07/2024	AJ		Extraction	EB20-legacy	-1
-2.0.1	EB201	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2506102	400	75	Kit Buffer	12/04/2025	AJ		Extraction	EB201-legacy	-1
-2.0.1	EB202	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	12/11/2025	LS		Extraction	EB202-legacy	-1
-2.0.1	EB204	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	12/18/2025	LS		Extraction	EB204-legacy	-1
-2.0.1	EB206	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/08/2026	LS		Extraction	EB206-legacy	-1
-2.0.1	EB209	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/15/2026	LS		Extraction	EB209-legacy	-1
-2.0.1	EB211	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	xxxxxxx	400	75	Kit Buffer	01/21/2026	AJ		Extraction	EB211-legacy	-1
-2.0.1	EB212	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/29/2026	LS		Extraction	EB212-legacy	-1
-2.0.1	EB214	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	02/05/2026	LS		Extraction	EB214-legacy	-1
-2.0.1	EB216	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	02/12/2026	LS		Extraction	EB216-legacy	-1
-2.0.2	EB218	Wall-E			400	75	Kit Buffer	02/19/2026	LS		Extraction	EB218-legacy	-1
-2.0.2	EB219	Wall-E			400	75	Kit Buffer	02/26/2026	LS		Extraction	EB219-legacy	-1
-2.0.0	EB22	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/13/2024	AJ		Extraction	EB22-legacy	-1
-2.0.2	EB222	Wall-E			400	75	Kit Buffer	03/05/2026	LS		Extraction	EB222-legacy	-1
-2.0.2	EB224	Wall-E			400	75	Kit Buffer	03/12/2026	LS		Extraction	EB224-legacy	-1
-2.0.2	EB226	Wall-E			400	75	Kit Buffer	03/19/2026	LS		Extraction	EB226-legacy	-1
-2.0.2	EB228	Wall-E			400	75	Kit Buffer	03/26/2026	LS		Extraction	EB228-legacy	-1
-2.0.0	EB23	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/14/2024	AJ		Extraction	EB23-legacy	-1
-2.0.2	EB230	Wall-E			400	75	Kit Buffer	04/02/2026	LS		Extraction	EB230-legacy	-1
-2.0.2	EB232	Wall-E			400	75	Kit Buffer	04/09/2026	LS		Extraction	EB232-legacy	-1
-2.0.2	EB234	Wall-E			400	75	Kit Buffer	04/16/2026	LS		Extraction	EB234-legacy	-1
-2.0.2	EB236	Wall-E			400	75	Kit Buffer	04/23/2026	LS		Extraction	EB236-legacy	-1
-2.0.2	EB238	Wall-E			400	75	Kit Buffer	04/30/2026	LS		Extraction	EB238-legacy	-1
-2.0.0	EB24	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/20/2024	AJ		Extraction	EB24-legacy	-1
-2.0.2	EB240	Wall-E			400	75	Kit Buffer	05/07/2026	LS		Extraction	EB240-legacy	-1
-2.0.2	EB242	Wall-E			400	75	Kit Buffer	05/14/2026	LS		Extraction	EB242-legacy	-1
-2.0.2	EB244	Wall-E			400	75	Kit Buffer	05/21/2026	LS		Extraction	EB244-legacy	-1
-2.0.2	EB246	Wall-E			400	75	Kit Buffer	05/28/2026	LS		Extraction	EB246-legacy	-1
-2.0.2	EB247	Wall-E			400	75	Kit Buffer	06/02/2026	LS		Extraction	EB247-legacy	-1
-2.0.2	EB249	Wall-E			400	75	Kit Buffer	06/04/2026	LS		Extraction	EB249-legacy	-1
-2.0.0	EB25	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/21/2024	AJ		Extraction	EB25-legacy	-1
-2.0.2	EB250	Wall-E			400	75	Kit Buffer	06/09/2026	LS		Extraction	EB250-legacy	-1
-2.0.2	EB253	Wall-E			400	75	Kit Buffer	06/16/2026	LS		Extraction	EB253-legacy	-1
-2.0.2	EB254	Wall-E			400	75	Kit Buffer	06/18/2026	LS		Extraction	EB254-legacy	-1
-2.0.2	EB255	Bender			400	75	Kit Buffer	06/23/2026	LS		Extraction	EB255-legacy	-1
-2.0.2	EB257	Bender			400	75	Kit Buffer	06/25/2026	LS		Extraction	EB257-legacy	-1
-2.0.2	EB258	Bender			400	75	Kit Buffer	06/30/2026	LS		Extraction	EB258-legacy	-1
-2.0.0	EB26	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/27/2024	AJ		Extraction	EB26-legacy	-1
-2.0.2	EB260	Bender			400	75	Kit Buffer	07/02/2026	LS		Extraction	EB260-legacy	-1
-2.0.2	EB262	Bender			400	75	Kit Buffer	07/09/2026	LS		Extraction	EB262-legacy	-1
-2.0.2	EB263	Bender			400	75	Kit Buffer	07/14/2026	LS		Extraction	EB263-legacy	-1
-2.0.2	EB265	Bender			400	75	Kit Buffer	07/17/2026	LS		Extraction	EB265-legacy	-1
-2.0.2	EB267	Bender			400	75	Kit Buffer	07/23/2026	LS		Extraction	EB267-legacy	-1
-2.0.2	EB269	Bender			400	75	Kit Buffer	07/30/2026	LS		Extraction	EB269-legacy	-1
-2.0.0	EB27	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/28/2024	AJ		Extraction	EB27-legacy	-1
-2.0.2	EB271	Bender			400	75	Kit Buffer	08/06/2026	LS		Extraction	EB271-legacy	-1
-2.0.2	EB272	Bender			400	75	Kit Buffer	08/13/2026	LS	Routine WW and 24 E.coli	Extraction	EB272-legacy	-1
-2.0.2	EB274	Bender			400	75	Kit Buffer	08/20/2026	ID		Extraction	EB274-legacy	-1
-2.0.2	EB275	Bender			400	75	Kit Buffer	08/31/2026	LS		Extraction	EB275-legacy	-1
-2.0.2	EB277	Bender			400	75	Kit Buffer	09/03/2026	ID		Extraction	EB277-legacy	-1
-2.0.2	EB278	Bender			400	75	Kit Buffer	09/10/2026	LS		Extraction	EB278-legacy	-1
-2.0.0	EB28	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/05/2024	AJ		Extraction	EB28-legacy	-1
-2.0.2	EB280	Bender			400	75	Kit Buffer	09/17/2026	ID		Extraction	EB280-legacy	-1
-2.0.2	EB282	Bender			400	75	Kit Buffer	09/24/2026	LS		Extraction	EB282-legacy	-1
-2.0.2	EB283	Bender			400	75	Kit Buffer	10/01/2026	ID		Extraction	EB283-legacy	-1
-2.0.2	EB285	Bender			400	75	Kit Buffer	10/08/2026	LS		Extraction	EB285-legacy	-1
-2.0.0	EB29	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/16/2024	SK		Extraction	EB29-legacy	-1
-2.0.0	EB30	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/07/2024	AJ		Extraction	EB30-legacy	-1
-2.0.0	EB31	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/12/2024	AJ		Extraction	EB31-legacy	-1
-2.0.0	EB32	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/13/2024	AJ		Extraction	EB32-legacy	-1
-2.0.0	EB34	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	225332	400	75	Kit Buffer	03/20/2024	SK		Extraction	EB34-legacy	-1
-2.0.0	EB36	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/27/2024	AJ		Extraction	EB36-legacy	-1
-2.0.0	EB38	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/03/2024	GC		Extraction	EB38-legacy	-1
-2.0.0	EB39	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/09/2024	AJ		Extraction	EB39-legacy	-1
-2.0.0	EB4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/05/2023	AJ		Extraction	EB4-legacy	-1
-2.0.0	EB40	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/10/2024	AJ		Extraction	EB40-legacy	-1
-2.0.0	EB41	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/11/2024	SK		Extraction	EB41-legacy	-1
-2.0.0	EB42	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/15/2024	AJ		Extraction	EB42-legacy	-1
-2.0.0	EB43	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/16/2024	AJ		Extraction	EB43-legacy	-1
-2.0.0	EB44	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/18/2024	GC		Extraction	EB44-legacy	-1
-2.0.0	EB46	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/26/2024	GC		Extraction	EB46-legacy	-1
-2.0.0	EB47	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/02/2024	AJ		Extraction	EB47-legacy	-1
-2.0.0	EB49	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/08/2024	AJ		Extraction	EB49-legacy	-1
-2.0.0	EB50	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/15/2024	SK		Extraction	EB50-legacy	-1
-2.0.0	EB51	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/16/2024	SK		Extraction	EB51-legacy	-1
-2.0.0	EB53	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/23/2024	SK		Extraction	EB53-legacy	-1
-2.0.0	EB55	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	05/30/2024	SK		Extraction	EB55-legacy	-1
-2.0.0	EB57	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/04/2024	SK		Extraction	EB57-legacy	-1
-2.0.0	EB58	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/06/2024	SK		Extraction	EB58-legacy	-1
-2.0.0	EB6	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/12/2023	AJ		Extraction	EB6-legacy	-1
-2.0.0	EB60	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/14/2024	SK		Extraction	EB60-legacy	-1
-2.0.0	EB61	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/18/2024	SK		Extraction	EB61-legacy	-1
-2.0.0	EB63	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/27/2024	SK		Extraction	EB63-legacy	-1
-2.0.0	EB65	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/03/2024	SK		Extraction	EB65-legacy	-1
-2.0.0	EB67	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	07/11/2024	AJ		Extraction	EB67-legacy	-1
-2.0.0	EB69	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/18/2024	SK		Extraction	EB69-legacy	-1
-2.0.0	EB70	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/24/2024	SK		Extraction	EB70-legacy	-1
-2.0.0	EB72	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	07/31/2024	AJ		Extraction	EB72-legacy	-1
-2.0.0	EB74	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/08/2024	AJ		Extraction	EB74-legacy	-1
-2.0.0	EB75	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/15/2024	AJ		Extraction	EB75-legacy	-1
-2.0.0	EB77	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/22/2024	AJ		Extraction	EB77-legacy	-1
-2.0.0	EB78	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/28/2024	AJ		Extraction	EB78-legacy	-1
-2.0.0	EB8	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/19/2023	AJ		Extraction	EB8-legacy	-1
-2.0.0	EB80	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/05/2024	AJ		Extraction	EB80-legacy	-1
-2.0.0	EB82	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/12/2024	AJ		Extraction	EB82-legacy	-1
-2.0.0	EB84	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/19/2024	AJ		Extraction	EB84-legacy	-1
-2.0.0	EB87	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/26/2024	AJ		Extraction	EB87-legacy	-1
-2.0.0	EB88	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/03/2024	AJ		Extraction	EB88-legacy	-1
-2.0.0	EB90	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/10/2024	AJ		Extraction	EB90-legacy	-1
-2.0.0	EB92	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/17/2024	AJ		Extraction	EB92-legacy	-1
-2.0.0	EB94	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/24/2024	AJ		Extraction	EB94-legacy	-1
-2.0.0	EB97	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/31/2024	AJ		Extraction	EB97-legacy	-1
-2.0.0	EB99	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/07/2024	AJ		Extraction	EB99-legacy	-1
-1.0.0	EP0		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	06/04/2021			Extraction	EP0-legacy	-1
-1.0.0	EP0.1		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/07/2021	JL		Extraction	EP0.1-legacy	-1
-1.0.0	EP0.2		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/09/2021	JL		Extraction	EP0.2-legacy	-1
-1.0.0	EP0.3		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/30/2021	JL		Extraction	EP0.3-legacy	-1
-1.0.0	EP0.4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/13/2021	JL		Extraction	EP0.4-legacy	-1
-1.0.0	EP1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/16/2021	JL		Extraction	EP1-legacy	-1
-1.0.0	EP1.2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/18/2021	JL		Extraction	EP1.2-legacy	-1
-1.0.0	EP1.4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/20/2021	JL		Extraction	EP1.4-legacy	-1
-1.0.0	EP10	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/08/2021	JL		Extraction	EP10-legacy	-1
-1.0.0	EP100	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/21/2022	AJ		Extraction	EP100-legacy	-1
-1.0.0	EP102	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/23/2022	AJ		Extraction	EP102-legacy	-1
-1.0.0	EP104	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/25/2022	AJ		Extraction	EP104-legacy	-1
-1.0.0	EP106	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/29/2022	AJ		Extraction	EP106-legacy	-1
-1.0.0	EP108	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/30/2022	AJ		Extraction	EP108-legacy	-1
-1.0.0	EP109	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/01/2022	AJ		Extraction	EP109-legacy	-1
-1.0.0	EP11	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/13/2021	JL		Extraction	EP11-legacy	-1
-1.0.0	EP110	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/31/2022	AJ		Extraction	EP110-legacy	-1
-1.0.0	EP111	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2120258	400	75	Kit buffer	04/04/2022	AJ		Extraction	EP111-legacy	-1
-1.0.0	EP112	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/05/2022	JL		Extraction	EP112-legacy	-1
-1.0.0	EP114	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/06/2022	AJ		Extraction	EP114-legacy	-1
-1.0.0	EP116	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/08/2022	AJ		Extraction	EP116-legacy	-1
-1.0.0	EP117	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/12/2022	AJ		Extraction	EP117-legacy	-1
-1.0.0	EP118	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/14/2022	AJ		Extraction	EP118-legacy	-1
-1.0.0	EP119	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/13/2022	AJ		Extraction	EP119-legacy	-1
-1.0.0	EP12	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/15/2021	JL		Extraction	EP12-legacy	-1
-1.0.0	EP12.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/17/2021	JL		Extraction	EP12.1-legacy	-1
-1.0.0	EP121	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/18/2022	AJ		Extraction	EP121-legacy	-1
-1.0.0	EP122	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/19/2022	AJ		Extraction	EP122-legacy	-1
-1.0.0	EP124	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/20/2022	AJ		Extraction	EP124-legacy	-1
-1.0.0	EP125	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/21/2022	AJ		Extraction	EP125-legacy	-1
-1.0.0	EP126	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/22/2022	AJ		Extraction	EP126-legacy	-1
-1.0.0	EP127	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/25/2022	AJ		Extraction	EP127-legacy	-1
-1.0.0	EP128	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/26/2022	AJ		Extraction	EP128-legacy	-1
-1.0.0	EP130	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/27/2022	AJ		Extraction	EP130-legacy	-1
-1.0.0	EP131	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/28/2022	AJ		Extraction	EP131-legacy	-1
-1.0.0	EP132	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/29/2022	AJ		Extraction	EP132-legacy	-1
-1.0.0	EP133	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/03/2022	AJ		Extraction	EP133-legacy	-1
-1.0.0	EP135	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/04/2022	AJ		Extraction	EP135-legacy	-1
-1.0.0	EP136	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/04/2022	AJ		Extraction	EP136-legacy	-1
-1.0.0	EP137	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/05/2022	AJ		Extraction	EP137-legacy	-1
-1.0.0	EP138	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/06/2022	AJ		Extraction	EP138-legacy	-1
-1.0.0	EP140	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/11/2022	AJ		Extraction	EP140-legacy	-1
-1.0.0	EP141	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/11/2022	AJ		Extraction	EP141-legacy	-1
-1.0.0	EP143	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/13/2022	AJ		Extraction	EP143-legacy	-1
-1.0.0	EP144	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/17/2022	AJ		Extraction	EP144-legacy	-1
-1.0.0	EP146	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/18/2022	AJ		Extraction	EP146-legacy	-1
-1.0.0	EP148	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/19/2022	AJ		Extraction	EP148-legacy	-1
-1.0.0	EP149	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/20/2022	AJ		Extraction	EP149-legacy	-1
-1.0.0	EP150	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/23/2022	AJ		Extraction	EP150-legacy	-1
-1.0.0	EP152	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/25/2022	AJ		Extraction	EP152-legacy	-1
-1.0.0	EP153	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/25/2022	AJ		Extraction	EP153-legacy	-1
-1.0.0	EP155	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/27/2022	AJ		Extraction	EP155-legacy	-1
-1.0.0	EP156	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/31/2022	AJ		Extraction	EP156-legacy	-1
-1.0.0	EP158	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/01/2022	AJ		Extraction	EP158-legacy	-1
-1.0.0	EP16	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	XXXXXX	400	50	Kit buffer	09/24/2021	JL		Extraction	EP16-legacy	-1
-1.0.0	EP160	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/02/2022	AJ		Extraction	EP160-legacy	-1
-1.0.0	EP161	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/03/2022	AJ		Extraction	EP161-legacy	-1
-1.0.0	EP163	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/08/2022	AJ		Extraction	EP163-legacy	-1
-1.0.0	EP164	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/08/2022	AJ		Extraction	EP164-legacy	-1
-1.0.0	EP166	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/10/2022	AJ		Extraction	EP166-legacy	-1
-1.0.0	EP168	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/14/2022	AJ		Extraction	EP168-legacy	-1
-1.0.0	EP17	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	400	50	Kit buffer	09/27/2021	JL		Extraction	EP17-legacy	-1
-1.0.0	EP170	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/17/2022	AJ		Extraction	EP170-legacy	-1
-1.0.0	EP173	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/22/2022	AJ		Extraction	EP173-legacy	-1
-1.0.0	EP175	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/24/2022	AJ		Extraction	EP175-legacy	-1
-1.0.0	EP178	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/29/2022	AJ		Extraction	EP178-legacy	-1
-1.0.0	EP179	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/30/2022	AJ		Extraction	EP179-legacy	-1
-1.0.0	EP18	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	400	50	Kit buffer	09/29/2021	JL		Extraction	EP18-legacy	-1
-1.0.0	EP181	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/06/2022	AJ		Extraction	EP181-legacy	-1
-1.0.0	EP182	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/07/2022	AJ		Extraction	EP182-legacy	-1
-1.0.0	EP184	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/08/2022	AJ		Extraction	EP184-legacy	-1
-1.0.0	EP187	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/13/2022	AJ		Extraction	EP187-legacy	-1
-1.0.0	EP189	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/15/2022	AJ		Extraction	EP189-legacy	-1
-1.0.0	EP19	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/01/2021	JL		Extraction	EP19-legacy	-1
-1.0.0	EP192	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/20/2022	AJ		Extraction	EP192-legacy	-1
-1.0.0	EP194	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/22/2022	AJ		Extraction	EP194-legacy	-1
-1.0.0	EP196	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04473	400	75	Kit buffer	07/27/2022	AJ		Extraction	EP196-legacy	-1
-1.0.0	EP198	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/28/2022	AJ		Extraction	EP198-legacy	-1
-1.0.0	EP2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/23/2021	JL		Extraction	EP2-legacy	-1
-1.0.0	EP20	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/05/2021	JL		Extraction	EP20-legacy	-1
-1.0.0	EP200	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/01/2022	AJ		Extraction	EP200-legacy	-1
-1.0.0	EP203	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/03/2022	AJ		Extraction	EP203-legacy	-1
-1.0.0	EP205	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/05/2022	AJ		Extraction	EP205-legacy	-1
-1.0.0	EP206	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/08/2022	AJ		Extraction	EP206-legacy	-1
-1.0.0	EP209	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/10/2022	AJ		Extraction	EP209-legacy	-1
-1.0.0	EP21	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/07/2021	JL		Extraction	EP21-legacy	-1
-1.0.0	EP211	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/15/2022	JL		Extraction	EP211-legacy	-1
-1.0.0	EP214	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/17/2022	AJ		Extraction	EP214-legacy	-1
-1.0.0	EP216	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/19/2022	AJ		Extraction	EP216-legacy	-1
-1.0.0	EP217	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/23/2022	AJ		Extraction	EP217-legacy	-1
-1.0.0	EP22	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/08/2021	JL		Extraction	EP22-legacy	-1
-1.0.0	EP220	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/24/2022	AJ		Extraction	EP220-legacy	-1
-1.0.0	EP222	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/26/2022	AJ		Extraction	EP222-legacy	-1
-1.0.0	EP225	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/31/2022	AJ		Extraction	EP225-legacy	-1
-1.0.0	EP227	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/02/2022	AJ		Extraction	EP227-legacy	-1
-1.0.0	EP23	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/11/2021	JL		Extraction	EP23-legacy	-1
-1.0.0	EP231	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/07/2022	AJ		Extraction	EP231-legacy	-1
-1.0.0	EP234	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/13/2022	AJ		Extraction	EP234-legacy	-1
-1.0.0	EP236	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/14/2022	AJ		Extraction	EP236-legacy	-1
-1.0.0	EP238	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/16/2022	AJ		Extraction	EP238-legacy	-1
-1.0.0	EP24	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/13/2021	JL		Extraction	EP24-legacy	-1
-1.0.0	EP242	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/21/2022	AJ		Extraction	EP242-legacy	-1
-1.0.0	EP244	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/26/2022	AJ		Extraction	EP244-legacy	-1
-1.0.0	EP247	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/28/2022	AJ		Extraction	EP247-legacy	-1
-1.0.0	EP248.1	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/30/2022	AJ		Extraction	EP248.1-legacy	-1
-1.0.0	EP248.2	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/12/2022	AJ		Extraction	EP248.2-legacy	-1
-1.0.0	EP248.3	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/10/2022	AJ		Extraction	EP248.3-legacy	-1
-1.0.0	EP25	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/15/2021	JL		Extraction	EP25-legacy	-1
-1.0.0	EP250	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/03/2022	AJ		Extraction	EP250-legacy	-1
-1.0.0	EP253	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/04/2022	AJ		Extraction	EP253-legacy	-1
-1.0.0	EP256	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/07/2022	AJ		Extraction	EP256-legacy	-1
-1.0.0	EP26	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/18/2021	JL		Extraction	EP26-legacy	-1
-1.0.0	EP262	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/17/2022	AJ		Extraction	EP262-legacy	-1
-1.0.0	EP265	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04455	400	75	Kit buffer	10/19/2022	AJ		Extraction	EP265-legacy	-1
-1.0.0	EP267	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/24/2022	AJ		Extraction	EP267-legacy	-1
-1.0.0	EP269	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	10/26/2022	AJ		Extraction	EP269-legacy	-1
-1.0.0	EP27	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/20/2021	JL		Extraction	EP27-legacy	-1
-1.0.0	EP272	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	10/28/2022	AJ		Extraction	EP272-legacy	-1
-1.0.0	EP274	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/03/2022	SB/LW		Extraction	EP274-legacy	-1
-1.0.0	EP276	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/04/2022	SB		Extraction	EP276-legacy	-1
-1.0.0	EP278	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/09/2022	AJ		Extraction	EP278-legacy	-1
-1.0.0	EP28	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/25/2021	JL		Extraction	EP28-legacy	-1
-1.0.0	EP281	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/10/2022	AJ		Extraction	EP281-legacy	-1
-1.0.0	EP283	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/15/2022	AJ		Extraction	EP283-legacy	-1
-1.0.0	EP285	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/18/2022	AJ		Extraction	EP285-legacy	-1
-1.0.0	EP287	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/18/2022	AJ		Extraction	EP287-legacy	-1
-1.0.0	EP29	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/27/2021	JL		Extraction	EP29-legacy	-1
-1.0.0	EP291	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/28/2022	AJ		Extraction	EP291-legacy	-1
-1.0.0	EP293	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/30/2022	AJ		Extraction	EP293-legacy	-1
-1.0.0	EP295	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/05/2022	AJ		Extraction	EP295-legacy	-1
-1.0.0	EP297	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/07/2022	AJ		Extraction	EP297-legacy	-1
-1.0.0	EP298	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/08/2022	AJ		Extraction	EP298-legacy	-1
-1.0.0	EP3	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/24/2021	JL		Extraction	EP3-legacy	-1
-1.0.0	EP30	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/28/2021	JL		Extraction	EP30-legacy	-1
-1.0.0	EP300	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/12/2022	AJ		Extraction	EP300-legacy	-1
-1.0.0	EP303	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/14/2022	AJ		Extraction	EP303-legacy	-1
-1.0.0	EP305	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/19/2022	AJ		Extraction	EP305-legacy	-1
-1.0.0	EP307	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/21/2022	AJ		Extraction	EP307-legacy	-1
-1.0.0	EP31	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/02/2021	JL		Extraction	EP31-legacy	-1
-1.0.0	EP310	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/28/2022	AJ		Extraction	EP310-legacy	-1
-1.0.0	EP313	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/04/2023	AJ		Extraction	EP313-legacy	-1
-1.0.0	EP315	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/09/2023	AJ		Extraction	EP315-legacy	-1
-1.0.0	EP319	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/11/2023	AJ		Extraction	EP319-legacy	-1
-1.0.0	EP32	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/03/2021	JL		Extraction	EP32-legacy	-1
-1.0.0	EP32.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/21/2022	AJ		Extraction	EP32.1-legacy	-1
-1.0.0	EP321	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/18/2023	AJ		Extraction	EP321-legacy	-1
-1.0.0	EP324	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/18/2023	AJ		Extraction	EP324-legacy	-1
-1.0.0	EP327	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/25/2023	JL		Extraction	EP327-legacy	-1
-1.0.0	EP329	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/26/2023	AJ		Extraction	EP329-legacy	-1
-1.0.0	EP33	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/05/2021	JL		Extraction	EP33-legacy	-1
-1.0.0	EP333	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/01/2023	AJ		Extraction	EP333-legacy	-1
-1.0.0	EP334	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/01/2023	AJ		Extraction	EP334-legacy	-1
-1.0.0	EP336	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/06/2023	AJ		Extraction	EP336-legacy	-1
-1.0.0	EP338	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/08/2023	AJ		Extraction	EP338-legacy	-1
-1.0.0	EP34	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/11/2021	JL		Extraction	EP34-legacy	-1
-1.0.0	EP340	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/13/2023	AJ		Extraction	EP340-legacy	-1
-1.0.0	EP342	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/15/2023	AJ		Extraction	EP342-legacy	-1
-1.0.0	EP343	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/15/2023	AJ		Extraction	EP343-legacy	-1
-1.0.0	EP348	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	XXXXXX	400	75	Kit buffer	02/22/2023	AJ		Extraction	EP348-legacy	-1
-1.0.0	EP35	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/12/2021	AJ		Extraction	EP35-legacy	-1
-1.0.0	EP35.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/15/2021	JL		Extraction	EP35.1-legacy	-1
-1.0.0	EP351	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/27/2023	AJ		Extraction	EP351-legacy	-1
-1.0.0	EP353	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/01/2023	AJ		Extraction	EP353-legacy	-1
-1.0.0	EP355	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/02/2023	AJ		Extraction	EP355-legacy	-1
-1.0.0	EP357	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/06/2023	AJ		Extraction	EP357-legacy	-1
-1.0.0	EP36	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/16/2021	AJ		Extraction	EP36-legacy	-1
-1.0.0	EP360	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/08/2023	AJ		Extraction	EP360-legacy	-1
-1.0.0	EP362	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	22042324	400	75	Kit buffer	03/10/2023	AJ		Extraction	EP362-legacy	-1
-1.0.0	EP365	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/15/2023	AJ		Extraction	EP365-legacy	-1
-1.0.0	EP366	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/16/2023	AJ		Extraction	EP366-legacy	-1
-1.0.0	EP368	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/20/2023	AJ		Extraction	EP368-legacy	-1
-1.0.0	EP37	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/17/2021	JL		Extraction	EP37-legacy	-1
-1.0.0	EP370	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/22/2023	AJ		Extraction	EP370-legacy	-1
-1.0.0	EP371	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/23/2023	AJ		Extraction	EP371-legacy	-1
-1.0.0	EP373	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/27/2023	AJ		Extraction	EP373-legacy	-1
-1.0.0	EP375	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/29/2023	AJ		Extraction	EP375-legacy	-1
-1.0.0	EP376	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/30/2023	AJ		Extraction	EP376-legacy	-1
-1.0.0	EP378	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/03/2023	AJ		Extraction	EP378-legacy	-1
-1.0.0	EP38	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/19/2021	AJ		Extraction	EP38-legacy	-1
-1.0.0	EP380	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/05/2023	AJ		Extraction	EP380-legacy	-1
-1.0.0	EP382	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/06/2023	AJ		Extraction	EP382-legacy	-1
-1.0.0	EP384	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	A42362	400	75	Kit buffer	04/10/2023	JL		Extraction	EP384-legacy	-1
-1.0.0	EP386	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/12/2023	AJ		Extraction	EP386-legacy	-1
-1.0.0	EP388	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/13/2023	AJ		Extraction	EP388-legacy	-1
-1.0.0	EP39	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/22/2021	AJ		Extraction	EP39-legacy	-1
-1.0.0	EP390	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/17/2023	AJ		Extraction	EP390-legacy	-1
-1.0.0	EP392	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/19/2023	AJ		Extraction	EP392-legacy	-1
-1.0.0	EP393	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/20/2023	AJ		Extraction	EP393-legacy	-1
-1.0.0	EP395	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/24/2023	AJ		Extraction	EP395-legacy	-1
-1.0.0	EP397	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/26/2023	AJ		Extraction	EP397-legacy	-1
-1.0.0	EP398	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/27/2023	AJ		Extraction	EP398-legacy	-1
-1.0.0	EP4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/25/2021	JL		Extraction	EP4-legacy	-1
-1.0.0	EP40	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/29/2021	AJ		Extraction	EP40-legacy	-1
-1.0.0	EP400	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/01/2023	AJ		Extraction	EP400-legacy	-1
-1.0.0	EP401	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/01/2023	AJ		Extraction	EP401-legacy	-1
-1.0.0	EP403	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/03/2023	AJ		Extraction	EP403-legacy	-1
-1.0.0	EP405	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/04/2023	AJ		Extraction	EP405-legacy	-1
-1.0.0	EP407	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/08/2023	SB		Extraction	EP407-legacy	-1
-1.0.0	EP409	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/10/2023	AJ		Extraction	EP409-legacy	-1
-1.0.0	EP41	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/30/2021	AJ		Extraction	EP41-legacy	-1
-1.0.0	EP410	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/11/2023	AJ		Extraction	EP410-legacy	-1
-1.0.0	EP412	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/15/2023	AJ		Extraction	EP412-legacy	-1
-1.0.0	EP414	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/17/2023	AJ		Extraction	EP414-legacy	-1
-1.0.0	EP415	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/18/2023	AJ		Extraction	EP415-legacy	-1
-1.0.0	EP416	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/23/2023	AJ		Extraction	EP416-legacy	-1
-1.0.0	EP418	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	04/24/2023	AJ		Extraction	EP418-legacy	-1
-1.0.0	EP42	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/02/2021	LW		Extraction	EP42-legacy	-1
-1.0.0	EP420	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/30/2023	AJ		Extraction	EP420-legacy	-1
-1.0.0	EP422	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/01/2023	LW/AJ		Extraction	EP422-legacy	-1
-1.0.0	EP424	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/01/2023	AJ		Extraction	EP424-legacy	-1
-1.0.0	EP425	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/05/2023	AJ		Extraction	EP425-legacy	-1
-1.0.0	EP428	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	220317	400	75	Kit buffer	06/08/2023	AJ		Extraction	EP428-legacy	-1
-1.0.0	EP429	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/12/2023	AJ		Extraction	EP429-legacy	-1
-1.0.0	EP43	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/03/2021	AJ		Extraction	EP43-legacy	-1
-1.0.0	EP431	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/14/2023	AJ		Extraction	EP431-legacy	-1
-1.0.0	EP433	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/15/2023	SB		Extraction	EP433-legacy	-1
-1.0.0	EP435	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/21/2023	SB/AJ		Extraction	EP435-legacy	-1
-1.0.0	EP437	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/22/2023	AJ		Extraction	EP437-legacy	-1
-1.0.0	EP439	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/26/2023	SB		Extraction	EP439-legacy	-1
-1.0.0	EP44	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/06/2021	AJ		Extraction	EP44-legacy	-1
-1.0.0	EP441	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/28/2023	SB and GC		Extraction	EP441-legacy	-1
-1.0.0	EP442.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/29/2023	AJ		Extraction	EP442.1-legacy	-1
-1.0.0	EP442.2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/05/2023	GC		Extraction	EP442.2-legacy	-1
-1.0.0	EP445	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/07/2023	LW		Extraction	EP445-legacy	-1
-1.0.0	EP447	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/13/2023	SB		Extraction	EP447-legacy	-1
-1.0.0	EP449	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/13/2023	LW		Extraction	EP449-legacy	-1
-1.0.0	EP45	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/08/2021	AJ		Extraction	EP45-legacy	-1
-1.0.0	EP450	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/17/2023	AJ		Extraction	EP450-legacy	-1
-1.0.0	EP452	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/19/2023	LW		Extraction	EP452-legacy	-1
-1.0.0	EP453	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04465	400	75	Kit buffer	07/20/2023	AJ		Extraction	EP453-legacy	-1
-1.0.0	EP455	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/26/2023	AJ		Extraction	EP455-legacy	-1
-1.0.0	EP457	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/27/2023	AJ		Extraction	EP457-legacy	-1
-1.0.0	EP459	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/01/2023	AJ		Extraction	EP459-legacy	-1
-1.0.0	EP46	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/09/2021	LW		Extraction	EP46-legacy	-1
-1.0.0	EP461	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/02/2023	AJ		Extraction	EP461-legacy	-1
-1.0.0	EP463	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/09/2023	AJ		Extraction	EP463-legacy	-1
-1.0.0	EP465	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/10/2023	AJ		Extraction	EP465-legacy	-1
-1.0.0	EP467	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	08/16/2023	JL		Extraction	EP467-legacy	-1
-1.0.0	EP469	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/21/2023	AJ		Extraction	EP469-legacy	-1
-1.0.0	EP47	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/10/2021	AJ		Extraction	EP47-legacy	-1
-1.0.0	EP473	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/24/2023	AJ		Extraction	EP473-legacy	-1
-1.0.0	EP476	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/30/2023	AJ		Extraction	EP476-legacy	-1
-1.0.0	EP478	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/05/2023	AJ		Extraction	EP478-legacy	-1
-1.0.0	EP479	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/07/2023	AJ		Extraction	EP479-legacy	-1
-1.0.0	EP48	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/13/2021	AJ		Extraction	EP48-legacy	-1
-1.0.0	EP481	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/11/2023	AJ		Extraction	EP481-legacy	-1
-1.0.0	EP484	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/13/2023	AJ		Extraction	EP484-legacy	-1
-1.0.0	EP487	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	09/18/2023	AJ		Extraction	EP487-legacy	-1
-1.0.0	EP489	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	09/20/2023	AJ		Extraction	EP489-legacy	-1
-1.0.0	EP49	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/15/2021	AJ		Extraction	EP49-legacy	-1
-1.0.0	EP490	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/26/2023	GC		Extraction	EP490-legacy	-1
-1.0.0	EP492	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/27/2023	AJ		Extraction	EP492-legacy	-1
-1.0.0	EP494	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	10/02/2023	GC		Extraction	EP494-legacy	-1
-1.0.0	EP495	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/04/2023	GC		Extraction	EP495-legacy	-1
-1.0.0	EP497	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/06/2023	AJ		Extraction	EP497-legacy	-1
-1.0.0	EP498	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/11/2023	AJ		Extraction	EP498-legacy	-1
-1.0.0	EP499	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/17/2023	AJ		Extraction	EP499-legacy	-1
-1.0.0	EP5	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/27/2021	JL		Extraction	EP5-legacy	-1
-1.0.0	EP50	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108355	400	75	Kit buffer	12/16/2021	AJ		Extraction	EP50-legacy	-1
-1.0.0	EP500	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/18/2023	AJ		Extraction	EP500-legacy	-1
-1.0.0	EP501	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/24/2023	AJ		Extraction	EP501-legacy	-1
-1.0.0	EP503	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/31/2023	AJ		Extraction	EP503-legacy	-1
-1.0.0	EP505	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/07/2023	AJ		Extraction	EP505-legacy	-1
-1.0.0	EP507	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/14/2023	AJ		Extraction	EP507-legacy	-1
-1.0.0	EP508	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/16/2023	AJ		Extraction	EP508-legacy	-1
-2.0.0	EP509	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit Buffer	11/21/2023	AJ		Extraction	EP509-legacy	-1
-1.0.0	EP51	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/17/2021	AJ		Extraction	EP51-legacy	-1
-1.0.0	EP52	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/21/2021	AJ		Extraction	EP52-legacy	-1
-1.0.0	EP53	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/22/2021	AJ		Extraction	EP53-legacy	-1
-1.0.0	EP54	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/03/2022	JL		Extraction	EP54-legacy	-1
-1.0.0	EP55	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/04/2022	AJ		Extraction	EP55-legacy	-1
-1.0.0	EP56	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/06/2022	AJ		Extraction	EP56-legacy	-1
-1.0.0	EP57	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/10/2022	AJ		Extraction	EP57-legacy	-1
-1.0.0	EP58	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/11/2022	AJ		Extraction	EP58-legacy	-1
-1.0.0	EP59	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/13/2022	AJ		Extraction	EP59-legacy	-1
-1.0.0	EP6	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/30/2021	JL		Extraction	EP6-legacy	-1
-1.0.0	EP60	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/19/2022	AJ		Extraction	EP60-legacy	-1
-1.0.0	EP61	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/20/2022	AJ		Extraction	EP61-legacy	-1
-1.0.0	EP63	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/24/2022	AJ		Extraction	EP63-legacy	-1
-1.0.0	EP64	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/25/2022	AJ		Extraction	EP64-legacy	-1
-1.0.0	EP65	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/26/2022	AJ		Extraction	EP65-legacy	-1
-1.0.0	EP66	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/28/2022	AJ		Extraction	EP66-legacy	-1
-1.0.0	EP67	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/31/2022	AJ		Extraction	EP67-legacy	-1
-1.0.0	EP69	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/01/2022	AJ		Extraction	EP69-legacy	-1
-1.0.0	EP7	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/02/2021	JL		Extraction	EP7-legacy	-1
-1.0.0	EP70	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/02/2022	AJ		Extraction	EP70-legacy	-1
-1.0.0	EP71	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/04/2022	LW		Extraction	EP71-legacy	-1
-1.0.0	EP72	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/07/2022	AJ		Extraction	EP72-legacy	-1
-1.0.0	EP73	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/09/2022	AJ		Extraction	EP73-legacy	-1
-1.0.0	EP74	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/10/2022	AJ		Extraction	EP74-legacy	-1
-1.0.0	EP76	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/14/2022	AJ		Extraction	EP76-legacy	-1
-1.0.0	EP78	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/15/2022	AJ		Extraction	EP78-legacy	-1
-1.0.0	EP79	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/16/2022	AJ		Extraction	EP79-legacy	-1
-1.0.0	EP8	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/03/2021	JL		Extraction	EP8-legacy	-1
-1.0.0	EP800	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/30/2023	AJ		Extraction	EP800-legacy	-1
-1.0.0	EP801	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/20/2023	AJ		Extraction	EP801-legacy	-1
-1.0.0	EP802	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/23/2023	AJ		Extraction	EP802-legacy	-1
-1.0.0	EP81	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/18/2022	AJ		Extraction	EP81-legacy	-1
-1.0.0	EP82	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/21/2022	AJ		Extraction	EP82-legacy	-1
-1.0.0	EP84	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/23/2022	AJ		Extraction	EP84-legacy	-1
-1.0.0	EP85	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	02/25/2022	JL		Extraction	EP85-legacy	-1
-1.0.0	EP86	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	02/28/2022	AJ		Extraction	EP86-legacy	-1
-1.0.0	EP88	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/02/2022	AJ		Extraction	EP88-legacy	-1
-1.0.0	EP9	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/08/2021	JL		Extraction	EP9-legacy	-1
-1.0.0	EP90	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	03/04/2022	AJ		Extraction	EP90-legacy	-1
-1.0.0	EP92	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/09/2022	AJ		Extraction	EP92-legacy	-1
-1.0.0	EP93	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/10/2022	AJ		Extraction	EP93-legacy	-1
-1.0.0	EP95	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/11/2022	AJ		Extraction	EP95-legacy	-1
-1.0.0	EP96	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/15/2022	AJ		Extraction	EP96-legacy	-1
-1.0.0	EP98	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/16/2022	AJ		Extraction	EP98-legacy	-1
-1.0.0	ME1	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME1-legacy	-1
-1.0.0	ME10	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME10-legacy	-1
-1.0.0	ME100	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME100-legacy	-1
-1.0.0	ME101	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME101-legacy	-1
-1.0.0	ME102	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME102-legacy	-1
-1.0.0	ME103	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME103-legacy	-1
-1.0.0	ME104	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME104-legacy	-1
-1.0.0	ME105	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME105-legacy	-1
-1.0.0	ME106	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME106-legacy	-1
-1.0.0	ME107	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME107-legacy	-1
-1.0.0	ME108	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME108-legacy	-1
-1.0.0	ME109	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME109-legacy	-1
-1.0.0	ME11	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME11-legacy	-1
-1.0.0	ME110	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME110-legacy	-1
-1.0.0	ME111	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME111-legacy	-1
-1.0.0	ME112	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME112-legacy	-1
-1.0.0	ME113	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME113-legacy	-1
-1.0.0	ME114	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME114-legacy	-1
-1.0.0	ME115	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME115-legacy	-1
-1.0.0	ME116	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME116-legacy	-1
-1.0.0	ME117	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME117-legacy	-1
-1.0.0	ME118	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME118-legacy	-1
-1.0.0	ME119	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME119-legacy	-1
-1.0.0	ME12	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME12-legacy	-1
-1.0.0	ME120	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME120-legacy	-1
-1.0.0	ME121	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME121-legacy	-1
-1.0.0	ME122	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME122-legacy	-1
-1.0.0	ME123	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME123-legacy	-1
-1.0.0	ME124	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME124-legacy	-1
-1.0.0	ME125	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME125-legacy	-1
-1.0.0	ME126	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME126-legacy	-1
-1.0.0	ME127	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME127-legacy	-1
-1.0.0	ME128	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME128-legacy	-1
-1.0.0	ME129	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME129-legacy	-1
-1.0.0	ME13	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/20/2020	MS		Extraction	ME13-legacy	-1
-1.0.0	ME130	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME130-legacy	-1
-1.0.0	ME131	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME131-legacy	-1
-1.0.0	ME132	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME132-legacy	-1
-1.0.0	ME133	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME133-legacy	-1
-1.0.0	ME134	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME134-legacy	-1
-1.0.0	ME135	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/17/2021	MVS		Extraction	ME135-legacy	-1
-1.0.0	ME136	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/17/2021	MVS		Extraction	ME136-legacy	-1
-1.0.0	ME137	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/19/2021	KD		Extraction	ME137-legacy	-1
-1.0.0	ME14	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/20/2020	MS		Extraction	ME14-legacy	-1
-1.0.0	ME15	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME15-legacy	-1
-1.0.0	ME16	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME16-legacy	-1
-1.0.0	ME17	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME17-legacy	-1
-1.0.0	ME18	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME18-legacy	-1
-1.0.0	ME19	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME19-legacy	-1
-1.0.0	ME2	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME2-legacy	-1
-1.0.0	ME20	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME20-legacy	-1
-1.0.0	ME21	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME21-legacy	-1
-1.0.0	ME22	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME22-legacy	-1
-1.0.0	ME23	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME23-legacy	-1
-1.0.0	ME24	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME24-legacy	-1
-1.0.0	ME25	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/08/2020	MS		Extraction	ME25-legacy	-1
-1.0.0	ME26	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/08/2020	MS		Extraction	ME26-legacy	-1
-1.0.0	ME27	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME27-legacy	-1
-1.0.0	ME28	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME28-legacy	-1
-1.0.0	ME29	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME29-legacy	-1
-1.0.0	ME3	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME3-legacy	-1
-1.0.0	ME30	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/15/2020	AT		Extraction	ME30-legacy	-1
-1.0.0	ME31	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/15/2020	AT		Extraction	ME31-legacy	-1
-1.0.0	ME32	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME32-legacy	-1
-1.0.0	ME33	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME33-legacy	-1
-1.0.0	ME34	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME34-legacy	-1
-1.0.0	ME35	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME35-legacy	-1
-1.0.0	ME36	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME36-legacy	-1
-1.0.0	ME37	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME37-legacy	-1
-1.0.0	ME38	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME38-legacy	-1
-1.0.0	ME39	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME39-legacy	-1
-1.0.0	ME4	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME4-legacy	-1
-1.0.0	ME40	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME40-legacy	-1
-1.0.0	ME41	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME41-legacy	-1
-1.0.0	ME42	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME42-legacy	-1
-1.0.0	ME43	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME43-legacy	-1
-1.0.0	ME44	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME44-legacy	-1
-1.0.0	ME45	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME45-legacy	-1
-1.0.0	ME46	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME46-legacy	-1
-1.0.0	ME47	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME47-legacy	-1
-1.0.0	ME48	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME48-legacy	-1
-1.0.0	ME49	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME49-legacy	-1
-1.0.0	ME5	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME5-legacy	-1
-1.0.0	ME50	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME50-legacy	-1
-1.0.0	ME51	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME51-legacy	-1
-1.0.0	ME52	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME52-legacy	-1
-1.0.0	ME53	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME53-legacy	-1
-1.0.0	ME54	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME54-legacy	-1
-1.0.0	ME55	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME55-legacy	-1
-1.0.0	ME56	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME56-legacy	-1
-1.0.0	ME57	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME57-legacy	-1
-1.0.0	ME58	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME58-legacy	-1
-1.0.0	ME59	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME59-legacy	-1
-1.0.0	ME6	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME6-legacy	-1
-1.0.0	ME60	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME60-legacy	-1
-1.0.0	ME61	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME61-legacy	-1
-1.0.0	ME62	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME62-legacy	-1
-1.0.0	ME63	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME63-legacy	-1
-1.0.0	ME64	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME64-legacy	-1
-1.0.0	ME65	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME65-legacy	-1
-1.0.0	ME66	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME66-legacy	-1
-1.0.0	ME67	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME67-legacy	-1
-1.0.0	ME68	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME68-legacy	-1
-1.0.0	ME69	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME69-legacy	-1
-1.0.0	ME7	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME7-legacy	-1
-1.0.0	ME70	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME70-legacy	-1
-1.0.0	ME71	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME71-legacy	-1
-1.0.0	ME72	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME72-legacy	-1
-1.0.0	ME73	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME73-legacy	-1
-1.0.0	ME74	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME74-legacy	-1
-1.0.0	ME75	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME75-legacy	-1
-1.0.0	ME76	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME76-legacy	-1
-1.0.0	ME77	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME77-legacy	-1
-1.0.0	ME78	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME78-legacy	-1
-1.0.0	ME79	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME79-legacy	-1
-1.0.0	ME8	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME8-legacy	-1
-1.0.0	ME80	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME80-legacy	-1
-1.0.0	ME81	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME81-legacy	-1
-1.0.0	ME82	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME82-legacy	-1
-1.0.0	ME83	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME83-legacy	-1
-1.0.0	ME84	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME84-legacy	-1
-1.0.0	ME85	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME85-legacy	-1
-1.0.0	ME86	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME86-legacy	-1
-1.0.0	ME87	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME87-legacy	-1
-1.0.0	ME88	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME88-legacy	-1
-1.0.0	ME89	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME89-legacy	-1
-1.0.0	ME9	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME9-legacy	-1
-1.0.0	ME90	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME90-legacy	-1
-1.0.0	ME91	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME91-legacy	-1
-1.0.0	ME92	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME92-legacy	-1
-1.0.0	ME93	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME93-legacy	-1
-1.0.0	ME94	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME94-legacy	-1
-1.0.0	ME95	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME95-legacy	-1
-1.0.0	ME96	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME96-legacy	-1
-1.0.0	ME97	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME97-legacy	-1
-1.0.0	ME98	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME98-legacy	-1
-1.0.0	ME99	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME99-legacy	-1
+2.0.0	EB1	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/29/2023	AJ		Extraction	EB1	-1
+2.0.0	EB101	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/14/2024	AJ		Extraction	EB101	-1
+2.0.0	EB103	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/21/2024	AJ		Extraction	EB103	-1
+2.0.0	EB105	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04491	400	75	Kit Buffer	12/02/2024	AJ		Extraction	EB105	-1
+2.0.0	EB107	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/05/2024	AJ		Extraction	EB107	-1
+2.0.0	EB108	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	12/12/2024	AJ		Extraction	EB108	-1
+2.0.0	EB11	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/04/2024	AJ		Extraction	EB11	-1
+2.0.0	EB110	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	12/19/2024	AJ		Extraction	EB110	-1
+2.0.0	EB112	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/09/2025	AJ		Extraction	EB112	-1
+2.0.0	EB113	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/10/2025	AJ		Extraction	EB113	-1
+2.0.0	EB115	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/16/2025	AJ		Extraction	EB115	-1
+2.0.0	EB117	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/23/2025	AJ		Extraction	EB117	-1
+2.0.0	EB119	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	01/30/2025	AJ		Extraction	EB119	-1
+2.0.0	EB12	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/09/2024	AJ		Extraction	EB12	-1
+2.0.0	EB121	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/06/2025	AJ		Extraction	EB121	-1
+2.0.0	EB123	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/13/2025	AJ		Extraction	EB123	-1
+2.0.0	EB124	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/20/2025	AJ		Extraction	EB124	-1
+2.0.0	EB127	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	02/27/2025	AJ		Extraction	EB127	-1
+2.0.0	EB129	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/06/2025	AJ		Extraction	EB129	-1
+2.0.0	EB13	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/10/2024	AJ		Extraction	EB13	-1
+2.0.0	EB131	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/13/2025	AJ		Extraction	EB131	-1
+2.0.0	EB133	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2405091	400	75	Kit Buffer	03/20/2025	AJ		Extraction	EB133	-1
+2.0.0	EB135	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	03/27/2025	AJ		Extraction	EB135	-1
+2.0.0	EB137	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/03/2025	AJ		Extraction	EB137	-1
+2.0.0	EB139	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	319176	400	75	Kit Buffer	04/11/2025	AJ		Extraction	EB139	-1
+2.0.0	EB14	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/18/2024	GC		Extraction	EB14	-1
+2.0.0	EB141	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/17/2025	AJ		Extraction	EB141	-1
+2.0.0	EB143	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	04/24/2025	AJ		Extraction	EB143	-1
+2.0.0	EB145	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/01/2025	AJ		Extraction	EB145	-1
+2.0.0	EB147	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/08/2025	AJ		Extraction	EB147	-1
+2.0.0	EB149	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/15/2025	AJ		Extraction	EB149	-1
+2.0.0	EB15	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/23/2024	AJ		Extraction	EB15	-1
+2.0.0	EB151	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/22/2025	AJ		Extraction	EB151	-1
+2.0.1	EB152	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	05/29/2025	BB		Extraction	EB152	-1
+2.0.1	EB154	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/05/2025	BB, IZ		Extraction	EB154	-1
+2.0.0	EB156	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/12/2025	AJ		Extraction	EB156	-1
+2.0.0	EB158	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/19/2025	AJ		Extraction	EB158	-1
+2.0.0	EB16	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/23/2024	AJ		Extraction	EB16	-1
+2.0.0	EB160	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/26/2025	AJ		Extraction	EB160	-1
+2.0.0	EB161	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/02/2025	AJ		Extraction	EB161	-1
+2.0.0	EB163	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	xxxxxxx	400	75	Kit Buffer	12/31/1899	TD		Extraction	EB163	-1
+2.0.1	EB164	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	06/05/2025	BB, IZ		Extraction	EB164	-1
+2.0.0	EB166	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/23/2025	AJ		Extraction	EB166	-1
+2.0.0	EB167	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	07/31/2025	AJ		Extraction	EB167	-1
+2.0.0	EB168	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/07/2025	ID		Extraction	EB168	-1
+2.0.0	EB171	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/14/2025	AJ		Extraction	EB171	-1
+2.0.0	EB173	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/21/2025	AJ		Extraction	EB173	-1
+2.0.0	EB175	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	08/28/2025	AJ		Extraction	EB175	-1
+2.0.0	EB177	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3129176	400	75	Kit Buffer	09/04/2025	AJ		Extraction	EB177	-1
+2.0.1	EB179	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/11/2025	AJ		Extraction	EB179	-1
+2.0.0	EB18	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	01/31/2024	AJ		Extraction	EB18	-1
+2.0.1	EB180	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/18/2025	LS		Extraction	EB180	-1
+2.0.1	EB181	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/18/2025	AJ		Extraction	EB181	-1
+2.0.1	EB182	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	09/25/2025	LS		Extraction	EB182	-1
+2.0.1	EB184	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/02/2025	LS		Extraction	EB184	-1
+2.0.1	EB187	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/10/2025	AJ		Extraction	EB187	-1
+2.0.1	EB188	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/16/2025	LS		Extraction	EB188	-1
+2.0.1	EB189	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/16/2025	LS		Extraction	EB189	-1
+2.0.1	EB190	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/23/2025	LS		Extraction	EB190	-1
+2.0.1	EB192	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	10/30/2025	AJ		Extraction	EB192	-1
+2.0.1	EB194	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/06/2025	LS		Extraction	EB194	-1
+2.0.1	EB196	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/13/2025	LS		Extraction	EB196	-1
+2.0.1	EB198	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/20/2025	LS		Extraction	EB198	-1
+2.0.1	EB199	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3204222	400	75	Kit Buffer	11/26/2025	TD		Extraction	EB199	-1
+2.0.0	EB20	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/07/2024	AJ		Extraction	EB20	-1
+2.0.1	EB201	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2506102	400	75	Kit Buffer	12/04/2025	AJ		Extraction	EB201	-1
+2.0.1	EB202	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	12/11/2025	LS		Extraction	EB202	-1
+2.0.1	EB204	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	12/18/2025	LS		Extraction	EB204	-1
+2.0.1	EB206	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/08/2026	LS		Extraction	EB206	-1
+2.0.1	EB209	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/15/2026	LS		Extraction	EB209	-1
+2.0.1	EB211	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	xxxxxxx	400	75	Kit Buffer	01/21/2026	AJ		Extraction	EB211	-1
+2.0.1	EB212	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	01/29/2026	LS		Extraction	EB212	-1
+2.0.1	EB214	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	02/05/2026	LS		Extraction	EB214	-1
+2.0.1	EB216	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	3270922	400	75	Kit Buffer	02/12/2026	LS		Extraction	EB216	-1
+2.0.2	EB218	Wall-E			400	75	Kit Buffer	02/19/2026	LS		Extraction	EB218	-1
+2.0.2	EB219	Wall-E			400	75	Kit Buffer	02/26/2026	LS		Extraction	EB219	-1
+2.0.0	EB22	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/13/2024	AJ		Extraction	EB22	-1
+2.0.2	EB222	Wall-E			400	75	Kit Buffer	03/05/2026	LS		Extraction	EB222	-1
+2.0.2	EB224	Wall-E			400	75	Kit Buffer	03/12/2026	LS		Extraction	EB224	-1
+2.0.2	EB226	Wall-E			400	75	Kit Buffer	03/19/2026	LS		Extraction	EB226	-1
+2.0.2	EB228	Wall-E			400	75	Kit Buffer	03/26/2026	LS		Extraction	EB228	-1
+2.0.0	EB23	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/14/2024	AJ		Extraction	EB23	-1
+2.0.2	EB230	Wall-E			400	75	Kit Buffer	04/02/2026	LS		Extraction	EB230	-1
+2.0.2	EB232	Wall-E			400	75	Kit Buffer	04/09/2026	LS		Extraction	EB232	-1
+2.0.2	EB234	Wall-E			400	75	Kit Buffer	04/16/2026	LS		Extraction	EB234	-1
+2.0.2	EB236	Wall-E			400	75	Kit Buffer	04/23/2026	LS		Extraction	EB236	-1
+2.0.2	EB238	Wall-E			400	75	Kit Buffer	04/30/2026	LS		Extraction	EB238	-1
+2.0.0	EB24	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/20/2024	AJ		Extraction	EB24	-1
+2.0.2	EB240	Wall-E			400	75	Kit Buffer	05/07/2026	LS		Extraction	EB240	-1
+2.0.2	EB242	Wall-E			400	75	Kit Buffer	05/14/2026	LS		Extraction	EB242	-1
+2.0.2	EB244	Wall-E			400	75	Kit Buffer	05/21/2026	LS		Extraction	EB244	-1
+2.0.2	EB246	Wall-E			400	75	Kit Buffer	05/28/2026	LS		Extraction	EB246	-1
+2.0.2	EB247	Wall-E			400	75	Kit Buffer	06/02/2026	LS		Extraction	EB247	-1
+2.0.2	EB249	Wall-E			400	75	Kit Buffer	06/04/2026	LS		Extraction	EB249	-1
+2.0.0	EB25	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/21/2024	AJ		Extraction	EB25	-1
+2.0.2	EB250	Wall-E			400	75	Kit Buffer	06/09/2026	LS		Extraction	EB250	-1
+2.0.2	EB253	Wall-E			400	75	Kit Buffer	06/16/2026	LS		Extraction	EB253	-1
+2.0.2	EB254	Wall-E			400	75	Kit Buffer	06/18/2026	LS		Extraction	EB254	-1
+2.0.2	EB255	Bender			400	75	Kit Buffer	06/23/2026	LS		Extraction	EB255	-1
+2.0.2	EB257	Bender			400	75	Kit Buffer	06/25/2026	LS		Extraction	EB257	-1
+2.0.2	EB258	Bender			400	75	Kit Buffer	06/30/2026	LS		Extraction	EB258	-1
+2.0.0	EB26	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/27/2024	AJ		Extraction	EB26	-1
+2.0.2	EB260	Bender			400	75	Kit Buffer	07/02/2026	LS		Extraction	EB260	-1
+2.0.2	EB262	Bender			400	75	Kit Buffer	07/09/2026	LS		Extraction	EB262	-1
+2.0.2	EB263	Bender			400	75	Kit Buffer	07/14/2026	LS		Extraction	EB263	-1
+2.0.2	EB265	Bender			400	75	Kit Buffer	07/17/2026	LS		Extraction	EB265	-1
+2.0.2	EB267	Bender			400	75	Kit Buffer	07/23/2026	LS		Extraction	EB267	-1
+2.0.2	EB269	Bender			400	75	Kit Buffer	07/30/2026	LS		Extraction	EB269	-1
+2.0.0	EB27	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	02/28/2024	AJ		Extraction	EB27	-1
+2.0.2	EB271	Bender			400	75	Kit Buffer	08/06/2026	LS		Extraction	EB271	-1
+2.0.2	EB272	Bender			400	75	Kit Buffer	08/13/2026	LS	Routine WW and 24 E.coli	Extraction	EB272	-1
+2.0.2	EB274	Bender			400	75	Kit Buffer	08/20/2026	ID		Extraction	EB274	-1
+2.0.2	EB275	Bender			400	75	Kit Buffer	08/31/2026	LS		Extraction	EB275	-1
+2.0.2	EB277	Bender			400	75	Kit Buffer	09/03/2026	ID		Extraction	EB277	-1
+2.0.2	EB278	Bender			400	75	Kit Buffer	09/10/2026	LS		Extraction	EB278	-1
+2.0.0	EB28	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/05/2024	AJ		Extraction	EB28	-1
+2.0.2	EB280	Bender			400	75	Kit Buffer	09/17/2026	ID		Extraction	EB280	-1
+2.0.2	EB282	Bender			400	75	Kit Buffer	09/24/2026	LS		Extraction	EB282	-1
+2.0.2	EB283	Bender			400	75	Kit Buffer	10/01/2026	ID		Extraction	EB283	-1
+2.0.2	EB285	Bender			400	75	Kit Buffer	10/08/2026	LS		Extraction	EB285	-1
+2.0.2	EB286	Bender			400	75	Kit Buffer	10/15/2026	LS	Also moved to new template	Extraction	EB286	-1
+2.0.0	EB29	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/16/2024	SK		Extraction	EB29	-1
+2.0.0	EB30	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/07/2024	AJ		Extraction	EB30	-1
+2.0.0	EB31	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/12/2024	AJ		Extraction	EB31	-1
+2.0.0	EB32	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/13/2024	AJ		Extraction	EB32	-1
+2.0.0	EB34	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	225332	400	75	Kit Buffer	03/20/2024	SK		Extraction	EB34	-1
+2.0.0	EB36	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	03/27/2024	AJ		Extraction	EB36	-1
+2.0.0	EB38	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/03/2024	GC		Extraction	EB38	-1
+2.0.0	EB39	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/09/2024	AJ		Extraction	EB39	-1
+2.0.0	EB4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/05/2023	AJ		Extraction	EB4	-1
+2.0.0	EB40	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/10/2024	AJ		Extraction	EB40	-1
+2.0.0	EB41	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/11/2024	SK		Extraction	EB41	-1
+2.0.0	EB42	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/15/2024	AJ		Extraction	EB42	-1
+2.0.0	EB43	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/16/2024	AJ		Extraction	EB43	-1
+2.0.0	EB44	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/18/2024	GC		Extraction	EB44	-1
+2.0.0	EB46	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	04/26/2024	GC		Extraction	EB46	-1
+2.0.0	EB47	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/02/2024	AJ		Extraction	EB47	-1
+2.0.0	EB49	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/08/2024	AJ		Extraction	EB49	-1
+2.0.0	EB50	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/15/2024	SK		Extraction	EB50	-1
+2.0.0	EB51	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/16/2024	SK		Extraction	EB51	-1
+2.0.0	EB53	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	05/23/2024	SK		Extraction	EB53	-1
+2.0.0	EB55	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	05/30/2024	SK		Extraction	EB55	-1
+2.0.0	EB57	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/04/2024	SK		Extraction	EB57	-1
+2.0.0	EB58	WALL-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/06/2024	SK		Extraction	EB58	-1
+2.0.0	EB6	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/12/2023	AJ		Extraction	EB6	-1
+2.0.0	EB60	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/14/2024	SK		Extraction	EB60	-1
+2.0.0	EB61	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/18/2024	SK		Extraction	EB61	-1
+2.0.0	EB63	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	06/27/2024	SK		Extraction	EB63	-1
+2.0.0	EB65	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/03/2024	SK		Extraction	EB65	-1
+2.0.0	EB67	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	07/11/2024	AJ		Extraction	EB67	-1
+2.0.0	EB69	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/18/2024	SK		Extraction	EB69	-1
+2.0.0	EB70	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	MM2205332	400	75	Kit Buffer	07/24/2024	SK		Extraction	EB70	-1
+2.0.0	EB72	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	07/31/2024	AJ		Extraction	EB72	-1
+2.0.0	EB74	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/08/2024	AJ		Extraction	EB74	-1
+2.0.0	EB75	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/15/2024	AJ		Extraction	EB75	-1
+2.0.0	EB77	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/22/2024	AJ		Extraction	EB77	-1
+2.0.0	EB78	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	08/28/2024	AJ		Extraction	EB78	-1
+2.0.0	EB8	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	12/19/2023	AJ		Extraction	EB8	-1
+2.0.0	EB80	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/05/2024	AJ		Extraction	EB80	-1
+2.0.0	EB82	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/12/2024	AJ		Extraction	EB82	-1
+2.0.0	EB84	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/19/2024	AJ		Extraction	EB84	-1
+2.0.0	EB87	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	09/26/2024	AJ		Extraction	EB87	-1
+2.0.0	EB88	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/03/2024	AJ		Extraction	EB88	-1
+2.0.0	EB90	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/10/2024	AJ		Extraction	EB90	-1
+2.0.0	EB92	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/17/2024	AJ		Extraction	EB92	-1
+2.0.0	EB94	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/24/2024	AJ		Extraction	EB94	-1
+2.0.0	EB97	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	10/31/2024	AJ		Extraction	EB97	-1
+2.0.0	EB99	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2205332	400	75	Kit Buffer	11/07/2024	AJ		Extraction	EB99	-1
+1.0.0	EP0		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	06/04/2021			Extraction	EP0	-1
+1.0.0	EP0.1		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/07/2021	JL		Extraction	EP0.1	-1
+1.0.0	EP0.2		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/09/2021	JL		Extraction	EP0.2	-1
+1.0.0	EP0.3		Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	50	Kit buffer	07/30/2021	JL		Extraction	EP0.3	-1
+1.0.0	EP0.4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/13/2021	JL		Extraction	EP0.4	-1
+1.0.0	EP1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/16/2021	JL		Extraction	EP1	-1
+1.0.0	EP1.2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/18/2021	JL		Extraction	EP1.2	-1
+1.0.0	EP1.4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/20/2021	JL		Extraction	EP1.4	-1
+1.0.0	EP10	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/08/2021	JL		Extraction	EP10	-1
+1.0.0	EP100	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/21/2022	AJ		Extraction	EP100	-1
+1.0.0	EP102	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/23/2022	AJ		Extraction	EP102	-1
+1.0.0	EP104	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/25/2022	AJ		Extraction	EP104	-1
+1.0.0	EP106	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/29/2022	AJ		Extraction	EP106	-1
+1.0.0	EP108	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/30/2022	AJ		Extraction	EP108	-1
+1.0.0	EP109	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/01/2022	AJ		Extraction	EP109	-1
+1.0.0	EP11	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/13/2021	JL		Extraction	EP11	-1
+1.0.0	EP110	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/31/2022	AJ		Extraction	EP110	-1
+1.0.0	EP111	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2120258	400	75	Kit buffer	04/04/2022	AJ		Extraction	EP111	-1
+1.0.0	EP112	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/05/2022	JL		Extraction	EP112	-1
+1.0.0	EP114	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/06/2022	AJ		Extraction	EP114	-1
+1.0.0	EP116	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/08/2022	AJ		Extraction	EP116	-1
+1.0.0	EP117	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/12/2022	AJ		Extraction	EP117	-1
+1.0.0	EP118	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/14/2022	AJ		Extraction	EP118	-1
+1.0.0	EP119	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	04/13/2022	AJ		Extraction	EP119	-1
+1.0.0	EP12	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/15/2021	JL		Extraction	EP12	-1
+1.0.0	EP12.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105033	400	50	Kit buffer	09/17/2021	JL		Extraction	EP12.1	-1
+1.0.0	EP121	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/18/2022	AJ		Extraction	EP121	-1
+1.0.0	EP122	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/19/2022	AJ		Extraction	EP122	-1
+1.0.0	EP124	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/20/2022	AJ		Extraction	EP124	-1
+1.0.0	EP125	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/21/2022	AJ		Extraction	EP125	-1
+1.0.0	EP126	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/22/2022	AJ		Extraction	EP126	-1
+1.0.0	EP127	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/25/2022	AJ		Extraction	EP127	-1
+1.0.0	EP128	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/26/2022	AJ		Extraction	EP128	-1
+1.0.0	EP130	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/27/2022	AJ		Extraction	EP130	-1
+1.0.0	EP131	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/28/2022	AJ		Extraction	EP131	-1
+1.0.0	EP132	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	04/29/2022	AJ		Extraction	EP132	-1
+1.0.0	EP133	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/03/2022	AJ		Extraction	EP133	-1
+1.0.0	EP135	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/04/2022	AJ		Extraction	EP135	-1
+1.0.0	EP136	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/04/2022	AJ		Extraction	EP136	-1
+1.0.0	EP137	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/05/2022	AJ		Extraction	EP137	-1
+1.0.0	EP138	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/06/2022	AJ		Extraction	EP138	-1
+1.0.0	EP140	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/11/2022	AJ		Extraction	EP140	-1
+1.0.0	EP141	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/11/2022	AJ		Extraction	EP141	-1
+1.0.0	EP143	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/13/2022	AJ		Extraction	EP143	-1
+1.0.0	EP144	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/17/2022	AJ		Extraction	EP144	-1
+1.0.0	EP146	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/18/2022	AJ		Extraction	EP146	-1
+1.0.0	EP148	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/19/2022	AJ		Extraction	EP148	-1
+1.0.0	EP149	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/20/2022	AJ		Extraction	EP149	-1
+1.0.0	EP150	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/23/2022	AJ		Extraction	EP150	-1
+1.0.0	EP152	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/25/2022	AJ		Extraction	EP152	-1
+1.0.0	EP153	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/25/2022	AJ		Extraction	EP153	-1
+1.0.0	EP155	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/27/2022	AJ		Extraction	EP155	-1
+1.0.0	EP156	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	05/31/2022	AJ		Extraction	EP156	-1
+1.0.0	EP158	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/01/2022	AJ		Extraction	EP158	-1
+1.0.0	EP16	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	XXXXXX	400	50	Kit buffer	09/24/2021	JL		Extraction	EP16	-1
+1.0.0	EP160	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/02/2022	AJ		Extraction	EP160	-1
+1.0.0	EP161	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/03/2022	AJ		Extraction	EP161	-1
+1.0.0	EP163	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/08/2022	AJ		Extraction	EP163	-1
+1.0.0	EP164	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/08/2022	AJ		Extraction	EP164	-1
+1.0.0	EP166	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/10/2022	AJ		Extraction	EP166	-1
+1.0.0	EP168	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/14/2022	AJ		Extraction	EP168	-1
+1.0.0	EP17	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	400	50	Kit buffer	09/27/2021	JL		Extraction	EP17	-1
+1.0.0	EP170	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/17/2022	AJ		Extraction	EP170	-1
+1.0.0	EP173	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/22/2022	AJ		Extraction	EP173	-1
+1.0.0	EP175	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/24/2022	AJ		Extraction	EP175	-1
+1.0.0	EP178	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/29/2022	AJ		Extraction	EP178	-1
+1.0.0	EP179	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	06/30/2022	AJ		Extraction	EP179	-1
+1.0.0	EP18	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2105049	400	50	Kit buffer	09/29/2021	JL		Extraction	EP18	-1
+1.0.0	EP181	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/06/2022	AJ		Extraction	EP181	-1
+1.0.0	EP182	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/07/2022	AJ		Extraction	EP182	-1
+1.0.0	EP184	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/08/2022	AJ		Extraction	EP184	-1
+1.0.0	EP187	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/13/2022	AJ		Extraction	EP187	-1
+1.0.0	EP189	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/15/2022	AJ		Extraction	EP189	-1
+1.0.0	EP19	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/01/2021	JL		Extraction	EP19	-1
+1.0.0	EP192	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/20/2022	AJ		Extraction	EP192	-1
+1.0.0	EP194	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/22/2022	AJ		Extraction	EP194	-1
+1.0.0	EP196	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04473	400	75	Kit buffer	07/27/2022	AJ		Extraction	EP196	-1
+1.0.0	EP198	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	07/28/2022	AJ		Extraction	EP198	-1
+1.0.0	EP2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/23/2021	JL		Extraction	EP2	-1
+1.0.0	EP20	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/05/2021	JL		Extraction	EP20	-1
+1.0.0	EP200	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/01/2022	AJ		Extraction	EP200	-1
+1.0.0	EP203	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/03/2022	AJ		Extraction	EP203	-1
+1.0.0	EP205	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/05/2022	AJ		Extraction	EP205	-1
+1.0.0	EP206	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/08/2022	AJ		Extraction	EP206	-1
+1.0.0	EP209	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/10/2022	AJ		Extraction	EP209	-1
+1.0.0	EP21	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/07/2021	JL		Extraction	EP21	-1
+1.0.0	EP211	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/15/2022	JL		Extraction	EP211	-1
+1.0.0	EP214	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/17/2022	AJ		Extraction	EP214	-1
+1.0.0	EP216	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/19/2022	AJ		Extraction	EP216	-1
+1.0.0	EP217	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/23/2022	AJ		Extraction	EP217	-1
+1.0.0	EP22	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108052	400	50	Kit buffer	10/08/2021	JL		Extraction	EP22	-1
+1.0.0	EP220	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/24/2022	AJ		Extraction	EP220	-1
+1.0.0	EP222	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/26/2022	AJ		Extraction	EP222	-1
+1.0.0	EP225	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	08/31/2022	AJ		Extraction	EP225	-1
+1.0.0	EP227	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/02/2022	AJ		Extraction	EP227	-1
+1.0.0	EP23	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/11/2021	JL		Extraction	EP23	-1
+1.0.0	EP231	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/07/2022	AJ		Extraction	EP231	-1
+1.0.0	EP234	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/13/2022	AJ		Extraction	EP234	-1
+1.0.0	EP236	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/14/2022	AJ		Extraction	EP236	-1
+1.0.0	EP238	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/16/2022	AJ		Extraction	EP238	-1
+1.0.0	EP24	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/13/2021	JL		Extraction	EP24	-1
+1.0.0	EP242	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/21/2022	AJ		Extraction	EP242	-1
+1.0.0	EP244	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/26/2022	AJ		Extraction	EP244	-1
+1.0.0	EP247	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/28/2022	AJ		Extraction	EP247	-1
+1.0.0	EP248.1	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	09/30/2022	AJ		Extraction	EP248.1	-1
+1.0.0	EP248.2	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/12/2022	AJ		Extraction	EP248.2	-1
+1.0.0	EP248.3	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/10/2022	AJ		Extraction	EP248.3	-1
+1.0.0	EP25	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/15/2021	JL		Extraction	EP25	-1
+1.0.0	EP250	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/03/2022	AJ		Extraction	EP250	-1
+1.0.0	EP253	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/04/2022	AJ		Extraction	EP253	-1
+1.0.0	EP256	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/07/2022	AJ		Extraction	EP256	-1
+1.0.0	EP26	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/18/2021	JL		Extraction	EP26	-1
+1.0.0	EP262	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/17/2022	AJ		Extraction	EP262	-1
+1.0.0	EP265	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04455	400	75	Kit buffer	10/19/2022	AJ		Extraction	EP265	-1
+1.0.0	EP267	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	10/24/2022	AJ		Extraction	EP267	-1
+1.0.0	EP269	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	10/26/2022	AJ		Extraction	EP269	-1
+1.0.0	EP27	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/20/2021	JL		Extraction	EP27	-1
+1.0.0	EP272	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	10/28/2022	AJ		Extraction	EP272	-1
+1.0.0	EP274	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/03/2022	SB/LW		Extraction	EP274	-1
+1.0.0	EP276	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/04/2022	SB		Extraction	EP276	-1
+1.0.0	EP278	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/09/2022	AJ		Extraction	EP278	-1
+1.0.0	EP28	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/25/2021	JL		Extraction	EP28	-1
+1.0.0	EP281	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/10/2022	AJ		Extraction	EP281	-1
+1.0.0	EP283	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/15/2022	AJ		Extraction	EP283	-1
+1.0.0	EP285	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/18/2022	AJ		Extraction	EP285	-1
+1.0.0	EP287	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/18/2022	AJ		Extraction	EP287	-1
+1.0.0	EP29	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/27/2021	JL		Extraction	EP29	-1
+1.0.0	EP291	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/28/2022	AJ		Extraction	EP291	-1
+1.0.0	EP293	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	11/30/2022	AJ		Extraction	EP293	-1
+1.0.0	EP295	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/05/2022	AJ		Extraction	EP295	-1
+1.0.0	EP297	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/07/2022	AJ		Extraction	EP297	-1
+1.0.0	EP298	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/08/2022	AJ		Extraction	EP298	-1
+1.0.0	EP3	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/24/2021	JL		Extraction	EP3	-1
+1.0.0	EP30	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	10/28/2021	JL		Extraction	EP30	-1
+1.0.0	EP300	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/12/2022	AJ		Extraction	EP300	-1
+1.0.0	EP303	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/14/2022	AJ		Extraction	EP303	-1
+1.0.0	EP305	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/19/2022	AJ		Extraction	EP305	-1
+1.0.0	EP307	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/21/2022	AJ		Extraction	EP307	-1
+1.0.0	EP31	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/02/2021	JL		Extraction	EP31	-1
+1.0.0	EP310	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	12/28/2022	AJ		Extraction	EP310	-1
+1.0.0	EP313	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/04/2023	AJ		Extraction	EP313	-1
+1.0.0	EP315	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/09/2023	AJ		Extraction	EP315	-1
+1.0.0	EP319	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/11/2023	AJ		Extraction	EP319	-1
+1.0.0	EP32	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/03/2021	JL		Extraction	EP32	-1
+1.0.0	EP32.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/21/2022	AJ		Extraction	EP32.1	-1
+1.0.0	EP321	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/18/2023	AJ		Extraction	EP321	-1
+1.0.0	EP324	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/18/2023	AJ		Extraction	EP324	-1
+1.0.0	EP327	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/25/2023	JL		Extraction	EP327	-1
+1.0.0	EP329	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/26/2023	AJ		Extraction	EP329	-1
+1.0.0	EP33	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	21108255	400	50	Kit buffer	11/05/2021	JL		Extraction	EP33	-1
+1.0.0	EP333	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/01/2023	AJ		Extraction	EP333	-1
+1.0.0	EP334	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/01/2023	AJ		Extraction	EP334	-1
+1.0.0	EP336	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/06/2023	AJ		Extraction	EP336	-1
+1.0.0	EP338	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/08/2023	AJ		Extraction	EP338	-1
+1.0.0	EP34	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/11/2021	JL		Extraction	EP34	-1
+1.0.0	EP340	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/13/2023	AJ		Extraction	EP340	-1
+1.0.0	EP342	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/15/2023	AJ		Extraction	EP342	-1
+1.0.0	EP343	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/15/2023	AJ		Extraction	EP343	-1
+1.0.0	EP348	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	XXXXXX	400	75	Kit buffer	02/22/2023	AJ		Extraction	EP348	-1
+1.0.0	EP35	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/12/2021	AJ		Extraction	EP35	-1
+1.0.0	EP35.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/15/2021	JL		Extraction	EP35.1	-1
+1.0.0	EP351	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/27/2023	AJ		Extraction	EP351	-1
+1.0.0	EP353	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/01/2023	AJ		Extraction	EP353	-1
+1.0.0	EP355	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/02/2023	AJ		Extraction	EP355	-1
+1.0.0	EP357	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/06/2023	AJ		Extraction	EP357	-1
+1.0.0	EP36	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/16/2021	AJ		Extraction	EP36	-1
+1.0.0	EP360	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/08/2023	AJ		Extraction	EP360	-1
+1.0.0	EP362	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	22042324	400	75	Kit buffer	03/10/2023	AJ		Extraction	EP362	-1
+1.0.0	EP365	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/15/2023	AJ		Extraction	EP365	-1
+1.0.0	EP366	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/16/2023	AJ		Extraction	EP366	-1
+1.0.0	EP368	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/20/2023	AJ		Extraction	EP368	-1
+1.0.0	EP37	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	50	Kit buffer	11/17/2021	JL		Extraction	EP37	-1
+1.0.0	EP370	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/22/2023	AJ		Extraction	EP370	-1
+1.0.0	EP371	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/23/2023	AJ		Extraction	EP371	-1
+1.0.0	EP373	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/27/2023	AJ		Extraction	EP373	-1
+1.0.0	EP375	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/29/2023	AJ		Extraction	EP375	-1
+1.0.0	EP376	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	03/30/2023	AJ		Extraction	EP376	-1
+1.0.0	EP378	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/03/2023	AJ		Extraction	EP378	-1
+1.0.0	EP38	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/19/2021	AJ		Extraction	EP38	-1
+1.0.0	EP380	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/05/2023	AJ		Extraction	EP380	-1
+1.0.0	EP382	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/06/2023	AJ		Extraction	EP382	-1
+1.0.0	EP384	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	A42362	400	75	Kit buffer	04/10/2023	JL		Extraction	EP384	-1
+1.0.0	EP386	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/12/2023	AJ		Extraction	EP386	-1
+1.0.0	EP388	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/13/2023	AJ		Extraction	EP388	-1
+1.0.0	EP39	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/22/2021	AJ		Extraction	EP39	-1
+1.0.0	EP390	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/17/2023	AJ		Extraction	EP390	-1
+1.0.0	EP392	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/19/2023	AJ		Extraction	EP392	-1
+1.0.0	EP393	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/20/2023	AJ		Extraction	EP393	-1
+1.0.0	EP395	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/24/2023	AJ		Extraction	EP395	-1
+1.0.0	EP397	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/26/2023	AJ		Extraction	EP397	-1
+1.0.0	EP398	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	04/27/2023	AJ		Extraction	EP398	-1
+1.0.0	EP4	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/25/2021	JL		Extraction	EP4	-1
+1.0.0	EP40	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/29/2021	AJ		Extraction	EP40	-1
+1.0.0	EP400	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/01/2023	AJ		Extraction	EP400	-1
+1.0.0	EP401	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/01/2023	AJ		Extraction	EP401	-1
+1.0.0	EP403	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/03/2023	AJ		Extraction	EP403	-1
+1.0.0	EP405	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	05/04/2023	AJ		Extraction	EP405	-1
+1.0.0	EP407	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/08/2023	SB		Extraction	EP407	-1
+1.0.0	EP409	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/10/2023	AJ		Extraction	EP409	-1
+1.0.0	EP41	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	11/30/2021	AJ		Extraction	EP41	-1
+1.0.0	EP410	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/11/2023	AJ		Extraction	EP410	-1
+1.0.0	EP412	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/15/2023	AJ		Extraction	EP412	-1
+1.0.0	EP414	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/17/2023	AJ		Extraction	EP414	-1
+1.0.0	EP415	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/18/2023	AJ		Extraction	EP415	-1
+1.0.0	EP416	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/23/2023	AJ		Extraction	EP416	-1
+1.0.0	EP418	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	04/24/2023	AJ		Extraction	EP418	-1
+1.0.0	EP42	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/02/2021	LW		Extraction	EP42	-1
+1.0.0	EP420	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	05/30/2023	AJ		Extraction	EP420	-1
+1.0.0	EP422	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/01/2023	LW/AJ		Extraction	EP422	-1
+1.0.0	EP424	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/01/2023	AJ		Extraction	EP424	-1
+1.0.0	EP425	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/05/2023	AJ		Extraction	EP425	-1
+1.0.0	EP428	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	220317	400	75	Kit buffer	06/08/2023	AJ		Extraction	EP428	-1
+1.0.0	EP429	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/12/2023	AJ		Extraction	EP429	-1
+1.0.0	EP43	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/03/2021	AJ		Extraction	EP43	-1
+1.0.0	EP431	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/14/2023	AJ		Extraction	EP431	-1
+1.0.0	EP433	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/15/2023	SB		Extraction	EP433	-1
+1.0.0	EP435	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/21/2023	SB/AJ		Extraction	EP435	-1
+1.0.0	EP437	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/22/2023	AJ		Extraction	EP437	-1
+1.0.0	EP439	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/26/2023	SB		Extraction	EP439	-1
+1.0.0	EP44	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/06/2021	AJ		Extraction	EP44	-1
+1.0.0	EP441	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/28/2023	SB and GC		Extraction	EP441	-1
+1.0.0	EP442.1	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	06/29/2023	AJ		Extraction	EP442.1	-1
+1.0.0	EP442.2	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/05/2023	GC		Extraction	EP442.2	-1
+1.0.0	EP445	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/07/2023	LW		Extraction	EP445	-1
+1.0.0	EP447	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/13/2023	SB		Extraction	EP447	-1
+1.0.0	EP449	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/13/2023	LW		Extraction	EP449	-1
+1.0.0	EP45	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/08/2021	AJ		Extraction	EP45	-1
+1.0.0	EP450	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/17/2023	AJ		Extraction	EP450	-1
+1.0.0	EP452	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/19/2023	LW		Extraction	EP452	-1
+1.0.0	EP453	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	NT04465	400	75	Kit buffer	07/20/2023	AJ		Extraction	EP453	-1
+1.0.0	EP455	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/26/2023	AJ		Extraction	EP455	-1
+1.0.0	EP457	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	07/27/2023	AJ		Extraction	EP457	-1
+1.0.0	EP459	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/01/2023	AJ		Extraction	EP459	-1
+1.0.0	EP46	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/09/2021	LW		Extraction	EP46	-1
+1.0.0	EP461	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/02/2023	AJ		Extraction	EP461	-1
+1.0.0	EP463	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/09/2023	AJ		Extraction	EP463	-1
+1.0.0	EP465	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/10/2023	AJ		Extraction	EP465	-1
+1.0.0	EP467	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	08/16/2023	JL		Extraction	EP467	-1
+1.0.0	EP469	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/21/2023	AJ		Extraction	EP469	-1
+1.0.0	EP47	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/10/2021	AJ		Extraction	EP47	-1
+1.0.0	EP473	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/24/2023	AJ		Extraction	EP473	-1
+1.0.0	EP476	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/30/2023	AJ		Extraction	EP476	-1
+1.0.0	EP478	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/05/2023	AJ		Extraction	EP478	-1
+1.0.0	EP479	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/07/2023	AJ		Extraction	EP479	-1
+1.0.0	EP48	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/13/2021	AJ		Extraction	EP48	-1
+1.0.0	EP481	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/11/2023	AJ		Extraction	EP481	-1
+1.0.0	EP484	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/13/2023	AJ		Extraction	EP484	-1
+1.0.0	EP487	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	09/18/2023	AJ		Extraction	EP487	-1
+1.0.0	EP489	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	09/20/2023	AJ		Extraction	EP489	-1
+1.0.0	EP49	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/15/2021	AJ		Extraction	EP49	-1
+1.0.0	EP490	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/26/2023	GC		Extraction	EP490	-1
+1.0.0	EP492	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	09/27/2023	AJ		Extraction	EP492	-1
+1.0.0	EP494	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit		400	75	Kit buffer	10/02/2023	GC		Extraction	EP494	-1
+1.0.0	EP495	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/04/2023	GC		Extraction	EP495	-1
+1.0.0	EP497	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/06/2023	AJ		Extraction	EP497	-1
+1.0.0	EP498	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/11/2023	AJ		Extraction	EP498	-1
+1.0.0	EP499	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/17/2023	AJ		Extraction	EP499	-1
+1.0.0	EP5	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/27/2021	JL		Extraction	EP5	-1
+1.0.0	EP50	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108355	400	75	Kit buffer	12/16/2021	AJ		Extraction	EP50	-1
+1.0.0	EP500	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/18/2023	AJ		Extraction	EP500	-1
+1.0.0	EP501	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/24/2023	AJ		Extraction	EP501	-1
+1.0.0	EP503	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	10/31/2023	AJ		Extraction	EP503	-1
+1.0.0	EP505	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/07/2023	AJ		Extraction	EP505	-1
+1.0.0	EP507	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/14/2023	AJ		Extraction	EP507	-1
+1.0.0	EP508	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit buffer	11/16/2023	AJ		Extraction	EP508	-1
+2.0.0	EP509	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204328	400	75	Kit Buffer	11/21/2023	AJ		Extraction	EP509	-1
+1.0.0	EP51	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	12/17/2021	AJ		Extraction	EP51	-1
+1.0.0	EP52	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/21/2021	AJ		Extraction	EP52	-1
+1.0.0	EP53	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	12/22/2021	AJ		Extraction	EP53	-1
+1.0.0	EP54	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/03/2022	JL		Extraction	EP54	-1
+1.0.0	EP55	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/04/2022	AJ		Extraction	EP55	-1
+1.0.0	EP56	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/06/2022	AJ		Extraction	EP56	-1
+1.0.0	EP57	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/10/2022	AJ		Extraction	EP57	-1
+1.0.0	EP58	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/11/2022	AJ		Extraction	EP58	-1
+1.0.0	EP59	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/13/2022	AJ		Extraction	EP59	-1
+1.0.0	EP6	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	08/30/2021	JL		Extraction	EP6	-1
+1.0.0	EP60	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/19/2022	AJ		Extraction	EP60	-1
+1.0.0	EP61	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/20/2022	AJ		Extraction	EP61	-1
+1.0.0	EP63	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/24/2022	AJ		Extraction	EP63	-1
+1.0.0	EP64	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/25/2022	AJ		Extraction	EP64	-1
+1.0.0	EP65	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/26/2022	AJ		Extraction	EP65	-1
+1.0.0	EP66	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/28/2022	AJ		Extraction	EP66	-1
+1.0.0	EP67	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	01/31/2022	AJ		Extraction	EP67	-1
+1.0.0	EP69	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/01/2022	AJ		Extraction	EP69	-1
+1.0.0	EP7	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/02/2021	JL		Extraction	EP7	-1
+1.0.0	EP70	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/02/2022	AJ		Extraction	EP70	-1
+1.0.0	EP71	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/04/2022	LW		Extraction	EP71	-1
+1.0.0	EP72	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/07/2022	AJ		Extraction	EP72	-1
+1.0.0	EP73	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/09/2022	AJ		Extraction	EP73	-1
+1.0.0	EP74	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/10/2022	AJ		Extraction	EP74	-1
+1.0.0	EP76	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/14/2022	AJ		Extraction	EP76	-1
+1.0.0	EP78	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/15/2022	AJ		Extraction	EP78	-1
+1.0.0	EP79	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/16/2022	AJ		Extraction	EP79	-1
+1.0.0	EP8	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/03/2021	JL		Extraction	EP8	-1
+1.0.0	EP800	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	01/30/2023	AJ		Extraction	EP800	-1
+1.0.0	EP801	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2204324	400	75	Kit buffer	02/20/2023	AJ		Extraction	EP801	-1
+1.0.0	EP802	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2203317	400	75	Kit buffer	08/23/2023	AJ		Extraction	EP802	-1
+1.0.0	EP81	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/18/2022	AJ		Extraction	EP81	-1
+1.0.0	EP82	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/21/2022	AJ		Extraction	EP82	-1
+1.0.0	EP84	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2108255	400	75	Kit buffer	02/23/2022	AJ		Extraction	EP84	-1
+1.0.0	EP85	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	02/25/2022	JL		Extraction	EP85	-1
+1.0.0	EP86	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	02/28/2022	AJ		Extraction	EP86	-1
+1.0.0	EP88	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/02/2022	AJ		Extraction	EP88	-1
+1.0.0	EP9	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2102028	400	50	Kit buffer	09/08/2021	JL		Extraction	EP9	-1
+1.0.0	EP90	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110285	400	75	Kit buffer	03/04/2022	AJ		Extraction	EP90	-1
+1.0.0	EP92	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/09/2022	AJ		Extraction	EP92	-1
+1.0.0	EP93	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/10/2022	AJ		Extraction	EP93	-1
+1.0.0	EP95	Wall-E	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/11/2022	AJ		Extraction	EP95	-1
+1.0.0	EP96	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/15/2022	AJ		Extraction	EP96	-1
+1.0.0	EP98	Bender	Thermo Magmax Microbiome Ultra Nucleic Acid Isolation Kit	2110258	400	75	Kit buffer	03/16/2022	AJ		Extraction	EP98	-1
+1.0.0	ME1	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME1	-1
+1.0.0	ME10	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME10	-1
+1.0.0	ME100	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME100	-1
+1.0.0	ME101	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME101	-1
+1.0.0	ME102	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME102	-1
+1.0.0	ME103	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME103	-1
+1.0.0	ME104	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/29/2021	MVS		Extraction	ME104	-1
+1.0.0	ME105	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME105	-1
+1.0.0	ME106	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME106	-1
+1.0.0	ME107	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME107	-1
+1.0.0	ME108	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME108	-1
+1.0.0	ME109	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME109	-1
+1.0.0	ME11	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME11	-1
+1.0.0	ME110	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME110	-1
+1.0.0	ME111	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME111	-1
+1.0.0	ME112	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME112	-1
+1.0.0	ME113	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME113	-1
+1.0.0	ME114	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/12/2021	MVS		Extraction	ME114	-1
+1.0.0	ME115	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME115	-1
+1.0.0	ME116	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME116	-1
+1.0.0	ME117	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME117	-1
+1.0.0	ME118	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME118	-1
+1.0.0	ME119	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/19/2021	JL		Extraction	ME119	-1
+1.0.0	ME12	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME12	-1
+1.0.0	ME120	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME120	-1
+1.0.0	ME121	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME121	-1
+1.0.0	ME122	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME122	-1
+1.0.0	ME123	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME123	-1
+1.0.0	ME124	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	04/26/2021	MVS		Extraction	ME124	-1
+1.0.0	ME125	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME125	-1
+1.0.0	ME126	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME126	-1
+1.0.0	ME127	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME127	-1
+1.0.0	ME128	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME128	-1
+1.0.0	ME129	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/03/2021	KED		Extraction	ME129	-1
+1.0.0	ME13	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/20/2020	MS		Extraction	ME13	-1
+1.0.0	ME130	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME130	-1
+1.0.0	ME131	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME131	-1
+1.0.0	ME132	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME132	-1
+1.0.0	ME133	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME133	-1
+1.0.0	ME134	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/07/2021			Extraction	ME134	-1
+1.0.0	ME135	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/17/2021	MVS		Extraction	ME135	-1
+1.0.0	ME136	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/17/2021	MVS		Extraction	ME136	-1
+1.0.0	ME137	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	05/19/2021	KD		Extraction	ME137	-1
+1.0.0	ME14	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/20/2020	MS		Extraction	ME14	-1
+1.0.0	ME15	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME15	-1
+1.0.0	ME16	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME16	-1
+1.0.0	ME17	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME17	-1
+1.0.0	ME18	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME18	-1
+1.0.0	ME19	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME19	-1
+1.0.0	ME2	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME2	-1
+1.0.0	ME20	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME20	-1
+1.0.0	ME21	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME21	-1
+1.0.0	ME22	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME22	-1
+1.0.0	ME23	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME23	-1
+1.0.0	ME24	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/07/2020	MS		Extraction	ME24	-1
+1.0.0	ME25	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/08/2020	MS		Extraction	ME25	-1
+1.0.0	ME26	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/08/2020	MS		Extraction	ME26	-1
+1.0.0	ME27	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME27	-1
+1.0.0	ME28	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME28	-1
+1.0.0	ME29	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/14/2020	MS		Extraction	ME29	-1
+1.0.0	ME3	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME3	-1
+1.0.0	ME30	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/15/2020	AT		Extraction	ME30	-1
+1.0.0	ME31	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/15/2020	AT		Extraction	ME31	-1
+1.0.0	ME32	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME32	-1
+1.0.0	ME33	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME33	-1
+1.0.0	ME34	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME34	-1
+1.0.0	ME35	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME35	-1
+1.0.0	ME36	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	12/21/2020	AT		Extraction	ME36	-1
+1.0.0	ME37	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME37	-1
+1.0.0	ME38	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME38	-1
+1.0.0	ME39	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME39	-1
+1.0.0	ME4	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME4	-1
+1.0.0	ME40	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME40	-1
+1.0.0	ME41	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME41	-1
+1.0.0	ME42	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME42	-1
+1.0.0	ME43	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME43	-1
+1.0.0	ME44	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME44	-1
+1.0.0	ME45	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME45	-1
+1.0.0	ME46	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME46	-1
+1.0.0	ME47	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/13/2021	TD		Extraction	ME47	-1
+1.0.0	ME48	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME48	-1
+1.0.0	ME49	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME49	-1
+1.0.0	ME5	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/10/2020	MS		Extraction	ME5	-1
+1.0.0	ME50	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME50	-1
+1.0.0	ME51	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME51	-1
+1.0.0	ME52	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME52	-1
+1.0.0	ME53	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME53	-1
+1.0.0	ME54	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME54	-1
+1.0.0	ME55	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME55	-1
+1.0.0	ME56	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME56	-1
+1.0.0	ME57	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME57	-1
+1.0.0	ME58	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME58	-1
+1.0.0	ME59	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME59	-1
+1.0.0	ME6	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME6	-1
+1.0.0	ME60	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME60	-1
+1.0.0	ME61	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME61	-1
+1.0.0	ME62	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME62	-1
+1.0.0	ME63	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME63	-1
+1.0.0	ME64	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/17/2021	MS		Extraction	ME64	-1
+1.0.0	ME65	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME65	-1
+1.0.0	ME66	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME66	-1
+1.0.0	ME67	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME67	-1
+1.0.0	ME68	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME68	-1
+1.0.0	ME69	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME69	-1
+1.0.0	ME7	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME7	-1
+1.0.0	ME70	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME70	-1
+1.0.0	ME71	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME71	-1
+1.0.0	ME72	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME72	-1
+1.0.0	ME73	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME73	-1
+1.0.0	ME74	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME74	-1
+1.0.0	ME75	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME75	-1
+1.0.0	ME76	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME76	-1
+1.0.0	ME77	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME77	-1
+1.0.0	ME78	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME78	-1
+1.0.0	ME79	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/19/2021	MS		Extraction	ME79	-1
+1.0.0	ME8	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME8	-1
+1.0.0	ME80	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME80	-1
+1.0.0	ME81	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME81	-1
+1.0.0	ME82	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME82	-1
+1.0.0	ME83	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME83	-1
+1.0.0	ME84	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME84	-1
+1.0.0	ME85	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME85	-1
+1.0.0	ME86	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME86	-1
+1.0.0	ME87	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME87	-1
+1.0.0	ME88	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME88	-1
+1.0.0	ME89	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	02/24/2021	AT		Extraction	ME89	-1
+1.0.0	ME9	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	11/17/2020	MS		Extraction	ME9	-1
+1.0.0	ME90	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME90	-1
+1.0.0	ME91	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME91	-1
+1.0.0	ME92	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME92	-1
+1.0.0	ME93	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME93	-1
+1.0.0	ME94	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/15/2021	AHT		Extraction	ME94	-1
+1.0.0	ME95	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME95	-1
+1.0.0	ME96	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME96	-1
+1.0.0	ME97	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME97	-1
+1.0.0	ME98	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME98	-1
+1.0.0	ME99	Sorvall Micro	Qiagen QiaAMP Viral Mini-RNA Kit		200	60	Kit buffer	03/21/2021	TD		Extraction	ME99	-1
