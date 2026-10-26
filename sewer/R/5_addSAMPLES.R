@@ -15,7 +15,7 @@ args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
 	UPDIR <- args[1]
 }
-#UPDIR <- "test_example/updates/2026-42-42"
+#UPDIR <- "../data/updates/2026-10-15"
 RUNID <- basename(UPDIR)
 
 
@@ -84,19 +84,22 @@ runfile_list <- list.files(
 )
 
 for (fpath in runfile_list) {
-	# Read the batch file into a named list, with each sheet as a df.
+  #fpath <- "../data/updates/2026-10-15/run_files/AssetTagReport.xlsx"
+
+  # Read the batch file into a named list, with each sheet as a df.
 	platef_in <- excel2df(fpath)
 	
-	if (!("Export" %in% names(platef_in))) {
+	# Do we need this AND the column name check below?
+	if (length(names(platef_in)) > 1) {
 		next
 	}
 	
-	# Read the Export sheet.
-	allsample_df <- as.data.frame(platef_in[["Export"]])
+	# Read the first sheet.
+	allsample_df <- as.data.frame(platef_in[1])
 	colnames(allsample_df) <- as.character(allsample_df[1, ])
 	allsample_df <- allsample_df[-1, ]
 
-	if (colnames(allsample_df)[1] != "Asset Tag ID") {
+	if (!"Asset Tag ID" %in% colnames(allsample_df)) {
 		# This is not a Samples table and is ignored.
 		next
 	}

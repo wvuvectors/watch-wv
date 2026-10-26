@@ -49,7 +49,7 @@ TS=$(date +%s)
 
 # Get the run ID, which is the name of input folder.
 #
-RUNID=$(basename $INDIR)
+RUNID=$(basename "$INDIR")
 INCID="$RUNID"
 #INCID="$TS.$RUNID"
 
@@ -78,8 +78,10 @@ fi
 # Look for RUNID in any of the existing batch files. If it exists, do not proceed. Prompt the user to 
 # make sure the current RUNID is unique.
 #
+# grep exits with a 0 if a match IS found, 1 if a match is NOT found, and 2 on error.
 FOUND=$(grep -wi "$RUNID" "$OUTDIR/latest/watchdb.qbatch.txt")
-if [ $FOUND == 0 ]
+STATUS=$?
+if [ $STATUS == 0 ]
 then
 	echo "FATAL : Every run of the laboratory workflow is assigned an ID using the name of the folder that contains the raw files."
 	echo "FATAL : It looks like a run labeled $RUNID has already been processed."

@@ -138,7 +138,16 @@ calc_df <- left_join(
 # Now do the calculations, in calc_df.
 #
 calc_df <- calc_df %>% mutate(
-	collection_window_hours = as.numeric(difftime(as.POSIXct(collection_end_datetime), as.POSIXct(collection_start_datetime), units="hours"))
+	collection_window_hours = as.numeric(difftime(as.POSIXct(collection_end_datetime), as.POSIXct(collection_start_datetime), units="hours")),
+	across(c(assay_target_copies_per_ul_reaction, 
+					 assay_reaction_ul, 
+					 assay_input_ul, 
+					 extraction_output_ul, 
+					 extraction_input_ul, 
+					 conc_output_ul, 
+					 conc_input_ml, 
+					 location_population_served, 
+					 sample_flow), as.numeric)
 )
 
 # Copies of target per mL of wastewater is the basic result, so we calculate that first:

@@ -1,4 +1,4 @@
-#! /usr/bin/env Rscript
+#! /usr/bin/env Rscript --vanilla
 
 source("addins/sewer_version.R")
 source("addins/sewer_libs.R")
@@ -6,58 +6,57 @@ source("addins/base_vars.R")
 source("addins/base_functions.R")
 source("addins/sewer_sources.R")
 
-# Load data files.
-df_res_loc <- as.data.frame(read_excel(file("stdin"), sheet = "location"))
-df_active_loc <- df_res_loc %>% filter(tolower(location_status) == "active")
+# Accepts 2 argument on STDIN:
+#   OUTDIR is the directory that contains the data.
+#		EXTF is the full path to the (external) MU data file.
 
-df_thresholds <- as.data.frame(read.table(DB_THRESHOLDS, sep="\t", header=TRUE, check.names=FALSE))
+#args <- commandArgs(trailingOnly = TRUE)
+#if (length(args) > 0) {
+#	OUTDIR <- args[1]
+#	EXTF <- args[2]
+#}
+OUTDIR <- "../data/latest"
+EXTF <- "/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/mu_nwss.LATEST.csv"
+
+
+# We need info from the resources Excel file.
+#
+resource_tables <- c("location", "wwtp", "county", "target", "lab", "loci", "methods")
+platef_in <- excel2df("resources/watchdb.all_tables.xlsx")
+resource_list <- list()
+for (tname in resource_tables) {
+	r_df <- as.data.frame(platef_in[[tname]])
+	colnames(r_df) <- as.character(r_df[1, ])
+	r_df <- r_df[-1, ]
+	resource_list[[tname]] <- r_df
+}
+location_df <- resource_list[["location"]] %>% filter(tolower(location_status) == "active")
+
+mu_df <- fread(EXTF, quote="\"")
 
 #
 # Dates, dates, dates.
 #
 
 # Convert date strings into Date objects.
-df_pcr$collection_start_datetime <- mdy_hm(df_pcr$collection_start_datetime)
-df_pcr$collection_end_datetime <- mdy_hm(df_pcr$collection_end_datetime)
-
-# Create a date to use as the primary reference and make sure all tables use the same date.
-df_pcr$date_primary <- as.Date(df_pcr$collection_end_datetime)
-
-# Add epi week info.
-df_pcr$year <- lubridate::year(df_pcr$date_primary)
-df_pcr$month <- lubridate::month(df_pcr$date_primary)
-df_pcr$epi_week <- lubridate::epiweek(df_pcr$date_primary)
-df_pcr <- df_pcr %>%
-  mutate(epi_year = case_when(
-    df_pcr$month == 12 & df_pcr$epi_week == 1 ~ df_pcr$year + 1,
-    TRUE ~ df_pcr$year
-  ))
-
-df_pcr <- df_pcr %>% mutate(epi_date = as.integer(epi_year) + as.integer(epi_week)/100)
-
-#
-# To keep numbers small and more digestable, make sure all samples are per capita
-#
-df_pcr$target_copies_fn_per_cap <- df_pcr$target_copies_fn_per_cap/df_pcr$target_per_capita_basis
-df_pcr$target_copies_per_ldcap <- df_pcr$target_copies_per_ldcap/df_pcr$target_per_capita_basis
-df_pcr$target_per_capita_basis <- 1
+mu_df <- mu_df %>% mutate(
+	sample_collect_date = mdy(sample_collect_date),
+	sample_collect_time = hm(sample_collect_time)
+)
 
 #
 # Data cleaning.
 #
 
-# Restrict results to those that pass sample QC and have NTC below threshold.
-df_pcr <- df_pcr %>% filter(tolower(sample_qc) == "pass")
-df_pcr <- df_pcr %>% filter(tolower(target_result_validated) != "ntc above threshold")
-
-# Restrict results to those included in the primary target and locus lists.
-df_pcr <- df_pcr %>% filter(target %in% TARGETS)
-df_pcr <- df_pcr %>% filter(target_genetic_locus %in% GENLOCI)
+# Restrict results to those that pass sample QC.
+result_df <- result_df %>% filter(tolower(sample_qc) == "pass")
 
 # Restrict results to those from active locations only. Also store these location ids in 
 # an unnamed array for later use.
-df_pcr <- df_pcr %>% filter(location_id %in% df_active_loc$location_id)
-LOCATIONS <- unname(unique(df_pcr$location_id))
+result_df <- result_df %>% filter(location_id %in% location_df$location_id)
+LOCATIONS <- unname(unique(result_df$location_id))
+
+
 
 df_agg <- data.frame()
 

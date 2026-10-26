@@ -52,6 +52,8 @@ for (i in 1:length(suffix_vec)) {
       comment.char="",
       check.names=FALSE)
   )
+  latest_df <- latest_df %>% mutate(across(everything(), as.character))
+
   update_df <- as.data.frame(
     read.table(
       paste0(UPDIR, "/update.", suffix_vec[i] , ".txt", sep=""), 
@@ -62,6 +64,7 @@ for (i in 1:length(suffix_vec)) {
       comment.char="",
       check.names=FALSE)
   )
+  update_df <- update_df %>% mutate(across(everything(), as.character))
   
   # Merge the update and the watchdb tables.
   if (nrow(latest_df) == 0) {

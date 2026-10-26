@@ -15,7 +15,7 @@ args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
 	UPDIR <- args[1]
 }
-#UPDIR <- "test_example/updates/2026-42-42"
+#UPDIR <- "../data/updates/2026-10-15"
 RUNID <- basename(UPDIR)
 
 
@@ -42,7 +42,7 @@ assay_df <- as.data.frame(
 		comment.char="",
     check.names=FALSE)
 )
-assay_df$assay_target_copies_per_ul_reaction <- as.double(assay_df$assay_target_copies_per_ul_reaction)
+assay_df$assay_target_copies_per_ul_reaction <- as.character(assay_df$assay_target_copies_per_ul_reaction)
 
 # Holds data for the individual controls in this batch. Most of this data was already 
 # extracted from the qbatch file. The rest will be updated from the incoming Result file.
@@ -57,7 +57,7 @@ control_df <- as.data.frame(
 		comment.char="",
     check.names=FALSE)
 )
-control_df$assay_target_copies_per_ul_reaction <- as.double(control_df$assay_target_copies_per_ul_reaction)
+control_df$assay_target_copies_per_ul_reaction <- as.character(control_df$assay_target_copies_per_ul_reaction)
 
 # Just a reminder of the columns in these two dataframes. The current compile 
 # will add values to the last three cols.
@@ -84,11 +84,11 @@ runfile_list <- list.files(
 
 # Loop over the csv files in this update.
 for (fpath in runfile_list) {
-	
+	#fpath <- runfile_list[1]
 	# Read the csv file into a dataframe.
 	result_df <- fread(fpath, quote="")
 	
-	if (colnames(result_df)[1] == "Asset Tag ID") {
+	if ("Asset Tag ID" %in% names(result_df)) {
 		# This is a Samples csv and is ignored.
 		next
 	}
@@ -118,7 +118,7 @@ for (fpath in runfile_list) {
   
 	# Simplify the result_df to get rid of cols we don't need. First need to know: 
 	# Is this a Qiacuity or QX result?
-	if (result_df %>% colnames() %>% head(1) == "plate_name") {
+	if ("plate_name" %in% names(result_df)) {
     # This is a Qiacuity plate. Match to entries in assay_df by assay_well, assay_batch_id, 
 	  # and assay_target_abbreviation. Qiacuity does not output the fluorophore.
   	result_df <- result_df %>% select(
@@ -136,30 +136,27 @@ for (fpath in runfile_list) {
   	merge_assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
   	merge_control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
   	
-	} else if (result_df %>% colnames() %>% head(1) == "well") {
+	} else {
 	  # This is a QX plate. Match the entries in assay_df by assay_well, assay_batch_id, 
 	  # and assay_target_fluorophore.
 	  result_df <- result_df %>% select(
 	    assay_target_fluorophore = dyenames,
 	    assay_target_abbreviation = target,
-	    assay_target_copies_per_ul_reaction = conccopies_per_uL,
+	    assay_target_copies_per_ul_reaction = conccopies_per_ul,
 	    assay_accepted_partitions = accepted_droplets,
 	    assay_positive_partitions = positives,
 	    assay_well = well
 	  )
 	  # Add assay_batch_id column using value from the file name. The batch id is 
 	  # everything before the substring _analysis_.
-	  fn_split_vec <- str_split_1(this_fn, pattern = fixed("_analysis_"))
+	  fn_split_vec <- str_split_1(basename(fpath), pattern = fixed("_"))
 	  result_df$quantification_batch_id <- fn_split_vec[1]
 	  
 	  # Merge result_df into assay_df and control_df.
 	  merge_assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
 	  merge_control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
 	  
-	} else {
-	  # Unrecognizable result file. Set the nrows of result_df to 0?
 	}
-	
 }
 
 
@@ -168,7 +165,7 @@ if (nrow(merge_assay_df) > 0) {
 	# Simple validation. This checks if any result data is missing.
 	merge_assay_df <- merge_assay_df %>% mutate(
 		validation_key = case_when(
-			is.na(assay_target_copies_per_ul_reaction) | assay_target_copies_per_ul_reaction == as.double(-1) ~ -1, 
+			is.na(assay_target_copies_per_ul_reaction) | as.numeric(assay_target_copies_per_ul_reaction) == as.numeric(-1) ~ -1, 
 			.default = 1
 		)
 	)
@@ -185,7 +182,7 @@ if (nrow(merge_control_df) > 0) {
   # Simple validation. This checks if any result data is missing.
   merge_control_df <- merge_control_df %>% mutate(
     validation_key = case_when(
-      is.na(assay_target_copies_per_ul_reaction) | assay_target_copies_per_ul_reaction == as.double(-1) ~ -1, 
+      is.na(assay_target_copies_per_ul_reaction) | as.numeric(assay_target_copies_per_ul_reaction) == as.numeric(-1) ~ -1, 
       .default = 1
     )
   )
