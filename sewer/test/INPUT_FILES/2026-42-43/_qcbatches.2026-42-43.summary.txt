@@ -1,0 +1,5 @@
+batch_id	batch_type	batch_subtype	batch_date	num_samples_in_batch	num_validated_samples_in_batch	unknown_sample_list	valid_batch_date	valid_sample_set	valid_controls_pos	valid_controls_neg
+NA	Sample	NA	NA	3565	3565		NA	PASS	NA	NA
+WaTCH_C287	Concentration	NA	10-22-2026	NA	NA		PASS	NA	NA	NA
+WaTCH_E287	Extraction	NA	10-22-2026	NA	NA		PASS	NA	NA	NA
+WaTCH_Q287	Quantification	NA	10-22-2026	NA	NA		PASS	NA	NA	NA

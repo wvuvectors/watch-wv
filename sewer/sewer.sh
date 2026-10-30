@@ -186,6 +186,9 @@ echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
 echo "Running 1_compileCBATCHES.R." | tee -a "$logf"
+echo "Arguments:" | tee -a "$logf"
+echo "$UPDIR" | tee -a "$logf"
+echo "******" | tee -a "$logf"
 c_count=$(Rscript R/1_compileCBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -215,6 +218,9 @@ echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
 echo "Running 2_compileEBATCHES.R." | tee -a "$logf"
+echo "Arguments:" | tee -a "$logf"
+echo "$UPDIR" | tee -a "$logf"
+echo "******" | tee -a "$logf"
 e_count=$(Rscript R/2_compileEBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -244,6 +250,9 @@ echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
 echo "Running 3_compileQBATCHES.R." | tee -a "$logf"
+echo "Arguments:" | tee -a "$logf"
+echo "$UPDIR" | tee -a "$logf"
+echo "******" | tee -a "$logf"
 q_count=$(Rscript R/3_compileQBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -273,6 +282,9 @@ echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
 echo "Running 4_compileQRESULTS.R." | tee -a "$logf"
+echo "Arguments:" | tee -a "$logf"
+echo "$UPDIR" | tee -a "$logf"
+echo "******" | tee -a "$logf"
 r_count=$(Rscript R/4_compileQRESULTS.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
@@ -308,6 +320,9 @@ echo "" | tee -a "$logf"
 
 echo "******" | tee -a "$logf"
 echo "Running 5_addSAMPLES.R." | tee -a "$logf"
+echo "Arguments:" | tee -a "$logf"
+echo "$UPDIR" | tee -a "$logf"
+echo "******" | tee -a "$logf"
 s_count=$(Rscript R/5_addSAMPLES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]

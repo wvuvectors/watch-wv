@@ -419,3 +419,8 @@ assay_block_reaction_vol_ul	assay_block_method	assay_block_method_lot_id	quantif
 20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA7	MA7	Legacy import	-1	5
 20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA8	MA8	Legacy import	-1	5
 20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA9	MA9	Legacy import	-1	5
+20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	Q20261015	Respiratory Multiplex	NA	18	5
+20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22470	Q20261015	Norovirus	NA	18	5
+20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	WaTCH_Q287	Respiratory Multiplex	NA	23	5
+20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	WaTCH_Q287	Norovirus	NA	23	5
+20	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	WaTCH_Q287	Measles	NA	21	5

@@ -205,6 +205,9 @@ result_df <- result_df %>% select(
 	target_copies_flow_normalized, 
 	target_copies_flow_normalized_per_capita
 )
+result_df$collection_start_datetime <- format(result_df$collection_start_datetime, "%m-%d-%Y %H:%M:%S")
+result_df$collection_end_datetime <- format(result_df$collection_end_datetime, "%m-%d-%Y %H:%M:%S")
+
 
 # Print the result df.
 rfn <- paste0(INCDIR, "/watchdb.result.txt", sep="")

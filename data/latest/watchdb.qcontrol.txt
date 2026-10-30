@@ -41,13 +41,13 @@ AB100.FA23	pcr_negative_control	unc-1792432702.69336	G07	AB100	Influenza Virus A
 AB100.FA26	pcr_negative_control	unc-1792432702.69336	H07	AB100	Influenza Virus A (M)	FAM	0.896791160106659	22450	1	NA	AB100	FluA
 AB100.FA31	pcr_negative_control	unc-1792432702.69336	F07	AB100	Influenza Virus A (M)	FAM	1.19511795043945	22113	1	NA	AB100	FluA
 AB100.FA6	pcr_negative_control	unc-1792432702.69336	H03	AB100	Influenza Virus A (M)	FAM	1.23849618434906	22355	1	NA	AB100	FluA
-AB100.HE10	pcr_negative_control	unc-1792432702.69336	H03	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22355	1	NA	AB100	BRSV
-AB100.HE11	pcr_negative_control	unc-1792432702.69336	G03	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22423	1	NA	AB100	BRSV
-AB100.HE19	pcr_negative_control	unc-1792432702.69336	E07	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21541	1	NA	AB100	BRSV
-AB100.HE21	pcr_negative_control	unc-1792432702.69336	G07	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21732	1	NA	AB100	BRSV
-AB100.HE30	pcr_negative_control	unc-1792432702.69336	H07	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22450	1	NA	AB100	BRSV
-AB100.HE35	pcr_negative_control	unc-1792432702.69336	F07	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22113	1	NA	AB100	BRSV
-AB100.HE5	pcr_negative_control	unc-1792432702.69336	D07	AB100	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22184	1	NA	AB100	BRSV
+AB100.HE10	pcr_negative_control	unc-1792432702.69336	H03	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22355	1	NA	AB100	BRSV
+AB100.HE11	pcr_negative_control	unc-1792432702.69336	G03	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22423	1	NA	AB100	BRSV
+AB100.HE19	pcr_negative_control	unc-1792432702.69336	E07	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21541	1	NA	AB100	BRSV
+AB100.HE21	pcr_negative_control	unc-1792432702.69336	G07	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21732	1	NA	AB100	BRSV
+AB100.HE30	pcr_negative_control	unc-1792432702.69336	H07	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22450	1	NA	AB100	BRSV
+AB100.HE35	pcr_negative_control	unc-1792432702.69336	F07	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22113	1	NA	AB100	BRSV
+AB100.HE5	pcr_negative_control	unc-1792432702.69336	D07	AB100	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22184	1	NA	AB100	BRSV
 AB100.RO12	pcr_negative_control	unc-1792432702.69336	G03	AB100	SARS-CoV-2 (SC2)	ROX	0	22423	1	NA	AB100	SC2
 AB100.RO20	pcr_negative_control	unc-1792432702.69336	E07	AB100	SARS-CoV-2 (SC2)	ROX	0	21541	1	NA	AB100	SC2
 AB100.RO22	pcr_negative_control	unc-1792432702.69336	G07	AB100	SARS-CoV-2 (SC2)	ROX	0	21732	1	NA	AB100	SC2
@@ -67,10 +67,10 @@ AB101.FA1	pcr_negative_control	unc-1792432702.69336	H04	AB101	Influenza Virus A 
 AB101.FA13	pcr_negative_control	unc-1792432702.69336	E04	AB101	Influenza Virus A (M)	FAM	0.120369531214237	20901	1	NA	AB101	FluA
 AB101.FA18	pcr_negative_control	unc-1792432702.69336	G04	AB101	Influenza Virus A (M)	FAM	0.119517467916012	21050	1	NA	AB101	FluA
 AB101.FA6	pcr_negative_control	unc-1792432702.69336	F04	AB101	Influenza Virus A (M)	FAM	0	21658	1	NA	AB101	FluA
-AB101.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB101	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21658	1	NA	AB101	BRSV
-AB101.HE14	pcr_negative_control	unc-1792432702.69336	E04	AB101	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20901	1	NA	AB101	BRSV
-AB101.HE17	pcr_negative_control	unc-1792432702.69336	G04	AB101	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21050	1	NA	AB101	BRSV
-AB101.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB101	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20859	1	NA	AB101	BRSV
+AB101.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB101	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21658	1	NA	AB101	BRSV
+AB101.HE14	pcr_negative_control	unc-1792432702.69336	E04	AB101	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20901	1	NA	AB101	BRSV
+AB101.HE17	pcr_negative_control	unc-1792432702.69336	G04	AB101	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21050	1	NA	AB101	BRSV
+AB101.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB101	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20859	1	NA	AB101	BRSV
 AB101.RO15	pcr_negative_control	unc-1792432702.69336	E04	AB101	SARS-CoV-2 (SC2)	ROX	0	20901	1	NA	AB101	SC2
 AB101.RO16	pcr_negative_control	unc-1792432702.69336	G04	AB101	SARS-CoV-2 (SC2)	ROX	0	21050	1	NA	AB101	SC2
 AB101.RO5	pcr_negative_control	unc-1792432702.69336	H04	AB101	SARS-CoV-2 (SC2)	ROX	0	20859	1	NA	AB101	SC2
@@ -99,14 +99,14 @@ AB102.FA35	pcr_negative_control	unc-1792432702.69336	D04	AB102	Influenza Virus A
 AB102.FA40	pcr_negative_control	unc-1792432702.69336	H04	AB102	Influenza Virus A (M)	FAM	0.118559934198856	21220	1	NA	AB102	FluA
 AB102.FA5	pcr_negative_control	unc-1792432702.69336	G04	AB102	Influenza Virus A (M)	FAM	0.0587415210902691	21414	1	NA	AB102	FluA
 AB102.FA9	pcr_negative_control	unc-1792432702.69336	B04	AB102	Influenza Virus A (M)	FAM	0.070731945335865	17784	1	NA	AB102	FluA
-AB102.HE13	pcr_negative_control	unc-1792432702.69336	C04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.063488282263279	19813	1	NA	AB102	BRSV
-AB102.HE18	pcr_negative_control	unc-1792432702.69336	A04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19565	1	NA	AB102	BRSV
-AB102.HE23	pcr_negative_control	unc-1792432702.69336	E04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21313	1	NA	AB102	BRSV
-AB102.HE3	pcr_negative_control	unc-1792432702.69336	G04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21414	1	NA	AB102	BRSV
-AB102.HE30	pcr_negative_control	unc-1792432702.69336	F04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21152	1	NA	AB102	BRSV
-AB102.HE31	pcr_negative_control	unc-1792432702.69336	D04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19541	1	NA	AB102	BRSV
-AB102.HE38	pcr_negative_control	unc-1792432702.69336	H04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21220	1	NA	AB102	BRSV
-AB102.HE6	pcr_negative_control	unc-1792432702.69336	B04	AB102	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17784	1	NA	AB102	BRSV
+AB102.HE13	pcr_negative_control	unc-1792432702.69336	C04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.063488282263279	19813	1	NA	AB102	BRSV
+AB102.HE18	pcr_negative_control	unc-1792432702.69336	A04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19565	1	NA	AB102	BRSV
+AB102.HE23	pcr_negative_control	unc-1792432702.69336	E04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21313	1	NA	AB102	BRSV
+AB102.HE3	pcr_negative_control	unc-1792432702.69336	G04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21414	1	NA	AB102	BRSV
+AB102.HE30	pcr_negative_control	unc-1792432702.69336	F04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21152	1	NA	AB102	BRSV
+AB102.HE31	pcr_negative_control	unc-1792432702.69336	D04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19541	1	NA	AB102	BRSV
+AB102.HE38	pcr_negative_control	unc-1792432702.69336	H04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21220	1	NA	AB102	BRSV
+AB102.HE6	pcr_negative_control	unc-1792432702.69336	B04	AB102	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17784	1	NA	AB102	BRSV
 AB102.RO10	pcr_negative_control	unc-1792432702.69336	B04	AB102	SARS-CoV-2 (SC2)	ROX	0	17784	1	NA	AB102	SC2
 AB102.RO15	pcr_negative_control	unc-1792432702.69336	C04	AB102	SARS-CoV-2 (SC2)	ROX	0	19813	1	NA	AB102	SC2
 AB102.RO19	pcr_negative_control	unc-1792432702.69336	A04	AB102	SARS-CoV-2 (SC2)	ROX	0	19565	1	NA	AB102	SC2
@@ -127,10 +127,10 @@ AB103.FA10	pcr_negative_control	unc-1792432702.69336	C04	AB103	Influenza Virus A
 AB103.FA13	pcr_negative_control	unc-1792432702.69336	B04	AB103	Influenza Virus A (M)	FAM	0.128255069255829	19616	1	NA	AB103	FluA
 AB103.FA18	pcr_negative_control	unc-1792432702.69336	A04	AB103	Influenza Virus A (M)	FAM	0	21165	1	NA	AB103	FluA
 AB103.FA3	pcr_negative_control	unc-1792432702.69336	D04	AB103	Influenza Virus A (M)	FAM	0.176769390702248	21349	1	NA	AB103	FluA
-AB103.HE15	pcr_negative_control	unc-1792432702.69336	B04	AB103	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19616	1	NA	AB103	BRSV
-AB103.HE16	pcr_negative_control	unc-1792432702.69336	A04	AB103	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21165	1	NA	AB103	BRSV
-AB103.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB103	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21349	1	NA	AB103	BRSV
-AB103.HE7	pcr_negative_control	unc-1792432702.69336	C04	AB103	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20710	1	NA	AB103	BRSV
+AB103.HE15	pcr_negative_control	unc-1792432702.69336	B04	AB103	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19616	1	NA	AB103	BRSV
+AB103.HE16	pcr_negative_control	unc-1792432702.69336	A04	AB103	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21165	1	NA	AB103	BRSV
+AB103.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB103	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21349	1	NA	AB103	BRSV
+AB103.HE7	pcr_negative_control	unc-1792432702.69336	C04	AB103	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20710	1	NA	AB103	BRSV
 AB103.RO1	pcr_negative_control	unc-1792432702.69336	D04	AB103	SARS-CoV-2 (SC2)	ROX	0	21349	1	NA	AB103	SC2
 AB103.RO11	pcr_negative_control	unc-1792432702.69336	B04	AB103	SARS-CoV-2 (SC2)	ROX	0	19616	1	NA	AB103	SC2
 AB103.RO19	pcr_negative_control	unc-1792432702.69336	A04	AB103	SARS-CoV-2 (SC2)	ROX	0	21165	1	NA	AB103	SC2
@@ -141,8 +141,8 @@ AB105.CZ5	pcr_negative_control	unc-1792432702.69336	C05	AB105	Influenza Virus B 
 AB105.CZ6	pcr_negative_control	unc-1792432702.69336	D05	AB105	Influenza Virus B (NEP/NS1)	Cy5.5	0.115331374108791	21814	1	NA	AB105	FluB
 AB105.FA2	pcr_negative_control	unc-1792432702.69336	C05	AB105	Influenza Virus A (M)	FAM	0.0581549108028412	21630	1	NA	AB105	FluA
 AB105.FA9	pcr_negative_control	unc-1792432702.69336	D05	AB105	Influenza Virus A (M)	FAM	0.0576643645763397	21814	1	NA	AB105	FluA
-AB105.HE4	pcr_negative_control	unc-1792432702.69336	C05	AB105	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21630	1	NA	AB105	BRSV
-AB105.HE7	pcr_negative_control	unc-1792432702.69336	D05	AB105	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21814	1	NA	AB105	BRSV
+AB105.HE4	pcr_negative_control	unc-1792432702.69336	C05	AB105	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21630	1	NA	AB105	BRSV
+AB105.HE7	pcr_negative_control	unc-1792432702.69336	D05	AB105	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21814	1	NA	AB105	BRSV
 AB105.RO1	pcr_negative_control	unc-1792432702.69336	C05	AB105	SARS-CoV-2 (SC2)	ROX	0	21630	1	NA	AB105	SC2
 AB105.RO10	pcr_negative_control	unc-1792432702.69336	D05	AB105	SARS-CoV-2 (SC2)	ROX	0	21814	1	NA	AB105	SC2
 AB107.CY14	pcr_negative_control	unc-1792432702.69336	D04	AB107	Respiratory Syncitial Virus, Human (G)	Cy5	0	22043	1	NA	AB107	Human
@@ -154,16 +154,16 @@ AB107.CZ8	pcr_negative_control	unc-1792432702.69336	B04	AB107	Influenza Virus B 
 AB107.FA1	pcr_negative_control	unc-1792432702.69336	C04	AB107	Influenza Virus A (M)	FAM	0	18969	1	NA	AB107	FluA
 AB107.FA13	pcr_negative_control	unc-1792432702.69336	D04	AB107	Influenza Virus A (M)	FAM	0	22043	1	NA	AB107	FluA
 AB107.FA6	pcr_negative_control	unc-1792432702.69336	B04	AB107	Influenza Virus A (M)	FAM	0	20180	1	NA	AB107	FluA
-AB107.HE10	pcr_negative_control	unc-1792432702.69336	B04	AB107	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20180	1	NA	AB107	BRSV
-AB107.HE12	pcr_negative_control	unc-1792432702.69336	D04	AB107	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22043	1	NA	AB107	BRSV
-AB107.HE5	pcr_negative_control	unc-1792432702.69336	C04	AB107	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18969	1	NA	AB107	BRSV
+AB107.HE10	pcr_negative_control	unc-1792432702.69336	B04	AB107	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20180	1	NA	AB107	BRSV
+AB107.HE12	pcr_negative_control	unc-1792432702.69336	D04	AB107	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22043	1	NA	AB107	BRSV
+AB107.HE5	pcr_negative_control	unc-1792432702.69336	C04	AB107	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18969	1	NA	AB107	BRSV
 AB107.RO11	pcr_negative_control	unc-1792432702.69336	D04	AB107	SARS-CoV-2 (SC2)	ROX	0	22043	1	NA	AB107	SC2
 AB107.RO4	pcr_negative_control	unc-1792432702.69336	C04	AB107	SARS-CoV-2 (SC2)	ROX	0	18969	1	NA	AB107	SC2
 AB107.RO9	pcr_negative_control	unc-1792432702.69336	B04	AB107	SARS-CoV-2 (SC2)	ROX	0	20180	1	NA	AB107	SC2
 AB108.CY4	pcr_negative_control	unc-1792432702.69336	D04	AB108	Respiratory Syncitial Virus, Human (G)	Cy5	0	20722	1	NA	AB108	Human
 AB108.CZ1	pcr_negative_control	unc-1792432702.69336	D04	AB108	Influenza Virus B (NEP/NS1)	Cy5.5	0	20722	1	NA	AB108	FluB
 AB108.FA3	pcr_negative_control	unc-1792432702.69336	D04	AB108	Influenza Virus A (M)	FAM	0	20722	1	NA	AB108	FluA
-AB108.HE2	pcr_negative_control	unc-1792432702.69336	D04	AB108	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20722	1	NA	AB108	BRSV
+AB108.HE2	pcr_negative_control	unc-1792432702.69336	D04	AB108	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20722	1	NA	AB108	BRSV
 AB108.RO5	pcr_negative_control	unc-1792432702.69336	D04	AB108	SARS-CoV-2 (SC2)	ROX	0	20722	1	NA	AB108	SC2
 AB109.CY12	pcr_negative_control	unc-1792432702.69336	H04	AB109	Respiratory Syncitial Virus, Human (G)	Cy5	0	22353	1	NA	AB109	Human
 AB109.CY16	pcr_negative_control	unc-1792432702.69336	E04	AB109	Respiratory Syncitial Virus, Human (G)	Cy5	0	21335	1	NA	AB109	Human
@@ -180,11 +180,11 @@ AB109.FA13	pcr_negative_control	unc-1792432702.69336	H04	AB109	Influenza Virus A
 AB109.FA20	pcr_negative_control	unc-1792432702.69336	E04	AB109	Influenza Virus A (M)	FAM	0.176885411143303	21335	1	NA	AB109	FluA
 AB109.FA25	pcr_negative_control	unc-1792432702.69336	F04	AB109	Influenza Virus A (M)	FAM	0.115416035056114	21798	1	NA	AB109	FluA
 AB109.FA3	pcr_negative_control	unc-1792432702.69336	D04	AB109	Influenza Virus A (M)	FAM	0.121111266314983	20773	1	NA	AB109	FluA
-AB109.HE11	pcr_negative_control	unc-1792432702.69336	H04	AB109	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22353	1	NA	AB109	BRSV
-AB109.HE17	pcr_negative_control	unc-1792432702.69336	E04	AB109	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.058959037065506	21335	1	NA	AB109	BRSV
-AB109.HE22	pcr_negative_control	unc-1792432702.69336	F04	AB109	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0577066875994205	21798	1	NA	AB109	BRSV
-AB109.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB109	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20773	1	NA	AB109	BRSV
-AB109.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB109	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21699	1	NA	AB109	BRSV
+AB109.HE11	pcr_negative_control	unc-1792432702.69336	H04	AB109	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22353	1	NA	AB109	BRSV
+AB109.HE17	pcr_negative_control	unc-1792432702.69336	E04	AB109	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.058959037065506	21335	1	NA	AB109	BRSV
+AB109.HE22	pcr_negative_control	unc-1792432702.69336	F04	AB109	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0577066875994205	21798	1	NA	AB109	BRSV
+AB109.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB109	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20773	1	NA	AB109	BRSV
+AB109.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB109	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21699	1	NA	AB109	BRSV
 AB109.RO1	pcr_negative_control	unc-1792432702.69336	D04	AB109	SARS-CoV-2 (SC2)	ROX	0	20773	1	NA	AB109	SC2
 AB109.RO15	pcr_negative_control	unc-1792432702.69336	H04	AB109	SARS-CoV-2 (SC2)	ROX	0	22353	1	NA	AB109	SC2
 AB109.RO19	pcr_negative_control	unc-1792432702.69336	E04	AB109	SARS-CoV-2 (SC2)	ROX	0	21335	1	NA	AB109	SC2
@@ -204,7 +204,7 @@ AB11.HE8	pcr_negative_control	unc-1792432702.69336	C04	AB11	Human (RNase P)	HEX	
 AB110.CY3	pcr_negative_control	unc-1792432702.69336	D04	AB110	Respiratory Syncitial Virus, Human (G)	Cy5	0	21620	1	NA	AB110	Human
 AB110.CZ2	pcr_negative_control	unc-1792432702.69336	D04	AB110	Influenza Virus B (NEP/NS1)	Cy5.5	0.116366311907768	21620	1	NA	AB110	FluB
 AB110.FA5	pcr_negative_control	unc-1792432702.69336	D04	AB110	Influenza Virus A (M)	FAM	0.174553498625755	21620	1	NA	AB110	FluA
-AB110.HE4	pcr_negative_control	unc-1792432702.69336	D04	AB110	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21620	1	NA	AB110	BRSV
+AB110.HE4	pcr_negative_control	unc-1792432702.69336	D04	AB110	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21620	1	NA	AB110	BRSV
 AB110.RO1	pcr_negative_control	unc-1792432702.69336	D04	AB110	SARS-CoV-2 (SC2)	ROX	0	21620	1	NA	AB110	SC2
 AB111.CY1	pcr_negative_control	unc-1792432702.69336	F04	AB111	Respiratory Syncitial Virus, Human (G)	Cy5	0	20459	1	NA	AB111	Human
 AB111.CY10	pcr_negative_control	unc-1792432702.69336	E04	AB111	Respiratory Syncitial Virus, Human (G)	Cy5	0	20990	1	NA	AB111	Human
@@ -218,10 +218,10 @@ AB111.FA14	pcr_negative_control	unc-1792432702.69336	G04	AB111	Influenza Virus A
 AB111.FA19	pcr_negative_control	unc-1792432702.69336	H04	AB111	Influenza Virus A (M)	FAM	0	21196	1	NA	AB111	FluA
 AB111.FA2	pcr_negative_control	unc-1792432702.69336	F04	AB111	Influenza Virus A (M)	FAM	0.245952308177948	20459	1	NA	AB111	FluA
 AB111.FA9	pcr_negative_control	unc-1792432702.69336	E04	AB111	Influenza Virus A (M)	FAM	0.239729672670364	20990	1	NA	AB111	FluA
-AB111.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB111	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21037	1	NA	AB111	BRSV
-AB111.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB111	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21196	1	NA	AB111	BRSV
-AB111.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB111	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20459	1	NA	AB111	BRSV
-AB111.HE8	pcr_negative_control	unc-1792432702.69336	E04	AB111	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20990	1	NA	AB111	BRSV
+AB111.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB111	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21037	1	NA	AB111	BRSV
+AB111.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB111	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21196	1	NA	AB111	BRSV
+AB111.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB111	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20459	1	NA	AB111	BRSV
+AB111.HE8	pcr_negative_control	unc-1792432702.69336	E04	AB111	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20990	1	NA	AB111	BRSV
 AB111.RO11	pcr_negative_control	unc-1792432702.69336	G04	AB111	SARS-CoV-2 (SC2)	ROX	0	21037	1	NA	AB111	SC2
 AB111.RO16	pcr_negative_control	unc-1792432702.69336	H04	AB111	SARS-CoV-2 (SC2)	ROX	0	21196	1	NA	AB111	SC2
 AB111.RO4	pcr_negative_control	unc-1792432702.69336	F04	AB111	SARS-CoV-2 (SC2)	ROX	0	20459	1	NA	AB111	SC2
@@ -238,10 +238,10 @@ AB114.FA10	pcr_negative_control	unc-1792432702.69336	H04	AB114	Influenza Virus A
 AB114.FA11	pcr_negative_control	unc-1792432702.69336	G04	AB114	Influenza Virus A (M)	FAM	0	13503	1	NA	AB114	FluA
 AB114.FA20	pcr_negative_control	unc-1792432702.69336	E04	AB114	Influenza Virus A (M)	FAM	0	16688	1	NA	AB114	FluA
 AB114.FA5	pcr_negative_control	unc-1792432702.69336	F04	AB114	Influenza Virus A (M)	FAM	0	15406	1	NA	AB114	FluA
-AB114.HE1	pcr_negative_control	unc-1792432702.69336	F04	AB114	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	15406	1	NA	AB114	BRSV
-AB114.HE15	pcr_negative_control	unc-1792432702.69336	G04	AB114	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	13503	1	NA	AB114	BRSV
-AB114.HE18	pcr_negative_control	unc-1792432702.69336	E04	AB114	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16688	1	NA	AB114	BRSV
-AB114.HE8	pcr_negative_control	unc-1792432702.69336	H04	AB114	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	15996	1	NA	AB114	BRSV
+AB114.HE1	pcr_negative_control	unc-1792432702.69336	F04	AB114	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	15406	1	NA	AB114	BRSV
+AB114.HE15	pcr_negative_control	unc-1792432702.69336	G04	AB114	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	13503	1	NA	AB114	BRSV
+AB114.HE18	pcr_negative_control	unc-1792432702.69336	E04	AB114	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16688	1	NA	AB114	BRSV
+AB114.HE8	pcr_negative_control	unc-1792432702.69336	H04	AB114	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	15996	1	NA	AB114	BRSV
 AB114.RO12	pcr_negative_control	unc-1792432702.69336	G04	AB114	SARS-CoV-2 (SC2)	ROX	0	13503	1	NA	AB114	SC2
 AB114.RO19	pcr_negative_control	unc-1792432702.69336	E04	AB114	SARS-CoV-2 (SC2)	ROX	0	16688	1	NA	AB114	SC2
 AB114.RO4	pcr_negative_control	unc-1792432702.69336	F04	AB114	SARS-CoV-2 (SC2)	ROX	0	15406	1	NA	AB114	SC2
@@ -258,10 +258,10 @@ AB115.FA11	pcr_negative_control	unc-1792432702.69336	E04	AB115	Influenza Virus A
 AB115.FA16	pcr_negative_control	unc-1792432702.69336	G04	AB115	Influenza Virus A (M)	FAM	0	20804	1	NA	AB115	FluA
 AB115.FA2	pcr_negative_control	unc-1792432702.69336	F04	AB115	Influenza Virus A (M)	FAM	0	20234	1	NA	AB115	FluA
 AB115.FA7	pcr_negative_control	unc-1792432702.69336	H04	AB115	Influenza Virus A (M)	FAM	0	21306	1	NA	AB115	FluA
-AB115.HE10	pcr_negative_control	unc-1792432702.69336	H04	AB115	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21306	1	NA	AB115	BRSV
-AB115.HE12	pcr_negative_control	unc-1792432702.69336	E04	AB115	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20851	1	NA	AB115	BRSV
-AB115.HE19	pcr_negative_control	unc-1792432702.69336	G04	AB115	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20804	1	NA	AB115	BRSV
-AB115.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB115	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20234	1	NA	AB115	BRSV
+AB115.HE10	pcr_negative_control	unc-1792432702.69336	H04	AB115	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21306	1	NA	AB115	BRSV
+AB115.HE12	pcr_negative_control	unc-1792432702.69336	E04	AB115	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20851	1	NA	AB115	BRSV
+AB115.HE19	pcr_negative_control	unc-1792432702.69336	G04	AB115	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20804	1	NA	AB115	BRSV
+AB115.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB115	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20234	1	NA	AB115	BRSV
 AB115.RO1	pcr_negative_control	unc-1792432702.69336	F04	AB115	SARS-CoV-2 (SC2)	ROX	0	20234	1	NA	AB115	SC2
 AB115.RO15	pcr_negative_control	unc-1792432702.69336	E04	AB115	SARS-CoV-2 (SC2)	ROX	0	20851	1	NA	AB115	SC2
 AB115.RO20	pcr_negative_control	unc-1792432702.69336	G04	AB115	SARS-CoV-2 (SC2)	ROX	0	20804	1	NA	AB115	SC2
@@ -272,8 +272,8 @@ AB116.CZ1	pcr_negative_control	unc-1792432702.69336	H04	AB116	Influenza Virus B 
 AB116.CZ8	pcr_negative_control	unc-1792432702.69336	G04	AB116	Influenza Virus B (NEP/NS1)	Cy5.5	0	20704	1	NA	AB116	FluB
 AB116.FA5	pcr_negative_control	unc-1792432702.69336	H04	AB116	Influenza Virus A (M)	FAM	0	20484	1	NA	AB116	FluA
 AB116.FA7	pcr_negative_control	unc-1792432702.69336	G04	AB116	Influenza Virus A (M)	FAM	0	20704	1	NA	AB116	FluA
-AB116.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB116	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20484	1	NA	AB116	BRSV
-AB116.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB116	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20704	1	NA	AB116	BRSV
+AB116.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB116	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20484	1	NA	AB116	BRSV
+AB116.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB116	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20704	1	NA	AB116	BRSV
 AB116.RO10	pcr_negative_control	unc-1792432702.69336	G04	AB116	SARS-CoV-2 (SC2)	ROX	0	20704	1	NA	AB116	SC2
 AB116.RO3	pcr_negative_control	unc-1792432702.69336	H04	AB116	SARS-CoV-2 (SC2)	ROX	0	20484	1	NA	AB116	SC2
 AB117.CY14	pcr_negative_control	unc-1792432702.69336	G04	AB117	Respiratory Syncitial Virus, Human (G)	Cy5	0	22037	1	NA	AB117	Human
@@ -285,9 +285,9 @@ AB117.CZ6	pcr_negative_control	unc-1792432702.69336	H04	AB117	Influenza Virus B 
 AB117.FA1	pcr_negative_control	unc-1792432702.69336	F04	AB117	Influenza Virus A (M)	FAM	0	20515	1	NA	AB117	FluA
 AB117.FA12	pcr_negative_control	unc-1792432702.69336	G04	AB117	Influenza Virus A (M)	FAM	0	22037	1	NA	AB117	FluA
 AB117.FA7	pcr_negative_control	unc-1792432702.69336	H04	AB117	Influenza Virus A (M)	FAM	0	21379	1	NA	AB117	FluA
-AB117.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB117	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22037	1	NA	AB117	BRSV
-AB117.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB117	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20515	1	NA	AB117	BRSV
-AB117.HE9	pcr_negative_control	unc-1792432702.69336	H04	AB117	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21379	1	NA	AB117	BRSV
+AB117.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB117	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22037	1	NA	AB117	BRSV
+AB117.HE3	pcr_negative_control	unc-1792432702.69336	F04	AB117	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20515	1	NA	AB117	BRSV
+AB117.HE9	pcr_negative_control	unc-1792432702.69336	H04	AB117	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21379	1	NA	AB117	BRSV
 AB117.RO10	pcr_negative_control	unc-1792432702.69336	H04	AB117	SARS-CoV-2 (SC2)	ROX	0	21379	1	NA	AB117	SC2
 AB117.RO15	pcr_negative_control	unc-1792432702.69336	G04	AB117	SARS-CoV-2 (SC2)	ROX	0	22037	1	NA	AB117	SC2
 AB117.RO5	pcr_negative_control	unc-1792432702.69336	F04	AB117	SARS-CoV-2 (SC2)	ROX	0.0613157339394093	20515	1	NA	AB117	SC2
@@ -306,11 +306,11 @@ AB118.FA14	pcr_negative_control	unc-1792432702.69336	H04	AB118	Influenza Virus A
 AB118.FA16	pcr_negative_control	unc-1792432702.69336	E04	AB118	Influenza Virus A (M)	FAM	1.30742502212524	21177	1	NA	AB118	FluA
 AB118.FA23	pcr_negative_control	unc-1792432702.69336	F04	AB118	Influenza Virus A (M)	FAM	0.978858292102814	21854	1	NA	AB118	FluA
 AB118.FA3	pcr_negative_control	unc-1792432702.69336	D04	AB118	Influenza Virus A (M)	FAM	0.711627900600433	21217	1	NA	AB118	FluA
-AB118.HE13	pcr_negative_control	unc-1792432702.69336	H04	AB118	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19464	1	NA	AB118	BRSV
-AB118.HE17	pcr_negative_control	unc-1792432702.69336	E04	AB118	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.178205221891403	21177	1	NA	AB118	BRSV
-AB118.HE22	pcr_negative_control	unc-1792432702.69336	F04	AB118	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.345392435789108	21854	1	NA	AB118	BRSV
-AB118.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB118	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.118576698005199	21217	1	NA	AB118	BRSV
-AB118.HE8	pcr_negative_control	unc-1792432702.69336	G04	AB118	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.187605202198029	20116	1	NA	AB118	BRSV
+AB118.HE13	pcr_negative_control	unc-1792432702.69336	H04	AB118	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19464	1	NA	AB118	BRSV
+AB118.HE17	pcr_negative_control	unc-1792432702.69336	E04	AB118	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.178205221891403	21177	1	NA	AB118	BRSV
+AB118.HE22	pcr_negative_control	unc-1792432702.69336	F04	AB118	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.345392435789108	21854	1	NA	AB118	BRSV
+AB118.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB118	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.118576698005199	21217	1	NA	AB118	BRSV
+AB118.HE8	pcr_negative_control	unc-1792432702.69336	G04	AB118	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.187605202198029	20116	1	NA	AB118	BRSV
 AB118.RO15	pcr_negative_control	unc-1792432702.69336	H04	AB118	SARS-CoV-2 (SC2)	ROX	0	19464	1	NA	AB118	SC2
 AB118.RO18	pcr_negative_control	unc-1792432702.69336	E04	AB118	SARS-CoV-2 (SC2)	ROX	0.118800677359104	21177	1	NA	AB118	SC2
 AB118.RO24	pcr_negative_control	unc-1792432702.69336	F04	AB118	SARS-CoV-2 (SC2)	ROX	0	21854	1	NA	AB118	SC2
@@ -319,7 +319,7 @@ AB118.RO9	pcr_negative_control	unc-1792432702.69336	G04	AB118	SARS-CoV-2 (SC2)	R
 AB119.CY5	pcr_negative_control	unc-1792432702.69336	H04	AB119	Respiratory Syncitial Virus, Human (G)	Cy5	0	20504	1	NA	AB119	Human
 AB119.CZ1	pcr_negative_control	unc-1792432702.69336	H04	AB119	Influenza Virus B (NEP/NS1)	Cy5.5	0	20504	1	NA	AB119	FluB
 AB119.FA4	pcr_negative_control	unc-1792432702.69336	H04	AB119	Influenza Virus A (M)	FAM	0.184054866433144	20504	1	NA	AB119	FluA
-AB119.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB119	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20504	1	NA	AB119	BRSV
+AB119.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB119	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20504	1	NA	AB119	BRSV
 AB119.RO3	pcr_negative_control	unc-1792432702.69336	H04	AB119	SARS-CoV-2 (SC2)	ROX	0.122700244188309	20504	1	NA	AB119	SC2
 AB12.FA1	pcr_positive_control	ppc-1792432702.69306	B09	AB12	Respiratory Syncitial Virus, Human (G)	FAM	3.79575347900391	17590	1	NA	AB12	Human
 AB12.FA2	pcr_negative_control	unc-1792432702.69336	C09	AB12	Respiratory Syncitial Virus, Human (G)	FAM	0	18098	1	NA	AB12	Human
@@ -331,8 +331,8 @@ AB121.CZ3	pcr_negative_control	unc-1792432702.69336	B05	AB121	Influenza Virus B 
 AB121.CZ8	pcr_negative_control	unc-1792432702.69336	A05	AB121	Influenza Virus B (NEP/NS1)	Cy5.5	0.118767030537128	21183	1	NA	AB121	FluB
 AB121.FA1	pcr_negative_control	unc-1792432702.69336	B05	AB121	Influenza Virus A (M)	FAM	6.48218107223511	21595	1	NA	AB121	FluA
 AB121.FA6	pcr_negative_control	unc-1792432702.69336	A05	AB121	Influenza Virus A (M)	FAM	2.79399442672729	21183	1	NA	AB121	FluA
-AB121.HE2	pcr_negative_control	unc-1792432702.69336	B05	AB121	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.116501025855541	21595	1	NA	AB121	BRSV
-AB121.HE7	pcr_negative_control	unc-1792432702.69336	A05	AB121	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.059382114559412	21183	1	NA	AB121	BRSV
+AB121.HE2	pcr_negative_control	unc-1792432702.69336	B05	AB121	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.116501025855541	21595	1	NA	AB121	BRSV
+AB121.HE7	pcr_negative_control	unc-1792432702.69336	A05	AB121	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.059382114559412	21183	1	NA	AB121	BRSV
 AB121.RO10	pcr_negative_control	unc-1792432702.69336	A05	AB121	SARS-CoV-2 (SC2)	ROX	0.059382114559412	21183	1	NA	AB121	SC2
 AB121.RO5	pcr_negative_control	unc-1792432702.69336	B05	AB121	SARS-CoV-2 (SC2)	ROX	0	21595	1	NA	AB121	SC2
 AB122.CY10	pcr_negative_control	unc-1792432702.69336	D04	AB122	Respiratory Syncitial Virus, Human (G)	Cy5	0	21981	1	NA	AB122	Human
@@ -344,9 +344,9 @@ AB122.CZ7	pcr_negative_control	unc-1792432702.69336	D04	AB122	Influenza Virus B 
 AB122.FA11	pcr_negative_control	unc-1792432702.69336	C04	AB122	Influenza Virus A (M)	FAM	0.0570342391729355	22055	1	NA	AB122	FluA
 AB122.FA3	pcr_negative_control	unc-1792432702.69336	B04	AB122	Influenza Virus A (M)	FAM	0	21822	1	NA	AB122	FluA
 AB122.FA8	pcr_negative_control	unc-1792432702.69336	D04	AB122	Influenza Virus A (M)	FAM	0	21981	1	NA	AB122	FluA
-AB122.HE1	pcr_negative_control	unc-1792432702.69336	B04	AB122	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21822	1	NA	AB122	BRSV
-AB122.HE15	pcr_negative_control	unc-1792432702.69336	C04	AB122	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22055	1	NA	AB122	BRSV
-AB122.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB122	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21981	1	NA	AB122	BRSV
+AB122.HE1	pcr_negative_control	unc-1792432702.69336	B04	AB122	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21822	1	NA	AB122	BRSV
+AB122.HE15	pcr_negative_control	unc-1792432702.69336	C04	AB122	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22055	1	NA	AB122	BRSV
+AB122.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB122	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21981	1	NA	AB122	BRSV
 AB122.RO13	pcr_negative_control	unc-1792432702.69336	C04	AB122	SARS-CoV-2 (SC2)	ROX	0	22055	1	NA	AB122	SC2
 AB122.RO5	pcr_negative_control	unc-1792432702.69336	B04	AB122	SARS-CoV-2 (SC2)	ROX	0	21822	1	NA	AB122	SC2
 AB122.RO9	pcr_negative_control	unc-1792432702.69336	D04	AB122	SARS-CoV-2 (SC2)	ROX	0	21981	1	NA	AB122	SC2
@@ -371,13 +371,13 @@ AB124.FA27	pcr_negative_control	unc-1792432702.69336	D05	AB124	Influenza Virus A
 AB124.FA31	pcr_negative_control	unc-1792432702.69336	B05	AB124	Influenza Virus A (M)	FAM	0	22264	1	NA	AB124	FluA
 AB124.FA5	pcr_negative_control	unc-1792432702.69336	C05	AB124	Influenza Virus A (M)	FAM	0	20944	1	NA	AB124	FluA
 AB124.FA9	pcr_negative_control	unc-1792432702.69336	F05	AB124	Influenza Virus A (M)	FAM	0	22804	1	NA	AB124	FluA
-AB124.HE14	pcr_negative_control	unc-1792432702.69336	E05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21353	1	NA	AB124	BRSV
-AB124.HE17	pcr_negative_control	unc-1792432702.69336	H05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17683	1	NA	AB124	BRSV
-AB124.HE22	pcr_negative_control	unc-1792432702.69336	G05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.129462897777557	19433	1	NA	AB124	BRSV
-AB124.HE3	pcr_negative_control	unc-1792432702.69336	C05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20944	1	NA	AB124	BRSV
-AB124.HE30	pcr_negative_control	unc-1792432702.69336	D05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18923	1	NA	AB124	BRSV
-AB124.HE33	pcr_negative_control	unc-1792432702.69336	B05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22264	1	NA	AB124	BRSV
-AB124.HE7	pcr_negative_control	unc-1792432702.69336	F05	AB124	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22804	1	NA	AB124	BRSV
+AB124.HE14	pcr_negative_control	unc-1792432702.69336	E05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21353	1	NA	AB124	BRSV
+AB124.HE17	pcr_negative_control	unc-1792432702.69336	H05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17683	1	NA	AB124	BRSV
+AB124.HE22	pcr_negative_control	unc-1792432702.69336	G05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.129462897777557	19433	1	NA	AB124	BRSV
+AB124.HE3	pcr_negative_control	unc-1792432702.69336	C05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20944	1	NA	AB124	BRSV
+AB124.HE30	pcr_negative_control	unc-1792432702.69336	D05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18923	1	NA	AB124	BRSV
+AB124.HE33	pcr_negative_control	unc-1792432702.69336	B05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22264	1	NA	AB124	BRSV
+AB124.HE7	pcr_negative_control	unc-1792432702.69336	F05	AB124	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22804	1	NA	AB124	BRSV
 AB124.RO1	pcr_negative_control	unc-1792432702.69336	C05	AB124	SARS-CoV-2 (SC2)	ROX	0	20944	1	NA	AB124	SC2
 AB124.RO15	pcr_negative_control	unc-1792432702.69336	E05	AB124	SARS-CoV-2 (SC2)	ROX	0.0589093379676342	21353	1	NA	AB124	SC2
 AB124.RO18	pcr_negative_control	unc-1792432702.69336	H05	AB124	SARS-CoV-2 (SC2)	ROX	0	17683	1	NA	AB124	SC2
@@ -391,8 +391,8 @@ AB125.CZ3	pcr_negative_control	unc-1792432702.69336	F04	AB125	Influenza Virus B 
 AB125.CZ9	pcr_negative_control	unc-1792432702.69336	E04	AB125	Influenza Virus B (NEP/NS1)	Cy5.5	0.365338832139969	20661	1	NA	AB125	FluB
 AB125.FA1	pcr_negative_control	unc-1792432702.69336	F04	AB125	Influenza Virus A (M)	FAM	1.04562962055206	20459	1	NA	AB125	FluA
 AB125.FA10	pcr_negative_control	unc-1792432702.69336	E04	AB125	Influenza Virus A (M)	FAM	0.730783820152283	20661	1	NA	AB125	FluA
-AB125.HE4	pcr_negative_control	unc-1792432702.69336	F04	AB125	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20459	1	NA	AB125	BRSV
-AB125.HE6	pcr_negative_control	unc-1792432702.69336	E04	AB125	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20661	1	NA	AB125	BRSV
+AB125.HE4	pcr_negative_control	unc-1792432702.69336	F04	AB125	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20459	1	NA	AB125	BRSV
+AB125.HE6	pcr_negative_control	unc-1792432702.69336	E04	AB125	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20661	1	NA	AB125	BRSV
 AB125.RO2	pcr_negative_control	unc-1792432702.69336	F04	AB125	SARS-CoV-2 (SC2)	ROX	0	20459	1	NA	AB125	SC2
 AB125.RO8	pcr_negative_control	unc-1792432702.69336	E04	AB125	SARS-CoV-2 (SC2)	ROX	0	20661	1	NA	AB125	SC2
 AB126.CY10	pcr_negative_control	unc-1792432702.69336	G03	AB126	Respiratory Syncitial Virus, Human (G)	Cy5	0.0578659735620022	21738	1	NA	AB126	Human
@@ -401,8 +401,8 @@ AB126.CZ4	pcr_negative_control	unc-1792432702.69336	H03	AB126	Influenza Virus B 
 AB126.CZ9	pcr_negative_control	unc-1792432702.69336	G03	AB126	Influenza Virus B (NEP/NS1)	Cy5.5	0	21738	1	NA	AB126	FluB
 AB126.FA3	pcr_negative_control	unc-1792432702.69336	H03	AB126	Influenza Virus A (M)	FAM	0	21869	1	NA	AB126	FluA
 AB126.FA8	pcr_negative_control	unc-1792432702.69336	G03	AB126	Influenza Virus A (M)	FAM	0	21738	1	NA	AB126	FluA
-AB126.HE2	pcr_negative_control	unc-1792432702.69336	H03	AB126	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21869	1	NA	AB126	BRSV
-AB126.HE7	pcr_negative_control	unc-1792432702.69336	G03	AB126	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21738	1	NA	AB126	BRSV
+AB126.HE2	pcr_negative_control	unc-1792432702.69336	H03	AB126	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21869	1	NA	AB126	BRSV
+AB126.HE7	pcr_negative_control	unc-1792432702.69336	G03	AB126	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21738	1	NA	AB126	BRSV
 AB126.RO1	pcr_negative_control	unc-1792432702.69336	H03	AB126	SARS-CoV-2 (SC2)	ROX	0	21869	1	NA	AB126	SC2
 AB126.RO6	pcr_negative_control	unc-1792432702.69336	G03	AB126	SARS-CoV-2 (SC2)	ROX	0.0578659735620022	21738	1	NA	AB126	SC2
 AB127.CY13	pcr_negative_control	unc-1792432702.69336	F04	AB127	Respiratory Syncitial Virus, Human (G)	Cy5	0	21762	1	NA	AB127	Human
@@ -414,9 +414,9 @@ AB127.CZ7	pcr_negative_control	unc-1792432702.69336	H04	AB127	Influenza Virus B 
 AB127.FA10	pcr_negative_control	unc-1792432702.69336	H04	AB127	Influenza Virus A (M)	FAM	0	21340	1	NA	AB127	FluA
 AB127.FA12	pcr_negative_control	unc-1792432702.69336	F04	AB127	Influenza Virus A (M)	FAM	0	21762	1	NA	AB127	FluA
 AB127.FA4	pcr_negative_control	unc-1792432702.69336	G04	AB127	Influenza Virus A (M)	FAM	0.0577146336436272	21795	1	NA	AB127	FluA
-AB127.HE11	pcr_negative_control	unc-1792432702.69336	F04	AB127	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21762	1	NA	AB127	BRSV
-AB127.HE5	pcr_negative_control	unc-1792432702.69336	G04	AB127	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21795	1	NA	AB127	BRSV
-AB127.HE9	pcr_negative_control	unc-1792432702.69336	H04	AB127	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21340	1	NA	AB127	BRSV
+AB127.HE11	pcr_negative_control	unc-1792432702.69336	F04	AB127	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21762	1	NA	AB127	BRSV
+AB127.HE5	pcr_negative_control	unc-1792432702.69336	G04	AB127	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21795	1	NA	AB127	BRSV
+AB127.HE9	pcr_negative_control	unc-1792432702.69336	H04	AB127	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21340	1	NA	AB127	BRSV
 AB127.RO1	pcr_negative_control	unc-1792432702.69336	G04	AB127	SARS-CoV-2 (SC2)	ROX	0	21795	1	NA	AB127	SC2
 AB127.RO15	pcr_negative_control	unc-1792432702.69336	F04	AB127	SARS-CoV-2 (SC2)	ROX	0	21762	1	NA	AB127	SC2
 AB127.RO6	pcr_negative_control	unc-1792432702.69336	H04	AB127	SARS-CoV-2 (SC2)	ROX	0	21340	1	NA	AB127	SC2
@@ -441,13 +441,13 @@ AB128.FA23	pcr_negative_control	unc-1792432702.69336	B05	AB128	Influenza Virus A
 AB128.FA29	pcr_negative_control	unc-1792432702.69336	F05	AB128	Influenza Virus A (M)	FAM	0	22048	1	NA	AB128	FluA
 AB128.FA35	pcr_negative_control	unc-1792432702.69336	C05	AB128	Influenza Virus A (M)	FAM	0	21696	1	NA	AB128	FluA
 AB128.FA9	pcr_negative_control	unc-1792432702.69336	E05	AB128	Influenza Virus A (M)	FAM	0	21706	1	NA	AB128	FluA
-AB128.HE15	pcr_negative_control	unc-1792432702.69336	D05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22053	1	NA	AB128	BRSV
-AB128.HE16	pcr_negative_control	unc-1792432702.69336	G05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21915	1	NA	AB128	BRSV
-AB128.HE21	pcr_negative_control	unc-1792432702.69336	B05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21477	1	NA	AB128	BRSV
-AB128.HE28	pcr_negative_control	unc-1792432702.69336	F05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22048	1	NA	AB128	BRSV
-AB128.HE3	pcr_negative_control	unc-1792432702.69336	H05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21581	1	NA	AB128	BRSV
-AB128.HE33	pcr_negative_control	unc-1792432702.69336	C05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21696	1	NA	AB128	BRSV
-AB128.HE8	pcr_negative_control	unc-1792432702.69336	E05	AB128	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21706	1	NA	AB128	BRSV
+AB128.HE15	pcr_negative_control	unc-1792432702.69336	D05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22053	1	NA	AB128	BRSV
+AB128.HE16	pcr_negative_control	unc-1792432702.69336	G05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21915	1	NA	AB128	BRSV
+AB128.HE21	pcr_negative_control	unc-1792432702.69336	B05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21477	1	NA	AB128	BRSV
+AB128.HE28	pcr_negative_control	unc-1792432702.69336	F05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22048	1	NA	AB128	BRSV
+AB128.HE3	pcr_negative_control	unc-1792432702.69336	H05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21581	1	NA	AB128	BRSV
+AB128.HE33	pcr_negative_control	unc-1792432702.69336	C05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21696	1	NA	AB128	BRSV
+AB128.HE8	pcr_negative_control	unc-1792432702.69336	E05	AB128	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21706	1	NA	AB128	BRSV
 AB128.RO11	pcr_negative_control	unc-1792432702.69336	D05	AB128	SARS-CoV-2 (SC2)	ROX	0	22053	1	NA	AB128	SC2
 AB128.RO20	pcr_negative_control	unc-1792432702.69336	G05	AB128	SARS-CoV-2 (SC2)	ROX	0	21915	1	NA	AB128	SC2
 AB128.RO25	pcr_negative_control	unc-1792432702.69336	B05	AB128	SARS-CoV-2 (SC2)	ROX	0	21477	1	NA	AB128	SC2
@@ -467,10 +467,10 @@ AB129.FA15	pcr_negative_control	unc-1792432702.69336	H04	AB129	Influenza Virus A
 AB129.FA18	pcr_negative_control	unc-1792432702.69336	F04	AB129	Influenza Virus A (M)	FAM	0.056725587695837	22175	1	NA	AB129	FluA
 AB129.FA2	pcr_negative_control	unc-1792432702.69336	E04	AB129	Influenza Virus A (M)	FAM	0	21866	1	NA	AB129	FluA
 AB129.FA6	pcr_negative_control	unc-1792432702.69336	G04	AB129	Influenza Virus A (M)	FAM	0.0566259995102882	22214	1	NA	AB129	FluA
-AB129.HE14	pcr_negative_control	unc-1792432702.69336	H04	AB129	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21211	1	NA	AB129	BRSV
-AB129.HE17	pcr_negative_control	unc-1792432702.69336	F04	AB129	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22175	1	NA	AB129	BRSV
-AB129.HE3	pcr_negative_control	unc-1792432702.69336	E04	AB129	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0575272291898727	21866	1	NA	AB129	BRSV
-AB129.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB129	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22214	1	NA	AB129	BRSV
+AB129.HE14	pcr_negative_control	unc-1792432702.69336	H04	AB129	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21211	1	NA	AB129	BRSV
+AB129.HE17	pcr_negative_control	unc-1792432702.69336	F04	AB129	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22175	1	NA	AB129	BRSV
+AB129.HE3	pcr_negative_control	unc-1792432702.69336	E04	AB129	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0575272291898727	21866	1	NA	AB129	BRSV
+AB129.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB129	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22214	1	NA	AB129	BRSV
 AB129.RO10	pcr_negative_control	unc-1792432702.69336	G04	AB129	SARS-CoV-2 (SC2)	ROX	0	22214	1	NA	AB129	SC2
 AB129.RO11	pcr_negative_control	unc-1792432702.69336	H04	AB129	SARS-CoV-2 (SC2)	ROX	0	21211	1	NA	AB129	SC2
 AB129.RO20	pcr_negative_control	unc-1792432702.69336	F04	AB129	SARS-CoV-2 (SC2)	ROX	0	22175	1	NA	AB129	SC2
@@ -501,12 +501,12 @@ AB130.FA22	pcr_negative_control	unc-1792432702.69336	C09	AB130	Influenza Virus A
 AB130.FA29	pcr_negative_control	unc-1792432702.69336	F09	AB130	Influenza Virus A (M)	FAM	0	18319	1	NA	AB130	FluA
 AB130.FA3	pcr_negative_control	unc-1792432702.69336	E09	AB130	Influenza Virus A (M)	FAM	0	20247	1	NA	AB130	FluA
 AB130.FA9	pcr_negative_control	unc-1792432702.69336	G09	AB130	Influenza Virus A (M)	FAM	0	20013	1	NA	AB130	FluA
-AB130.HE10	pcr_negative_control	unc-1792432702.69336	G09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20013	1	NA	AB130	BRSV
-AB130.HE13	pcr_negative_control	unc-1792432702.69336	H09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19958	1	NA	AB130	BRSV
-AB130.HE18	pcr_negative_control	unc-1792432702.69336	D09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0618706680834293	20331	1	NA	AB130	BRSV
-AB130.HE21	pcr_negative_control	unc-1792432702.69336	C09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20908	1	NA	AB130	BRSV
-AB130.HE30	pcr_negative_control	unc-1792432702.69336	F09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18319	1	NA	AB130	BRSV
-AB130.HE5	pcr_negative_control	unc-1792432702.69336	E09	AB130	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20247	1	NA	AB130	BRSV
+AB130.HE10	pcr_negative_control	unc-1792432702.69336	G09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20013	1	NA	AB130	BRSV
+AB130.HE13	pcr_negative_control	unc-1792432702.69336	H09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19958	1	NA	AB130	BRSV
+AB130.HE18	pcr_negative_control	unc-1792432702.69336	D09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0618706680834293	20331	1	NA	AB130	BRSV
+AB130.HE21	pcr_negative_control	unc-1792432702.69336	C09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20908	1	NA	AB130	BRSV
+AB130.HE30	pcr_negative_control	unc-1792432702.69336	F09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18319	1	NA	AB130	BRSV
+AB130.HE5	pcr_negative_control	unc-1792432702.69336	E09	AB130	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20247	1	NA	AB130	BRSV
 AB130.RO14	pcr_negative_control	unc-1792432702.69336	H09	AB130	SARS-CoV-2 (SC2)	ROX	0	19958	1	NA	AB130	SC2
 AB130.RO16	pcr_negative_control	unc-1792432702.69336	D09	AB130	SARS-CoV-2 (SC2)	ROX	0	20331	1	NA	AB130	SC2
 AB130.RO23	pcr_negative_control	unc-1792432702.69336	C09	AB130	SARS-CoV-2 (SC2)	ROX	0	20908	1	NA	AB130	SC2
@@ -525,10 +525,10 @@ AB131.FA1	pcr_negative_control	unc-1792432702.69336	A05	AB131	Influenza Virus A 
 AB131.FA11	pcr_negative_control	unc-1792432702.69336	C05	AB131	Influenza Virus A (M)	FAM	0	1146	1	NA	AB131	FluA
 AB131.FA17	pcr_negative_control	unc-1792432702.69336	D05	AB131	Influenza Virus A (M)	FAM	0	1184	1	NA	AB131	FluA
 AB131.FA9	pcr_negative_control	unc-1792432702.69336	B05	AB131	Influenza Virus A (M)	FAM	0	1140	1	NA	AB131	FluA
-AB131.HE10	pcr_negative_control	unc-1792432702.69336	B05	AB131	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	1140	1	NA	AB131	BRSV
-AB131.HE15	pcr_negative_control	unc-1792432702.69336	C05	AB131	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	1146	1	NA	AB131	BRSV
-AB131.HE16	pcr_negative_control	unc-1792432702.69336	D05	AB131	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	1184	1	NA	AB131	BRSV
-AB131.HE5	pcr_negative_control	unc-1792432702.69336	A05	AB131	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	1219	1	NA	AB131	BRSV
+AB131.HE10	pcr_negative_control	unc-1792432702.69336	B05	AB131	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	1140	1	NA	AB131	BRSV
+AB131.HE15	pcr_negative_control	unc-1792432702.69336	C05	AB131	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	1146	1	NA	AB131	BRSV
+AB131.HE16	pcr_negative_control	unc-1792432702.69336	D05	AB131	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	1184	1	NA	AB131	BRSV
+AB131.HE5	pcr_negative_control	unc-1792432702.69336	A05	AB131	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	1219	1	NA	AB131	BRSV
 AB131.RO14	pcr_negative_control	unc-1792432702.69336	C05	AB131	SARS-CoV-2 (SC2)	ROX	0	1146	1	NA	AB131	SC2
 AB131.RO18	pcr_negative_control	unc-1792432702.69336	D05	AB131	SARS-CoV-2 (SC2)	ROX	0	1184	1	NA	AB131	SC2
 AB131.RO2	pcr_negative_control	unc-1792432702.69336	A05	AB131	SARS-CoV-2 (SC2)	ROX	0	1219	1	NA	AB131	SC2
@@ -536,12 +536,12 @@ AB131.RO8	pcr_negative_control	unc-1792432702.69336	B05	AB131	SARS-CoV-2 (SC2)	R
 AB132.CY4	pcr_negative_control	unc-1792432702.69336	B02	AB132	Respiratory Syncitial Virus, Human (G)	Cy5	0	20905	1	NA	AB132	Human
 AB132.CZ5	pcr_negative_control	unc-1792432702.69336	B02	AB132	Influenza Virus B (NEP/NS1)	Cy5.5	0.0601718127727509	20905	1	NA	AB132	FluB
 AB132.FA1	pcr_negative_control	unc-1792432702.69336	B02	AB132	Influenza Virus A (M)	FAM	0.0601718127727509	20905	1	NA	AB132	FluA
-AB132.HE3	pcr_negative_control	unc-1792432702.69336	B02	AB132	Respiratory Syncitial Virus, Bovine (Other)	HEX	4.94367265701294	20905	1	NA	AB132	BRSV
+AB132.HE3	pcr_negative_control	unc-1792432702.69336	B02	AB132	Respiratory Syncitial Virus, Bovine (Unk)	HEX	4.94367265701294	20905	1	NA	AB132	BRSV
 AB132.RO2	pcr_negative_control	unc-1792432702.69336	B02	AB132	SARS-CoV-2 (SC2)	ROX	0.662048280239105	20905	1	NA	AB132	SC2
 AB133.CY3	pcr_negative_control	unc-1792432702.69336	H04	AB133	Respiratory Syncitial Virus, Human (G)	Cy5	0	18092	1	NA	AB133	Human
 AB133.CZ2	pcr_negative_control	unc-1792432702.69336	H04	AB133	Influenza Virus B (NEP/NS1)	Cy5.5	0	18092	1	NA	AB133	FluB
 AB133.FA4	pcr_negative_control	unc-1792432702.69336	H04	AB133	Influenza Virus A (M)	FAM	0	18092	1	NA	AB133	FluA
-AB133.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB133	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18092	1	NA	AB133	BRSV
+AB133.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB133	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18092	1	NA	AB133	BRSV
 AB133.RO5	pcr_negative_control	unc-1792432702.69336	H04	AB133	SARS-CoV-2 (SC2)	ROX	0	18092	1	NA	AB133	SC2
 AB134.CY14	pcr_negative_control	unc-1792432702.69336	F04	AB134	Respiratory Syncitial Virus, Human (G)	Cy5	0	19422	1	NA	AB134	Human
 AB134.CY19	pcr_negative_control	unc-1792432702.69336	H04	AB134	Respiratory Syncitial Virus, Human (G)	Cy5	0	22212	1	NA	AB134	Human
@@ -861,10 +861,10 @@ AB41.FA12	pcr_negative_control	unc-1792432702.69336	G04	AB41	Influenza Virus A (
 AB41.FA17	pcr_positive_control	ppc-1792432702.69306	F04	AB41	Influenza Virus A (M)	FAM	0	18487	1	NA	AB41	FluA
 AB41.FA2	pcr_negative_control	unc-1792432702.69336	E04	AB41	Influenza Virus A (M)	FAM	0	19789	1	NA	AB41	FluA
 AB41.FA9	pcr_negative_control	unc-1792432702.69336	H04	AB41	Influenza Virus A (M)	FAM	0	21078	1	NA	AB41	FluA
-AB41.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB41	Respiratory Syncitial Virus, Bovine (Other)	HEX	37.4843940734863	20061	1	NA	AB41	BRSV
-AB41.HE18	pcr_positive_control	ppc-1792432702.69306	F04	AB41	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18487	1	NA	AB41	BRSV
-AB41.HE3	pcr_negative_control	unc-1792432702.69336	E04	AB41	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19789	1	NA	AB41	BRSV
-AB41.HE8	pcr_negative_control	unc-1792432702.69336	H04	AB41	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21078	1	NA	AB41	BRSV
+AB41.HE13	pcr_negative_control	unc-1792432702.69336	G04	AB41	Respiratory Syncitial Virus, Bovine (Unk)	HEX	37.4843940734863	20061	1	NA	AB41	BRSV
+AB41.HE18	pcr_positive_control	ppc-1792432702.69306	F04	AB41	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18487	1	NA	AB41	BRSV
+AB41.HE3	pcr_negative_control	unc-1792432702.69336	E04	AB41	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19789	1	NA	AB41	BRSV
+AB41.HE8	pcr_negative_control	unc-1792432702.69336	H04	AB41	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21078	1	NA	AB41	BRSV
 AB41.RO1	pcr_negative_control	unc-1792432702.69336	E04	AB41	SARS-CoV-2 (SC2)	ROX	0	19789	1	NA	AB41	SC2
 AB41.RO10	pcr_negative_control	unc-1792432702.69336	H04	AB41	SARS-CoV-2 (SC2)	ROX	0	21078	1	NA	AB41	SC2
 AB41.RO11	pcr_negative_control	unc-1792432702.69336	G04	AB41	SARS-CoV-2 (SC2)	ROX	11.5903739929199	20061	1	NA	AB41	SC2
@@ -881,10 +881,10 @@ AB42.FA11	pcr_negative_control	unc-1792432702.69336	B05	AB42	Influenza Virus A (
 AB42.FA20	pcr_negative_control	unc-1792432702.69336	A05	AB42	Influenza Virus A (M)	FAM	0	21820	1	NA	AB42	FluA
 AB42.FA3	pcr_negative_control	unc-1792432702.69336	D05	AB42	Influenza Virus A (M)	FAM	0	16848	1	NA	AB42	FluA
 AB42.FA6	pcr_positive_control	ppc-1792432702.69306	C05	AB42	Influenza Virus A (M)	FAM	10.0690498352051	20695	1	NA	AB42	FluA
-AB42.HE1	pcr_negative_control	unc-1792432702.69336	D05	AB42	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16848	1	NA	AB42	BRSV
-AB42.HE10	pcr_positive_control	ppc-1792432702.69306	C05	AB42	Respiratory Syncitial Virus, Bovine (Other)	HEX	31.4489459991455	20695	1	NA	AB42	BRSV
-AB42.HE14	pcr_negative_control	unc-1792432702.69336	B05	AB42	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20911	1	NA	AB42	BRSV
-AB42.HE16	pcr_negative_control	unc-1792432702.69336	A05	AB42	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21820	1	NA	AB42	BRSV
+AB42.HE1	pcr_negative_control	unc-1792432702.69336	D05	AB42	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16848	1	NA	AB42	BRSV
+AB42.HE10	pcr_positive_control	ppc-1792432702.69306	C05	AB42	Respiratory Syncitial Virus, Bovine (Unk)	HEX	31.4489459991455	20695	1	NA	AB42	BRSV
+AB42.HE14	pcr_negative_control	unc-1792432702.69336	B05	AB42	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20911	1	NA	AB42	BRSV
+AB42.HE16	pcr_negative_control	unc-1792432702.69336	A05	AB42	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21820	1	NA	AB42	BRSV
 AB42.RO12	pcr_negative_control	unc-1792432702.69336	B05	AB42	SARS-CoV-2 (SC2)	ROX	0	20911	1	NA	AB42	SC2
 AB42.RO18	pcr_negative_control	unc-1792432702.69336	A05	AB42	SARS-CoV-2 (SC2)	ROX	0	21820	1	NA	AB42	SC2
 AB42.RO4	pcr_negative_control	unc-1792432702.69336	D05	AB42	SARS-CoV-2 (SC2)	ROX	2757.10302734375	16848	1	NA	AB42	SC2
@@ -895,8 +895,8 @@ AB43.CZ1	pcr_negative_control	unc-1792432702.69336	H04	AB43	Influenza Virus B (N
 AB43.CZ9	pcr_negative_control	unc-1792432702.69336	G04	AB43	Influenza Virus B (NEP/NS1)	Cy5.5	62.9569816589355	22225	1	NA	AB43	FluB
 AB43.FA5	pcr_negative_control	unc-1792432702.69336	H04	AB43	Influenza Virus A (M)	FAM	0	20127	1	NA	AB43	FluA
 AB43.FA8	pcr_negative_control	unc-1792432702.69336	G04	AB43	Influenza Virus A (M)	FAM	0	22225	1	NA	AB43	FluA
-AB43.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB43	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20127	1	NA	AB43	BRSV
-AB43.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB43	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22225	1	NA	AB43	BRSV
+AB43.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB43	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20127	1	NA	AB43	BRSV
+AB43.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB43	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22225	1	NA	AB43	BRSV
 AB43.RO10	pcr_negative_control	unc-1792432702.69336	G04	AB43	SARS-CoV-2 (SC2)	ROX	0	22225	1	NA	AB43	SC2
 AB43.RO2	pcr_negative_control	unc-1792432702.69336	H04	AB43	SARS-CoV-2 (SC2)	ROX	0.0624977834522724	20127	1	NA	AB43	SC2
 AB44.CY10	pcr_negative_control	unc-1792432702.69336	E04	AB44	Respiratory Syncitial Virus, Human (G)	Cy5	0	21374	1	NA	AB44	Human
@@ -911,10 +911,10 @@ AB44.FA11	pcr_positive_control	ppc-1792432702.69306	F04	AB44	Influenza Virus A (
 AB44.FA19	pcr_negative_control	unc-1792432702.69336	H04	AB44	Influenza Virus A (M)	FAM	0	20972	1	NA	AB44	FluA
 AB44.FA5	pcr_negative_control	unc-1792432702.69336	G04	AB44	Influenza Virus A (M)	FAM	14.3316783905029	18713	1	NA	AB44	FluA
 AB44.FA7	pcr_negative_control	unc-1792432702.69336	E04	AB44	Influenza Virus A (M)	FAM	0	21374	1	NA	AB44	FluA
-AB44.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB44	Respiratory Syncitial Virus, Bovine (Other)	HEX	39.187614440918	18713	1	NA	AB44	BRSV
-AB44.HE15	pcr_positive_control	ppc-1792432702.69306	F04	AB44	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17790	1	NA	AB44	BRSV
-AB44.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB44	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20972	1	NA	AB44	BRSV
-AB44.HE6	pcr_negative_control	unc-1792432702.69336	E04	AB44	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21374	1	NA	AB44	BRSV
+AB44.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB44	Respiratory Syncitial Virus, Bovine (Unk)	HEX	39.187614440918	18713	1	NA	AB44	BRSV
+AB44.HE15	pcr_positive_control	ppc-1792432702.69306	F04	AB44	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17790	1	NA	AB44	BRSV
+AB44.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB44	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20972	1	NA	AB44	BRSV
+AB44.HE6	pcr_negative_control	unc-1792432702.69336	E04	AB44	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21374	1	NA	AB44	BRSV
 AB44.RO13	pcr_positive_control	ppc-1792432702.69306	F04	AB44	SARS-CoV-2 (SC2)	ROX	0	17790	1	NA	AB44	SC2
 AB44.RO16	pcr_negative_control	unc-1792432702.69336	H04	AB44	SARS-CoV-2 (SC2)	ROX	0	20972	1	NA	AB44	SC2
 AB44.RO2	pcr_negative_control	unc-1792432702.69336	G04	AB44	SARS-CoV-2 (SC2)	ROX	10.3267192840576	18713	1	NA	AB44	SC2
@@ -928,9 +928,9 @@ AB45.CZ6	pcr_positive_control	ppc-1792432702.69306	B04	AB45	Influenza Virus B (N
 AB45.FA14	pcr_negative_control	unc-1792432702.69336	H03	AB45	Influenza Virus A (M)	FAM	0	21253	1	NA	AB45	FluA
 AB45.FA2	pcr_negative_control	unc-1792432702.69336	A04	AB45	Influenza Virus A (M)	FAM	0	18729	1	NA	AB45	FluA
 AB45.FA7	pcr_positive_control	ppc-1792432702.69306	B04	AB45	Influenza Virus A (M)	FAM	10.1112833023071	20484	1	NA	AB45	FluA
-AB45.HE10	pcr_positive_control	ppc-1792432702.69306	B04	AB45	Respiratory Syncitial Virus, Bovine (Other)	HEX	27.1252536773682	20484	1	NA	AB45	BRSV
-AB45.HE12	pcr_negative_control	unc-1792432702.69336	H03	AB45	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21253	1	NA	AB45	BRSV
-AB45.HE4	pcr_negative_control	unc-1792432702.69336	A04	AB45	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18729	1	NA	AB45	BRSV
+AB45.HE10	pcr_positive_control	ppc-1792432702.69306	B04	AB45	Respiratory Syncitial Virus, Bovine (Unk)	HEX	27.1252536773682	20484	1	NA	AB45	BRSV
+AB45.HE12	pcr_negative_control	unc-1792432702.69336	H03	AB45	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21253	1	NA	AB45	BRSV
+AB45.HE4	pcr_negative_control	unc-1792432702.69336	A04	AB45	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18729	1	NA	AB45	BRSV
 AB45.RO11	pcr_negative_control	unc-1792432702.69336	H03	AB45	SARS-CoV-2 (SC2)	ROX	0	21253	1	NA	AB45	SC2
 AB45.RO5	pcr_negative_control	unc-1792432702.69336	A04	AB45	SARS-CoV-2 (SC2)	ROX	0	18729	1	NA	AB45	SC2
 AB45.RO9	pcr_positive_control	ppc-1792432702.69306	B04	AB45	SARS-CoV-2 (SC2)	ROX	6.95820474624634	20484	1	NA	AB45	SC2
@@ -949,11 +949,11 @@ AB46.FA13	pcr_negative_control	unc-1792432702.69336	D07	AB46	Influenza Virus A (
 AB46.FA18	pcr_negative_control	unc-1792432702.69336	H07	AB46	Influenza Virus A (M)	FAM	0	20904	1	NA	AB46	FluA
 AB46.FA21	pcr_positive_control	ppc-1792432702.69306	F07	AB46	Influenza Virus A (M)	FAM	6.32489919662476	20735	1	NA	AB46	FluA
 AB46.FA8	pcr_negative_control	unc-1792432702.69336	E07	AB46	Influenza Virus A (M)	FAM	0	21517	1	NA	AB46	FluA
-AB46.HE12	pcr_negative_control	unc-1792432702.69336	D07	AB46	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21638	1	NA	AB46	BRSV
-AB46.HE2	pcr_negative_control	unc-1792432702.69336	G07	AB46	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21681	1	NA	AB46	BRSV
-AB46.HE20	pcr_negative_control	unc-1792432702.69336	H07	AB46	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20904	1	NA	AB46	BRSV
-AB46.HE22	pcr_positive_control	ppc-1792432702.69306	F07	AB46	Respiratory Syncitial Virus, Bovine (Other)	HEX	18.0243110656738	20735	1	NA	AB46	BRSV
-AB46.HE6	pcr_negative_control	unc-1792432702.69336	E07	AB46	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21517	1	NA	AB46	BRSV
+AB46.HE12	pcr_negative_control	unc-1792432702.69336	D07	AB46	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21638	1	NA	AB46	BRSV
+AB46.HE2	pcr_negative_control	unc-1792432702.69336	G07	AB46	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21681	1	NA	AB46	BRSV
+AB46.HE20	pcr_negative_control	unc-1792432702.69336	H07	AB46	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20904	1	NA	AB46	BRSV
+AB46.HE22	pcr_positive_control	ppc-1792432702.69306	F07	AB46	Respiratory Syncitial Virus, Bovine (Unk)	HEX	18.0243110656738	20735	1	NA	AB46	BRSV
+AB46.HE6	pcr_negative_control	unc-1792432702.69336	E07	AB46	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21517	1	NA	AB46	BRSV
 AB46.RO11	pcr_negative_control	unc-1792432702.69336	D07	AB46	SARS-CoV-2 (SC2)	ROX	0.0581334084272385	21638	1	NA	AB46	SC2
 AB46.RO19	pcr_negative_control	unc-1792432702.69336	H07	AB46	SARS-CoV-2 (SC2)	ROX	0	20904	1	NA	AB46	SC2
 AB46.RO23	pcr_positive_control	ppc-1792432702.69306	F07	AB46	SARS-CoV-2 (SC2)	ROX	4.25364255905151	20735	1	NA	AB46	SC2
@@ -962,7 +962,7 @@ AB46.RO7	pcr_negative_control	unc-1792432702.69336	E07	AB46	SARS-CoV-2 (SC2)	ROX
 AB47.CY5	pcr_negative_control	unc-1792432702.69336	H04	AB47	Respiratory Syncitial Virus, Human (G)	Cy5	0	20015	1	NA	AB47	Human
 AB47.CZ1	pcr_negative_control	unc-1792432702.69336	H04	AB47	Influenza Virus B (NEP/NS1)	Cy5.5	21.9348411560059	20015	1	NA	AB47	FluB
 AB47.FA4	pcr_negative_control	unc-1792432702.69336	H04	AB47	Influenza Virus A (M)	FAM	0.0628475174307823	20015	1	NA	AB47	FluA
-AB47.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB47	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20015	1	NA	AB47	BRSV
+AB47.HE2	pcr_negative_control	unc-1792432702.69336	H04	AB47	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20015	1	NA	AB47	BRSV
 AB47.RO3	pcr_negative_control	unc-1792432702.69336	H04	AB47	SARS-CoV-2 (SC2)	ROX	0	20015	1	NA	AB47	SC2
 AB48.CY1	pcr_negative_control	unc-1792432702.69336	G03	AB48	Respiratory Syncitial Virus, Human (G)	Cy5	0	20802	1	NA	AB48	Human
 AB48.CY9	pcr_positive_control	ppc-1792432702.69306	H03	AB48	Respiratory Syncitial Virus, Human (G)	Cy5	11.7392578125	20346	1	NA	AB48	Human
@@ -970,8 +970,8 @@ AB48.CZ3	pcr_negative_control	unc-1792432702.69336	G03	AB48	Influenza Virus B (N
 AB48.CZ6	pcr_positive_control	ppc-1792432702.69306	H03	AB48	Influenza Virus B (NEP/NS1)	Cy5.5	8.68521022796631	20346	1	NA	AB48	FluB
 AB48.FA4	pcr_negative_control	unc-1792432702.69336	G03	AB48	Influenza Virus A (M)	FAM	0	20802	1	NA	AB48	FluA
 AB48.FA7	pcr_positive_control	ppc-1792432702.69306	H03	AB48	Influenza Virus A (M)	FAM	9.6816349029541	20346	1	NA	AB48	FluA
-AB48.HE5	pcr_negative_control	unc-1792432702.69336	G03	AB48	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20802	1	NA	AB48	BRSV
-AB48.HE8	pcr_positive_control	ppc-1792432702.69306	H03	AB48	Respiratory Syncitial Virus, Bovine (Other)	HEX	27.7535877227783	20346	1	NA	AB48	BRSV
+AB48.HE5	pcr_negative_control	unc-1792432702.69336	G03	AB48	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20802	1	NA	AB48	BRSV
+AB48.HE8	pcr_positive_control	ppc-1792432702.69306	H03	AB48	Respiratory Syncitial Virus, Bovine (Unk)	HEX	27.7535877227783	20346	1	NA	AB48	BRSV
 AB48.RO10	pcr_positive_control	ppc-1792432702.69306	H03	AB48	SARS-CoV-2 (SC2)	ROX	6.19759607315063	20346	1	NA	AB48	SC2
 AB48.RO2	pcr_negative_control	unc-1792432702.69336	G03	AB48	SARS-CoV-2 (SC2)	ROX	0	20802	1	NA	AB48	SC2
 AB5.CZ10	pcr_positive_control	ppc-1792432702.69306	D09	AB5	Respiratory Syncitial Virus, Human (G)	Cy5.5	0	19948	1	NA	AB5	Human
@@ -995,9 +995,9 @@ AB51.CZ2	pcr_negative_control	unc-1792432702.69336	H04	AB51	Influenza Virus B (N
 AB51.FA13	pcr_positive_control	ppc-1792432702.69306	G04	AB51	Influenza Virus A (M)	FAM	15.1724157333374	21185	1	NA	AB51	FluA
 AB51.FA5	pcr_negative_control	unc-1792432702.69336	H04	AB51	Influenza Virus A (M)	FAM	0.0598910413682461	21003	1	NA	AB51	FluA
 AB51.FA6	pcr_negative_control	unc-1792432702.69336	F04	AB51	Influenza Virus A (M)	FAM	0	21546	1	NA	AB51	FluA
-AB51.HE15	pcr_positive_control	ppc-1792432702.69306	G04	AB51	Respiratory Syncitial Virus, Bovine (Other)	HEX	45.4002571105957	21185	1	NA	AB51	BRSV
-AB51.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB51	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21003	1	NA	AB51	BRSV
-AB51.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB51	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21546	1	NA	AB51	BRSV
+AB51.HE15	pcr_positive_control	ppc-1792432702.69306	G04	AB51	Respiratory Syncitial Virus, Bovine (Unk)	HEX	45.4002571105957	21185	1	NA	AB51	BRSV
+AB51.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB51	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21003	1	NA	AB51	BRSV
+AB51.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB51	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21546	1	NA	AB51	BRSV
 AB51.RO14	pcr_positive_control	ppc-1792432702.69306	G04	AB51	SARS-CoV-2 (SC2)	ROX	8.63898944854736	21185	1	NA	AB51	SC2
 AB51.RO3	pcr_negative_control	unc-1792432702.69336	H04	AB51	SARS-CoV-2 (SC2)	ROX	0	21003	1	NA	AB51	SC2
 AB51.RO8	pcr_negative_control	unc-1792432702.69336	F04	AB51	SARS-CoV-2 (SC2)	ROX	0	21546	1	NA	AB51	SC2
@@ -1007,8 +1007,8 @@ AB52.CZ4	pcr_positive_control	ppc-1792432702.69306	H04	AB52	Influenza Virus B (N
 AB52.CZ7	pcr_negative_control	unc-1792432702.69336	G04	AB52	Influenza Virus B (NEP/NS1)	Cy5.5	10.3295431137085	19197	1	NA	AB52	FluB
 AB52.FA1	pcr_positive_control	ppc-1792432702.69306	H04	AB52	Influenza Virus A (M)	FAM	24.9904632568359	21300	1	NA	AB52	FluA
 AB52.FA10	pcr_negative_control	unc-1792432702.69336	G04	AB52	Influenza Virus A (M)	FAM	0	19197	1	NA	AB52	FluA
-AB52.HE5	pcr_positive_control	ppc-1792432702.69306	H04	AB52	Respiratory Syncitial Virus, Bovine (Other)	HEX	75.4456481933594	21300	1	NA	AB52	BRSV
-AB52.HE6	pcr_negative_control	unc-1792432702.69336	G04	AB52	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19197	1	NA	AB52	BRSV
+AB52.HE5	pcr_positive_control	ppc-1792432702.69306	H04	AB52	Respiratory Syncitial Virus, Bovine (Unk)	HEX	75.4456481933594	21300	1	NA	AB52	BRSV
+AB52.HE6	pcr_negative_control	unc-1792432702.69336	G04	AB52	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19197	1	NA	AB52	BRSV
 AB52.RO3	pcr_positive_control	ppc-1792432702.69306	H04	AB52	SARS-CoV-2 (SC2)	ROX	12.940221786499	21300	1	NA	AB52	SC2
 AB52.RO8	pcr_negative_control	unc-1792432702.69336	G04	AB52	SARS-CoV-2 (SC2)	ROX	0.0655255690217018	19197	1	NA	AB52	SC2
 AB53.CY15	pcr_positive_control	ppc-1792432702.69306	E04	AB53	Respiratory Syncitial Virus, Human (G)	Cy5	28.5341854095459	18993	1	NA	AB53	Human
@@ -1020,9 +1020,9 @@ AB53.CZ4	pcr_negative_control	unc-1792432702.69336	D04	AB53	Influenza Virus B (N
 AB53.FA12	pcr_positive_control	ppc-1792432702.69306	E04	AB53	Influenza Virus A (M)	FAM	20.1614646911621	18993	1	NA	AB53	FluA
 AB53.FA5	pcr_negative_control	unc-1792432702.69336	D04	AB53	Influenza Virus A (M)	FAM	0	21989	1	NA	AB53	FluA
 AB53.FA9	pcr_negative_control	unc-1792432702.69336	F04	AB53	Influenza Virus A (M)	FAM	0	20588	1	NA	AB53	FluA
-AB53.HE14	pcr_positive_control	ppc-1792432702.69306	E04	AB53	Respiratory Syncitial Virus, Bovine (Other)	HEX	60.7852973937988	18993	1	NA	AB53	BRSV
-AB53.HE3	pcr_negative_control	unc-1792432702.69336	D04	AB53	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.057205431163311	21989	1	NA	AB53	BRSV
-AB53.HE8	pcr_negative_control	unc-1792432702.69336	F04	AB53	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20588	1	NA	AB53	BRSV
+AB53.HE14	pcr_positive_control	ppc-1792432702.69306	E04	AB53	Respiratory Syncitial Virus, Bovine (Unk)	HEX	60.7852973937988	18993	1	NA	AB53	BRSV
+AB53.HE3	pcr_negative_control	unc-1792432702.69336	D04	AB53	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.057205431163311	21989	1	NA	AB53	BRSV
+AB53.HE8	pcr_negative_control	unc-1792432702.69336	F04	AB53	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20588	1	NA	AB53	BRSV
 AB53.RO1	pcr_negative_control	unc-1792432702.69336	D04	AB53	SARS-CoV-2 (SC2)	ROX	0	21989	1	NA	AB53	SC2
 AB53.RO13	pcr_positive_control	ppc-1792432702.69306	E04	AB53	SARS-CoV-2 (SC2)	ROX	10.574520111084	18993	1	NA	AB53	SC2
 AB53.RO6	pcr_negative_control	unc-1792432702.69336	F04	AB53	SARS-CoV-2 (SC2)	ROX	0	20588	1	NA	AB53	SC2
@@ -1035,9 +1035,9 @@ AB54.CZ6	pcr_negative_control	unc-1792432702.69336	C01	AB54	Influenza Virus B (N
 AB54.FA1	pcr_positive_control	ppc-1792432702.69306	B01	AB54	Influenza Virus A (M)	FAM	21.0335674285889	21227	1	NA	AB54	FluA
 AB54.FA13	pcr_negative_control	unc-1792432702.69336	A01	AB54	Influenza Virus A (M)	FAM	0	20700	1	NA	AB54	FluA
 AB54.FA7	pcr_negative_control	unc-1792432702.69336	C01	AB54	Influenza Virus A (M)	FAM	0	21680	1	NA	AB54	FluA
-AB54.HE14	pcr_negative_control	unc-1792432702.69336	A01	AB54	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20700	1	NA	AB54	BRSV
-AB54.HE4	pcr_positive_control	ppc-1792432702.69306	B01	AB54	Respiratory Syncitial Virus, Bovine (Other)	HEX	62.3167915344238	21227	1	NA	AB54	BRSV
-AB54.HE9	pcr_negative_control	unc-1792432702.69336	C01	AB54	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21680	1	NA	AB54	BRSV
+AB54.HE14	pcr_negative_control	unc-1792432702.69336	A01	AB54	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20700	1	NA	AB54	BRSV
+AB54.HE4	pcr_positive_control	ppc-1792432702.69306	B01	AB54	Respiratory Syncitial Virus, Bovine (Unk)	HEX	62.3167915344238	21227	1	NA	AB54	BRSV
+AB54.HE9	pcr_negative_control	unc-1792432702.69336	C01	AB54	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21680	1	NA	AB54	BRSV
 AB54.RO10	pcr_negative_control	unc-1792432702.69336	C01	AB54	SARS-CoV-2 (SC2)	ROX	0	21680	1	NA	AB54	SC2
 AB54.RO15	pcr_negative_control	unc-1792432702.69336	A01	AB54	SARS-CoV-2 (SC2)	ROX	0	20700	1	NA	AB54	SC2
 AB54.RO5	pcr_positive_control	ppc-1792432702.69306	B01	AB54	SARS-CoV-2 (SC2)	ROX	10.7716188430786	21227	1	NA	AB54	SC2
@@ -1047,8 +1047,8 @@ AB55.CZ4	pcr_negative_control	unc-1792432702.69336	G04	AB55	Influenza Virus B (N
 AB55.CZ6	pcr_positive_control	ppc-1792432702.69306	H04	AB55	Influenza Virus B (NEP/NS1)	Cy5.5	34.1067428588867	20822	1	NA	AB55	FluB
 AB55.FA5	pcr_negative_control	unc-1792432702.69336	G04	AB55	Influenza Virus A (M)	FAM	0	21062	1	NA	AB55	FluA
 AB55.FA7	pcr_positive_control	ppc-1792432702.69306	H04	AB55	Influenza Virus A (M)	FAM	1.45068144798279	20822	1	NA	AB55	FluA
-AB55.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB55	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21062	1	NA	AB55	BRSV
-AB55.HE9	pcr_positive_control	ppc-1792432702.69306	H04	AB55	Respiratory Syncitial Virus, Bovine (Other)	HEX	79.6752014160156	20822	1	NA	AB55	BRSV
+AB55.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB55	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21062	1	NA	AB55	BRSV
+AB55.HE9	pcr_positive_control	ppc-1792432702.69306	H04	AB55	Respiratory Syncitial Virus, Bovine (Unk)	HEX	79.6752014160156	20822	1	NA	AB55	BRSV
 AB55.RO10	pcr_positive_control	ppc-1792432702.69306	H04	AB55	SARS-CoV-2 (SC2)	ROX	13.9105758666992	20822	1	NA	AB55	SC2
 AB55.RO2	pcr_negative_control	unc-1792432702.69336	G04	AB55	SARS-CoV-2 (SC2)	ROX	0	21062	1	NA	AB55	SC2
 AB56.CY14	pcr_negative_control	unc-1792432702.69336	D05	AB56	Respiratory Syncitial Virus, Human (G)	Cy5	0	21285	1	NA	AB56	Human
@@ -1066,11 +1066,11 @@ AB56.FA20	pcr_negative_control	unc-1792432702.69336	E05	AB56	Influenza Virus A (
 AB56.FA24	pcr_negative_control	unc-1792432702.69336	H05	AB56	Influenza Virus A (M)	FAM	0	19801	1	NA	AB56	FluA
 AB56.FA5	pcr_positive_control	ppc-1792432702.69306	F05	AB56	Influenza Virus A (M)	FAM	13.8092823028564	20058	1	NA	AB56	FluA
 AB56.FA9	pcr_negative_control	unc-1792432702.69336	G05	AB56	Influenza Virus A (M)	FAM	0	14659	1	NA	AB56	FluA
-AB56.HE1	pcr_positive_control	ppc-1792432702.69306	F05	AB56	Respiratory Syncitial Virus, Bovine (Other)	HEX	28.73388671875	20058	1	NA	AB56	BRSV
-AB56.HE15	pcr_negative_control	unc-1792432702.69336	D05	AB56	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21285	1	NA	AB56	BRSV
-AB56.HE16	pcr_negative_control	unc-1792432702.69336	E05	AB56	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20146	1	NA	AB56	BRSV
-AB56.HE21	pcr_negative_control	unc-1792432702.69336	H05	AB56	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19801	1	NA	AB56	BRSV
-AB56.HE6	pcr_negative_control	unc-1792432702.69336	G05	AB56	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	14659	1	NA	AB56	BRSV
+AB56.HE1	pcr_positive_control	ppc-1792432702.69306	F05	AB56	Respiratory Syncitial Virus, Bovine (Unk)	HEX	28.73388671875	20058	1	NA	AB56	BRSV
+AB56.HE15	pcr_negative_control	unc-1792432702.69336	D05	AB56	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21285	1	NA	AB56	BRSV
+AB56.HE16	pcr_negative_control	unc-1792432702.69336	E05	AB56	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20146	1	NA	AB56	BRSV
+AB56.HE21	pcr_negative_control	unc-1792432702.69336	H05	AB56	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19801	1	NA	AB56	BRSV
+AB56.HE6	pcr_negative_control	unc-1792432702.69336	G05	AB56	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	14659	1	NA	AB56	BRSV
 AB56.RO10	pcr_negative_control	unc-1792432702.69336	G05	AB56	SARS-CoV-2 (SC2)	ROX	0	14659	1	NA	AB56	SC2
 AB56.RO11	pcr_negative_control	unc-1792432702.69336	D05	AB56	SARS-CoV-2 (SC2)	ROX	0	21285	1	NA	AB56	SC2
 AB56.RO19	pcr_negative_control	unc-1792432702.69336	E05	AB56	SARS-CoV-2 (SC2)	ROX	0	20146	1	NA	AB56	SC2
@@ -1088,10 +1088,10 @@ AB57.FA13	pcr_negative_control	unc-1792432702.69336	G04	AB57	Influenza Virus A (
 AB57.FA16	pcr_negative_control	unc-1792432702.69336	H04	AB57	Influenza Virus A (M)	FAM	0	21472	1	NA	AB57	FluA
 AB57.FA2	pcr_negative_control	unc-1792432702.69336	E04	AB57	Influenza Virus A (M)	FAM	0	20605	1	NA	AB57	FluA
 AB57.FA5	pcr_positive_control	ppc-1792432702.69306	F04	AB57	Influenza Virus A (M)	FAM	0	20083	1	NA	AB57	FluA
-AB57.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB57	Respiratory Syncitial Virus, Bovine (Other)	HEX	37.6394577026367	19369	1	NA	AB57	BRSV
-AB57.HE14	pcr_negative_control	unc-1792432702.69336	H04	AB57	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21472	1	NA	AB57	BRSV
-AB57.HE4	pcr_negative_control	unc-1792432702.69336	E04	AB57	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20605	1	NA	AB57	BRSV
-AB57.HE8	pcr_positive_control	ppc-1792432702.69306	F04	AB57	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20083	1	NA	AB57	BRSV
+AB57.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB57	Respiratory Syncitial Virus, Bovine (Unk)	HEX	37.6394577026367	19369	1	NA	AB57	BRSV
+AB57.HE14	pcr_negative_control	unc-1792432702.69336	H04	AB57	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21472	1	NA	AB57	BRSV
+AB57.HE4	pcr_negative_control	unc-1792432702.69336	E04	AB57	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20605	1	NA	AB57	BRSV
+AB57.HE8	pcr_positive_control	ppc-1792432702.69306	F04	AB57	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20083	1	NA	AB57	BRSV
 AB57.RO6	pcr_positive_control	ppc-1792432702.69306	F04	AB57	SARS-CoV-2 (SC2)	ROX	0	20083	1	NA	AB57	SC2
 AB58.CY10	pcr_negative_control	unc-1792432702.69336	F04	AB58	Respiratory Syncitial Virus, Human (G)	Cy5	0	20734	1	NA	AB58	Human
 AB58.CY13	pcr_positive_control	ppc-1792432702.69306	G04	AB58	Respiratory Syncitial Virus, Human (G)	Cy5	8.97625923156738	20673	1	NA	AB58	Human
@@ -1105,10 +1105,10 @@ AB58.FA14	pcr_positive_control	ppc-1792432702.69306	G04	AB58	Influenza Virus A (
 AB58.FA17	pcr_negative_control	unc-1792432702.69336	H04	AB58	Influenza Virus A (M)	FAM	0.0606037750840187	20756	1	NA	AB58	FluA
 AB58.FA3	pcr_negative_control	unc-1792432702.69336	E04	AB58	Influenza Virus A (M)	FAM	0	20730	1	NA	AB58	FluA
 AB58.FA9	pcr_negative_control	unc-1792432702.69336	F04	AB58	Influenza Virus A (M)	FAM	0	20734	1	NA	AB58	FluA
-AB58.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB58	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20730	1	NA	AB58	BRSV
-AB58.HE12	pcr_positive_control	ppc-1792432702.69306	G04	AB58	Respiratory Syncitial Virus, Bovine (Other)	HEX	20.7357997894287	20673	1	NA	AB58	BRSV
-AB58.HE19	pcr_negative_control	unc-1792432702.69336	H04	AB58	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20756	1	NA	AB58	BRSV
-AB58.HE6	pcr_negative_control	unc-1792432702.69336	F04	AB58	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20734	1	NA	AB58	BRSV
+AB58.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB58	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20730	1	NA	AB58	BRSV
+AB58.HE12	pcr_positive_control	ppc-1792432702.69306	G04	AB58	Respiratory Syncitial Virus, Bovine (Unk)	HEX	20.7357997894287	20673	1	NA	AB58	BRSV
+AB58.HE19	pcr_negative_control	unc-1792432702.69336	H04	AB58	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20756	1	NA	AB58	BRSV
+AB58.HE6	pcr_negative_control	unc-1792432702.69336	F04	AB58	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20734	1	NA	AB58	BRSV
 AB58.RO15	pcr_positive_control	ppc-1792432702.69306	G04	AB58	SARS-CoV-2 (SC2)	ROX	6.95559692382813	20673	1	NA	AB58	SC2
 AB58.RO16	pcr_negative_control	unc-1792432702.69336	H04	AB58	SARS-CoV-2 (SC2)	ROX	0	20756	1	NA	AB58	SC2
 AB58.RO4	pcr_negative_control	unc-1792432702.69336	E04	AB58	SARS-CoV-2 (SC2)	ROX	0	20730	1	NA	AB58	SC2
@@ -1119,8 +1119,8 @@ AB59.CZ10	pcr_negative_control	unc-1792432702.69336	G04	AB59	Influenza Virus B (
 AB59.CZ4	pcr_positive_control	ppc-1792432702.69306	H04	AB59	Influenza Virus B (NEP/NS1)	Cy5.5	10.4765033721924	21099	1	NA	AB59	FluB
 AB59.FA3	pcr_positive_control	ppc-1792432702.69306	H04	AB59	Influenza Virus A (M)	FAM	10.8372497558594	21099	1	NA	AB59	FluA
 AB59.FA6	pcr_negative_control	unc-1792432702.69336	G04	AB59	Influenza Virus A (M)	FAM	0	20166	1	NA	AB59	FluA
-AB59.HE5	pcr_positive_control	ppc-1792432702.69306	H04	AB59	Respiratory Syncitial Virus, Bovine (Other)	HEX	22.3754043579102	21099	1	NA	AB59	BRSV
-AB59.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB59	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20166	1	NA	AB59	BRSV
+AB59.HE5	pcr_positive_control	ppc-1792432702.69306	H04	AB59	Respiratory Syncitial Virus, Bovine (Unk)	HEX	22.3754043579102	21099	1	NA	AB59	BRSV
+AB59.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB59	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20166	1	NA	AB59	BRSV
 AB59.RO2	pcr_positive_control	ppc-1792432702.69306	H04	AB59	SARS-CoV-2 (SC2)	ROX	8.25418567657471	21099	1	NA	AB59	SC2
 AB59.RO7	pcr_negative_control	unc-1792432702.69336	G04	AB59	SARS-CoV-2 (SC2)	ROX	0	20166	1	NA	AB59	SC2
 AB6.FA2	pcr_negative_control	unc-1792432702.69336	F04	AB6	SARS-CoV-2 (N2)	FAM	0	20067	1	NA	AB6	N2
@@ -1147,12 +1147,12 @@ AB60.FA25	pcr_negative_control	unc-1792432702.69336	C04	AB60	Influenza Virus A (
 AB60.FA28	pcr_positive_control	ppc-1792432702.69306	E04	AB60	Influenza Virus A (M)	FAM	26.407958984375	19446	1	NA	AB60	FluA
 AB60.FA5	pcr_positive_control	ppc-1792432702.69306	F04	AB60	Influenza Virus A (M)	FAM	21.7029438018799	18064	1	NA	AB60	FluA
 AB60.FA8	pcr_negative_control	unc-1792432702.69336	D04	AB60	Influenza Virus A (M)	FAM	0.0683341920375824	18408	1	NA	AB60	FluA
-AB60.HE12	pcr_negative_control	unc-1792432702.69336	H04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19310	1	NA	AB60	BRSV
-AB60.HE16	pcr_negative_control	unc-1792432702.69336	G04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18659	1	NA	AB60	BRSV
-AB60.HE2	pcr_positive_control	ppc-1792432702.69306	F04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	13.9339818954468	18064	1	NA	AB60	BRSV
-AB60.HE22	pcr_negative_control	unc-1792432702.69336	C04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19675	1	NA	AB60	BRSV
-AB60.HE30	pcr_positive_control	ppc-1792432702.69306	E04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	15.0971240997314	19446	1	NA	AB60	BRSV
-AB60.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB60	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18408	1	NA	AB60	BRSV
+AB60.HE12	pcr_negative_control	unc-1792432702.69336	H04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19310	1	NA	AB60	BRSV
+AB60.HE16	pcr_negative_control	unc-1792432702.69336	G04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18659	1	NA	AB60	BRSV
+AB60.HE2	pcr_positive_control	ppc-1792432702.69306	F04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	13.9339818954468	18064	1	NA	AB60	BRSV
+AB60.HE22	pcr_negative_control	unc-1792432702.69336	C04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19675	1	NA	AB60	BRSV
+AB60.HE30	pcr_positive_control	ppc-1792432702.69306	E04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	15.0971240997314	19446	1	NA	AB60	BRSV
+AB60.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB60	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18408	1	NA	AB60	BRSV
 AB60.RO15	pcr_negative_control	unc-1792432702.69336	H04	AB60	SARS-CoV-2 (SC2)	ROX	0	19310	1	NA	AB60	SC2
 AB60.RO18	pcr_negative_control	unc-1792432702.69336	G04	AB60	SARS-CoV-2 (SC2)	ROX	0.0674149319529533	18659	1	NA	AB60	SC2
 AB60.RO24	pcr_negative_control	unc-1792432702.69336	C04	AB60	SARS-CoV-2 (SC2)	ROX	0	19675	1	NA	AB60	SC2
@@ -1162,7 +1162,7 @@ AB60.RO9	pcr_negative_control	unc-1792432702.69336	D04	AB60	SARS-CoV-2 (SC2)	ROX
 AB61.CY3	pcr_negative_control	unc-1792432702.69336	H04	AB61	Respiratory Syncitial Virus, Human (G)	Cy5	0	20951	1	NA	AB61	Human
 AB61.CZ5	pcr_negative_control	unc-1792432702.69336	H04	AB61	Influenza Virus B (NEP/NS1)	Cy5.5	0.360281139612198	20951	1	NA	AB61	FluB
 AB61.FA1	pcr_negative_control	unc-1792432702.69336	H04	AB61	Influenza Virus A (M)	FAM	0.0600396953523159	20951	1	NA	AB61	FluA
-AB61.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB61	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20951	1	NA	AB61	BRSV
+AB61.HE4	pcr_negative_control	unc-1792432702.69336	H04	AB61	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20951	1	NA	AB61	BRSV
 AB61.RO2	pcr_negative_control	unc-1792432702.69336	H04	AB61	SARS-CoV-2 (SC2)	ROX	0	20951	1	NA	AB61	SC2
 AB62.CY10	pcr_negative_control	unc-1792432702.69336	D05	AB62	Respiratory Syncitial Virus, Human (G)	Cy5	0	21093	1	NA	AB62	Human
 AB62.CY13	pcr_positive_control	ppc-1792432702.69306	H05	AB62	Respiratory Syncitial Virus, Human (G)	Cy5	16.4037399291992	21148	1	NA	AB62	Human
@@ -1173,16 +1173,16 @@ AB62.CZ7	pcr_negative_control	unc-1792432702.69336	D05	AB62	Influenza Virus B (N
 AB62.FA11	pcr_positive_control	ppc-1792432702.69306	H05	AB62	Influenza Virus A (M)	FAM	19.1787452697754	21148	1	NA	AB62	FluA
 AB62.FA2	pcr_negative_control	unc-1792432702.69336	C05	AB62	Influenza Virus A (M)	FAM	0.058895543217659	21358	1	NA	AB62	FluA
 AB62.FA8	pcr_negative_control	unc-1792432702.69336	D05	AB62	Influenza Virus A (M)	FAM	0	21093	1	NA	AB62	FluA
-AB62.HE14	pcr_positive_control	ppc-1792432702.69306	H05	AB62	Respiratory Syncitial Virus, Bovine (Other)	HEX	12.8534297943115	21148	1	NA	AB62	BRSV
-AB62.HE4	pcr_negative_control	unc-1792432702.69336	C05	AB62	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21358	1	NA	AB62	BRSV
-AB62.HE6	pcr_negative_control	unc-1792432702.69336	D05	AB62	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21093	1	NA	AB62	BRSV
+AB62.HE14	pcr_positive_control	ppc-1792432702.69306	H05	AB62	Respiratory Syncitial Virus, Bovine (Unk)	HEX	12.8534297943115	21148	1	NA	AB62	BRSV
+AB62.HE4	pcr_negative_control	unc-1792432702.69336	C05	AB62	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21358	1	NA	AB62	BRSV
+AB62.HE6	pcr_negative_control	unc-1792432702.69336	D05	AB62	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21093	1	NA	AB62	BRSV
 AB62.RO1	pcr_negative_control	unc-1792432702.69336	C05	AB62	SARS-CoV-2 (SC2)	ROX	0	21358	1	NA	AB62	SC2
 AB62.RO12	pcr_positive_control	ppc-1792432702.69306	H05	AB62	SARS-CoV-2 (SC2)	ROX	15.3195323944092	21148	1	NA	AB62	SC2
 AB62.RO9	pcr_negative_control	unc-1792432702.69336	D05	AB62	SARS-CoV-2 (SC2)	ROX	0	21093	1	NA	AB62	SC2
 AB65.CY5	pcr_negative_control	unc-1792432702.69336	H04	AB65	Respiratory Syncitial Virus, Human (G)	Cy5	0	20672	1	NA	AB65	Human
 AB65.CZ2	pcr_negative_control	unc-1792432702.69336	H04	AB65	Influenza Virus B (NEP/NS1)	Cy5.5	7.44551801681519	20672	1	NA	AB65	FluB
 AB65.FA3	pcr_negative_control	unc-1792432702.69336	H04	AB65	Influenza Virus A (M)	FAM	1.52213478088379	20672	1	NA	AB65	FluA
-AB65.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB65	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20672	1	NA	AB65	BRSV
+AB65.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB65	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20672	1	NA	AB65	BRSV
 AB65.RO4	pcr_negative_control	unc-1792432702.69336	H04	AB65	SARS-CoV-2 (SC2)	ROX	0	20672	1	NA	AB65	SC2
 AB66.CY1	pcr_negative_control	unc-1792432702.69336	H03	AB66	Respiratory Syncitial Virus, Human (G)	Cy5	0	21242	1	NA	AB66	Human
 AB66.CY10	pcr_positive_control	ppc-1792432702.69306	G03	AB66	Respiratory Syncitial Virus, Human (G)	Cy5	17.0127563476563	21438	1	NA	AB66	Human
@@ -1190,8 +1190,8 @@ AB66.CZ2	pcr_negative_control	unc-1792432702.69336	H03	AB66	Influenza Virus B (N
 AB66.CZ6	pcr_positive_control	ppc-1792432702.69306	G03	AB66	Influenza Virus B (NEP/NS1)	Cy5.5	39.757568359375	21438	1	NA	AB66	FluB
 AB66.FA5	pcr_negative_control	unc-1792432702.69336	H03	AB66	Influenza Virus A (M)	FAM	0	21242	1	NA	AB66	FluA
 AB66.FA9	pcr_positive_control	ppc-1792432702.69306	G03	AB66	Influenza Virus A (M)	FAM	23.8708553314209	21438	1	NA	AB66	FluA
-AB66.HE3	pcr_negative_control	unc-1792432702.69336	H03	AB66	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21242	1	NA	AB66	BRSV
-AB66.HE7	pcr_positive_control	ppc-1792432702.69306	G03	AB66	Respiratory Syncitial Virus, Bovine (Other)	HEX	14.1019334793091	21438	1	NA	AB66	BRSV
+AB66.HE3	pcr_negative_control	unc-1792432702.69336	H03	AB66	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21242	1	NA	AB66	BRSV
+AB66.HE7	pcr_positive_control	ppc-1792432702.69306	G03	AB66	Respiratory Syncitial Virus, Bovine (Unk)	HEX	14.1019334793091	21438	1	NA	AB66	BRSV
 AB66.RO4	pcr_negative_control	unc-1792432702.69336	H03	AB66	SARS-CoV-2 (SC2)	ROX	0	21242	1	NA	AB66	SC2
 AB66.RO8	pcr_positive_control	ppc-1792432702.69306	G03	AB66	SARS-CoV-2 (SC2)	ROX	20.5862293243408	21438	1	NA	AB66	SC2
 AB67.CY4	pcr_positive_control	ppc-1792432702.69306	H04	AB67	Respiratory Syncitial Virus, Human (G)	Cy5	19.3110103607178	21595	1	NA	AB67	Human
@@ -1200,8 +1200,8 @@ AB67.CZ10	pcr_negative_control	unc-1792432702.69336	G04	AB67	Influenza Virus B (
 AB67.CZ3	pcr_positive_control	ppc-1792432702.69306	H04	AB67	Influenza Virus B (NEP/NS1)	Cy5.5	19.9026393890381	21595	1	NA	AB67	FluB
 AB67.FA1	pcr_positive_control	ppc-1792432702.69306	H04	AB67	Influenza Virus A (M)	FAM	23.3989219665527	21595	1	NA	AB67	FluA
 AB67.FA8	pcr_negative_control	unc-1792432702.69336	G04	AB67	Influenza Virus A (M)	FAM	0	20921	1	NA	AB67	FluA
-AB67.HE2	pcr_positive_control	ppc-1792432702.69306	H04	AB67	Respiratory Syncitial Virus, Bovine (Other)	HEX	13.4688510894775	21595	1	NA	AB67	BRSV
-AB67.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB67	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20921	1	NA	AB67	BRSV
+AB67.HE2	pcr_positive_control	ppc-1792432702.69306	H04	AB67	Respiratory Syncitial Virus, Bovine (Unk)	HEX	13.4688510894775	21595	1	NA	AB67	BRSV
+AB67.HE9	pcr_negative_control	unc-1792432702.69336	G04	AB67	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20921	1	NA	AB67	BRSV
 AB67.RO5	pcr_positive_control	ppc-1792432702.69306	H04	AB67	SARS-CoV-2 (SC2)	ROX	20.3169441223145	21595	1	NA	AB67	SC2
 AB67.RO7	pcr_negative_control	unc-1792432702.69336	G04	AB67	SARS-CoV-2 (SC2)	ROX	0	20921	1	NA	AB67	SC2
 AB7.FA3	pcr_negative_control	unc-1792432702.69336	H03	AB7	SARS-CoV-2 (N2)	FAM	0.0639238506555557	19678	1	NA	AB7	N2
@@ -1215,7 +1215,7 @@ AB7.HE7	pcr_negative_control	unc-1792432702.69336	G03	AB7	Influenza Virus A (M)	
 AB70.CY5	pcr_negative_control	unc-1792432702.69336	H07	AB70	Respiratory Syncitial Virus, Human (G)	Cy5	0	18751	1	NA	AB70	Human
 AB70.CZ3	pcr_negative_control	unc-1792432702.69336	H07	AB70	Influenza Virus B (NEP/NS1)	Cy5.5	0.335456609725952	18751	1	NA	AB70	FluB
 AB70.FA2	pcr_negative_control	unc-1792432702.69336	H07	AB70	Influenza Virus A (M)	FAM	0	18751	1	NA	AB70	FluA
-AB70.HE1	pcr_negative_control	unc-1792432702.69336	H07	AB70	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18751	1	NA	AB70	BRSV
+AB70.HE1	pcr_negative_control	unc-1792432702.69336	H07	AB70	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18751	1	NA	AB70	BRSV
 AB70.RO4	pcr_negative_control	unc-1792432702.69336	H07	AB70	SARS-CoV-2 (SC2)	ROX	0	18751	1	NA	AB70	SC2
 AB7102024.FA1	pcr_positive_control	ppc-1792432702.69306	H12	AB7102024	Human Norovirus GI (ORF1_2)	FAM	0	19010	1	NA	AB7102024	Human
 AB7102024.FA4	pcr_negative_control	unc-1792432702.69336	A12	AB7102024	Human Norovirus GI (ORF1_2)	FAM	15.7129383087158	18769	1	NA	AB7102024	Human
@@ -1233,10 +1233,10 @@ AB72.FA12	pcr_negative_control	unc-1792432702.69336	G04	AB72	Influenza Virus A (
 AB72.FA18	pcr_negative_control	unc-1792432702.69336	H04	AB72	Influenza Virus A (M)	FAM	0.124417565762997	20221	1	NA	AB72	FluA
 AB72.FA4	pcr_negative_control	unc-1792432702.69336	E04	AB72	Influenza Virus A (M)	FAM	0	20087	1	NA	AB72	FluA
 AB72.FA7	pcr_positive_control	ppc-1792432702.69306	F04	AB72	Influenza Virus A (M)	FAM	0.064057320356369	19637	1	NA	AB72	FluA
-AB72.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB72	Respiratory Syncitial Virus, Bovine (Other)	HEX	14.8944673538208	19709	1	NA	AB72	BRSV
-AB72.HE17	pcr_negative_control	unc-1792432702.69336	H04	AB72	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20221	1	NA	AB72	BRSV
-AB72.HE5	pcr_negative_control	unc-1792432702.69336	E04	AB72	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20087	1	NA	AB72	BRSV
-AB72.HE6	pcr_positive_control	ppc-1792432702.69306	F04	AB72	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19637	1	NA	AB72	BRSV
+AB72.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB72	Respiratory Syncitial Virus, Bovine (Unk)	HEX	14.8944673538208	19709	1	NA	AB72	BRSV
+AB72.HE17	pcr_negative_control	unc-1792432702.69336	H04	AB72	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20221	1	NA	AB72	BRSV
+AB72.HE5	pcr_negative_control	unc-1792432702.69336	E04	AB72	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20087	1	NA	AB72	BRSV
+AB72.HE6	pcr_positive_control	ppc-1792432702.69306	F04	AB72	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19637	1	NA	AB72	BRSV
 AB72.RO14	pcr_negative_control	unc-1792432702.69336	G04	AB72	SARS-CoV-2 (SC2)	ROX	17.8687477111816	19709	1	NA	AB72	SC2
 AB72.RO19	pcr_negative_control	unc-1792432702.69336	H04	AB72	SARS-CoV-2 (SC2)	ROX	0	20221	1	NA	AB72	SC2
 AB72.RO2	pcr_negative_control	unc-1792432702.69336	E04	AB72	SARS-CoV-2 (SC2)	ROX	0	20087	1	NA	AB72	SC2
@@ -1247,8 +1247,8 @@ AB73.CZ4	pcr_positive_control	ppc-1792432702.69306	G04	AB73	Influenza Virus B (N
 AB73.CZ6	pcr_negative_control	unc-1792432702.69336	F04	AB73	Influenza Virus B (NEP/NS1)	Cy5.5	0.239091739058495	21046	1	NA	AB73	FluB
 AB73.FA3	pcr_positive_control	ppc-1792432702.69306	G04	AB73	Influenza Virus A (M)	FAM	21.4268970489502	20959	1	NA	AB73	FluA
 AB73.FA8	pcr_negative_control	unc-1792432702.69336	F04	AB73	Influenza Virus A (M)	FAM	0.358654648065567	21046	1	NA	AB73	FluA
-AB73.HE1	pcr_positive_control	ppc-1792432702.69306	G04	AB73	Respiratory Syncitial Virus, Bovine (Other)	HEX	12.9699363708496	20959	1	NA	AB73	BRSV
-AB73.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB73	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0597686730325222	21046	1	NA	AB73	BRSV
+AB73.HE1	pcr_positive_control	ppc-1792432702.69306	G04	AB73	Respiratory Syncitial Virus, Bovine (Unk)	HEX	12.9699363708496	20959	1	NA	AB73	BRSV
+AB73.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB73	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0597686730325222	21046	1	NA	AB73	BRSV
 AB73.RO2	pcr_positive_control	ppc-1792432702.69306	G04	AB73	SARS-CoV-2 (SC2)	ROX	15.3370199203491	20959	1	NA	AB73	SC2
 AB73.RO9	pcr_negative_control	unc-1792432702.69336	F04	AB73	SARS-CoV-2 (SC2)	ROX	0	21046	1	NA	AB73	SC2
 AB74.CY15	pcr_positive_control	ppc-1792432702.69306	E04	AB74	Respiratory Syncitial Virus, Human (G)	Cy5	25.3635425567627	17934	1	NA	AB74	Human
@@ -1272,13 +1272,13 @@ AB74.FA26	pcr_negative_control	unc-1792432702.69336	B04	AB74	Influenza Virus A (
 AB74.FA33	pcr_negative_control	unc-1792432702.69336	F04	AB74	Influenza Virus A (M)	FAM	0.154594928026199	16274	1	NA	AB74	FluA
 AB74.FA4	pcr_negative_control	unc-1792432702.69336	D04	AB74	Influenza Virus A (M)	FAM	0	16605	1	NA	AB74	FluA
 AB74.FA7	pcr_negative_control	unc-1792432702.69336	H04	AB74	Influenza Virus A (M)	FAM	0.601761281490326	20908	1	NA	AB74	FluA
-AB74.HE13	pcr_positive_control	ppc-1792432702.69306	E04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	15.5968790054321	17934	1	NA	AB74	BRSV
-AB74.HE16	pcr_negative_control	unc-1792432702.69336	G04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16528	1	NA	AB74	BRSV
-AB74.HE21	pcr_negative_control	unc-1792432702.69336	C04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18294	1	NA	AB74	BRSV
-AB74.HE28	pcr_negative_control	unc-1792432702.69336	B04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16587	1	NA	AB74	BRSV
-AB74.HE35	pcr_negative_control	unc-1792432702.69336	F04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16274	1	NA	AB74	BRSV
-AB74.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16605	1	NA	AB74	BRSV
-AB74.HE6	pcr_negative_control	unc-1792432702.69336	H04	AB74	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20908	1	NA	AB74	BRSV
+AB74.HE13	pcr_positive_control	ppc-1792432702.69306	E04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	15.5968790054321	17934	1	NA	AB74	BRSV
+AB74.HE16	pcr_negative_control	unc-1792432702.69336	G04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16528	1	NA	AB74	BRSV
+AB74.HE21	pcr_negative_control	unc-1792432702.69336	C04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18294	1	NA	AB74	BRSV
+AB74.HE28	pcr_negative_control	unc-1792432702.69336	B04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16587	1	NA	AB74	BRSV
+AB74.HE35	pcr_negative_control	unc-1792432702.69336	F04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16274	1	NA	AB74	BRSV
+AB74.HE5	pcr_negative_control	unc-1792432702.69336	D04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16605	1	NA	AB74	BRSV
+AB74.HE6	pcr_negative_control	unc-1792432702.69336	H04	AB74	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20908	1	NA	AB74	BRSV
 AB74.RO12	pcr_positive_control	ppc-1792432702.69306	E04	AB74	SARS-CoV-2 (SC2)	ROX	22.2899208068848	17934	1	NA	AB74	SC2
 AB74.RO17	pcr_negative_control	unc-1792432702.69336	G04	AB74	SARS-CoV-2 (SC2)	ROX	0	16528	1	NA	AB74	SC2
 AB74.RO23	pcr_negative_control	unc-1792432702.69336	C04	AB74	SARS-CoV-2 (SC2)	ROX	0	18294	1	NA	AB74	SC2
@@ -1292,19 +1292,19 @@ AB75.CZ5	pcr_positive_control	ppc-1792432702.69306	H04	AB75	Influenza Virus B (N
 AB75.CZ8	pcr_negative_control	unc-1792432702.69336	F04	AB75	Influenza Virus B (NEP/NS1)	Cy5.5	0	21523	1	NA	AB75	FluB
 AB75.FA3	pcr_positive_control	ppc-1792432702.69306	H04	AB75	Influenza Virus A (M)	FAM	21.5990524291992	18855	1	NA	AB75	FluA
 AB75.FA9	pcr_negative_control	unc-1792432702.69336	F04	AB75	Influenza Virus A (M)	FAM	0	21523	1	NA	AB75	FluA
-AB75.HE4	pcr_positive_control	ppc-1792432702.69306	H04	AB75	Respiratory Syncitial Virus, Bovine (Other)	HEX	14.358081817627	18855	1	NA	AB75	BRSV
-AB75.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB75	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21523	1	NA	AB75	BRSV
+AB75.HE4	pcr_positive_control	ppc-1792432702.69306	H04	AB75	Respiratory Syncitial Virus, Bovine (Unk)	HEX	14.358081817627	18855	1	NA	AB75	BRSV
+AB75.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB75	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21523	1	NA	AB75	BRSV
 AB75.RO10	pcr_negative_control	unc-1792432702.69336	F04	AB75	SARS-CoV-2 (SC2)	ROX	0	21523	1	NA	AB75	SC2
 AB75.RO2	pcr_positive_control	ppc-1792432702.69306	H04	AB75	SARS-CoV-2 (SC2)	ROX	15.6408224105835	18855	1	NA	AB75	SC2
 AB76.CY5	pcr_negative_control	unc-1792432702.69336	H03	AB76	Respiratory Syncitial Virus, Human (G)	Cy5	0	21255	1	NA	AB76	Human
 AB76.CZ2	pcr_negative_control	unc-1792432702.69336	H03	AB76	Influenza Virus B (NEP/NS1)	Cy5.5	0.0591809526085854	21255	1	NA	AB76	FluB
 AB76.FA4	pcr_negative_control	unc-1792432702.69336	H03	AB76	Influenza Virus A (M)	FAM	0.0591809526085854	21255	1	NA	AB76	FluA
-AB76.HE1	pcr_negative_control	unc-1792432702.69336	H03	AB76	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21255	1	NA	AB76	BRSV
+AB76.HE1	pcr_negative_control	unc-1792432702.69336	H03	AB76	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21255	1	NA	AB76	BRSV
 AB76.RO3	pcr_negative_control	unc-1792432702.69336	H03	AB76	SARS-CoV-2 (SC2)	ROX	0	21255	1	NA	AB76	SC2
 AB78.CY4	pcr_negative_control	unc-1792432702.69336	B05	AB78	Respiratory Syncitial Virus, Human (G)	Cy5	0	20824	1	NA	AB78	Human
 AB78.CZ1	pcr_negative_control	unc-1792432702.69336	B05	AB78	Influenza Virus B (NEP/NS1)	Cy5.5	0.845946252346039	20824	1	NA	AB78	FluB
 AB78.FA2	pcr_negative_control	unc-1792432702.69336	B05	AB78	Influenza Virus A (M)	FAM	0.120814636349678	20824	1	NA	AB78	FluA
-AB78.HE5	pcr_negative_control	unc-1792432702.69336	B05	AB78	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20824	1	NA	AB78	BRSV
+AB78.HE5	pcr_negative_control	unc-1792432702.69336	B05	AB78	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20824	1	NA	AB78	BRSV
 AB78.RO3	pcr_negative_control	unc-1792432702.69336	B05	AB78	SARS-CoV-2 (SC2)	ROX	0	20824	1	NA	AB78	SC2
 AB79.CY5	pcr_negative_control	unc-1792432702.69336	G04	AB79	Respiratory Syncitial Virus, Human (G)	Cy5	0	22133	1	NA	AB79	Human
 AB79.CY9	pcr_negative_control	unc-1792432702.69336	H04	AB79	Respiratory Syncitial Virus, Human (G)	Cy5	0	21539	1	NA	AB79	Human
@@ -1312,8 +1312,8 @@ AB79.CZ1	pcr_negative_control	unc-1792432702.69336	G04	AB79	Influenza Virus B (N
 AB79.CZ6	pcr_negative_control	unc-1792432702.69336	H04	AB79	Influenza Virus B (NEP/NS1)	Cy5.5	0.584128201007843	21539	1	NA	AB79	FluB
 AB79.FA10	pcr_negative_control	unc-1792432702.69336	H04	AB79	Influenza Virus A (M)	FAM	0.584128201007843	21539	1	NA	AB79	FluA
 AB79.FA3	pcr_negative_control	unc-1792432702.69336	G04	AB79	Influenza Virus A (M)	FAM	0	22133	1	NA	AB79	FluA
-AB79.HE2	pcr_negative_control	unc-1792432702.69336	G04	AB79	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22133	1	NA	AB79	BRSV
-AB79.HE7	pcr_negative_control	unc-1792432702.69336	H04	AB79	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21539	1	NA	AB79	BRSV
+AB79.HE2	pcr_negative_control	unc-1792432702.69336	G04	AB79	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22133	1	NA	AB79	BRSV
+AB79.HE7	pcr_negative_control	unc-1792432702.69336	H04	AB79	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21539	1	NA	AB79	BRSV
 AB79.RO4	pcr_negative_control	unc-1792432702.69336	G04	AB79	SARS-CoV-2 (SC2)	ROX	0	22133	1	NA	AB79	SC2
 AB79.RO8	pcr_negative_control	unc-1792432702.69336	H04	AB79	SARS-CoV-2 (SC2)	ROX	0	21539	1	NA	AB79	SC2
 AB8.FA2	pcr_negative_control	unc-1792432702.69336	E04	AB8	SARS-CoV-2 (N1)	FAM	0.139120906591415	18084	1	NA	AB8	N1
@@ -1342,13 +1342,13 @@ AB82.FA26	pcr_negative_control	unc-1792432702.69336	E05	AB82	Influenza Virus A (
 AB82.FA32	pcr_negative_control	unc-1792432702.69336	F05	AB82	Influenza Virus A (M)	FAM	0.577515840530396	19607	1	NA	AB82	FluA
 AB82.FA4	pcr_negative_control	unc-1792432702.69336	G05	AB82	Influenza Virus A (M)	FAM	1.26986193656921	19821	1	NA	AB82	FluA
 AB82.FA7	pcr_negative_control	unc-1792432702.69336	C05	AB82	Influenza Virus A (M)	FAM	0.565995275974274	20006	1	NA	AB82	FluA
-AB82.HE1	pcr_negative_control	unc-1792432702.69336	G05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19821	1	NA	AB82	BRSV
-AB82.HE11	pcr_negative_control	unc-1792432702.69336	D05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17202	1	NA	AB82	BRSV
-AB82.HE16	pcr_negative_control	unc-1792432702.69336	B05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21061	1	NA	AB82	BRSV
-AB82.HE25	pcr_negative_control	unc-1792432702.69336	H05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18648	1	NA	AB82	BRSV
-AB82.HE29	pcr_negative_control	unc-1792432702.69336	E05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19666	1	NA	AB82	BRSV
-AB82.HE35	pcr_negative_control	unc-1792432702.69336	F05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19607	1	NA	AB82	BRSV
-AB82.HE9	pcr_negative_control	unc-1792432702.69336	C05	AB82	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20006	1	NA	AB82	BRSV
+AB82.HE1	pcr_negative_control	unc-1792432702.69336	G05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19821	1	NA	AB82	BRSV
+AB82.HE11	pcr_negative_control	unc-1792432702.69336	D05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17202	1	NA	AB82	BRSV
+AB82.HE16	pcr_negative_control	unc-1792432702.69336	B05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21061	1	NA	AB82	BRSV
+AB82.HE25	pcr_negative_control	unc-1792432702.69336	H05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18648	1	NA	AB82	BRSV
+AB82.HE29	pcr_negative_control	unc-1792432702.69336	E05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19666	1	NA	AB82	BRSV
+AB82.HE35	pcr_negative_control	unc-1792432702.69336	F05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19607	1	NA	AB82	BRSV
+AB82.HE9	pcr_negative_control	unc-1792432702.69336	C05	AB82	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20006	1	NA	AB82	BRSV
 AB82.RO14	pcr_negative_control	unc-1792432702.69336	D05	AB82	SARS-CoV-2 (SC2)	ROX	0	17202	1	NA	AB82	SC2
 AB82.RO19	pcr_negative_control	unc-1792432702.69336	B05	AB82	SARS-CoV-2 (SC2)	ROX	0	21061	1	NA	AB82	SC2
 AB82.RO23	pcr_negative_control	unc-1792432702.69336	H05	AB82	SARS-CoV-2 (SC2)	ROX	0	18648	1	NA	AB82	SC2
@@ -1371,11 +1371,11 @@ AB83.FA2	pcr_negative_control	unc-1792432702.69336	E05	AB83	Influenza Virus A (M
 AB83.FA20	pcr_negative_control	unc-1792432702.69336	D05	AB83	Influenza Virus A (M)	FAM	0.903311789035797	19502	1	NA	AB83	FluA
 AB83.FA21	pcr_negative_control	unc-1792432702.69336	G05	AB83	Influenza Virus A (M)	FAM	0.928759396076202	17613	1	NA	AB83	FluA
 AB83.FA7	pcr_negative_control	unc-1792432702.69336	F05	AB83	Influenza Virus A (M)	FAM	0.632780253887177	17895	1	NA	AB83	FluA
-AB83.HE11	pcr_negative_control	unc-1792432702.69336	H05	AB83	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19810	1	NA	AB83	BRSV
-AB83.HE16	pcr_negative_control	unc-1792432702.69336	D05	AB83	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19502	1	NA	AB83	BRSV
-AB83.HE24	pcr_negative_control	unc-1792432702.69336	G05	AB83	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17613	1	NA	AB83	BRSV
-AB83.HE5	pcr_negative_control	unc-1792432702.69336	E05	AB83	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17936	1	NA	AB83	BRSV
-AB83.HE9	pcr_negative_control	unc-1792432702.69336	F05	AB83	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17895	1	NA	AB83	BRSV
+AB83.HE11	pcr_negative_control	unc-1792432702.69336	H05	AB83	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19810	1	NA	AB83	BRSV
+AB83.HE16	pcr_negative_control	unc-1792432702.69336	D05	AB83	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19502	1	NA	AB83	BRSV
+AB83.HE24	pcr_negative_control	unc-1792432702.69336	G05	AB83	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17613	1	NA	AB83	BRSV
+AB83.HE5	pcr_negative_control	unc-1792432702.69336	E05	AB83	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17936	1	NA	AB83	BRSV
+AB83.HE9	pcr_negative_control	unc-1792432702.69336	F05	AB83	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17895	1	NA	AB83	BRSV
 AB83.RO15	pcr_negative_control	unc-1792432702.69336	H05	AB83	SARS-CoV-2 (SC2)	ROX	0	19810	1	NA	AB83	SC2
 AB83.RO18	pcr_negative_control	unc-1792432702.69336	D05	AB83	SARS-CoV-2 (SC2)	ROX	0	19502	1	NA	AB83	SC2
 AB83.RO23	pcr_negative_control	unc-1792432702.69336	G05	AB83	SARS-CoV-2 (SC2)	ROX	0	17613	1	NA	AB83	SC2
@@ -1388,7 +1388,7 @@ AB84.FA4	pcr_negative_control	unc-1792432702.69336	H05	AB84	SARS-CoV-2 (N2)	FAM	
 AB85.CY2	pcr_negative_control	unc-1792432702.69336	H04	AB85	Respiratory Syncitial Virus, Human (G)	Cy5	0	20031	1	NA	AB85	Human
 AB85.CZ3	pcr_negative_control	unc-1792432702.69336	H04	AB85	Influenza Virus B (NEP/NS1)	Cy5.5	0.0627973154187202	20031	1	NA	AB85	FluB
 AB85.FA5	pcr_negative_control	unc-1792432702.69336	H04	AB85	Influenza Virus A (M)	FAM	0.251208066940308	20031	1	NA	AB85	FluA
-AB85.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB85	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20031	1	NA	AB85	BRSV
+AB85.HE1	pcr_negative_control	unc-1792432702.69336	H04	AB85	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20031	1	NA	AB85	BRSV
 AB85.RO4	pcr_negative_control	unc-1792432702.69336	H04	AB85	SARS-CoV-2 (SC2)	ROX	0	20031	1	NA	AB85	SC2
 AB86.CY10	pcr_negative_control	unc-1792432702.69336	H05	AB86	Respiratory Syncitial Virus, Human (G)	Cy5	0	21068	1	NA	AB86	Human
 AB86.CY13	pcr_positive_control	ppc-1792432702.69306	G05	AB86	Respiratory Syncitial Virus, Human (G)	Cy5	52.5760879516602	21228	1	NA	AB86	Human
@@ -1399,9 +1399,9 @@ AB86.CZ8	pcr_negative_control	unc-1792432702.69336	H05	AB86	Influenza Virus B (N
 AB86.FA14	pcr_positive_control	ppc-1792432702.69306	G05	AB86	Influenza Virus A (M)	FAM	36.369945526123	21228	1	NA	AB86	FluA
 AB86.FA2	pcr_negative_control	unc-1792432702.69336	F05	AB86	Influenza Virus A (M)	FAM	0.47671103477478	21113	1	NA	AB86	FluA
 AB86.FA6	pcr_negative_control	unc-1792432702.69336	H05	AB86	Influenza Virus A (M)	FAM	0.477729439735413	21068	1	NA	AB86	FluA
-AB86.HE12	pcr_positive_control	ppc-1792432702.69306	G05	AB86	Respiratory Syncitial Virus, Bovine (Other)	HEX	36.2479629516602	21228	1	NA	AB86	BRSV
-AB86.HE4	pcr_negative_control	unc-1792432702.69336	F05	AB86	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21113	1	NA	AB86	BRSV
-AB86.HE9	pcr_negative_control	unc-1792432702.69336	H05	AB86	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21068	1	NA	AB86	BRSV
+AB86.HE12	pcr_positive_control	ppc-1792432702.69306	G05	AB86	Respiratory Syncitial Virus, Bovine (Unk)	HEX	36.2479629516602	21228	1	NA	AB86	BRSV
+AB86.HE4	pcr_negative_control	unc-1792432702.69336	F05	AB86	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21113	1	NA	AB86	BRSV
+AB86.HE9	pcr_negative_control	unc-1792432702.69336	H05	AB86	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21068	1	NA	AB86	BRSV
 AB86.RO1	pcr_negative_control	unc-1792432702.69336	F05	AB86	SARS-CoV-2 (SC2)	ROX	0.059578999876976	21113	1	NA	AB86	SC2
 AB86.RO15	pcr_positive_control	ppc-1792432702.69306	G05	AB86	SARS-CoV-2 (SC2)	ROX	31.0747032165527	21228	1	NA	AB86	SC2
 AB86.RO7	pcr_negative_control	unc-1792432702.69336	H05	AB86	SARS-CoV-2 (SC2)	ROX	0	21068	1	NA	AB86	SC2
@@ -1420,11 +1420,11 @@ AB87.FA19	pcr_negative_control	unc-1792432702.69336	A12	AB87	Influenza Virus A (
 AB87.FA22	pcr_negative_control	unc-1792432702.69336	B12	AB87	Influenza Virus A (M)	FAM	0.172101557254791	21928	1	NA	AB87	FluA
 AB87.FA5	pcr_negative_control	unc-1792432702.69336	E12	AB87	Influenza Virus A (M)	FAM	0.180127680301666	20951	1	NA	AB87	FluA
 AB87.FA6	pcr_negative_control	unc-1792432702.69336	C12	AB87	Influenza Virus A (M)	FAM	0.17462620139122	21611	1	NA	AB87	FluA
-AB87.HE1	pcr_negative_control	unc-1792432702.69336	E12	AB87	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20951	1	NA	AB87	BRSV
-AB87.HE10	pcr_negative_control	unc-1792432702.69336	C12	AB87	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21611	1	NA	AB87	BRSV
-AB87.HE15	pcr_positive_control	ppc-1792432702.69306	D12	AB87	Respiratory Syncitial Virus, Bovine (Other)	HEX	39.4999923706055	20961	1	NA	AB87	BRSV
-AB87.HE20	pcr_negative_control	unc-1792432702.69336	A12	AB87	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21119	1	NA	AB87	BRSV
-AB87.HE21	pcr_negative_control	unc-1792432702.69336	B12	AB87	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21928	1	NA	AB87	BRSV
+AB87.HE1	pcr_negative_control	unc-1792432702.69336	E12	AB87	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20951	1	NA	AB87	BRSV
+AB87.HE10	pcr_negative_control	unc-1792432702.69336	C12	AB87	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21611	1	NA	AB87	BRSV
+AB87.HE15	pcr_positive_control	ppc-1792432702.69306	D12	AB87	Respiratory Syncitial Virus, Bovine (Unk)	HEX	39.4999923706055	20961	1	NA	AB87	BRSV
+AB87.HE20	pcr_negative_control	unc-1792432702.69336	A12	AB87	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21119	1	NA	AB87	BRSV
+AB87.HE21	pcr_negative_control	unc-1792432702.69336	B12	AB87	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21928	1	NA	AB87	BRSV
 AB87.RO11	pcr_positive_control	ppc-1792432702.69306	D12	AB87	SARS-CoV-2 (SC2)	ROX	36.0370178222656	20961	1	NA	AB87	SC2
 AB87.RO16	pcr_negative_control	unc-1792432702.69336	A12	AB87	SARS-CoV-2 (SC2)	ROX	0	21119	1	NA	AB87	SC2
 AB87.RO2	pcr_negative_control	unc-1792432702.69336	E12	AB87	SARS-CoV-2 (SC2)	ROX	0	20951	1	NA	AB87	SC2
@@ -1454,14 +1454,14 @@ AB88.FA35	pcr_negative_control	unc-1792432702.69336	F05	AB88	Influenza Virus A (
 AB88.FA4	pcr_negative_control	unc-1792432702.69336	G05	AB88	Influenza Virus A (M)	FAM	0	20579	1	NA	AB88	FluA
 AB88.FA40	pcr_negative_control	unc-1792432702.69336	B05	AB88	Influenza Virus A (M)	FAM	0	21299	1	NA	AB88	FluA
 AB88.FA9	pcr_negative_control	unc-1792432702.69336	E05	AB88	Influenza Virus A (M)	FAM	0	21249	1	NA	AB88	FluA
-AB88.HE15	pcr_negative_control	unc-1792432702.69336	H05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21927	1	NA	AB88	BRSV
-AB88.HE20	pcr_negative_control	unc-1792432702.69336	D05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21349	1	NA	AB88	BRSV
-AB88.HE21	pcr_negative_control	unc-1792432702.69336	A05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21039	1	NA	AB88	BRSV
-AB88.HE28	pcr_negative_control	unc-1792432702.69336	C05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20964	1	NA	AB88	BRSV
-AB88.HE3	pcr_negative_control	unc-1792432702.69336	G05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20579	1	NA	AB88	BRSV
-AB88.HE33	pcr_negative_control	unc-1792432702.69336	F05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21375	1	NA	AB88	BRSV
-AB88.HE38	pcr_negative_control	unc-1792432702.69336	B05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21299	1	NA	AB88	BRSV
-AB88.HE8	pcr_negative_control	unc-1792432702.69336	E05	AB88	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21249	1	NA	AB88	BRSV
+AB88.HE15	pcr_negative_control	unc-1792432702.69336	H05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21927	1	NA	AB88	BRSV
+AB88.HE20	pcr_negative_control	unc-1792432702.69336	D05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21349	1	NA	AB88	BRSV
+AB88.HE21	pcr_negative_control	unc-1792432702.69336	A05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21039	1	NA	AB88	BRSV
+AB88.HE28	pcr_negative_control	unc-1792432702.69336	C05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20964	1	NA	AB88	BRSV
+AB88.HE3	pcr_negative_control	unc-1792432702.69336	G05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20579	1	NA	AB88	BRSV
+AB88.HE33	pcr_negative_control	unc-1792432702.69336	F05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21375	1	NA	AB88	BRSV
+AB88.HE38	pcr_negative_control	unc-1792432702.69336	B05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21299	1	NA	AB88	BRSV
+AB88.HE8	pcr_negative_control	unc-1792432702.69336	E05	AB88	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21249	1	NA	AB88	BRSV
 AB88.RO11	pcr_negative_control	unc-1792432702.69336	H05	AB88	SARS-CoV-2 (SC2)	ROX	0	21927	1	NA	AB88	SC2
 AB88.RO16	pcr_negative_control	unc-1792432702.69336	D05	AB88	SARS-CoV-2 (SC2)	ROX	0	21349	1	NA	AB88	SC2
 AB88.RO2	pcr_negative_control	unc-1792432702.69336	G05	AB88	SARS-CoV-2 (SC2)	ROX	0	20579	1	NA	AB88	SC2
@@ -1482,10 +1482,10 @@ AB89.FA10	pcr_negative_control	unc-1792432702.69336	F04	AB89	Influenza Virus A (
 AB89.FA13	pcr_negative_control	unc-1792432702.69336	G04	AB89	Influenza Virus A (M)	FAM	6.19188976287842	20772	1	NA	AB89	FluA
 AB89.FA17	pcr_negative_control	unc-1792432702.69336	H04	AB89	Influenza Virus A (M)	FAM	8.30910587310791	20960	1	NA	AB89	FluA
 AB89.FA3	pcr_negative_control	unc-1792432702.69336	E04	AB89	Influenza Virus A (M)	FAM	5.59474039077759	20505	1	NA	AB89	FluA
-AB89.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB89	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20505	1	NA	AB89	BRSV
-AB89.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB89	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20772	1	NA	AB89	BRSV
-AB89.HE18	pcr_negative_control	unc-1792432702.69336	H04	AB89	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20960	1	NA	AB89	BRSV
-AB89.HE8	pcr_negative_control	unc-1792432702.69336	F04	AB89	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20993	1	NA	AB89	BRSV
+AB89.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB89	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20505	1	NA	AB89	BRSV
+AB89.HE11	pcr_negative_control	unc-1792432702.69336	G04	AB89	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20772	1	NA	AB89	BRSV
+AB89.HE18	pcr_negative_control	unc-1792432702.69336	H04	AB89	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20960	1	NA	AB89	BRSV
+AB89.HE8	pcr_negative_control	unc-1792432702.69336	F04	AB89	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20993	1	NA	AB89	BRSV
 AB89.RO15	pcr_negative_control	unc-1792432702.69336	G04	AB89	SARS-CoV-2 (SC2)	ROX	0	20772	1	NA	AB89	SC2
 AB89.RO20	pcr_negative_control	unc-1792432702.69336	H04	AB89	SARS-CoV-2 (SC2)	ROX	0	20960	1	NA	AB89	SC2
 AB89.RO5	pcr_negative_control	unc-1792432702.69336	E04	AB89	SARS-CoV-2 (SC2)	ROX	0	20505	1	NA	AB89	SC2
@@ -1502,10 +1502,10 @@ AB90.FA10	pcr_negative_control	unc-1792432702.69336	F04	AB90	Influenza Virus A (
 AB90.FA14	pcr_negative_control	unc-1792432702.69336	G04	AB90	Influenza Virus A (M)	FAM	0.536872148513794	21091	1	NA	AB90	FluA
 AB90.FA19	pcr_negative_control	unc-1792432702.69336	E04	AB90	Influenza Virus A (M)	FAM	0.174440532922745	21634	1	NA	AB90	FluA
 AB90.FA4	pcr_negative_control	unc-1792432702.69336	H04	AB90	Influenza Virus A (M)	FAM	0.503976166248322	19971	1	NA	AB90	FluA
-AB90.HE15	pcr_negative_control	unc-1792432702.69336	G04	AB90	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21091	1	NA	AB90	BRSV
-AB90.HE20	pcr_negative_control	unc-1792432702.69336	E04	AB90	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21634	1	NA	AB90	BRSV
-AB90.HE5	pcr_negative_control	unc-1792432702.69336	H04	AB90	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19971	1	NA	AB90	BRSV
-AB90.HE6	pcr_negative_control	unc-1792432702.69336	F04	AB90	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20986	1	NA	AB90	BRSV
+AB90.HE15	pcr_negative_control	unc-1792432702.69336	G04	AB90	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21091	1	NA	AB90	BRSV
+AB90.HE20	pcr_negative_control	unc-1792432702.69336	E04	AB90	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21634	1	NA	AB90	BRSV
+AB90.HE5	pcr_negative_control	unc-1792432702.69336	H04	AB90	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19971	1	NA	AB90	BRSV
+AB90.HE6	pcr_negative_control	unc-1792432702.69336	F04	AB90	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20986	1	NA	AB90	BRSV
 AB90.RO11	pcr_negative_control	unc-1792432702.69336	G04	AB90	SARS-CoV-2 (SC2)	ROX	0	21091	1	NA	AB90	SC2
 AB90.RO18	pcr_negative_control	unc-1792432702.69336	E04	AB90	SARS-CoV-2 (SC2)	ROX	0	21634	1	NA	AB90	SC2
 AB90.RO2	pcr_negative_control	unc-1792432702.69336	H04	AB90	SARS-CoV-2 (SC2)	ROX	0	19971	1	NA	AB90	SC2
@@ -1525,11 +1525,11 @@ AB91.FA13	pcr_negative_control	unc-1792432702.69336	E04	AB91	Influenza Virus A (
 AB91.FA16	pcr_negative_control	unc-1792432702.69336	F04	AB91	Influenza Virus A (M)	FAM	0.67330139875412	18687	1	NA	AB91	FluA
 AB91.FA23	pcr_negative_control	unc-1792432702.69336	H04	AB91	Influenza Virus A (M)	FAM	2.92114901542664	16382	1	NA	AB91	FluA
 AB91.FA5	pcr_negative_control	unc-1792432702.69336	D04	AB91	Influenza Virus A (M)	FAM	0.34597510099411	18181	1	NA	AB91	FluA
-AB91.HE11	pcr_negative_control	unc-1792432702.69336	E04	AB91	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18482	1	NA	AB91	BRSV
-AB91.HE2	pcr_negative_control	unc-1792432702.69336	D04	AB91	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18181	1	NA	AB91	BRSV
-AB91.HE20	pcr_negative_control	unc-1792432702.69336	F04	AB91	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	18687	1	NA	AB91	BRSV
-AB91.HE25	pcr_negative_control	unc-1792432702.69336	H04	AB91	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	16382	1	NA	AB91	BRSV
-AB91.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB91	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	17755	1	NA	AB91	BRSV
+AB91.HE11	pcr_negative_control	unc-1792432702.69336	E04	AB91	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18482	1	NA	AB91	BRSV
+AB91.HE2	pcr_negative_control	unc-1792432702.69336	D04	AB91	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18181	1	NA	AB91	BRSV
+AB91.HE20	pcr_negative_control	unc-1792432702.69336	F04	AB91	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	18687	1	NA	AB91	BRSV
+AB91.HE25	pcr_negative_control	unc-1792432702.69336	H04	AB91	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	16382	1	NA	AB91	BRSV
+AB91.HE7	pcr_negative_control	unc-1792432702.69336	G04	AB91	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	17755	1	NA	AB91	BRSV
 AB91.RO1	pcr_negative_control	unc-1792432702.69336	D04	AB91	SARS-CoV-2 (SC2)	ROX	0.138378620147705	18181	1	NA	AB91	SC2
 AB91.RO12	pcr_negative_control	unc-1792432702.69336	E04	AB91	SARS-CoV-2 (SC2)	ROX	0.068060576915741	18482	1	NA	AB91	SC2
 AB91.RO19	pcr_negative_control	unc-1792432702.69336	F04	AB91	SARS-CoV-2 (SC2)	ROX	0.201952576637268	18687	1	NA	AB91	SC2
@@ -1553,12 +1553,12 @@ AB92.FA17	pcr_negative_control	unc-1792432702.69336	C05	AB92	Influenza Virus A (
 AB92.FA23	pcr_negative_control	unc-1792432702.69336	F05	AB92	Influenza Virus A (M)	FAM	0.226356238126755	22230	1	NA	AB92	FluA
 AB92.FA27	pcr_negative_control	unc-1792432702.69336	H05	AB92	Influenza Virus A (M)	FAM	0.408406108617783	21563	1	NA	AB92	FluA
 AB92.FA9	pcr_negative_control	unc-1792432702.69336	D05	AB92	Influenza Virus A (M)	FAM	0.235301241278648	21385	1	NA	AB92	FluA
-AB92.HE15	pcr_negative_control	unc-1792432702.69336	E05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21028	1	NA	AB92	BRSV
-AB92.HE19	pcr_negative_control	unc-1792432702.69336	C05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21521	1	NA	AB92	BRSV
-AB92.HE24	pcr_negative_control	unc-1792432702.69336	F05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22230	1	NA	AB92	BRSV
-AB92.HE29	pcr_negative_control	unc-1792432702.69336	H05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21563	1	NA	AB92	BRSV
-AB92.HE4	pcr_negative_control	unc-1792432702.69336	G05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	22000	1	NA	AB92	BRSV
-AB92.HE7	pcr_negative_control	unc-1792432702.69336	D05	AB92	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21385	1	NA	AB92	BRSV
+AB92.HE15	pcr_negative_control	unc-1792432702.69336	E05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21028	1	NA	AB92	BRSV
+AB92.HE19	pcr_negative_control	unc-1792432702.69336	C05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21521	1	NA	AB92	BRSV
+AB92.HE24	pcr_negative_control	unc-1792432702.69336	F05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22230	1	NA	AB92	BRSV
+AB92.HE29	pcr_negative_control	unc-1792432702.69336	H05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21563	1	NA	AB92	BRSV
+AB92.HE4	pcr_negative_control	unc-1792432702.69336	G05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	22000	1	NA	AB92	BRSV
+AB92.HE7	pcr_negative_control	unc-1792432702.69336	D05	AB92	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21385	1	NA	AB92	BRSV
 AB92.RO10	pcr_negative_control	unc-1792432702.69336	D05	AB92	SARS-CoV-2 (SC2)	ROX	0	21385	1	NA	AB92	SC2
 AB92.RO13	pcr_negative_control	unc-1792432702.69336	E05	AB92	SARS-CoV-2 (SC2)	ROX	0	21028	1	NA	AB92	SC2
 AB92.RO16	pcr_negative_control	unc-1792432702.69336	C05	AB92	SARS-CoV-2 (SC2)	ROX	0	21521	1	NA	AB92	SC2
@@ -1573,10 +1573,10 @@ AB93.CZ10	pcr_negative_control	unc-1792432702.69336	A04	AB93	Influenza Virus B (
 AB93.CZ14	pcr_negative_control	unc-1792432702.69336	C04	AB93	Influenza Virus B (NEP/NS1)	Cy5.5	0	20776	1	NA	AB93	FluB
 AB93.CZ4	pcr_negative_control	unc-1792432702.69336	B04	AB93	Influenza Virus B (NEP/NS1)	Cy5.5	0	19258	1	NA	AB93	FluB
 AB93.CZ8	pcr_negative_control	unc-1792432702.69336	D04	AB93	Influenza Virus B (NEP/NS1)	Cy5.5	0	21327	1	NA	AB93	FluB
-AB93.HE11	pcr_negative_control	unc-1792432702.69336	A04	AB93	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21621	1	NA	AB93	BRSV
-AB93.HE15	pcr_negative_control	unc-1792432702.69336	C04	AB93	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20776	1	NA	AB93	BRSV
-AB93.HE2	pcr_negative_control	unc-1792432702.69336	B04	AB93	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	19258	1	NA	AB93	BRSV
-AB93.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB93	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21327	1	NA	AB93	BRSV
+AB93.HE11	pcr_negative_control	unc-1792432702.69336	A04	AB93	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21621	1	NA	AB93	BRSV
+AB93.HE15	pcr_negative_control	unc-1792432702.69336	C04	AB93	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20776	1	NA	AB93	BRSV
+AB93.HE2	pcr_negative_control	unc-1792432702.69336	B04	AB93	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	19258	1	NA	AB93	BRSV
+AB93.HE6	pcr_negative_control	unc-1792432702.69336	D04	AB93	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21327	1	NA	AB93	BRSV
 AB93.RO1	pcr_negative_control	unc-1792432702.69336	B04	AB93	SARS-CoV-2 (SC2)	ROX	0	19258	1	NA	AB93	SC2
 AB93.RO13	pcr_negative_control	unc-1792432702.69336	C04	AB93	SARS-CoV-2 (SC2)	ROX	0	20776	1	NA	AB93	SC2
 AB93.RO5	pcr_negative_control	unc-1792432702.69336	D04	AB93	SARS-CoV-2 (SC2)	ROX	0	21327	1	NA	AB93	SC2
@@ -1590,9 +1590,9 @@ AB95.CZ7	pcr_negative_control	unc-1792432702.69336	D05	AB95	Influenza Virus B (N
 AB95.FA13	pcr_negative_control	unc-1792432702.69336	C05	AB95	Influenza Virus A (M)	FAM	5.72759675979614	21131	1	NA	AB95	FluA
 AB95.FA3	pcr_negative_control	unc-1792432702.69336	B05	AB95	Influenza Virus A (M)	FAM	2.38976573944092	21601	1	NA	AB95	FluA
 AB95.FA6	pcr_negative_control	unc-1792432702.69336	D05	AB95	Influenza Virus A (M)	FAM	5.15828657150269	20770	1	NA	AB95	FluA
-AB95.HE15	pcr_negative_control	unc-1792432702.69336	C05	AB95	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21131	1	NA	AB95	BRSV
-AB95.HE4	pcr_negative_control	unc-1792432702.69336	B05	AB95	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21601	1	NA	AB95	BRSV
-AB95.HE9	pcr_negative_control	unc-1792432702.69336	D05	AB95	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20770	1	NA	AB95	BRSV
+AB95.HE15	pcr_negative_control	unc-1792432702.69336	C05	AB95	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21131	1	NA	AB95	BRSV
+AB95.HE4	pcr_negative_control	unc-1792432702.69336	B05	AB95	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21601	1	NA	AB95	BRSV
+AB95.HE9	pcr_negative_control	unc-1792432702.69336	D05	AB95	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20770	1	NA	AB95	BRSV
 AB95.RO11	pcr_negative_control	unc-1792432702.69336	C05	AB95	SARS-CoV-2 (SC2)	ROX	0	21131	1	NA	AB95	SC2
 AB95.RO2	pcr_negative_control	unc-1792432702.69336	B05	AB95	SARS-CoV-2 (SC2)	ROX	0	21601	1	NA	AB95	SC2
 AB95.RO8	pcr_negative_control	unc-1792432702.69336	D05	AB95	SARS-CoV-2 (SC2)	ROX	0	20770	1	NA	AB95	SC2
@@ -1602,8 +1602,8 @@ AB96.CZ3	pcr_negative_control	unc-1792432702.69336	H04	AB96	Influenza Virus B (N
 AB96.CZ7	pcr_negative_control	unc-1792432702.69336	A12	AB96	Influenza Virus B (NEP/NS1)	Cy5.5	0.0600139126181602	20960	1	NA	AB96	FluB
 AB96.FA1	pcr_negative_control	unc-1792432702.69336	H04	AB96	Influenza Virus A (M)	FAM	14.7012100219727	21946	1	NA	AB96	FluA
 AB96.FA6	pcr_negative_control	unc-1792432702.69336	A12	AB96	Influenza Virus A (M)	FAM	9.63883304595947	20960	1	NA	AB96	FluA
-AB96.HE5	pcr_negative_control	unc-1792432702.69336	H04	AB96	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21946	1	NA	AB96	BRSV
-AB96.HE9	pcr_negative_control	unc-1792432702.69336	A12	AB96	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	20960	1	NA	AB96	BRSV
+AB96.HE5	pcr_negative_control	unc-1792432702.69336	H04	AB96	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21946	1	NA	AB96	BRSV
+AB96.HE9	pcr_negative_control	unc-1792432702.69336	A12	AB96	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	20960	1	NA	AB96	BRSV
 AB96.RO2	pcr_negative_control	unc-1792432702.69336	H04	AB96	SARS-CoV-2 (SC2)	ROX	0	21946	1	NA	AB96	SC2
 AB96.RO8	pcr_negative_control	unc-1792432702.69336	A12	AB96	SARS-CoV-2 (SC2)	ROX	0	20960	1	NA	AB96	SC2
 AB97.CY2	pcr_negative_control	unc-1792432702.69336	E04	AB97	Respiratory Syncitial Virus, Human (G)	Cy5	0	20735	1	NA	AB97	Human
@@ -1612,8 +1612,8 @@ AB97.CZ3	pcr_negative_control	unc-1792432702.69336	E04	AB97	Influenza Virus B (N
 AB97.CZ9	pcr_negative_control	unc-1792432702.69336	F04	AB97	Influenza Virus B (NEP/NS1)	Cy5.5	0.176670089364052	21361	1	NA	AB97	FluB
 AB97.FA10	pcr_negative_control	unc-1792432702.69336	F04	AB97	Influenza Virus A (M)	FAM	14.4508504867554	21361	1	NA	AB97	FluA
 AB97.FA5	pcr_negative_control	unc-1792432702.69336	E04	AB97	Influenza Virus A (M)	FAM	10.1718530654907	20735	1	NA	AB97	FluA
-AB97.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB97	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0606651529669762	20735	1	NA	AB97	BRSV
-AB97.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB97	Respiratory Syncitial Virus, Bovine (Other)	HEX	0.0588872767984867	21361	1	NA	AB97	BRSV
+AB97.HE1	pcr_negative_control	unc-1792432702.69336	E04	AB97	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0606651529669762	20735	1	NA	AB97	BRSV
+AB97.HE7	pcr_negative_control	unc-1792432702.69336	F04	AB97	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0.0588872767984867	21361	1	NA	AB97	BRSV
 AB97.RO4	pcr_negative_control	unc-1792432702.69336	E04	AB97	SARS-CoV-2 (SC2)	ROX	0	20735	1	NA	AB97	SC2
 AB97.RO8	pcr_negative_control	unc-1792432702.69336	F04	AB97	SARS-CoV-2 (SC2)	ROX	0	21361	1	NA	AB97	SC2
 AB98.CY14	pcr_negative_control	unc-1792432702.69336	E04	AB98	Respiratory Syncitial Virus, Human (G)	Cy5	0	21083	1	NA	AB98	Human
@@ -1628,10 +1628,10 @@ AB98.FA15	pcr_negative_control	unc-1792432702.69336	E04	AB98	Influenza Virus A (
 AB98.FA18	pcr_negative_control	unc-1792432702.69336	H04	AB98	Influenza Virus A (M)	FAM	7.42986869812012	21904	1	NA	AB98	FluA
 AB98.FA3	pcr_negative_control	unc-1792432702.69336	G04	AB98	Influenza Virus A (M)	FAM	7.51546669006348	21991	1	NA	AB98	FluA
 AB98.FA8	pcr_negative_control	unc-1792432702.69336	F04	AB98	Influenza Virus A (M)	FAM	10.3465023040771	21363	1	NA	AB98	FluA
-AB98.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB98	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21991	1	NA	AB98	BRSV
-AB98.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB98	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21363	1	NA	AB98	BRSV
-AB98.HE11	pcr_negative_control	unc-1792432702.69336	E04	AB98	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21083	1	NA	AB98	BRSV
-AB98.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB98	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	21904	1	NA	AB98	BRSV
+AB98.HE1	pcr_negative_control	unc-1792432702.69336	G04	AB98	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21991	1	NA	AB98	BRSV
+AB98.HE10	pcr_negative_control	unc-1792432702.69336	F04	AB98	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21363	1	NA	AB98	BRSV
+AB98.HE11	pcr_negative_control	unc-1792432702.69336	E04	AB98	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21083	1	NA	AB98	BRSV
+AB98.HE20	pcr_negative_control	unc-1792432702.69336	H04	AB98	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	21904	1	NA	AB98	BRSV
 AB98.RO12	pcr_negative_control	unc-1792432702.69336	E04	AB98	SARS-CoV-2 (SC2)	ROX	0.0596637800335884	21083	1	NA	AB98	SC2
 AB98.RO19	pcr_negative_control	unc-1792432702.69336	H04	AB98	SARS-CoV-2 (SC2)	ROX	0	21904	1	NA	AB98	SC2
 AB98.RO2	pcr_negative_control	unc-1792432702.69336	G04	AB98	SARS-CoV-2 (SC2)	ROX	0.0572002269327641	21991	1	NA	AB98	SC2
@@ -1642,8 +1642,8 @@ AB99.CZ5	pcr_negative_control	unc-1792432702.69336	H03	AB99	Influenza Virus B (N
 AB99.CZ7	pcr_negative_control	unc-1792432702.69336	G03	AB99	Influenza Virus B (NEP/NS1)	Cy5.5	0	14669	1	NA	AB99	FluB
 AB99.FA3	pcr_negative_control	unc-1792432702.69336	H03	AB99	Influenza Virus A (M)	FAM	0	10793	1	NA	AB99	FluA
 AB99.FA8	pcr_negative_control	unc-1792432702.69336	G03	AB99	Influenza Virus A (M)	FAM	0.428821325302124	14669	1	NA	AB99	FluA
-AB99.HE1	pcr_negative_control	unc-1792432702.69336	H03	AB99	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	10793	1	NA	AB99	BRSV
-AB99.HE9	pcr_negative_control	unc-1792432702.69336	G03	AB99	Respiratory Syncitial Virus, Bovine (Other)	HEX	0	14669	1	NA	AB99	BRSV
+AB99.HE1	pcr_negative_control	unc-1792432702.69336	H03	AB99	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	10793	1	NA	AB99	BRSV
+AB99.HE9	pcr_negative_control	unc-1792432702.69336	G03	AB99	Respiratory Syncitial Virus, Bovine (Unk)	HEX	0	14669	1	NA	AB99	BRSV
 AB99.RO10	pcr_negative_control	unc-1792432702.69336	G03	AB99	SARS-CoV-2 (SC2)	ROX	0	14669	1	NA	AB99	SC2
 AB99.RO2	pcr_negative_control	unc-1792432702.69336	H03	AB99	SARS-CoV-2 (SC2)	ROX	0	10793	1	NA	AB99	SC2
 AP0.1.FA1	pcr_negative_control	unc-1792432702.69336		AP0.1	SARS-CoV-2 (N1)	FAM	0	NA	1	NA	AP0.1	N1
@@ -2844,3 +2844,23 @@ MA8.FA1	pcr_negative_control	unc-1792432702.69336		MA8	SARS-CoV-2 (N1)	FAM	0	NA	
 MA8.FA2	pcr_negative_control	unc-1792432702.69336		MA8	SARS-CoV-2 (N1)	FAM	0	NA	1	NA	MA8	N1
 MA9.FA1	pcr_negative_control	unc-1792432702.69336		MA9	SARS-CoV-2 (N1)	FAM	0	NA	1	NA	MA9	N1
 MA9.FA2	pcr_negative_control	unc-1792432702.69336		MA9	SARS-CoV-2 (N1)	FAM	0	NA	1	NA	MA9	N1
+ppc-1792602713.95719	pcr_positive_control	ppc-1792602713.95719	A05	Q20261015	Influenza Virus A (M)	FAM	21.8215599060059	20118	1	346	Respiratory Multiplex	FluA
+ppc-1792602713.95876	pcr_positive_control	ppc-1792602713.95876	A05	Q20261015	Respiratory Syncytial Virus, Bovine	HEX	14.9062080383301	20118	1	237	Respiratory Multiplex	BRSV
+ppc-1792602713.96033	pcr_positive_control	ppc-1792602713.96033	A05	Q20261015	Respiratory Syncytial Virus, Human (G)	Cy5	16.8690929412842	20118	1	268	Respiratory Multiplex	RSV
+ppc-1792602713.96189	pcr_positive_control	ppc-1792602713.96189	A05	Q20261015	Influenza Virus B (NEP/NS1)	Cy5.5	15.5390615463257	20118	1	247	Respiratory Multiplex	FluB
+ppc-1792602713.9634	pcr_positive_control	ppc-1792602713.9634	A05	Q20261015	SARS-CoV-2 (SC2)	ROX	15.9822492599487	20118	1	254	Respiratory Multiplex	SC2
+pnc-1792602713.98021	pcr_negative_control	pnc-1792602713.98021	B05	Q20261015	Influenza Virus A (M)	FAM	0	20771	1	0	Respiratory Multiplex	FluA
+pnc-1792602713.98168	pcr_negative_control	pnc-1792602713.98168	B05	Q20261015	Respiratory Syncytial Virus, Bovine	HEX	0	20771	1	0	Respiratory Multiplex	BRSV
+pnc-1792602713.98315	pcr_negative_control	pnc-1792602713.98315	B05	Q20261015	Respiratory Syncytial Virus, Human (G)	Cy5	0	20771	1	0	Respiratory Multiplex	RSV
+pnc-1792602713.98461	pcr_negative_control	pnc-1792602713.98461	B05	Q20261015	Influenza Virus B (NEP/NS1)	Cy5.5	0	20771	1	0	Respiratory Multiplex	FluB
+pnc-1792602713.98607	pcr_negative_control	pnc-1792602713.98607	B05	Q20261015	SARS-CoV-2 (SC2)	ROX	0	20771	1	0	Respiratory Multiplex	SC2
+ppc-1792602714.10423	pcr_positive_control	ppc-1792602714.10423	C05	Q20261015	Norovirus GI, Human (ORF1_2)	FAM	19.2403011322021	21542	1	327	Norovirus	Noro I
+ppc-1792602714.1057	pcr_positive_control	ppc-1792602714.1057	C05	Q20261015	Norovirus GII, Human (ORF1_2)	HEX	17.5220317840576	21542	1	298	Norovirus	Noro II
+pnc-1792602714.11323	pcr_negative_control	pnc-1792602714.11323	D05	Q20261015	Norovirus GI, Human (ORF1_2)	FAM	0	21322	1	0	Norovirus	Noro I
+pnc-1792602714.11468	pcr_negative_control	pnc-1792602714.11468	D05	Q20261015	Norovirus GII, Human (ORF1_2)	HEX	0	21322	1	0	Norovirus	Noro II
+ppc-1793129927.1447	pcr_positive_control	ppc-1793129927.1447	D06	WaTCH_Q287	Norovirus GI, Human (ORF1_2)	FAM	41.4791069030762	15229	1	494	Norovirus	NoroI
+ppc-1793129927.14616	pcr_positive_control	ppc-1793129927.14616	D06	WaTCH_Q287	Norovirus GII, Human (ORF1_2)	HEX	35.0079956054688	15229	1	418	Norovirus	NoroII
+pnc-1793129927.154	pcr_negative_control	pnc-1793129927.154	E06	WaTCH_Q287	Norovirus GI, Human (ORF1_2)	FAM	0	17411	1	0	Norovirus	NoroI
+pnc-1793129927.15548	pcr_negative_control	pnc-1793129927.15548	E06	WaTCH_Q287	Norovirus GII, Human (ORF1_2)	HEX	0	17411	1	0	Norovirus	NoroII
+ppc-1793129927.20273	pcr_positive_control	ppc-1793129927.20273	D09	WaTCH_Q287	Measles Virus, Wild-Type (M)	FAM	57.2650871276855	12111	1	539	Measles	MeV
+pnc-1793129927.20744	pcr_negative_control	pnc-1793129927.20744	E09	WaTCH_Q287	Measles Virus, Wild-Type (M)	FAM	0	17775	1	0	Measles	MeV

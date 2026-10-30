@@ -15,18 +15,8 @@ args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
 	UPDIR <- args[1]
 }
-#UPDIR <- "../data/updates/2026-10-15"
+#UPDIR <- "../data/updates/2026-10-22"
 RUNID <- basename(UPDIR)
-
-
-targ2mix_df <- as.data.frame(
-	read.table(
-		paste0("resources/target2reaction_mix.txt", sep=""), 
-		quote="", 
-		sep="\t", 
-		header=TRUE, 
-		check.names=FALSE)
-)
 
 
 # Holds data for the individual assays in this batch. Most of this data was already 
@@ -140,6 +130,10 @@ for (fpath in runfile_list) {
 	  # This is a QX plate. Match the entries in assay_df by assay_well, assay_batch_id, 
 	  # and assay_target_fluorophore.
 	  result_df <- result_df %>% select(
+ 			sample_description_1,
+			sample_description_2,
+			sample_description_3,
+			sample_description_4,
 	    assay_target_fluorophore = dyenames,
 	    assay_target_abbreviation = target,
 	    assay_target_copies_per_ul_reaction = conccopies_per_ul,
@@ -147,11 +141,18 @@ for (fpath in runfile_list) {
 	    assay_positive_partitions = positives,
 	    assay_well = well
 	  )
-	  # Add assay_batch_id column using value from the file name. The batch id is 
-	  # everything before the substring _analysis_.
-	  fn_split_vec <- str_split_1(basename(fpath), pattern = fixed("_"))
-	  result_df$quantification_batch_id <- fn_split_vec[1]
 	  
+		result_df <- result_df %>% mutate(
+			quantification_batch_id = case_when(
+				all(!is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_1[1],
+				all(is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_2[1],
+				all(is.na(precheck_df$sample_description_2)) ~ precheck_df$sample_description_3[1],
+				all(is.na(precheck_df$sample_description_3)) ~ precheck_df$sample_description_4[1],
+				.default = "UNK"
+			)
+		)
+		result_df <- result_df %>% select(!starts_with("sample_description_"))
+		
 	  # Merge result_df into assay_df and control_df.
 	  merge_assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
 	  merge_control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))

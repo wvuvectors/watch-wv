@@ -1,0 +1,422 @@
+source_table	quantification_batch_id	quantification_batch_date	quantification_batch_machine	quantification_batch_amplification_method	quantification_batch_amplification_method_lot_id	quantification_batch_quantification_type	quantification_batch_record_version	quantification_batch_analysis_software_version	quantification_batch_run_by	quantification_batch_comment	batch_type	run_id
+existing	AB04022024	04/02/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	HP	None	Quantification	AB04022024
+existing	AB07102024	07/10/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64594017	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	USED NEW SM WITH OLD KIT (64580484)	Quantification	AB07102024
+existing	AB07222024	07/22/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64564655	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	ALL SAMPLES FROM NAB127; USED ADDITIONAL SM FROM 64594017	Quantification	AB07222024
+existing	AB07252024	08/05/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64564655	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	PC FROM 21422; EXTRA SM FROM 64595371	Quantification	AB07252024
+existing	AB08062024	08/06/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64595371	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB08062024
+existing	AB08212024	08/21/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64595371	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	UNABLE TO RUN SAMPLES A1, A6-8, B1&2, AND D1-4 DUE TO INSUFFICIENT CONCENTRATION	Quantification	AB08212024
+existing	AB1	11/30/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64554453	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB1
+existing	AB10	01/31/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB10
+existing	AB100	07/15/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	PCR/DG PROBLEM 	Quantification	AB100
+existing	AB10082024	10/08/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64595371	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB10082024
+existing	AB101	07/23/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB101
+existing	AB102	07/29/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB102
+existing	AB103	08/05/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB103
+existing	AB104	08/13/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NTC ON AB105	Quantification	AB104
+existing	AB105	08/13/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB105
+existing	AB107	08/19/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB107
+existing	AB108	08/25/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB108
+existing	AB109	09/02/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB109
+existing	AB11	02/08/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	H03 IS BLANK	Quantification	AB11
+existing	AB110	09/08/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB110
+existing	AB111	09/15/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	1d AMPLITUDE ANALYSIS	Quantification	AB111
+existing	AB114	09/24/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	A02-1389 (Well D04) removed in QC	Quantification	AB114
+existing	AB115	09/25/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	None	Quantification	AB115
+existing	AB116	10/02/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	None	Quantification	AB116
+existing	AB117	10/10/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	None	Quantification	AB117
+existing	AB118	10/20/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB118
+existing	AB119	10/28/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB119
+existing	AB12	02/08/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB12
+existing	AB121	11/03/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB121
+existing	AB122	11/10/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64635922	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB122
+existing	AB124	11/18/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB124
+existing	AB125	11/24/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	AB125.1 AND 125.2 merged into single csv file	Quantification	AB125
+existing	AB126	12/03/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB126
+existing	AB127	12/09/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB127
+existing	AB128	12/17/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB128
+existing	AB129	12/23/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB129
+existing	AB13	02/15/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	xxxxxxx	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB13
+existing	AB130	01/16/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB130
+existing	AB131	01/20/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB131
+existing	AB132	02/03/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB132
+existing	AB133	02/12/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64695189	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB133
+existing	AB134	02/18/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	JL	None	Quantification	AB134
+existing	AB135	02/25/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	JL	None	Quantification	AB135
+existing	AB136	03/04/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	JL	None	Quantification	AB136
+existing	AB138	03/10/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	JL	None	Quantification	AB138
+existing	AB139	03/12/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB139
+existing	AB14	02/26/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB14
+existing	AB141	03/19/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB141
+existing	AB142	03/26/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB142
+existing	AB143	04/02/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB143
+existing	AB144	04/09/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB144
+existing	AB145	04/16/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB145
+existing	AB146	04/23/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB146
+existing	AB147	04/30/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB147
+existing	AB148	05/07/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB148
+existing	AB149	05/14/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB149
+existing	AB15	02/26/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	IGNORE FLUB- FAM/HEX - CONTAMINATION	Quantification	AB15
+existing	AB150	05/21/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	ID	None	Quantification	AB150
+existing	AB151	05/29/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	ID	None	Quantification	AB151
+existing	AB152	06/04/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB152
+existing	AB154	06/16/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB154
+existing	AB155	06/18/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB155
+existing	AB158	06/25/2006	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB158
+existing	AB159	06/26/2006	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB159
+existing	AB16	02/26/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB16
+existing	AB160	06/29/2026	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB160
+existing	AB161	07/02/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB161
+existing	AB162	06/29/2026	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB162
+existing	AB163	12/31/1899	Zoo QX600	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	TD	None	Quantification	AB163
+existing	AB164	07/06/2026	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB164
+existing	AB165	07/06/2026	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB165
+existing	AB166	07/06/2026	Zoo Qiacuity 1	QIAcuity OneStep Advanced Probe Kit	181040538	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB166
+existing	AB167	07/09/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB167
+existing	AB17	02/28/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB17
+existing	AB170	07/17/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB170
+existing	AB171	07/23/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	AJ	None	Quantification	AB171
+existing	AB172	07/30/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB172
+existing	AB173	08/06/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB173
+existing	AB174	08/13/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB174
+existing	AB175	08/20/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB175
+existing	AB176	08/31/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB176
+existing	AB177	09/03/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64667524	Direct Quantification (dPCR; ddPCR)	2.0.3	2	ID	None	Quantification	AB177
+existing	AB178	09/10/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	None	Quantification	AB178
+existing	AB179	09/17/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64648766	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	increase to 45 cyles	Quantification	AB179
+existing	AB18	02/29/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	RSVAB SINGLE - FAM & FLUA SINGLE - HEX 	Quantification	AB18
+existing	AB180	09/24/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64733650	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB		Quantification	AB180
+existing	AB181	10/01/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64733650	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB		Quantification	AB181
+existing	AB182	10/09/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64733650	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB		Quantification	AB182
+existing	AB183	10/16/2026	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64733650	Direct Quantification (dPCR; ddPCR)	2.0.3	2	BB	Also moved to new template	Quantification	AB183
+existing	AB19	03/08/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	A FEW LATE SAMPLES DID NOT MAKE THE RUN	Quantification	AB19
+existing	AB1NoV	03/11/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	xxxxxxx	Direct Quantification (dPCR; ddPCR)	2.0.1	2	HP	None	Quantification	AB1NoV
+existing	AB2	12/14/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64554453	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB2
+existing	AB20	03/07/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	A FEW LATE SAMPLES DID NOT MAKE THE RUN	Quantification	AB20
+existing	AB21	03/13/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB21
+existing	AB22	03/13/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB22
+existing	AB23	03/20/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	2.0.1	NA	TD	None	Quantification	AB23
+existing	AB24	03/20/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	67284502,69915335	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB24
+existing	AB25	03/28/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB25
+existing	AB26	03/28/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB26
+existing	AB27	04/05/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	PC FAILED BUT WORKED IN SAMPLES -- DEGRADED	Quantification	AB27
+existing	AB28	04/05/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	PC FAILED BUT WORKED IN SAMPLES -- DEGRADED	Quantification	AB28
+existing	AB30	04/15/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB30
+existing	AB31	04/15/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB31
+existing	AB3102025	03/10/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64615061	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB3102025
+existing	AB3122025a	04/17/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64615061	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB3122025a
+existing	AB3122025b	04/18/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64615061	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB3122025b
+existing	AB33	04/19/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB33
+existing	AB35	05/17/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB35
+existing	AB36	05/17/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB36
+existing	AB37	05/24/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	NO POSITIVE CONTROL	Quantification	AB37
+existing	AB38	05/31/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	NO PC -- WILL ADD NEXT RUN	Quantification	AB38
+existing	AB39	06/17/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	None	Quantification	AB39
+existing	AB40	06/24/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.1	2	JL	638745080,638745087,638745081,638745066	Quantification	AB40
+existing	AB41	06/28/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	GT Mol. PC	Quantification	AB41
+existing	AB42	07/05/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	E04 TO H04 WERE LAKYN'S SAMPLES, NOT INVLUDED ON AB SHEETS	Quantification	AB42
+existing	AB4282025a	04/28/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64615061	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	could not access globus for strip B assets	Quantification	AB4282025a
+existing	AB4282025b	04/24/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB4282025b
+existing	AB4292025a	04/29/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB4292025a
+existing	AB4292025b	04/29/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	reran plate on 6/17/2025	Quantification	AB4292025b
+existing	AB43	07/12/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO POSITIVE CONTROL ON THIS RUN -JL	Quantification	AB43
+existing	AB4302025a	04/30/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB4302025a
+existing	AB4302025b	04/30/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB4302025b
+existing	AB44	07/22/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	G01&G02 <1000 DROPLETS	Quantification	AB44
+existing	AB45	07/26/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL		Quantification	AB45
+existing	AB46	08/02/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	INCLUDES MILK AND FLU SAMPLES 	Quantification	AB46
+existing	AB47	08/09/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6458084	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB47
+existing	AB48	08/16/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB48
+existing	AB49	08/22/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	None	Quantification	AB49
+existing	AB5	01/08/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	Used too dilute of PC for signal. Will change next time.	Quantification	AB5
+existing	AB50	08/28/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	xxxxxxx	Direct Quantification (dPCR; ddPCR)	2.0.2	2	AJ	None	Quantification	AB50
+existing	AB5022025a	05/02/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB5022025a
+existing	AB5022025b	05/12/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	MAY HAVE PUT PC IN F1 INSTEAD OF F3!	Quantification	AB5022025b
+existing	AB51	09/06/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB51
+existing	AB5132025	05/13/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB5132025
+existing	AB52	09/13/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6458048	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB52
+existing	AB53	09/20/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB53
+existing	AB54	09/28/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB54
+existing	AB55	10/04/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6458048	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB55
+existing	AB56	10/11/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB56
+existing	AB57	10/21/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB57
+existing	AB58	10/28/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB58
+existing	AB59	11/01/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6450484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB59
+existing	AB6	01/11/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB6
+existing	AB60	11/09/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB60
+existing	AB61	11/16/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC TO SEE IF NTC WILL BE CLEAN FOR FLUB	Quantification	AB61
+existing	AB6112025a	06/11/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	reran plate on 6/17/2025	Quantification	AB6112025a
+existing	AB6112025b	06/11/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB6112025b
+existing	AB6182025a	06/18/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB6182025a
+existing	AB6182025b	06/18/2025	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64638861A	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	assets for strip B missing from EB49	Quantification	AB6182025b
+existing	AB62	11/22/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB62
+existing	AB65	12/11/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB65
+existing	AB66	12/14/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB66
+existing	AB67	12/20/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB67
+existing	AB7	01/25/2024	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	341878142,69915335	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB7
+existing	AB70	01/14/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC	Quantification	AB70
+existing	AB71	01/17/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB71
+existing	AB7102024	07/10/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64594017	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB7102024
+existing	AB72	01/27/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB72
+existing	AB7222024	07/22/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64564655	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB7222024
+existing	AB7252024	08/05/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64564655	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB7252024
+existing	AB73	01/31/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB73
+existing	AB74	02/12/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	xxxxxx64580484x	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB74
+existing	AB75	02/18/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB75
+existing	AB76	02/21/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6450484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO POSITIVE CONTROL	Quantification	AB76
+existing	AB78	03/03/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC -- ADG ERROR	Quantification	AB78
+existing	AB79	03/07/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC	Quantification	AB79
+existing	AB8	01/31/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64571283	Direct Quantification (dPCR; ddPCR)	2.0.0	2	JL	None	Quantification	AB8
+existing	AB8062024	08/06/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64595371	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	None	Quantification	AB8062024
+existing	AB82	03/19/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC, FLUA CONTAMINATION	Quantification	AB82
+existing	AB8212024	08/21/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64595371	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	UNABLE TO RUN SAMPLES A1, A6-8, B1&2, AND D1-4 DUE TO INSUFFICIENT CONCENTRATION	Quantification	AB8212024
+existing	AB83	03/26/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	645484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC -- FLUA CONTAMINATION	Quantification	AB83
+existing	AB84	04/01/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	SIMPLEX N2 FAM ASSAY USED -- WAITING FOR GT TRIPLEX RESUPPLY. NO PC	Quantification	AB84
+existing	AB85	04/09/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC	Quantification	AB85
+existing	AB86	04/16/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB86
+existing	AB87	04/22/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6450484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	FLUB CONTAMINATION	Quantification	AB87
+existing	AB88	04/28/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC	Quantification	AB88
+existing	AB89	05/06/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC	Quantification	AB89
+existing	AB90	05/12/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	NO PC, FLUA CONT	Quantification	AB90
+existing	AB91	05/21/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB91
+existing	AB9142024	09/14/2024	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64615977	Direct Quantification (dPCR; ddPCR)	2.0.2	2	HP	SAMPLES J4, J6, J7, J8, AND K1 WERE USED UP AND COULD NOT BE RAN	Quantification	AB9142024
+existing	AB92	05/28/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB92
+existing	AB93	06/03/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB93
+existing	AB95	06/11/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	21303	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB95
+existing	AB96	06/17/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	21303	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB96
+existing	AB97	06/23/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB97
+existing	AB98	07/02/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	None	Quantification	AB98
+existing	AB99	07/08/2025	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64580484	Direct Quantification (dPCR; ddPCR)	2.0.2	2	JL	PCR/DG PROBLEM 	Quantification	AB99
+existing	AP0	08/13/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0
+existing	AP0.1	08/16/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.1
+existing	AP0.2	08/18/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.2
+existing	AP0.3	08/20/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.3
+existing	AP0.4	09/02/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.4
+existing	AP0.5	09/03/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.5
+existing	AP0.6	06/01/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP0.6
+existing	AP10	09/29/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP10
+existing	AP100	07/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP100
+existing	AP102	07/25/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP102
+existing	AP103	07/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP103
+existing	AP104	08/01/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP104
+existing	AP105	08/04/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP105
+existing	AP106	08/10/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP106
+existing	AP107	08/11/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP107
+existing	AP108	08/17/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP108
+existing	AP109	08/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP109
+existing	AP11	10/05/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP11
+existing	AP110	08/23/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP110
+existing	AP111	08/25/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP111
+existing	AP112	08/30/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP112
+existing	AP113	09/01/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP113
+existing	AP114	09/07/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP114
+existing	AP115	09/08/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP115
+existing	AP116	09/14/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP116
+existing	AP117	09/15/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP117
+existing	AP118	09/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP118
+existing	AP119	09/22/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP119
+existing	AP12	10/11/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP12
+existing	AP120	09/27/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP120
+existing	AP121	09/29/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP121
+existing	AP122	10/04/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP122
+existing	AP123	10/06/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP123
+existing	AP124	10/17/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP124
+existing	AP125	10/13/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP125
+existing	AP127	10/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP127
+existing	AP128	10/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP128
+existing	AP129	10/25/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP129
+existing	AP13	10/14/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP13
+existing	AP130	10/31/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP130
+existing	AP131	11/04/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP131
+existing	AP132	11/10/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP132
+existing	AP133	11/15/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP133
+existing	AP134	11/21/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP134
+existing	AP135	11/29/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP135
+existing	AP136	12/02/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63089746	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP136
+existing	AP137	12/07/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	6310837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP137
+existing	AP139	12/13/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP139
+existing	AP14	10/20/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP14
+existing	AP142	12/16/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP142
+existing	AP143	12/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP143
+existing	AP146	12/29/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP146
+existing	AP149	01/06/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP149
+existing	AP15	11/01/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP15
+existing	AP150	01/10/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP150
+existing	AP153	01/12/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP153
+existing	AP156	01/19/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP156
+existing	AP157	01/20/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP157
+existing	AP158	01/26/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP158
+existing	AP159	01/27/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP159
+existing	AP16	11/04/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP16
+existing	AP162	02/01/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP162
+existing	AP165	02/02/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP165
+existing	AP167	02/07/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP167
+existing	AP17	11/08/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP17
+existing	AP171	02/10/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP171
+existing	AP172	02/13/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP172
+existing	AP175	02/17/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP175
+existing	AP176	02/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP176
+existing	AP178	02/24/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP178
+existing	AP179	02/28/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP179
+existing	AP180	03/03/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP180
+existing	AP184	03/06/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP184
+existing	AP187	03/10/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP187
+existing	AP19	11/17/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP19
+existing	AP190	03/15/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP190
+existing	AP191	03/17/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP191
+existing	AP195	03/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP195
+existing	AP198	03/24/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP198
+existing	AP20	11/18/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP20
+existing	AP201	03/28/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP201
+existing	AP202	03/31/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP202
+existing	AP206	04/03/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP206
+existing	AP209	04/07/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101837	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP209
+existing	AP21	11/22/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP21
+existing	AP210	04/11/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP210
+existing	AP213	04/14/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP213
+existing	AP214	04/18/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP214
+existing	AP216	04/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP216
+existing	AP217	04/25/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP217
+existing	AP218	04/28/2023	QX 600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP218
+existing	AP219	05/02/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP219
+existing	AP22	11/29/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP22
+existing	AP220	05/09/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP220
+existing	AP221	05/09/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP221
+existing	AP222	05/12/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP222
+existing	AP223	05/16/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP223
+existing	AP224	05/19/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP224
+existing	AP225	05/26/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP225
+existing	AP226	06/02/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP226
+existing	AP227	06/09/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP227
+existing	AP228	06/16/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP228
+existing	AP229	06/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP229
+existing	AP23	12/03/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP23
+existing	AP230	06/26/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP230
+existing	AP231	07/03/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP231
+existing	AP235	07/06/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP235
+existing	AP236	07/13/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP236
+existing	AP237	07/13/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP237
+existing	AP238	07/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP238
+existing	AP24	12/06/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP24
+existing	AP240	07/28/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP240
+existing	AP241	07/28/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP241
+existing	AP242	08/03/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP242
+existing	AP244	08/14/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP244
+existing	AP245	08/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP245
+existing	AP246	08/25/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP246
+existing	AP247	08/25/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP247
+existing	AP248	09/01/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP248
+existing	AP25	12/09/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP25
+existing	AP250	09/08/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63094496,63089746	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP250
+existing	AP251	09/14/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	AJ		Quantification	AP251
+existing	AP252	09/15/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	AJ		Quantification	AP252
+existing	AP255	09/21/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	AJ		Quantification	AP255
+existing	AP256	09/28/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP256
+existing	AP257	10/09/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP257
+existing	AP258	10/13/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP258
+existing	AP259	10/18/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP259
+existing	AP260	10/25/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP260
+existing	AP261	11/02/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP261
+existing	AP263	11/10/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP263
+existing	AP264	11/20/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	JL		Quantification	AP264
+existing	AP27	12/14/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP27
+existing	AP28	12/21/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP28
+existing	AP30	12/28/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP30
+existing	AP32	01/12/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP32
+existing	AP33	01/13/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP33
+existing	AP35	01/14/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP35
+existing	AP36	01/19/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP36
+existing	AP38	01/24/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP38
+existing	AP39	01/26/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP39
+existing	AP4	08/26/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP4
+existing	AP4.1	08/23/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP4.1
+existing	AP4.2	08/24/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP4.2
+existing	AP4.3	08/25/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP4.3
+existing	AP40	02/02/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP40
+existing	AP41	02/07/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP41
+existing	AP42	02/10/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP42
+existing	AP45	02/16/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP45
+existing	AP46	02/17/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP46
+existing	AP47	02/22/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP47
+existing	AP48	02/24/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP48
+existing	AP49	02/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP49
+existing	AP5	08/31/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP5
+existing	AP5.1	08/27/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP5.1
+existing	AP5.2	08/30/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477036	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP5.2
+existing	AP50	03/02/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477038	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP50
+existing	AP51	03/09/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP51
+existing	AP52	03/10/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP52
+existing	AP53	03/14/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477039	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP53
+existing	AP54	03/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP54
+existing	AP55	03/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP55
+existing	AP56	03/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP56
+existing	AP57	03/29/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP57
+existing	AP58	03/30/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP58
+existing	AP59	03/31/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP59
+existing	AP60	04/04/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477040	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP60
+existing	AP61	04/06/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP61
+existing	AP62	04/07/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP62
+existing	AP63	04/11/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60265549	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP63
+existing	AP64	04/14/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP64
+existing	AP65	04/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP65
+existing	AP66	04/19/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP66
+existing	AP67	04/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP67
+existing	AP68	04/21/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP68
+existing	AP69	04/25/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP69
+existing	AP7	09/09/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP7
+existing	AP70	04/26/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP70
+existing	AP71	04/27/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP71
+existing	AP72	04/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP72
+existing	AP73	04/29/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP73
+existing	AP74	05/02/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP74
+existing	AP75	05/04/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP75
+existing	AP76	05/05/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	60394497	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP76
+existing	AP77	05/09/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP77
+existing	AP78	05/11/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP78
+existing	AP79	05/12/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP79
+existing	AP8	09/20/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477037	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP8
+existing	AP80	05/16/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP80
+existing	AP800	09/18/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	63101839	Direct Quantification (dPCR; ddPCR)	1.0.0	2	AJ		Quantification	AP800
+existing	AP805	11/15/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	AJ		Quantification	AP805
+existing	AP81	05/18/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP81
+existing	AP82	05/19/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP82
+existing	AP83	05/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64464142	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP83
+existing	AP84	05/24/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP84
+existing	AP85	05/26/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP85
+existing	AP87	06/02/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP87
+existing	AP88	06/06/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP88
+existing	AP89	06/09/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP89
+existing	AP9	09/24/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP9
+existing	AP90	06/13/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP90
+existing	AP91	06/15/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP91
+existing	AP92	06/20/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP92
+existing	AP93	06/23/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP93
+existing	AP94	06/28/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP94
+existing	AP95	06/30/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP95
+existing	AP96	07/05/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP96
+existing	AP97	07/07/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP97
+existing	AP98	07/11/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP98
+existing	AP99	07/14/2022	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	58477041	Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	JL		Quantification	AP99
+existing	AP999	09/17/2023	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	2	AJ		Quantification	AP999
+existing	MA0	11/10/2020	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA0
+existing	MA1	11/17/2020	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA1
+existing	MA10	04/12/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA10
+existing	MA11	04/19/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA11
+existing	MA12	04/26/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA12
+existing	MA13	05/03/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA13
+existing	MA14	05/07/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA14
+existing	MA15	05/17/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA15
+existing	MA16	05/19/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA16
+existing	MA17	06/04/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA17
+existing	MA18	06/07/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA18
+existing	MA19	07/07/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA19
+existing	MA2	11/20/2020	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA2
+existing	MA20	07/09/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA20
+existing	MA21	07/30/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA21
+existing	MA3	12/14/2020	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA3
+existing	MA4	02/22/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA4
+existing	MA5	03/11/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA5
+existing	MA6	03/15/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA6
+existing	MA7	03/16/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA7
+existing	MA8	03/22/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA8
+existing	MA9	03/30/2021	Zoo QX200	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes		Direct Quantification (dPCR; ddPCR)	1.0.0	1.2	TD		Quantification	MA9
+inbound	Q20261015	2026-10-16	Zoo QX600	Bio-Rad OneStep RT-ddPCR Advanced Kit for Probes	64733650	Droplet Digital PCR (ddPCR)	2.3	1.2	BB	First one with new template and multiple assays (Resp and Noro)	Quantification	2026-10-15

@@ -1,0 +1,932 @@
+source_table	concentration_batch_record_version	concentration_batch_machine	concentration_batch_matrix	concentration_batch_matrix_lot_id	concentration_batch_sample_input_vol_ml	concentration_batch_elution_output_vol_ul	concentration_batch_date	concentration_batch_run_by	concentration_batch_id	concentration_batch_comment	batch_type	concentration_batch_matrix_vol_ul	concentration_batch_enhancement_reagent	concentration_batch_enhancement_reagent_lot_id	concentration_batch_enhancement_reagent_vol_ul	concentration_batch_spike_material	concentration_batch_spike_vol_ul	run_id	validation_key
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	02/06/2025	AJ	CB		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/29/2023	AJ	CB1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB1	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/04/2024	AJ	CB10		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB10	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	11/14/2024	AJ	CB100		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB100	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	11/14/2024	AJ	CB101		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB101	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	11/21/2024	AJ	CB102		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB102	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	11/21/2024	AJ	CB103		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB103	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/02/2024	AJ	CB104		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB104	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/02/2024	AJ	CB105		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB105	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/05/2024	AJ	CB106		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB106	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/05/2024	AJ	CB107		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB107	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/12/2024	AJ	CB108		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB108	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/19/2024	AJ	CB109		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB109	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/04/2024	AJ	CB11		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB11	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/19/2024	AJ	CB110		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB110	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/09/2025	AJ	CB111		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB111	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/09/2025	AJ	CB112		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB112	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/10/2025	AJ	CB113		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB113	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/16/2025	AJ	CB114		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB114	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/16/2025	AJ	CB115		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB115	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/23/2025	AJ	CB116		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB116	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/23/2025	AJ	CB117		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB117	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04991	10	475	01/30/2025	AJ	CB118		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB118	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	01/30/2025	AJ	CB119		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB119	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/09/2024	AJ	CB12		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB12	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	12/31/1899	TD	CB121		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB121	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04991	10	475	12/31/1899	AJ	CB122		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB122	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	02/13/2025	AJ	CB123		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB123	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	02/20/2025	AJ	CB124		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB124	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	02/27/2025	AJ	CB126		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB126	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	02/27/2025	AJ	CB127		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB127	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/06/2025	AJ	CB128		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB128	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/06/2025	AJ	CB129		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB129	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/10/2024	AJ	CB13		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB13	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/13/2025	AJ	CB130		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB130	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/13/2025	AJ	CB131		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB131	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/20/2025	AJ	CB132		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB132	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/20/2025	AJ	CB133		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB133	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/27/2025	AJ	CB134		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB134	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	03/27/2025	AJ	CB135		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB135	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/03/2025	AJ	CB136		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB136	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/03/2025	AJ	CB137		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB137	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/11/2025	AJ	CB138		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB138	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/11/2025	AJ	CB139		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB139	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/18/2024	GC	CB14		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB14	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/17/2025	AJ	CB140		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB140	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/17/2023	AJ	CB141		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB141	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/24/2025	AJ	CB142		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB142	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	04/24/2025	AJ	CB143		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB143	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/01/2025	AJ	CB144		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB144	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/01/2025	AJ	CB145		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB145	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/08/2025	AJ	CB146		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB146	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/08/2025	AJ	CB147		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB147	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/15/2025	AJ	CB148		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB148	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/15/2025	AJ	CB149		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB149	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/23/2024	AJ	CB15		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB15	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	05/22/2025	AJ	CB150		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB150	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	05/22/2025	AJ	CB151		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB151	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	05/29/2025	BB	CB152		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB152	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/05/2020	BB, ID	CB153		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB153	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/05/2025	BB, ID	CB154		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB154	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/12/2025	AJ	CB155		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB155	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/12/2025	AJ	CB156		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB156	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/19/2025	AJ	CB157		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB157	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/19/2025	AJ	CB158		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB158	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/26/2025	AJ	CB159		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB159	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/24/2024	AJ	CB16		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB16	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/26/2025	AJ	CB160		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB160	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	07/02/2025	AJ	CB161		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB161	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	07/10/2025	AJ	CB162		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB162	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	07/10/2025	AJ	CB163		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB163	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/05/2025	BB, ID	CB164		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB164	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	06/05/2020	BB, ID	CB165		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB165	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	07/23/2025	AJ	CB166		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB166	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	07/31/2025	AJ	CB167		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB167	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/07/2025	ID	CB168		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB168	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/07/2025	ID	CB169		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB169	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/31/2024	AJ	CB17		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB17	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/14/2025	AJ	CB170		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB170	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/14/2025	AJ	CB171		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB171	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/21/2025	AJ	CB172		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB172	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	08/21/2025	AJ	CB173		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB173	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	08/28/2025	AJ	CB174		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB174	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	08/28/2025	AJ	CB175		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB175	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	09/04/2025	AJ	CB176		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB176	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	09/04/2025	AJ	CB177		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB177	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/11/2025	AJ	CB178		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB178	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/11/2025	AJ	CB179		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB179	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	01/31/2024	AJ	CB18		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB18	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/18/2025	LS	CB180		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB180	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/18/2025	AJ	CB181		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB181	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/25/2025	LS	CB182		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB182	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	09/25/2025	LS	CB183		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB183	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	10/02/2025	LS	CB184		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB184	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	10/02/2025	LS	CB185		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB185	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/10/2025	AJ	CB186		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB186	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/10/2025	AJ	CB187		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB187	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/16/2025	LS	CB188		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB188	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/16/2025	LS	CB189		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB189	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/07/2024	AJ	CB19		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB19	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/23/2025	LS	CB190		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB190	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/30/2025	AJ	CB191		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB191	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	10/30/2025	AJ	CB192		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB192	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT045407	10	475	11/06/2025	LS	CB193		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB193	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04509	10	475	11/06/2025	LS	CB194		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB194	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	11/13/2025	LS	CB195		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB195	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	11/13/2025	LS	CB196		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB196	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	11/20/2025	LS	CB197		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB197	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	11/20/2025	LS	CB198		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB198	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	11/26/2025	TD	CB199		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB199	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/29/2023	AJ	CB2		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB2	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/07/2024	AJ	CB20		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB20	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/04/2025	AJ	CB200		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB200	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/04/2025	AJ	CB201		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB201	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/11/2025	LS	CB202		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB202	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/11/2025	LS	CB203		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB203	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/18/2025	LS	CB204		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB204	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	12/18/2025	LS	CB205		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB205	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/08/2026	LS	CB206		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB206	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/08/2026	LS	CB207		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB207	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/08/2026	LS	CB208		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB208	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/15/2026	LS	CB209		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB209	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/13/2024	AJ	CB21		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB21	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/15/2026	LS	CB210		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB210	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	xxxxxxx	10	475	01/21/2026	AJ	CB211		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB211	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/29/2026	LS	CB212		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB212	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	01/29/2026	LS	CB213		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB213	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	02/05/2026	LS	CB214		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB214	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	02/05/2026	LS	CB215		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB215	-1
+existing	2.1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	02/12/2026	LS	CB216		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB216	-1
+existing	2.1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04507	10	475	02/12/2026	LS	CB217		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB217	-1
+existing	2.2	Wall-E			10	475	02/19/2026	LS	CB218		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB218	-1
+existing	2.2	Wall-E			10	475	02/26/2026	LS	CB219		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB219	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/13/2024	AJ	CB22		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB22	-1
+existing	2.2	Bender			10	475	02/26/2026	LS	CB220		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB220	-1
+existing	2.2	Wall-E			10	475	03/05/2026	LS	CB221		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB221	-1
+existing	2.2	Wall-E			10	475	03/05/2026	LS	CB222		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB222	-1
+existing	2.2	Bender			10	475	03/12/2026	LS	CB223		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB223	-1
+existing	2.2	Wall-E			10	475	03/12/2026	LS	CB224		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB224	-1
+existing	2.2	Bender			10	475	03/19/2026	LS	CB225		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB225	-1
+existing	2.2	Wall-E			10	475	03/19/2026	LS	CB226		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB226	-1
+existing	2.2	Wall-E			10	475	03/26/2026	LS	CB227		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB227	-1
+existing	2.2	Bender			10	475	03/26/2026	LS	CB228		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB228	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/02/2026	LS	CB229		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB229	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/14/2024	AJ	CB23		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB23	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/02/2026	LS	CB230		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB230	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/09/2026	LS	CB231		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB231	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/09/2026	LS	CB232		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB232	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/16/2026	LS	CB233		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB233	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/16/2026	LS	CB234		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB234	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/23/2026	LS	CB235		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB235	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	xxxxxxx	10	475	04/23/2026	LS	CB236		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB236	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/30/2026	LS	CB237		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB237	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	04/30/2026	LS	CB238		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB238	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/07/2026	LS	CB239		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB239	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/20/2024	AJ	CB24		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB24	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/07/2026	LS	CB240		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB240	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/14/2025	LS	CB241		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB241	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/14/2025	LS	CB242		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB242	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/21/2025	LS	CB243		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB243	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/21/2025	LS	CB244		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB244	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/28/2025	LS	CB245		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB245	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	05/28/2025	LS	CB246		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB246	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/02/2026	LS	CB247		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB247	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/04/2026	LS	CB248		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB248	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/04/2026	LS	CB249		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB249	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/21/2024	AJ	CB25		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB25	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/09/2026	LS	CB250		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB250	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	3330790	10	475	06/11/2026	ID	CB251		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB251	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	3330790	10	475	06/11/2026	ID	CB252		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB252	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/16/2026	LS	CB253		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB253	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/18/2026	LS	CB254		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB254	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04511	10	475	06/23/2026	LS	CB255		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB255	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	06/25/2026	LS	CB256		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB256	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	06/25/2026	LS	CB257		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB257	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	06/30/2026	LS	CB258		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB258	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/02/2026	LS	CB259		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB259	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/27/2024	AJ	CB26		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB26	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/02/2026	LS	CB260		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB260	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/09/2026	LS	CB261		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB261	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/09/2026	LS	CB262		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB262	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/14/2026	LS	CB263		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB263	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/17/2026	LS	CB264		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB264	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/17/2026	LS	CB265		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB265	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/23/2026	LS	CB266		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB266	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/23/2026	LS	CB267		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB267	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/30/2026	LS	CB268		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB268	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	07/30/2026	LS	CB269		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB269	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/28/2024	AJ	CB27		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB27	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/06/2026	LS	CB270		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB270	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/06/2026	LS	CB271		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB271	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/13/2026	LS	CB272		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB272	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/20/2026	ID	CB273		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB273	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/20/2026	ID	CB274		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB274	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	08/31/2026	LS	CB275		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB275	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	09/03/2026	LS	CB276		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB276	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04523	10	475	09/03/2026	LS	CB277		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB277	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	09/10/2026	LS	CB278		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB278	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	09/17/2026	LS	CB279		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB279	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/05/2024	AJ	CB28		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB28	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	09/10/2026	LS	CB280		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB280	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	09/24/2026	LS	CB281		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB281	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	09/24/2026	LS	CB282		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB282	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	10/01/2026	ID	CB283		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB283	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	10/08/2026	LS	CB284		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB284	-1
+existing	2.2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	10/08/2026	LS	CB285		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB285	-1
+existing	2.2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	10/15/2026	LS	CB286	Also moved to new template	Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB286	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/06/2024	SK	CB29		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB29	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	12/05/2023	AJ	CB3		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB3	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/07/2024	AJ	CB30		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB30	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04437	10	475	03/12/2024	AJ	CB31		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB31	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT4473	10	475	03/13/2024	AJ	CB32		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB32	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/20/2024	SK	CB33		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB33	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/20/2024	SK	CB34		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB34	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/27/2024	AJ	CB35		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB35	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/27/2024	AJ	CB36		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB36	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/03/2024	GC	CB37		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB37	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/03/2024	GC	CB38		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB38	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/09/2024	GC	CB39		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB39	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	12/05/2023	AJ	CB4		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB4	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/10/2024	AJ	CB40		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB40	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/11/2024	GC	CB41		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB41	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/15/2024	GC	CB42		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB42	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/16/2024	AJ	CB43		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB43	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/18/2024	GC	CB44		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB44	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/26/2024	GC	CB45		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB45	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/26/2024	GC	CB46		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB46	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/02/2024	SK	CB47		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB47	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473/NT4491	10	475	05/08/2024	GC	CB48		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB48	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473/NT04491	10	475	05/08/2024	GC	CB49		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB49	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	12/12/2023	AJ	CB5		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB5	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	4491	10	475	05/15/2024	SK	CB50		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB50	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	4491	10	475	05/16/2024	SK	CB51		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB51	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	05/23/2024	SK	CB52		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB52	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	05/23/2024	SK	CB53		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB53	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	05/30/2024	SK	CB54		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB54	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	05/30/2024	SK	CB55		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB55	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/04/2024	SK	CB56		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB56	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/04/2024	SK	CB57		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB57	-1
+existing	2	WALL-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/06/2024	SK	CB58		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB58	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/13/2024	SK	CB59		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB59	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	12/12/2023	AJ	CB6		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB6	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/13/2024	SK	CB60		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB60	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/18/2024	SK	CB61		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB61	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/27/2024	SK	CB62		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB62	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	06/27/2024	SK	CB63		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB63	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/03/2024	SK	CB64		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB64	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/03/2024	SK	CB65		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB65	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/11/2024	AJ	CB66		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB66	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/11/2024	AJ	CB67		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB67	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/18/2024	SK	CB68		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB68	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/18/2024	SK	CB69		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB69	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	12/19/2023	AJ	CB7		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB7	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/24/2024	SK	CB70		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB70	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/31/2024	AJ	CB71		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB71	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	07/31/2024	AJ	CB72		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB72	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/08/2024	AJ	CB73		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB73	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/08/2024	AJ	CB74		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB74	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/15/2024	AJ	CB75		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB75	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/22/2024	AJ	CB76		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB76	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/22/2024	AJ	CB77		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB77	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	08/28/2024	AJ	CB78		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB78	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/05/2024	AJ	CB79		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB79	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	12/19/2023	AJ	CB8		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB8	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT044491	10	475	09/05/2024	AJ	CB80		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB80	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/12/2024	AJ	CB81		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB81	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/12/2024	AJ	CB82		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB82	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/19/2024	AJ	CB83		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB83	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/19/2024	AJ	CB84		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB84	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/26/2024	AJ	CB86		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB86	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	09/26/2024	AJ	CB87		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB87	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/03/2024	AJ	CB88		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB88	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/10/2024	AJ	CB89		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB89	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/10/2024	AJ	CB90		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB90	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/17/2024	AJ	CB91		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB91	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/17/2024	AJ	CB92		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB92	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/24/2024	AJ	CB93		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB93	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/24/2024	AJ	CB94		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB94	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/31/2024	AJ	CB96		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB96	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	10/31/2024	AJ	CB97		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB97	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04491	10	475	11/07/2024	AJ	CB98		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB98	-1
+existing	2	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04991	10	475	11/07/2024	AJ	CB99		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CB99	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	950	06/04/2021		CP0		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP0	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	950	07/07/2021		CP0.1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP0.1	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	950	07/09/2021		CP0.2		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP0.2	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	950	07/30/2021		CP0.3		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP0.3	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/13/2021	JL	CP0.4		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP0.4	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/16/2021	JL	CP1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP1	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/18/2021	JL	CP1.1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP1.1	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/20/2021	JL	CP1.2		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP1.2	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/27/2021	JL	CP1.3		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP1.3	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/08/2021	JL	CP10		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP10	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/21/2022	AJ	CP100		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP100	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/23/2022	AJ	CP101		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP101	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/23/2022	AJ	CP102		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP102	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/25/2022	AJ	CP103		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP103	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/25/2022	AJ	CP104		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP104	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/29/2022	AJ	CP105		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP105	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/29/2022	AJ	CP106		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP106	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/30/2022	AJ	CP107		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP107	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/30/2022	AJ	CP108		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP108	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/01/2022	AJ	CP109		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP109	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/13/2021	JL	CP11		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP11	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/31/2022	AJ	CP110		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP110	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/04/2022	AJ	CP111		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP111	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/05/2022	JL	CP112		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP112	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/06/2022	AJ	CP113		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP113	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/06/2022	AJ	CP114		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP114	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/08/2022	AJ	CP115		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP115	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/08/2022	AJ	CP116		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP116	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/12/2022	AJ	CP117		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP117	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/14/2022	AJ	CP118		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP118	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/13/2022	JL	CP119		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP119	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/15/2021	JL	CP12		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP12	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/18/2022	AJ	CP120		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP120	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/18/2022	AJ	CP121		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP121	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/19/2022	AJ	CP122		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP122	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/20/2022	AJ	CP123		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP123	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/20/2022	AJ	CP124		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP124	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/21/2022	AJ	CP125		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP125	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/22/2022	AJ	CP126		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP126	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/25/2022	AJ	CP127		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP127	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/26/2022	AJ	CP128		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP128	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/27/2022	AJ	CP129		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP129	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/17/2021	JL	CP13		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP13	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/27/2022	AJ	CP130		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP130	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/28/2022	AJ	CP131		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP131	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	04/29/2022	AJ	CP132		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP132	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/03/2022	AJ	CP133		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP133	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/04/2022	AJ	CP134		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP134	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/04/2022	AJ	CP135		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP135	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/04/2022	AJ	CP136		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP136	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/05/2022	AJ	CP137		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP137	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/06/2022	AJ	CP138		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP138	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/11/2022	AJ	CP139		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP139	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/11/2022	AJ	CP140		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP140	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/11/2022	AJ	CP141		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP141	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/13/2022	AJ	CP142		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP142	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/13/2022	AJ	CP143		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP143	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/17/2022	AJ	CP144		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP144	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/18/2022	AJ	CP145		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP145	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/18/2022	AJ	CP146		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP146	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/19/2022	AJ	CP147		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP147	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/19/2022	AJ	CP148		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP148	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/20/2022	AJ	CP149		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP149	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/23/2022	AJ	CP150		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP150	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/25/2022	AJ	CP151		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP151	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/25/2022	AJ	CP152		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP152	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/25/2022	AJ	CP153		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP153	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/27/2022	AJ	CP154		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP154	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/27/2022	AJ	CP155		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP155	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	05/31/2022	AJ	CP156		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP156	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/01/2022	AJ	CP157		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP157	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/01/2022	AJ	CP158		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP158	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/02/2022	AJ	CP159		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP159	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/24/2021	JL	CP16		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP16	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/02/2022	AJ	CP160		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP160	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/03/2022	AJ	CP161		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP161	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/08/2022	AJ	CP162		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP162	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/08/2022	AJ	CP163		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP163	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/08/2022	AJ	CP164		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP164	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/10/2022	AJ	CP165		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP165	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/10/2022	AJ	CP166		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP166	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/15/2022	AJ	CP167		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP167	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/14/2022	AJ	CP168		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP168	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/17/2022	AJ	CP169		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP169	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	09/27/2021	JL	CP17		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP17	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/17/2022	AJ	CP170		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP170	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/22/2022	AJ	CP172		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP172	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/22/2022	AJ	CP173		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP173	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/24/2022	AJ	CP174		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP174	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/24/2022	AJ	CP175		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP175	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/29/2022	AJ	CP176		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP176	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/29/2022	AJ	CP177		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP177	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/29/2022	AJ	CP178		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP178	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	06/30/2022	AJ	CP179		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP179	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	09/29/2021	JL	CP18		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP18	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/06/2022	AJ	CP180		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP180	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/06/2022	AJ	CP181		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP181	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/07/2022	AJ	CP182		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP182	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/08/2022	AJ	CP183		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP183	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/08/2022	AJ	CP184		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP184	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/13/2022	AJ	CP185		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP185	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/13/2022	AJ	CP186		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP186	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/13/2022	AJ	CP187		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP187	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/15/2022	AJ	CP188		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP188	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/15/2022	AJ	CP189		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP189	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/01/2021	JL	CP19		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP19	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/20/2022	AJ	CP190		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP190	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/20/2022	AJ	CP191		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP191	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/20/2022	AJ	CP192		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP192	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/22/2022	AJ	CP193		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP193	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/22/2022	AJ	CP194		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP194	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/27/2022	AJ	CP195		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP195	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/27/2022	AJ	CP196		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP196	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/28/2022	AJ	CP197		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP197	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	07/28/2022	AJ	CP198		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP198	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/01/2022	AJ	CP199		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP199	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/23/2021	JL	CP2		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP2	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/05/2021	JL	CP20		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP20	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/01/2022	AJ	CP200		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP200	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/03/2022	AJ	CP201		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP201	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/02/2022	AJ	CP202		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP202	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/03/2022	AJ	CP203		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP203	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/05/2022	AJ	CP205		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP205	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/08/2022	AJ	CP206		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP206	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/10/2022	AJ	CP207		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP207	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/10/2022	AJ	CP208		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP208	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/10/2022	AJ	CP209		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP209	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/07/2021	JL	CP21		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP21	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/15/2022	JL	CP210		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP210	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/15/2022	JL	CP211		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP211	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/17/2022	AJ	CP212		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP212	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/17/2022	AJ	CP213		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP213	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/17/2022	AJ	CP214		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP214	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/19/2022	AJ	CP216		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP216	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/23/2022	AJ	CP217		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP217	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/24/2022	AJ	CP218		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP218	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/24/2022	AJ	CP219		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP219	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/08/2021	JL	CP22		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP22	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/24/2022	AJ	CP220		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP220	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	530	08/26/2022	AJ	CP221		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP221	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	530	08/26/2022	AJ	CP222		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP222	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/31/2022	AJ	CP223		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP223	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/31/2022	AJ	CP224		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP224	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/31/2022	AJ	CP225		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP225	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/02/2022	AJ	CP226		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP226	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/02/2022	AJ	CP227		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP227	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/07/2022	AJ	CP228		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP228	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/07/2022	AJ	CP229		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP229	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/11/2021	JL	CP23		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP23	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/07/2022	AJ	CP230		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP230	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/07/2022	AJ	CP231		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP231	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2022	AJ	CP232		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP232	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2022	AJ	CP233		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP233	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2022	AJ	CP234		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP234	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/14/2022	AJ	CP235		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP235	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/14/2022	AJ	CP236		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP236	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/16/2022	AJ	CP237		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP237	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/16/2022	AJ	CP238		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP238	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/21/2022	AJ	CP239		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP239	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/13/2021	JL	CP24		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP24	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/21/2022	AJ	CP240		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP240	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/21/2022	AJ	CP241		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP241	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/21/2022	AJ	CP242		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP242	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/26/2022	AJ	CP243		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP243	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/26/2022	AJ	CP244		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP244	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/28/2022	AJ	CP245		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP245	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/28/2022	AJ	CP246		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP246	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/12/2022	AJ	CP247		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP247	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/28/2022	AJ	CP247.1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP247.1	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/12/2022	SB	CP248		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP248	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	09/30/2022	AJ	CP248.1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP248.1	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/03/2022	AJ	CP249		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP249	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/15/2021	JL	CP25		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP25	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/03/2022	AJ	CP250		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP250	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0445	10	475	10/04/2022	AJ	CP251		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP251	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/04/2022	AJ	CP252		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP252	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/04/2022	AJ	CP253		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP253	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/07/2022	AJ	CP254		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP254	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/07/2022	AJ	CP255		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP255	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/07/2022	AJ	CP256		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP256	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/17/2022	AJ	CP259		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP259	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/18/2021	JL	CP26		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP26	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/17/2022	AJ	CP260		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP260	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/17/2022	AJ	CP261		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP261	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/17/2022	AJ	CP262		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP262	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/19/2022	AJ	CP263		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP263	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/19/2022	AJ	CP264		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP264	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/19/2022	AJ	CP265		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP265	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/24/2022	AJ	CP266		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP266	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/24/2022	AJ	CP267		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP267	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/26/2022	AJ	CP268		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP268	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/26/2022	AJ	CP269		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP269	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/20/2021	JL	CP27		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP27	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/28/2022	AJ	CP270		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP270	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/28/2022	AJ	CP271		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP271	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	10/28/2022	AJ	CP272		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP272	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/03/2022	SB	CP273		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP273	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/03/2022	SB	CP274		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP274	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/04/2022	SB	CP275		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP275	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/04/2022	SB	CP276		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP276	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/09/2022	AJ	CP277		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP277	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/09/2022	AJ	CP278		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP278	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/10/2022	AJ	CP279		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP279	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/25/2021	JL	CP28		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP28	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/10/2022	AJ	CP280		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP280	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/10/2022	AJ	CP281		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP281	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/15/2022	AJ	CP282		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP282	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/15/2022	AJ	CP283		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP283	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/18/2022	AJ	CP284		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP284	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/18/2022	AJ	CP285		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP285	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/18/2022	AJ	CP286		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP286	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/18/2022	AJ	CP287		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP287	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/28/2022	AJ	CP288		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP288	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/28/2022	AJ	CP289		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP289	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/27/2021	JL	CP29		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP29	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/28/2022	AJ	CP290		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP290	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/28/2022	AJ	CP291		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP291	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	11/30/2022	AJ	CP292		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP292	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT0455	10	475	11/30/2022	AJ	CP293		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP293	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/05/2022	AJ	CP294		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP294	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/05/2022	AJ	CP295		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP295	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/07/2022	AJ	CP296		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP296	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/07/2022	AJ	CP297		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP297	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/08/2022	AJ	CP298		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP298	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/12/2022	AJ	CP299		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP299	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/24/2021	JL	CP3		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP3	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	10/28/2021	JL	CP30		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP30	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/12/2022	AJ	CP300		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP300	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/14/2022	AJ	CP301		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP301	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/14/2022	AJ	CP302		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP302	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/14/2022	AJ	CP303		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP303	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/19/2022	AJ	CP304		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP304	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/19/2022	AJ	CP305		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP305	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0455	10	475	12/21/2022	AJ	CP306		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP306	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/21/2022	AJ	CP307		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP307	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/28/2022	AJ	CP308		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP308	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/28/2022	AJ	CP309		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP309	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/02/2021	JL	CP31		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP31	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	12/28/2022	AJ	CP310		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP310	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/04/2023	AJ	CP311		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP311	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/04/2023	AJ	CP312		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP312	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/04/2023	AJ	CP313		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP313	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/09/2023	AJ	CP314		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP314	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/09/2023	AJ	CP315		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP315	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/11/2023	AJ	CP316		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP316	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/11/2023	AJ	CP317		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP317	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/11/2023	AJ	CP318		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP318	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/11/2023	AJ	CP319		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP319	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/03/2021	JL	CP32		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP32	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/18/2023	AJ	CP320		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP320	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/18/2023	AJ	CP321		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP321	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/18/2023	AJ	CP322		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP322	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/18/2023	AJ	CP323		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP323	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/18/2023	AJ	CP324		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP324	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/25/2023	JL	CP325		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP325	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/25/2023	JL	CP326		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP326	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/25/2023	JL	CP327		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP327	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/26/2023	AJ	CP328		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP328	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/26/2023	AJ	CP329		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP329	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/05/2021	JL	CP33		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP33	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/30/2023	AJ	CP330		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP330	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/30/2023	AJ	CP331		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP331	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	01/30/2023	AJ	CP332		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP332	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/01/2023	AJ	CP333		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP333	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/01/2023	AJ	CP334		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP334	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/06/2023	AJ	CP335		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP335	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/06/2023	AJ	CP336		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP336	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/08/2023	AJ	CP337		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP337	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/08/2023	AJ	CP338		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP338	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/13/2023	AJ	CP339		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP339	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/11/2021	JL	CP34		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP34	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/13/2023	AJ	CP340		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP340	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/15/2023	AJ	CP341		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP341	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/15/2023	AJ	CP342		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP342	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/15/2023	AJ	CP343		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP343	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/20/2023	AJ	CP344		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP344	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/20/2023	AJ	CP345		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP345	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/20/2023	AJ	CP346		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP346	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/22/2023	AJ	CP347		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP347	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/22/2023	AJ	CP348		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP348	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/27/2023	AJ	CP349		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP349	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/15/2021	LW	CP35		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP35	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/27/2023	AJ	CP350		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP350	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	02/27/2023	AJ	CP351		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP351	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/01/2023	AJ	CP352		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP352	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/01/2023	AJ	CP353		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP353	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/02/2023	AJ	CP354		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP354	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/02/2023	AJ	CP355		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP355	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/06/2023	AJ	CP356		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP356	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/06/2023	AJ	CP357		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP357	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/08/2023	AJ	CP358		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP358	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/08/2023	AJ	CP359		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP359	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/16/2021	AJ	CP36		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP36	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/08/2023	AJ	CP360		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP360	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/10/2023	AJ	CP361		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP361	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/10/2023	AJ	CP362		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP362	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/15/2023	AJ	CP363		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP363	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/15/2023	AJ	CP364		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP364	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/15/2023	AJ	CP365		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP365	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/16/2023	AJ	CP366		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP366	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/20/2023	AJ	CP367		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP367	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/20/2023	AJ	CP368		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP368	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/22/2023	AJ	CP369		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP369	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	425	11/17/2021	JL	CP37		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP37	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/22/2023	AJ	CP370		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP370	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04455	10	475	03/23/2023	AJ	CP371		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP371	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/27/2023	AJ	CP372		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP372	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/27/2023	AJ	CP373		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP373	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/29/2023	AJ	CP374		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP374	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/29/2023	AJ	CP375		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP375	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	03/30/2023	AJ	CP376		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP376	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/03/2023	AJ	CP377		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP377	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/03/2023	AJ	CP378		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP378	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/05/2023	AJ	CP379		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP379	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	11/19/2021	AJ	CP38		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP38	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/05/2023	AJ	CP380		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP380	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/06/2023	AJ	CP381		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP381	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/06/2023	LW	CP382		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP382	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/10/2023	JL	CP383		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP383	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/10/2023	JL	CP384		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP384	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/12/2023	AJ	CP385		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP385	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/12/2023	AJ	CP386		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP386	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/13/2023	AJ	CP387		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP387	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/13/2023	AJ	CP388		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP388	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/17/2023	AJ	CP389		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP389	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	11/22/2021	AJ	CP39		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP39	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/17/2023	AJ	CP390		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP390	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/19/2023	AJ	CP391		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP391	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/19/2023	AJ	CP392		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP392	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/20/2023	AJ	CP393		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP393	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/24/2023	AJ	CP393.1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP393.1	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/24/2023	AJ	CP394		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP394	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/26/2023	AJ	CP396		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP396	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/26/2023	AJ	CP397		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP397	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	04/27/2023	AJ	CP398		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP398	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/01/2023	AJ	CP399		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP399	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/25/2021	JL	CP4		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP4	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	11/29/2021	AJ	CP40		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP40	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/01/2023	AJ	CP400		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP400	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/01/2023	AJ	CP401		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP401	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/03/2023	AJ	CP402		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP402	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/03/2023	AJ	CP403		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP403	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/04/2023	AJ	CP404		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP404	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/04/2023	AJ	CP405		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP405	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/08/2023	LW	CP406		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP406	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/08/2023	LW	CP407		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP407	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/10/2023	SB	CP408		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP408	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/10/2023	LW	CP409		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP409	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	11/30/2021	AJ	CP41		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP41	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/11/2023	AJ	CP410		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP410	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04665	10	475	05/15/2023	AJ	CP411		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP411	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/15/2023	AJ	CP412		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP412	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/17/2023	SB	CP413		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP413	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/17/2023	LW	CP414		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP414	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/18/2023	LW	CP415		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP415	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/23/2023	AJ	CP416		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP416	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/24/2023	AJ	CP417		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP417	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/24/2023	AJ	CP418		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP418	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/02/2021	LW	CP42		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP42	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/30/2023	AJ	CP420		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP420	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/01/2023	LW	CP421		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP421	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/01/2023	LW	CP422		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP422	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/01/2023	LW/AJ	CP423		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP423	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/01/2023	LW/AJ	CP424		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP424	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/05/2023	LW	CP425		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP425	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/08/2023	AJ	CP426		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP426	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/08/2023	AJ	CP427		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP427	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/08/2023	LW	CP428		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP428	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/12/2023	LW	CP429		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP429	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/03/2021	AJ	CP43		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP43	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/14/2023	LW	CP430		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP430	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/14/2023	LW	CP431		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP431	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/15/2023	AJ	CP432		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP432	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/15/2023	LW	CP433		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP433	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/21/2023	SB	CP434		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP434	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/21/2023	SB	CP435		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP435	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/22/2023	AJ	CP436		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP436	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/22/2023	LW	CP437		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP437	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/26/2023	LW	CP438		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP438	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/26/2023	GC	CP439		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP439	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/06/2021	AJ	CP44		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP44	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/28/2023	SB	CP440		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP440	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/28/2023	GC	CP441		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP441	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	06/29/2023	AJ	CP442		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP442	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/05/2023	LW	CP443		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP443	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/07/2023	LW	CP444		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP444	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/07/2023	LW	CP445		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP445	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/13/2023	SB	CP446		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP446	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/13/2023	GC	CP447		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP447	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/13/2023	SB	CP448		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP448	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/13/2023	GC	CP449		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP449	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/08/2021	AJ	CP45		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP45	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/17/2023	AJ	CP450		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP450	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/19/2023	SB	CP451		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP451	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/19/2023	LW	CP452		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP452	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/20/2023	LW	CP453		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP453	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/26/2023	AJ	CP454		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP454	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/26/2023	AJ	CP455		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP455	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/27/2023	AJ	CP456		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP456	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	07/27/2023	AJ	CP457		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP457	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/01/2023	AJ	CP458		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP458	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/01/2023	AJ	CP459		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP459	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/09/2021	LW	CP46		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP46	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/02/2023	AJ	CP460		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP460	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/02/2023	AJ	CP461		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP461	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/09/2023	AJ	CP462		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP462	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/09/2023	AJ	CP463		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP463	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/10/2023	AJ	CP464		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP464	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/10/2023	AJ	CP465		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP465	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/16/2023	JL	CP466		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP466	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/16/2023	JL	CP467		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP467	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/21/2023	AJ	CP468		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP468	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/21/2023	AJ	CP469		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP469	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/10/2021	AJ	CP47		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP47	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/23/2023	AJ	CP470		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP470	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/23/2023	AJ	CP471		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP471	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/24/2023	AJ	CP472		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP472	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/24/2023	AJ	CP473		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP473	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/30/2023	AJ	CP474		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP474	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/30/2023	AJ	CP475		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP475	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	08/30/2023	AJ	CP476		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP476	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	09/05/2023	GC	CP477		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP477	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	09/05/2023	AJ	CP478		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP478	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465/ NT4473	10	475	09/07/2023	GC	CP479		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP479	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/13/2021	AJ	CP48		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP48	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/11/2023	GC	CP480		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP480	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/11/2023	GC	CP481		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP481	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2023	AJ	CP482		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP482	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2023	AJ	CP483		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP483	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/13/2023	AJ	CP484		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP484	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/18/2023	AJ	CP485		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP485	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/18/2023	AJ	CP486		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP486	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT0487	10	475	09/18/2023	AJ	CP487		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP487	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/20/2023	AJ	CP488		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP488	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/20/2023	AJ	CP489		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP489	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/15/2021	AJ	CP49		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP49	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/26/2023	GC	CP490		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP490	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	09/27/2023	AJ	CP491		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP491	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/27/2023	AJ	CP492		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP492	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/03/2023	GC	CP493		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP493	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/02/2023	GC	CP494		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP494	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/04/2023	GC	CP495		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP495	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/06/2023	AJ	CP496		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP496	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/06/2023	AJ	CP497		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP497	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/11/2023	AJ	CP498		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP498	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	10/17/2023	AJ	CP499		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP499	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	08/27/2021	JL	CP5		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP5	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/16/2021	AJ	CP50		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP50	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	10/18/2023	AJ	CP500		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP500	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	10/24/2023	AJ	CP501		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP501	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	10/31/2023	AJ	CP502		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP502	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	10/31/2023	AJ	CP503		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP503	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/07/2023	AJ	CP504		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP504	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/07/2023	AJ	CP505		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP505	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/14/2023	AJ	CP506		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP506	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/14/2023	AJ	CP507		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP507	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/16/2023	AJ	CP508		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP508	-1
+existing	2	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04475	10	475	11/21/2023	AJ	CP509		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP509	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/17/2021	AJ	CP51		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP51	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	12/21/2021	AJ	CP52		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP52	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04774	10	475	12/22/2021	AJ	CP53		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP53	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/03/2021	JL	CP54		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP54	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/04/2021	AJ	CP55		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP55	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/06/2022	AJ	CP56		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP56	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/10/2022	AJ	CP57		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP57	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/11/2022	aj	CP58		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP58	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/13/2021	AJ	CP59		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP59	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/19/2022	AJ	CP60		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP60	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/19/2022	AJ	CP61		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP61	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/20/2022	AJ	CP62		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP62	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/21/2022	AJ	CP63		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP63	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/24/2022	AJ	CP64		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP64	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/25/2022	AJ	CP65		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP65	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/26/2022	AJ	CP66		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP66	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/28/2022	AJ	CP67		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP67	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	01/31/2022	AJ	CP68		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP68	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/01/2022	AJ	CP69		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP69	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/02/2021	JL	CP7		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP7	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/02/2022	AJ	CP70		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP70	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/04/2022	LW	CP71		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP71	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/07/2022	AJ	CP72		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP72	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/09/2022	AJ	CP73		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP73	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04474	10	475	02/10/2022	AJ	CP74		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP74	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/14/2022	AJ	CP76		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP76	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/14/2022	AJ	CP77		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP77	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/15/2022	AJ	CP78		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP78	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/16/2022	AJ	CP79		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP79	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/03/2021	JL	CP8		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP8	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/18/2022	AJ	CP80		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP80	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04465	10	475	05/30/2023	LW	CP800		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP800	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	08/19/2022	AJ	CP801		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP801	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/18/2022	AJ	CP81		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP81	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/21/2022	AJ	CP82		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP82	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/23/2022	AJ	CP83		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP83	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/23/2022	AJ	CP84		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP84	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/25/2022	JL	CP85		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP85	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	02/28/2022	AJ	CP86		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP86	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/02/2022	aj	CP87		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP87	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/02/2022	AJ	CP88		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP88	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/04/2022	AJ	CP89		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP89	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04155	10	425	09/08/2021	JL	CP9		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP9	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/04/2022	AJ	CP90		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP90	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/09/2022	AJ	CP91		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP91	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/09/2022	AJ	CP92		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP92	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/10/2022	AJ	CP93		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP93	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/11/2022	AJ	CP94		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP94	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/11/2022	AJ	CP95		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP95	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/15/2022	AJ	CP96		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP96	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/16/2022	AJ	CP97		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP97	-1
+existing	1	Bender	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/16/2022	AJ	CP98		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP98	-1
+existing	1	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04473	10	475	03/21/2022	AJ	CP99		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	CP99	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/09/2020	MS	PE1		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE1	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/13/2020	MS	PE10		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE10	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE100		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE100	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE101		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE101	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE102		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE102	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE103		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE103	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/16/2021	JL	PE104		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE104	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	04/16/2021	JL	PE105		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE105	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	04/16/2021	JL	PE106		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE106	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	04/16/2021	JL	PE107		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE107	-1
+existing	1	Sorvall	PEG Precipitation		100	8000	04/16/2021	JL	PE108		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE108	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	04/23/2021	MVS	PE109		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE109	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	11/16/2020	MS	PE11		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE11	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/23/2021	MVS	PE110		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE110	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	04/23/2021	MVS	PE111		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE111	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	04/23/2021	MVS	PE112		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE112	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	04/23/2021	MVS	PE113		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE113	-1
+existing	1	Sorvall	PEG Precipitation		100	2000	04/30/2021	KED	PE114		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE114	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	04/30/2021	KED	PE115		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE115	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	04/30/2021	KED	PE116		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE116	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/30/2021	KED	PE117		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE117	-1
+existing	1	Sorvall	PEG Precipitation		100	7500	04/30/2021	KED	PE118		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE118	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	05/07/2021		PE119		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE119	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/16/2020	MS	PE12		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE12	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	05/07/2021		PE120		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE120	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	05/07/2021		PE121		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE121	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	05/07/2021		PE122		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE122	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	05/07/2021		PE123		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE123	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	05/14/2021	MVS	PE124		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE124	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	05/14/2021	MVS	PE125		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE125	-1
+existing	1	Sorvall	PEG Precipitation		100	4500	05/18/2021	KD	PE126		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE126	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	02/13/2021	TD	PE127		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE127	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/13/2021	TD	PE128		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE128	-1
+existing	1	Sorvall	PEG Precipitation		100	8000	02/13/2021	TD	PE129		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE129	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/19/2020	MS	PE13		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE13	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	02/13/2021	TD	PE130		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE130	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/13/2021	TD	PE131		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE131	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	02/13/2021	TD	PE132		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE132	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/13/2021	TD	PE133		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE133	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	02/13/2021	TD	PE134		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE134	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/13/2021	TD	PE135		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE135	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	02/13/2021	TD	PE136		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE136	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/13/2021	TD	PE137		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE137	-1
+existing	1	Sorvall	PEG Precipitation		100	3600	11/19/2020	MS	PE14		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE14	-1
+existing	1	Sorvall	PEG Precipitation		100	3600	12/04/2020	MS	PE15		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE15	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	12/04/2020	MS	PE16		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE16	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	12/04/2020	MS	PE17		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE17	-1
+existing	1	Sorvall	PEG Precipitation		100	4800	12/04/2020	MS	PE18		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE18	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	12/04/2020	MS	PE19		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE19	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	11/09/2020	MS	PE2		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE2	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	12/04/2020	MS	PE20		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE20	-1
+existing	1	Sorvall	PEG Precipitation		100	4400	12/04/2020	MS	PE21		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE21	-1
+existing	1	Sorvall	PEG Precipitation		100	4800	12/04/2020	MS	PE22		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE22	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	12/04/2020	MS	PE23		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE23	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	12/04/2020	MS	PE24		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE24	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	12/07/2020	MS	PE25		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE25	-1
+existing	1	Sorvall	PEG Precipitation		100	3200	12/07/2020	MS	PE26		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE26	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	12/13/2020	MS	PE27		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE27	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	12/13/2020	MS	PE28		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE28	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	12/13/2020	MS	PE29		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE29	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	11/09/2020	MS	PE3		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE3	-1
+existing	1	Sorvall	PEG Precipitation		100	3600	12/13/2020	AT	PE30		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE30	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	12/14/2020	AT	PE31		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE31	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	12/14/2020	AT	PE32		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE32	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	12/14/2020	AT	PE33		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE33	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	12/14/2020	AT	PE34		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE34	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	12/14/2020	AT	PE35		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE35	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	12/21/2020	AT	PE36		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE36	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	01/03/2021	MS	PE37		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE37	-1
+existing	1	Sorvall	PEG Precipitation		100	15000	01/03/2021	MS	PE38		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE38	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	01/03/2021	MS	PE39		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE39	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	11/09/2020	MS	PE4		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE4	-1
+existing	1	Sorvall	PEG Precipitation		100	5500	01/03/2021	MS	PE40		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE40	-1
+existing	1	Sorvall	PEG Precipitation		100	8000	01/03/2021	MS	PE41		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE41	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	01/03/2021	MS	PE42		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE42	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	01/04/2021	MS	PE43		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE43	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	01/04/2021	MS	PE44		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE44	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	01/04/2021	MS	PE45		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE45	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE46		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE46	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE47		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE47	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE48		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE48	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	02/05/2021	MS	PE49		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE49	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	11/09/2020	MS	PE5		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE5	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/05/2021	MS	PE50		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE50	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE51		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE51	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	02/05/2021	MS	PE52		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE52	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/05/2021	MS	PE53		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE53	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE54		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE54	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE55		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE55	-1
+existing	1	Sorvall	PEG Precipitation		100	4500	02/05/2021	MS	PE56		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE56	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE57		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE57	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/05/2021	MS	PE58		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE58	-1
+existing	1	Sorvall	PEG Precipitation		100	5500	02/05/2021	MS	PE59		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE59	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/13/2020	MS	PE6		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE6	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE60		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE60	-1
+existing	1	Sorvall	PEG Precipitation		100	3000	02/05/2021	MS	PE61		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE61	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/05/2021	MS	PE62		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE62	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE63		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE63	-1
+existing	1	Sorvall	PEG Precipitation		100	5500	02/05/2021	MS	PE64		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE64	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE65		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE65	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE66		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE66	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/05/2021	MS	PE67		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE67	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/05/2021	MS	PE68		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE68	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/19/2021	AT	PE69		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE69	-1
+existing	1	Sorvall	PEG Precipitation		100	3800	11/13/2020	MS	PE7		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE7	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/22/2021	AT	PE70		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE70	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/22/2021	AT	PE71		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE71	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/22/2021	AT	PE72		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE72	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/22/2021	AT	PE73		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE73	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	02/22/2021	AT	PE74		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE74	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/22/2021	AT	PE75		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE75	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	02/22/2021	AT	PE76		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE76	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/22/2021	AT	PE77		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE77	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	02/22/2021	AT	PE78		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE78	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	03/12/2021	AHT	PE79		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE79	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	11/13/2020	MS	PE8		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE8	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	03/12/2021	AHT	PE80		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE80	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	03/12/2021	AHT	PE81		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE81	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	03/12/2021	AHT	PE82		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE82	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	03/12/2021	AHT	PE83		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE83	-1
+existing	1	Sorvall	PEG Precipitation		100	4200	03/19/2021	TD	PE84		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE84	-1
+existing	1	Sorvall	PEG Precipitation		100	3400	03/19/2021	TD	PE85		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE85	-1
+existing	1	Sorvall	PEG Precipitation		100	3600	03/19/2021	TD	PE86		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE86	-1
+existing	1	Sorvall	PEG Precipitation		100	3600	03/19/2021	TD	PE87		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE87	-1
+existing	1	Sorvall	PEG Precipitation		100	3500	03/19/2021	TD	PE88		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE88	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	03/26/2021	MVS	PE89		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE89	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	11/13/2020	MS	PE9		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE9	-1
+existing	1	Sorvall	PEG Precipitation		100	9000	03/26/2021	MVS	PE90		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE90	-1
+existing	1	Sorvall	PEG Precipitation		100	8000	03/26/2021	MVS	PE91		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE91	-1
+existing	1	Sorvall	PEG Precipitation		100	4000	03/26/2021	MVS	PE92		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE92	-1
+existing	1	Sorvall	PEG Precipitation		100	7000	03/26/2021	MVS	PE93		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE93	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE94		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE94	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE95		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE95	-1
+existing	1	Sorvall	PEG Precipitation		100	6000	04/09/2021	MVS	PE96		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE96	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE97		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE97	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE98		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE98	-1
+existing	1	Sorvall	PEG Precipitation		100	5000	04/09/2021	MVS	PE99		Concentration	150	ER1	NA	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	PE99	-1
+inbound	2.3	Wall-E	Ceres Nanotrap Magnetic Microbiome A Particles	NT04521	10	475	2026-10-15	LS	C20261015	First Run with new template	Concentration	150	ER1	NT07943	100	Respiratory Syncytial Virus, Bovine (BRSV)	15	2026-10-15	1

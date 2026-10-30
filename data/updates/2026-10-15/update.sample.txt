@@ -1,0 +1,17 @@
+sample_id	location_id	sample_collection_method	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	location_type	county_id	validation_key
+W01-1032	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	10/12/2026 10:30 AM	10/13/2026 10:30 AM	10/13/2026 11:00 AM	1.1	LS	46310	NA	WWTP	Nicholas	1
+U01-1016	WhiteOakWWTP-01	Composite	NA	Routine Surveillance	Pass	10/12/2026 12:00 AM	10/13/2026 12:00 AM	10/13/2026 11:45 PM	0.159	LS	46310	NA	WWTP	Fayette	1
+R02-1045	ElkinsWWTP-01	Composite	NA	Routine Surveillance	Pass	10/11/2026 06:00 AM	10/12/2026 06:00 AM	10/12/2026 06:05 AM	5.17	LS	46310	NA	WWTP	Randolph	1
+Q01-1047	MadisonWWTP-01	Composite	NA	Routine Surveillance	Pass	10/07/2026 08:00 AM	10/13/2026 08:00 AM	10/13/2026 08:00 AM	0.607	LS	46310	NA	WWTP	Boone	1
+M03-1039	ManningtonWWTP-01	Composite	NA	Routine Surveillance	Pass	10/11/2026 09:00 AM	10/12/2026 09:00 AM	10/12/2026 12:00 AM	0.71	LS	46310	NA	WWTP	Marion	1
+L01-1035	WestUnionWWTP-01	Composite	NA	Routine Surveillance	Fail: Missing Required Data	10/11/2026 07:00 AM	10/12/2026 07:00 AM	10/12/2026 08:30 AM	NA	LS	46310	NA	WWTP	Doddridge	1
+K01-0488	ParkersburgWWTP-01	Composite	NA	Routine Surveillance	Pass	10/12/2026 06:56 AM	10/13/2026 06:51 AM	10/13/2026 07:00 AM	8.368	LS	46310	NA	WWTP	Wood	1
+J01-1047	AlpineLakeWWTP-01	Composite	NA	Routine Surveillance	Pass	10/11/2026 07:30 AM	10/12/2026 07:30 AM	10/12/2026 07:30 AM	0.309	LS	46310	NA	WWTP	Preston	1
+H01-1053	MoundsvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	10/12/2026 08:00 AM	10/13/2026 08:00 AM	10/13/2026 08:00 AM	2.3	LS	46310	NA	WWTP	Marshall	1
+F01-1031	WestonWWTP-01	Composite	NA	Routine Surveillance	Pass	10/11/2026 12:00 AM	10/12/2026 12:00 AM	10/12/2026 12:00 AM	1.5	LS	46310	NA	WWTP	Lewis	1
+D01-1043	CharlesTownWWTP-01	Composite	NA	Routine Surveillance	Pass	10/07/2026 07:00 AM	10/08/2026 07:05 AM	10/08/2026 07:05 AM	1.24	LS	46310	NA	WWTP	Jefferson	1
+C01-1383	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/11/2026 08:00 AM	10/12/2026 08:00 AM	10/12/2026 08:00 AM	11.5	LS	46310	NA	WWTP	Ohio	1
+C01-1382	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/08/2026 08:00 AM	10/09/2026 08:00 AM	10/09/2026 08:00 AM	6.2	LS	46310	NA	WWTP	Ohio	1
+C01-1381	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/07/2026 08:00 AM	10/08/2026 08:00 AM	10/08/2026 08:00 AM	7.0	LS	46310	NA	WWTP	Ohio	1
+C01-1380	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/05/2026 08:00 AM	10/06/2026 08:00 AM	10/06/2026 08:00 AM	8.4	LS	46310	NA	WWTP	Ohio	1
+C01-1379	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/06/2026 08:00 AM	10/07/2026 08:00 AM	10/07/2026 08:00 AM	6.9	LS	46310	NA	WWTP	Ohio	1
