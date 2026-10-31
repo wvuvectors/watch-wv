@@ -24,18 +24,18 @@ while getopts ":hi:o:m:" opt; do
 done
 
 
-if [ -z "$INDIR" ]; then
+if [ -z "$INDIR" ];then
 	echo "FATAL : no input run directory provided (-i)."
 	exit 1
 fi
 
-if [ ! -d "$INDIR" ]; then
+if [ ! -d "$INDIR" ];then
 	echo "FATAL : the input directory does not exist or is not readable."
 	exit 1
 fi
 
 
-if [ -z "$OUTDIR" ]; then
+if [ -z "$OUTDIR" ];then
 	echo "FATAL : no output directory provided (-o)."
 	exit 1
 fi
@@ -55,22 +55,12 @@ INCID="$RUNID"
 
 # Make the output directory and all required subdirs, as necessary.
 #
-if [ ! -d "$OUTDIR/" ]
-then
+if [ ! -d "$OUTDIR/" ];then
 	mkdir "$OUTDIR/"
 	echo "This folder was created on $UPDAY." > "$OUTDIR/README.txt"
 fi
 
-if [ ! -d "$OUTDIR/latest" ]
-then
-	mkdir "$OUTDIR/latest"
-fi
-if [ ! -d "$OUTDIR/incremental" ]
-then
-	mkdir "$OUTDIR/incremental"
-fi
-if [ ! -d "$OUTDIR/updates" ]
-then
+if [ ! -d "$OUTDIR/updates" ];then
 	mkdir "$OUTDIR/updates"
 fi
 
@@ -79,42 +69,48 @@ fi
 # make sure the current RUNID is unique.
 #
 # grep exits with a 0 if a match IS found, 1 if a match is NOT found, and 2 on error.
-FOUND=$(grep -wi "$RUNID" "$OUTDIR/latest/watchdb.qbatch.txt")
-STATUS=$?
-if [ $STATUS == 0 ]
-then
-	echo "FATAL : Every run of the laboratory workflow is assigned an ID using the name of the folder that contains the raw files."
-	echo "FATAL : It looks like a run labeled $RUNID has already been processed."
-	echo "FATAL : This can occur if you forgot to change the name of the run directory."
-	echo "FATAL : It might also occur if you have multiple runs on the same calendar day."
-	echo "FATAL : In this case, add a suffix to the name of the run directory (e.g., 2026-06-22b) and run sewer again."
-	exit 1
+if [ -d "$OUTDIR/latest" ];then
+	FOUND=$(grep -wi "$RUNID" "$OUTDIR/latest/watchdb.qbatch.txt")
+	STATUS=$?
+	if [ $STATUS == 0 ];then
+		echo "FATAL : Every run of the laboratory workflow is assigned an ID using the name of the folder that contains the raw files."
+		echo "FATAL : It looks like a run labeled $RUNID has already been processed."
+		echo "FATAL : This can occur if you forgot to change the name of the run directory."
+		echo "FATAL : It might also occur if you have multiple runs on the same calendar day."
+		echo "FATAL : In this case, add a suffix to the name of the run directory (e.g., 2026-06-22b) and run sewer again."
+		exit 1
+	fi
 fi
-
 
 # Make a directory to hold the update that will be generated.
 #
 UPDIR="$OUTDIR/updates/$RUNID"
-if [ ! -d "$OUTDIR/updates" ]
-then
+if [ ! -d "$OUTDIR/updates" ];then
 	mkdir "$OUTDIR/updates/"
 fi
-mkdir "$UPDIR"
-mkdir "$UPDIR/run_files"
-
+if [ ! -d "$OUTDIR/updates" ];then
+	mkdir "$UPDIR"
+	mkdir "$UPDIR/run_files"
+else
+	echo "FATAL : An update folder with this run ID ($RUNID) already exists in $OUTDIR/updates/!"
+	echo "FATAL : There cannot be two updates with the same run ID."
+	exit 1
+fi
 
 # Write all output to log file in the update dir.
 #
-logf="$UPDIR/sewer.log"
-if [ -f "$logf" ]
-then
+logf="$UPDIR/sewerUP.log"
+if [ -f "$logf" ];then
 	rm "$logf"
 fi
 
+echo ""
+
 touch "$logf"
+echo "" | tee -a "$logf"
 echo "#############################################" | tee -a "$logf"
 echo "SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response." | tee -a "$logf"
-echo "Initiated from sewer.sh." | tee -a "$logf"
+echo "Initiated from sewer2.sh." | tee -a "$logf"
 echo "$START" | tee -a "$logf"
 echo "" | tee -a "$logf"
 echo "See $logf for warnings, errors, and other important information." | tee -a "$logf"
@@ -122,10 +118,12 @@ echo "Run ID: $RUNID" | tee -a "$logf"
 echo "Input dir: $INDIR" | tee -a "$logf"
 echo "Update dir: $UPDIR" | tee -a "$logf"
 echo "" | tee -a "$logf"
+echo "#############################################" | tee -a "$logf"
 
 
-# Move all of the input files to the update dir and "fix" them.
-#
+echo "" | tee -a "$logf"
+echo "" | tee -a "$logf"
+echo "#############################################" | tee -a "$logf"
 echo "Copying all of the input files for run $RUNID to the run_files/ directory in $UPDIR." | tee -a "$logf"
 echo "The original run files in $INDIR will remain untouched." | tee -a "$logf"
 for fin in "$INDIR"/*
@@ -185,16 +183,16 @@ echo "" | tee -a "$logf"
 
 
 echo "******" | tee -a "$logf"
-echo "Running 1_compileCBATCHES.R." | tee -a "$logf"
+echo "Running 2A_compileCBATCHES.R." | tee -a "$logf"
 echo "Arguments:" | tee -a "$logf"
 echo "$UPDIR" | tee -a "$logf"
 echo "******" | tee -a "$logf"
-c_count=$(Rscript R/1_compileCBATCHES.R "$UPDIR")
+c_count=$(Rscript R/2A_compileCBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "1_compileCBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
+	echo "2A_compileCBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
 	echo "sewer aborted during phase 1 (CBATCH update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
@@ -217,16 +215,16 @@ echo "" | tee -a "$logf"
 
 
 echo "******" | tee -a "$logf"
-echo "Running 2_compileEBATCHES.R." | tee -a "$logf"
+echo "Running 2B_compileEBATCHES.R." | tee -a "$logf"
 echo "Arguments:" | tee -a "$logf"
 echo "$UPDIR" | tee -a "$logf"
 echo "******" | tee -a "$logf"
-e_count=$(Rscript R/2_compileEBATCHES.R "$UPDIR")
+e_count=$(Rscript R/2B_compileEBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "2_compileEBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
+	echo "2B_compileEBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
 	echo "sewer aborted during phase 2 (EBATCH update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
@@ -249,16 +247,16 @@ echo "" | tee -a "$logf"
 
 
 echo "******" | tee -a "$logf"
-echo "Running 3_compileQBATCHES.R." | tee -a "$logf"
+echo "Running 2C_compileQBATCHES.R." | tee -a "$logf"
 echo "Arguments:" | tee -a "$logf"
 echo "$UPDIR" | tee -a "$logf"
 echo "******" | tee -a "$logf"
-q_count=$(Rscript R/3_compileQBATCHES.R "$UPDIR")
+q_count=$(Rscript R/2C_compileQBATCHES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "3_compileQBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
+	echo "2C_compileQBATCHES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
 	echo "sewer aborted during phase 3 (QBATCH update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
@@ -281,16 +279,16 @@ echo "" | tee -a "$logf"
 
 
 echo "******" | tee -a "$logf"
-echo "Running 4_compileQRESULTS.R." | tee -a "$logf"
+echo "Running 2D_compileQRESULTS.R." | tee -a "$logf"
 echo "Arguments:" | tee -a "$logf"
 echo "$UPDIR" | tee -a "$logf"
 echo "******" | tee -a "$logf"
-r_count=$(Rscript R/4_compileQRESULTS.R "$UPDIR")
+r_count=$(Rscript R/2D_compileQRESULTS.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "4_compileQRESULTS.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
+	echo "2D_compileQRESULTS.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
 	echo "sewer aborted during phase 4 (QRESULT update compilation)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
@@ -319,16 +317,16 @@ echo "" | tee -a "$logf"
 
 
 echo "******" | tee -a "$logf"
-echo "Running 5_addSAMPLES.R." | tee -a "$logf"
+echo "Running 2E_addSAMPLES.R." | tee -a "$logf"
 echo "Arguments:" | tee -a "$logf"
 echo "$UPDIR" | tee -a "$logf"
 echo "******" | tee -a "$logf"
-s_count=$(Rscript R/5_addSAMPLES.R "$UPDIR")
+s_count=$(Rscript R/2E_addSAMPLES.R "$UPDIR")
 status="${PIPESTATUS[0]}"
 if [[ "$status" != "0" ]]
 then
 	echo "!!!!!!!!" | tee -a "$logf"
-	echo "5_addSAMPLES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
+	echo "2E_addSAMPLES.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
 	echo "Arguments: $UPDIR" | tee -a "$logf"
 	echo "sewer aborted during phase 5 (SAMPLE addition)." | tee -a "$logf"
 	echo "Delete the folder $UPDIR. "| tee -a "$logf"
@@ -372,93 +370,9 @@ echo "******" | tee -a "$logf"
 echo "" | tee -a "$logf"
 
 
-echo "Now I'll start the process of applying the update from $UPDIR to $OUTDIR/latest/." | tee -a "$logf"
-echo "First, I'll back up $OUTDIR/latest/ to $OUTDIR/latest_bk/ just in case we need to roll all the way back." | tee -a "$logf"
-cp -r "$OUTDIR/latest/" "$OUTDIR/latest_bk/"
-PREVDATE=$(head -n 1 "$OUTDIR/latest/README.txt")
-echo "$PREVDATE" > "$OUTDIR/latest_bk/README.txt"
-echo "" >> "$OUTDIR/latest_bk/README.txt"
-echo "#" >> "$OUTDIR/latest_bk/README.txt"
-echo "This folder contains backups of the watchdb tables from before $UPDAY." >> "$OUTDIR/latest_bk/README.txt"
-echo "#" >> "$OUTDIR/latest_bk/README.txt"
-echo "Done." | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-
-echo "Now I'll append the update tables from $UPDIR to the existing data in $OUTDIR/latest." | tee -a "$logf"
-echo "The merge will first be written to $OUTDIR/incremental/$RUNID." | tee -a "$logf"
-echo "If successful, the new files will be copied from $OUTDIR/incremental/$RUNID to $OUTDIR/latest." | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-mkdir "$OUTDIR/incremental/$RUNID"
-
 echo "******" | tee -a "$logf"
-echo "Running 6_applyUpdate.R." | tee -a "$logf"
-dup_count=$(Rscript R/6_applyUpdate.R "$UPDIR" "$OUTDIR/latest" "$OUTDIR/incremental/$RUNID")
-status="${PIPESTATUS[0]}"
-if [[ "$status" != "0" ]]
-then
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "6_applyUpdate.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
-	echo "Arguments: $UPDIR $OUTDIR/latest $OUTDIR/incremental/$RUNID" | tee -a "$logf"
-	echo "sewer aborted during phase 6 (applying the update)." | tee -a "$logf"
-	echo "The safest route to recovery is to check the run logs and address the errors. " | tee -a "$logf"
-	echo "You may need to delete $UPDIR and/or $OUTDIR/incremental/$RUNID, and start over."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-echo "Done." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-
-echo "It seems like the merge was successful!" | tee -a "$logf"
-echo "Before we finish, though, I need to pre-calculate some processor-intensive data." | tee -a "$logf"
-echo "This is primarily aimed at optimizing realtime dashboard performance and generates a file called watchdb.result.txt." | tee -a "$logf"
-echo "The table in this file is an amalgam of data tables and consequently will contain a certain level of redundancy." | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-
-echo "******" | tee -a "$logf"
-echo "Running 7_generateResults.R." | tee -a "$logf"
-result_count=$(Rscript R/7_generateResults.R "$OUTDIR/incremental/$RUNID")
-status="${PIPESTATUS[0]}"
-if [[ "$status" != "0" ]]
-then
-	echo "!!!!!!!!" | tee -a "$logf"
-	echo "7_generateResults.R exited with error code $status and caused sewer to abort." | tee -a "$logf"
-	echo "Arguments: $OUTDIR/incremental/$RUNID" | tee -a "$logf"
-	echo "sewer aborted during phase 7 (generating the result table)." | tee -a "$logf"
-	echo "The safest route to recovery is to check the run logs and address the errors. " | tee -a "$logf"
-	echo "You may need to delete $UPDIR and/or $OUTDIR/incremental/$RUNID, and start over."| tee -a "$logf"
-	echo "!!!!!!!!" | tee -a "$logf"
-	exit 1
-fi
-echo "Done." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-
-echo "******" | tee -a "$logf"
-echo "Final copy of files from $OUTDIR/incremental/$RUNID to $OUTDIR/latest." | tee -a "$logf"
-cp "$OUTDIR/incremental/$RUNID/watchdb."*.txt "$OUTDIR/latest/"
-echo "Done." | tee -a "$logf"
-echo "******" | tee -a "$logf"
-echo "" | tee -a "$logf"
-
-
-echo "Updating the README file." | tee -a "$logf"
-echo "$UPDAY" > "$OUTDIR/latest/README.txt"
-echo "" >> "$OUTDIR/latest/README.txt"
-echo "#" >> "$OUTDIR/latest/README.txt"
-echo "This folder contains the most recent watchdb tables." >> "$OUTDIR/latest/README.txt"
-echo "#" >> "$OUTDIR/latest/README.txt"
-echo "" | tee -a "$logf"
-
-
-echo "******" | tee -a "$logf"
-echo "The most recent version of the watchdb can be found in $OUTDIR/latest." | tee -a "$logf"
-echo "The version of the watchdb from just before this update was applied can be found in $OUTDIR/latest_bk." | tee -a "$logf"
+echo "The processed update files in $UPDIR are now ready to be merged into the full database." | tee -a "$logf"
+echo "Verify that all is well, and then run sewer3.sh to apply the update." | tee -a "$logf"
 echo "******" | tee -a "$logf"
 echo "" | tee -a "$logf"
 
