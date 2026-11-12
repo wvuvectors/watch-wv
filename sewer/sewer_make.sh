@@ -164,14 +164,18 @@ echo "" | tee -a "$logf"
 echo "*****" | tee -a "$logf"
 echo "1. Preparing the input files." | tee -a "$logf"
 echo "" | tee -a "$logf"
-echo "Copying all of the input files for workflow $RUNID to the run_files/ folder in $UPDIR." | tee -a "$logf"
+echo "Copying all of the relevant input files for workflow $RUNID to the run_files/ folder in $UPDIR." | tee -a "$logf"
 echo "The original files in $INDIR will remain untouched." | tee -a "$logf"
 for fin in "$INDIR"/*
 do
 	f=$(basename "$fin")
-	fup="$UPDIR/run_files/$f"
-	cp "$fin" "$fup"
-	echo "Copied $fin to $fup"
+	if [[ "$f" == *".ddpcr" || "$f" == *".png" ]];then
+		echo "Skipping copy of $fin"
+	else
+		fup="$UPDIR/run_files/$f"
+		cp "$fin" "$fup"
+		echo "Copied $fin to $fup"
+	fi
 done
 
 echo "Also copying the collection metadata file to the run_files/ directory in $UPDIR." | tee -a "$logf"
