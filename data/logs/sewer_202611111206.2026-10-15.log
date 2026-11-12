@@ -1,0 +1,52 @@
+
+#############################################
+
+SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response.
+Initiated November 11, 2026 at 12:06:55
+See ../data/logs/sewer_202611111206.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER are as follows:
+   Workflow ID:     2026-10-15
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15
+   Output folder:   ../data
+
+   QC the workflow:   NO
+   QC the steps:     YES
+   Make update:       NO
+   Merge update:     YES
+   Replace database:  NO
+
+#############################################
+
+Merging the update for workflow 2026-10-15 with the primary database.
+The output from this merge will appear in ../data/merges/2026-10-15.
+
+########################
+
+SEWER merge update.
+This script merges an update with the existing database.
+See ../data/logs/sewer_202611111206.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER merge are as follows:
+   Workflow ID:     2026-10-15
+   Workflow folder: ../data/updates/2026-10-15
+   Merge folder:    ../data/merges/2026-10-15
+
+########################
+
+*****
+1. Merging update 2026-10-15 with the main database ../data/latest.
+
+#
+Running 3A_mergeUpdate.R.
+!!!!!!!!
+3A_mergeUpdate.R exited with error code 1 and caused sewer-merge to abort.
+Arguments: ../data/updates/2026-10-15 ../data/latest ../data/merges/2026-10-15
+sewer-merge aborted during phase A (applying the update).
+The safest route to recovery is to check the run logs and address the errors. 
+You probably need to delete ../data/merges/2026-10-15 and start over.
+!!!!!!!!
+
+
+SEWER run 202611111206 for 2026-10-15, started on November 11, 2026 at 12:06:55, has left the chat.
+

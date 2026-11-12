@@ -1,0 +1,5 @@
+problem_value	table_name	error_priority	error_detail
+qcontrol	qcontrol	attention	validation fail count: 1
+qassay	qassay	attention	validation fail count: 5
+pnc-1794499378.02733	sample	warning	NTC value exceeds maximum
+pnc-1794499378.02879	sample	warning	NTC value exceeds maximum

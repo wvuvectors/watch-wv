@@ -1,0 +1,21 @@
+assay_id	assay_type	sample_id	assay_well	assay_block_id	quantification_batch_id	assay_target_name	assay_target_abbreviation	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_partitions	assay_positive_partitions	assay_calc_validation_key	assay_validation_key
+Amy1-1794498910.89719	sample	Amy1	D03	Respiratory Multiplex	Q287	Influenza Virus A (M)	FluA	FAM	0	19873	0	PASS	PASS
+Amy1-1794498910.89877	sample	Amy1	D03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	19873	0	PASS	PASS
+Amy1-1794498910.90035	sample	Amy1	D03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	19873	0	PASS	PASS
+Amy1-1794498910.9019	sample	Amy1	D03	Respiratory Multiplex	Q287	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	19873	0	PASS	PASS
+Amy1-1794498910.90348	sample	Amy1	D03	Respiratory Multiplex	Q287	SARS-CoV-2 (SC2)	SC2	ROX	146.225738525391	19873	2181	PASS	PASS
+Amy2-1794498910.92073	sample	Amy2	E03	Respiratory Multiplex	Q287	Influenza Virus A (M)	FluA	FAM	0	20217	0	PASS	PASS
+Amy2-1794498910.92229	sample	Amy2	E03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	20217	0	PASS	PASS
+Amy2-1794498910.92387	sample	Amy2	E03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	20217	0	PASS	PASS
+Amy2-1794498910.92543	sample	Amy2	E03	Respiratory Multiplex	Q287	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	20217	0	PASS	PASS
+Amy2-1794498910.92697	sample	Amy2	E03	Respiratory Multiplex	Q287	SARS-CoV-2 (SC2)	SC2	ROX	1.30725729465485	20217	21	PASS	PASS
+Amy3-1794498910.94684	sample	Amy3	F03	Respiratory Multiplex	Q287	Influenza Virus A (M)	FluA	FAM	0.0622595883905888	20204	1	PASS	PASS
+Amy3-1794498910.94844	sample	Amy3	F03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0.0622595883905888	20204	1	PASS	PASS
+Amy3-1794498910.95002	sample	Amy3	F03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	20204	0	PASS	PASS
+Amy3-1794498910.95159	sample	Amy3	F03	Respiratory Multiplex	Q287	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.0622595883905888	20204	1	PASS	PASS
+Amy3-1794498910.95338	sample	Amy3	F03	Respiratory Multiplex	Q287	SARS-CoV-2 (SC2)	SC2	ROX	0	20204	0	PASS	PASS
+Amy4-1794498910.97913	sample	Amy4	G03	Respiratory Multiplex	Q287	Influenza Virus A (M)	FluA	FAM	0	21855	0	PASS	PASS
+Amy4-1794498910.98066	sample	Amy4	G03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	21855	0	PASS	PASS
+Amy4-1794498910.9822	sample	Amy4	G03	Respiratory Multiplex	Q287	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	21855	0	PASS	PASS
+Amy4-1794498910.98376	sample	Amy4	G03	Respiratory Multiplex	Q287	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0.287807255983353	21855	5	PASS	PASS
+Amy4-1794498910.98529	sample	Amy4	G03	Respiratory Multiplex	Q287	SARS-CoV-2 (SC2)	SC2	ROX	0	21855	0	PASS	PASS

@@ -1,0 +1,115 @@
+
+#############################################
+
+SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response.
+Initiated November 09, 2026 at 18:40:58
+See ../data/logs/sewer_202611091840.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER are as follows:
+   Workflow ID:     2026-10-15
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15
+   Output folder:   ../data
+
+   QC the workflow:   NO
+   QC the steps:     YES
+   Make update:      YES
+   Merge update:      NO
+   Replace database:  NO
+
+#############################################
+
+Making an update for workflow 2026-10-15.
+The output from this make will appear in ../data/updates/2026-10-15.
+
+########################
+
+SEWER make update.
+This script makes an update from the laboratory workflow files in /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15.
+See ../data/logs/sewer_202611091840.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER make are as follows:
+   Workflow ID:     2026-10-15
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15
+   Update folder:   ../data/updates/2026-10-15
+
+########################
+
+*****
+1. Preparing the input files.
+
+Copying all of the input files for workflow 2026-10-15 to the run_files/ folder in ../data/updates/2026-10-15.
+The original files in /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15 will remain untouched.
+Also copying the collection metadata file to the run_files/ directory in ../data/updates/2026-10-15.
+This file is stored in resources/COLLECTIONS and is updated weekly with new collection metadata.
+Done with run file copy.
+
+Now I'll fix any known file issues in these input files:
+   Windows line endings are replaced with UNIX line endings in csv or tab-delim text files.
+   Special characters, including micron, are replaced with standard alphanumerics.
+Done preparing the run files.
+
+*****
+2. Building the update files.
+
+#
+Running 2A_compileCBATCHES.R.
+Done.
+
+#
+Running 2B_compileEBATCHES.R.
+Done.
+
+#
+Running 2C_compileQBATCHES.R.
+Done.
+
+#
+Running 2D_compileQRESULTS.R.
+Done.
+
+Finishing the merge of assay batch and result data.
+Done.
+
+#
+Running 2E_addSAMPLES.R.
+Done.
+
+******
+Finished compiling all update tables!
+
+##########
+##########
+##########
+
+This update contains:
+   16 new samples;
+   16 new concentrations;
+   16 new extractions;
+   112 new quantification runs;
+   126 new assays (including controls).
+
+##########
+##########
+##########
+
+******
+
+*****
+3. Generating QC outcomes for update 2026-10-15.
+
+These files can be found in ../data/updates/2026-10-15/qc.
+#
+Running 2F_qcUPDATE.R.
+Done.
+
+
+SEWER make run 202611091840 for 2026-10-15, started on November 09, 2026 at 18:40:58, has left the chat.
+
+
+SEWER make run of November 09, 2026 at 18:40:58 has finished. Update files can be found in:
+../data/updates/2026-10-15
+
+
+
+SEWER run 202611091840 for 2026-10-15, started on November 09, 2026 at 18:40:58, has left the chat.
+

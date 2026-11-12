@@ -1,0 +1,58 @@
+
+#############################################
+
+SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response.
+Initiated November 11, 2026 at 19:17:21
+See ../data/logs/sewer_202611111917.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER are as follows:
+   Workflow ID:     2026-10-15
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-15
+   Output folder:   ../data
+
+   QC the workflow:   NO
+   QC the steps:     YES
+   Make update:       NO
+   Merge update:      NO
+   Replace database: YES
+
+#############################################
+
+Replacing the existing primary database with the merge of 2026-10-15.
+The output from this merge will appear in ../data/latest.
+The previous version of the primary database, before 2026-10-15, will appear in ../data/latest-bk.
+
+########################
+
+SEWER replace latest.
+This script replaces the existing database with a merge of new data.
+See ../data/logs/sewer_202611111917.2026-10-15.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER replace are as follows:
+   Workflow ID:   2026-10-15
+   Merge folder:  ../data/merges/2026-10-15
+   Output folder: ../data
+
+########################
+
+#
+1. Backing up main database ../data/latest to ../data/latest_bk/ before replacing it.
+
+Done.
+
+#
+2. Moving files from ../data/merges/2026-10-15 to ../data/latest.
+
+#
+Running 4A_replaceLatest.R.
+!!!!!!!!
+4A_replaceLatest.R exited with error code 1 and caused sewer-replace to abort.
+Arguments: ../data/merges/2026-10-15
+sewer replace aborted during replacement. It is likely that the tablers in ../data/latest 
+have been corrupted. We recommend that you replace these files with the backup copy in 
+/latest_bk and fix the issue before trying again.
+!!!!!!!!
+
+
+SEWER run 202611111917 for 2026-10-15, started on November 11, 2026 at 19:17:21, has left the chat.
+

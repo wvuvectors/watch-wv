@@ -26,6 +26,64 @@ qcsum_df <- data.frame(
 	valid_batch_id = character()
 )
 
+# Loop over the Excel files in this update. Just want the Quant files.
+#
+quant_sheets <- c()
+
+runfile_list <- list.files(
+	path = INDIR,
+	pattern = "\\.xlsx|m$",
+	full.names = TRUE
+)
+
+for (fpath in runfile_list) {
+	# Read the batch file into a named list, with each sheet as a df.
+	platef_in <- excel2df(fpath)
+	
+	# Test if this is an AssetTiger (Sample) file, or a batch file.
+	#
+	# Read the first sheet.
+	sheet1_df <- as.data.frame(platef_in[1])
+	colnames(sheet1_df) <- as.character(sheet1_df[1, ])
+	sheet1_df <- sheet1_df[-1, ]
+
+	if ("Asset Tag ID" %in% colnames(sheet1_df)) {
+		next
+	} else if ("Metadata" %in% names(platef_in)) {
+		# Any valid batch Excel file will have a Metadata sheet.
+
+		# Read the Metadata sheet.
+		# This sheet contains a two column table, with keys in column 1 and vals in column 2.
+		metadata_pre_df <- as.data.frame(platef_in[["Metadata"]])
+		metadata_df <- as.data.frame(t(metadata_pre_df[, c(1,2)]))
+		metadata_df <- metadata_df %>% select(where(~!all(is.na(.))))
+		
+		batchup_df <- rownames_to_column(metadata_df, var = "V0")
+		colnames(batchup_df) <- as.character(batchup_df[1, ])
+		batchup_df <- batchup_df[, -c(1)]
+		batchup_df <- batchup_df[-c(1), ]
+	
+		# Cleanup the keys so they are consistent.
+		batch_keys <- colnames(batchup_df)
+		batch_keys <- str_replace_all(batch_keys, " ", "_")
+		batch_keys <- str_replace_all(batch_keys, "\\.", "")
+		batch_keys <- str_replace_all(batch_keys, "\\)", "")
+		batch_keys <- str_replace_all(batch_keys, "\\(", "")
+		batch_keys <- str_replace_all(batch_keys, "\\[", "")
+		batch_keys <- str_replace_all(batch_keys, "\\]", "")
+		batch_keys <- str_replace_all(batch_keys, "µ", "u")
+		batch_keys <- str_replace_all(batch_keys, "/", "_per_")
+		batch_keys <- tolower(batch_keys)
+		colnames(batchup_df) <- batch_keys
+		
+		if (batchup_df$batch_type[1] == "Quantification") {
+			# add to vector of Quant files. This will be used to check the data files have matching batch ids.
+			quant_sheets <- c(quant_sheets, batchup_df$batch_id[1])
+		}
+	}
+}
+
+
 # Loop over the data (csv) files in this update.
 #
 runfile_list <- list.files(
@@ -88,10 +146,10 @@ for (fpath in runfile_list) {
 		)
 		precheck_df <- precheck_df %>% mutate(
 			batch_id = case_when(
-				all(!is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_1[1],
-				all(is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_2[1],
-				all(is.na(precheck_df$sample_description_2)) ~ precheck_df$sample_description_3[1],
-				all(is.na(precheck_df$sample_description_3)) ~ precheck_df$sample_description_4[1],
+				!is.na(precheck_df$sample_description_1[1]) & precheck_df$sample_description_1[1] != "" ~ precheck_df$sample_description_1[1],
+				!is.na(precheck_df$sample_description_2[1]) & precheck_df$sample_description_2[1] != "" ~ precheck_df$sample_description_2[1],
+				!is.na(precheck_df$sample_description_3[1]) & precheck_df$sample_description_3[1] != "" ~ precheck_df$sample_description_3[1],
+				!is.na(precheck_df$sample_description_4[1]) & precheck_df$sample_description_4[1] != "" ~ precheck_df$sample_description_4[1],
 				.default = "UNK"
 			)
 		)
@@ -109,7 +167,7 @@ for (fpath in runfile_list) {
 		num_pass_partitions_valid = accepted_pass,
 		pct_pass_partitions_valid = 100*(accepted_pass / total_wells_on_plate), 
 		valid_partition_ratio = if_else(pct_pass_partitions_valid > 95, "PASS", "FAIL", "FAIL"), 
-		valid_batch_id = if_else(precheck_df$batch_id[1] == "UNK", "FAIL", "PASS", "FAIL")
+		valid_batch_id = if_else(precheck_df$batch_id[1] %in% quant_sheets, "PASS", "FAIL", "FAIL")
 	)
 	
 	
@@ -145,8 +203,9 @@ for (fpath in runfile_list) {
 	    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)
 	  ) +
 		labs(y = "Accepted partition count", x = NULL)
-
-	ggsave(paste0("_qcdata.", precheck_df$batch_id[1], ".accepted_partitions.png", sep=""), plot = p1, width = 3306, height = 1892, units = c("px"), path = INDIR)
+	
+	fn1 <- file.path(INDIR, "qc", paste0("precheck-data.", RUNID, "_", precheck_df$batch_id[1], ".partitions_accepted.png", sep=""))
+	ggsave(fn1, plot = p1, width = 3306, height = 1892, units = c("px"))
 
 	p2 <- ggplot(precheck_df, aes()) + 
 		geom_col(aes(x=as.factor(well), y=partitions_positive, fill=partitions_positive)) + 
@@ -168,12 +227,13 @@ for (fpath in runfile_list) {
 	  ) +
 	  labs(y = "Positive partition count", x = "Plate well")
 
-	ggsave(paste0("_qcdata.", precheck_df$batch_id[1], ".positive_partitions.png", sep=""), plot = p2, width = 3306, height = 1892, units = c("px"), path = INDIR)
+	fn2 <- file.path(INDIR, "qc", paste0("precheck-data.", RUNID, "_", precheck_df$batch_id[1], ".partitions_positive.png", sep=""))
+	ggsave(fn2, plot = p2, width = 3306, height = 1892, units = c("px"))
 
  }
 
-fn <- paste0(INDIR, "/_qcdata.summary.txt", sep="")
-write.table(qcsum_df, file = fn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+fn3 <- file.path(INDIR, "qc", paste0("precheck-data.", RUNID, ".summary.txt", sep=""))
+write.table(qcsum_df, file = fn3, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 ret_val <- 0
 if (as.numeric(qcsum_df %>% filter(valid_partition_ratio == "FAIL") %>% count()) > 0) {

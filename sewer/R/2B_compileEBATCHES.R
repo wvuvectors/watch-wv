@@ -94,6 +94,7 @@ for (fpath in runfile_list) {
 	# This function is part of the openxlsx package. It should take an Excel DateTime (which is numeric)
 	# and convert it to a POSIXct object in the format YYY-MM-DD.
 	batchup_df$extraction_batch_date <- convertToDateTime(as.numeric(batchup_df$extraction_batch_date))
+	batchup_df$extraction_batch_date <- format(batchup_df$extraction_batch_date, "%m/%d/%Y")
 	batchup_df$extraction_batch_record_version <- round(as.numeric(batchup_df$extraction_batch_record_version), digits=2)
 	
 	batchup_df$run_id <- RUNID
@@ -173,20 +174,20 @@ if (nrow(run_df) > 0) {
 	# That is done by making the output value negative.
 		
 	run_df <- run_df %>% mutate(
-		validation_key = case_when(
-			is.na(sample_id) | sample_id == "" ~ -1, 
-			is.na(extraction_batch_id) | extraction_batch_id == "" ~ -1, 
-			.default = 1
+		batch_validation_key = case_when(
+			!is.na(sample_id) & sample_id != "" ~ "PASS", 
+			!is.na(extraction_batch_id) & extraction_batch_id != "" ~ "PASS", 
+			.default = "FAIL"
 		)
 	)
 	
 	batch_df <- batch_df %>% mutate(
-		validation_key = case_when(
-			is.na(extraction_batch_id) | extraction_batch_id == "" ~ -1, 
-			is.na(extraction_batch_sample_input_vol_ul) | extraction_batch_sample_input_vol_ul == "" ~ -1, 
-			is.na(extraction_batch_elution_output_vol_ul) | extraction_batch_elution_output_vol_ul == "" ~ -1, 
-			is.na(extraction_batch_method) | extraction_batch_method == "" ~ -1, 
-			.default = 1
+		batch_validation_key = case_when(
+			!is.na(extraction_batch_id) & extraction_batch_id != "" ~ "PASS", 
+			!is.na(extraction_batch_sample_input_vol_ul) & extraction_batch_sample_input_vol_ul != "" ~ "PASS", 
+			!is.na(extraction_batch_elution_output_vol_ul) & extraction_batch_elution_output_vol_ul != "" ~ "PASS", 
+			!is.na(extraction_batch_method) & extraction_batch_method != "" ~ "PASS", 
+			.default = "FAIL"
 		)
 	)
 
@@ -202,7 +203,7 @@ if (nrow(run_df) > 0) {
 # Return the number of rows in the run df so the controller script can do the right thing.
 ret_val <- nrow(run_df)
 if (ret_val > 0) {
-	if (nrow(run_df %>% filter(validation_key == -1)) > 0 | nrow(batch_df %>% filter(validation_key == -1)) > 0) {
+	if (nrow(run_df %>% filter(batch_validation_key == "FAIL")) > 0 | nrow(batch_df %>% filter(batch_validation_key == "FAIL")) > 0) {
 		ret_val <- -1 * ret_val
 	}
 }

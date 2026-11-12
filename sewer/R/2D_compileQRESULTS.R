@@ -18,6 +18,7 @@ if (length(args) > 0) {
 #UPDIR <- "../data/updates/2026-10-22"
 RUNID <- basename(UPDIR)
 
+MIN_ACCEPTED_PARTITIONS <- 10000
 
 # Holds data for the individual assays in this batch. Most of this data was already 
 # extracted from the qbatch file. The rest will be updated from the incoming Result file.
@@ -48,22 +49,6 @@ control_df <- as.data.frame(
     check.names=FALSE)
 )
 control_df$assay_target_copies_per_ul_reaction <- as.character(control_df$assay_target_copies_per_ul_reaction)
-
-# Just a reminder of the columns in these two dataframes. The current compile 
-# will add values to the last three cols.
-#   assay_id = character(),
-#   assay_type = character(),
-#   sample_id = character(),
-#   assay_well = character(),
-#   assay_block_id = character(),
-#   quantification_batch_id = character(),
-# 	assay_target_name = character(),
-# 	assay_target_abbreviation = character(),
-# 	assay_target_fluorophore = character(),
-# 	assay_target_copies_per_ul_reaction = double(),
-# 	assay_accepted_partitions = double(),
-# 	assay_positive_partitions = double()
-
 
 
 runfile_list <- list.files(
@@ -123,8 +108,8 @@ for (fpath in runfile_list) {
   	result_df$quantification_batch_id <- result_df$quantification_batch_id[1]
   	
   	# Merge result_df into assay_df and control_df.
-  	merge_assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
-  	merge_control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
+  	assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
+  	control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_abbreviation"))
   	
 	} else {
 	  # This is a QX plate. Match the entries in assay_df by assay_well, assay_batch_id, 
@@ -135,7 +120,7 @@ for (fpath in runfile_list) {
 			sample_description_3,
 			sample_description_4,
 	    assay_target_fluorophore = dyenames,
-	    assay_target_abbreviation = target,
+	    #assay_target_abbreviation = target,
 	    assay_target_copies_per_ul_reaction = conccopies_per_ul,
 	    assay_accepted_partitions = accepted_droplets,
 	    assay_positive_partitions = positives,
@@ -144,60 +129,74 @@ for (fpath in runfile_list) {
 	  
 		result_df <- result_df %>% mutate(
 			quantification_batch_id = case_when(
-				all(!is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_1[1],
-				all(is.na(precheck_df$sample_description_1)) ~ precheck_df$sample_description_2[1],
-				all(is.na(precheck_df$sample_description_2)) ~ precheck_df$sample_description_3[1],
-				all(is.na(precheck_df$sample_description_3)) ~ precheck_df$sample_description_4[1],
+				!is.na(result_df$sample_description_1[1]) & result_df$sample_description_1[1] != "" ~ result_df$sample_description_1[1],
+				!is.na(result_df$sample_description_2[1]) & result_df$sample_description_2[1] != "" ~ result_df$sample_description_2[1],
+				!is.na(result_df$sample_description_3[1]) & result_df$sample_description_3[1] != "" ~ result_df$sample_description_3[1],
+				!is.na(result_df$sample_description_4[1]) & result_df$sample_description_4[1] != "" ~ result_df$sample_description_4[1],
 				.default = "UNK"
+			),
+			assay_target_copies_per_ul_reaction = if_else(
+				tolower(as.character(assay_target_copies_per_ul_reaction)) == "no call", 
+				as.character(0), 
+				as.character(assay_target_copies_per_ul_reaction)
 			)
 		)
+
 		result_df <- result_df %>% select(!starts_with("sample_description_"))
 		
 	  # Merge result_df into assay_df and control_df.
-	  merge_assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
-	  merge_control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
+	  assay_df <- rows_update(assay_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
+	  control_df <- rows_update(control_df, result_df, unmatched = "ignore", by = c("assay_well", "quantification_batch_id", "assay_target_fluorophore"))
 	  
 	}
 }
 
 
-if (nrow(merge_assay_df) > 0) {
+if (nrow(assay_df) > 0) {
 
 	# Simple validation. This checks if any result data is missing.
-	merge_assay_df <- merge_assay_df %>% mutate(
-		validation_key = case_when(
-			is.na(assay_target_copies_per_ul_reaction) | as.numeric(assay_target_copies_per_ul_reaction) == as.numeric(-1) ~ -1, 
-			.default = 1
+	assay_df <- assay_df %>% mutate(
+		assay_calc_validation_key = case_when(
+			!is.na(assay_target_copies_per_ul_reaction) & as.numeric(assay_target_copies_per_ul_reaction) > as.numeric(-1) ~ "PASS", 
+			.default = "FAIL"
+		),
+		assay_validation_key = case_when(
+			!is.na(assay_accepted_partitions) & as.numeric(assay_accepted_partitions) >= as.numeric(MIN_ACCEPTED_PARTITIONS) ~ "PASS", 
+			.default = "FAIL"
 		)
 	)
 
 	# Print the merged assay df only if there is result data.
 	dfn <- paste0(UPDIR, "/update.qassay_merged.txt", sep="")
-	write.table(merge_assay_df, file = dfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+	write.table(assay_df, file = dfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 }
 
 
-if (nrow(merge_control_df) > 0) {
+if (nrow(control_df) > 0) {
 	  
   # Simple validation. This checks if any result data is missing.
-  merge_control_df <- merge_control_df %>% mutate(
-    validation_key = case_when(
-      is.na(assay_target_copies_per_ul_reaction) | as.numeric(assay_target_copies_per_ul_reaction) == as.numeric(-1) ~ -1, 
-      .default = 1
-    )
+  control_df <- control_df %>% mutate(
+		assay_calc_validation_key = case_when(
+			!is.na(assay_target_copies_per_ul_reaction) & as.numeric(assay_target_copies_per_ul_reaction) > as.numeric(-1) ~ "PASS", 
+			.default = "FAIL"
+		),
+		assay_validation_key = case_when(
+			!is.na(assay_accepted_partitions) & as.numeric(assay_accepted_partitions) >= as.numeric(MIN_ACCEPTED_PARTITIONS) ~ "PASS", 
+			.default = "FAIL"
+		)
   )
   
   # Print the merged control df only if there is result data.
   cfn <- paste0(UPDIR, "/update.qcontrol_merged.txt", sep="")
-	write.table(merge_control_df, file = cfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+	write.table(control_df, file = cfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 }
 
 # Return the number of rows in the run df so the controller script can do the right thing.
-ret_val <- nrow(merge_assay_df) + nrow(merge_control_df)
+ret_val <- nrow(assay_df) + nrow(control_df)
 if (ret_val > 0) {
-  if (nrow(merge_assay_df %>% filter(validation_key == -1)) > 0 | nrow(merge_control_df %>% filter(validation_key == -1)) > 0) {
+  if (nrow(assay_df %>% filter(assay_calc_validation_key == "FAIL")) > 0 | nrow(control_df %>% filter(assay_calc_validation_key == "FAIL")) > 0) {
     ret_val <- -1 * ret_val
   }
 }

@@ -1,4 +1,5 @@
-assay_block_method	assay_block_method_lot_id	assay_block_sample_input_vol_ul	assay_block_reaction_vol_ul	assay_block_comment	assay_block_samples_in_block	assay_block_id	quantification_batch_id
-GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	5	20	NA	23	Respiratory Multiplex	WaTCH_Q287
-GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	5	20	NA	23	Norovirus	WaTCH_Q287
-GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	5	20	NA	21	Measles	WaTCH_Q287
+assay_block_method	assay_block_method_lot_id	assay_block_sample_input_vol_ul	assay_block_reaction_vol_ul	assay_block_comment	assay_block_samples_in_block	assay_block_id	quantification_batch_id	run_id	assay_block_handle_reps
+GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	xxxxxxx	5	20	Rerun samples - MeV only, Pos oligo run at 1:2 dilution	14	Measles	Q287.2	2026-10-22	mean
+GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	5	20	NA	25	Respiratory Multiplex	Q287	2026-10-22	mean
+GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	5	20	NA	21	Norovirus	Q287	2026-10-22	mean
+GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	5	20	NA	21	Measles	Q287	2026-10-22	mean

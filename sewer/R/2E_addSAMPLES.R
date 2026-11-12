@@ -50,14 +50,10 @@ assay_df <- as.data.frame(
 		comment.char="",
     check.names=FALSE)
 )
-samples_vec <- unique(unlist(
-	c(
-		conc_df$sample_id, 
-		extract_df$sample_id, 
-		assay_df$sample_id
-	), use.names = FALSE))
 
-
+samples_in_update_df <- data.frame(
+  sample_id = unique(unlist(list(conc_df$sample_id, extract_df$sample_id, assay_df$sample_id)))
+)
 
 update_df <- data.frame(
 	sample_id = character(), 
@@ -74,7 +70,8 @@ update_df <- data.frame(
 	sample_received_date = character(),
 	sample_comment = character(),
 	location_type = character(), 
-	county_id = character()
+	county_id = character(),
+	sample_validation_key = character()
 )
 
 runfile_list <- list.files(
@@ -84,7 +81,7 @@ runfile_list <- list.files(
 )
 
 for (fpath in runfile_list) {
-  #fpath <- "../data/updates/2026-10-15/run_files/AssetTagReport.xlsx"
+  #fpath <- "../data/updates/2026-10-15/run_files/collections.xlsx"
 
   # Read the batch file into a named list, with each sheet as a df.
 	platef_in <- excel2df(fpath)
@@ -119,8 +116,35 @@ for (fpath in runfile_list) {
 	batch_keys <- tolower(batch_keys)
 	colnames(allsample_df) <- batch_keys
 	
-	update_df <- allsample_df %>% 
-		filter(asset_tag_id %in% samples_vec) %>% 
+	# This function is part of the openxlsx package. It should take an Excel DateTime (which is numeric)
+	# and convert it to a POSIXct object in the format YYYY-MM-DD. It appears the AssetTiger export 
+	# uses strings instead, though, so no need.
+	#
+	# allsample_df <- allsample_df %>% mutate(
+	# 	sample_collection_start_datetime = if_else(
+	# 		is.na(sample_collection_start) | sample_collection_start == "", 
+	# 		NA, 
+	# 		convertToDateTime(as.numeric(sample_collection_start)),
+	# 		missing = NA
+	# 	),
+	# 	sample_collection_end_datetime = if_else(
+	# 		is.na(sample_collection_end) | sample_collection_end == "", 
+	# 		NA, 
+	# 		convertToDateTime(as.numeric(sample_collection_end)),
+	# 		missing = NA
+	# 	),
+	# 	sample_recovered_datetime = if_else(
+	# 		is.na(sample_retrieved_datetime) | sample_retrieved_datetime == "", 
+	# 		NA, 
+	# 		convertToDateTime(as.numeric(sample_retrieved_datetime)),
+	# 		missing = NA
+	# 	)
+	# )
+
+	# Restrict allsamples to just those assets in the update files.
+	#
+	this_df <- allsample_df %>% 
+		filter(asset_tag_id %in% samples_in_update_df$sample_id) %>% 
 		select(
 			sample_id = asset_tag_id, 
 			location_id = location, 
@@ -138,7 +162,47 @@ for (fpath in runfile_list) {
 			location_type = department, 
 			county_id = site
 		)
+		
+	# this_df <- this_df %>% mutate(
+	# 	sample_collection_start_datetime = format(sample_collection_start_datetime, "%m/%d/%Y %H:%M"),
+	# 	sample_collection_end_datetime = format(sample_collection_end_datetime, "%m/%d/%Y %H:%M"),
+	# 	sample_recovered_datetime = format(sample_recovered_datetime, "%m/%d/%Y %H:%M")
+	# )
+	
+	update_df <- rbind(update_df, this_df)
 }
+
+#
+#
+# If sample id in the assay, conc, or extraction tables is NOT in the AT database, remove 
+# and note. May need to re-write these tables.
+# This requires filtering samples_in_update_vec for ids NOT in allsample_df.
+#
+external_samples_df <- samples_in_update_df %>% filter(!sample_id %in% allsample_df$asset_tag_id)
+
+if (nrow(external_samples_df) > 0) {
+	conc_ext_df <- conc_df %>% filter(sample_id %in% external_samples_df$sample_id)
+	conc_filt_df <- conc_df %>% filter(!sample_id %in% external_samples_df$sample_id)
+	if (nrow(conc_ext_df) > 0 & nrow(conc_ext_df) < nrow(conc_df)) {
+		write.table(conc_ext_df, file = paste0(UPDIR, "/external.concentration.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+		write.table(conc_filt_df, file = paste0(UPDIR, "/update.concentration.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+	}
+
+	extract_ext_df <- extract_df %>% filter(sample_id %in% external_samples_df$sample_id)
+	extract_filt_df <- extract_df %>% filter(!sample_id %in% external_samples_df$sample_id)
+	if (nrow(extract_filt_df) > 0 & nrow(extract_filt_df) < nrow(extract_df)) {
+		write.table(extract_ext_df, file = paste0(UPDIR, "/external.extraction.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+		write.table(extract_filt_df, file = paste0(UPDIR, "/update.extraction.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+	}
+
+	assay_ext_df <- assay_df %>% filter(sample_id %in% external_samples_df$sample_id)
+	assay_filt_df <- assay_df %>% filter(!sample_id %in% external_samples_df$sample_id)
+	if (nrow(assay_filt_df) > 0 & nrow(assay_filt_df) < nrow(assay_df)) {
+		write.table(assay_ext_df, file = paste0(UPDIR, "/external.qassay.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+		write.table(assay_filt_df, file = paste0(UPDIR, "/update.qassay.txt", sep=""), sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+	}
+}
+
 
 # Only validate and print if there is update data.
 if (nrow(update_df) > 0) {
@@ -152,17 +216,17 @@ if (nrow(update_df) > 0) {
 	# That is done by making the output value negative.
 		
 	update_df <- update_df %>% mutate(
-		validation_key = case_when(
-			is.na(sample_id) | sample_id == "" ~ -1, 
-			is.na(location_id) | location_id == "" ~ -1, 
-			#is.na(sample_event) | sample_event == "" ~ -1, 
-			is.na(sample_collection_start_datetime) | sample_collection_start_datetime == "" ~ -1, 
-			is.na(sample_collection_end_datetime) | sample_collection_end_datetime == "" ~ -1, 
-			.default = 1
+		sample_validation_key = case_when(
+			!is.na(sample_id) & sample_id != "" ~ "PASS", 
+			!is.na(location_id) & location_id != "" ~ "PASS", 
+			#!is.na(sample_event) & sample_event != "" ~ "PASS", 
+			!is.na(sample_collection_start_datetime) & sample_collection_start_datetime != "" ~ "PASS", 
+			!is.na(sample_collection_end_datetime) & sample_collection_end_datetime != "" ~ "PASS", 
+			.default = "FAIL"
 		)
 	)
 	
-	# Print the update df only if there is sample data.
+	# Print the update df.
 	rfn <- paste0(UPDIR, "/update.sample.txt", sep="")
 	write.table(update_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
@@ -170,7 +234,7 @@ if (nrow(update_df) > 0) {
 
 ret_val <- nrow(update_df)
 if (ret_val > 0) {
-	if (nrow(update_df %>% filter(validation_key == -1)) > 0) {
+	if (nrow(update_df %>% filter(sample_validation_key == "FAIL")) > 0) {
 		ret_val <- -1 * ret_val
 	}
 }

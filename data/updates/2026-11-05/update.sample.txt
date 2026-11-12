@@ -1,0 +1,28 @@
+sample_id	location_id	sample_collection_method	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	location_type	county_id	sample_validation_key
+A01-1688	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	10/26/2026 12:00 AM	10/27/2026 12:00 AM	10/27/2026 12:00 AM	8.2	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1689	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	10/27/2026 12:00 AM	10/28/2026 12:00 AM	10/28/2026 12:00 AM	8.1	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1690	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	10/28/2026 12:00 AM	10/29/2026 12:00 AM	10/29/2026 12:00 AM	8.0	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1691	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	10/29/2026 12:00 AM	10/30/2026 12:00 AM	10/30/2026 12:00 AM	8.1	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1692	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	10/31/2026 12:00 AM	11/01/2026 12:00 AM	11/01/2026 12:00 AM	7.5	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1693	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 12:00 AM	11/02/2026 12:00 AM	11/02/2026 12:00 AM	7.8	LS	46331	NA	WWTP	Monongalia	PASS
+A01-1694	StarCityWWTP-01	Composite	NA	Routine Surveillance	Pass	11/02/2026 12:00 AM	11/03/2026 12:00 AM	11/03/2026 12:00 AM	7.6	LS	46331	NA	WWTP	Monongalia	PASS
+C01-1394	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/26/2026 08:00 AM	10/27/2026 08:00 AM	10/27/2026 08:00 AM	8.2	LS	46331	NA	WWTP	Ohio	PASS
+C01-1395	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/27/2026 08:00 AM	10/28/2026 08:00 AM	10/28/2026 08:00 AM	7.1	LS	46331	NA	WWTP	Ohio	PASS
+C01-1396	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/28/2026 08:00 AM	10/29/2026 08:00 AM	10/29/2026 08:00 AM	7.3	LS	46331	NA	WWTP	Ohio	PASS
+C01-1397	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	10/29/2026 08:00 AM	10/30/2026 08:00 AM	10/30/2026 08:00 AM	6.9	LS	46331	NA	WWTP	Ohio	PASS
+C01-1398	WheelingWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 08:00 AM	6.7	LS	46331	NA	WWTP	Ohio	PASS
+H01-1056	MoundsvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 08:00 AM	1.2	LS	46331	NA	WWTP	Marshall	PASS
+D01-1045	CharlesTownWWTP-01	Composite	NA	Routine Surveillance	Pass	10/28/2026 06:45 AM	10/29/2026 07:25 AM	10/29/2026 07:25 AM	1.220	LS	46331	NA	WWTP	Jefferson	PASS
+F01-1034	WestonWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 12:00 AM	11/02/2026 12:00 AM	11/02/2026 12:00 AM	1.1	LS	46331	NA	WWTP	Lewis	PASS
+G01-1031	KeyserWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 09:00 AM	11/02/2026 08:00 AM	11/02/2026 08:00 AM	0.5634	LS	46331	NA	WWTP	Mineral	PASS
+J01-1050	AlpineLakeWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 07:30 AM	11/02/2026 07:30 AM	11/02/2026 07:30 AM	0.060	LS	46331	NA	WWTP	Preston	PASS
+L01-1038	WestUnionWWTP-01	Composite	NA	Routine Surveillance	Fail: Missing Required Data	11/01/2026 07:00 AM	11/02/2026 07:00 AM	11/02/2026 08:00 AM	NA	LS	46331	NA	WWTP	Doddridge	PASS
+M03-1042	ManningtonWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 08:00 AM	0.132	LS	46331	NA	WWTP	Marion	PASS
+M04-1020	FarmingtonWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:30 AM	11/02/2026 08:30 AM	11/02/2026 08:30 AM	0.075	LS	46331	NA	WWTP	Marion	PASS
+O01-1033	GraftonWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 08:00 AM	0.84	LS	46331	NA	WWTP	Taylor	PASS
+R02-1048	ElkinsWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 06:00 AM	11/02/2026 06:00 AM	11/02/2026 06:05 AM	1.05	LS	46331	NA	WWTP	Randolph	PASS
+Q01-1050	MadisonWWTP-01	Composite	NA	Routine Surveillance	Pass	10/28/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 12:00 AM	0.240	LS	46331	NA	WWTP	Boone	PASS
+T01-1016	PointPleasantWWTP-01	Composite	NA	Routine Surveillance	Pass	10/17/2026 12:00 AM	10/18/2026 12:00 AM	10/18/2026 02:30 PM	0.24	LS	46331	NA	WWTP	Mason	PASS
+T01-1017	PointPleasantWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 12:00 AM	11/02/2026 12:00 AM	11/02/2026 07:30 AM	0.19	LS	46331	NA	WWTP	Mason	PASS
+W01-1034	SummersvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 12:00 AM	11/02/2026 12:00 AM	11/02/2026 12:00 AM	0.40	LS	46331	NA	WWTP	Nicholas	PASS
+W02-1012	CraigsvilleWWTP-01	Composite	NA	Routine Surveillance	Pass	11/01/2026 08:00 AM	11/02/2026 08:00 AM	11/02/2026 09:00 AM	0.175	LS	46331	NA	WWTP	Nicholas	PASS

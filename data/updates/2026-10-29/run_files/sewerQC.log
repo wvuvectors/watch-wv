@@ -1,0 +1,28 @@
+
+#############################################
+
+SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response.
+Initial data quality check workflow, initiated from sewer1.sh.
+Script run datetime stamp: 2026-11-02_13-05
+
+See /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-29/sewerQC.log for warnings, errors, and other important information.
+Run ID: 2026-10-29
+Input directory: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-10-29
+
+#############################################
+
+
+#############################################
+Running 1A_qcBATCHES.R.
+Done.
+#############################################
+
+
+#############################################
+Running 1B_qcDATA.R.
+Done.
+#############################################
+
+
+sewer1 run of November 02, 2026 at 13:05:31 has left the chat.
+

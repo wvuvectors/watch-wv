@@ -1,0 +1,28 @@
+assay_id	assay_type	sample_id	assay_well	assay_block_id	quantification_batch_id	assay_target_name	assay_target_abbreviation	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_partitions	assay_positive_partitions	assay_calc_validation_key	assay_validation_key
+pnc-1794498968.5264	pcr_negative_control	pnc-1794498968.5264	F11	Respiratory Multiplex	WaTCH_Q289	Influenza Virus A (M)	FluA	FAM	0	20101	0	PASS	PASS
+pnc-1794498968.5279	pcr_negative_control	pnc-1794498968.5279	F11	Respiratory Multiplex	WaTCH_Q289	Respiratory Syncytial Virus, Bovine	BRSV	HEX	0	20101	0	PASS	PASS
+pnc-1794498968.52941	pcr_negative_control	pnc-1794498968.52941	F11	Respiratory Multiplex	WaTCH_Q289	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	0	20101	0	PASS	PASS
+pnc-1794498968.5309	pcr_negative_control	pnc-1794498968.5309	F11	Respiratory Multiplex	WaTCH_Q289	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	0	20101	0	PASS	PASS
+pnc-1794498968.53239	pcr_negative_control	pnc-1794498968.53239	F11	Respiratory Multiplex	WaTCH_Q289	SARS-CoV-2 (SC2)	SC2	ROX	0	20101	0	PASS	PASS
+ppc-1794498968.57491	pcr_positive_control	ppc-1794498968.57491	G11	Respiratory Multiplex	WaTCH_Q289	Influenza Virus A (M)	FluA	FAM	38.1147689819336	18729	559	PASS	PASS
+ppc-1794498968.57651	pcr_positive_control	ppc-1794498968.57651	G11	Respiratory Multiplex	WaTCH_Q289	Respiratory Syncytial Virus, Bovine	BRSV	HEX	23.1814212799072	18729	342	PASS	PASS
+ppc-1794498968.57803	pcr_positive_control	ppc-1794498968.57803	G11	Respiratory Multiplex	WaTCH_Q289	Respiratory Syncytial Virus, Human (G)	RSV	Cy5	23.3182506561279	18729	344	PASS	PASS
+ppc-1794498968.57956	pcr_positive_control	ppc-1794498968.57956	G11	Respiratory Multiplex	WaTCH_Q289	Influenza Virus B (NEP/NS1)	FluB	Cy5.5	29.1472511291504	18729	429	PASS	PASS
+ppc-1794498968.58108	pcr_positive_control	ppc-1794498968.58108	G11	Respiratory Multiplex	WaTCH_Q289	SARS-CoV-2 (SC2)	SC2	ROX	30.3162994384766	18729	446	PASS	PASS
+ppc-1794498968.6265	pcr_positive_control	ppc-1794498968.6265	A11	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	7.88473606109619	20164	126	PASS	PASS
+ppc-1794498968.63619	pcr_positive_control	ppc-1794498968.63619	B11	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	6.20051145553589	19523	96	PASS	PASS
+ppc-1794498968.64582	pcr_positive_control	ppc-1794498968.64582	C11	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	7.10847568511963	18810	106	PASS	PASS
+ppc-1794498968.65526	pcr_positive_control	ppc-1794498968.65526	D11	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0	20758	0	PASS	PASS
+pnc-1794498968.66452	pcr_negative_control	pnc-1794498968.66452	E11	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0	20366	0	PASS	PASS
+ppc-1794498969.4767	pcr_positive_control	ppc-1794498969.4767	A02	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0	18745	0	PASS	PASS
+pnc-1794498969.48086	pcr_negative_control	pnc-1794498969.48086	B02	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0.245988383889198	20456	4	PASS	PASS
+ppc-1794498969.49	pcr_positive_control	ppc-1794498969.49	G01	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0	21545	0	PASS	PASS
+ppc-1794498969.49175	pcr_positive_control	ppc-1794498969.49175	H01	Measles	WaTCH_Q289	Measles Virus, Wild-Type (M)	MeV	FAM	0	20691	0	PASS	PASS
+ppc-1794498970.56474	pcr_positive_control	ppc-1794498970.56474	G05	Norovirus	Qnoro	Norovirus GI, Human (ORF1_2)	Noro I	FAM	17.4284629821777	19840	273	PASS	PASS
+ppc-1794498970.56628	pcr_positive_control	ppc-1794498970.56628	G05	Norovirus	Qnoro	Norovirus GII, Human (ORF1_2)	Noro II	HEX	13.9618616104126	19840	219	PASS	PASS
+pnc-1794498970.58295	pcr_negative_control	pnc-1794498970.58295	H05	Norovirus	Qnoro	Norovirus GI, Human (ORF1_2)	Noro I	FAM	0	19693	0	PASS	PASS
+pnc-1794498970.58448	pcr_negative_control	pnc-1794498970.58448	H05	Norovirus	Qnoro	Norovirus GII, Human (ORF1_2)	Noro II	HEX	0	19693	0	PASS	PASS
+ppc-1794498970.70028	pcr_positive_control	ppc-1794498970.70028	G10	Norovirus 2	Qnoro	Norovirus GI, Human (ORF1_2)	Noro I	FAM	5.86674165725708	18267	85	PASS	PASS
+ppc-1794498970.70183	pcr_positive_control	ppc-1794498970.70183	G10	Norovirus 2	Qnoro	Norovirus GII, Human (ORF1_2)	Noro II	HEX	5.03683471679688	18267	73	PASS	PASS
+pnc-1794498970.71859	pcr_negative_control	pnc-1794498970.71859	H10	Norovirus 2	Qnoro	Norovirus GI, Human (ORF1_2)	Noro I	FAM	0	19331	0	PASS	PASS
+pnc-1794498970.72016	pcr_negative_control	pnc-1794498970.72016	H10	Norovirus 2	Qnoro	Norovirus GII, Human (ORF1_2)	Noro II	HEX	0	19331	0	PASS	PASS

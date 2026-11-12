@@ -82,6 +82,17 @@ for (fpath in runfile_list) {
 		)
 		batch_list[["Sample"]] <- s_df
 		
+		cstart_datetime_obj <- 
+		cend_datetime_obj <- 
+
+		cend_datetime_str <- format(cend_datetime_obj, "%m-%d-%Y %H:%M:%S")
+
+		if (all(difftime(convertToDateTime(as.numeric(sheet1_df$sample_collection_end)), convertToDateTime(as.numeric(sheet1_df$sample_collection_start)), , units = "hours") >= 6, na.rm = TRUE)) {
+			this_date_check <- "PASS"
+		} else {
+			this_date_check <- "FAIL"
+		}
+		
 		#########################################
 		qcsum_df <- qcsum_df %>% add_row(
 			batch_id = "NA",
@@ -92,7 +103,7 @@ for (fpath in runfile_list) {
 			num_validated_samples_in_batch = nrow(sheet1_df),
 			unknown_sample_list = "",
 			valid_batch_id = "NA",
-			valid_batch_date = "NA",
+			valid_batch_date = this_date_check,
 			valid_sample_set = "PASS",
 			valid_controls_pos = "NA",
 			valid_controls_neg = "NA"
@@ -100,7 +111,7 @@ for (fpath in runfile_list) {
 		#########################################
 
 	} else if ("Metadata" %in% names(platef_in)) {
-		# Any valid batch Excel file will have a valid Metadata sheet.
+		# Any valid batch Excel file will have a Metadata sheet.
 
 		# Read the Metadata sheet.
 		# This sheet contains a two column table, with keys in column 1 and vals in column 2.
@@ -131,9 +142,9 @@ for (fpath in runfile_list) {
 		this_date <- batchup_df$date[1]
 		
 		# This function is part of the openxlsx package. It should take an Excel DateTime (which is numeric)
-		# and convert it to a POSIXct object in the format YYY-MM-DD.
+		# and convert it to a POSIXct object in the format MM/DD/YYYY.
 		this_date_obj <- convertToDateTime(as.numeric(this_date))
-		this_date_str <- format(this_date_obj, "%m-%d-%Y")
+		this_date_str <- format(this_date_obj, "%m/%d/%Y")
 	
 		
 		if (difftime(now, this_date_obj, units = "weeks") < 2) {
@@ -159,7 +170,7 @@ for (fpath in runfile_list) {
 	}
 }
 
-fn <- paste0(INDIR, "/_qcbatches.", RUNID, ".summary.txt", sep="")
+fn <- file.path(INDIR, "qc", paste0("precheck-batches.", RUNID, ".summary.txt", sep=""))
 write.table(qcsum_df, file = fn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 identical(batch_names, qcsum_df$batch_type)

@@ -7,15 +7,15 @@ source("addins/base_functions.R")
 source("addins/sewer_sources.R")
 
 # Accepts 1 argument on STDIN:
-#   INCDIR is the directory that contains the incremental update files.
+#   INDIR is the directory that contains the merge files.
 #
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
-INCDIR <- args[1]
+	INDIR <- args[1]
 }
-#INCDIR <- "../data/latest"
-#RUNID <- basename(INCDIR)
+#INDIR <- "../data/updates/2026-10-22"
+#RUNID <- basename(INDIR)
 
 
 # We need info from the resources Excel file.
@@ -35,7 +35,7 @@ for (tname in resource_tables) {
 data_tables <- c(
 	"cbatch", "concentration", 
 	"ebatch", "extraction",
-	"qbatch", "qblock", "qcontrol", "qassay", 
+	"qassay", "qbatch", "qblock", "qcontrol", 
 	"sample"
 )
 
@@ -43,7 +43,7 @@ data_list <- list()
 for (dname in data_tables) {
 	d_df <- as.data.frame(
 	read.table(
-    paste0(INCDIR, "/watchdb." , dname, ".txt", sep=""), 
+    paste0(INDIR, "/merge." , dname, ".txt", sep=""), 
     quote="", 
     sep="\t", 
     header=TRUE, 
@@ -59,11 +59,22 @@ cjoin_df <- left_join(
 	data_list[["cbatch"]],
 	by=join_by(concentration_batch_id)
 )
+cjoin_df <- cjoin_df %>% mutate(
+	across(c(concentration_batch_matrix_vol_ul, 
+	         concentration_batch_enhancement_reagent_vol_ul, 
+	         concentration_batch_spike_vol_ul, 
+					 concentration_batch_sample_input_vol_ml, 
+					 concentration_batch_elution_output_vol_ul), as.numeric)
+)
 
 ejoin_df <- left_join(
 	data_list[["extraction"]],
 	data_list[["ebatch"]],
 	by=join_by(extraction_batch_id)
+)
+ejoin_df <- ejoin_df %>% mutate(
+	across(c(extraction_batch_sample_input_vol_ul, 
+	         extraction_batch_elution_output_vol_ul), as.numeric)
 )
 
 qjoin_df <- left_join(
@@ -71,15 +82,71 @@ qjoin_df <- left_join(
 	data_list[["qblock"]],
 	by=join_by(assay_block_id, quantification_batch_id)
 )
+qjoin_df <- qjoin_df %>% mutate(
+	across(c(assay_block_sample_input_vol_ul, 
+	         assay_block_reaction_vol_ul, 
+	         assay_block_samples_in_block, 
+					 assay_target_copies_per_ul_reaction,
+					 assay_accepted_partitions,
+					 assay_positive_partitions), as.numeric)
+)
 
 
-calc_df <- qjoin_df %>% select(
-	assay_id, 
+
+############################
+# Need to compress assays with same combination of sample id, quantification_batch_id, 
+# assay_block_id, and target. Calculate either the mean of all or the sum of all. 
+# Which to calculate is determined by the value of assay_block_handle_reps (mean or sum).
+qjoin2_df <- qjoin_df %>% 
+  group_by(sample_id, quantification_batch_id, assay_block_id, assay_target_name) %>% 
+  mutate(assay_target_copies_per_ul_reaction = if_else(
+    assay_block_handle_reps == "sum", 
+    sum(assay_target_copies_per_ul_reaction, na.rm=TRUE),
+    mean(assay_target_copies_per_ul_reaction, na.rm=TRUE) 
+  ),
+  aggregate_count = n(), 
+  assay_target_copies_per_ul_reaction_sd = case_when(
+    n() == 1 ~ 0,
+    assay_block_handle_reps == "sum" ~ 0, 
+    assay_block_handle_reps == "mean" & n() > 1 ~ sd(assay_target_copies_per_ul_reaction, na.rm=TRUE), 
+    .default = 0
+  ),
+  assay_block_reaction_vol_ul = if_else(
+    assay_block_handle_reps == "sum", 
+    sum(assay_block_reaction_vol_ul, na.rm=TRUE),
+    mean(assay_block_reaction_vol_ul, na.rm=TRUE) 
+  ), 
+  assay_block_sample_input_vol_ul = if_else(
+    assay_block_handle_reps == "sum", 
+    sum(assay_block_sample_input_vol_ul, na.rm=TRUE),
+    mean(assay_block_sample_input_vol_ul, na.rm=TRUE)
+  )) %>% 
+  ungroup() %>%
+  distinct(sample_id, quantification_batch_id, assay_block_id, assay_target_name, .keep_all=TRUE)
+
+qjoin2_df <- qjoin2_df %>% 
+  mutate(result_id = if_else(
+    aggregate_count == 1,
+    assay_id,
+    paste0(assay_id, "-agg", sep=""))
+  )
+
+############################
+
+
+calc_df <- qjoin2_df %>% select(
+	run_id,
+	result_id, 
+	aggregate_count, 
 	sample_id, 
 	target=assay_target_name, 
 	assay_target_copies_per_ul_reaction, 
+	assay_target_copies_per_ul_reaction_sd,
 	assay_input_ul=assay_block_sample_input_vol_ul, 
-	assay_reaction_ul=assay_block_reaction_vol_ul
+	assay_reaction_ul=assay_block_reaction_vol_ul,
+	quantification_batch_id,
+	assay_block_id,
+	assay_block_handle_reps
 )
 
 calc_df <- left_join(
@@ -138,8 +205,11 @@ calc_df <- left_join(
 # Now do the calculations, in calc_df.
 #
 calc_df <- calc_df %>% mutate(
-	collection_window_hours = as.numeric(difftime(as.POSIXct(collection_end_datetime), as.POSIXct(collection_start_datetime), units="hours")),
+#	collection_window_hours = ceiling(as.numeric(difftime(as.POSIXct(collection_end_datetime), as.POSIXct(collection_start_datetime), units="hours"))),
+	collection_window_hours = ceiling(as.numeric(difftime(collection_end_datetime, collection_start_datetime, units="hours"))),
 	across(c(assay_target_copies_per_ul_reaction, 
+	         assay_target_copies_per_ul_reaction_sd, 
+	         aggregate_count, 
 					 assay_reaction_ul, 
 					 assay_input_ul, 
 					 extraction_output_ul, 
@@ -151,20 +221,27 @@ calc_df <- calc_df %>% mutate(
 )
 
 # Copies of target per mL of wastewater is the basic result, so we calculate that first:
-# 1000 uL/mL * copies/uL_rxn * (rxn_total_uL/rxn_input_uL) * (extraction_output_uL/extraction_input_uL) * (concentration_output_mL/concentration_input_mL)
+# 1000 uL/mL * copies/uL_rxn * (rxn_total_uL/rxn_input_uL) * (extraction_output_uL/extraction_input_uL) * (concentration_output_uL/concentration_input_uL)
 #
 calc_df <- calc_df %>% mutate(
-	target_copies_per_ml = 1000 * assay_target_copies_per_ul_reaction * (assay_reaction_ul/assay_input_ul) * (extraction_output_ul/extraction_input_ul) * ((conc_output_ul/1000)/conc_input_ml), 
-	target_copies_per_ml_per_day = target_copies_per_ml / (collection_window_hours/24)
+	target_copies_per_ml = 
+	  assay_target_copies_per_ul_reaction * 
+	  (assay_reaction_ul/assay_input_ul) * 
+	  (extraction_output_ul/extraction_input_ul) * 
+	  (conc_output_ul/(conc_input_ml*1000)) * 
+	  1000
 )
 
-# Normalize by daily flow, where flow is available, and by population, where population is available:
-# copies/mL * 3785.41 mL/gallon * flow million_gallons/day * 10^6 gallons/million_gallons * collection_time_hrs * 1 day/24 hours
+# Now calculate viral load by correcting for flow (where available):
+# copies/day = copies/mL * 3785.41x10^6 mL/million_gallons * flow million_gallons/day * (collection_time_hrs / 24 hours_per_day)
 #
 calc_df <- calc_df %>% mutate(
-	target_copies_per_ml_per_day_per_capita = target_copies_per_ml_per_day / as.numeric(location_population_served),
-	target_copies_flow_normalized = target_copies_per_ml * 3785.41 * sample_flow * 10^6 * (collection_window_hours/24),
-	target_copies_flow_normalized_per_capita = target_copies_flow_normalized / as.numeric(location_population_served)
+  target_copies_per_day = target_copies_per_ml * (3785.41 * 10^6) * sample_flow * (collection_window_hours/24),
+  target_copies_per_person_per_day = target_copies_per_day / as.numeric(location_population_served)
+)
+calc_df <- calc_df %>% mutate(
+  target_copies_per_ml_per_day = target_copies_per_ml / (collection_window_hours/24), 
+  target_copies_per_ml_per_person_per_day = target_copies_per_ml_per_day / as.numeric(location_population_served)
 )
 
 
@@ -175,19 +252,22 @@ calc_df <- calc_df %>% mutate(
 # We return all the results and let the downstream applications decide how to filter.
 	
 result_df <- calc_df %>% mutate(
-	validation_key = case_when(
-		is.na(sample_qc) | str_detect(sample_qc, regex("Pass", ignore_case=TRUE), negate=TRUE) ~ -1, 
-		is.na(location_id) | location_id == "" ~ -1, 
-		is.na(location_category) | location_category == "" ~ 0, 
-		is.na(target_copies_per_ml) | as.numeric(target_copies_per_ml) < 0 ~ -1, 
-		.default = 1
+	result_validation_key = case_when(
+		!is.na(sample_qc) & str_detect(sample_qc, regex("Pass", ignore_case=TRUE), negate=FALSE) ~ "PASS", 
+		!is.na(location_id) & location_id != "" ~ "PASS", 
+		!is.na(location_category) & location_category != "" ~ "PASS", 
+		!is.na(target_copies_per_ml) & as.numeric(target_copies_per_ml) >= 0 ~ "PASS", 
+		.default = "FAIL"
 	)
 )
 
 result_df <- result_df %>% select(
-	assay_id,
+  run_id,
+  result_id,
   sample_id,
-	target,
+  assay_block_handle_reps,
+  aggregate_count,
+  target,
 	lab_id,
 	location_id,
 	location_category,
@@ -200,17 +280,17 @@ result_df <- result_df %>% select(
 	sample_flow, 
 	sample_qc, 
 	target_copies_per_ml,
+	target_copies_per_day, 
+	target_copies_per_person_per_day, 
 	target_copies_per_ml_per_day, 
-	target_copies_per_ml_per_day_per_capita, 
-	target_copies_flow_normalized, 
-	target_copies_flow_normalized_per_capita
+	target_copies_per_ml_per_person_per_day
 )
-result_df$collection_start_datetime <- format(result_df$collection_start_datetime, "%m-%d-%Y %H:%M:%S")
-result_df$collection_end_datetime <- format(result_df$collection_end_datetime, "%m-%d-%Y %H:%M:%S")
+result_df$collection_start_datetime <- format(result_df$collection_start_datetime, "%m/%d/%Y %H:%M")
+result_df$collection_end_datetime <- format(result_df$collection_end_datetime, "%m/%d/%Y %H:%M")
 
 
 # Print the result df.
-rfn <- paste0(INCDIR, "/watchdb.result.txt", sep="")
+rfn <- paste0(INDIR, "/merge.result.txt", sep="")
 write.table(result_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
 
 

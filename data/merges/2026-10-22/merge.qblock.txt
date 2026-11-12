@@ -1,0 +1,427 @@
+source_table	assay_block_reaction_vol_ul	assay_block_method	assay_block_method_lot_id	quantification_batch_id	assay_block_id	assay_block_comment	assay_block_samples_in_block	assay_block_sample_input_vol_ul	assay_block_handle_reps	run_id
+existing	20	Norovirus GII (ORF1_2) (Boehm et al, 2023)	NA	AB04022024	AB04022024	Legacy import	-1	5	mean	AB04022024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21422	AB07102024	AB07102024	Legacy import	-1	5	mean	AB07102024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB07222024	AB07222024	Legacy import	-1	5	mean	AB07222024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB07252024	AB07252024	Legacy import	-1	5	mean	AB07252024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB08062024	AB08062024	Legacy import	-1	5	mean	AB08062024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB08212024	AB08212024	Legacy import	-1	5	mean	AB08212024
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB1	AB1	Legacy import	-1	5	mean	AB1
+existing	20	Bio-Rad Expert Design Assay: RSV A; RSV B	66418870	AB10	AB10	Legacy import	-1	5	mean	AB10
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB100	AB100	Legacy import	-1	5	mean	AB100
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21779	AB10082024	AB10082024	Legacy import	-1	5	mean	AB10082024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB101	AB101	Legacy import	-1	5	mean	AB101
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB102	AB102	Legacy import	-1	5	mean	AB102
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB103	AB103	Legacy import	-1	5	mean	AB103
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB104	AB104	Legacy import	-1	5	mean	AB104
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB105	AB105	Legacy import	-1	5	mean	AB105
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB107	AB107	Legacy import	-1	5	mean	AB107
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB108	AB108	Legacy import	-1	5	mean	AB108
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB109	AB109	Legacy import	-1	5	mean	AB109
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB11	AB11	Legacy import	-1	5	mean	AB11
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB110	AB110	Legacy import	-1	5	mean	AB110
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB111	AB111	Legacy import	-1	5	mean	AB111
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB114	AB114	Legacy import	-1	5	mean	AB114
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB115	AB115	Legacy import	-1	5	mean	AB115
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB116	AB116	Legacy import	-1	5	mean	AB116
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB117	AB117	Legacy import	-1	5	mean	AB117
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB118	AB118	Legacy import	-1	5	mean	AB118
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB119	AB119	Legacy import	-1	5	mean	AB119
+existing	20	Bio-Rad Expert Design Assay: RSV A; RSV B	66418870	AB12	AB12	Legacy import	-1	5	mean	AB12
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB121	AB121	Legacy import	-1	5	mean	AB121
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21831	AB122	AB122	Legacy import	-1	5	mean	AB122
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB124	AB124	Legacy import	-1	5	mean	AB124
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB125	AB125	Legacy import	-1	5	mean	AB125
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB126	AB126	Legacy import	-1	5	mean	AB126
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB127	AB127	Legacy import	-1	5	mean	AB127
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB128	AB128	Legacy import	-1	5	mean	AB128
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB129	AB129	Legacy import	-1	5	mean	AB129
+existing	20	Custom Design	64571283	AB13	AB13	Legacy import	-1	5	mean	AB13
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB130	AB130	Legacy import	-1	5	mean	AB130
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB131	AB131	Legacy import	-1	5	mean	AB131
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB132	AB132	Legacy import	-1	5	mean	AB132
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB133	AB133	Legacy import	-1	5	mean	AB133
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB134	AB134	Legacy import	-1	5	mean	AB134
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB135	AB135	Legacy import	-1	5	mean	AB135
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB136	AB136	Legacy import	-1	5	mean	AB136
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB138	AB138	Legacy import	-1	5	mean	AB138
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB139	AB139	Legacy import	-1	5	mean	AB139
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB14	AB14	Legacy import	-1	5	mean	AB14
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB141	AB141	Legacy import	-1	5	mean	AB141
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21702	AB142	AB142	Legacy import	-1	5	mean	AB142
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB143	AB143	Legacy import	-1	5	mean	AB143
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB144	AB144	Legacy import	-1	5	mean	AB144
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB145	AB145	Legacy import	-1	5	mean	AB145
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB146	AB146	Legacy import	-1	5	mean	AB146
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB147	AB147	Legacy import	-1	5	mean	AB147
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB148	AB148	Legacy import	-1	5	mean	AB148
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB149	AB149	Legacy import	-1	5	mean	AB149
+existing	20	Bio-Rad Influenza A, B, Human Triplex (dEXD84844642)	68387138	AB15	AB15	Legacy import	-1	5	mean	AB15
+existing	20	GTM GT-Digital MeV WT M Gene WW Surveillance Assay v1.0 for the Qiacuity-BETA (101035)	22228	AB150	AB150	Legacy import	-1	5	mean	AB150
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	AB151	AB151	Legacy import	-1	5	mean	AB151
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22184	AB152	AB152	Legacy import	-1	5	mean	AB152
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	AB154	AB154	Legacy import	-1	5	mean	AB154
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	AB155	AB155	Legacy import	-1	5	mean	AB155
+existing	12	GTM GT-Digital MeV Cy5 WW SurvAssay for QIAcuity v1.0 (100831)	22595	AB158	AB158	Legacy import	-1	5	mean	AB158
+existing	12	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	22928	AB159	AB159	Legacy import	-1	5	mean	AB159
+existing	20	Bio-Rad Expert Design Assay: RSV A; RSV B	66418870	AB16	AB16	Legacy import	-1	5	mean	AB16
+existing	12	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22202	AB160	AB160	Legacy import	-1	5	mean	AB160
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB161	AB161	Legacy import	-1	5	mean	AB161
+existing	12	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22700	AB162	AB162	Legacy import	-1	5	mean	AB162
+existing	12	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22202	AB163	AB163	Legacy import	-1	5	mean	AB163
+existing	12	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22595	AB164	AB164	Legacy import	-1	5	mean	AB164
+existing	12	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22700	AB165	AB165	Legacy import	-1	5	mean	AB165
+existing	12	GTM GT-Digital B. pertussis WW Surv Assay v1.0 for the QIAcuity R001 (101125)	22928	AB166	AB166	Legacy import	-1	5	mean	AB166
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB167	AB167	Legacy import	-1	5	mean	AB167
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB17	AB17	Legacy import	-1	5	mean	AB17
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB170	AB170	Legacy import	-1	5	mean	AB170
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB171	AB171	Legacy import	-1	5	mean	AB171
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB172	AB172	Legacy import	-1	5	mean	AB172
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB173	AB173	Legacy import	-1	5	mean	AB173
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB174	AB174	Legacy import	-1	5	mean	AB174
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB175	AB175	Legacy import	-1	5	mean	AB175
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB176	AB176	Legacy import	-1	5	mean	AB176
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	AB177	AB177	Legacy import	-1	5	mean	AB177
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB178	AB178	Legacy import	-1	5	mean	AB178
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB179	AB179	Legacy import	-1	5	mean	AB179
+existing	20	Custom Design	6,641,887,069,915,330	AB18	AB18	Legacy import	-1	5	mean	AB18
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB180	AB180	Legacy import	-1	5	mean	AB180
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB181	AB181	Legacy import	-1	5	mean	AB181
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB182	AB182	Legacy import	-1	5	mean	AB182
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	AB183	AB183	Legacy import	-1	5	mean	AB183
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB19	AB19	Legacy import	-1	5	mean	AB19
+existing	20	Norovirus GII (ORF1_2) (Boehm et al, 2023)	xxxxxxx	AB1NoV	AB1NoV	Legacy import	-1	5	mean	AB1NoV
+existing	20	Bio-Rad SARS-CoV-2 (N2) (dEXD28513507)	341878142	AB2	AB2	Legacy import	-1	5	mean	AB2
+existing	20	Custom Design	6,641,887,069,915,330	AB20	AB20	Legacy import	-1	5	mean	AB20
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB21	AB21	Legacy import	-1	5	mean	AB21
+existing	20	Custom Design	6,641,887,069,915,330	AB22	AB22	Legacy import	-1	5	mean	AB22
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	64580484	AB23	AB23	Legacy import	-1	5	mean	AB23
+existing	20	Custom Design	64580484	AB24	AB24	Legacy import	-1	5	mean	AB24
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB25	AB25	Legacy import	-1	5	mean	AB25
+existing	20	Custom Design	67,284,502,618,984,600	AB26	AB26	Legacy import	-1	5	mean	AB26
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB27	AB27	Legacy import	-1	5	mean	AB27
+existing	20	Custom Design	618984633	AB28	AB28	Legacy import	-1	5	mean	AB28
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB30	AB30	Legacy import	-1	5	mean	AB30
+existing	20	Custom Design	618,984,633,632,170,000	AB31	AB31	Legacy import	-1	5	mean	AB31
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21779	AB3102025	AB3102025	Legacy import	-1	5	mean	AB3102025
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21779	AB3122025a	AB3122025a	Legacy import	-1	5	mean	AB3122025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21779	AB3122025b	AB3122025b	Legacy import	-1	5	mean	AB3122025b
+existing	20	Custom Design		AB33	AB33	Legacy import	-1	5	mean	AB33
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB35	AB35	Legacy import	-1	5	mean	AB35
+existing	20	Bio-Rad Influenza A, B, Human Triplex (dEXD84844642)	638745082	AB36	AB36	Legacy import	-1	5	mean	AB36
+existing	20	Custom Design	638,745,080,638,745,000,000,000,000,000,000,000	AB37	AB37	Legacy import	-1	5	mean	AB37
+existing	20	Custom Design	638,745,080,638,745,000,000,000,000,000,000,000	AB38	AB38	Legacy import	-1	5	mean	AB38
+existing	20	Custom Design	63,874,508,063,845,000,000,000,000,000,000,000	AB39	AB39	Legacy import	-1	5	mean	AB39
+existing	20	Custom Design	64580484	AB40	AB40	Legacy import	-1	5	mean	AB40
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB41	AB41	Legacy import	-1	5	mean	AB41
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB42	AB42	Legacy import	-1	5	mean	AB42
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21779	AB4282025a	AB4282025a	Legacy import	-1	5	mean	AB4282025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB4282025b	AB4282025b	Legacy import	-1	5	mean	AB4282025b
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB4292025a	AB4292025a	Legacy import	-1	5	mean	AB4292025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB4292025b	AB4292025b	Legacy import	-1	5	mean	AB4292025b
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB43	AB43	Legacy import	-1	5	mean	AB43
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB4302025a	AB4302025a	Legacy import	-1	5	mean	AB4302025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB4302025b	AB4302025b	Legacy import	-1	5	mean	AB4302025b
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB44	AB44	Legacy import	-1	5	mean	AB44
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB45	AB45	Legacy import	-1	5	mean	AB45
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB46	AB46	Legacy import	-1	5	mean	AB46
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB47	AB47	Legacy import	-1	5	mean	AB47
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB48	AB48	Legacy import	-1	5	mean	AB48
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB49	AB49	Legacy import	-1	5	mean	AB49
+existing	20	Custom Design	3,418,781,426,991,530,000,000,000	AB5	AB5	Legacy import	-1	5	mean	AB5
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	xxxxxxx	AB50	AB50	Legacy import	-1	5	mean	AB50
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB5022025a	AB5022025a	Legacy import	-1	5	mean	AB5022025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB5022025b	AB5022025b	Legacy import	-1	5	mean	AB5022025b
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB51	AB51	Legacy import	-1	5	mean	AB51
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB5132025	AB5132025	Legacy import	-1	5	mean	AB5132025
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB52	AB52	Legacy import	-1	5	mean	AB52
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB53	AB53	Legacy import	-1	5	mean	AB53
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB54	AB54	Legacy import	-1	5	mean	AB54
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB55	AB55	Legacy import	-1	5	mean	AB55
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB56	AB56	Legacy import	-1	5	mean	AB56
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB57	AB57	Legacy import	-1	5	mean	AB57
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB58	AB58	Legacy import	-1	5	mean	AB58
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB59	AB59	Legacy import	-1	5	mean	AB59
+existing	20	Custom Design	34,187,814,269,915,300	AB6	AB6	Legacy import	-1	5	mean	AB6
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB60	AB60	Legacy import	-1	5	mean	AB60
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB61	AB61	Legacy import	-1	5	mean	AB61
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB6112025a	AB6112025a	Legacy import	-1	5	mean	AB6112025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB6112025b	AB6112025b	Legacy import	-1	5	mean	AB6112025b
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB6182025a	AB6182025a	Legacy import	-1	5	mean	AB6182025a
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	22019	AB6182025b	AB6182025b	Legacy import	-1	5	mean	AB6182025b
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB62	AB62	Legacy import	-1	5	mean	AB62
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB65	AB65	Legacy import	-1	5	mean	AB65
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB66	AB66	Legacy import	-1	5	mean	AB66
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB67	AB67	Legacy import	-1	5	mean	AB67
+existing	20	Custom Design	64571283	AB7	AB7	Legacy import	-1	5	mean	AB7
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB70	AB70	Legacy import	-1	5	mean	AB70
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB71	AB71	Legacy import	-1	5	mean	AB71
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21422	AB7102024	AB7102024	Legacy import	-1	5	mean	AB7102024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB72	AB72	Legacy import	-1	5	mean	AB72
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB7222024	AB7222024	Legacy import	-1	5	mean	AB7222024
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB7252024	AB7252024	Legacy import	-1	5	mean	AB7252024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB73	AB73	Legacy import	-1	5	mean	AB73
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB74	AB74	Legacy import	-1	5	mean	AB74
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB75	AB75	Legacy import	-1	5	mean	AB75
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB76	AB76	Legacy import	-1	5	mean	AB76
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB78	AB78	Legacy import	-1	5	mean	AB78
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB79	AB79	Legacy import	-1	5	mean	AB79
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)	63101839	AB8	AB8	Legacy import	-1	5	mean	AB8
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB8062024	AB8062024	Legacy import	-1	5	mean	AB8062024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB82	AB82	Legacy import	-1	5	mean	AB82
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21294	AB8212024	AB8212024	Legacy import	-1	5	mean	AB8212024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB83	AB83	Legacy import	-1	5	mean	AB83
+existing	20	Bio-Rad SARS-CoV-2 (N2) (dEXD28513507)	xxxxxxx	AB84	AB84	Legacy import	-1	5	mean	AB84
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB85	AB85	Legacy import	-1	5	mean	AB85
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB86	AB86	Legacy import	-1	5	mean	AB86
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB87	AB87	Legacy import	-1	5	mean	AB87
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB88	AB88	Legacy import	-1	5	mean	AB88
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB89	AB89	Legacy import	-1	5	mean	AB89
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB90	AB90	Legacy import	-1	5	mean	AB90
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB91	AB91	Legacy import	-1	5	mean	AB91
+existing	20	dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (GT Molecular 100468)	21295	AB9142024	AB9142024	Legacy import	-1	5	mean	AB9142024
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB92	AB92	Legacy import	-1	5	mean	AB92
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB93	AB93	Legacy import	-1	5	mean	AB93
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	64580484	AB95	AB95	Legacy import	-1	5	mean	AB95
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	64580484	AB96	AB96	Legacy import	-1	5	mean	AB96
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB97	AB97	Legacy import	-1	5	mean	AB97
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB98	AB98	Legacy import	-1	5	mean	AB98
+existing	20	GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (GT Molecular 100735)	21303	AB99	AB99	Legacy import	-1	5	mean	AB99
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP0	AP0	Legacy import	-1	5	mean	AP0
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP0.1	AP0.1	Legacy import	-1	5	mean	AP0.1
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP0.2	AP0.2	Legacy import	-1	5	mean	AP0.2
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP0.3	AP0.3	Legacy import	-1	5	mean	AP0.3
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP0.4	AP0.4	Legacy import	-1	5	mean	AP0.4
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP0.5	AP0.5	Legacy import	-1	5	mean	AP0.5
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP0.6	AP0.6	Legacy import	-1	5	mean	AP0.6
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP10	AP10	Legacy import	-1	5	mean	AP10
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP100	AP100	Legacy import	-1	5	mean	AP100
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP102	AP102	Legacy import	-1	5	mean	AP102
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP103	AP103	Legacy import	-1	5	mean	AP103
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP104	AP104	Legacy import	-1	5	mean	AP104
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP105	AP105	Legacy import	-1	5	mean	AP105
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP106	AP106	Legacy import	-1	5	mean	AP106
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP107	AP107	Legacy import	-1	5	mean	AP107
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP108	AP108	Legacy import	-1	5	mean	AP108
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP109	AP109	Legacy import	-1	5	mean	AP109
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP11	AP11	Legacy import	-1	5	mean	AP11
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP110	AP110	Legacy import	-1	5	mean	AP110
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP111	AP111	Legacy import	-1	5	mean	AP111
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP112	AP112	Legacy import	-1	5	mean	AP112
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP113	AP113	Legacy import	-1	5	mean	AP113
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP114	AP114	Legacy import	-1	5	mean	AP114
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP115	AP115	Legacy import	-1	5	mean	AP115
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP116	AP116	Legacy import	-1	5	mean	AP116
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP117	AP117	Legacy import	-1	5	mean	AP117
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP118	AP118	Legacy import	-1	5	mean	AP118
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP119	AP119	Legacy import	-1	5	mean	AP119
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP12	AP12	Legacy import	-1	5	mean	AP12
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP120	AP120	Legacy import	-1	5	mean	AP120
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP121	AP121	Legacy import	-1	5	mean	AP121
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP122	AP122	Legacy import	-1	5	mean	AP122
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP123	AP123	Legacy import	-1	5	mean	AP123
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP124	AP124	Legacy import	-1	5	mean	AP124
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP125	AP125	Legacy import	-1	5	mean	AP125
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP127	AP127	Legacy import	-1	5	mean	AP127
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP128	AP128	Legacy import	-1	5	mean	AP128
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP129	AP129	Legacy import	-1	5	mean	AP129
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP13	AP13	Legacy import	-1	5	mean	AP13
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP130	AP130	Legacy import	-1	5	mean	AP130
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP131	AP131	Legacy import	-1	5	mean	AP131
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP132	AP132	Legacy import	-1	5	mean	AP132
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP133	AP133	Legacy import	-1	5	mean	AP133
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP134	AP134	Legacy import	-1	5	mean	AP134
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP135	AP135	Legacy import	-1	5	mean	AP135
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP136	AP136	Legacy import	-1	5	mean	AP136
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP137	AP137	Legacy import	-1	5	mean	AP137
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP139	AP139	Legacy import	-1	5	mean	AP139
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP14	AP14	Legacy import	-1	5	mean	AP14
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP142	AP142	Legacy import	-1	5	mean	AP142
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP143	AP143	Legacy import	-1	5	mean	AP143
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP146	AP146	Legacy import	-1	5	mean	AP146
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP149	AP149	Legacy import	-1	5	mean	AP149
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP15	AP15	Legacy import	-1	5	mean	AP15
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP150	AP150	Legacy import	-1	5	mean	AP150
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP153	AP153	Legacy import	-1	5	mean	AP153
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP156	AP156	Legacy import	-1	5	mean	AP156
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP157	AP157	Legacy import	-1	5	mean	AP157
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP158	AP158	Legacy import	-1	5	mean	AP158
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP159	AP159	Legacy import	-1	5	mean	AP159
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP16	AP16	Legacy import	-1	5	mean	AP16
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP162	AP162	Legacy import	-1	5	mean	AP162
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP165	AP165	Legacy import	-1	5	mean	AP165
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP167	AP167	Legacy import	-1	5	mean	AP167
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP17	AP17	Legacy import	-1	5	mean	AP17
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP171	AP171	Legacy import	-1	5	mean	AP171
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP172	AP172	Legacy import	-1	5	mean	AP172
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP175	AP175	Legacy import	-1	5	mean	AP175
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP176	AP176	Legacy import	-1	5	mean	AP176
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP178	AP178	Legacy import	-1	5	mean	AP178
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP179	AP179	Legacy import	-1	5	mean	AP179
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP180	AP180	Legacy import	-1	5	mean	AP180
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP184	AP184	Legacy import	-1	5	mean	AP184
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP187	AP187	Legacy import	-1	5	mean	AP187
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP19	AP19	Legacy import	-1	5	mean	AP19
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP190	AP190	Legacy import	-1	5	mean	AP190
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP191	AP191	Legacy import	-1	5	mean	AP191
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP195	AP195	Legacy import	-1	5	mean	AP195
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP198	AP198	Legacy import	-1	5	mean	AP198
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP20	AP20	Legacy import	-1	5	mean	AP20
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP201	AP201	Legacy import	-1	5	mean	AP201
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP202	AP202	Legacy import	-1	5	mean	AP202
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP206	AP206	Legacy import	-1	5	mean	AP206
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP209	AP209	Legacy import	-1	5	mean	AP209
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP21	AP21	Legacy import	-1	5	mean	AP21
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP210	AP210	Legacy import	-1	5	mean	AP210
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP213	AP213	Legacy import	-1	5	mean	AP213
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP214	AP214	Legacy import	-1	5	mean	AP214
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP216	AP216	Legacy import	-1	5	mean	AP216
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP217	AP217	Legacy import	-1	5	mean	AP217
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP218	AP218	Legacy import	-1	5	mean	AP218
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP219	AP219	Legacy import	-1	5	mean	AP219
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP22	AP22	Legacy import	-1	5	mean	AP22
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP220	AP220	Legacy import	-1	5	mean	AP220
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP221	AP221	Legacy import	-1	5	mean	AP221
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP222	AP222	Legacy import	-1	5	mean	AP222
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP223	AP223	Legacy import	-1	5	mean	AP223
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP224	AP224	Legacy import	-1	5	mean	AP224
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP225	AP225	Legacy import	-1	5	mean	AP225
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP226	AP226	Legacy import	-1	5	mean	AP226
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP227	AP227	Legacy import	-1	5	mean	AP227
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP228	AP228	Legacy import	-1	5	mean	AP228
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP229	AP229	Legacy import	-1	5	mean	AP229
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP23	AP23	Legacy import	-1	5	mean	AP23
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP230	AP230	Legacy import	-1	5	mean	AP230
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP231	AP231	Legacy import	-1	5	mean	AP231
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP235	AP235	Legacy import	-1	5	mean	AP235
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP236	AP236	Legacy import	-1	5	mean	AP236
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP237	AP237	Legacy import	-1	5	mean	AP237
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP238	AP238	Legacy import	-1	5	mean	AP238
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP24	AP24	Legacy import	-1	5	mean	AP24
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP240	AP240	Legacy import	-1	5	mean	AP240
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP241	AP241	Legacy import	-1	5	mean	AP241
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP242	AP242	Legacy import	-1	5	mean	AP242
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP244	AP244	Legacy import	-1	5	mean	AP244
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP245	AP245	Legacy import	-1	5	mean	AP245
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP246	AP246	Legacy import	-1	5	mean	AP246
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP247	AP247	Legacy import	-1	5	mean	AP247
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP248	AP248	Legacy import	-1	5	mean	AP248
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP25	AP25	Legacy import	-1	5	mean	AP25
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP250	AP250	Legacy import	-1	5	mean	AP250
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP251	AP251	Legacy import	-1	5	mean	AP251
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP252	AP252	Legacy import	-1	5	mean	AP252
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP255	AP255	Legacy import	-1	5	mean	AP255
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP256	AP256	Legacy import	-1	5	mean	AP256
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP257	AP257	Legacy import	-1	5	mean	AP257
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP258	AP258	Legacy import	-1	5	mean	AP258
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP259	AP259	Legacy import	-1	5	mean	AP259
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP260	AP260	Legacy import	-1	5	mean	AP260
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP261	AP261	Legacy import	-1	5	mean	AP261
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP263	AP263	Legacy import	-1	5	mean	AP263
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP264	AP264	Legacy import	-1	5	mean	AP264
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP27	AP27	Legacy import	-1	5	mean	AP27
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP28	AP28	Legacy import	-1	5	mean	AP28
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP30	AP30	Legacy import	-1	5	mean	AP30
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP32	AP32	Legacy import	-1	5	mean	AP32
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP33	AP33	Legacy import	-1	5	mean	AP33
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP35	AP35	Legacy import	-1	5	mean	AP35
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP36	AP36	Legacy import	-1	5	mean	AP36
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP38	AP38	Legacy import	-1	5	mean	AP38
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP39	AP39	Legacy import	-1	5	mean	AP39
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP4	AP4	Legacy import	-1	5	mean	AP4
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP4.1	AP4.1	Legacy import	-1	5	mean	AP4.1
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP4.2	AP4.2	Legacy import	-1	5	mean	AP4.2
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP4.3	AP4.3	Legacy import	-1	5	mean	AP4.3
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP40	AP40	Legacy import	-1	5	mean	AP40
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP41	AP41	Legacy import	-1	5	mean	AP41
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP42	AP42	Legacy import	-1	5	mean	AP42
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP45	AP45	Legacy import	-1	5	mean	AP45
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP46	AP46	Legacy import	-1	5	mean	AP46
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP47	AP47	Legacy import	-1	5	mean	AP47
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP48	AP48	Legacy import	-1	5	mean	AP48
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP49	AP49	Legacy import	-1	5	mean	AP49
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP5	AP5	Legacy import	-1	5	mean	AP5
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP5.1	AP5.1	Legacy import	-1	5	mean	AP5.1
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP5.2	AP5.2	Legacy import	-1	5	mean	AP5.2
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP50	AP50	Legacy import	-1	5	mean	AP50
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP51	AP51	Legacy import	-1	5	mean	AP51
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP52	AP52	Legacy import	-1	5	mean	AP52
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP53	AP53	Legacy import	-1	5	mean	AP53
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP54	AP54	Legacy import	-1	5	mean	AP54
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP55	AP55	Legacy import	-1	5	mean	AP55
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP56	AP56	Legacy import	-1	5	mean	AP56
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP57	AP57	Legacy import	-1	5	mean	AP57
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP58	AP58	Legacy import	-1	5	mean	AP58
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP59	AP59	Legacy import	-1	5	mean	AP59
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP60	AP60	Legacy import	-1	5	mean	AP60
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP61	AP61	Legacy import	-1	5	mean	AP61
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP62	AP62	Legacy import	-1	5	mean	AP62
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP63	AP63	Legacy import	-1	5	mean	AP63
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP64	AP64	Legacy import	-1	5	mean	AP64
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP65	AP65	Legacy import	-1	5	mean	AP65
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP66	AP66	Legacy import	-1	5	mean	AP66
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP67	AP67	Legacy import	-1	5	mean	AP67
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP68	AP68	Legacy import	-1	5	mean	AP68
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP69	AP69	Legacy import	-1	5	mean	AP69
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP7	AP7	Legacy import	-1	5	mean	AP7
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP70	AP70	Legacy import	-1	5	mean	AP70
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP71	AP71	Legacy import	-1	5	mean	AP71
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP72	AP72	Legacy import	-1	5	mean	AP72
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP73	AP73	Legacy import	-1	5	mean	AP73
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP74	AP74	Legacy import	-1	5	mean	AP74
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP75	AP75	Legacy import	-1	5	mean	AP75
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP76	AP76	Legacy import	-1	5	mean	AP76
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP77	AP77	Legacy import	-1	5	mean	AP77
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP78	AP78	Legacy import	-1	5	mean	AP78
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		AP79	AP79	Legacy import	-1	5	mean	AP79
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP8	AP8	Legacy import	-1	5	mean	AP8
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP80	AP80	Legacy import	-1	5	mean	AP80
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP800	AP800	Legacy import	-1	5	mean	AP800
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP805	AP805	Legacy import	-1	5	mean	AP805
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP81	AP81	Legacy import	-1	5	mean	AP81
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP82	AP82	Legacy import	-1	5	mean	AP82
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP83	AP83	Legacy import	-1	5	mean	AP83
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP84	AP84	Legacy import	-1	5	mean	AP84
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP85	AP85	Legacy import	-1	5	mean	AP85
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP87	AP87	Legacy import	-1	5	mean	AP87
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP88	AP88	Legacy import	-1	5	mean	AP88
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP89	AP89	Legacy import	-1	5	mean	AP89
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP9	AP9	Legacy import	-1	5	mean	AP9
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP90	AP90	Legacy import	-1	5	mean	AP90
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP91	AP91	Legacy import	-1	5	mean	AP91
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP92	AP92	Legacy import	-1	5	mean	AP92
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP93	AP93	Legacy import	-1	5	mean	AP93
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP94	AP94	Legacy import	-1	5	mean	AP94
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP95	AP95	Legacy import	-1	5	mean	AP95
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP96	AP96	Legacy import	-1	5	mean	AP96
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP97	AP97	Legacy import	-1	5	mean	AP97
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP98	AP98	Legacy import	-1	5	mean	AP98
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP99	AP99	Legacy import	-1	5	mean	AP99
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		AP999	AP999	Legacy import	-1	5	mean	AP999
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA0	MA0	Legacy import	-1	5	mean	MA0
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA1	MA1	Legacy import	-1	5	mean	MA1
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA10	MA10	Legacy import	-1	5	mean	MA10
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA11	MA11	Legacy import	-1	5	mean	MA11
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA12	MA12	Legacy import	-1	5	mean	MA12
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA13	MA13	Legacy import	-1	5	mean	MA13
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA14	MA14	Legacy import	-1	5	mean	MA14
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA15	MA15	Legacy import	-1	5	mean	MA15
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA16	MA16	Legacy import	-1	5	mean	MA16
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		MA17	MA17	Legacy import	-1	5	mean	MA17
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		MA18	MA18	Legacy import	-1	5	mean	MA18
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		MA19	MA19	Legacy import	-1	5	mean	MA19
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA2	MA2	Legacy import	-1	5	mean	MA2
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		MA20	MA20	Legacy import	-1	5	mean	MA20
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), BRSV (N) Triplex (dEXD41434415)		MA21	MA21	Legacy import	-1	5	mean	MA21
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA3	MA3	Legacy import	-1	5	mean	MA3
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA4	MA4	Legacy import	-1	5	mean	MA4
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA5	MA5	Legacy import	-1	5	mean	MA5
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA6	MA6	Legacy import	-1	5	mean	MA6
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA7	MA7	Legacy import	-1	5	mean	MA7
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA8	MA8	Legacy import	-1	5	mean	MA8
+existing	20	Bio-Rad SARS-CoV-2 (N1, N2), Human (RNAse P) Triplex (dEXD28563542)		MA9	MA9	Legacy import	-1	5	mean	MA9
+existing	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22318	Q20261015	Respiratory Multiplex	NA	18	5	mean	2026-10-15
+existing	20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22470	Q20261015	Norovirus	NA	18	5	mean	2026-10-15
+inbound	20	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	xxxxxxx	Q287.2	Measles	Rerun samples - MeV only, Pos oligo run at 1:2 dilution	14	5	mean	2026-10-22
+inbound	20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	Q287	Respiratory Multiplex	NA	25	5	mean	2026-10-22
+inbound	20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	Q287	Norovirus	NA	21	5	mean	2026-10-22
+inbound	20	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	Q287	Measles	NA	21	5	mean	2026-10-22

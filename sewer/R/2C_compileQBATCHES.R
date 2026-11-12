@@ -13,9 +13,9 @@ source("addins/sewer_sources.R")
 #
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
-	UPDIR <- args[1]
+ 	UPDIR <- args[1]
 }
-#UPDIR <- "test_example/updates/2026-42-43"
+#UPDIR <- "../data/updates/2026-10-22"
 RUNID <- basename(UPDIR)
 
 runfile_list <- list.files(
@@ -37,27 +37,30 @@ targ2mix_df <- as.data.frame(
 batch_df <- data.frame(
   run_id = character(),
   batch_type = character(),
-  quantification_batch_record_version = numeric(),
+  quantification_batch_record_version = character(),
   quantification_batch_machine = character(),
-  quantification_batch_analysis_software_version = numeric(),
+  quantification_batch_analysis_software_version = character(),
   quantification_batch_amplification_method = character(),
   quantification_batch_amplification_method_lot_id = character(),
   quantification_batch_quantification_type = character(),
   quantification_batch_date = character(),
   quantification_batch_run_by = character(),
   quantification_batch_id = character(),
-  quantification_batch_comment = character()
+  quantification_batch_comment = character(),
+  batch_validation_key = character()
 )
 
 
 # Holds data for the assay blocks in this batch.
 block_df <- data.frame(
+  run_id = character(),
   assay_block_id = character(),
   quantification_batch_id = character(),
   assay_block_method = character(),
   assay_block_method_lot_id = character(),
   assay_block_sample_input_vol_ul = character(),
   assay_block_reaction_vol_ul = character(),
+  assay_block_handle_reps = character(),
   assay_block_comment = character()
 )
 
@@ -75,7 +78,9 @@ assay_df <- data.frame(
 	assay_target_fluorophore = character(),
 	assay_target_copies_per_ul_reaction = double(),
 	assay_accepted_partitions = double(),
-	assay_positive_partitions = double()
+	assay_positive_partitions = double(), 
+	assay_calc_validation_key = character(),
+	assay_validation_key = character()
 )
 
 
@@ -91,11 +96,15 @@ control_df <- data.frame(
   assay_target_fluorophore = character(),
   assay_target_copies_per_ul_reaction = double(),
   assay_accepted_partitions = double(),
-  assay_positive_partitions = double()
+  assay_positive_partitions = double(),
+	assay_calc_validation_key = character(),
+	assay_validation_key = character()
 )
 
 # Loop over the batch (Excel) files in this update.
 for (fpath in runfile_list) {
+  #fpath <- "../data/updates/2026-10-22/run_files/WaTCH_Q287.xlsx"
+  
 	# Read the batch file into a named list, with each sheet as a df.
 	platef_in <- excel2df(fpath)
 	
@@ -136,6 +145,7 @@ for (fpath in runfile_list) {
 	# This function is part of the openxlsx package. It should take an Excel DateTime (which is numeric)
 	# and convert it to a POSIXct object in the format YYY-MM-DD.
 	batchup_df$quantification_batch_date <- convertToDateTime(as.numeric(batchup_df$quantification_batch_date))
+	batchup_df$quantification_batch_date <- format(batchup_df$quantification_batch_date, "%m/%d/%Y")
 
 	batchup_df$quantification_batch_record_version <- round(as.numeric(batchup_df$quantification_batch_record_version), digits=2)
 	batchup_df$quantification_batch_analysis_software_version <- round(as.numeric(batchup_df$quantification_batch_analysis_software_version), digits=2)
@@ -153,12 +163,12 @@ for (fpath in runfile_list) {
 	# and assay_df dataframes.
 	for (pname in names(platef_in)) {
 	  #pname <- "ASSAY Respiratory Multiplex"
-	  #print(pname)
+
 		if (!startsWith(pname, "ASSAY")) {
 			next
 		}
 		block_plate_df <- platef_in[[pname]]
-    block_id <- str_sub(pname, 7, -1)
+    block_id <- str_sub(pname, 7, -1)# Remove the ASSAY prefix of the plate name.
     
 		# Extract the block metadata.
 		block_metadata_pre_df <- block_plate_df[c(3:7, 29), c(2:3)] 
@@ -180,14 +190,26 @@ for (fpath in runfile_list) {
 		block_keys <- str_replace_all(block_keys, "assay_block_assay_", "assay_block_")
 		colnames(blockup_df) <- block_keys
 		
+#		blockup_df <- blockup_df %>%   select(where(~ !all(is.na(.))))
+
 		# If there are no samples in this qblock, skip it.
-		if (as.numeric(blockup_df$assay_block_samples_in_block[1]) < 1) {
+		if (is.na(blockup_df$assay_block_samples_in_block[1]) | as.numeric(blockup_df$assay_block_samples_in_block[1]) < 1) {
 			next
 		}
-		
-		# Add the block id and batch id to the block dataframe.
+    
+		# Add the block id, batch id, and run id to the block dataframe.
 		blockup_df$assay_block_id <- block_id
 		blockup_df$quantification_batch_id <- batch_id
+		blockup_df$run_id <- RUNID
+		
+		# How to handle duplicate IDs in this block?
+		blockup_df <- blockup_df %>% mutate(
+			assay_block_handle_reps = case_when(
+				is.na(block_plate_df[32, 9]) ~ "mean", 
+				block_plate_df[32, 9] == "Sum over all wells" ~ "sum",
+				.default = "mean"
+			)
+		)
 		
 		# Append the block metadata to the main block df.
 		block_df <- rbind(block_df, blockup_df)
@@ -202,7 +224,7 @@ for (fpath in runfile_list) {
 		block_target_df <- block_target_df %>% filter(!if_all(everything(), is.na))
 
 		# Extract the block plate map and assign sample to reaction well.
-		plate_map_df <- block_plate_df[c(20:27), c(2:13)] 
+		plate_map_df <- block_plate_df[c(20:27), c(2:13)]
 		colnames(plate_map_df) <- c(1:12)
 		rownames(plate_map_df) <- LETTERS[1:8]
 		
@@ -318,10 +340,17 @@ for (fpath in runfile_list) {
 if (nrow(assay_df) > 0) {
 
 	assay_df <- assay_df %>% mutate(
-		validation_key = case_when(
-			is.na(assay_well) | assay_well == "" ~ -1, 
-			is.na(sample_id) | sample_id == "" ~ -1, 
-			.default = 1
+		assay_validation_key = case_when(
+			!is.na(assay_well) & assay_well != "" ~ "PASS", 
+			!is.na(sample_id) & sample_id != "" ~ "PASS", 
+			.default = "FAIL"
+		)
+	)
+
+	control_df <- control_df %>% mutate(
+		assay_validation_key = case_when(
+			!is.na(assay_well) & assay_well != "" ~ "PASS", 
+			.default = "FAIL"
 		)
 	)
 
@@ -344,7 +373,7 @@ if (nrow(assay_df) > 0) {
 # Return the number of rows in the assay df so the controller script can do the right thing.
 ret_val <- nrow(assay_df)
 if (ret_val > 0) {
-	if (nrow(assay_df %>% filter(validation_key == -1)) > 0) {
+	if (nrow(assay_df %>% filter(assay_validation_key == "FAIL")) > 0) {
 		ret_val <- -1 * ret_val
 	}
 }
