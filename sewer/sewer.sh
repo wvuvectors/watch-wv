@@ -236,7 +236,7 @@ fi
 
 if [[ ! -d "$OUTDIR/logs" ]];then
 	mkdir "$OUTDIR/logs"
-	echo "This folder was created by sewer.sh $logstamp." > "$OUTDIR/README.txt"
+	echo "This folder was created by sewer.sh $logstamp." > "$OUTDIR/logs/README.txt"
 fi
 
 

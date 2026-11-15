@@ -169,7 +169,7 @@ echo "The original files in $INDIR will remain untouched." | tee -a "$logf"
 for fin in "$INDIR"/*
 do
 	f=$(basename "$fin")
-	if [[ "$f" == *".ddpcr" || "$f" == *".png" ]];then
+	if [[ "$f" == *".ddpcr" ]];then
 		echo "Skipping copy of $fin"
 	else
 		fup="$UPDIR/run_files/$f"
