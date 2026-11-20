@@ -1,0 +1,10 @@
+sample_id	location_id	sample_collection_by	sample_event	sample_qc	sample_collection_start_datetime	sample_collection_end_datetime	sample_recovered_datetime	sample_flow	sample_received_by	sample_received_date	sample_comment	location_type	county_id	sample_validation_key	sample_collection_method	coll_start	coll_end
+A02-0076	Evansdale-01	EL	Routine Surveillance	Pass	09/03/2021 10:00	09/03/2021 10:00	09/03/2021 10:00	NA	JL	09/03/2021		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2021-09-03 10:00:00	2021-09-03 10:00:00
+A02-0077	HonorsSummit-01	EL	Routine Surveillance	Pass	09/03/2021 10:11	09/03/2021 10:11	09/03/2021 10:11	NA	JL	09/03/2021		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2021-09-03 10:11:00	2021-09-03 10:11:00
+A02-0079	NorthHighSt-02	EL	Routine Surveillance	Pass	09/03/2021 10:33	09/03/2021 10:33	09/03/2021 10:33	NA	JL	09/03/2021		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2021-09-03 10:33:00	2021-09-03 10:33:00
+A02-0081	CollegePark-02	EL	Routine Surveillance	Pass	09/03/2021 10:46	09/03/2021 10:46	09/03/2021 10:46	NA	JL	09/03/2021		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2021-09-03 10:46:00	2021-09-03 10:46:00
+A02-1366	StadiumNE-01	GZ	Mass-Gathering Event	Pass	10/19/24 17:30	10/19/24 1:30	10/21/2024 01:48 PM	NA	AJ	10/22/2024		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2024-10-19 17:30:00	2024-10-19 01:30:00
+A02-1367	StadiumSE-01	GZ	Mass-Gathering Event	Pass	10/19/24 17:30	10/19/24 1:30	10/21/2024 01:45 PM	NA	AJ	10/22/2024		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2024-10-19 17:30:00	2024-10-19 01:30:00
+A02-1372	Coliseum-01		Mass-Gathering Event	Pass	1/18/25 15:00	1/18/25 11:00	01/24/2025 10:30 AM	NA	AJ	01/29/2025		Upstream Sanitary Line	Monongalia	LEGACY	Composite	2025-01-18 15:00:00	2025-01-18 11:00:00
+A04-0541	CheatLakeWWTP-01		Routine Surveillance	Pass	04/28/2024 12:00 AM	04/28/2024 12:00 AM	04/29/2024 12:00 AM	0.617	GC	04/30/2024		WWTP	Monongalia	LEGACY	Composite	2024-04-28	2024-04-28
+G02-0017	PotomacState-01	MT	Routine Surveillance	Pass	11/04/2021 0:00	11/04/2021 0:00	11/05/2021 12:00	NA	JL	11/12/2021		Upstream Sanitary Line	Mineral	LEGACY	Composite	2021-11-04	2021-11-04

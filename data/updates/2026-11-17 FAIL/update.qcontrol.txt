@@ -1,0 +1,17 @@
+assay_id	assay_type	sample_id	assay_well	assay_block_id	quantification_batch_id	assay_target_name	assay_target_abbreviation	assay_target_fluorophore	assay_target_copies_per_ul_reaction	assay_accepted_partitions	assay_positive_partitions	assay_calc_validation_key	assay_validation_key
+pnc-1795040233.21246	pcr_negative_control	pnc-1795040233.21246	A09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20634	0	PASS	PASS
+pnc-1795040233.21398	pcr_negative_control	pnc-1795040233.21398	A10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20641	0	PASS	PASS
+pnc-1795040233.22759	pcr_negative_control	pnc-1795040233.22759	B09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21502	0	PASS	PASS
+pnc-1795040233.22913	pcr_negative_control	pnc-1795040233.22913	B10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21568	0	PASS	PASS
+pnc-1795040233.24258	pcr_negative_control	pnc-1795040233.24258	C09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20983	0	PASS	PASS
+pnc-1795040233.24406	pcr_negative_control	pnc-1795040233.24406	C10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21222	0	PASS	PASS
+pnc-1795040233.25746	pcr_negative_control	pnc-1795040233.25746	D09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21227	0	PASS	PASS
+pnc-1795040233.25895	pcr_negative_control	pnc-1795040233.25895	D10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20357	0	PASS	PASS
+pnc-1795040233.27241	pcr_negative_control	pnc-1795040233.27241	E09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	19827	0	PASS	PASS
+pnc-1795040233.2758	pcr_negative_control	pnc-1795040233.2758	E10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20878	0	PASS	PASS
+pnc-1795040233.28942	pcr_negative_control	pnc-1795040233.28942	F09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21324	0	PASS	PASS
+pnc-1795040233.29089	pcr_negative_control	pnc-1795040233.29089	F10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	21061	0	PASS	PASS
+pnc-1795040233.30442	pcr_negative_control	pnc-1795040233.30442	G09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20712	0	PASS	PASS
+pnc-1795040233.30587	pcr_negative_control	pnc-1795040233.30587	G10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20792	0	PASS	PASS
+pnc-1795040233.31928	pcr_negative_control	pnc-1795040233.31928	H09	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	20930	0	PASS	PASS
+pnc-1795040233.32073	pcr_negative_control	pnc-1795040233.32073	H10	Measles	QMeV_LOD	Measles Virus, Wild-Type (M)	MeV	FAM	0	18520	0	PASS	PASS

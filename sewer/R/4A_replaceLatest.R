@@ -17,7 +17,7 @@ if (length(args) > 0) {
 	MERGEDIR <- args[2]
 }
 #DBDIR <- "../data/latest"
-#MERGEDIR <- "../data/merges/2026-10-15"
+#MERGEDIR <- "../data/merges/2026-11-05"
 
 
 # A vector of table file suffixes, to make looping easier.

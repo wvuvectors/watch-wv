@@ -430,3 +430,6 @@ assay_block_reaction_vol_ul	assay_block_method	assay_block_method_lot_id	quantif
 20	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	WaTCH_Q289	Measles	Rerun MeV samples in triplicate	10	5	mean	2026-10-29
 20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	Qnoro	Norovirus	NA	40	5	mean	2026-10-29
 20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	Qnoro	Norovirus 2	NA	40	2.5	mean	2026-10-29
+20	GTM GT-Digital Flu;SC2;RSV Wastewater Surveillance Panel v1.0 for the Bio-Rad QX600 (100735)	22084	Q291	Respiratory Multiplex	NA	29	5	mean	2026-11-05
+20	GTM dPCR Norovirus GI;GII Assay Kit for the Bio-Rad QX200 (100468)	22290	Q291	Norovirus	NA	29	5	mean	2026-11-05
+20	GTM GT-Digital MeV WT Wastewater Surveillance Assay v1.0 for the QX200/QX600 (100840)	22887	Q291	Measles	NA	32	5	mean	2026-11-05

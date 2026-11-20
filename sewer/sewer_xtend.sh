@@ -7,7 +7,7 @@ OUTDIR="../data/xtend"
 ALL=0
 QC=1
 MAKE_NWSS=0
-MAKE_WVDASH=0
+MAKE_WATCH=0
 MAKE_WVBEASY=0
 MU_NWSS_F="/Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/WaTCH-WV/WaTCH-WV SHARED/DATA FOR NWSS/READY/mu_nwss.LATEST.csv"
 #
@@ -39,7 +39,7 @@ while [[ $# -gt 0 ]]; do
       shift 1 # Shift past the flag
       ;;
     -w|--watch)
-      MAKE_WVDASH=1
+      MAKE_WATCH=1
       shift 1 # Shift past the flag
       ;;
     -b|--breatheeasy)
@@ -192,7 +192,7 @@ else
 	else
 		echo "   Make NWSS file:            NO" | tee -a "$logf"
 	fi
-	if [[ $MAKE_WVDASH == 1 ]];then
+	if [[ $MAKE_WATCH == 1 ]];then
 		echo "   Make WaTCH dash file:     YES" | tee -a "$logf"
 	else
 		echo "   Make WaTCH dash file:      NO" | tee -a "$logf"
@@ -227,19 +227,19 @@ if [[ $ALL == 1 || $MAKE_NWSS == 1 ]];then
 	fi
 	
 	echo "#" | tee -a "$logf"
-	echo "Running 9A_xtendNWSS.R." | tee -a "$logf"
-	nwss_count=$(Rscript R/9A_xtendNWSS.R "$DATADIR" "$OUTDIR_NWSS" "$MU_NWSS_F" "logstamp")
+	echo "Running 7A_xtendNWSS.R." | tee -a "$logf"
+	nwss_count=$(Rscript R/7A_xtendNWSS.R "$DATADIR" "$OUTDIR_NWSS" "$MU_NWSS_F" "logstamp")
 	status="${PIPESTATUS[0]}"
 	if [[ "$status" != "0" ]]
 	then
 		echo "!!!!!!!!" | tee -a "$logf"
-		echo "9A_xtendNWSS.R exited with error code $status and caused sewer-xtend to abort." | tee -a "$logf"
+		echo "7A_xtendNWSS.R exited with error code $status and caused sewer-xtend to abort." | tee -a "$logf"
 		echo "Options passed to this script:" | tee -a "$logf"
 		echo "$DATADIR" | tee -a "$logf"
 		echo "$OUTDIR_NWSS" | tee -a "$logf"
 		echo "$MU_NWSS_F" | tee -a "$logf"
 		echo "$logstamp" | tee -a "$logf"
-		echo "sewer-xtend aborted during phase A (NWSS file make)." | tee -a "$logf"
+		echo "sewer-xtend aborted during NWSS file make." | tee -a "$logf"
 		echo "!!!!!!!!" | tee -a "$logf"
 		exit 1
 	fi
@@ -247,7 +247,7 @@ if [[ $ALL == 1 || $MAKE_NWSS == 1 ]];then
 	then
 		echo "!!!!!!!!" | tee -a "$logf"
 		echo "FATAL: There is no NWSS data in the output." | tee -a "$logf"
-		echo "FATAL: This has caused sewer to abort." | tee -a "$logf"
+		echo "FATAL: This has caused sewer xtend to abort." | tee -a "$logf"
 		echo "!!!!!!!!" | tee -a "$logf"
 		exit 1
 	fi
@@ -269,6 +269,158 @@ if [[ $ALL == 1 || $MAKE_NWSS == 1 ]];then
 # 		echo "" | tee -a "$logf"
 # 	fi
 fi
+
+if [[ $ALL == 1 || $MAKE_WATCH == 1 ]];then
+
+	echo "Making update files for the WaTCH dashboard." | tee -a "$logf"
+	echo "This process creates three files: a watch table with all sewer plus MU data, " | tee -a "$logf"
+	echo "a table that rolls up date by facility, and a table that rolls up data by geographic region." | tee -a "$logf"
+	echo "The last two tables are for use directly by the WaTCH dashboard." | tee -a "$logf"
+	echo "The output from this make will appear in $OUTDIR/watch." | tee -a "$logf"
+	echo "Archives will also be created in $OUTDIR/watch/archives." | tee -a "$logf"
+	
+	# Make sure the proper output directories exist.
+	#
+	OUTDIR_WATCH="$OUTDIR/watch"
+	if [[ ! -d "$OUTDIR_WATCH" ]];then
+		mkdir "$OUTDIR_WATCH"
+		echo "This folder was created by sewer_xtend.sh $logstamp." > "$OUTDIR_WATCH/README.txt"
+	fi
+	if [[ ! -d "$OUTDIR_WATCH/archive" ]];then
+		mkdir "$OUTDIR_WATCH/archive"
+		echo "This folder was created by sewer_xtend.sh $logstamp." > "$OUTDIR_WATCH/archive/README.txt"
+	fi
+	
+	# Join sewer and MU data.
+	#
+	echo "#" | tee -a "$logf"
+	echo "Running 8A_xtendWaTCH_join.R." | tee -a "$logf"
+	watch_count=$(Rscript R/8A_xtendWaTCH_join.R "$DATADIR" "$OUTDIR_WATCH" "$MU_NWSS_F" "logstamp")
+	status="${PIPESTATUS[0]}"
+	if [[ "$status" != "0" ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "8A_xtendWaTCH_join.R exited with error code $status and caused sewer-xtend to abort." | tee -a "$logf"
+		echo "Options passed to this script:" | tee -a "$logf"
+		echo "$DATADIR" | tee -a "$logf"
+		echo "$OUTDIR_WATCH" | tee -a "$logf"
+		echo "$MU_NWSS_F" | tee -a "$logf"
+		echo "$logstamp" | tee -a "$logf"
+		echo "sewer-xtend aborted during WaTCH join." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	if [[ $watch_count < 1 ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "FATAL: There is no WaTCH data in the output." | tee -a "$logf"
+		echo "FATAL: This has caused sewer xtend to abort." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	echo "Done." | tee -a "$logf"
+	echo "" | tee -a "$logf"
+	
+# 	if [[ $QC == 0 ]];then
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf" --noqc
+# 	else
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf"
+# 	fi
+# 	status="${PIPESTATUS[0]}"
+# 	if [[ "$status" != "0" ]];then
+# 		echo "make FAIL!"
+# 	else
+# 		echo "" | tee -a "$logf"
+# 		echo "SEWER make run of $UPDAY has finished. Update files can be found in:" | tee -a "$logf"
+# 		echo "$OUTDIR/updates/$RUNID" | tee -a "$logf"
+# 		echo "" | tee -a "$logf"
+# 	fi
+
+	echo "#" | tee -a "$logf"
+	echo "Running 8B_xtendWaTCH_rollbylocation.R." | tee -a "$logf"
+	wfac_count=$(Rscript R/8B_xtendWaTCH_rollbylocation.R "$OUTDIR_WATCH" "logstamp")
+	status="${PIPESTATUS[0]}"
+	if [[ "$status" != "0" ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "8B_xtendWaTCH_rollbylocation.R exited with error code $status and caused sewer-xtend to abort." | tee -a "$logf"
+		echo "Options passed to this script:" | tee -a "$logf"
+		echo "$OUTDIR_WATCH" | tee -a "$logf"
+		echo "$logstamp" | tee -a "$logf"
+		echo "sewer-xtend aborted during WaTCH rollup by location." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	if [[ $wfac_count < 1 ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "FATAL: There is no WaTCH data in the output." | tee -a "$logf"
+		echo "FATAL: This has caused sewer xtend to abort." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	echo "Done." | tee -a "$logf"
+	echo "" | tee -a "$logf"
+	
+# 	if [[ $QC == 0 ]];then
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf" --noqc
+# 	else
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf"
+# 	fi
+# 	status="${PIPESTATUS[0]}"
+# 	if [[ "$status" != "0" ]];then
+# 		echo "make FAIL!"
+# 	else
+# 		echo "" | tee -a "$logf"
+# 		echo "SEWER make run of $UPDAY has finished. Update files can be found in:" | tee -a "$logf"
+# 		echo "$OUTDIR/updates/$RUNID" | tee -a "$logf"
+# 		echo "" | tee -a "$logf"
+# 	fi
+
+	echo "#" | tee -a "$logf"
+	echo "Running 8C_xtendWaTCH_rollbyregion.R." | tee -a "$logf"
+	wregion_count=$(Rscript R/8C_xtendWaTCH_rollbyregion.R "$OUTDIR_WATCH" "logstamp")
+	status="${PIPESTATUS[0]}"
+	if [[ "$status" != "0" ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "8C_xtendWaTCH_rollbyregion.R exited with error code $status and caused sewer-xtend to abort." | tee -a "$logf"
+		echo "Options passed to this script:" | tee -a "$logf"
+		echo "$OUTDIR_WATCH" | tee -a "$logf"
+		echo "$logstamp" | tee -a "$logf"
+		echo "sewer-xtend aborted during WaTCH rollup by region." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	if [[ $wregion_count < 1 ]]
+	then
+		echo "!!!!!!!!" | tee -a "$logf"
+		echo "FATAL: There is no WaTCH data in the output." | tee -a "$logf"
+		echo "FATAL: This has caused sewer xtend to abort." | tee -a "$logf"
+		echo "!!!!!!!!" | tee -a "$logf"
+		exit 1
+	fi
+	echo "Done." | tee -a "$logf"
+	echo "" | tee -a "$logf"
+	
+# 	if [[ $QC == 0 ]];then
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf" --noqc
+# 	else
+# 		./sewer_make.sh --input "$INDIR" --output "$OUTDIR" --logfile "$logf"
+# 	fi
+# 	status="${PIPESTATUS[0]}"
+# 	if [[ "$status" != "0" ]];then
+# 		echo "make FAIL!"
+# 	else
+# 		echo "" | tee -a "$logf"
+# 		echo "SEWER make run of $UPDAY has finished. Update files can be found in:" | tee -a "$logf"
+# 		echo "$OUTDIR/updates/$RUNID" | tee -a "$logf"
+# 		echo "" | tee -a "$logf"
+# 	fi
+
+fi
+
+
 
 echo "" | tee -a "$logf"
 echo "SEWER-XTEND has left the chat." | tee -a "$logf"

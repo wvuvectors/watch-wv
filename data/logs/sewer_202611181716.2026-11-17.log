@@ -1,0 +1,85 @@
+
+#############################################
+
+SEWER: Surveillance & Exploration of Wastewater to inform Epidemiological Response.
+Initiated November 18, 2026 at 17:16:59
+See ../data/logs/sewer_202611181716.2026-11-17.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER are as follows:
+   Workflow ID:     2026-11-17
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-11-17
+   Output folder:   ../data
+
+   QC the workflow:   NO
+   QC the steps:     YES
+   Make update:      YES
+   Merge update:      NO
+   Replace database:  NO
+
+#############################################
+
+Making an update for workflow 2026-11-17.
+The output from this make will appear in ../data/updates/2026-11-17.
+
+########################
+
+SEWER make update.
+This script makes an update from the laboratory workflow files in /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-11-17.
+See ../data/logs/sewer_202611181716.2026-11-17.log for general warnings, errors, and other important information.
+
+Options for this run of SEWER make are as follows:
+   Workflow ID:     2026-11-17
+   Workflow folder: /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-11-17
+   Update folder:   ../data/updates/2026-11-17
+
+########################
+
+*****
+1. Preparing the input files.
+
+Copying all of the relevant input files for workflow 2026-11-17 to the run_files/ folder in ../data/updates/2026-11-17.
+The original files in /Users/tpd0001/Library/CloudStorage/GoogleDrive-wvuvectors@gmail.com/My Drive/DRISCOLL_LAB/2 PROJECTS/WaTCH/TESTING_LAB/WORKFLOW_RUNS/2026-11-17 will remain untouched.
+Also copying the collection metadata file to the run_files/ directory in ../data/updates/2026-11-17.
+This file is stored in resources/COLLECTIONS and is updated weekly with new collection metadata.
+Done with run file copy.
+
+Now I'll fix any known file issues in these input files:
+   Windows line endings are replaced with UNIX line endings in csv or tab-delim text files.
+   Special characters, including micron, are replaced with standard alphanumerics.
+Done preparing the run files.
+
+*****
+2. Building the update files.
+
+#
+Running 2A_compileCBATCHES.R.
+Done.
+
+#
+Running 2B_compileEBATCHES.R.
+Done.
+
+#
+Running 2C_compileQBATCHES.R.
+Done.
+
+#
+Running 2D_compileQRESULTS.R.
+Done.
+
+Finishing the merge of assay batch and result data.
+Done.
+
+#
+Running 2E_addSAMPLES.R.
+!!!!!!!!
+2E_addSAMPLES.R exited with error code 1 and caused sewer to abort.
+Arguments: ../data/updates/2026-11-17
+sewer aborted during phase 5 (SAMPLE addition).
+Delete the folder ../data/updates/2026-11-17. 
+Then fix the error(s) and run sewer again.
+!!!!!!!!
+
+
+SEWER run 202611181716 for 2026-11-17, started on November 18, 2026 at 17:16:59, has left the chat.
+

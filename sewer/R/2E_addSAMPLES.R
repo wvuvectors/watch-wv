@@ -163,12 +163,29 @@ for (fpath in runfile_list) {
 			county_id = site
 		)
 		
-	# this_df <- this_df %>% mutate(
-	# 	sample_collection_start_datetime = format(sample_collection_start_datetime, "%m/%d/%Y %H:%M"),
-	# 	sample_collection_end_datetime = format(sample_collection_end_datetime, "%m/%d/%Y %H:%M"),
-	# 	sample_recovered_datetime = format(sample_recovered_datetime, "%m/%d/%Y %H:%M")
-	# )
-	
+# 	this_df <- this_df %>% mutate(
+# 		sample_collection_start_datetime = mdy_hm(sample_collection_start_datetime),
+# 		sample_collection_end_datetime = mdy_hm(sample_collection_end_datetime),
+# 		sample_recovered_datetime = mdy_hm(sample_recovered_datetime)
+# 	)
+# 	
+# 	this_df <- this_df %>% mutate(
+# 		TMP_collection_end = if_else(
+# 			difftime(collection_end_datetime, collection_start_datetime, units = "hours") <= 1,
+# 			collection_end_datetime + days(1),
+# 			collection_end_datetime)
+# 	)
+# 	
+# 	this_df <- this_df %>% 
+# 		mutate(collection_end_datetime = TMP_collection_end) %>% 
+# 		select(-TMP_collection_end)
+
+	this_df <- this_df %>% mutate(
+		sample_collection_start_datetime = format(sample_collection_start_datetime, "%m/%d/%Y %H:%M"),
+		sample_collection_end_datetime = format(sample_collection_end_datetime, "%m/%d/%Y %H:%M"),
+		sample_recovered_datetime = format(sample_recovered_datetime, "%m/%d/%Y %H:%M")
+	)
+
 	update_df <- rbind(update_df, this_df)
 }
 
@@ -208,7 +225,7 @@ if (nrow(external_samples_df) > 0) {
 if (nrow(update_df) > 0) {
 
 	# Validate the input data against required columns.
-	# Add a column to each output df to hold a validation key.
+	# put the result in the column validation key.
 	# 	1 = all data present and properly formed.
 	# 	0 = all required data present and properly formed, but at least one optional data field is missing or malformed.
 	# 	-1 = at least one required data value missing or malformed.
@@ -225,12 +242,12 @@ if (nrow(update_df) > 0) {
 			.default = "FAIL"
 		)
 	)
-	
-	# Print the update df.
-	rfn <- paste0(UPDIR, "/update.sample.txt", sep="")
-	write.table(update_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
-
 }
+
+# Print the update df.
+rfn <- paste0(UPDIR, "/update.sample.txt", sep="")
+write.table(update_df, file = rfn, sep = "\t", row.names = FALSE, quote = FALSE, append = FALSE)
+
 
 ret_val <- nrow(update_df)
 if (ret_val > 0) {

@@ -14,7 +14,7 @@ args <- commandArgs(trailingOnly = TRUE)
 if (length(args) > 0) {
 	INDIR <- args[1]
 }
-#INDIR <- "../data/updates/2026-10-22"
+#INDIR <- "../data/merges/2026-11-05"
 #RUNID <- basename(INDIR)
 
 
@@ -201,12 +201,17 @@ calc_df <- left_join(
 	by=join_by(location_id)
 )
 
+calc_df <- calc_df %>% mutate(
+	collection_window_hours = if_else(
+		as.numeric(difftime(collection_end_datetime, collection_start_datetime, units="hours")) > 3, 
+		ceiling(as.numeric(difftime(collection_end_datetime, collection_start_datetime, units="hours"))),
+		-1
+	)
+)
 
 # Now do the calculations, in calc_df.
 #
 calc_df <- calc_df %>% mutate(
-#	collection_window_hours = ceiling(as.numeric(difftime(as.POSIXct(collection_end_datetime), as.POSIXct(collection_start_datetime), units="hours"))),
-	collection_window_hours = ceiling(as.numeric(difftime(collection_end_datetime, collection_start_datetime, units="hours"))),
 	across(c(assay_target_copies_per_ul_reaction, 
 	         assay_target_copies_per_ul_reaction_sd, 
 	         aggregate_count, 
